@@ -6,16 +6,19 @@
 
 using namespace std;
 
+class CServerConnInfo;
+
 class CServerNetwork : public IServerNetwork
 {
 private:
 	pfnConnectEvent			m_pfnConnectCallBack;
+	pfnConnectEvent			m_pfnDisconnectCallBack;
 	void					*m_pFunParam;
 
-	CTcpConnection			*m_pListenLink;
+	CServerConnInfo			*m_pListenLink;
 
-	CTcpConnection			*m_pTcpConnection;		// 所有的网络连接
-	CTcpConnection			**m_pFreeConn;			// 当前处理空闲状态的CNetLink索引数组
+	CServerConnInfo			*m_pTcpConnection;		// 所有的网络连接
+	CServerConnInfo			**m_pFreeConn;			// 当前处理空闲状态的CNetLink索引数组
 
 	unsigned int			m_uMaxConnCount;
 	unsigned int			m_uFreeConnIndex;		// m_pFreeLink的索引，类似list的iterator用法
@@ -25,18 +28,18 @@ private:
 	fd_set					m_ReadSet;
 	fd_set					m_ErrorSet;
 
-	list<CTcpConnection*>	m_listActiveConn;
-	list<CTcpConnection*>	m_listCloseWaitConn;
+	list<CServerConnInfo*>	m_listActiveConn;
+	list<CServerConnInfo*>	m_listCloseWaitConn;
 
 	bool					m_bRunning;
 	bool					m_bExited;
 private:
-	inline CTcpConnection	*GetNewConnection()
+	inline CServerConnInfo	*GetNewConnection()
 	{
 		return m_uFreeConnIndex >= m_uMaxConnCount ? NULL : m_pFreeConn[m_uFreeConnIndex++];
 	}
 
-	inline void				AddAvailableConnection(CTcpConnection *pConnection)
+	inline void				AddAvailableConnection(CServerConnInfo *pConnection)
 	{
 		if (m_uFreeConnIndex)
 		{
@@ -44,12 +47,12 @@ private:
 		}
 	}
 
-	int						SetNoBlocking(CTcpConnection *pTcpConnection);
+	int						SetNoBlocking(CServerConnInfo *pTcpConnection);
 	void					AcceptClient(const SOCKET nNewSocket);
 
-	void					DisconnectConnection(CTcpConnection *pTcpConnection);
-	void					RemoveConnection(CTcpConnection *pTcpConnection);
-	void					CloseConnection(CTcpConnection *pTcpConnection);
+	void					DisconnectConnection(CServerConnInfo *pTcpConnection);
+	void					RemoveConnection(CServerConnInfo *pTcpConnection);
+	void					CloseConnection(CServerConnInfo *pTcpConnection);
 
 	void					NetworkAction();
 
@@ -77,6 +80,7 @@ public:
 										const unsigned short usPort,
 										void *lpParam,
 										pfnConnectEvent pfnConnectCallBack,
+										pfnConnectEvent pfnDisconnectCallBack,
 										const unsigned int uConnectionNum,
 										const unsigned int uSendBufferLen,
 										const unsigned int uRecvBufferLen,

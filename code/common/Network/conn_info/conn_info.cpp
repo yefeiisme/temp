@@ -6,8 +6,6 @@ CTcpConnection::CTcpConnection()
 	m_nSock				= INVALID_SOCKET;
 	m_uConnID			= 0;
 
-	m_uTargetIndex		= 0;
-
 	m_pSendBuf			= nullptr;
 	m_pTempSendBuf		= nullptr;
 	m_pFlush			= nullptr;
@@ -22,9 +20,6 @@ CTcpConnection::CTcpConnection()
 	m_pUnreleased		= nullptr;
 	m_uRecvBufLen		= 0;
 	m_uTempRecvBufLen	= 0;
-
-	m_usConnectToPort	= 0;
-	memset(m_strConnectToIP, 0, sizeof(m_strConnectToIP));
 
 	m_bTcpConnected		= false;
 	m_bLogicConnected	= false;
@@ -77,38 +72,6 @@ bool CTcpConnection::Initialize(const unsigned int uIndex, unsigned int uRecvBuf
 	m_uConnID	= uIndex;
 
 	return true;
-}
-
-const char *CTcpConnection::GetIP()
-{
-	sockaddr_in	tagClientAddr;
-
-	socklen_t nAddrLen = sizeof(tagClientAddr);
-
-	if (getpeername(m_nSock, (sockaddr*)&tagClientAddr, &nAddrLen))
-	{
-#if defined(WIN32) || defined(WIN64)
-		g_pFileLog->WriteLog("%s:%d, CNetLink::reinit Client[%4u] getpeername Error[%d]\n", __FILE__, __LINE__, m_uConnID, WSAGetLastError());
-#elif defined(__linux)
-		g_pFileLog->WriteLog("%s:%d, CNetLink::reinit Client[%4u] getpeername Error[%d]\n", __FILE__, __LINE__, m_uConnID, errno);
-#elif defined(__APPLE__)
-#endif
-		return nullptr;
-	}
-
-	char	*strIP	= inet_ntoa(tagClientAddr.sin_addr);
-	if (nullptr == strIP)
-	{
-#if defined(WIN32) || defined(WIN64)
-		g_pFileLog->WriteLog("%s:%d, CNetLink::reinit Client[%4u] inet_ntoa Error[%d]\n", __FILE__, __LINE__, m_uConnID, WSAGetLastError());
-#elif defined(__linux)
-		g_pFileLog->WriteLog("%s:%d, CNetLink::reinit Client[%4u] inet_ntoa Error[%d]\n", __FILE__, __LINE__, m_uConnID, errno);
-#elif defined(__APPLE__)
-#endif
-		return nullptr;
-	}
-
-	return strIP;
 }
 
 int CTcpConnection::RecvData()
@@ -447,7 +410,6 @@ int CTcpConnection::SendData()
 
 void CTcpConnection::Disconnect()
 {
-	m_uTargetIndex	= 0xffffffff;
 	m_bTcpConnected	= false;
 
 	if (INVALID_SOCKET != m_nSock)

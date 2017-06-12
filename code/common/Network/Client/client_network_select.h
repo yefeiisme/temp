@@ -15,26 +15,23 @@ struct SConnectRequest
 	unsigned short	usPort;
 };
 
-class CTcpConnection;
+class CClientConnInfo;
 
 class CClientNetwork : public IClientNetwork
 {
 private:
 	pfnConnectEvent			m_pfnConnectCallBack;
+	pfnConnectEvent			m_pfnDisconnectCallBack;
 	void					*m_pFunParam;
 
-	CTcpConnection			*m_pTcpConnection;
+	typedef void			(CClientNetwork::*pfnStateFunc)(CClientConnInfo &pClientConn);
+	static pfnStateFunc		m_pfnClientStateFunc[CLIENT_CONN_STATE_MAX];
 
-	IRingBuffer				*m_pConnectBuffer;		// 用于接收连接请求的缓冲区
+	CClientConnInfo			*m_pTcpConnection;
 
 	unsigned int			m_uMaxConnCount;
 
 	unsigned int			m_uSleepTime;
-
-	list<CTcpConnection*>	m_listIdleConn;
-	list<CTcpConnection*>	m_listActiveConn;
-	list<CTcpConnection*>	m_listWaitConnectedConn;
-	list<CTcpConnection*>	m_listCloseWaitConn;
 
 	fd_set					m_ReadSet;
 	fd_set					m_WriteSet;
@@ -53,6 +50,7 @@ public:
 										const unsigned int uTempSendBuffLen,
 										const unsigned int uTempRecvBuffLen,
 										pfnConnectEvent pfnConnectCallBack,
+										pfnConnectEvent pfnDisconnectCallBack,
 										void *lpParm,
 										const unsigned int uSleepTime
 										);
@@ -70,16 +68,13 @@ public:
 	bool					ConnectTo(char *pstrAddr, const unsigned short usPort, const unsigned int uIndex);
 	bool					ConnectToUrl(char *pstrAddr, const unsigned short usPort, const unsigned int uIndex);
 private:
-	void					TryConnect(const void *pPack);
-	bool					TryConnect(CTcpConnection &pTcpConnection);
-	int						SetNoBlocking(CTcpConnection *pTcpConnection);
-	void					RemoveConnection(CTcpConnection *pTcpConnection);
+	void					OnClientIdle(CClientConnInfo &pClientConn);
+	void					OnClientTryConnect(CClientConnInfo &pClientConn);
+	void					OnClientWaitConnect(CClientConnInfo &pClientConn);
+	void					OnClientConnect(CClientConnInfo &pClientConn);
+	void					OnClientWaitLogicExit(CClientConnInfo &pClientConn);
 
-	void					ProcessConnectRequest();
-	void					ProcessIdleConnection();
-	void					ProcessConnectedConnection();
-	void					ProcessWaitConnectConnection();
-	void					ProcessWaitCloseConnection();
+	int						SetNoBlocking(const SOCKET nSock);
 
 	void					ThreadFunc();
 	inline void				yield()

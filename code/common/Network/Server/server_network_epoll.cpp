@@ -1,5 +1,5 @@
 #include <sys/epoll.h>
-#include "../conn_info/conn_info.h"
+#include "../conn_info/server_conn_info.h"
 #include "INetwork.h"
 #include "server_network_epoll.h"
 #include "IFileLog.h"
@@ -11,6 +11,7 @@
 CServerNetwork::CServerNetwork()
 {
 	m_pfnConnectCallBack	= nullptr;
+	m_pfnDisconnectCallBack = nullptr;
 	m_pFunParam				= nullptr;
 
 	m_pListenLink			= nullptr;
@@ -52,7 +53,7 @@ CServerNetwork::~CServerNetwork()
 	closesocket(m_nepfd);
 }
 
-int CServerNetwork::SetNoBlocking(CTcpConnection *pTcpConnection)
+int CServerNetwork::SetNoBlocking(CServerConnInfo *pTcpConnection)
 {
 	if (nullptr == pTcpConnection)
 		return -1;
@@ -71,7 +72,7 @@ int CServerNetwork::SetNoBlocking(CTcpConnection *pTcpConnection)
 
 void CServerNetwork::AcceptClient(const SOCKET nNewSocket)
 {
-	CTcpConnection	*pNewLink	= GetNewConnection();
+	CServerConnInfo	*pNewLink = GetNewConnection();
 	if (nullptr == pNewLink)
 	{
 		closesocket(nNewSocket);
@@ -96,20 +97,20 @@ void CServerNetwork::AcceptClient(const SOCKET nNewSocket)
 	m_pfnConnectCallBack(m_pFunParam, pNewLink);
 }
 
-void CServerNetwork::DisconnectConnection(CTcpConnection *pTcpConnection)
+void CServerNetwork::DisconnectConnection(CServerConnInfo *pTcpConnection)
 {
 	int ret = epoll_ctl(m_nepfd, EPOLL_CTL_DEL, pTcpConnection->GetSock(), nullptr);
 	pTcpConnection->Disconnect();
 }
 
-void CServerNetwork::RemoveConnection(CTcpConnection *pTcpConnection)
+void CServerNetwork::RemoveConnection(CServerConnInfo *pTcpConnection)
 {
 	DisconnectConnection(pTcpConnection);
 
 	AddAvailableConnection(pTcpConnection);
 }
 
-void CServerNetwork::CloseConnection(CTcpConnection *pTcpConnection)
+void CServerNetwork::CloseConnection(CServerConnInfo *pTcpConnection)
 {
 	DisconnectConnection(pTcpConnection);
 
@@ -127,7 +128,7 @@ void CServerNetwork::ReadAction()
 
 	for (int nLoopCount = 0; nLoopCount < nRetCount; ++nLoopCount)
 	{
-		CTcpConnection	*pNetLink	= (CTcpConnection*)wv[nLoopCount].data.ptr;
+		CServerConnInfo	*pNetLink = (CServerConnInfo*)wv[nLoopCount].data.ptr;
 		if (pNetLink->GetSock() == m_pListenLink->GetSock())
 		{
 			sockaddr_in	client_addr;
@@ -168,7 +169,7 @@ void CServerNetwork::ReadAction()
 
 void CServerNetwork::WriteAction()
 {
-	CTcpConnection	*pTcpConnection	= nullptr;
+	CServerConnInfo	*pTcpConnection = nullptr;
 	for (auto Iter = m_listActiveConn.begin(); Iter != m_listActiveConn.end();)
 	{
 		pTcpConnection	= *Iter;
@@ -194,7 +195,7 @@ void CServerNetwork::WriteAction()
 
 void CServerNetwork::CloseAction()
 {
-	CTcpConnection	*pTcpConnection	= nullptr;
+	CServerConnInfo	*pTcpConnection = nullptr;
 	for (auto Iter = m_listCloseWaitConn.begin(); Iter != m_listCloseWaitConn.end();)
 	{
 		pTcpConnection	= *Iter;
@@ -240,7 +241,8 @@ void CServerNetwork::ThreadFunc()
 bool CServerNetwork::Initialize(
 	const unsigned short usPort,
 	void *lpParam,
-	CALLBACK_SERVER_EVENT pfnConnectCallBack,
+	pfnConnectEvent pfnConnectCallBack,
+	pfnConnectEvent pfnDisconnectCallBack,
 	const unsigned int uConnectionNum,
 	const unsigned int uSendBufferLen,
 	const unsigned int uRecvBufferLen,
@@ -249,10 +251,6 @@ bool CServerNetwork::Initialize(
 	const unsigned int uSleepTime
 	)
 {
-	m_uMaxConnCount			= uConnectionNum;
-	m_pfnConnectCallBack	= pfnConnectCallBack;
-	m_pFunParam				= lpParam;
-
 	if (0 == m_uMaxConnCount)
 		return false;
 
@@ -271,15 +269,20 @@ bool CServerNetwork::Initialize(
 	if (nullptr == lpParam)
 		return false;
 
-	m_pListenLink	= new CTcpConnection;
+	m_uMaxConnCount			= uConnectionNum;
+	m_pfnConnectCallBack	= pfnConnectCallBack;
+	m_pfnDisconnectCallBack = pfnDisconnectCallBack;
+	m_pFunParam				= lpParam;
+
+	m_pListenLink = new CServerConnInfo;
 	if (nullptr == m_pListenLink)
 		return false;
 
-	m_pTcpConnection	= new CTcpConnection[m_uMaxConnCount];
+	m_pTcpConnection = new CServerConnInfo[m_uMaxConnCount];
 	if (nullptr == m_pTcpConnection)
 		return false;
 
-	m_pFreeConn	= new CTcpConnection*[m_uMaxConnCount];
+	m_pFreeConn = new CServerConnInfo*[m_uMaxConnCount];
 	if (!m_pFreeConn)
 		return false;
 
@@ -353,7 +356,8 @@ void CServerNetwork::Release()
 IServerNetwork *CreateServerNetwork(
 	unsigned short usPort,
 	void *lpParam,
-	CALLBACK_SERVER_EVENT pfnConnectCallBack,
+	pfnConnectEvent pfnConnectCallBack,
+	pfnConnectEvent pfnDisconnectCallBack,
 	unsigned int uConnectionNum,
 	unsigned int uSendBufferLen,
 	unsigned int uRecvBufferLen,
@@ -366,7 +370,7 @@ IServerNetwork *CreateServerNetwork(
 	if (nullptr == pServer)
 		return nullptr;
 
-	if (!pServer->Initialize(usPort, lpParam, pfnConnectCallBack, uConnectionNum, uSendBufferLen, uRecvBufferLen, uTempSendBufferLen, uTempRecvBufferLen, uSleepTime))
+	if (!pServer->Initialize(usPort, lpParam, pfnConnectCallBack, pfnDisconnectCallBack, uConnectionNum, uSendBufferLen, uRecvBufferLen, uTempSendBufferLen, uTempRecvBufferLen, uSleepTime))
 	{
 		pServer->Release();
 		return nullptr;

@@ -5,16 +5,9 @@
 #include "../NetworkHead.h"
 #define MAX_IP_LEN	16
 
-enum E_NET_LINK_STATE
-{
-	NET_LINK_STATE_DISCONNNECT = -1,
-	NET_LINK_STATE_CONNECT,
-	NET_LINK_STATE_WAI_CONNECT,
-};
-
 class CTcpConnection : public ITcpConnection
 {
-private:
+protected:
 	/**********************发送缓冲区**********************/
 	char						*m_pSendBuf;
 	char						*m_pTempSendBuf;
@@ -36,26 +29,12 @@ private:
 
 	SOCKET						m_nSock;
 	unsigned int				m_uConnID;
-	unsigned int				m_uTargetIndex;			// 用于连接成功后的回调对象（只做为客户端对象连接服务器端时有效）
-
-	unsigned short				m_usConnectToPort;				// 连接的端口
-	char						m_strConnectToIP[MAX_IP_LEN];	// 连接的IP地址
 
 	bool						m_bTcpConnected;		// 网络连接是否连接状态
 	bool						m_bLogicConnected;		// 外部逻辑是否连接状态
 public:
 	CTcpConnection();
 	~CTcpConnection();
-
-	inline void					SetConnectTarget(const unsigned int uIndex)
-	{
-		m_uTargetIndex	= uIndex;
-	}
-
-	inline unsigned int			GetConnectTarget() const
-	{
-		return m_uTargetIndex;
-	}
 
 	inline SOCKET				GetSock()
 	{
@@ -70,16 +49,6 @@ public:
 	inline unsigned int			GetConnID() const
 	{
 		return m_uConnID;
-	}
-
-	inline unsigned short		GetConnectToPort() const
-	{
-		return m_usConnectToPort;
-	}
-
-	inline const char			*GetConnectToIP()
-	{
-		return m_strConnectToIP;
 	}
 
 	inline bool					IsSocketConnected()
@@ -97,21 +66,6 @@ public:
 		return m_bTcpConnected;
 	}
 
-	inline bool					ConnectTo(char (&strIP)[MAX_IP_LEN], const unsigned short usPort)
-	{
-		if (m_bLogicConnected)
-			return false;
-
-		strncpy(m_strConnectToIP, strIP, sizeof(m_strConnectToIP));
-		m_strConnectToIP[sizeof(m_strConnectToIP)-1]	= '\0';
-
-		m_usConnectToPort	= usPort;
-
-		m_bLogicConnected	= true;
-
-		return true;
-	}
-
 	bool						Initialize(const unsigned int uIndex, unsigned int uRecvBufferLen, unsigned int uSendBufferLen, unsigned int uTempRecvBufLen, unsigned int uTempSendBufLen);
 	inline void					ReInit(const int nSocket)
 	{
@@ -120,7 +74,7 @@ public:
 		m_nSock			= nSocket;
 	}
 
-	const char					*GetIP();
+	virtual const char			*GetIP() = 0;
 
 	int							RecvData();
 	int							SendData();
@@ -132,9 +86,9 @@ public:
 		m_bLogicConnected	= false;
 	}
 
-	void						Disconnect();
+	virtual void				Disconnect();
 
-	inline void					Connected()
+	virtual inline void			Connected()
 	{
 		m_bTcpConnected		= true;
 		m_bLogicConnected	= true;

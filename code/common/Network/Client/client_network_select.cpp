@@ -1,6 +1,6 @@
 #include "INetwork.h"
 #include "../NetworkHead.h"
-#include "../conn_info/conn_info.h"
+#include "../conn_info/client_conn_info.h"
 #include "client_network_select.h"
 #include "IFileLog.h"
 #include <thread>
@@ -9,23 +9,26 @@
 #define snprintf _snprintf
 #endif
 
+CClientNetwork::pfnStateFunc CClientNetwork::m_pfnClientStateFunc[CLIENT_CONN_STATE_MAX] =
+{
+	&CClientNetwork::OnClientIdle,
+	&CClientNetwork::OnClientTryConnect,
+	&CClientNetwork::OnClientWaitConnect,
+	&CClientNetwork::OnClientConnect,
+	&CClientNetwork::OnClientWaitLogicExit,
+};
+
 CClientNetwork::CClientNetwork()
 {
 	m_pfnConnectCallBack	= nullptr;
+	m_pfnDisconnectCallBack = nullptr;
 	m_pFunParam				= nullptr;
 
 	m_pTcpConnection		= nullptr;
 
-	m_pConnectBuffer		= nullptr;
-
 	m_uMaxConnCount			= 0;
 
 	m_uSleepTime			= 0;
-
-	m_listIdleConn.clear();
-	m_listActiveConn.clear();
-	m_listWaitConnectedConn.clear();
-	m_listCloseWaitConn.clear();
 
 	FD_ZERO(&m_ReadSet);
 	FD_ZERO(&m_WriteSet);
@@ -48,12 +51,6 @@ CClientNetwork::~CClientNetwork()
 	SAFE_DELETE_ARR(m_pTcpConnection);
 	m_uMaxConnCount	= 0;
 
-	if (m_pConnectBuffer)
-	{
-		m_pConnectBuffer->Release();
-		m_pConnectBuffer	= nullptr;
-	}
-
 #if defined(WIN32) || defined(WIN64)
 	WSACleanup();
 #endif
@@ -66,6 +63,7 @@ bool CClientNetwork::Initialize(
 	const unsigned int uTempSendBuffLen,
 	const unsigned int uTempRecvBuffLen,
 	pfnConnectEvent pfnConnectCallBack,
+	pfnConnectEvent pfnDisconnectCallBack,
 	void *lpParm,
 	const unsigned int uSleepTime
 	)
@@ -87,11 +85,7 @@ bool CClientNetwork::Initialize(
 		return false;
 #endif
 
-	m_pConnectBuffer	= CreateRingBuffer((uClientCount+1)*sizeof(SConnectRequest), sizeof(SConnectRequest));
-	if (nullptr == m_pConnectBuffer)
-		return false;
-
-	m_pTcpConnection	= new CTcpConnection[m_uMaxConnCount];
+	m_pTcpConnection	= new CClientConnInfo[m_uMaxConnCount];
 	if (nullptr == m_pTcpConnection)
 		return false;
 
@@ -102,6 +96,7 @@ bool CClientNetwork::Initialize(
 	}
 
 	m_pfnConnectCallBack	= pfnConnectCallBack;
+	m_pfnDisconnectCallBack = pfnDisconnectCallBack;
 	m_pFunParam				= lpParm;
 
 	m_uSleepTime			= uSleepTime;
@@ -121,157 +116,90 @@ void CClientNetwork::Release()
 
 bool CClientNetwork::ConnectTo(char *pstrAddr, const unsigned short usPort, const unsigned int uIndex)
 {
-	SConnectRequest	tagRequest;
-	memset(&tagRequest, 0, sizeof(tagRequest));
-	tagRequest.uIndex	= uIndex;
-	tagRequest.usPort	= usPort;
-	strncpy(tagRequest.strAddr, pstrAddr, sizeof(tagRequest.strAddr));
-	tagRequest.strAddr[sizeof(tagRequest.strAddr) - 1]	= '\0';
+	CClientConnInfo	&pClientConn = m_pTcpConnection[uIndex];
+	if (pClientConn.IsLogicConnected() || pClientConn.IsSocketConnected())
+	{
+		// 这个连接已经是Connect状态，不再处理建立连接的消息
+		return false;
+	}
 
-	return m_pConnectBuffer->SndPack(&tagRequest, sizeof(tagRequest));
+	pClientConn.ConnectTo(pstrAddr, usPort);
+
+	m_pfnConnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
+
+	return true;
 }
 
 bool CClientNetwork::ConnectToUrl(char *pstrAddr, const unsigned short usPort, const unsigned int uIndex)
 {
-	hostent	*pHost	= gethostbyname(pstrAddr);
+	CClientConnInfo	&pTcpConnection = m_pTcpConnection[uIndex];
+	if (pTcpConnection.IsLogicConnected() || pTcpConnection.IsSocketConnected())
+	{
+		// 这个连接已经是Connect状态，不再处理建立连接的消息
+		return false;
+	}
+
+	hostent	*pHost = gethostbyname(pstrAddr);
 	if (nullptr == pHost)
 		return false;
 
 	// 后面还要将pHost转成IP地址
 	// ...
-	SConnectRequest	tagRequest;
-	memset(&tagRequest, 0, sizeof(tagRequest));
-	tagRequest.uIndex	= uIndex;
-	tagRequest.usPort	= usPort;
-	strncpy(tagRequest.strAddr, pstrAddr, sizeof(tagRequest.strAddr));
-	tagRequest.strAddr[sizeof(tagRequest.strAddr) - 1]	= '\0';
+	pTcpConnection.ConnectTo(pstrAddr, usPort);
 
-	return m_pConnectBuffer->SndPack(&tagRequest, sizeof(tagRequest));
+	return true;
 }
 
-void CClientNetwork::TryConnect(const void *pPack)
+void CClientNetwork::OnClientIdle(CClientConnInfo &pClientConn)
 {
-	SConnectRequest	*pRequest	= (SConnectRequest*)pPack;
-
-	if (pRequest->uIndex >= m_uMaxConnCount)
+	if (pClientConn.IsLogicConnected())
 	{
-		m_pfnConnectCallBack(m_pFunParam, nullptr, pRequest->uIndex);
-		return;
+		pClientConn.TryConnect();
 	}
+}
 
-	CTcpConnection	&pTcpConnection = m_pTcpConnection[pRequest->uIndex];
-	if (pTcpConnection.IsLogicConnected() || pTcpConnection.IsSocketConnected())
-	{
-		// 这个连接已经是Connect状态，不再处理建立连接的消息
-		return;
-	}
-
+void CClientNetwork::OnClientTryConnect(CClientConnInfo &pClientConn)
+{
 	int	nNewSock = socket(AF_INET, SOCK_STREAM, 0);
 	if (nNewSock < 0)
 	{
 		g_pFileLog->WriteLog("Create Socket[%d] Failed\n", nNewSock);
-		m_pfnConnectCallBack(m_pFunParam, nullptr, pRequest->uIndex);
+
+		pClientConn.Disconnect();
+
+		m_pfnDisconnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
+
 		return;
 	}
 
-#if defined(WIN32) || defined(WIN64)
-	unsigned long ulNonBlock = 1;
-	if (ioctlsocket(nNewSock, FIONBIO, &ulNonBlock) == SOCKET_ERROR)
-#elif defined(__linux)
-	int nFlags = fcntl(nNewSock, F_GETFL, 0);
-	if (nFlags < 0 || fcntl(nNewSock, F_SETFL, nFlags | O_NONBLOCK | O_ASYNC) < 0)
-#elif defined(__APPLE__)
-#endif
+	if (-1 == SetNoBlocking(nNewSock))
 	{
 		closesocket(nNewSock);
-		m_pfnConnectCallBack(m_pFunParam, nullptr, pRequest->uIndex);
+
+		pClientConn.Disconnect();
+
+		m_pfnDisconnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
+
 		return;
 	}
 
 	sockaddr_in	tagAddrIn;
 
 	memset(&tagAddrIn, 0, sizeof(tagAddrIn));
-	tagAddrIn.sin_family		= AF_INET;
-	tagAddrIn.sin_port			= htons(pRequest->usPort);
-	tagAddrIn.sin_addr.s_addr	= inet_addr(pRequest->strAddr);
+	tagAddrIn.sin_family = AF_INET;
+	tagAddrIn.sin_port = htons(pClientConn.GetConnectToPort());
+	tagAddrIn.sin_addr.s_addr = inet_addr(pClientConn.GetConnectToIP());
 
 	int nRet = connect(nNewSock, (sockaddr*)&tagAddrIn, sizeof(tagAddrIn));
 	if (0 == nRet)
 	{
-		pTcpConnection.ReInit(nNewSock);
+		pClientConn.ReInit(nNewSock);
 
-		pTcpConnection.Connected();
+		pClientConn.Connected();
 
-		m_listActiveConn.push_back(&pTcpConnection);
+		m_pfnConnectCallBack(m_pFunParam, &pClientConn, pClientConn.GetConnID());
 
-		m_pfnConnectCallBack(m_pFunParam, &pTcpConnection, pRequest->uIndex);
-	}
-#if defined(WIN32) || defined(WIN64)
-	else if (WSAGetLastError() == WSAEWOULDBLOCK)
-#elif defined(__linux)
-	else if (EINPROGRESS == errno)
-#elif defined(__APPLE__)
-#endif
-	{
-		pTcpConnection.ReInit(nNewSock);
-
-		pTcpConnection.Connected();
-
-		pTcpConnection.SetConnectTarget(pRequest->uIndex);
-
-		m_listWaitConnectedConn.push_back(&pTcpConnection);
-	}
-	else
-	{
-		closesocket(nNewSock);
-
-		m_pfnConnectCallBack(m_pFunParam, nullptr, pRequest->uIndex);
-	}
-}
-
-bool CClientNetwork::TryConnect(CTcpConnection &pTcpConnection)
-{
-	int	nNewSock = socket(AF_INET, SOCK_STREAM, 0);
-	if (nNewSock < 0)
-	{
-		g_pFileLog->WriteLog("Create Socket[%d] Failed\n", nNewSock);
-		m_pfnConnectCallBack(m_pFunParam, nullptr, pTcpConnection.GetConnID());
-		return false;
-	}
-
-#if defined(WIN32) || defined(WIN64)
-	unsigned long ulNonBlock = 1;
-	if (ioctlsocket(nNewSock, FIONBIO, &ulNonBlock) == SOCKET_ERROR)
-#elif defined(__linux)
-	int nFlags = fcntl(nNewSock, F_GETFL, 0);
-	if (nFlags < 0 || fcntl(nNewSock, F_SETFL, nFlags | O_NONBLOCK | O_ASYNC) < 0)
-#elif defined(__APPLE__)
-#endif
-	{
-		closesocket(nNewSock);
-		m_pfnConnectCallBack(m_pFunParam, nullptr, pTcpConnection.GetConnID());
-		return false;
-	}
-
-	sockaddr_in	tagAddrIn;
-
-	memset(&tagAddrIn, 0, sizeof(tagAddrIn));
-	tagAddrIn.sin_family		= AF_INET;
-	tagAddrIn.sin_port			= htons(pTcpConnection.GetConnectToPort());
-	tagAddrIn.sin_addr.s_addr	= inet_addr(pTcpConnection.GetConnectToIP());
-
-	int nRet = connect(nNewSock, (sockaddr*)&tagAddrIn, sizeof(tagAddrIn));
-	if (0 == nRet)
-	{
-		pTcpConnection.ReInit(nNewSock);
-
-		pTcpConnection.Connected();
-
-		m_listActiveConn.push_back(&pTcpConnection);
-
-		m_pfnConnectCallBack(m_pFunParam, &pTcpConnection, pTcpConnection.GetConnID());
-
-		return true;
+		return;
 	}
 
 #if defined(WIN32) || defined(WIN64)
@@ -281,32 +209,135 @@ bool CClientNetwork::TryConnect(CTcpConnection &pTcpConnection)
 #elif defined(__APPLE__)
 #endif
 	{
-		pTcpConnection.ReInit(nNewSock);
+		pClientConn.ReInit(nNewSock);
 
-		pTcpConnection.Connected();
+		pClientConn.WaitConnectOK();
 
-		pTcpConnection.SetConnectTarget(pTcpConnection.GetConnID());
-
-		m_listWaitConnectedConn.push_back(&pTcpConnection);
-
-		return true;
+		return;
 	}
 
 	closesocket(nNewSock);
 
-	m_pfnConnectCallBack(m_pFunParam, nullptr, pTcpConnection.GetConnID());
-
-	return false;
+	m_pfnConnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
 }
 
-int CClientNetwork::SetNoBlocking(CTcpConnection *pTcpConnection)
+void CClientNetwork::OnClientWaitConnect(CClientConnInfo &pClientConn)
+{
+	timeval	timeout = { 0, 0 };
+
+	FD_ZERO(&m_WriteSet);
+
+	FD_SET(pClientConn.GetSock(), &m_WriteSet);
+
+	if (select(1024, nullptr, &m_WriteSet, nullptr, &timeout) <= 0)
+		return;
+
+	if (!FD_ISSET(pClientConn.GetSock(), &m_WriteSet))
+		return;
+
+	int			nError	= 0;
+	socklen_t	nLen	= sizeof(nError);
+#if defined(WIN32) || defined(WIN64)
+	getsockopt(pClientConn.GetSock(), SOL_SOCKET, SO_ERROR, (char*)&nError, &nLen);
+#elif defined(__linux)
+	getsockopt(pClientConn.GetSock(), SOL_SOCKET, SO_ERROR, &nError, &nLen);
+#elif defined(__APPLE__)
+#endif
+
+	if (0 != nError)
+	{
+#if defined(WIN32) || defined(WIN64)
+		g_pFileLog->WriteLog("Connnect Failed errno=%d\n", WSAGetLastError());
+#elif defined(__linux)
+		g_pFileLog->WriteLog("Connnect Failed errno=%d\n", errno);
+#elif defined(__APPLE__)
+#endif
+		pClientConn.Disconnect();
+
+		m_pfnConnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
+
+		return;
+	}
+
+	if (-1 == SetNoBlocking(pClientConn.GetSock()))
+	{
+		pClientConn.Disconnect();
+
+		m_pfnConnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
+
+		return;
+	}
+
+	pClientConn.Connected();
+
+	m_pfnConnectCallBack(m_pFunParam, &pClientConn, pClientConn.GetConnID());
+}
+
+void CClientNetwork::OnClientConnect(CClientConnInfo &pClientConn)
+{
+	timeval	timeout = { 0, 0 };
+
+	FD_ZERO(&m_ReadSet);
+	FD_ZERO(&m_WriteSet);
+	FD_ZERO(&m_ErrorSet);
+
+	FD_SET(pClientConn.GetSock(), &m_ReadSet);
+	FD_SET(pClientConn.GetSock(), &m_WriteSet);
+	FD_SET(pClientConn.GetSock(), &m_ErrorSet);
+
+	if (select(1024, &m_ReadSet, &m_WriteSet, &m_ErrorSet, &timeout) <= 0)
+		return;
+
+	if (FD_ISSET(pClientConn.GetSock(), &m_ErrorSet))
+	{
+		pClientConn.Disconnect();
+
+		m_pfnDisconnectCallBack(m_pFunParam, &pClientConn, pClientConn.GetConnID());
+
+		return;
+	}
+
+	if (FD_ISSET(pClientConn.GetSock(), &m_ReadSet))
+	{
+		if (pClientConn.RecvData() == -1)
+		{
+			pClientConn.Disconnect();
+
+			m_pfnDisconnectCallBack(m_pFunParam, &pClientConn, pClientConn.GetConnID());
+
+			return;
+		}
+	}
+
+	if (FD_ISSET(pClientConn.GetSock(), &m_WriteSet))
+	{
+		if (pClientConn.SendData() == -1)
+		{
+			pClientConn.Disconnect();
+
+			m_pfnDisconnectCallBack(m_pFunParam, &pClientConn, pClientConn.GetConnID());
+
+			return;
+		}
+	}
+}
+
+void CClientNetwork::OnClientWaitLogicExit(CClientConnInfo &pClientConn)
+{
+	if (pClientConn.IsLogicConnected())
+		return;
+
+	pClientConn.LogicDisconnect();
+}
+
+int CClientNetwork::SetNoBlocking(const SOCKET nSock)
 {
 #if defined(WIN32) || defined(WIN64)
 	unsigned long ulNonBlock = 1;
-	return (ioctlsocket(pTcpConnection->GetSock(), FIONBIO, &ulNonBlock) == SOCKET_ERROR);
+	return (ioctlsocket(nSock, FIONBIO, &ulNonBlock) == SOCKET_ERROR);
 #elif defined(__linux)
-	int nFlags = fcntl(pTcpConnection->GetSock(), F_GETFL, 0);
-	if (nFlags < 0 || fcntl(pTcpConnection->GetSock(), F_SETFL, nFlags | O_NONBLOCK | O_ASYNC) < 0)
+	int nFlags = fcntl(nSock, F_GETFL, 0);
+	if (nFlags < 0 || fcntl(nSock, F_SETFL, nFlags | O_NONBLOCK | O_ASYNC) < 0)
 		return -1;
 
 	return 0;
@@ -314,208 +345,14 @@ int CClientNetwork::SetNoBlocking(CTcpConnection *pTcpConnection)
 #endif
 }
 
-void CClientNetwork::RemoveConnection(CTcpConnection *pTcpConnection)
-{
-	pTcpConnection->Disconnect();
-}
-
-void CClientNetwork::ProcessConnectRequest()
-{
-	const void		*pPack	= nullptr;
-	unsigned int	uPackLen	= 0;
-
-	while (nullptr != (pPack = m_pConnectBuffer->RcvPack(uPackLen)))
-	{
-		TryConnect(pPack);
-	}
-}
-
-void CClientNetwork::ProcessIdleConnection()
-{
-	for (auto Iter = m_listIdleConn.begin(); Iter != m_listIdleConn.end();)
-	{
-		CTcpConnection	&pTcpConnection	= *(*Iter);
-		if (pTcpConnection.IsLogicConnected() && TryConnect(pTcpConnection))
-		{
-			Iter	= m_listIdleConn.erase(Iter);
-		}
-		else
-		{
-			++Iter;
-		}
-	}
-}
-
-void CClientNetwork::ProcessConnectedConnection()
-{
-	timeval			timeout			= {0,0};
-	CTcpConnection	*pTcpConnection	= nullptr;
-
-	for (auto Iter = m_listActiveConn.begin(); Iter != m_listActiveConn.end();)
-	{
-		pTcpConnection	= *Iter;
-
-		FD_ZERO(&m_ReadSet);
-		FD_ZERO(&m_WriteSet);
-		FD_ZERO(&m_ErrorSet);
-
-		FD_SET(pTcpConnection->GetSock(), &m_ReadSet);
-		FD_SET(pTcpConnection->GetSock(), &m_WriteSet);
-		FD_SET(pTcpConnection->GetSock(), &m_ErrorSet);
-
-		if (select(1024, &m_ReadSet, &m_WriteSet, &m_ErrorSet, &timeout) <= 0)
-		{
-			++Iter;
-			return;
-		}
-
-		if (FD_ISSET(pTcpConnection->GetSock(), &m_ErrorSet))
-		{
-			RemoveConnection(pTcpConnection);
-			m_listCloseWaitConn.push_back(pTcpConnection);
-			Iter	= m_listActiveConn.erase(Iter);
-			continue;
-		}
-
-		if (FD_ISSET(pTcpConnection->GetSock(), &m_ReadSet))
-		{
-			if (pTcpConnection->RecvData() == -1)
-			{
-				RemoveConnection(pTcpConnection);
-				m_listCloseWaitConn.push_back(pTcpConnection);
-				Iter	= m_listActiveConn.erase(Iter);
-				continue;
-			}
-		}
-
-		if (FD_ISSET(pTcpConnection->GetSock(), &m_WriteSet))
-		{
-			if (pTcpConnection->SendData() == -1)
-			{
-				RemoveConnection(pTcpConnection);
-				m_listCloseWaitConn.push_back(pTcpConnection);
-				Iter	= m_listActiveConn.erase(Iter);
-				continue;
-			}
-		}
-
-		++Iter;
-	}
-}
-
-void CClientNetwork::ProcessWaitConnectConnection()
-{
-	timeval			timeout			={ 0, 0 };
-	CTcpConnection	*pTcpConnection	= nullptr;
-
-	for (auto Iter = m_listWaitConnectedConn.begin(); Iter != m_listWaitConnectedConn.end();)
-	{
-		pTcpConnection	= *Iter;
-
-		FD_ZERO(&m_WriteSet);
-
-		FD_SET(pTcpConnection->GetSock(), &m_WriteSet);
-
-		if (select(0, &m_ReadSet, &m_WriteSet, nullptr, &timeout) <= 0)
-		{
-			++Iter;
-			continue;
-		}
-
-		if (!FD_ISSET(pTcpConnection->GetSock(), &m_WriteSet))
-		{
-			++Iter;
-			continue;
-		}
-
-		int nError = 0;
-		socklen_t len = sizeof(nError);
-#if defined(WIN32) || defined(WIN64)
-		if (getsockopt(pTcpConnection->GetSock(), SOL_SOCKET, SO_ERROR, (char*)&nError, &len) < 0)
-#elif defined(__linux)
-		if (getsockopt(pTcpConnection->GetSock(), SOL_SOCKET, SO_ERROR, &nError, &len) < 0)
-#elif defined(__APPLE__)
-#endif
-		{
-#if defined(WIN32) || defined(WIN64)
-			g_pFileLog->WriteLog("getsockopt Failed errno=%d\n", WSAGetLastError());
-#elif defined(__linux)
-			g_pFileLog->WriteLog("getsockopt Failed errno=%d\n", errno);
-#elif defined(__APPLE__)
-#endif
-			pTcpConnection->Disconnect();
-
-			Iter	= m_listWaitConnectedConn.erase(Iter);
-
-			m_pfnConnectCallBack(m_pFunParam, nullptr, pTcpConnection->GetConnID());
-
-			continue;
-		}
-
-		if (nError != 0)
-		{
-#if defined(WIN32) || defined(WIN64)
-			g_pFileLog->WriteLog("Connnect Failed errno=%d\n", WSAGetLastError());
-#elif defined(__linux)
-			g_pFileLog->WriteLog("Connnect Failed errno=%d\n", errno);
-#elif defined(__APPLE__)
-#endif
-			pTcpConnection->Disconnect();
-
-			Iter	= m_listWaitConnectedConn.erase(Iter);
-
-			m_pfnConnectCallBack(m_pFunParam, nullptr, pTcpConnection->GetConnID());
-
-			continue;
-		}
-
-		if (-1 == SetNoBlocking(pTcpConnection))
-		{
-			pTcpConnection->Disconnect();
-
-			Iter	= m_listWaitConnectedConn.erase(Iter);
-
-			m_pfnConnectCallBack(m_pFunParam, nullptr, pTcpConnection->GetConnID());
-
-			continue;
-		}
-
-		m_listActiveConn.push_back(pTcpConnection);
-
-		Iter	= m_listWaitConnectedConn.erase(Iter);
-
-		m_pfnConnectCallBack(m_pFunParam, pTcpConnection, pTcpConnection->GetConnID());
-	}
-}
-
-void CClientNetwork::ProcessWaitCloseConnection()
-{
-	CTcpConnection	*pTcpConnection	= nullptr;
-
-	for (auto Iter = m_listCloseWaitConn.begin(); Iter != m_listCloseWaitConn.end();)
-	{
-		pTcpConnection	= *Iter;
-		if (pTcpConnection->IsLogicConnected())
-		{
-			++Iter;
-			continue;
-		}
-
-		Iter	= m_listCloseWaitConn.erase(Iter);
-	}
-}
-
 void CClientNetwork::ThreadFunc()
 {
 	while (m_bRunning)
 	{
-		ProcessConnectRequest();
-
-		ProcessConnectedConnection();
-
-		ProcessWaitConnectConnection();
-
-		ProcessWaitCloseConnection();
+		for (int nIndex = 0; nIndex < m_uMaxConnCount; ++nIndex)
+		{
+			(this->*m_pfnClientStateFunc[m_pTcpConnection[nIndex].GetState()])(m_pTcpConnection[nIndex]);
+		}
 
 		yield();
 	}
@@ -539,6 +376,7 @@ IClientNetwork *CreateClientNetwork(
 	unsigned int uMaxTempSendBuff,
 	unsigned int uMaxTempReceiveBuff,
 	pfnConnectEvent pfnConnectCallBack,
+	pfnConnectEvent pfnDisconnectCallBack,
 	void *lpParm,
 	const unsigned int uSleepTime
 	)
@@ -547,7 +385,7 @@ IClientNetwork *CreateClientNetwork(
 	if (nullptr == pClient)
 		return nullptr;
 
-	if (!pClient->Initialize(uLinkCount, uMaxSendBuff, uMaxReceiveBuff, uMaxTempSendBuff, uMaxTempReceiveBuff, pfnConnectCallBack, lpParm, uSleepTime))
+	if (!pClient->Initialize(uLinkCount, uMaxSendBuff, uMaxReceiveBuff, uMaxTempSendBuff, uMaxTempReceiveBuff, pfnConnectCallBack, pfnDisconnectCallBack, lpParm, uSleepTime))
 	{
 		pClient->Release();
 		return nullptr;

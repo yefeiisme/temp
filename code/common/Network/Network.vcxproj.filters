@@ -21,6 +21,12 @@
     <ClCompile Include="Client\client_network_select.cpp">
       <Filter>Client</Filter>
     </ClCompile>
+    <ClCompile Include="conn_info\client_conn_info.cpp">
+      <Filter>conn_info</Filter>
+    </ClCompile>
+    <ClCompile Include="conn_info\server_conn_info.cpp">
+      <Filter>conn_info</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="conn_info\conn_info.h">
@@ -33,6 +39,12 @@
     </ClInclude>
     <ClInclude Include="Client\client_network_select.h">
       <Filter>Client</Filter>
+    </ClInclude>
+    <ClInclude Include="conn_info\client_conn_info.h">
+      <Filter>conn_info</Filter>
+    </ClInclude>
+    <ClInclude Include="conn_info\server_conn_info.h">
+      <Filter>conn_info</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #ifndef __GAME_SERVER_H_
 #define __GAME_SERVER_H_
 
-#include "network_interface.h"
+#include "INetwork.h"
 #include "IGameServer.h"
 
 class CClientConnection;
