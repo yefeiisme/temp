@@ -2,6 +2,7 @@
 
 CClientConnInfo::CClientConnInfo() : CTcpConnection()
 {
+	m_eState		= CLIENT_CONN_IDLE;
 	m_uTargetIndex	= 0xffffffff;
 	m_usPort		= 0;
 	memset(m_strConnectToIP, 0, sizeof(m_strConnectToIP));
@@ -26,24 +27,4 @@ void CClientConnInfo::LogicDisconnect()
 	m_uTargetIndex	= 0xffffffff;
 	m_usPort		= 0;
 	memset(m_strConnectToIP, 0, sizeof(m_strConnectToIP));
-}
-
-void CClientConnInfo::OnIdle()
-{
-}
-
-void CClientConnInfo::OnTryConnect()
-{
-}
-
-void CClientConnInfo::OnWaitConnect()
-{
-}
-
-void CClientConnInfo::OnConnect()
-{
-}
-
-void CClientConnInfo::OnWaitLogicExit()
-{
 }

@@ -16,13 +16,10 @@ enum E_CLIENT_CONN_STATE
 class CClientConnInfo : public CTcpConnection
 {
 private:
-	typedef void				(CClientConnInfo::*pfnStateFunc)();
-	static pfnStateFunc			m_pfnStateFunc[CLIENT_CONN_STATE_MAX];
-
 	E_CLIENT_CONN_STATE			m_eState;
 	unsigned int				m_uTargetIndex;					// 用于连接成功后的回调对象（只做为客户端对象连接服务器端时有效）
 
-	unsigned short				m_usPort;				// 连接的端口
+	unsigned short				m_usPort;						// 连接的端口
 	char						m_strConnectToIP[MAX_IP_LEN];	// 连接的IP地址
 public:
 	CClientConnInfo();
@@ -90,12 +87,6 @@ public:
 	void						Disconnect();
 
 	void						LogicDisconnect();
-private:
-	void						OnIdle();
-	void						OnTryConnect();
-	void						OnWaitConnect();
-	void						OnConnect();
-	void						OnWaitLogicExit();
 };
 
 #endif

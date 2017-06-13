@@ -135,7 +135,7 @@ void CServerNetwork::ReadAction()
 			socklen_t	length = sizeof(client_addr);
 			SOCKET		nNewSocket = INVALID_SOCKET;
 
-			while ((nNewSocket = accept(m_pListenLink->GetSock(), (sockaddr*)&client_addr, &length)) > 0)
+			while ( -1 != (nNewSocket = accept(m_pListenLink->GetSock(), (sockaddr*)&client_addr, &length)))
 			{
 				AcceptClient(nNewSocket);
 			}

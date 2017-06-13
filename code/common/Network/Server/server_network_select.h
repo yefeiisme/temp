@@ -15,6 +15,9 @@ private:
 	pfnConnectEvent			m_pfnDisconnectCallBack;
 	void					*m_pFunParam;
 
+	typedef void			(CServerNetwork::*pfnStateFunc)(CServerConnInfo &pServerConnInfo);
+	static pfnStateFunc		m_pfnConnStateFunc[SERVER_CONN_STATE_MAX];
+
 	CServerConnInfo			*m_pListenLink;
 
 	CServerConnInfo			*m_pTcpConnection;		// 所有的网络连接
@@ -27,9 +30,6 @@ private:
 
 	fd_set					m_ReadSet;
 	fd_set					m_ErrorSet;
-
-	list<CServerConnInfo*>	m_listActiveConn;
-	list<CServerConnInfo*>	m_listCloseWaitConn;
 
 	bool					m_bRunning;
 	bool					m_bExited;
@@ -47,18 +47,14 @@ private:
 		}
 	}
 
-	int						SetNoBlocking(CServerConnInfo *pTcpConnection);
+	void					OnConnIdle(CServerConnInfo &pClientConn);
+	void					OnConnConnect(CServerConnInfo &pClientConn);
+	void					OnConnWaitLogicExit(CServerConnInfo &pClientConn);
+
+	void					ProcessAccept();
+	int						SetNoBlocking(const SOCKET nSock);
 	void					AcceptClient(const SOCKET nNewSocket);
 
-	void					DisconnectConnection(CServerConnInfo *pTcpConnection);
-	void					RemoveConnection(CServerConnInfo *pTcpConnection);
-	void					CloseConnection(CServerConnInfo *pTcpConnection);
-
-	void					NetworkAction();
-
-	void					ReadAction();
-	void					WriteAction();
-	void					CloseAction();
 
 	void					ThreadFunc();
 	inline void				yield()

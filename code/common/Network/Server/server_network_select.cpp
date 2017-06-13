@@ -4,6 +4,13 @@
 #include "IFileLog.h"
 #include <thread>
 
+CServerNetwork::pfnStateFunc CServerNetwork::m_pfnConnStateFunc[SERVER_CONN_STATE_MAX] =
+{
+	&CServerNetwork::OnConnIdle,
+	&CServerNetwork::OnConnConnect,
+	&CServerNetwork::OnConnWaitLogicExit,
+};
+
 CServerNetwork::CServerNetwork()
 {
 	m_pfnConnectCallBack	= nullptr;
@@ -22,9 +29,6 @@ CServerNetwork::CServerNetwork()
 	FD_ZERO(&m_ReadSet);
 	FD_ZERO(&m_ErrorSet);
 
-	m_listActiveConn.clear();
-	m_listCloseWaitConn.clear();
-
 	m_bRunning				= false;
 	m_bExited				= false;
 }
@@ -33,14 +37,14 @@ CServerNetwork::~CServerNetwork()
 {
 	if (m_pListenLink->IsSocketConnected())
 	{
-		DisconnectConnection(m_pListenLink);
+		m_pListenLink->Disconnect();
 	}
 
 	for (int nIndex = 0; nIndex < m_uMaxConnCount; ++nIndex)
 	{
 		if (m_pTcpConnection[nIndex].IsSocketConnected())
 		{
-			DisconnectConnection(&m_pTcpConnection[nIndex]);
+			m_pTcpConnection[nIndex].Disconnect();
 		}
 	}
 
@@ -52,17 +56,95 @@ CServerNetwork::~CServerNetwork()
 #endif
 }
 
-int CServerNetwork::SetNoBlocking(CServerConnInfo *pTcpConnection)
+void CServerNetwork::OnConnIdle(CServerConnInfo &pClientConn)
 {
-	if (nullptr == pTcpConnection)
-		return -1;
+}
 
+void CServerNetwork::OnConnConnect(CServerConnInfo &pClientConn)
+{
+	if (!pClientConn.IsLogicConnected())
+	{
+		// 逻辑层已经退出了，这里只需要TcpConnect关闭就OK了
+		pClientConn.Disconnect();
+		return;
+	}
+
+	if (pClientConn.SendData() == -1)
+	{
+		// 网络层异常，关闭网络相关操作，等待逻辑层退出
+		pClientConn.Disconnect();
+		return;
+	}
+
+	timeval	timeout = {0, 0};
+
+	FD_ZERO(&m_ReadSet);
+	FD_ZERO(&m_ErrorSet);
+
+	FD_SET(pClientConn.GetSock(), &m_ReadSet);
+	FD_SET(pClientConn.GetSock(), &m_ErrorSet);
+
+	if (select(1024, &m_ReadSet, nullptr, &m_ErrorSet, &timeout) <= 0)
+		return;
+
+	if (FD_ISSET(pClientConn.GetSock(), &m_ErrorSet))
+	{
+		pClientConn.Disconnect();
+		return;
+	}
+
+	if (!FD_ISSET(pClientConn.GetSock(), &m_ReadSet))
+		return;
+
+	if (pClientConn.RecvData() == -1)
+	{
+		pClientConn.Disconnect();
+		return;
+	}
+}
+
+void CServerNetwork::OnConnWaitLogicExit(CServerConnInfo &pClientConn)
+{
+	if (pClientConn.IsLogicConnected())
+		return;
+
+	pClientConn.LogicDisconnect();
+
+	AddAvailableConnection(&pClientConn);
+
+	m_pfnDisconnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
+}
+
+void CServerNetwork::ProcessAccept()
+{
+	FD_ZERO(&m_ReadSet);
+
+	FD_SET(m_pListenLink->GetSock(), &m_ReadSet);
+	timeval	timeout = {0, 0};
+
+	if (select(1024, &m_ReadSet, nullptr, nullptr, &timeout) <= 0)
+		return;
+
+	if (!FD_ISSET(m_pListenLink->GetSock(), &m_ReadSet))
+		return;
+
+	sockaddr_in	client_addr;
+	socklen_t	length		= sizeof(client_addr);
+	SOCKET		nNewSocket	= INVALID_SOCKET;
+	while (INVALID_SOCKET != (nNewSocket = accept(m_pListenLink->GetSock(), (sockaddr*)&client_addr, &length)))
+	{
+		AcceptClient(nNewSocket);
+	}
+}
+
+int CServerNetwork::SetNoBlocking(const SOCKET nSock)
+{
 #if defined(WIN32) || defined(WIN64)
 	unsigned long ulNonBlock = 1;
-	return ioctlsocket(pTcpConnection->GetSock(), FIONBIO, &ulNonBlock);
+	return ioctlsocket(nSock, FIONBIO, &ulNonBlock);
 #elif defined(__linux)
-	int nFlags = fcntl(pTcpConnection->GetSock(), F_GETFL, 0);
-	if (nFlags < 0 || fcntl(pTcpConnection->GetSock(), F_SETFL, nFlags | O_NONBLOCK | O_ASYNC) < 0)
+	int nFlags = fcntl(nSock, F_GETFL, 0);
+	if (nFlags < 0 || fcntl(nSock, F_SETFL, nFlags | O_NONBLOCK | O_ASYNC) < 0)
 		return -1;
 
 	return 0;
@@ -72,6 +154,18 @@ int CServerNetwork::SetNoBlocking(CServerConnInfo *pTcpConnection)
 
 void CServerNetwork::AcceptClient(const SOCKET nNewSocket)
 {
+	if (-1 == SetNoBlocking(nNewSocket))
+	{
+#if defined(WIN32) || defined(WIN64)
+		g_pFileLog->WriteLog("ioctlsocket() failed with error %d\n", WSAGetLastError());
+#elif defined(__linux)
+		g_pFileLog->WriteLog("ERROR on rtsig the sock; errno=%d\n", errno);
+#elif defined(__APPLE__)
+#endif
+
+		return;
+	}
+
 	CServerConnInfo	*pNewLink = GetNewConnection();
 	if (nullptr == pNewLink)
 	{
@@ -83,168 +177,32 @@ void CServerNetwork::AcceptClient(const SOCKET nNewSocket)
 
 	pNewLink->Connected();
 
-	if (-1 == SetNoBlocking(pNewLink))
-	{
-		RemoveConnection(pNewLink);
-
-#if defined(WIN32) || defined(WIN64)
-		g_pFileLog->WriteLog("ioctlsocket() failed with error %d\n", WSAGetLastError());
-#elif defined(__linux)
-		g_pFileLog->WriteLog("ERROR on rtsig the sock; errno=%d\n", errno);
-#elif defined(__APPLE__)
-#endif
-
-		return;
-	}
-
-	m_listActiveConn.push_back(pNewLink);
-
 	m_pfnConnectCallBack(m_pFunParam, pNewLink, pNewLink->GetConnID());
-}
-
-void CServerNetwork::DisconnectConnection(CServerConnInfo *pTcpConnection)
-{
-	pTcpConnection->Disconnect();
-}
-
-void CServerNetwork::RemoveConnection(CServerConnInfo *pTcpConnection)
-{
-	DisconnectConnection(pTcpConnection);
-
-	AddAvailableConnection(pTcpConnection);
-}
-
-void CServerNetwork::CloseConnection(CServerConnInfo *pTcpConnection)
-{
-	DisconnectConnection(pTcpConnection);
-
-	m_listCloseWaitConn.push_back(pTcpConnection);
-}
-
-void CServerNetwork::ReadAction()
-{
-	FD_ZERO(&m_ReadSet);
-	FD_ZERO(&m_ErrorSet);
-
-	FD_SET(m_pListenLink->GetSock(), &m_ReadSet);
-	timeval	timeout	={ 0, 0 };
-
-	if (select(1024, &m_ReadSet, nullptr, nullptr, &timeout) > 0)
-	{
-		if (FD_ISSET(m_pListenLink->GetSock(), &m_ReadSet))
-		{
-			sockaddr_in	client_addr;
-			socklen_t	length	= sizeof(client_addr);
-			SOCKET	nNewSocket	= accept(m_pListenLink->GetSock(), (sockaddr*)&client_addr, &length);
-			if (INVALID_SOCKET != nNewSocket)
-			{
-				AcceptClient(nNewSocket);
-			}
-		}
-	}
-
-	CServerConnInfo	*pTcpConnection = nullptr;
-
-	for (auto Iter = m_listActiveConn.begin(); Iter != m_listActiveConn.end();)
-	{
-		pTcpConnection	= *Iter;
-
-		FD_ZERO(&m_ReadSet);
-		FD_ZERO(&m_ErrorSet);
-
-		FD_SET(pTcpConnection->GetSock(), &m_ReadSet);
-		FD_SET(pTcpConnection->GetSock(), &m_ErrorSet);
-
-		if (select(1024, &m_ReadSet, nullptr, &m_ErrorSet, &timeout) <= 0)
-		{
-			++Iter;
-			continue;
-		}
-
-		if (FD_ISSET(pTcpConnection->GetSock(), &m_ReadSet))
-		{
-			if (pTcpConnection->RecvData() == -1)
-			{
-				CloseConnection(pTcpConnection);
-				Iter	= m_listActiveConn.erase(Iter);
-			}
-		}
-		else if (FD_ISSET(pTcpConnection->GetSock(), &m_ErrorSet))
-		{
-			CloseConnection(pTcpConnection);
-			Iter	= m_listActiveConn.erase(Iter);
-		}
-		else
-		{
-			++Iter;
-		}
-	}
-}
-
-void CServerNetwork::WriteAction()
-{
-	CServerConnInfo	*pTcpConnection = nullptr;
-	for (auto Iter = m_listActiveConn.begin(); Iter != m_listActiveConn.end();)
-	{
-		pTcpConnection	= *Iter;
-		if (!pTcpConnection->IsLogicConnected())
-		{
-			// 逻辑层已经退出了，这里只需要将TcpConnect从Active中移除OK了
-			RemoveConnection(pTcpConnection);
-			Iter	= m_listActiveConn.erase(Iter);
-			continue;
-		}
-
-		if (pTcpConnection->SendData() == -1)
-		{
-			// 网络层异常，关闭网络相关操作，放入等待队列中，等待逻辑层退出
-			CloseConnection(pTcpConnection);
-			Iter	= m_listActiveConn.erase(Iter);
-			continue;
-		}
-
-		++Iter;
-	}
-}
-
-void CServerNetwork::CloseAction()
-{
-	CServerConnInfo	*pTcpConnection = nullptr;
-	for (auto Iter = m_listCloseWaitConn.begin(); Iter != m_listCloseWaitConn.end();)
-	{
-		pTcpConnection	= *Iter;
-		if (pTcpConnection->IsLogicConnected())
-		{
-			++Iter;
-			continue;
-		}
-
-		AddAvailableConnection(pTcpConnection);
-
-		Iter	= m_listCloseWaitConn.erase(Iter);
-	}
 }
 
 void CServerNetwork::ThreadFunc()
 {
 	while (m_bRunning)
 	{
-		ReadAction();
-		WriteAction();
-		CloseAction();
+		ProcessAccept();
+
+		for (int nIndex = 0; nIndex < m_uMaxConnCount; ++nIndex)
+		{
+			(this->*m_pfnConnStateFunc[m_pTcpConnection[nIndex].GetState()])(m_pTcpConnection[nIndex]);
+		}
 
 		yield();
 	}
 
 	// 关闭accept
-	DisconnectConnection(m_pListenLink);
+	m_pListenLink->Disconnect();
 
 	// 关闭已连接上的Connection
 	for (int nIndex = 0; nIndex < m_uMaxConnCount; ++nIndex)
 	{
 		if (m_pTcpConnection[nIndex].IsSocketConnected())
 		{
-			DisconnectConnection(&m_pTcpConnection[nIndex]);
+			m_pTcpConnection[nIndex].Disconnect();
 		}
 	}
 
@@ -354,7 +312,7 @@ bool CServerNetwork::Initialize(
 		return false;
 	}
 
-	if (-1 == SetNoBlocking(m_pListenLink))
+	if (-1 == SetNoBlocking(nSock))
 	{
 #if defined(WIN32) || defined(WIN64)
 		g_pFileLog->WriteLog("Set listen socket async failed! errno=%d\n", WSAGetLastError());

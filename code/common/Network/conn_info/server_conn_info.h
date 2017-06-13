@@ -3,23 +3,26 @@
 
 #include "conn_info.h"
 
+enum E_SERVER_CONN_STATE
+{
+	SERVER_CONN_IDLE,
+	SERVER_CONN_CONNECT,
+	SERVER_CONN_WAIT_LOGIC_EXIT,
+	SERVER_CONN_STATE_MAX,
+};
+
 class CServerConnInfo : public CTcpConnection
 {
-	enum E_SERVER_CONN_STATE
-	{
-		SERVER_CONN_IDLE,
-		SERVER_CONN_CONNECT,
-		SERVER_CONN_WAIT_LOGIC_EXIT,
-		SERVER_CONN_STATE_MAX,
-	};
 private:
-	typedef void				(CServerConnInfo::*pfnStateFunc)();
-	static pfnStateFunc			m_pfnStateFunc[SERVER_CONN_STATE_MAX];
-
 	E_SERVER_CONN_STATE			m_eState;
 public:
 	CServerConnInfo();
 	~CServerConnInfo();
+
+	inline E_SERVER_CONN_STATE	GetState()
+	{
+		return m_eState;
+	}
 
 	const char					*GetIP();
 	inline void					Connected()
@@ -28,10 +31,18 @@ public:
 
 		m_eState = SERVER_CONN_CONNECT;
 	}
-private:
-	void						OnIdle();
-	void						OnConnect();
-	void						OnWaitLogicExit();
+
+	inline void					Disconnect()
+	{
+		CTcpConnection::Disconnect();
+
+		m_eState = SERVER_CONN_WAIT_LOGIC_EXIT;
+	}
+
+	inline void					LogicDisconnect()
+	{
+		m_eState = SERVER_CONN_IDLE;
+	}
 };
 
 #endif

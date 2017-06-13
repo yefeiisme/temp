@@ -1,15 +1,9 @@
 #include "server_conn_info.h"
 #include "IFileLog.h"
 
-CServerConnInfo::pfnStateFunc CServerConnInfo::m_pfnStateFunc[SERVER_CONN_STATE_MAX] =
-{
-	&CServerConnInfo::OnIdle,
-	&CServerConnInfo::OnConnect,
-	&CServerConnInfo::OnWaitLogicExit,
-};
-
 CServerConnInfo::CServerConnInfo() : CTcpConnection()
 {
+	m_eState = SERVER_CONN_IDLE;
 }
 
 CServerConnInfo::~CServerConnInfo()
@@ -46,16 +40,4 @@ const char *CServerConnInfo::GetIP()
 	}
 
 	return strIP;
-}
-
-void CServerConnInfo::OnIdle()
-{
-}
-
-void CServerConnInfo::OnConnect()
-{
-}
-
-void CServerConnInfo::OnWaitLogicExit()
-{
 }
