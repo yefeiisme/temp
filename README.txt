@@ -1,3 +1,6 @@
+protobuf地址
+https://github.com/google/protobuf.git
+
 Gateway
 
 .转发消息
