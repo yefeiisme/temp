@@ -1,9 +1,9 @@
 #ifndef __SIMULATOR_LOGIC_H_
 #define __SIMULATOR_LOGIC_H_
 
-#include "network_interface.h"
+#include "INetwork.h"
 #include "ISimulatorLogic.h"
-#include "ring_buffer_interface.h"
+#include "IRingBuffer.h"
 #if defined (WIN32) || defined (WIN64)
 #include <windows.h>
 #else
@@ -33,6 +33,8 @@ public:
 		m_bRunning	= false;
 		m_bWaitExit	= false;
 	}
+
+	void						ShutDownConnection(const unsigned int uConnIndex);
 private:
 	inline void					yield(const unsigned int uSleepTime)
 	{
@@ -47,11 +49,11 @@ private:
 	}
 
 	void						ThreadFunc();
-	void						ProcessClient();
+	void						ProcessConnection();
 	void						ProcessRequest();
 
-	static void					ClientConnected(void *pParam, ITcpConnection *pTcpConnection, const void *pTarget);
-	void						OnClientConnect(ITcpConnection *pTcpConnection, const void *pTarget);
+	static void					ClientConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	void						OnClientConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
 private:
 	IClientNetwork				*m_pClientNetwork;
 	IRingBuffer					*m_pRBRequest;
@@ -67,8 +69,6 @@ private:
 
 	bool						m_bRunning;
 	bool						m_bWaitExit;
-
-	list<CServerConnection*>	m_listFreeConn;
 };
 
 extern CSimulatorLogic			&g_pSimulatorLogic;

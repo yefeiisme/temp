@@ -21,7 +21,6 @@ CClientNetwork::pfnStateFunc CClientNetwork::m_pfnClientStateFunc[CLIENT_CONN_ST
 CClientNetwork::CClientNetwork()
 {
 	m_pfnConnectCallBack	= nullptr;
-	m_pfnDisconnectCallBack = nullptr;
 	m_pFunParam				= nullptr;
 
 	m_pTcpConnection		= nullptr;
@@ -63,7 +62,6 @@ bool CClientNetwork::Initialize(
 	const unsigned int uTempSendBuffLen,
 	const unsigned int uTempRecvBuffLen,
 	pfnConnectEvent pfnConnectCallBack,
-	pfnConnectEvent pfnDisconnectCallBack,
 	void *lpParm,
 	const unsigned int uSleepTime
 	)
@@ -96,7 +94,6 @@ bool CClientNetwork::Initialize(
 	}
 
 	m_pfnConnectCallBack	= pfnConnectCallBack;
-	m_pfnDisconnectCallBack = pfnDisconnectCallBack;
 	m_pFunParam				= lpParm;
 
 	m_uSleepTime			= uSleepTime;
@@ -125,8 +122,6 @@ bool CClientNetwork::ConnectTo(char *pstrAddr, const unsigned short usPort, cons
 
 	pClientConn.ConnectTo(pstrAddr, usPort);
 
-	m_pfnConnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
-
 	return true;
 }
 
@@ -150,6 +145,14 @@ bool CClientNetwork::ConnectToUrl(char *pstrAddr, const unsigned short usPort, c
 	return true;
 }
 
+void CClientNetwork::ShutDown(const unsigned int uIndex)
+{
+	if (uIndex >= m_uMaxConnCount)
+		return;
+
+	m_pTcpConnection[uIndex].ShutDown();
+}
+
 void CClientNetwork::OnClientIdle(CClientConnInfo &pClientConn)
 {
 	if (pClientConn.IsLogicConnected())
@@ -167,8 +170,6 @@ void CClientNetwork::OnClientTryConnect(CClientConnInfo &pClientConn)
 
 		pClientConn.Disconnect();
 
-		m_pfnDisconnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
-
 		return;
 	}
 
@@ -177,8 +178,6 @@ void CClientNetwork::OnClientTryConnect(CClientConnInfo &pClientConn)
 		closesocket(nNewSock);
 
 		pClientConn.Disconnect();
-
-		m_pfnDisconnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
 
 		return;
 	}
@@ -213,17 +212,17 @@ void CClientNetwork::OnClientTryConnect(CClientConnInfo &pClientConn)
 
 		pClientConn.WaitConnectOK();
 
+		m_pfnConnectCallBack(m_pFunParam, &pClientConn, pClientConn.GetConnID());
+
 		return;
 	}
 
 	closesocket(nNewSock);
-
-	m_pfnConnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
 }
 
 void CClientNetwork::OnClientWaitConnect(CClientConnInfo &pClientConn)
 {
-	timeval	timeout = { 0, 0 };
+	timeval	timeout = {0, 0};
 
 	FD_ZERO(&m_WriteSet);
 
@@ -292,8 +291,6 @@ void CClientNetwork::OnClientConnect(CClientConnInfo &pClientConn)
 	{
 		pClientConn.Disconnect();
 
-		m_pfnDisconnectCallBack(m_pFunParam, &pClientConn, pClientConn.GetConnID());
-
 		return;
 	}
 
@@ -302,8 +299,6 @@ void CClientNetwork::OnClientConnect(CClientConnInfo &pClientConn)
 		if (pClientConn.RecvData() == -1)
 		{
 			pClientConn.Disconnect();
-
-			m_pfnDisconnectCallBack(m_pFunParam, &pClientConn, pClientConn.GetConnID());
 
 			return;
 		}
@@ -314,8 +309,6 @@ void CClientNetwork::OnClientConnect(CClientConnInfo &pClientConn)
 		if (pClientConn.SendData() == -1)
 		{
 			pClientConn.Disconnect();
-
-			m_pfnDisconnectCallBack(m_pFunParam, &pClientConn, pClientConn.GetConnID());
 
 			return;
 		}
@@ -376,7 +369,6 @@ IClientNetwork *CreateClientNetwork(
 	unsigned int uMaxTempSendBuff,
 	unsigned int uMaxTempReceiveBuff,
 	pfnConnectEvent pfnConnectCallBack,
-	pfnConnectEvent pfnDisconnectCallBack,
 	void *lpParm,
 	const unsigned int uSleepTime
 	)
@@ -385,7 +377,7 @@ IClientNetwork *CreateClientNetwork(
 	if (nullptr == pClient)
 		return nullptr;
 
-	if (!pClient->Initialize(uLinkCount, uMaxSendBuff, uMaxReceiveBuff, uMaxTempSendBuff, uMaxTempReceiveBuff, pfnConnectCallBack, pfnDisconnectCallBack, lpParm, uSleepTime))
+	if (!pClient->Initialize(uLinkCount, uMaxSendBuff, uMaxReceiveBuff, uMaxTempSendBuff, uMaxTempReceiveBuff, pfnConnectCallBack, lpParm, uSleepTime))
 	{
 		pClient->Release();
 		return nullptr;

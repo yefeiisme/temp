@@ -92,6 +92,5 @@ void CClientConnection::Disconnect()
 	}
 
 	g_IGameServerLogic.ClientLogout(this);
-	g_pGameServer.AddFreeClient(this);
 	m_eState	= CLIENT_CONN_STATE_IDLE;
 }

@@ -58,8 +58,6 @@ CGameServer::CGameServer()
 
 	m_bRunning			= false;
 	m_bWaitExit			= false;
-
-	m_listFreeConn.clear();
 }
 
 CGameServer::~CGameServer()
@@ -112,11 +110,6 @@ bool CGameServer::Initialize()
 	{
 		g_pFileLog->WriteLog("Create CClientConnection[%u] Failed\n", g_pGameServerConfig.m_nClientCount);
 		return false;
-	}
-
-	for (int nIndex = 0; nIndex < g_pGameServerConfig.m_nClientCount; ++nIndex)
-	{
-		m_listFreeConn.push_back(&m_pClientList[nIndex]);
 	}
 
 	m_pClientNetwork = CreateServerNetwork(
@@ -189,40 +182,29 @@ void CGameServer::ProcessClient()
 	}
 }
 
-CClientConnection *CGameServer::GetFreeClient()
-{
-	if (m_listFreeConn.empty())
-		return nullptr;
-
-	CClientConnection	*pNewConn	= *m_listFreeConn.begin();
-	m_listFreeConn.pop_front();
-
-	return pNewConn;
-}
-
-void CGameServer::AddFreeClient(CClientConnection *pConn)
-{
-	m_listFreeConn.push_back(pConn);
-}
-
-void CGameServer::ClientConnected(void *pParam, ITcpConnection *pTcpConnection)
+void CGameServer::ClientConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	CGameServer	*pGameServer	= (CGameServer*)pParam;
-	pGameServer->OnClientConnect(pTcpConnection);
+	pGameServer->OnClientConnect(pTcpConnection, uIndex);
 }
 
-void CGameServer::OnClientConnect(ITcpConnection *pTcpConnection)
+void CGameServer::OnClientConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	if (nullptr == pTcpConnection)
 		return;
 
-	CClientConnection	*pNewClient	= GetFreeClient();
-	if (nullptr == pNewClient)
+	if (uIndex >= g_pGameServerConfig.m_nClientCount)
 	{
 		pTcpConnection->ShutDown();
 		return;
 	}
 
-	pNewClient->Connect(*pTcpConnection);
-}
+	CClientConnection	&pNewClient	= m_pClientList[uIndex];
+	if (!pNewClient.IsIdle())
+	{
+		pTcpConnection->ShutDown();
+		return;
+	}
 
+	pNewClient.Connect(pTcpConnection);
+}

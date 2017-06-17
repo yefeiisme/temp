@@ -12,7 +12,6 @@ class CServerNetwork : public IServerNetwork
 {
 private:
 	pfnConnectEvent			m_pfnConnectCallBack;
-	pfnConnectEvent			m_pfnDisconnectCallBack;
 	void					*m_pFunParam;
 
 	typedef void			(CServerNetwork::*pfnStateFunc)(CServerConnInfo &pServerConnInfo);
@@ -76,7 +75,6 @@ public:
 										const unsigned short usPort,
 										void *lpParam,
 										pfnConnectEvent pfnConnectCallBack,
-										pfnConnectEvent pfnDisconnectCallBack,
 										const unsigned int uConnectionNum,
 										const unsigned int uSendBufferLen,
 										const unsigned int uRecvBufferLen,

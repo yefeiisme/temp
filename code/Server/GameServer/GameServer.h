@@ -25,14 +25,11 @@ public:
 		m_bRunning	= false;	
 		m_bWaitExit	= false;	
 	}
-	void						AddFreeClient(CClientConnection *pConn);
 private:
 	void						ProcessClient();
 
-	CClientConnection			*GetFreeClient();
-
-	static void					ClientConnected(void *pParam, ITcpConnection *pTcpConnection);
-	void						OnClientConnect(ITcpConnection *pTcpConnection);
+	static void					ClientConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	void						OnClientConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
 private:
 	IServerNetwork				*m_pClientNetwork;
 
@@ -48,8 +45,6 @@ private:
 
 	bool						m_bRunning;
 	bool						m_bWaitExit;
-
-	list<CClientConnection*>	m_listFreeConn;
 };
 
 extern CGameServer				&g_pGameServer;

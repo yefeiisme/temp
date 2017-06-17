@@ -1,7 +1,7 @@
 #ifndef __CLIENT_CONNECTION_H_
 #define __CLIENT_CONNECTION_H_
 
-#include "network_interface.h"
+#include "INetwork.h"
 #include "IClientConnection.h"
 #include "IGameServer.h"
 
@@ -38,9 +38,9 @@ private:
 	void					OnWaitLogin();
 	void					OnRunning();
 public:
-	inline void				Connect(ITcpConnection &pTcpConnection)
+	inline void				Connect(ITcpConnection *pTcpConnection)
 	{
-		m_pTcpConnection	= &pTcpConnection;
+		m_pTcpConnection	= pTcpConnection;
 
 		m_nTimeOut			= g_nGameServerSecond + 10;
 

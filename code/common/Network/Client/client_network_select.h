@@ -21,7 +21,6 @@ class CClientNetwork : public IClientNetwork
 {
 private:
 	pfnConnectEvent			m_pfnConnectCallBack;
-	pfnConnectEvent			m_pfnDisconnectCallBack;
 	void					*m_pFunParam;
 
 	typedef void			(CClientNetwork::*pfnStateFunc)(CClientConnInfo &pClientConn);
@@ -50,7 +49,6 @@ public:
 										const unsigned int uTempSendBuffLen,
 										const unsigned int uTempRecvBuffLen,
 										pfnConnectEvent pfnConnectCallBack,
-										pfnConnectEvent pfnDisconnectCallBack,
 										void *lpParm,
 										const unsigned int uSleepTime
 										);
@@ -67,6 +65,7 @@ public:
 	void					Release();
 	bool					ConnectTo(char *pstrAddr, const unsigned short usPort, const unsigned int uIndex);
 	bool					ConnectToUrl(char *pstrAddr, const unsigned short usPort, const unsigned int uIndex);
+	void					ShutDown(const unsigned int uIndex);
 private:
 	void					OnClientIdle(CClientConnInfo &pClientConn);
 	void					OnClientTryConnect(CClientConnInfo &pClientConn);

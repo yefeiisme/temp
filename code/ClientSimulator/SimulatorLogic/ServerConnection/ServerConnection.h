@@ -1,7 +1,7 @@
 #ifndef __CLIENT_CONNECTION_H_
 #define __CLIENT_CONNECTION_H_
 
-#include "network_interface.h"
+#include "INetwork.h"
 #include "ISimulatorLogic.h"
 
 class CPlayer;
@@ -13,19 +13,21 @@ class CServerConnection
 		SERVER_CONN_STATE_IDLE,
 		SERVER_CONN_STATE_WAIT_CONNECT,
 		SERVER_CONN_STATE_RUNNING,
+		SERVER_CONN_STATE_DISCONNECT,
 		SERVER_CONN_STATE_MAX,
 	};
 public:
 	CServerConnection();
 	~CServerConnection();
 
+	inline void				SetIndex(const unsigned int uIndex)
+	{
+		m_uIndex = uIndex;
+	}
+
 	inline void				Connect(ITcpConnection &pTcpConnection)
 	{
 		m_pTcpConnection	= &pTcpConnection;
-
-		m_eState	= SERVER_CONN_STATE_RUNNING;
-
-		m_nTimeOut	= g_nSimulatorSecond + 10;
 	}
 
 	void					DoAction();
@@ -63,8 +65,7 @@ private:
 	void					OnIdle();
 	void					OnWaitConnect();
 	void					OnRunning();
-public:
-	void					Disconnect();
+	void					OnDisconnect();
 private:
 	typedef void (CServerConnection::*StateFuncArray)();
 	static StateFuncArray	m_pfnStateFunc[SERVER_CONN_STATE_MAX];
@@ -72,6 +73,7 @@ private:
 	ITcpConnection			*m_pTcpConnection;
 	CPlayer					*m_pPlayer;
 
+	unsigned int			m_uIndex;
 	E_SERVER_CONN_STATE		m_eState;
 
 	time_t					m_nTimeOut;

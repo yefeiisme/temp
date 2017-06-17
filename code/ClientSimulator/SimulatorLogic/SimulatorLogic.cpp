@@ -34,8 +34,6 @@ CSimulatorLogic::CSimulatorLogic()
 
 	m_bRunning			= false;
 	m_bWaitExit			= false;
-
-	m_listFreeConn.clear();
 }
 
 CSimulatorLogic::~CSimulatorLogic()
@@ -59,8 +57,6 @@ CSimulatorLogic::~CSimulatorLogic()
 	}
 
 	SAFE_DELETE_ARR(m_pServerConnList);
-
-	m_listFreeConn.clear();
 }
 
 CSimulatorLogic &CSimulatorLogic::Singleton()
@@ -95,9 +91,9 @@ bool CSimulatorLogic::Initialize()
 		return false;
 	}
 
-	for (int nIndex = 0; nIndex < g_pSimulatorConfig.m_nConnectionCount; ++nIndex)
+	for (unsigned int uIndex = 0; uIndex < g_pSimulatorConfig.m_nConnectionCount; ++uIndex)
 	{
-		m_listFreeConn.push_back(&m_pServerConnList[nIndex]);
+		m_pServerConnList[uIndex].SetIndex(uIndex);
 	}
 
 	m_pClientNetwork	= CreateClientNetwork(
@@ -149,6 +145,11 @@ const void *CSimulatorLogic::GetRespond(unsigned int &uPackLen)
 	return m_pRBRespond->RcvPack(uPackLen);
 }
 
+void CSimulatorLogic::ShutDownConnection(const unsigned int uConnIndex)
+{
+	m_pClientNetwork->ShutDown(uConnIndex);
+}
+
 void CSimulatorLogic::ThreadFunc()
 {
 	m_ullBeginTick		= GetMicroTick();
@@ -171,7 +172,7 @@ void CSimulatorLogic::ThreadFunc()
 
 		g_nSimulatorSecond	= time(nullptr);
 
-		ProcessClient();
+		ProcessConnection();
 
 		ProcessRequest();
 	}
@@ -183,27 +184,21 @@ void CSimulatorLogic::ThreadFunc()
 	}
 }
 
-void CSimulatorLogic::ProcessClient()
+void CSimulatorLogic::ProcessConnection()
 {
 	for (int nIndex = 0; nIndex < g_pSimulatorConfig.m_nConnectionCount; ++nIndex)
 	{
 		if (m_pServerConnList[nIndex].IsIdle())
 		{
-			m_pServerConnList[nIndex].ConnectWait();
-
-			if (!m_pClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nServerPort, &m_pServerConnList[nIndex]))
+			if (m_pClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nServerPort, nIndex))
 			{
-				m_pServerConnList[nIndex].Disconnect();
-				continue;
+				m_pServerConnList[nIndex].ConnectWait();
 			}
+
+			continue;
 		}
-		else if (m_pServerConnList[nIndex].IsConnectWait())
-		{
-		}
-		else
-		{
-			m_pServerConnList[nIndex].DoAction();
-		}
+
+		m_pServerConnList[nIndex].DoAction();
 	}
 }
 
@@ -218,23 +213,23 @@ void CSimulatorLogic::ProcessRequest()
 	};
 }
 
-void CSimulatorLogic::ClientConnected(void *pParam, ITcpConnection *pTcpConnection, const void *pTarget)
+void CSimulatorLogic::ClientConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	CSimulatorLogic	*pSimulatorLogic	= (CSimulatorLogic*)pParam;
-	pSimulatorLogic->OnClientConnect(pTcpConnection, pTarget);
+	pSimulatorLogic->OnClientConnect(pTcpConnection, uIndex);
 }
 
-void CSimulatorLogic::OnClientConnect(ITcpConnection *pTcpConnection, const void *pTarget)
+void CSimulatorLogic::OnClientConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	if (nullptr == pTcpConnection)
 		return;
 
-	if (nullptr == pTarget)
+	if (uIndex >= g_pSimulatorConfig.m_nConnectionCount)
 	{
 		pTcpConnection->ShutDown();
 		return;
 	}
 
-	CServerConnection	*pNewClient	= (CServerConnection*)pTarget;
-	pNewClient->Connect(*pTcpConnection);
+	CServerConnection	&pNewClient	= m_pServerConnList[uIndex];
+	pNewClient.Connect(*pTcpConnection);
 }

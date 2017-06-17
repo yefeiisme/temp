@@ -14,7 +14,6 @@ CServerNetwork::pfnStateFunc CServerNetwork::m_pfnConnStateFunc[SERVER_CONN_STAT
 CServerNetwork::CServerNetwork()
 {
 	m_pfnConnectCallBack	= nullptr;
-	m_pfnDisconnectCallBack = nullptr;
 	m_pFunParam				= nullptr;
 
 	m_pListenLink			= nullptr;
@@ -108,11 +107,9 @@ void CServerNetwork::OnConnWaitLogicExit(CServerConnInfo &pClientConn)
 	if (pClientConn.IsLogicConnected())
 		return;
 
-	pClientConn.LogicDisconnect();
-
 	AddAvailableConnection(&pClientConn);
 
-	m_pfnDisconnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
+	pClientConn.LogicDisconnect();
 }
 
 void CServerNetwork::ProcessAccept()
@@ -213,7 +210,6 @@ bool CServerNetwork::Initialize(
 	const unsigned short usPort,
 	void *lpParam,
 	pfnConnectEvent pfnConnectCallBack,
-	pfnConnectEvent pfnDisconnectCallBack,
 	const unsigned int uConnectionNum,
 	const unsigned int uSendBufferLen,
 	const unsigned int uRecvBufferLen,
@@ -253,7 +249,6 @@ bool CServerNetwork::Initialize(
 
 	m_uMaxConnCount			= uConnectionNum;
 	m_pfnConnectCallBack	= pfnConnectCallBack;
-	m_pfnDisconnectCallBack = pfnDisconnectCallBack;
 	m_pFunParam				= lpParam;
 
 	m_pListenLink = new CServerConnInfo;
@@ -342,7 +337,6 @@ IServerNetwork *CreateServerNetwork(
 	unsigned short usPort,
 	void *lpParam,
 	pfnConnectEvent pfnConnectCallBack,
-	pfnConnectEvent pfnDisconnectCallBack,
 	unsigned int uConnectionNum,
 	unsigned int uSendBufferLen,
 	unsigned int uRecvBufferLen,
@@ -355,7 +349,7 @@ IServerNetwork *CreateServerNetwork(
 	if (nullptr == pServer)
 		return nullptr;
 
-	if (!pServer->Initialize(usPort, lpParam, pfnConnectCallBack, pfnDisconnectCallBack, uConnectionNum, uSendBufferLen, uRecvBufferLen, uTempSendBufferLen, uTempRecvBufferLen, uSleepTime))
+	if (!pServer->Initialize(usPort, lpParam, pfnConnectCallBack, uConnectionNum, uSendBufferLen, uRecvBufferLen, uTempSendBufferLen, uTempRecvBufferLen, uSleepTime))
 	{
 		pServer->Release();
 		return nullptr;
