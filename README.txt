@@ -9,3 +9,5 @@ Gateway
 .隔离GS与外网
 .被攻击后，自动重启（需相关进程对其监控）
 .多进程，多IP，多端口，防攻击
+
+http://blog.csdn.net/ning521513/article/details/52288236
