@@ -11,3 +11,5 @@ Gateway
 .多进程，多IP，多端口，防攻击
 
 http://blog.csdn.net/ning521513/article/details/52288236
+phpstorm破解网址：
+http://idea.qinxi1992.cn/
