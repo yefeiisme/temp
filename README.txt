@@ -7,6 +7,9 @@ https://github.com/google/protobuf.git
 vc2015编译protobuf:
 http://m.blog.csdn.net/u010008152/article/details/52088238
 
+protobuf的好文章（后面还包含了php中使用protobuf的方式）:
+http://blog.csdn.net/hguisu/article/details/20721109
+
 通过cmake生成sln文件来编译:
 用cmd命令 cd 到3.3.0\cmake
 mkdir build & cd build
@@ -19,6 +22,8 @@ cmake -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=../../../../instal
 
 
 PHP制作后台网页，socket连接服务器
+PHP的protobuf库
+https://github.com/google/protobuf/tree/master/php
 
 Gateway
 .转发消息
