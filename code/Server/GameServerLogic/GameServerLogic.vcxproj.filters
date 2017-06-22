@@ -35,4 +35,9 @@
       <Filter>Player</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Share\Header\ClientGSProtocol.proto">
+      <Filter>Player</Filter>
+    </CustomBuild>
+  </ItemGroup>
 </Project>

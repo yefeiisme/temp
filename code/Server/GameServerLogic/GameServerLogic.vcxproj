@@ -20,6 +20,15 @@
     <ClCompile Include="Player\Player.cpp" />
     <ClCompile Include="Player\PlayerProtocol.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Share\Header\ClientGSProtocol.proto">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/ --cpp_out=../../Share/Header/ ../../Share/Header/ClientGSProtocol.proto
+move ../../Share/Header/ClientGSProtocol.pb.cc ./Player/</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Player/ClientGSProtocol.pb.cc;../../share/Header/ClientGSProtocol.pb.h;%(Outputs)</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A3CBFAF9-4318-4511-91FD-9E83093E3733}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
