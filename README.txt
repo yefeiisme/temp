@@ -13,9 +13,9 @@ http://blog.csdn.net/hguisu/article/details/20721109
 用cmd命令 cd 到3.3.0\cmake
 mkdir build & cd build
 mkdir solutionx86 & cd solutionx86
-cmake -G "Visual Studio 12 2013" -DCMAKE_INSTALL_PREFIX=../../../../install ../.. -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_BUILD_SHARED_LIBS=ON -DCMAKE_GENERATOR_TOOLSET=v120_xp
+cmake -G "Visual Studio 12 2013" -DCMAKE_INSTALL_PREFIX=../../../../install ../.. -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_BUILD_SHARED_LIBS=OFF -DCMAKE_GENERATOR_TOOLSET=v120_xp
 如果要编译64位的话
-cmake -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=../../../../install ../.. -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_BUILD_SHARED_LIBS=ON -DCMAKE_GENERATOR_TOOLSET=v120_xp
+cmake -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=../../../../install ../.. -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_BUILD_SHARED_LIBS=OFF -DCMAKE_GENERATOR_TOOLSET=v120_xp
 
 注意中间不能有回车之类的，该命令行生成的是dll版本的（静态库的话要注意lib的运行库），其它版本请查考cmake目录下面的README.md
 
