@@ -3,6 +3,7 @@
 
 #include "ClientGSProtocol.h"
 #include "IClientConnection.h"
+#include "ClientGSProtocol.pb.h"
 
 class CPlayer
 {

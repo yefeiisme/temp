@@ -12,19 +12,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameServerLogic.h" />
+    <ClInclude Include="Player\ClientGSProtocol.pb.h" />
     <ClInclude Include="Player\Player.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameServerLogic.cpp" />
+    <ClCompile Include="Player\ClientGSProtocol.pb.cc" />
     <ClCompile Include="Player\Player.cpp" />
     <ClCompile Include="Player\PlayerProtocol.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\Share\Header\ClientGSProtocol.proto">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/ --cpp_out=../../Share/Header/ ../../Share/Header/ClientGSProtocol.proto
-move ../../Share/Header/ClientGSProtocol.pb.cc ./Player/</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/ --cpp_out=./Player/ ../../Share/Header/ClientGSProtocol.proto
+</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Player/ClientGSProtocol.pb.cc;../../share/Header/ClientGSProtocol.pb.h;%(Outputs)</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
     </CustomBuild>

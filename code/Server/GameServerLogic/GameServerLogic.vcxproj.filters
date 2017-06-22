@@ -23,6 +23,9 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Player\ClientGSProtocol.pb.h">
+      <Filter>Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameServerLogic.cpp">
@@ -32,6 +35,9 @@
       <Filter>Player</Filter>
     </ClCompile>
     <ClCompile Include="Player\PlayerProtocol.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\ClientGSProtocol.pb.cc">
       <Filter>Player</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,5 @@
 log4cpp的使用（windows&linux）
 
-protobuf的使用（windows&linux）
 protobuf地址下载地址:
 https://github.com/google/protobuf.git
 
