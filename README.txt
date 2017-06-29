@@ -1,4 +1,4 @@
-log4cpp的使用（windows&linux）
+log4cplus的使用（windows&linux）
 
 protobuf地址下载地址:
 https://github.com/google/protobuf.git
@@ -33,3 +33,10 @@ Gateway
 http://blog.csdn.net/ning521513/article/details/52288236
 phpstorm破解网址：
 http://idea.qinxi1992.cn/
+
+
+技术点：
+google的quic（基于upd的网络传输）
+http://blog.csdn.net/wu5215080/article/details/56836196
+tcp打洞
+共享内存
