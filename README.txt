@@ -1,3 +1,5 @@
+用protobuf替换以前项目的Client Login协议
+
 log4cplus的使用（windows&linux）
 
 protobuf地址下载地址:
