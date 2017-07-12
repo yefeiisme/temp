@@ -2,6 +2,7 @@ SET(LIBGAMESERVERLOGIC_SRC
 GameServerLogic.cpp
 Player/Player.cpp
 Player/PlayerProtocol.cpp
+Player/ClientGSProtocol.pb.cc
 )
 include_directories (
 	"./"

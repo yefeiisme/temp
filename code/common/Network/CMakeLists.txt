@@ -1,5 +1,7 @@
 SET(LIBNETWORK_SRC
 conn_info/conn_info.cpp
+conn_info/server_conn_info.cpp
+conn_info/client_conn_info.cpp
 Server/server_network_epoll.cpp
 Client/client_network_select.cpp
 )

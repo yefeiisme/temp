@@ -11,8 +11,8 @@ add_compile_options(-std=c++11)
 project (gameserver)
 if (NOT SET_OUTPUT_DIRECTORY)
 	set (CMAKE_RUNTIME_OUTPUT_DIRECTORY "../../bin/server")
-	set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY "../../share/llib")
-	set (CMAKE_LIBRARY_OUTPUT_DIRECTORY "../../share/llib")
+	set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY "../../Share/llib")
+	set (CMAKE_LIBRARY_OUTPUT_DIRECTORY "../../Share/llib")
 	set (SET_OUTPUT_DIRECTORY ON)
 endif (NOT SET_OUTPUT_DIRECTORY)
 
@@ -25,12 +25,12 @@ GameServer/ClientConnection/ClientConnection
 
 include_directories (
 	"GameServer"
-	"../share/header"
-	"../share/header/base"
-	"../share/header/GameServer"
+	"../Share/Header"
+	"../Share/Header/Base"
+	"../Share/Header/GameServer"
 )
 
-link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../share/llib)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../Share/llib)
 
 ADD_EXECUTABLE(gameserver ${SRC_LIST})
 
@@ -43,6 +43,7 @@ target_link_libraries (gameserver
 	network
 	ringbuffer
 	gameserverlogic
+	protobuf
 	pthread
 )
 
