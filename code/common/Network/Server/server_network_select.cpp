@@ -68,7 +68,7 @@ void CServerNetwork::OnConnConnect(CServerConnInfo &pClientConn)
 		return;
 	}
 
-	if (pClientConn.SendData() == -1)
+	if (!pClientConn.SendData())
 	{
 		// 网络层异常，关闭网络相关操作，等待逻辑层退出
 		pClientConn.Disconnect();

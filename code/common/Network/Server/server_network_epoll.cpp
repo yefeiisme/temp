@@ -8,10 +8,16 @@
 #define MAX_EP 500
 #define MAX_EP_WAIT (MAX_EP/100)
 
+CServerNetwork::pfnStateFunc CServerNetwork::m_pfnConnStateFunc[SERVER_CONN_STATE_MAX] =
+{
+	&CServerNetwork::OnConnIdle,
+	&CServerNetwork::OnConnConnect,
+	&CServerNetwork::OnConnWaitLogicExit,
+};
+
 CServerNetwork::CServerNetwork()
 {
 	m_pfnConnectCallBack	= nullptr;
-	m_pfnDisconnectCallBack = nullptr;
 	m_pFunParam				= nullptr;
 
 	m_pListenLink			= nullptr;
@@ -24,9 +30,6 @@ CServerNetwork::CServerNetwork()
 	m_uSleepTime			= 0;
 
 	m_nepfd					= 0;
-
-	m_listActiveConn.clear();
-	m_listCloseWaitConn.clear();
 
 	m_bRunning				= false;
 	m_bExited				= false;
@@ -51,6 +54,37 @@ CServerNetwork::~CServerNetwork()
 	SAFE_DELETE_ARR(m_pTcpConnection);
 
 	closesocket(m_nepfd);
+}
+
+void CServerNetwork::OnConnIdle(CServerConnInfo &pClientConn)
+{
+}
+
+void CServerNetwork::OnConnConnect(CServerConnInfo &pClientConn)
+{
+	if (!pClientConn.IsLogicConnected())
+	{
+		// 逻辑层已经退出了，这里只需要TcpConnect关闭就OK了
+		pClientConn.Disconnect();
+		return;
+	}
+
+	if (!pClientConn.SendData())
+	{
+		// 网络层异常，关闭网络相关操作，等待逻辑层退出
+		pClientConn.Disconnect();
+		return;
+	}
+}
+
+void CServerNetwork::OnConnWaitLogicExit(CServerConnInfo &pClientConn)
+{
+	if (pClientConn.IsLogicConnected())
+		return;
+
+	AddAvailableConnection(&pClientConn);
+
+	pClientConn.LogicDisconnect();
 }
 
 int CServerNetwork::SetNoBlocking(CServerConnInfo *pTcpConnection)
@@ -87,14 +121,14 @@ void CServerNetwork::AcceptClient(const SOCKET nNewSocket)
 	{
 		RemoveConnection(pNewLink);
 
-		g_pFileLog->WriteLog("ERROR on rtsig the sock; errno=%d\n", errno);
+		g_pFileLog->WriteLog("[%s][%d] SetNoBlocking Sock[%d] errno=%d\n", __FILE__, __FILE__, nNewSocket, errno);
 
 		return;
 	}
 
-	m_listActiveConn.push_back(pNewLink);
+	pNewLink->Connected();
 
-	m_pfnConnectCallBack(m_pFunParam, pNewLink);
+	m_pfnConnectCallBack(m_pFunParam, pNewLink, pNewLink->GetConnID());
 }
 
 void CServerNetwork::DisconnectConnection(CServerConnInfo *pTcpConnection)
@@ -108,13 +142,6 @@ void CServerNetwork::RemoveConnection(CServerConnInfo *pTcpConnection)
 	DisconnectConnection(pTcpConnection);
 
 	AddAvailableConnection(pTcpConnection);
-}
-
-void CServerNetwork::CloseConnection(CServerConnInfo *pTcpConnection)
-{
-	DisconnectConnection(pTcpConnection);
-
-	m_listCloseWaitConn.push_back(pTcpConnection);
 }
 
 void CServerNetwork::ReadAction()
@@ -147,7 +174,7 @@ void CServerNetwork::ReadAction()
 		{
 			if (pNetLink->RecvData() == -1)
 			{
-				CloseConnection(pNetLink);
+				DisconnectConnection(pNetLink);
 			}
 		}
 		else if (wv[nLoopCount].events & EPOLLPRI)
@@ -157,57 +184,12 @@ void CServerNetwork::ReadAction()
 		}
 		else if (wv[nLoopCount].events & EPOLLHUP)
 		{
-			CloseConnection(pNetLink);
+			DisconnectConnection(pNetLink);
 		}
 		else if (wv[nLoopCount].events & EPOLLERR)
 		{
 			// error
-			CloseConnection(pNetLink);
-		}
-	}
-}
-
-void CServerNetwork::WriteAction()
-{
-	CServerConnInfo	*pTcpConnection = nullptr;
-	for (auto Iter = m_listActiveConn.begin(); Iter != m_listActiveConn.end();)
-	{
-		pTcpConnection	= *Iter;
-		if (!pTcpConnection->IsLogicConnected())
-		{
-			// 逻辑层已经退出了，这里只需要将TcpConnect从Active中移除OK了
-			RemoveConnection(pTcpConnection);
-			Iter	= m_listActiveConn.erase(Iter);
-			continue;
-		}
-
-		if (pTcpConnection->SendData() == -1)
-		{
-			// 网络层异常，关闭网络相关操作，放入等待队列中，等待逻辑层退出
-			CloseConnection(pTcpConnection);
-			Iter	= m_listActiveConn.erase(Iter);
-			continue;
-		}
-
-		++Iter;
-	}
-}
-
-void CServerNetwork::CloseAction()
-{
-	CServerConnInfo	*pTcpConnection = nullptr;
-	for (auto Iter = m_listCloseWaitConn.begin(); Iter != m_listCloseWaitConn.end();)
-	{
-		pTcpConnection	= *Iter;
-		if (pTcpConnection->IsLogicConnected())
-		{
-			++Iter;
-			continue;
-		}
-		else
-		{
-			AddAvailableConnection(pTcpConnection);
-			Iter	= m_listCloseWaitConn.erase(Iter);
+			DisconnectConnection(pNetLink);
 		}
 	}
 }
@@ -217,8 +199,11 @@ void CServerNetwork::ThreadFunc()
 	while (m_bRunning)
 	{
 		ReadAction();
-		WriteAction();
-		CloseAction();
+
+		for (int nIndex = 0; nIndex < m_uMaxConnCount; ++nIndex)
+		{
+			(this->*m_pfnConnStateFunc[m_pTcpConnection[nIndex].GetState()])(m_pTcpConnection[nIndex]);
+		}
 
 		yield();
 	}
@@ -242,7 +227,6 @@ bool CServerNetwork::Initialize(
 	const unsigned short usPort,
 	void *lpParam,
 	pfnConnectEvent pfnConnectCallBack,
-	pfnConnectEvent pfnDisconnectCallBack,
 	const unsigned int uConnectionNum,
 	const unsigned int uSendBufferLen,
 	const unsigned int uRecvBufferLen,
@@ -271,7 +255,6 @@ bool CServerNetwork::Initialize(
 
 	m_uMaxConnCount			= uConnectionNum;
 	m_pfnConnectCallBack	= pfnConnectCallBack;
-	m_pfnDisconnectCallBack = pfnDisconnectCallBack;
 	m_pFunParam				= lpParam;
 
 	m_pListenLink = new CServerConnInfo;
@@ -357,7 +340,6 @@ IServerNetwork *CreateServerNetwork(
 	unsigned short usPort,
 	void *lpParam,
 	pfnConnectEvent pfnConnectCallBack,
-	pfnConnectEvent pfnDisconnectCallBack,
 	unsigned int uConnectionNum,
 	unsigned int uSendBufferLen,
 	unsigned int uRecvBufferLen,
@@ -370,7 +352,7 @@ IServerNetwork *CreateServerNetwork(
 	if (nullptr == pServer)
 		return nullptr;
 
-	if (!pServer->Initialize(usPort, lpParam, pfnConnectCallBack, pfnDisconnectCallBack, uConnectionNum, uSendBufferLen, uRecvBufferLen, uTempSendBufferLen, uTempRecvBufferLen, uSleepTime))
+	if (!pServer->Initialize(usPort, lpParam, pfnConnectCallBack, uConnectionNum, uSendBufferLen, uRecvBufferLen, uTempSendBufferLen, uTempRecvBufferLen, uSleepTime))
 	{
 		pServer->Release();
 		return nullptr;

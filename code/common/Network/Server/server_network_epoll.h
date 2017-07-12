@@ -10,8 +10,10 @@ class CServerNetwork : public IServerNetwork
 {
 private:
 	pfnConnectEvent			m_pfnConnectCallBack;
-	pfnConnectEvent			m_pfnDisconnectCallBack;
 	void					*m_pFunParam;
+
+	typedef void			(CServerNetwork::*pfnStateFunc)(CServerConnInfo &pServerConnInfo);
+	static pfnStateFunc		m_pfnConnStateFunc[SERVER_CONN_STATE_MAX];
 
 	CServerConnInfo			*m_pListenLink;
 
@@ -24,9 +26,6 @@ private:
 	unsigned int			m_uSleepTime;
 
 	int						m_nepfd;
-
-	list<CServerConnInfo*>	m_listActiveConn;
-	list<CServerConnInfo*>	m_listCloseWaitConn;
 
 	bool					m_bRunning;
 	bool					m_bExited;
@@ -44,18 +43,19 @@ private:
 		}
 	}
 
+	void					OnConnIdle(CServerConnInfo &pClientConn);
+	void					OnConnConnect(CServerConnInfo &pClientConn);
+	void					OnConnWaitLogicExit(CServerConnInfo &pClientConn);
+
 	int						SetNoBlocking(CServerConnInfo *pTcpConnection);
 	void					AcceptClient(const SOCKET nNewSocket);
 
 	void					DisconnectConnection(CServerConnInfo *pTcpConnection);
 	void					RemoveConnection(CServerConnInfo *pTcpConnection);
-	void					CloseConnection(CServerConnInfo *pTcpConnection);
 
 	void					NetworkAction();
 
 	void					ReadAction();
-	void					WriteAction();
-	void					CloseAction();
 
 	void					ThreadFunc();
 	inline void				yield()
@@ -73,7 +73,6 @@ public:
 										const unsigned short usPort,
 										void *lpParam,
 										pfnConnectEvent pfnConnectCallBack,
-										pfnConnectEvent pfnDisconnectCallBack,
 										const unsigned int uConnectionNum,
 										const unsigned int uSendBufferLen,
 										const unsigned int uRecvBufferLen,

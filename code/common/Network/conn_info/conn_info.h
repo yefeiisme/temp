@@ -77,7 +77,7 @@ public:
 	virtual const char			*GetIP() = 0;
 
 	int							RecvData();
-	int							SendData();
+	bool						SendData();
 	bool						PutPack(const void *pPack, unsigned int uPackLen);
 	const void					*GetPack(unsigned int &uPackLen);
 

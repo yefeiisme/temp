@@ -331,7 +331,7 @@ bool CTcpConnection::PutPack(const void* pPack, unsigned int uPackLen)
 }
 
 
-int CTcpConnection::SendData()
+bool CTcpConnection::SendData()
 {
 	char	*pFlushStart	= m_pFlush;
 	char	*pFlushEnd		= m_pSend;
@@ -339,11 +339,9 @@ int CTcpConnection::SendData()
 	int		nSendedBytes;
 	int		nTailLen = 0;
 
+	// nothing to send
 	if (pFlushStart == pFlushEnd)
-	{
-		// nothing to send
-		return 0;
-	}
+		return true;
 
 	if (pFlushStart < pFlushEnd)
 	{
@@ -353,12 +351,12 @@ int CTcpConnection::SendData()
 		if (nSendedBytes == nMaxSendBytes)
 		{
 			m_pFlush = pFlushEnd;
-			return 0;
+			return true;
 		}
 		else if (nSendedBytes >= 0)
 		{
 			m_pFlush = pFlushStart + nSendedBytes;
-			return 0;
+			return true;
 		}
 	}
 	else
@@ -371,7 +369,7 @@ int CTcpConnection::SendData()
 			if (pFlushEnd == m_pSendBuf)
 			{
 				m_pFlush = m_pSendBuf;
-				return 0;
+				return true;
 			}
 			// wrap to the head of buffer
 			nMaxSendBytes	= pFlushEnd - m_pSendBuf;
@@ -380,13 +378,13 @@ int CTcpConnection::SendData()
 			if (nSendedBytes >= 0)
 			{
 				m_pFlush = m_pSendBuf + nSendedBytes;
-				return 0;
+				return true;
 			}
 		}
 		else if (nSendedBytes >= 0)
 		{
 			m_pFlush = pFlushStart + nSendedBytes;
-			return 0;
+			return true;
 		}
 	}
 
@@ -398,12 +396,12 @@ int CTcpConnection::SendData()
 		g_pFileLog->WriteLog("file: %s, line: %d, errno: %d\n", __FILE__, __LINE__, errno);
 #elif defined(__APPLE__)
 #endif
-		return -1;
+		return false;
 	}
 	else
 	{
 		// should block, return and wait for next time
-		return 0;
+		return true;
 	}
 	
 }

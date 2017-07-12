@@ -1,7 +1,6 @@
 #ifndef __SERVER_NETWORK_SELECT_H_
 #define __SERVER_NETWORK_SELECT_H_
 
-#include <list>
 #include "../NetworkHead.h"
 
 using namespace std;

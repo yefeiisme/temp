@@ -306,7 +306,7 @@ void CClientNetwork::OnClientConnect(CClientConnInfo &pClientConn)
 
 	if (FD_ISSET(pClientConn.GetSock(), &m_WriteSet))
 	{
-		if (pClientConn.SendData() == -1)
+		if (!pClientConn.SendData())
 		{
 			pClientConn.Disconnect();
 
