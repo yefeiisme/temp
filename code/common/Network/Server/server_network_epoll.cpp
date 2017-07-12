@@ -37,9 +37,13 @@ CServerNetwork::CServerNetwork()
 
 CServerNetwork::~CServerNetwork()
 {
-	if (m_pListenLink->IsSocketConnected())
+	if (m_pListenLink)
 	{
-		DisconnectConnection(m_pListenLink);
+		if (m_pListenLink->IsSocketConnected())
+		{
+			DisconnectConnection(m_pListenLink);
+		}
+		SAFE_DELETE(m_pListenLink);
 	}
 
 	for (int nIndex = 0; nIndex < m_uMaxConnCount; ++nIndex)
@@ -50,7 +54,6 @@ CServerNetwork::~CServerNetwork()
 		}
 	}
 
-	SAFE_DELETE(m_pListenLink);
 	SAFE_DELETE_ARR(m_pTcpConnection);
 
 	closesocket(m_nepfd);
@@ -235,6 +238,10 @@ bool CServerNetwork::Initialize(
 	const unsigned int uSleepTime
 	)
 {
+	m_uMaxConnCount			= uConnectionNum;
+	m_pfnConnectCallBack	= pfnConnectCallBack;
+	m_pFunParam				= lpParam;
+
 	if (0 == m_uMaxConnCount)
 		return false;
 
@@ -247,15 +254,11 @@ bool CServerNetwork::Initialize(
 	if (nullptr == lpParam)
 		return false;
 
-	if (nullptr == pfnConnectCallBack)
+	if (nullptr == m_pfnConnectCallBack)
 		return false;
 
-	if (nullptr == lpParam)
+	if (nullptr == m_pFunParam)
 		return false;
-
-	m_uMaxConnCount			= uConnectionNum;
-	m_pfnConnectCallBack	= pfnConnectCallBack;
-	m_pFunParam				= lpParam;
 
 	m_pListenLink = new CServerConnInfo;
 	if (nullptr == m_pListenLink)

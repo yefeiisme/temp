@@ -25,6 +25,7 @@ void CPlayer::RecvBroadCastMsg(const void *pPack, const unsigned int uPackLen)
 
 	ClientGSPack::C2S_CHAT_MESSAGE	tagMsg;
 	tagMsg.set_strmsg(pRecvInfo->strMsg);
+	tagMsg.ParseFromArray(pPack, uPackLen);
 
 	S2C_CHAT_MSG		tagSendInfo;
 	memset(&tagSendInfo, 0, sizeof(tagSendInfo));
