@@ -38,6 +38,8 @@ CSimulatorLogic::CSimulatorLogic()
 
 CSimulatorLogic::~CSimulatorLogic()
 {
+	SAFE_DELETE_ARR(m_pServerConnList);
+
 	if (m_pClientNetwork)
 	{
 		m_pClientNetwork->Release();
@@ -55,8 +57,6 @@ CSimulatorLogic::~CSimulatorLogic()
 		m_pRBRespond->Release();
 		m_pRBRespond	= nullptr;
 	}
-
-	SAFE_DELETE_ARR(m_pServerConnList);
 }
 
 CSimulatorLogic &CSimulatorLogic::Singleton()
