@@ -78,6 +78,7 @@ void CGameServerLogic::ClientLogout(IClientConnection *pClientConnection)
 
 	if (Iter != m_mapOnlinePlayer.end())
 	{
+		m_listFreePlayer.push_back(Iter->second);
 		Iter->second->DetachClient();
 		m_mapOnlinePlayer.erase(Iter);
 	}
