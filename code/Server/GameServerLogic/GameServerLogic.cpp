@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "GameServerLogic.h"
+#include "Config/GameServerLogicConfig.h"
 #include "Player/Player.h"
 
 CGameServerLogic	&g_pGameServerLogic	= CGameServerLogic::Singleton();
@@ -7,7 +8,7 @@ IGameServerLogic	&g_IGameServerLogic	= g_pGameServerLogic;
 
 CGameServerLogic::CGameServerLogic()
 {
-	m_uPlayerCount	= 0;
+	m_pPlayerList	= nullptr;
 
 	m_mapOnlinePlayer.clear();
 	m_listFreePlayer.clear();
@@ -15,12 +16,10 @@ CGameServerLogic::CGameServerLogic()
 
 CGameServerLogic::~CGameServerLogic()
 {
+	SAFE_DELETE_ARR(m_pPlayerList);
+
 	m_mapOnlinePlayer.clear();
 
-	for (list<CPlayer*>::iterator Iter = m_listFreePlayer.begin(); Iter != m_listFreePlayer.end(); ++Iter)
-	{
-		SAFE_DELETE(*Iter);
-	}
 	m_listFreePlayer.clear();
 }
 
@@ -34,14 +33,19 @@ CGameServerLogic &CGameServerLogic::Singleton()
 
 bool CGameServerLogic::Initialize()
 {
-	m_uPlayerCount	= 3000;
-	CPlayer	*pPlayerList	= new CPlayer[m_uPlayerCount];
-	if (nullptr == pPlayerList)
+	if (!g_pGameServerLogicConfig.Initialize())
+	{
+		g_pFileLog->WriteLog("[%s][%d] Failed\n", __FUNCTION__, __LINE__);
+		return false;
+	}
+
+	m_pPlayerList	= new CPlayer[g_pGameServerLogicConfig.m_nPlayerCount];
+	if (nullptr == m_pPlayerList)
 		return false;
 
-	for (int nIndex = 0; nIndex < m_uPlayerCount; ++nIndex)
+	for (int nIndex = 0; nIndex < g_pGameServerLogicConfig.m_nPlayerCount; ++nIndex)
 	{
-		m_listFreePlayer.push_back(&pPlayerList[nIndex]);
+		m_listFreePlayer.push_back(&m_pPlayerList[nIndex]);
 	}
 
 	return true;

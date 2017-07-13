@@ -32,7 +32,7 @@ public:
 
 	void					BroadCastAllPlayer(const void *pPack, const unsigned int uPackLen);
 private:
-	UINT					m_uPlayerCount;
+	CPlayer					*m_pPlayerList;
 	std::map<IClientConnection*,CPlayer*>	m_mapOnlinePlayer;
 	std::list<CPlayer*>		m_listFreePlayer;
 };

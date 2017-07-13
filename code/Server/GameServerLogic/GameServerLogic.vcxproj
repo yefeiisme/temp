@@ -11,12 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Config\GameServerLogicConfig.h" />
     <ClInclude Include="GameServerLogic.h" />
     <ClInclude Include="Player\ClientGSProtocol.pb.h" />
     <ClInclude Include="Player\Player.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Config\GameServerLogicConfig.cpp" />
     <ClCompile Include="GameServerLogic.cpp" />
     <ClCompile Include="Player\ClientGSProtocol.pb.cc" />
     <ClCompile Include="Player\Player.cpp" />
