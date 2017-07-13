@@ -30,6 +30,11 @@ public:
 		return m_eState;
 	}
 
+	inline bool					IsIdle()
+	{
+		return CLIENT_CONN_IDLE == m_eState;
+	}
+
 	inline void					SetConnectTarget(const unsigned int uIndex)
 	{
 		m_uTargetIndex = uIndex;
@@ -59,12 +64,7 @@ public:
 
 		m_bLogicConnected	= true;
 
-		m_eState			= CLIENT_CONN_WAIT_CONNECT;
-	}
-
-	inline void					TryConnect()
-	{
-		m_eState = CLIENT_CONN_TRY_CONNECT;
+		m_eState			= CLIENT_CONN_TRY_CONNECT;
 	}
 
 	inline void					WaitConnectOK()

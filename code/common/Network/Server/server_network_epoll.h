@@ -1,10 +1,7 @@
 #ifndef __SERVER_NETWORK_EPOLL_H_
 #define __SERVER_NETWORK_EPOLL_H_
 
-#include <list>
 #include "../NetworkHead.h"
-
-using namespace std;
 
 class CServerNetwork : public IServerNetwork
 {

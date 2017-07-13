@@ -3,8 +3,6 @@
 
 #include "INetwork.h"
 #include "IRingBuffer.h"
-#include <list>
-using namespace std;
 
 #define MAX_IPV4_ADDR_LEN	16
 

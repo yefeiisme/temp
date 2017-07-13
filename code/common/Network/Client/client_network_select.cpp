@@ -113,12 +113,12 @@ void CClientNetwork::Release()
 
 bool CClientNetwork::ConnectTo(char *pstrAddr, const unsigned short usPort, const unsigned int uIndex)
 {
-	CClientConnInfo	&pClientConn = m_pTcpConnection[uIndex];
-	if (pClientConn.IsLogicConnected() || pClientConn.IsSocketConnected())
-	{
-		// 这个连接已经是Connect状态，不再处理建立连接的消息
+	if (uIndex >= m_uMaxConnCount)
 		return false;
-	}
+
+	CClientConnInfo	&pClientConn = m_pTcpConnection[uIndex];
+	if (!pClientConn.IsIdle())
+		return false;
 
 	pClientConn.ConnectTo(pstrAddr, usPort);
 
@@ -127,6 +127,9 @@ bool CClientNetwork::ConnectTo(char *pstrAddr, const unsigned short usPort, cons
 
 bool CClientNetwork::ConnectToUrl(char *pstrAddr, const unsigned short usPort, const unsigned int uIndex)
 {
+	if (uIndex >= m_uMaxConnCount)
+		return false;
+
 	CClientConnInfo	&pTcpConnection = m_pTcpConnection[uIndex];
 	if (pTcpConnection.IsLogicConnected() || pTcpConnection.IsSocketConnected())
 	{
@@ -155,10 +158,6 @@ void CClientNetwork::ShutDown(const unsigned int uIndex)
 
 void CClientNetwork::OnClientIdle(CClientConnInfo &pClientConn)
 {
-	if (pClientConn.IsLogicConnected())
-	{
-		pClientConn.TryConnect();
-	}
 }
 
 void CClientNetwork::OnClientTryConnect(CClientConnInfo &pClientConn)
@@ -251,15 +250,6 @@ void CClientNetwork::OnClientWaitConnect(CClientConnInfo &pClientConn)
 		g_pFileLog->WriteLog("Connnect Failed errno=%d\n", errno);
 #elif defined(__APPLE__)
 #endif
-		pClientConn.Disconnect();
-
-		m_pfnConnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
-
-		return;
-	}
-
-	if (-1 == SetNoBlocking(pClientConn.GetSock()))
-	{
 		pClientConn.Disconnect();
 
 		m_pfnConnectCallBack(m_pFunParam, nullptr, pClientConn.GetConnID());
