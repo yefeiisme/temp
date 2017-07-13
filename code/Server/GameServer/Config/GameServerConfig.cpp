@@ -12,6 +12,7 @@ CGameServerConfig::CGameServerConfig()
 	m_nSendBuffLen		= 0;
 	m_nMaxRecvPackLen	= 0;
 	m_nMaxSendPackLen	= 0;
+	m_nSleepTime		= 0;
 }
 
 CGameServerConfig::~CGameServerConfig()
@@ -53,6 +54,7 @@ bool CGameServerConfig::LoadConfig()
 	m_pIniFile->GetInteger("Client", "SendBuffLen", 0, &m_nSendBuffLen);
 	m_pIniFile->GetInteger("Client", "MaxRecvPackLen", 0, &m_nMaxRecvPackLen);
 	m_pIniFile->GetInteger("Client", "MaxSendPackLen", 0, &m_nMaxSendPackLen);
+	m_pIniFile->GetInteger("Client", "SleepTime", 0, &m_nSleepTime);
 
 	m_pIniFile->Release();
 	m_pIniFile	= nullptr;

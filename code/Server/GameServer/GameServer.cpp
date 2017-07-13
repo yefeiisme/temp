@@ -121,7 +121,7 @@ bool CGameServer::Initialize()
 											g_pGameServerConfig.m_nRecvBuffLen,
 											g_pGameServerConfig.m_nMaxSendPackLen,
 											g_pGameServerConfig.m_nMaxRecvPackLen,
-											1
+											g_pGameServerConfig.m_nSleepTime
 											);
 	if (nullptr == m_pClientNetwork)
 	{

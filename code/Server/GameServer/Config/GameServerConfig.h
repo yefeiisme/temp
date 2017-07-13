@@ -23,6 +23,7 @@ public:
 	int							m_nSendBuffLen;
 	int							m_nMaxRecvPackLen;
 	int							m_nMaxSendPackLen;
+	int							m_nSleepTime;
 };
 
 extern CGameServerConfig		&g_pGameServerConfig;
