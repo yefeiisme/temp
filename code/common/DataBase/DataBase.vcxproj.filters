@@ -9,5 +9,18 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Mysql">
+      <UniqueIdentifier>{409d417b-ce34-4933-b8ff-5ac19ed77c13}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Mysql\MysqlQuery.cpp">
+      <Filter>Mysql</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mysql\MysqlQuery.h">
+      <Filter>Mysql</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

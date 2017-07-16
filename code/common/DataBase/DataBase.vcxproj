@@ -10,6 +10,12 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Mysql\MysqlQuery.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mysql\MysqlQuery.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

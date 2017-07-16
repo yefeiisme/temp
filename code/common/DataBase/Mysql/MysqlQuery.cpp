@@ -262,12 +262,6 @@ bool CRoleDBThread::Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPass
 		return false;
 	}
 
-	if (!LoadAllRedEnvelope())
-	{
-		g_pFileLog->WriteLog("%s[%d] Load All Envelope Failed!\n", __FILE__, __LINE__);
-		return false;
-	}
-
 	m_bRunning	= true;
 
 	m_RoleDBThread.Create(this, &CRoleDBThread::RoleDBThreadFunc);
@@ -1838,70 +1832,6 @@ bool CRoleDBThread::LoadAllGlobalMail()
 		tagMailInfo.nExpireTime	= (int)strtoul(m_pRow[nColIndex], NULL, 10);
 
 		g_pICenterServerLogic->AddGlobalMail(&tagMailInfo);
-	}
-
-	mysql_free_result(m_pQueryRes);
-
-	return true;
-}
-
-bool CRoleDBThread::LoadAllRedEnvelope()
-{
-	int	nStrLen	= snprintf(m_strSQL, sizeof(m_strSQL), PROCEDURE_LOAD_ALL_RED_ENVELOPE);
-
-	if (nStrLen <= 0 || nStrLen >= sizeof(m_strSQL))
-	{
-		g_pFileLog->WriteLog("%s[%d] nStrLen Is Error:[%d]\n", __FILE__, __LINE__, nStrLen);
-		return false;
-	}
-
-	if (!Query(m_strSQL, nStrLen))
-	{
-		g_pFileLog->WriteLog("%s[%d] Query Error:\n[%s]\n", __FILE__, __LINE__, m_strSQL);
-		return false;
-	}
-
-	m_pQueryRes = mysql_use_result(m_pDBHandle);
-	if (!m_pQueryRes)
-	{
-		g_pFileLog->WriteLog("%s[%d] mysql_use_result Failed\n", __FILE__, __LINE__);
-		return false;
-	}
-
-	int		nColIndex;
-	WORD	wServerID;
-
-	while (NULL != (m_pRow = mysql_fetch_row(m_pQueryRes)))
-	{
-		unsigned long	*pRowLength	= mysql_fetch_lengths(m_pQueryRes);
-		if (!pRowLength)
-		{
-			g_pFileLog->WriteLog("%s[%d] mysql_fetch_lengths Failed\n", __FILE__, __LINE__);
-			continue;
-		}
-
-		SRedEnvelope	tagRedEnvelope;
-		memset(&tagRedEnvelope, 0, sizeof(tagRedEnvelope));
-
-		nColIndex	= 0;
-
-		tagRedEnvelope.uID				= (UINT)strtoul(m_pRow[nColIndex++], NULL, 10);
-		wServerID						= (WORD)strtoul(m_pRow[nColIndex++], NULL, 10);
-		tagRedEnvelope.uOwnerID			= (UINT)strtoul(m_pRow[nColIndex++], NULL, 10);
-		strncpy(tagRedEnvelope.strOwnerName, m_pRow[nColIndex++], sizeof(tagRedEnvelope.strOwnerName));
-		tagRedEnvelope.strOwnerName[sizeof(tagRedEnvelope.strOwnerName)-1]	= '\0';
-		tagRedEnvelope.byOwnerImageID	= (BYTE)strtoul(m_pRow[nColIndex++], NULL, 10);
-		tagRedEnvelope.uMinDiamond		= (UINT)strtoul(m_pRow[nColIndex++], NULL, 10);
-		tagRedEnvelope.uMaxDiamond		= (UINT)strtoul(m_pRow[nColIndex++], NULL, 10);
-		tagRedEnvelope.nExpireTime		= (int)strtoul(m_pRow[nColIndex++], NULL, 10);
-
-		if (m_pRow[nColIndex])
-		{
-			memcpy(tagRedEnvelope.tagData, m_pRow[nColIndex], min(sizeof(tagRedEnvelope.tagData),pRowLength[nColIndex]));
-		}
-		++nColIndex;
-
-		g_pICenterServerLogic->AddRedEnvelope(wServerID, &tagRedEnvelope);
 	}
 
 	mysql_free_result(m_pQueryRes);
