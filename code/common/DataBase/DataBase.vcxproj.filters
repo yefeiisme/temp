@@ -22,5 +22,8 @@
     <ClInclude Include="Mysql\MysqlQuery.h">
       <Filter>Mysql</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Share\Header\Mysql\IMysqlQuery.h">
+      <Filter>Mysql</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
