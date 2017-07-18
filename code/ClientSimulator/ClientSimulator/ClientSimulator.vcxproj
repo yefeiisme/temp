@@ -63,7 +63,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../../share/Lib/Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Daemon.lib;FileLog.lib;FileReader.lib;Network.lib;RingBuffer.lib;SimulatorLogic.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Daemon.lib;FileLog.lib;FileReader.lib;Network.lib;RingBuffer.lib;SimulatorLogic.lib;Ws2_32.lib;libprotocd.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -107,6 +107,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ClientGSProtocol.pb.h" />
     <ClInclude Include="ClientSimulator.h" />
     <ClInclude Include="ClientSimulatorDlg.h" />
     <ClInclude Include="Resource.h" />
@@ -114,6 +115,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ClientGSProtocol.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="ClientSimulator.cpp" />
     <ClCompile Include="ClientSimulatorDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -125,6 +129,11 @@
     <ResourceCompile Include="ClientSimulator.rc" />
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="..\..\Share\Header\ClientGSProtocol.proto">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/ --cpp_out=./ ../../Share/Header/ClientGSProtocol.proto</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ClientGSProtocol.pb.cc;../../share/Header/ClientGSProtocol.pb.h;%(Outputs)</Outputs>
+    </CustomBuild>
     <None Include="res\ClientSimulator.rc2" />
   </ItemGroup>
   <ItemGroup>

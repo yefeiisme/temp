@@ -6,3 +6,8 @@ message C2S_CHAT_MESSAGE
 { 
 	required bytes	strMsg	= 1;	// Message 
 }
+
+message S2C_CHAT_MESSAGE
+{
+	required bytes	strMsg	= 1;	// Message 
+}

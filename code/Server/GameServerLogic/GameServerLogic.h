@@ -4,6 +4,8 @@
 #include "IGameServerLogic.h"
 #include <map>
 
+using namespace std;
+
 class CPlayer;
 
 class CGameServerLogic : public IGameServerLogic
@@ -33,8 +35,8 @@ public:
 	void					BroadCastAllPlayer(const void *pPack, const unsigned int uPackLen);
 private:
 	CPlayer					*m_pPlayerList;
-	std::map<IClientConnection*,CPlayer*>	m_mapOnlinePlayer;
-	std::list<CPlayer*>		m_listFreePlayer;
+	map<IClientConnection*,CPlayer*>	m_mapOnlinePlayer;
+	list<CPlayer*>			m_listFreePlayer;
 };
 
 extern CGameServerLogic		&g_pGameServerLogic;

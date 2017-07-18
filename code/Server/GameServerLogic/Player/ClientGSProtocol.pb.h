@@ -34,6 +34,9 @@ namespace ClientGSPack {
 class C2S_CHAT_MESSAGE;
 class C2S_CHAT_MESSAGEDefaultTypeInternal;
 extern C2S_CHAT_MESSAGEDefaultTypeInternal _C2S_CHAT_MESSAGE_default_instance_;
+class S2C_CHAT_MESSAGE;
+class S2C_CHAT_MESSAGEDefaultTypeInternal;
+extern S2C_CHAT_MESSAGEDefaultTypeInternal _S2C_CHAT_MESSAGE_default_instance_;
 }  // namespace ClientGSPack
 
 namespace ClientGSPack {
@@ -152,6 +155,106 @@ class C2S_CHAT_MESSAGE : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::internal::ArenaStringPtr strmsg_;
   friend struct protobuf_ClientGSProtocol_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class S2C_CHAT_MESSAGE : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ClientGSPack.S2C_CHAT_MESSAGE) */ {
+ public:
+  S2C_CHAT_MESSAGE();
+  virtual ~S2C_CHAT_MESSAGE();
+
+  S2C_CHAT_MESSAGE(const S2C_CHAT_MESSAGE& from);
+
+  inline S2C_CHAT_MESSAGE& operator=(const S2C_CHAT_MESSAGE& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2C_CHAT_MESSAGE& default_instance();
+
+  static inline const S2C_CHAT_MESSAGE* internal_default_instance() {
+    return reinterpret_cast<const S2C_CHAT_MESSAGE*>(
+               &_S2C_CHAT_MESSAGE_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    1;
+
+  void Swap(S2C_CHAT_MESSAGE* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2C_CHAT_MESSAGE* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2C_CHAT_MESSAGE* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2C_CHAT_MESSAGE& from);
+  void MergeFrom(const S2C_CHAT_MESSAGE& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2C_CHAT_MESSAGE* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes strMsg = 1;
+  bool has_strmsg() const;
+  void clear_strmsg();
+  static const int kStrMsgFieldNumber = 1;
+  const ::std::string& strmsg() const;
+  void set_strmsg(const ::std::string& value);
+  #if LANG_CXX11
+  void set_strmsg(::std::string&& value);
+  #endif
+  void set_strmsg(const char* value);
+  void set_strmsg(const void* value, size_t size);
+  ::std::string* mutable_strmsg();
+  ::std::string* release_strmsg();
+  void set_allocated_strmsg(::std::string* strmsg);
+
+  // @@protoc_insertion_point(class_scope:ClientGSPack.S2C_CHAT_MESSAGE)
+ private:
+  void set_has_strmsg();
+  void clear_has_strmsg();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr strmsg_;
+  friend struct protobuf_ClientGSProtocol_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -223,7 +326,76 @@ inline void C2S_CHAT_MESSAGE::set_allocated_strmsg(::std::string* strmsg) {
   // @@protoc_insertion_point(field_set_allocated:ClientGSPack.C2S_CHAT_MESSAGE.strMsg)
 }
 
+// -------------------------------------------------------------------
+
+// S2C_CHAT_MESSAGE
+
+// required bytes strMsg = 1;
+inline bool S2C_CHAT_MESSAGE::has_strmsg() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2C_CHAT_MESSAGE::set_has_strmsg() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2C_CHAT_MESSAGE::clear_has_strmsg() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2C_CHAT_MESSAGE::clear_strmsg() {
+  strmsg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_strmsg();
+}
+inline const ::std::string& S2C_CHAT_MESSAGE::strmsg() const {
+  // @@protoc_insertion_point(field_get:ClientGSPack.S2C_CHAT_MESSAGE.strMsg)
+  return strmsg_.GetNoArena();
+}
+inline void S2C_CHAT_MESSAGE::set_strmsg(const ::std::string& value) {
+  set_has_strmsg();
+  strmsg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ClientGSPack.S2C_CHAT_MESSAGE.strMsg)
+}
+#if LANG_CXX11
+inline void S2C_CHAT_MESSAGE::set_strmsg(::std::string&& value) {
+  set_has_strmsg();
+  strmsg_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ClientGSPack.S2C_CHAT_MESSAGE.strMsg)
+}
+#endif
+inline void S2C_CHAT_MESSAGE::set_strmsg(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_strmsg();
+  strmsg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ClientGSPack.S2C_CHAT_MESSAGE.strMsg)
+}
+inline void S2C_CHAT_MESSAGE::set_strmsg(const void* value, size_t size) {
+  set_has_strmsg();
+  strmsg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ClientGSPack.S2C_CHAT_MESSAGE.strMsg)
+}
+inline ::std::string* S2C_CHAT_MESSAGE::mutable_strmsg() {
+  set_has_strmsg();
+  // @@protoc_insertion_point(field_mutable:ClientGSPack.S2C_CHAT_MESSAGE.strMsg)
+  return strmsg_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2C_CHAT_MESSAGE::release_strmsg() {
+  // @@protoc_insertion_point(field_release:ClientGSPack.S2C_CHAT_MESSAGE.strMsg)
+  clear_has_strmsg();
+  return strmsg_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2C_CHAT_MESSAGE::set_allocated_strmsg(::std::string* strmsg) {
+  if (strmsg != NULL) {
+    set_has_strmsg();
+  } else {
+    clear_has_strmsg();
+  }
+  strmsg_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), strmsg);
+  // @@protoc_insertion_point(field_set_allocated:ClientGSPack.S2C_CHAT_MESSAGE.strMsg)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 

@@ -8,6 +8,7 @@
 #include "afxdialogex.h"
 #include "ClientGSProtocol.h"
 #include "ISimulatorLogic.h"
+#include "ClientGSProtocol.pb.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -176,13 +177,13 @@ void CClientSimulatorDlg::OnBnClickedOk()
 {
 	UpdateData(TRUE);
 
-	C2S_BROAD_CAST_MSG	tagInfo;
-	memset(&tagInfo, 0, sizeof(tagInfo));
-	tagInfo.byProtocol	= c2s_broad_cast_msg;
-	strncpy(tagInfo.strMsg, (CHAR*)m_strSendMsg.GetBuffer(m_strSendMsg.GetLength()), sizeof(tagInfo.strMsg));
-	tagInfo.strMsg[sizeof(tagInfo.strMsg)-1]	= '\0';
+	ClientGSPack::C2S_CHAT_MESSAGE	tagSendMsg;
+	BYTE	strBuffer[0xffff]	= {0};
+	strBuffer[0]	= c2s_broad_cast_msg;
+	tagSendMsg.set_strmsg(m_strSendMsg.GetBuffer(m_strSendMsg.GetLength()));
+	tagSendMsg.SerializeToArray(strBuffer+sizeof(BYTE), tagSendMsg.ByteSize());
 
-	g_ISimulatorLogic.SendRequest(&tagInfo, sizeof(tagInfo));
+	g_ISimulatorLogic.SendRequest(strBuffer, sizeof(BYTE)+tagSendMsg.ByteSize());
 }
 
 

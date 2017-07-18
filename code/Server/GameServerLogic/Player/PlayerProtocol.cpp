@@ -21,17 +21,16 @@ void CPlayer::RecvChatMsg(const void *pPack, const unsigned int uPackLen)
 
 void CPlayer::RecvBroadCastMsg(const void *pPack, const unsigned int uPackLen)
 {
-	C2S_BROAD_CAST_MSG	*pRecvInfo	= (C2S_BROAD_CAST_MSG*)pPack;
+	ClientGSPack::C2S_CHAT_MESSAGE	tagRecvMsg;
+	tagRecvMsg.ParseFromArray((BYTE*)pPack+sizeof(BYTE), uPackLen-sizeof(BYTE));
 
-	ClientGSPack::C2S_CHAT_MESSAGE	tagMsg;
-	tagMsg.set_strmsg(pRecvInfo->strMsg);
-	tagMsg.ParseFromArray(pPack, uPackLen);
+	ClientGSPack::S2C_CHAT_MESSAGE	tagSendMsg;
+	tagSendMsg.set_strmsg(tagRecvMsg.strmsg());
 
-	S2C_CHAT_MSG		tagSendInfo;
-	memset(&tagSendInfo, 0, sizeof(tagSendInfo));
-	tagSendInfo.byProtocol	= s2c_chat_msg;
-	strncpy(tagSendInfo.strMsg, pRecvInfo->strMsg, sizeof(tagSendInfo.strMsg));
-	tagSendInfo.strMsg[sizeof(tagSendInfo.strMsg)-1]	= '\0';
+	BYTE	strSendBuffer[0xffff]	= {0};
+	strSendBuffer[0]	= s2c_chat_msg;
 
-	g_pGameServerLogic.BroadCastAllPlayer(&tagSendInfo, sizeof(tagSendInfo));
+	tagSendMsg.SerializeToArray(strSendBuffer+sizeof(BYTE), tagSendMsg.ByteSize());
+
+	g_pGameServerLogic.BroadCastAllPlayer(strSendBuffer, sizeof(BYTE)+tagSendMsg.ByteSize());
 }
