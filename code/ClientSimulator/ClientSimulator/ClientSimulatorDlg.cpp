@@ -53,6 +53,7 @@ END_MESSAGE_MAP()
 CClientSimulatorDlg::CClientSimulatorDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CClientSimulatorDlg::IDD, pParent)
 , m_strSendMsg(_T(""))
+, m_strPassword(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -62,6 +63,8 @@ void CClientSimulatorDlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_EDIT_MSG, m_strSendMsg);
 	DDV_MaxChars(pDX, m_strSendMsg, 1024);
+	DDX_Text(pDX, IDC_EDIT_MSG2, m_strPassword);
+	DDV_MaxChars(pDX, m_strPassword, 1024);
 }
 
 BEGIN_MESSAGE_MAP(CClientSimulatorDlg, CDialogEx)
@@ -177,11 +180,12 @@ void CClientSimulatorDlg::OnBnClickedOk()
 {
 	UpdateData(TRUE);
 
-	ClientGSPack::C2S_CHAT_MESSAGE	tagSendMsg;
+	WS_CS_NET_PACK::WS2CS_LOGIN	tagSendMsg;
 	BYTE	strBuffer[0xffff]	= {0};
 	strBuffer[0]	= c2s_broad_cast_msg;
-	tagSendMsg.set_strmsg(m_strSendMsg.GetBuffer(m_strSendMsg.GetLength()));
-	tagSendMsg.SerializeToArray(strBuffer+sizeof(BYTE), tagSendMsg.ByteSize());
+	tagSendMsg.set_account(m_strSendMsg.GetBuffer(m_strSendMsg.GetLength()));
+	tagSendMsg.set_password(m_strPassword.GetBuffer(m_strPassword.GetLength()));
+	tagSendMsg.SerializeToArray(strBuffer + sizeof(BYTE), tagSendMsg.ByteSize());
 
 	g_ISimulatorLogic.SendRequest(strBuffer, sizeof(BYTE)+tagSendMsg.ByteSize());
 }

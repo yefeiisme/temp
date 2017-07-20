@@ -53,4 +53,7 @@
       <Filter>Config</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Share\Header\ClientGSProtocol.proto" />
+  </ItemGroup>
 </Project>

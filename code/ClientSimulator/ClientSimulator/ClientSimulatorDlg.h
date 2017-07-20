@@ -34,4 +34,5 @@ public:
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedCancel();
 	CString m_strSendMsg;
+	CString m_strPassword;
 };

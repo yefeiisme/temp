@@ -1,13 +1,17 @@
 syntax = "proto2";
 
-package ClientGSPack;
+package WS_CS_NET_PACK;
 
-message C2S_CHAT_MESSAGE 
+message WS2CS_LOGIN
 { 
-	required bytes	strMsg	= 1;	// Message 
+	required bytes	account		= 1;	// ÕËºÅ
+	required bytes	password	= 2;	// ÃÜÂë
 }
 
-message S2C_CHAT_MESSAGE
+
+
+
+message CS2WS_LOGIN_RESULT
 {
-	required bytes	strMsg	= 1;	// Message 
+	required uint32	result	= 1;	// µÇÂ½½á¹û£º0£¬µÇÂ½³É¹¦£»1£¬ÕÊºÅ»òÕßÃÜÂë´íÎó£»
 }

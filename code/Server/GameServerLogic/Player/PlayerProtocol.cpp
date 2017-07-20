@@ -21,16 +21,16 @@ void CPlayer::RecvChatMsg(const void *pPack, const unsigned int uPackLen)
 
 void CPlayer::RecvBroadCastMsg(const void *pPack, const unsigned int uPackLen)
 {
-	ClientGSPack::C2S_CHAT_MESSAGE	tagRecvMsg;
+	WS_CS_NET_PACK::WS2CS_LOGIN	tagRecvMsg;
 	tagRecvMsg.ParseFromArray((BYTE*)pPack+sizeof(BYTE), uPackLen-sizeof(BYTE));
 
-	ClientGSPack::S2C_CHAT_MESSAGE	tagSendMsg;
-	tagSendMsg.set_strmsg(tagRecvMsg.strmsg());
+	WS_CS_NET_PACK::CS2WS_LOGIN_RESULT	tagSendMsg;
+	tagSendMsg.set_result(1);
 
 	BYTE	strSendBuffer[0xffff]	= {0};
 	strSendBuffer[0]	= s2c_chat_msg;
 
 	tagSendMsg.SerializeToArray(strSendBuffer+sizeof(BYTE), tagSendMsg.ByteSize());
 
-	g_pGameServerLogic.BroadCastAllPlayer(strSendBuffer, sizeof(BYTE)+tagSendMsg.ByteSize());
+	SendMsg(strSendBuffer, sizeof(BYTE)+tagSendMsg.ByteSize());
 }

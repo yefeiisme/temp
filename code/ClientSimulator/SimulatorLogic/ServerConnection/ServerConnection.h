@@ -28,6 +28,7 @@ public:
 	inline void				Connect(ITcpConnection &pTcpConnection)
 	{
 		m_pTcpConnection	= &pTcpConnection;
+		m_nTimeOut			= g_nSimulatorSecond + 10;
 	}
 
 	void					DoAction();
@@ -39,6 +40,7 @@ public:
 	inline void				ConnectWait()
 	{
 		m_eState	= SERVER_CONN_STATE_WAIT_CONNECT;
+		m_nTimeOut	= g_nSimulatorSecond + 10;
 	}
 
 	inline bool				IsIdle()
