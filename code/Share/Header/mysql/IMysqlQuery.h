@@ -6,6 +6,13 @@ class IMysqlQuery
 public:
 };
 
-IMysqlQuery			*CreateMysqlQuery(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort);
+IMysqlQuery			*CreateMysqlQuery(
+										char *pstrDBIP,
+										char *pstrAccount,
+										char *pstrPassword,
+										char *pstrDBName,
+										unsigned short usDBPort,
+										char *pstrCharset
+										);
 
 #endif

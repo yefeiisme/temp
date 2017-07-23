@@ -37,14 +37,14 @@
     <ClInclude Include="ClientConnection\ClientConnection.h">
       <Filter>ClientConnection</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Share\Header\IGameServer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Config\GameServerConfig.h">
       <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Share\Header\GameServer\IGameServer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
