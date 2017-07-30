@@ -5,6 +5,7 @@
 #include "ICenterServer.h"
 
 class CAppConnection;
+class CWebConnection;
 
 class CCenterServer : public ICenterServer
 {
@@ -29,6 +30,7 @@ private:
 	IServerNetwork				*m_pAppNetwork;
 
 	CAppConnection				*m_pAppConnList;
+	CWebConnection				*m_pWebConnList;
 
 	uint64						m_uFrame;
 
@@ -37,6 +39,7 @@ private:
 	uint64						m_ullTickNow;
 
 	UINT						m_uAppCount;
+	UINT						m_uWebCount;
 
 	bool						m_bRunning;
 	bool						m_bWaitExit;

@@ -46,6 +46,7 @@ CCenterServer::CCenterServer()
 	m_pAppNetwork		= nullptr;
 
 	m_pAppConnList		= nullptr;
+	m_pWebConnList		= nullptr;
 
 	m_uFrame			= 0;
 
@@ -54,6 +55,7 @@ CCenterServer::CCenterServer()
 	m_ullTickNow		= 0;
 
 	m_uAppCount			= 0;
+	m_uWebCount			= 0;
 
 	m_bRunning			= false;
 	m_bWaitExit			= false;
@@ -61,6 +63,14 @@ CCenterServer::CCenterServer()
 
 CCenterServer::~CCenterServer()
 {
+	if (m_pAppNetwork)
+	{
+		m_pAppNetwork->Release();
+		m_pAppNetwork = nullptr;
+	}
+
+	SAFE_DELETE_ARR(m_pAppConnList);
+	SAFE_DELETE_ARR(m_pWebConnList);
 }
 
 CCenterServer &CCenterServer::Singleton()

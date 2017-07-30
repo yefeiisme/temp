@@ -1,7 +1,7 @@
-#ifndef __I_CLIENT_CONNECTION_H_
-#define __I_CLIENT_CONNECTION_H_
+#ifndef __I_APP_CONNECTION_H_
+#define __I_APP_CONNECTION_H_
 
-class IClientConnection
+class IAppConnection
 {
 public:
 	virtual const void	*GetPack(unsigned int &uPackLen) = 0;					// 获取已收到的网络数据包

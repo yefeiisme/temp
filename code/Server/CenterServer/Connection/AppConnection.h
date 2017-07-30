@@ -1,7 +1,9 @@
 #ifndef __APP_CONNECTION_H_
 #define __APP_CONNECTION_H_
 
-class CAppConnection
+#include "ClientConnection.h"
+
+class CAppConnection : public CClientConnection
 {
 public:
 	CAppConnection();

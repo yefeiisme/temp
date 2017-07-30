@@ -12,6 +12,9 @@
     <Filter Include="Connection">
       <UniqueIdentifier>{fcb99ca9-b30e-4d4c-b94e-1a15e5bb0c7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{744d6025-12a1-484a-8606-02a6d3b44a59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CenterServer.h">
@@ -23,12 +26,6 @@
     <ClInclude Include="..\..\Share\Header\CenterServer\ICenterServerLogic.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Share\Header\CenterServer\IWebConnection.h">
-      <Filter>Connection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Share\Header\CenterServer\IAppConnection.h">
-      <Filter>Connection</Filter>
-    </ClInclude>
     <ClInclude Include="Connection\AppConnection.h">
       <Filter>Connection</Filter>
     </ClInclude>
@@ -37,6 +34,12 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Config\CenterServerConfig.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Connection\ClientConnection.h">
+      <Filter>Connection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +54,12 @@
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Config\CenterServerConfig.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Connection\ClientConnection.cpp">
+      <Filter>Connection</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
