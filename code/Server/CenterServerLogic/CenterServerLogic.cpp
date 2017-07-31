@@ -1,95 +1,112 @@
 #include "stdafx.h"
-#include "GameServerLogic.h"
-#include "Config/GameServerLogicConfig.h"
-#include "Player/Player.h"
+#include "CenterServerLogic.h"
+#include "Config/CenterServerLogicConfig.h"
+#include "User/AppUser.h"
+#include "User/WebUser.h"
+//#include "Player/Player.h"
 
-CGameServerLogic	&g_pGameServerLogic	= CGameServerLogic::Singleton();
-IGameServerLogic	&g_IGameServerLogic	= g_pGameServerLogic;
+CCenterServerLogic	&g_pCenterServerLogic	= CCenterServerLogic::Singleton();
+ICenterServerLogic	&g_ICenterServerLogic	= g_pCenterServerLogic;
 
-CGameServerLogic::CGameServerLogic()
+CCenterServerLogic::CCenterServerLogic()
 {
-	m_pPlayerList	= nullptr;
+	m_pAppUserList	= nullptr;
+	m_pWebUserList	= nullptr;
 
-	m_mapOnlinePlayer.clear();
-	m_listFreePlayer.clear();
+	m_listFreeAppUser.clear();
+	m_listFreeWebUser.clear();
+
+	m_mapOnlineAppUser.clear();
+	m_mapOnlineWebUser.clear();
 }
 
-CGameServerLogic::~CGameServerLogic()
+CCenterServerLogic::~CCenterServerLogic()
 {
-	SAFE_DELETE_ARR(m_pPlayerList);
+	SAFE_DELETE_ARR(m_pAppUserList);
+	SAFE_DELETE_ARR(m_pWebUserList);
 
-	m_mapOnlinePlayer.clear();
+	m_listFreeAppUser.clear();
+	m_listFreeWebUser.clear();
 
-	m_listFreePlayer.clear();
+	m_mapOnlineAppUser.clear();
+	m_mapOnlineWebUser.clear();
 }
 
-CGameServerLogic &CGameServerLogic::Singleton()
+CCenterServerLogic &CCenterServerLogic::Singleton()
 {
-	static CGameServerLogic singleton;
+	static CCenterServerLogic singleton;
 
 	return singleton;
 }
 
 
-bool CGameServerLogic::Initialize()
+bool CCenterServerLogic::Initialize()
 {
-	if (!g_pGameServerLogicConfig.Initialize())
+	if (!g_pCenterServerLogicConfig.Initialize())
 	{
 		g_pFileLog->WriteLog("[%s][%d] Failed\n", __FUNCTION__, __LINE__);
 		return false;
 	}
 
-	m_pPlayerList	= new CPlayer[g_pGameServerLogicConfig.m_nPlayerCount];
-	if (nullptr == m_pPlayerList)
+	m_pAppUserList	= new CAppUser[g_pCenterServerLogicConfig.m_nAppUserCount];
+	if (nullptr == m_pAppUserList)
 		return false;
 
-	for (int nIndex = 0; nIndex < g_pGameServerLogicConfig.m_nPlayerCount; ++nIndex)
+	for (int nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nAppUserCount; ++nIndex)
 	{
-		m_listFreePlayer.push_back(&m_pPlayerList[nIndex]);
+		m_listFreeAppUser.push_back(&m_pAppUserList[nIndex]);
+	}
+
+	m_pWebUserList	= new CWebUser[g_pCenterServerLogicConfig.m_nWebUserCount];
+	if (nullptr == m_pWebUserList)
+		return false;
+
+	for (int nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nWebUserCount; ++nIndex)
+	{
+		m_listFreeWebUser.push_back(&m_pWebUserList[nIndex]);
 	}
 
 	return true;
 }
 
-void CGameServerLogic::Run()
+void CCenterServerLogic::Run()
 {
-	for (map<IClientConnection*, CPlayer*>::iterator Iter = m_mapOnlinePlayer.begin(); Iter != m_mapOnlinePlayer.end(); ++Iter)
-	{
-		Iter->second->DoAction();
-	}
+	//for (map<IClientConnection*, CPlayer*>::iterator Iter = m_mapOnlinePlayer.begin(); Iter != m_mapOnlinePlayer.end(); ++Iter)
+	//{
+	//	Iter->second->DoAction();
+	//}
 }
 
-bool CGameServerLogic::ClientLogin(IClientConnection *pClientConnection)
+bool CCenterServerLogic::AppLogin(IClientConnection *pClientConnection)
 {
-	CPlayer	*pPlayer	= GetFreePlayer();
-	if (nullptr == pPlayer)
+	CAppUser	*pAppUser	= GetFreeAppUser();
+	if (nullptr == pAppUser)
 		return false;
 
-	pPlayer->AttachClient(pClientConnection);
+	//pPlayer->AttachClient(pClientConnection);
 
-	m_mapOnlinePlayer[pClientConnection]	= pPlayer;
+	//m_mapOnlinePlayer[pClientConnection]	= pPlayer;
 
 	return true;
 }
 
-void CGameServerLogic::ClientLogout(IClientConnection *pClientConnection)
+void CCenterServerLogic::AppLogout(IClientConnection *pClientConnection)
 {
-	map<IClientConnection*,CPlayer*>::iterator Iter = m_mapOnlinePlayer.find(pClientConnection);
+	//map<IClientConnection*,CPlayer*>::iterator Iter = m_mapOnlinePlayer.find(pClientConnection);
 
-	if (Iter != m_mapOnlinePlayer.end())
-	{
-		m_listFreePlayer.push_back(Iter->second);
-		Iter->second->DetachClient();
-		m_mapOnlinePlayer.erase(Iter);
-	}
+	//if (Iter != m_mapOnlinePlayer.end())
+	//{
+	//	m_listFreePlayer.push_back(Iter->second);
+	//	Iter->second->DetachClient();
+	//	m_mapOnlinePlayer.erase(Iter);
+	//}
 }
 
-void CGameServerLogic::BroadCastAllPlayer(const void *pPack, const unsigned int uPackLen)
+bool CCenterServerLogic::WebLogin(IClientConnection *pClientConnection)
 {
-	for (map<IClientConnection*,CPlayer*>::iterator Iter = m_mapOnlinePlayer.begin(); Iter != m_mapOnlinePlayer.end(); ++Iter)
-	{
-		Iter->second->SendMsg(pPack, uPackLen);
-	}
+	return true;
+}
 
-	g_pFileLog->WriteLog("Broad Cast Player Count[%d] Msg Len[%u]\n", m_mapOnlinePlayer.size(), uPackLen);
+void CCenterServerLogic::WebLogout(IClientConnection *pClientConnection)
+{
 }

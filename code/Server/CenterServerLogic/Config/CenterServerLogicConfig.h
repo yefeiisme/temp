@@ -1,15 +1,15 @@
-#ifndef __GAME_SERVER_LOGIC_CONFIG_H_
-#define __GAME_SERVER_LOGIC_CONFIG_H_
+#ifndef __CENTER_SERVER_LOGIC_CONFIG_H_
+#define __CENTER_SERVER_LOGIC_CONFIG_H_
 
 #include "IIniFile.h"
 
-class CGameServerLogicConfig
+class CCenterServerLogicConfig
 {
 public:
-	CGameServerLogicConfig();
-	~CGameServerLogicConfig();
+	CCenterServerLogicConfig();
+	~CCenterServerLogicConfig();
 
-	static CGameServerLogicConfig	&Singleton();
+	static CCenterServerLogicConfig	&Singleton();
 
 	bool							Initialize();
 private:
@@ -17,9 +17,10 @@ private:
 private:
 	IIniFile						*m_pIniFile;
 public:
-	int								m_nPlayerCount;
+	int								m_nAppUserCount;
+	int								m_nWebUserCount;
 };
 
-extern CGameServerLogicConfig		&g_pGameServerLogicConfig;
+extern CCenterServerLogicConfig		&g_pCenterServerLogicConfig;
 
 #endif

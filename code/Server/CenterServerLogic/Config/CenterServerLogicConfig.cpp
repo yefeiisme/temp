@@ -1,16 +1,17 @@
 #include "stdafx.h"
-#include "GameServerLogicConfig.h"
+#include "CenterServerLogicConfig.h"
 
-CGameServerLogicConfig	&g_pGameServerLogicConfig	= CGameServerLogicConfig::Singleton();
+CCenterServerLogicConfig	&g_pCenterServerLogicConfig	= CCenterServerLogicConfig::Singleton();
 
-CGameServerLogicConfig::CGameServerLogicConfig()
+CCenterServerLogicConfig::CCenterServerLogicConfig()
 {
 	m_pIniFile			= nullptr;
 
-	m_nPlayerCount		= 0;
+	m_nAppUserCount		= 0;
+	m_nWebUserCount		= 0;
 }
 
-CGameServerLogicConfig::~CGameServerLogicConfig()
+CCenterServerLogicConfig::~CCenterServerLogicConfig()
 {
 	if (m_pIniFile)
 	{
@@ -19,14 +20,14 @@ CGameServerLogicConfig::~CGameServerLogicConfig()
 	}
 }
 
-CGameServerLogicConfig &CGameServerLogicConfig::Singleton()
+CCenterServerLogicConfig &CCenterServerLogicConfig::Singleton()
 {
-	static CGameServerLogicConfig singleton;
+	static CCenterServerLogicConfig singleton;
 
 	return singleton;
 }
 
-bool CGameServerLogicConfig::Initialize()
+bool CCenterServerLogicConfig::Initialize()
 {
 	if (!LoadConfig())
 		return false;
@@ -34,16 +35,17 @@ bool CGameServerLogicConfig::Initialize()
 	return true;
 }
 
-bool CGameServerLogicConfig::LoadConfig()
+bool CCenterServerLogicConfig::LoadConfig()
 {
-	m_pIniFile	= OpenIniFile("gameserverlogic.ini");
+	m_pIniFile	= OpenIniFile("centerserver.ini");
 	if (nullptr == m_pIniFile)
 	{
-		g_pFileLog->WriteLog("[%s][%d] Open INI File Failed\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("[%s][%d] Open centerserver.ini Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 
-	m_pIniFile->GetInteger("Player", "PlayerCount", 0, &m_nPlayerCount);
+	m_pIniFile->GetInteger("Client", "PlayerCount", 0, &m_nAppUserCount);
+	m_pIniFile->GetInteger("Client", "WebUserCount", 0, &m_nWebUserCount);
 
 	m_pIniFile->Release();
 	m_pIniFile	= nullptr;

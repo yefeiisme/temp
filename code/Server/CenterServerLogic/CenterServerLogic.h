@@ -1,44 +1,62 @@
-#ifndef __GAME_SERVER_LOGIC_H_
-#define __GAME_SERVER_LOGIC_H_
+#ifndef __CENTER_SERVER_LOGIC_H_
+#define __CENTER_SERVER_LOGIC_H_
 
-#include "IGameServerLogic.h"
+#include "IClientConnection.h"
+#include "ICenterServerLogic.h"
 #include <map>
 
 using namespace std;
 
-class CPlayer;
+class CAppUser;
+class CWebUser;
 
-class CGameServerLogic : public IGameServerLogic
+class CCenterServerLogic : public ICenterServerLogic
 {
 public:
-	CGameServerLogic();
-	~CGameServerLogic();
+	CCenterServerLogic();
+	~CCenterServerLogic();
 
-	static CGameServerLogic	&Singleton();
+	static CCenterServerLogic	&Singleton();
 
-	bool					Initialize();
-	void					Run();
-	bool					ClientLogin(IClientConnection *pClientConnection);
-	void					ClientLogout(IClientConnection *pClientConnection);
+	bool						Initialize();
+	void						Run();
+	bool						AppLogin(IClientConnection *pClientConnection);
+	void						AppLogout(IClientConnection *pClientConnection);
+	bool						WebLogin(IClientConnection *pClientConnection);
+	void						WebLogout(IClientConnection *pClientConnection);
 
-	inline CPlayer			*GetFreePlayer()
+	inline CAppUser				*GetFreeAppUser()
 	{
-		if (m_listFreePlayer.empty())
+		if (m_listFreeAppUser.empty())
 			return nullptr;
 
-		CPlayer	*pPlayer	= *m_listFreePlayer.begin();
-		m_listFreePlayer.pop_front();
+		CAppUser	*pAppUser	= *m_listFreeAppUser.begin();
+		m_listFreeAppUser.pop_front();
 
-		return pPlayer;
+		return pAppUser;
 	}
 
-	void					BroadCastAllPlayer(const void *pPack, const unsigned int uPackLen);
+	inline CWebUser				*GetFreeWebUser()
+	{
+		if (m_listFreeWebUser.empty())
+			return nullptr;
+
+		CWebUser	*pWebUser	= *m_listFreeWebUser.begin();
+		m_listFreeWebUser.pop_front();
+
+		return pWebUser;
+	}
 private:
-	CPlayer					*m_pPlayerList;
-	map<IClientConnection*,CPlayer*>	m_mapOnlinePlayer;
-	list<CPlayer*>			m_listFreePlayer;
+	CAppUser					*m_pAppUserList;
+	CWebUser					*m_pWebUserList;
+
+	list<CAppUser*>				m_listFreeAppUser;
+	list<CWebUser*>				m_listFreeWebUser;
+
+	map<IClientConnection*,CAppUser*>	m_mapOnlineAppUser;
+	map<IClientConnection*,CWebUser*>	m_mapOnlineWebUser;
 };
 
-extern CGameServerLogic		&g_pGameServerLogic;
+extern CCenterServerLogic		&g_pCenterServerLogic;
 
 #endif
