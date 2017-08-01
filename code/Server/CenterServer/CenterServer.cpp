@@ -14,8 +14,11 @@
 #include <time.h>
 #include "Daemon.h"
 #include "CenterServer.h"
-//#include "Config/GameServerConfig.h"
-//#include "ClientConnection/ClientConnection.h"
+#include "Config/CenterServerConfig.h"
+#include "Connection/ClientConnection.h"
+#include "Connection/AppConnection.h"
+#include "Connection/WebConnection.h"
+#include "ICenterServerLogic.h"
 
 #if defined(WIN32) || defined(WIN64)
 #define SUBDIRNAME_LOG				"CenterServerLogs\\"
@@ -44,6 +47,7 @@ int				g_nTimeNow			= 0;
 CCenterServer::CCenterServer()
 {
 	m_pAppNetwork		= nullptr;
+	m_pWebNetwork		= nullptr;
 
 	m_pAppConnList		= nullptr;
 	m_pWebConnList		= nullptr;
@@ -67,6 +71,12 @@ CCenterServer::~CCenterServer()
 	{
 		m_pAppNetwork->Release();
 		m_pAppNetwork = nullptr;
+	}
+
+	if (m_pWebNetwork)
+	{
+		m_pWebNetwork->Release();
+		m_pWebNetwork = nullptr;
 	}
 
 	SAFE_DELETE_ARR(m_pAppConnList);
@@ -98,41 +108,65 @@ bool CCenterServer::Initialize(const bool bDaemon)
 	}
 #endif
 
-	//if (!g_pGameServerConfig.Initialize())
-	//{
-	//	g_pFileLog->WriteLog("g_pGameServerConfig.Initialize Failed\n");
-	//	return false;
-	//}
+	if (!g_pCenterServerConfig.Initialize())
+	{
+		g_pFileLog->WriteLog("g_pCenterServerConfig.Initialize Failed\n");
+		return false;
+	}
 
-	//if (!g_IGameServerLogic.Initialize())
-	//{
-	//	g_pFileLog->WriteLog("g_IGameServerLogic.Initialize Failed\n");
-	//	return false;
-	//}
+	if (!g_ICenterServerLogic.Initialize())
+	{
+		g_pFileLog->WriteLog("g_ICenterServerLogic.Initialize Failed\n");
+		return false;
+	}
 
-	//m_pClientList = new CClientConnection[g_pGameServerConfig.m_nClientCount];
-	//if (nullptr == m_pClientList)
-	//{
-	//	g_pFileLog->WriteLog("Create CClientConnection[%u] Failed\n", g_pGameServerConfig.m_nClientCount);
-	//	return false;
-	//}
+	m_pAppConnList = new CAppConnection[g_pCenterServerConfig.m_nAppCount];
+	if (nullptr == m_pAppConnList)
+	{
+		g_pFileLog->WriteLog("Create CAppConnection[%d] Failed\n", g_pCenterServerConfig.m_nAppCount);
+		return false;
+	}
 
-	//m_pClientNetwork = CreateServerNetwork(
-	//	g_pGameServerConfig.m_nServerPort,
-	//	this,
-	//	&CGameServer::ClientConnected,
-	//	g_pGameServerConfig.m_nClientCount,
-	//	g_pGameServerConfig.m_nSendBuffLen,
-	//	g_pGameServerConfig.m_nRecvBuffLen,
-	//	g_pGameServerConfig.m_nMaxSendPackLen,
-	//	g_pGameServerConfig.m_nMaxRecvPackLen,
-	//	g_pGameServerConfig.m_nSleepTime
-	//	);
-	//if (nullptr == m_pClientNetwork)
-	//{
-	//	g_pFileLog->WriteLog("Create Server Network For CGameServer::m_pClientNetwork Failed\n");
-	//	return false;
-	//}
+	m_pWebConnList = new CWebConnection[g_pCenterServerConfig.m_nWebCount];
+	if (nullptr == m_pAppConnList)
+	{
+		g_pFileLog->WriteLog("Create CWebConnection[%d] Failed\n", g_pCenterServerConfig.m_nWebCount);
+		return false;
+	}
+
+	m_pAppNetwork = CreateServerNetwork(
+		g_pCenterServerConfig.m_nAppPort,
+		this,
+		&CCenterServer::AppConnected,
+		g_pCenterServerConfig.m_nAppCount,
+		g_pCenterServerConfig.m_nAppSendBuffLen,
+		g_pCenterServerConfig.m_nAppRecvBuffLen,
+		g_pCenterServerConfig.m_nAppMaxSendPackLen,
+		g_pCenterServerConfig.m_nAppMaxRecvPackLen,
+		g_pCenterServerConfig.m_nAppSleepTime
+		);
+	if (nullptr == m_pAppNetwork)
+	{
+		g_pFileLog->WriteLog("Create Server Network For CCenterServer::m_pAppNetwork Failed\n");
+		return false;
+	}
+
+	m_pWebNetwork = CreateServerNetwork(
+		g_pCenterServerConfig.m_nWebPort,
+		this,
+		&CCenterServer::WebConnected,
+		g_pCenterServerConfig.m_nWebCount,
+		g_pCenterServerConfig.m_nWebSendBuffLen,
+		g_pCenterServerConfig.m_nWebRecvBuffLen,
+		g_pCenterServerConfig.m_nWebMaxSendPackLen,
+		g_pCenterServerConfig.m_nWebMaxRecvPackLen,
+		g_pCenterServerConfig.m_nWebSleepTime
+		);
+	if (nullptr == m_pWebNetwork)
+	{
+		g_pFileLog->WriteLog("Create Server Network For CCenterServer::m_pWebNetwork Failed\n");
+		return false;
+	}
 
 	g_pFileLog->WriteLog("CenterServer Start!\n");
 
@@ -144,5 +178,116 @@ bool CCenterServer::Initialize(const bool bDaemon)
 
 void CCenterServer::Run()
 {
+	m_ullBeginTick		= GetMicroTick();
+	m_ullNextFrameTick	= 0;
+	m_ullTickNow		= 0;
 
+	while (m_bRunning)
+	{
+		m_ullTickNow	= GetMicroTick();
+
+		if (m_ullTickNow < m_ullNextFrameTick)
+		{
+			yield(1);
+			continue;
+		}
+
+		++m_uFrame;
+
+		m_ullNextFrameTick	= m_ullBeginTick + m_uFrame * 1000 / 24;
+
+		g_nTimeNow	= time(nullptr);
+
+		g_ICenterServerLogic.Run();
+
+		ProcessAppConn();
+		ProcessWebConn();
+	}
+
+	m_pAppNetwork->Stop();
+	m_pWebNetwork->Stop();
+
+	while (!m_pAppNetwork->IsExited())
+	{
+	}
+
+	while (!m_pWebNetwork->IsExited())
+	{
+	}
+}
+
+void CCenterServer::ProcessAppConn()
+{
+	for (auto nIndex = 0; nIndex < g_pCenterServerConfig.m_nAppCount; ++nIndex)
+	{
+		if (m_pAppConnList[nIndex].IsIdle())
+			continue;
+
+		m_pAppConnList[nIndex].DoAction();
+	}
+}
+
+void CCenterServer::ProcessWebConn()
+{
+	for (auto nIndex = 0; nIndex < g_pCenterServerConfig.m_nWebCount; ++nIndex)
+	{
+		if (m_pWebConnList[nIndex].IsIdle())
+			continue;
+
+		m_pWebConnList[nIndex].DoAction();
+	}
+}
+
+void CCenterServer::AppConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
+{
+	CCenterServer	*pCenterServer	= (CCenterServer*)pParam;
+	pCenterServer->OnAppConnect(pTcpConnection, uIndex);
+}
+
+void CCenterServer::OnAppConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
+{
+	if (nullptr == pTcpConnection)
+		return;
+
+	if (uIndex >= g_pCenterServerConfig.m_nAppCount)
+	{
+		pTcpConnection->ShutDown();
+		return;
+	}
+
+	CClientConnection	&pNewAppConn	= m_pAppConnList[uIndex];
+	if (!pNewAppConn.IsIdle())
+	{
+		pTcpConnection->ShutDown();
+		return;
+	}
+
+	pNewAppConn.Connect(pTcpConnection);
+}
+
+void CCenterServer::WebConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
+{
+	CCenterServer	*pCenterServer	= (CCenterServer*)pParam;
+	pCenterServer->OnWebConnect(pTcpConnection, uIndex);
+}
+
+void CCenterServer::OnWebConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
+{
+	if (nullptr == pTcpConnection)
+		return;
+
+	if (uIndex >= g_pCenterServerConfig.m_nWebCount)
+	{
+		pTcpConnection->ShutDown();
+		return;
+	}
+
+	CClientConnection	&pNewWebConn	= m_pWebConnList[uIndex];
+	if (!pNewWebConn.IsIdle())
+	{
+		pTcpConnection->ShutDown();
+		return;
+	}
+
+	pNewWebConn.Connect(pTcpConnection);
 }

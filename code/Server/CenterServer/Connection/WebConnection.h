@@ -9,6 +9,9 @@ public:
 	CWebConnection();
 	~CWebConnection();
 private:
+	void					ResetTimeOut();
+	void					Disconnect();
+	void					OnWaitLogin();
 };
 
 #endif

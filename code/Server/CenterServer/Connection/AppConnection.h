@@ -9,6 +9,9 @@ public:
 	CAppConnection();
 	~CAppConnection();
 private:
+	void					ResetTimeOut();
+	void					Disconnect();
+	void					OnWaitLogin();
 };
 
 #endif

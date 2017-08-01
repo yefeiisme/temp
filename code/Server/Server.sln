@@ -11,6 +11,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameServerLogic", "GameServerLogic\GameServerLogic.vcxproj", "{A3CBFAF9-4318-4511-91FD-9E83093E3733}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CenterServer", "CenterServer\CenterServer.vcxproj", "{AED11C19-1ED4-46C0-BD3C-F91EA9948466}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D} = {0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CenterServerLogic", "CenterServerLogic\CenterServerLogic.vcxproj", "{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}"
 EndProject

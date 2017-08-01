@@ -61,7 +61,7 @@ bool CCenterServerLogic::Initialize()
 	if (nullptr == m_pWebUserList)
 		return false;
 
-	for (int nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nWebUserCount; ++nIndex)
+	for (auto nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nWebUserCount; ++nIndex)
 	{
 		m_listFreeWebUser.push_back(&m_pWebUserList[nIndex]);
 	}
@@ -71,10 +71,15 @@ bool CCenterServerLogic::Initialize()
 
 void CCenterServerLogic::Run()
 {
-	//for (map<IClientConnection*, CPlayer*>::iterator Iter = m_mapOnlinePlayer.begin(); Iter != m_mapOnlinePlayer.end(); ++Iter)
-	//{
-	//	Iter->second->DoAction();
-	//}
+	for (auto Iter_App = m_mapOnlineAppUser.begin(); Iter_App != m_mapOnlineAppUser.end(); ++Iter_App)
+	{
+		Iter_App->second->DoAction();
+	}
+
+	for (auto Iter_Web = m_mapOnlineWebUser.begin(); Iter_Web != m_mapOnlineWebUser.end(); ++Iter_Web)
+	{
+		Iter_Web->second->DoAction();
+	}
 }
 
 bool CCenterServerLogic::AppLogin(IClientConnection *pClientConnection)
@@ -83,30 +88,46 @@ bool CCenterServerLogic::AppLogin(IClientConnection *pClientConnection)
 	if (nullptr == pAppUser)
 		return false;
 
-	//pPlayer->AttachClient(pClientConnection);
+	pAppUser->AttachClient(pClientConnection);
 
-	//m_mapOnlinePlayer[pClientConnection]	= pPlayer;
+	m_mapOnlineAppUser[pClientConnection]	= pAppUser;
 
 	return true;
 }
 
 void CCenterServerLogic::AppLogout(IClientConnection *pClientConnection)
 {
-	//map<IClientConnection*,CPlayer*>::iterator Iter = m_mapOnlinePlayer.find(pClientConnection);
+	auto Iter = m_mapOnlineAppUser.find(pClientConnection);
 
-	//if (Iter != m_mapOnlinePlayer.end())
-	//{
-	//	m_listFreePlayer.push_back(Iter->second);
-	//	Iter->second->DetachClient();
-	//	m_mapOnlinePlayer.erase(Iter);
-	//}
+	if (Iter != m_mapOnlineAppUser.end())
+	{
+		m_listFreeAppUser.push_back(Iter->second);
+		Iter->second->DetachClient();
+		m_mapOnlineAppUser.erase(Iter);
+	}
 }
 
 bool CCenterServerLogic::WebLogin(IClientConnection *pClientConnection)
 {
+	CWebUser	*pWebUser	= GetFreeWebUser();
+	if (nullptr == pWebUser)
+		return false;
+
+	pWebUser->AttachClient(pClientConnection);
+
+	m_mapOnlineWebUser[pClientConnection]	= pWebUser;
+
 	return true;
 }
 
 void CCenterServerLogic::WebLogout(IClientConnection *pClientConnection)
 {
+	auto Iter = m_mapOnlineWebUser.find(pClientConnection);
+
+	if (Iter != m_mapOnlineWebUser.end())
+	{
+		m_listFreeWebUser.push_back(Iter->second);
+		Iter->second->DetachClient();
+		m_mapOnlineWebUser.erase(Iter);
+	}
 }

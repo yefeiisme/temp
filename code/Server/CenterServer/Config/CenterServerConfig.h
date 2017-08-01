@@ -18,12 +18,22 @@ private:
 	IIniFile					*m_pIniFile;
 public:
 	int							m_nAppPort;
-	int							m_nMaxAppCount;
+	int							m_nAppCount;
 	int							m_nAppRecvBuffLen;
 	int							m_nAppSendBuffLen;
-	int							m_nMaxAppRecvPackLen;
-	int							m_nMaxAppSendPackLen;
-	int							m_nSleepTime;
+	int							m_nAppMaxRecvPackLen;
+	int							m_nAppMaxSendPackLen;
+	int							m_nAppSleepTime;
+	int							m_nAppTimeOut;
+
+	int							m_nWebPort;
+	int							m_nWebCount;
+	int							m_nWebRecvBuffLen;
+	int							m_nWebSendBuffLen;
+	int							m_nWebMaxRecvPackLen;
+	int							m_nWebMaxSendPackLen;
+	int							m_nWebSleepTime;
+	int							m_nWebTimeOut;
 };
 
 extern CCenterServerConfig		&g_pCenterServerConfig;

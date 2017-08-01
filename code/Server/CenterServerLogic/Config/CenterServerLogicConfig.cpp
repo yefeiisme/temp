@@ -44,8 +44,8 @@ bool CCenterServerLogicConfig::LoadConfig()
 		return false;
 	}
 
-	m_pIniFile->GetInteger("Client", "PlayerCount", 0, &m_nAppUserCount);
-	m_pIniFile->GetInteger("Client", "WebUserCount", 0, &m_nWebUserCount);
+	m_pIniFile->GetInteger("User", "AppUserCount", 0, &m_nAppUserCount);
+	m_pIniFile->GetInteger("User", "WebUserCount", 0, &m_nWebUserCount);
 
 	m_pIniFile->Release();
 	m_pIniFile	= nullptr;

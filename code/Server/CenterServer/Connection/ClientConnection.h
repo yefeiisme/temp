@@ -7,6 +7,7 @@
 
 class CClientConnection : public IClientConnection
 {
+protected:
 	enum E_CLIENT_CONN_STATE
 	{
 		CLIENT_CONN_STATE_IDLE,
@@ -41,14 +42,14 @@ public:
 
 	const void				*GetPack(unsigned int &uPackLen);
 	bool					PutPack(const void *pPack, unsigned int uPackLen);
-	void					ResetTimeOut();
+protected:
+	virtual void			ResetTimeOut();
+	virtual void			Disconnect();
 
-	void					Disconnect();
-private:
 	void					OnIdle();
-	void					OnWaitLogin();
+	virtual void			OnWaitLogin();
 	void					OnRunning();
-private:
+protected:
 	typedef void (CClientConnection::*StateFuncArray)();
 	static StateFuncArray	m_pfnStateFunc[CLIENT_CONN_STATE_MAX];
 

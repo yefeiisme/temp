@@ -27,7 +27,17 @@ public:
 		m_bWaitExit = false;
 	}
 private:
+	void						ProcessAppConn();
+	void						ProcessWebConn();
+
+	static void					AppConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	void						OnAppConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
+
+	static void					WebConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	void						OnWebConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
+private:
 	IServerNetwork				*m_pAppNetwork;
+	IServerNetwork				*m_pWebNetwork;
 
 	CAppConnection				*m_pAppConnList;
 	CWebConnection				*m_pWebConnList;
