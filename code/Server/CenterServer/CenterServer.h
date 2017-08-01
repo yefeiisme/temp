@@ -6,6 +6,7 @@
 
 class CAppConnection;
 class CWebConnection;
+class CDataConnection;
 
 class CCenterServer : public ICenterServer
 {
@@ -29,18 +30,24 @@ public:
 private:
 	void						ProcessAppConn();
 	void						ProcessWebConn();
+	void						ProcessDataConn();
 
-	static void					AppConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
-	void						OnAppConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	static void					AppConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	void						OnAppConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
 
-	static void					WebConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
-	void						OnWebConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	static void					WebConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	void						OnWebConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
+
+	static void					DataConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	void						OnDataConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
 private:
 	IServerNetwork				*m_pAppNetwork;
 	IServerNetwork				*m_pWebNetwork;
+	IServerNetwork				*m_pDataNetwork;
 
 	CAppConnection				*m_pAppConnList;
 	CWebConnection				*m_pWebConnList;
+	CDataConnection				*m_pDataConnList;
 
 	uint64						m_uFrame;
 
@@ -48,8 +55,9 @@ private:
 	uint64						m_ullNextFrameTick;
 	uint64						m_ullTickNow;
 
-	UINT						m_uAppCount;
-	UINT						m_uWebCount;
+	UINT						m_uAppConnCount;
+	UINT						m_uWebConnCount;
+	UINT						m_uDataConnCount;
 
 	bool						m_bRunning;
 	bool						m_bWaitExit;

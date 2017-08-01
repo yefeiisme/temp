@@ -7,8 +7,9 @@
 
 using namespace std;
 
-class CAppUser;
-class CWebUser;
+class CAppClient;
+class CWebClient;
+class CDataClient;
 
 class CCenterServerLogic : public ICenterServerLogic
 {
@@ -20,43 +21,59 @@ public:
 
 	bool						Initialize();
 	void						Run();
-	bool						AppLogin(IClientConnection *pClientConnection);
-	void						AppLogout(IClientConnection *pClientConnection);
-	bool						WebLogin(IClientConnection *pClientConnection);
-	void						WebLogout(IClientConnection *pClientConnection);
+	bool						AppClientLogin(IClientConnection *pClientConnection);
+	void						AppClientLogout(IClientConnection *pClientConnection);
+	bool						WebClientLogin(IClientConnection *pClientConnection);
+	void						WebClientLogout(IClientConnection *pClientConnection);
+	bool						DataClientLogin(IClientConnection *pClientConnection);
+	void						DataClientLogout(IClientConnection *pClientConnection);
 
-	inline CAppUser				*GetFreeAppUser()
+	inline CAppClient				*GetFreeAppClient()
 	{
-		if (m_listFreeAppUser.empty())
+		if (m_listFreeAppClient.empty())
 			return nullptr;
 
-		CAppUser	*pAppUser	= *m_listFreeAppUser.begin();
-		m_listFreeAppUser.pop_front();
+		CAppClient	*pAppClient	= *m_listFreeAppClient.begin();
+		m_listFreeAppClient.pop_front();
 
-		return pAppUser;
+		return pAppClient;
 	}
 
-	inline CWebUser				*GetFreeWebUser()
+	inline CWebClient				*GetFreeWebClient()
 	{
-		if (m_listFreeWebUser.empty())
+		if (m_listFreeWebClient.empty())
 			return nullptr;
 
-		CWebUser	*pWebUser	= *m_listFreeWebUser.begin();
-		m_listFreeWebUser.pop_front();
+		CWebClient	*pWebClient	= *m_listFreeWebClient.begin();
+		m_listFreeWebClient.pop_front();
 
-		return pWebUser;
+		return pWebClient;
+	}
+
+	inline CDataClient				*GetFreeDataClient()
+	{
+		if (m_listFreeDataClient.empty())
+			return nullptr;
+
+		CDataClient	*pDataClient = *m_listFreeDataClient.begin();
+		m_listFreeDataClient.pop_front();
+
+		return pDataClient;
 	}
 private:
-	CAppUser					*m_pAppUserList;
-	CWebUser					*m_pWebUserList;
+	CAppClient								*m_pAppClientList;
+	CWebClient								*m_pWebClientList;
+	CDataClient								*m_pDataClientList;
 
-	list<CAppUser*>				m_listFreeAppUser;
-	list<CWebUser*>				m_listFreeWebUser;
+	list<CAppClient*>						m_listFreeAppClient;
+	list<CWebClient*>						m_listFreeWebClient;
+	list<CDataClient*>						m_listFreeDataClient;
 
-	map<IClientConnection*,CAppUser*>	m_mapOnlineAppUser;
-	map<IClientConnection*,CWebUser*>	m_mapOnlineWebUser;
+	map<IClientConnection*,CAppClient*>		m_mapOnlineAppClient;
+	map<IClientConnection*,CWebClient*>		m_mapOnlineWebClient;
+	map<IClientConnection*,CDataClient*>	m_mapOnlineDataClient;
 };
 
-extern CCenterServerLogic		&g_pCenterServerLogic;
+extern CCenterServerLogic					&g_pCenterServerLogic;
 
 #endif

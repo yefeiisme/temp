@@ -1,35 +1,41 @@
 #include "stdafx.h"
 #include "CenterServerLogic.h"
 #include "Config/CenterServerLogicConfig.h"
-#include "User/AppUser.h"
-#include "User/WebUser.h"
-//#include "Player/Player.h"
+#include "Client/AppClient.h"
+#include "Client/WebClient.h"
+#include "Client/DataClient.h"
 
 CCenterServerLogic	&g_pCenterServerLogic	= CCenterServerLogic::Singleton();
 ICenterServerLogic	&g_ICenterServerLogic	= g_pCenterServerLogic;
 
 CCenterServerLogic::CCenterServerLogic()
 {
-	m_pAppUserList	= nullptr;
-	m_pWebUserList	= nullptr;
+	m_pAppClientList	= nullptr;
+	m_pWebClientList	= nullptr;
+	m_pDataClientList	= nullptr;
 
-	m_listFreeAppUser.clear();
-	m_listFreeWebUser.clear();
+	m_listFreeAppClient.clear();
+	m_listFreeWebClient.clear();
+	m_listFreeDataClient.clear();
 
-	m_mapOnlineAppUser.clear();
-	m_mapOnlineWebUser.clear();
+	m_mapOnlineAppClient.clear();
+	m_mapOnlineWebClient.clear();
+	m_mapOnlineDataClient.clear();
 }
 
 CCenterServerLogic::~CCenterServerLogic()
 {
-	SAFE_DELETE_ARR(m_pAppUserList);
-	SAFE_DELETE_ARR(m_pWebUserList);
+	SAFE_DELETE_ARR(m_pAppClientList);
+	SAFE_DELETE_ARR(m_pWebClientList);
+	SAFE_DELETE_ARR(m_pDataClientList);
 
-	m_listFreeAppUser.clear();
-	m_listFreeWebUser.clear();
+	m_listFreeAppClient.clear();
+	m_listFreeWebClient.clear();
+	m_listFreeDataClient.clear();
 
-	m_mapOnlineAppUser.clear();
-	m_mapOnlineWebUser.clear();
+	m_mapOnlineAppClient.clear();
+	m_mapOnlineWebClient.clear();
+	m_mapOnlineDataClient.clear();
 }
 
 CCenterServerLogic &CCenterServerLogic::Singleton()
@@ -48,22 +54,31 @@ bool CCenterServerLogic::Initialize()
 		return false;
 	}
 
-	m_pAppUserList	= new CAppUser[g_pCenterServerLogicConfig.m_nAppUserCount];
-	if (nullptr == m_pAppUserList)
+	m_pAppClientList	= new CAppClient[g_pCenterServerLogicConfig.m_nAppClientCount];
+	if (nullptr == m_pAppClientList)
 		return false;
 
-	for (int nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nAppUserCount; ++nIndex)
+	for (int nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nAppClientCount; ++nIndex)
 	{
-		m_listFreeAppUser.push_back(&m_pAppUserList[nIndex]);
+		m_listFreeAppClient.push_back(&m_pAppClientList[nIndex]);
 	}
 
-	m_pWebUserList	= new CWebUser[g_pCenterServerLogicConfig.m_nWebUserCount];
-	if (nullptr == m_pWebUserList)
+	m_pWebClientList	= new CWebClient[g_pCenterServerLogicConfig.m_nWebClientCount];
+	if (nullptr == m_pWebClientList)
 		return false;
 
-	for (auto nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nWebUserCount; ++nIndex)
+	for (auto nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nWebClientCount; ++nIndex)
 	{
-		m_listFreeWebUser.push_back(&m_pWebUserList[nIndex]);
+		m_listFreeWebClient.push_back(&m_pWebClientList[nIndex]);
+	}
+
+	m_pDataClientList = new CDataClient[g_pCenterServerLogicConfig.m_nDataClientCount];
+	if (nullptr == m_pDataClientList)
+		return false;
+
+	for (auto nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nDataClientCount; ++nIndex)
+	{
+		m_listFreeDataClient.push_back(&m_pDataClientList[nIndex]);
 	}
 
 	return true;
@@ -71,63 +86,88 @@ bool CCenterServerLogic::Initialize()
 
 void CCenterServerLogic::Run()
 {
-	for (auto Iter_App = m_mapOnlineAppUser.begin(); Iter_App != m_mapOnlineAppUser.end(); ++Iter_App)
+	for (auto Iter_App = m_mapOnlineAppClient.begin(); Iter_App != m_mapOnlineAppClient.end(); ++Iter_App)
 	{
 		Iter_App->second->DoAction();
 	}
 
-	for (auto Iter_Web = m_mapOnlineWebUser.begin(); Iter_Web != m_mapOnlineWebUser.end(); ++Iter_Web)
+	for (auto Iter_Web = m_mapOnlineWebClient.begin(); Iter_Web != m_mapOnlineWebClient.end(); ++Iter_Web)
 	{
 		Iter_Web->second->DoAction();
 	}
 }
 
-bool CCenterServerLogic::AppLogin(IClientConnection *pClientConnection)
+bool CCenterServerLogic::AppClientLogin(IClientConnection *pClientConnection)
 {
-	CAppUser	*pAppUser	= GetFreeAppUser();
-	if (nullptr == pAppUser)
+	CAppClient	*pAppClient	= GetFreeAppClient();
+	if (nullptr == pAppClient)
 		return false;
 
-	pAppUser->AttachClient(pClientConnection);
+	pAppClient->AttachClient(pClientConnection);
 
-	m_mapOnlineAppUser[pClientConnection]	= pAppUser;
+	m_mapOnlineAppClient[pClientConnection]	= pAppClient;
 
 	return true;
 }
 
-void CCenterServerLogic::AppLogout(IClientConnection *pClientConnection)
+void CCenterServerLogic::AppClientLogout(IClientConnection *pClientConnection)
 {
-	auto Iter = m_mapOnlineAppUser.find(pClientConnection);
+	auto Iter = m_mapOnlineAppClient.find(pClientConnection);
 
-	if (Iter != m_mapOnlineAppUser.end())
+	if (Iter != m_mapOnlineAppClient.end())
 	{
-		m_listFreeAppUser.push_back(Iter->second);
+		m_listFreeAppClient.push_back(Iter->second);
 		Iter->second->DetachClient();
-		m_mapOnlineAppUser.erase(Iter);
+		m_mapOnlineAppClient.erase(Iter);
 	}
 }
 
-bool CCenterServerLogic::WebLogin(IClientConnection *pClientConnection)
+bool CCenterServerLogic::WebClientLogin(IClientConnection *pClientConnection)
 {
-	CWebUser	*pWebUser	= GetFreeWebUser();
-	if (nullptr == pWebUser)
+	CWebClient	*pWebClient	= GetFreeWebClient();
+	if (nullptr == pWebClient)
 		return false;
 
-	pWebUser->AttachClient(pClientConnection);
+	pWebClient->AttachClient(pClientConnection);
 
-	m_mapOnlineWebUser[pClientConnection]	= pWebUser;
+	m_mapOnlineWebClient[pClientConnection]	= pWebClient;
 
 	return true;
 }
 
-void CCenterServerLogic::WebLogout(IClientConnection *pClientConnection)
+void CCenterServerLogic::WebClientLogout(IClientConnection *pClientConnection)
 {
-	auto Iter = m_mapOnlineWebUser.find(pClientConnection);
+	auto Iter = m_mapOnlineWebClient.find(pClientConnection);
 
-	if (Iter != m_mapOnlineWebUser.end())
+	if (Iter != m_mapOnlineWebClient.end())
 	{
-		m_listFreeWebUser.push_back(Iter->second);
+		m_listFreeWebClient.push_back(Iter->second);
 		Iter->second->DetachClient();
-		m_mapOnlineWebUser.erase(Iter);
+		m_mapOnlineWebClient.erase(Iter);
+	}
+}
+
+bool CCenterServerLogic::DataClientLogin(IClientConnection *pClientConnection)
+{
+	CDataClient	*pDataClient = GetFreeDataClient();
+	if (nullptr == pDataClient)
+		return false;
+
+	pDataClient->AttachClient(pClientConnection);
+
+	m_mapOnlineDataClient[pClientConnection] = pDataClient;
+
+	return true;
+}
+
+void CCenterServerLogic::DataClientLogout(IClientConnection *pClientConnection)
+{
+	auto Iter = m_mapOnlineDataClient.find(pClientConnection);
+
+	if (Iter != m_mapOnlineDataClient.end())
+	{
+		m_listFreeDataClient.push_back(Iter->second);
+		Iter->second->DetachClient();
+		m_mapOnlineDataClient.erase(Iter);
 	}
 }

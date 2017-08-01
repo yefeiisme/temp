@@ -5,10 +5,11 @@ CCenterServerLogicConfig	&g_pCenterServerLogicConfig	= CCenterServerLogicConfig:
 
 CCenterServerLogicConfig::CCenterServerLogicConfig()
 {
-	m_pIniFile			= nullptr;
+	m_pIniFile				= nullptr;
 
-	m_nAppUserCount		= 0;
-	m_nWebUserCount		= 0;
+	m_nAppClientCount		= 0;
+	m_nWebClientCount		= 0;
+	m_nDataClientCount		= 0;
 }
 
 CCenterServerLogicConfig::~CCenterServerLogicConfig()
@@ -44,8 +45,9 @@ bool CCenterServerLogicConfig::LoadConfig()
 		return false;
 	}
 
-	m_pIniFile->GetInteger("User", "AppUserCount", 0, &m_nAppUserCount);
-	m_pIniFile->GetInteger("User", "WebUserCount", 0, &m_nWebUserCount);
+	m_pIniFile->GetInteger("User", "AppClientCount", 0, &m_nAppClientCount);
+	m_pIniFile->GetInteger("User", "WebClientCount", 0, &m_nWebClientCount);
+	m_pIniFile->GetInteger("User", "DataClientCount", 0, &m_nDataClientCount);
 
 	m_pIniFile->Release();
 	m_pIniFile	= nullptr;

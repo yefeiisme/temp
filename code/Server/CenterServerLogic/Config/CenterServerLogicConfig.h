@@ -17,8 +17,9 @@ private:
 private:
 	IIniFile						*m_pIniFile;
 public:
-	int								m_nAppUserCount;
-	int								m_nWebUserCount;
+	int								m_nAppClientCount;
+	int								m_nWebClientCount;
+	int								m_nDataClientCount;
 };
 
 extern CCenterServerLogicConfig		&g_pCenterServerLogicConfig;

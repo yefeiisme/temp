@@ -12,18 +12,25 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CenterServerLogic.cpp" />
+    <ClCompile Include="Client\AppClient.cpp" />
+    <ClCompile Include="Client\Client.cpp" />
+    <ClCompile Include="Client\DataClient.cpp" />
+    <ClCompile Include="Client\WebClient.cpp" />
     <ClCompile Include="Config\CenterServerLogicConfig.cpp" />
-    <ClCompile Include="User\AppUser.cpp" />
-    <ClCompile Include="User\User.cpp" />
-    <ClCompile Include="User\WebUser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CenterServerLogic.h" />
+    <ClInclude Include="Client\AppClient.h" />
+    <ClInclude Include="Client\Client.h" />
+    <ClInclude Include="Client\DataClient.h" />
+    <ClInclude Include="Client\WebClient.h" />
     <ClInclude Include="Config\CenterServerLogicConfig.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="User\AppUser.h" />
-    <ClInclude Include="User\User.h" />
-    <ClInclude Include="User\WebUser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto" />
+    <None Include="..\..\Share\Header\Protocol\Data_Server_Protocol.proto" />
+    <None Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}</ProjectGuid>

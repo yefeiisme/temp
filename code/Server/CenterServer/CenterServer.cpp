@@ -18,6 +18,7 @@
 #include "Connection/ClientConnection.h"
 #include "Connection/AppConnection.h"
 #include "Connection/WebConnection.h"
+#include "Connection/DataConnection.h"
 #include "ICenterServerLogic.h"
 
 #if defined(WIN32) || defined(WIN64)
@@ -48,9 +49,11 @@ CCenterServer::CCenterServer()
 {
 	m_pAppNetwork		= nullptr;
 	m_pWebNetwork		= nullptr;
+	m_pDataNetwork		= nullptr;
 
 	m_pAppConnList		= nullptr;
 	m_pWebConnList		= nullptr;
+	m_pDataConnList		= nullptr;
 
 	m_uFrame			= 0;
 
@@ -58,8 +61,9 @@ CCenterServer::CCenterServer()
 	m_ullNextFrameTick	= 0;
 	m_ullTickNow		= 0;
 
-	m_uAppCount			= 0;
-	m_uWebCount			= 0;
+	m_uAppConnCount		= 0;
+	m_uWebConnCount		= 0;
+	m_uDataConnCount	= 0;
 
 	m_bRunning			= false;
 	m_bWaitExit			= false;
@@ -79,8 +83,15 @@ CCenterServer::~CCenterServer()
 		m_pWebNetwork = nullptr;
 	}
 
+	if (m_pDataNetwork)
+	{
+		m_pDataNetwork->Release();
+		m_pDataNetwork = nullptr;
+	}
+
 	SAFE_DELETE_ARR(m_pAppConnList);
 	SAFE_DELETE_ARR(m_pWebConnList);
+	SAFE_DELETE_ARR(m_pDataConnList);
 }
 
 CCenterServer &CCenterServer::Singleton()
@@ -128,16 +139,23 @@ bool CCenterServer::Initialize(const bool bDaemon)
 	}
 
 	m_pWebConnList = new CWebConnection[g_pCenterServerConfig.m_nWebCount];
-	if (nullptr == m_pAppConnList)
+	if (nullptr == m_pWebConnList)
 	{
 		g_pFileLog->WriteLog("Create CWebConnection[%d] Failed\n", g_pCenterServerConfig.m_nWebCount);
+		return false;
+	}
+
+	m_pDataConnList = new CDataConnection[g_pCenterServerConfig.m_nDataCount];
+	if (nullptr == m_pDataConnList)
+	{
+		g_pFileLog->WriteLog("Create CDataConnection[%d] Failed\n", g_pCenterServerConfig.m_nDataCount);
 		return false;
 	}
 
 	m_pAppNetwork = CreateServerNetwork(
 		g_pCenterServerConfig.m_nAppPort,
 		this,
-		&CCenterServer::AppConnected,
+		&CCenterServer::AppConnConnected,
 		g_pCenterServerConfig.m_nAppCount,
 		g_pCenterServerConfig.m_nAppSendBuffLen,
 		g_pCenterServerConfig.m_nAppRecvBuffLen,
@@ -154,7 +172,7 @@ bool CCenterServer::Initialize(const bool bDaemon)
 	m_pWebNetwork = CreateServerNetwork(
 		g_pCenterServerConfig.m_nWebPort,
 		this,
-		&CCenterServer::WebConnected,
+		&CCenterServer::WebConnConnected,
 		g_pCenterServerConfig.m_nWebCount,
 		g_pCenterServerConfig.m_nWebSendBuffLen,
 		g_pCenterServerConfig.m_nWebRecvBuffLen,
@@ -165,6 +183,23 @@ bool CCenterServer::Initialize(const bool bDaemon)
 	if (nullptr == m_pWebNetwork)
 	{
 		g_pFileLog->WriteLog("Create Server Network For CCenterServer::m_pWebNetwork Failed\n");
+		return false;
+	}
+
+	m_pDataNetwork = CreateServerNetwork(
+		g_pCenterServerConfig.m_nDataPort,
+		this,
+		&CCenterServer::WebConnConnected,
+		g_pCenterServerConfig.m_nDataCount,
+		g_pCenterServerConfig.m_nDataSendBuffLen,
+		g_pCenterServerConfig.m_nDataRecvBuffLen,
+		g_pCenterServerConfig.m_nDataMaxSendPackLen,
+		g_pCenterServerConfig.m_nDataMaxRecvPackLen,
+		g_pCenterServerConfig.m_nDataSleepTime
+		);
+	if (nullptr == m_pDataNetwork)
+	{
+		g_pFileLog->WriteLog("Create Server Network For CCenterServer::m_pDataNetwork Failed\n");
 		return false;
 	}
 
@@ -202,16 +237,22 @@ void CCenterServer::Run()
 
 		ProcessAppConn();
 		ProcessWebConn();
+		ProcessDataConn();
 	}
 
 	m_pAppNetwork->Stop();
 	m_pWebNetwork->Stop();
+	m_pDataNetwork->Stop();
 
 	while (!m_pAppNetwork->IsExited())
 	{
 	}
 
 	while (!m_pWebNetwork->IsExited())
+	{
+	}
+
+	while (!m_pDataNetwork->IsExited())
 	{
 	}
 }
@@ -238,13 +279,24 @@ void CCenterServer::ProcessWebConn()
 	}
 }
 
-void CCenterServer::AppConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
+void CCenterServer::ProcessDataConn()
 {
-	CCenterServer	*pCenterServer	= (CCenterServer*)pParam;
-	pCenterServer->OnAppConnect(pTcpConnection, uIndex);
+	for (auto nIndex = 0; nIndex < g_pCenterServerConfig.m_nDataCount; ++nIndex)
+	{
+		if (m_pDataConnList[nIndex].IsIdle())
+			continue;
+
+		m_pDataConnList[nIndex].DoAction();
+	}
 }
 
-void CCenterServer::OnAppConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
+void CCenterServer::AppConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
+{
+	CCenterServer	*pCenterServer	= (CCenterServer*)pParam;
+	pCenterServer->OnAppConnConnect(pTcpConnection, uIndex);
+}
+
+void CCenterServer::OnAppConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	if (nullptr == pTcpConnection)
 		return;
@@ -265,13 +317,13 @@ void CCenterServer::OnAppConnect(ITcpConnection *pTcpConnection, const unsigned 
 	pNewAppConn.Connect(pTcpConnection);
 }
 
-void CCenterServer::WebConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
+void CCenterServer::WebConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	CCenterServer	*pCenterServer	= (CCenterServer*)pParam;
-	pCenterServer->OnWebConnect(pTcpConnection, uIndex);
+	pCenterServer->OnWebConnConnect(pTcpConnection, uIndex);
 }
 
-void CCenterServer::OnWebConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
+void CCenterServer::OnWebConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	if (nullptr == pTcpConnection)
 		return;
@@ -290,4 +342,31 @@ void CCenterServer::OnWebConnect(ITcpConnection *pTcpConnection, const unsigned 
 	}
 
 	pNewWebConn.Connect(pTcpConnection);
+}
+
+void CCenterServer::DataConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
+{
+	CCenterServer	*pCenterServer = (CCenterServer*)pParam;
+	pCenterServer->OnDataConnConnect(pTcpConnection, uIndex);
+}
+
+void CCenterServer::OnDataConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
+{
+	if (nullptr == pTcpConnection)
+		return;
+
+	if (uIndex >= g_pCenterServerConfig.m_nDataCount)
+	{
+		pTcpConnection->ShutDown();
+		return;
+	}
+
+	CClientConnection	&pNewDataConn = m_pDataConnList[uIndex];
+	if (!pNewDataConn.IsIdle())
+	{
+		pTcpConnection->ShutDown();
+		return;
+	}
+
+	pNewDataConn.Connect(pTcpConnection);
 }

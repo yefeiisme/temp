@@ -41,6 +41,9 @@
     <ClInclude Include="Connection\ClientConnection.h">
       <Filter>Connection</Filter>
     </ClInclude>
+    <ClInclude Include="Connection\DataConnection.h">
+      <Filter>Connection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CenterServer.cpp">
@@ -59,6 +62,9 @@
       <Filter>Config</Filter>
     </ClCompile>
     <ClCompile Include="Connection\ClientConnection.cpp">
+      <Filter>Connection</Filter>
+    </ClCompile>
+    <ClCompile Include="Connection\DataConnection.cpp">
       <Filter>Connection</Filter>
     </ClCompile>
   </ItemGroup>

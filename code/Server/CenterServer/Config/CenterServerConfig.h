@@ -34,6 +34,15 @@ public:
 	int							m_nWebMaxSendPackLen;
 	int							m_nWebSleepTime;
 	int							m_nWebTimeOut;
+
+	int							m_nDataPort;
+	int							m_nDataCount;
+	int							m_nDataRecvBuffLen;
+	int							m_nDataSendBuffLen;
+	int							m_nDataMaxRecvPackLen;
+	int							m_nDataMaxSendPackLen;
+	int							m_nDataSleepTime;
+	int							m_nDataTimeOut;
 };
 
 extern CCenterServerConfig		&g_pCenterServerConfig;

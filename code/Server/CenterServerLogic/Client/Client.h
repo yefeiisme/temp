@@ -3,11 +3,11 @@
 
 #include "IClientConnection.h"
 
-class CUser
+class CClient
 {
 public:
-	CUser();
-	~CUser();
+	CClient();
+	~CClient();
 
 	inline void				AttachClient(IClientConnection *pClientConn)
 	{

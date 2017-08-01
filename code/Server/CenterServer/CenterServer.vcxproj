@@ -93,6 +93,7 @@
     <ClInclude Include="Config\CenterServerConfig.h" />
     <ClInclude Include="Connection\AppConnection.h" />
     <ClInclude Include="Connection\ClientConnection.h" />
+    <ClInclude Include="Connection\DataConnection.h" />
     <ClInclude Include="Connection\WebConnection.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -102,6 +103,7 @@
     <ClCompile Include="Connection\AppConnection.cpp" />
     <ClCompile Include="Connection\ClientConnection.cpp" />
     <ClCompile Include="Connection\WebConnection.cpp" />
+    <ClCompile Include="Connection\DataConnection.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

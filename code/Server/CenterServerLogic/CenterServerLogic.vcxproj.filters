@@ -12,7 +12,7 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="User">
+    <Filter Include="Client">
       <UniqueIdentifier>{0fc9ba6d-e80d-43a6-9014-5ee3ad7211b9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -23,14 +23,17 @@
     <ClCompile Include="Config\CenterServerLogicConfig.cpp">
       <Filter>Config</Filter>
     </ClCompile>
-    <ClCompile Include="User\AppUser.cpp">
-      <Filter>User</Filter>
+    <ClCompile Include="Client\AppClient.cpp">
+      <Filter>Client</Filter>
     </ClCompile>
-    <ClCompile Include="User\WebUser.cpp">
-      <Filter>User</Filter>
+    <ClCompile Include="Client\Client.cpp">
+      <Filter>Client</Filter>
     </ClCompile>
-    <ClCompile Include="User\User.cpp">
-      <Filter>User</Filter>
+    <ClCompile Include="Client\WebClient.cpp">
+      <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\DataClient.cpp">
+      <Filter>Client</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -43,14 +46,28 @@
     <ClInclude Include="Config\CenterServerLogicConfig.h">
       <Filter>Config</Filter>
     </ClInclude>
-    <ClInclude Include="User\AppUser.h">
-      <Filter>User</Filter>
+    <ClInclude Include="Client\AppClient.h">
+      <Filter>Client</Filter>
     </ClInclude>
-    <ClInclude Include="User\WebUser.h">
-      <Filter>User</Filter>
+    <ClInclude Include="Client\Client.h">
+      <Filter>Client</Filter>
     </ClInclude>
-    <ClInclude Include="User\User.h">
-      <Filter>User</Filter>
+    <ClInclude Include="Client\WebClient.h">
+      <Filter>Client</Filter>
     </ClInclude>
+    <ClInclude Include="Client\DataClient.h">
+      <Filter>Client</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
+      <Filter>Client</Filter>
+    </None>
+    <None Include="..\..\Share\Header\Protocol\Data_Server_Protocol.proto">
+      <Filter>Client</Filter>
+    </None>
+    <None Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">
+      <Filter>Client</Filter>
+    </None>
   </ItemGroup>
 </Project>

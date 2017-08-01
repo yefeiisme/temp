@@ -18,7 +18,7 @@ void CAppConnection::ResetTimeOut()
 
 void CAppConnection::Disconnect()
 {
-	g_ICenterServerLogic.AppLogout(this);
+	g_ICenterServerLogic.AppClientLogout(this);
 
 	m_eState	= CLIENT_CONN_STATE_IDLE;
 
@@ -34,7 +34,7 @@ void CAppConnection::Disconnect()
 
 void CAppConnection::OnWaitLogin()
 {
-	if (!g_ICenterServerLogic.AppLogin(this))
+	if (!g_ICenterServerLogic.AppClientLogin(this))
 	{
 		Disconnect();
 		return;

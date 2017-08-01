@@ -18,7 +18,7 @@ void CWebConnection::ResetTimeOut()
 
 void CWebConnection::Disconnect()
 {
-	g_ICenterServerLogic.WebLogout(this);
+	g_ICenterServerLogic.WebClientLogout(this);
 
 	m_eState	= CLIENT_CONN_STATE_IDLE;
 
@@ -34,7 +34,7 @@ void CWebConnection::Disconnect()
 
 void CWebConnection::OnWaitLogin()
 {
-	if (!g_ICenterServerLogic.WebLogin(this))
+	if (!g_ICenterServerLogic.WebClientLogin(this))
 	{
 		Disconnect();
 		return;

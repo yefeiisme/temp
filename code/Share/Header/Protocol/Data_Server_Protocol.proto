@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+package WS_CS_NET_PACK;
+
+message WS2CS_LOGIN
+{ 
+	required bytes	account		= 1;	// 账号
+	required bytes	password	= 2;	// 密码
+}
+
+
+
+
+message CS2WS_LOGIN_RESULT
+{
+	required uint32	result	= 1;	// 登陆结果：0，登陆成功；1，帐号或者密码错误；
+}
