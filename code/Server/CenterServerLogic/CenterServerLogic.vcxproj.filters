@@ -66,10 +66,8 @@
     <None Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">
       <Filter>Client</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
+    <None Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
       <Filter>Client</Filter>
-    </CustomBuild>
+    </None>
   </ItemGroup>
 </Project>

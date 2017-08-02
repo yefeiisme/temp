@@ -28,9 +28,9 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
+    <None Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
       <FileType>Document</FileType>
-    </CustomBuild>
+    </None>
     <None Include="..\..\Share\Header\Protocol\Data_Server_Protocol.proto" />
     <None Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto" />
   </ItemGroup>
