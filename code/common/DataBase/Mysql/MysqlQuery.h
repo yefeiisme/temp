@@ -36,8 +36,6 @@ private:
 	UINT					m_uSleepTime;
 	UINT					m_uFrame;
 
-	// 这两个成员变量尚未赋值
-	// ...
 	UINT					m_uPingInterval;
 	UINT					m_uReconnectInterval;
 
@@ -49,6 +47,7 @@ private:
 	string					m_strUserName;
 	string					m_strPassword;
 	string					m_strDBName;
+	string					m_strCharacterSet;
 
 	bool					m_bRunning;
 	bool					m_bExit;
@@ -56,7 +55,7 @@ public:
 	CMysqlQuery();
 	~CMysqlQuery();
 
-	bool					Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort);
+	bool					Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort, char *pstrCharset, unsigned int uPingTime);
 	bool					SendDBRequest(const void *pPack, const unsigned int uPackLen);
 	const void				*GetDBRespond(unsigned int &uPackLen);
 
@@ -81,19 +80,16 @@ public:
 		select(0, 0, 0, 0, &sleeptime);
 #endif
 	}
-	void					SaveAllData();
+
 	void					Release();
 private:
 	void					DBThreadFunc();
 	void					DBActive();
 	void					ProcessRequest();
 
-	bool					IsExistDB(const char *pstrDBName);
 	bool					Query(const char *pstrSQL, const unsigned int uSQLLen);
 	bool					ExecuteSQL(const char *pstrSQL);
 	void					Disconnect();
-
-	bool					CreateDataBase();
 };
 
 #endif

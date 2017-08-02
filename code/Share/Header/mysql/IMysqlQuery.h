@@ -12,7 +12,8 @@ IMysqlQuery			*CreateMysqlQuery(
 										char *pstrPassword,
 										char *pstrDBName,
 										unsigned short usDBPort,
-										char *pstrCharset
+										char *pstrCharset,
+										unsigned int uPingTime
 										);
 
 #endif

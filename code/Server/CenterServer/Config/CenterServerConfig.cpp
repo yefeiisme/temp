@@ -77,6 +77,15 @@ bool CCenterServerConfig::LoadConfig()
 	m_pIniFile->GetInteger("CenterServer", "WebSleepTime", 0, &m_nWebSleepTime);
 	m_pIniFile->GetInteger("CenterServer", "WebTimeOut", 0, &m_nWebTimeOut);
 
+	m_pIniFile->GetInteger("CenterServer", "DataPort", 0, &m_nDataPort);
+	m_pIniFile->GetInteger("CenterServer", "DataCount", 0, &m_nDataCount);
+	m_pIniFile->GetInteger("CenterServer", "DataRecvBuffLen", 0, &m_nDataRecvBuffLen);
+	m_pIniFile->GetInteger("CenterServer", "DataSendBuffLen", 0, &m_nDataSendBuffLen);
+	m_pIniFile->GetInteger("CenterServer", "DataMaxRecvPackLen", 0, &m_nDataMaxRecvPackLen);
+	m_pIniFile->GetInteger("CenterServer", "DataMaxSendPackLen", 0, &m_nDataMaxSendPackLen);
+	m_pIniFile->GetInteger("CenterServer", "DataSleepTime", 0, &m_nDataSleepTime);
+	m_pIniFile->GetInteger("CenterServer", "DataTimeOut", 0, &m_nDataTimeOut);
+
 	m_pIniFile->Release();
 	m_pIniFile	= nullptr;
 

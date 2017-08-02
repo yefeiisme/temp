@@ -2,39 +2,37 @@
 #include "Daemon.h"
 #include "MysqlQuery.h"
 
-#define MAX_ROLE_DATA_LENGTH				4096
-#define MAX_MAIL_DATA_LENGTH				409600
-
-IMysqlQuery *CreateMysqlQuery(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort)
+IMysqlQuery *CreateMysqlQuery(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort, char *pstrCharset, unsigned int uPingTime)
 {
-	CMysqlQuery *pRoleDB	= new CMysqlQuery;
-	if (NULL == pRoleDB)
+	CMysqlQuery *pMysqlQuery	= new CMysqlQuery;
+	if (NULL == pMysqlQuery)
 		return NULL;
 
-	if (!pRoleDB->Initialize(pstrDBIP, pstrAccount, pstrPassword, pstrDBName, usDBPort))
+	if (!pMysqlQuery->Initialize(pstrDBIP, pstrAccount, pstrPassword, pstrDBName, usDBPort, pstrCharset, uPingTime))
 	{
-		SAFE_DELETE(pRoleDB);
+		SAFE_DELETE(pMysqlQuery);
 		return NULL;
 	}
 
-	return pRoleDB;
+	return pMysqlQuery;
 }
 
 CMysqlQuery::CMysqlQuery()
 {
-	m_pFile				= NULL;
+	m_pFile			= NULL;
 	m_pRBRequest	= NULL;
 	m_pRBRespond	= NULL;
 
-	m_pDBHandle			= NULL;
-	m_pQueryRes			= NULL;
-	m_pRow				= NULL;
+	m_pDBHandle		= NULL;
+	m_pQueryRes		= NULL;
+	m_pRow			= NULL;
 
 	m_usDBPort			= 0;
 	m_strDBIP.clear();
 	m_strUserName.clear();
 	m_strPassword.clear();
 	m_strDBName.clear();
+	m_strCharacterSet.clear();
 
 	memset(m_strSQL, 0, sizeof(m_strSQL));
 
@@ -81,13 +79,15 @@ CMysqlQuery::~CMysqlQuery()
 	}
 }
 
-bool CMysqlQuery::Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort)
+bool CMysqlQuery::Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort, char *pstrCharset, unsigned int uPingTime)
 {
-	m_strDBIP		= pstrDBIP;
-	m_strUserName	= pstrAccount;
-	m_strPassword	= pstrPassword;
-	m_strDBName		= pstrDBName;
-	m_usDBPort		= usDBPort;
+	m_strDBIP			= pstrDBIP;
+	m_strUserName		= pstrAccount;
+	m_strPassword		= pstrPassword;
+	m_strDBName			= pstrDBName;
+	m_usDBPort			= usDBPort;
+	m_strCharacterSet	= pstrCharset;
+	m_uPingInterval		= uPingTime;
 
 	m_pRBRequest	= CreateRingBuffer(ROLE_DB_RB_REQUEST_LEN, ROLE_DB_RB_REQUEST_PACK_LEN);
 	if (!m_pRBRequest)
@@ -140,12 +140,6 @@ bool CMysqlQuery::Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPasswo
 	//	return false;
 	//}
 
-	if (!CreateDataBase())
-	{
-		g_pFileLog->WriteLog("%s[%d] Create DataBase Failed\n", __FILE__, __LINE__);
-		return false;
-	}
-
 	if (0 != mysql_select_db(m_pDBHandle, m_strDBName.c_str()))
 	{
 		m_uLastError			= mysql_errno(m_pDBHandle);
@@ -156,7 +150,7 @@ bool CMysqlQuery::Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPasswo
 		return false;
 	}
 
-	if (0 != mysql_set_character_set(m_pDBHandle, "utf8"))
+	if (0 != mysql_set_character_set(m_pDBHandle, m_strCharacterSet.c_str()))
 	{
 		m_uLastError			= mysql_errno(m_pDBHandle);
 		const char	*pstrError	= mysql_error(m_pDBHandle);
@@ -182,6 +176,11 @@ bool CMysqlQuery::SendDBRequest(const void *pPack, const unsigned int uPackLen)
 const void *CMysqlQuery::GetDBRespond(unsigned int &uPackLen)
 {
 	return m_pRBRespond->RcvPack(uPackLen);
+}
+
+void CMysqlQuery::Release()
+{
+	delete this;
 }
 
 void CMysqlQuery::DBThreadFunc()
@@ -214,129 +213,6 @@ void CMysqlQuery::DBThreadFunc()
 	}
 
 	m_bExit	= true;
-}
-
-void CMysqlQuery::SaveAllData()
-{
-	DBActive();
-
-	ProcessRequest();
-}
-
-void CMysqlQuery::Release()
-{
-	delete this;
-}
-
-bool CMysqlQuery::IsExistDB(const char *pstrDBName)
-{
-	if (!m_pDBHandle)
-		return false;
-
-	MYSQL_RES *pResTemp = mysql_list_dbs(m_pDBHandle, pstrDBName);
-	if (NULL == pResTemp)
-		return false;
-
-	if (mysql_num_rows(pResTemp) > 0)
-	{
-		mysql_free_result(pResTemp);
-		return true;
-	}
-
-	mysql_free_result(pResTemp);
-
-	return false;
-}
-
-bool CMysqlQuery::Query(const char *pstrSQL, const unsigned int uSQLLen)
-{
-	if (!m_pDBHandle)
-	{
-		g_pFileLog->WriteLog("%s[%d] m_pDBHandle Is NULL\n", __FILE__, __LINE__);
-		return false;
-	}
-
-	if (0 != mysql_real_query(m_pDBHandle, pstrSQL, uSQLLen))	// 执行单个sql查询
-	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
-
-		g_pFileLog->WriteLog("%s[%d] mysql_real_query Error:[%u]\n[%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
-
-		return false;
-	}
-
-	return true;
-}
-
-void CMysqlQuery::Disconnect()
-{
-	if (m_pDBHandle)
-	{
-		mysql_close(m_pDBHandle);
-		m_pDBHandle	= NULL;
-	}
-}
-
-bool CMysqlQuery::CreateDataBase()
-{
-	if (IsExistDB(m_strDBName.c_str()))
-	{
-		// 数据库已存在，直接返回
-		return true;
-	}
-
-	int	nStrLen	= snprintf(m_strSQL, sizeof(m_strSQL), "create database if not exists %s CHARACTER SET 'utf8' COLLATE 'utf8_general_ci", m_strDBName);
-	if (0 != mysql_real_query(m_pDBHandle, m_strSQL, nStrLen))
-	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
-
-		g_pFileLog->WriteLog("%s[%d] mysql_real_query Error:[%u]\n[%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
-
-		return false;
-	}
-
-	if (0 != mysql_select_db(m_pDBHandle, m_strDBName.c_str()))
-	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
-
-		g_pFileLog->WriteLog("%s[%d] mysql_select_db Error:[%u]\n[%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
-
-		return false;
-	}
-
-	if (0 != mysql_set_character_set(m_pDBHandle, "utf8"))
-	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
-
-		g_pFileLog->WriteLog("%s[%d] mysql_set_character_set Error:[%u]\n[%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
-
-		return false;
-	}
-
-	return true;
-}
-
-bool CMysqlQuery::ExecuteSQL(const char *pstrSQL)
-{
-	int nStrLen	= snprintf(m_strSQL, sizeof(m_strSQL), pstrSQL);
-
-	if (nStrLen <= 0 || nStrLen >= sizeof(m_strSQL))
-	{
-		g_pFileLog->WriteLog("%s[%d] nStrLen Is Error:\n[%d]\n", __FILE__, __LINE__, nStrLen);
-		return false;
-	}
-
-	if (!Query(m_strSQL, nStrLen))
-	{
-		g_pFileLog->WriteLog("%s[%d] Query Error:\n[%s]\n", __FILE__, __LINE__, m_strSQL);
-		return false;
-	}
-
-	return true;
 }
 
 void CMysqlQuery::DBActive()
@@ -428,4 +304,53 @@ void CMysqlQuery::ProcessRequest()
 
 		//(this->*m_ProtocolFunc[byProtocol])(pPack, uiPackLen);
 	};
+}
+
+bool CMysqlQuery::Query(const char *pstrSQL, const unsigned int uSQLLen)
+{
+	if (!m_pDBHandle)
+	{
+		g_pFileLog->WriteLog("%s[%d] m_pDBHandle Is NULL\n", __FILE__, __LINE__);
+		return false;
+	}
+
+	if (0 != mysql_real_query(m_pDBHandle, pstrSQL, uSQLLen))	// 执行单个sql查询
+	{
+		m_uLastError			= mysql_errno(m_pDBHandle);
+		const char	*pstrError	= mysql_error(m_pDBHandle);
+
+		g_pFileLog->WriteLog("%s[%d] mysql_real_query Error:[%u]\n[%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
+
+		return false;
+	}
+
+	return true;
+}
+
+bool CMysqlQuery::ExecuteSQL(const char *pstrSQL)
+{
+	int nStrLen	= snprintf(m_strSQL, sizeof(m_strSQL), pstrSQL);
+
+	if (nStrLen <= 0 || nStrLen >= sizeof(m_strSQL))
+	{
+		g_pFileLog->WriteLog("%s[%d] nStrLen Is Error:\n[%d]\n", __FILE__, __LINE__, nStrLen);
+		return false;
+	}
+
+	if (!Query(m_strSQL, nStrLen))
+	{
+		g_pFileLog->WriteLog("%s[%d] Query Error:\n[%s]\n", __FILE__, __LINE__, m_strSQL);
+		return false;
+	}
+
+	return true;
+}
+
+void CMysqlQuery::Disconnect()
+{
+	if (m_pDBHandle)
+	{
+		mysql_close(m_pDBHandle);
+		m_pDBHandle	= NULL;
+	}
 }
