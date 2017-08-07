@@ -5,13 +5,13 @@
 IMysqlQuery *CreateMysqlQuery(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort, char *pstrCharset, unsigned int uPingTime)
 {
 	CMysqlQuery *pMysqlQuery	= new CMysqlQuery;
-	if (NULL == pMysqlQuery)
-		return NULL;
+	if (nullptr == pMysqlQuery)
+		return nullptr;
 
 	if (!pMysqlQuery->Initialize(pstrDBIP, pstrAccount, pstrPassword, pstrDBName, usDBPort, pstrCharset, uPingTime))
 	{
 		SAFE_DELETE(pMysqlQuery);
-		return NULL;
+		return nullptr;
 	}
 
 	return pMysqlQuery;
@@ -19,24 +19,26 @@ IMysqlQuery *CreateMysqlQuery(char *pstrDBIP, char *pstrAccount, char *pstrPassw
 
 CMysqlQuery::CMysqlQuery()
 {
-	m_pFile			= NULL;
-	m_pRBRequest	= NULL;
-	m_pRBRespond	= NULL;
+	m_pIniFile		= nullptr;
 
-	m_pDBHandle		= NULL;
-	m_pQueryRes		= NULL;
-	m_pRow			= NULL;
+	m_pRBRequest	= nullptr;
+	m_pRBRespond	= nullptr;
 
-	m_usDBPort			= 0;
+	m_pDBHandle		= nullptr;
+	m_pQueryRes		= nullptr;
+	m_pRow			= nullptr;
+
+	m_usDBPort		= 0;
 	m_strDBIP.clear();
 	m_strUserName.clear();
 	m_strPassword.clear();
 	m_strDBName.clear();
 	m_strCharacterSet.clear();
 
-	memset(m_strSQL, 0, sizeof(m_strSQL));
-
-	m_uLastError		= 0;
+	m_uSqlBufferLen		= 0;
+	m_uMaxSqlLen		= 0;
+	m_uResultBufferLen	= 0;
+	m_uMaxResultLen		= 0;
 
 	m_uNextPingTime		= 0;
 	m_uNextConnectTime	= 0;
@@ -54,32 +56,40 @@ CMysqlQuery::CMysqlQuery()
 
 CMysqlQuery::~CMysqlQuery()
 {
-	if (m_pFile)
+	if (m_pIniFile)
 	{
-		m_pFile->Release();
-		m_pFile	= NULL;
+		m_pIniFile->Release();
+		m_pIniFile	= nullptr;
 	}
 
 	if (m_pDBHandle)
 	{
 		mysql_close(m_pDBHandle);
-		m_pDBHandle	= NULL;
+		m_pDBHandle	= nullptr;
 	}
 
 	if (m_pRBRequest)
 	{
 		m_pRBRequest->Release();
-		m_pRBRequest	= NULL;
+		m_pRBRequest	= nullptr;
 	}
 
 	if (m_pRBRespond)
 	{
 		m_pRBRespond->Release();
-		m_pRBRespond	= NULL;
+		m_pRBRespond	= nullptr;
 	}
 }
 
-bool CMysqlQuery::Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort, char *pstrCharset, unsigned int uPingTime)
+bool CMysqlQuery::Initialize(
+							char *pstrDBIP,
+							char *pstrAccount,
+							char *pstrPassword,
+							char *pstrDBName,
+							unsigned short usDBPort,
+							char *pstrCharset,
+							unsigned int uPingTime
+							)
 {
 	m_strDBIP			= pstrDBIP;
 	m_strUserName		= pstrAccount;
@@ -89,22 +99,22 @@ bool CMysqlQuery::Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPasswo
 	m_strCharacterSet	= pstrCharset;
 	m_uPingInterval		= uPingTime;
 
-	m_pRBRequest	= CreateRingBuffer(ROLE_DB_RB_REQUEST_LEN, ROLE_DB_RB_REQUEST_PACK_LEN);
+	m_pRBRequest	= CreateRingBuffer(m_uSqlBufferLen, m_uMaxSqlLen);
 	if (!m_pRBRequest)
 	{
 		g_pFileLog->WriteLog("%s[%d] Create RingBuffer For RoleDB Recv Failed!\n", __FILE__, __LINE__);
 		return false;
 	}
 
-	m_pRBRespond	= CreateRingBuffer(ROLE_DB_RB_RESPOND_LEN, ROLE_DB_RB_RESPOND_PACK_LEN);
+	m_pRBRespond	= CreateRingBuffer(m_uResultBufferLen, m_uMaxResultLen);
 	if (!m_pRBRespond)
 	{
 		g_pFileLog->WriteLog("%s[%d] Create RingBuffer For RoleDB Send Failed!\n", __FILE__, __LINE__);
 		return false;
 	}
 
-	m_pDBHandle = mysql_init(NULL);
-	if (NULL == m_pDBHandle)
+	m_pDBHandle = mysql_init(nullptr);
+	if (nullptr == m_pDBHandle)
 	{
 		g_pFileLog->WriteLog("%s[%d] mysql_init Failed!\n", __FILE__, __LINE__);
 		return false;
@@ -115,20 +125,20 @@ bool CMysqlQuery::Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPasswo
 	char	cReconnectFlag = 1;
 	if (0 != mysql_options(m_pDBHandle, MYSQL_OPT_RECONNECT, &cReconnectFlag))
 	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
+		unsigned int	uLastError	= mysql_errno(m_pDBHandle);
+		const char		*pstrError	= mysql_error(m_pDBHandle);
 
-		g_pFileLog->WriteLog("%s[%d] mysql_options Error:[%u][%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
+		g_pFileLog->WriteLog("%s[%d] mysql_options Error:[%u][%s]\n", __FILE__, __LINE__, uLastError, pstrError);
 
 		return false;
 	}
 
-	if (!mysql_real_connect(m_pDBHandle, m_strDBIP.c_str(), m_strUserName.c_str(), m_strPassword.c_str(), "", m_usDBPort, NULL, CLIENT_MULTI_STATEMENTS))
+	if (!mysql_real_connect(m_pDBHandle, m_strDBIP.c_str(), m_strUserName.c_str(), m_strPassword.c_str(), "", m_usDBPort, nullptr, CLIENT_MULTI_STATEMENTS))
 	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
+		unsigned int	uLastError	= mysql_errno(m_pDBHandle);
+		const char		*pstrError	= mysql_error(m_pDBHandle);
 
-		g_pFileLog->WriteLog("%s[%d] mysql_real_connect Error:[%u][%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
+		g_pFileLog->WriteLog("%s[%d] mysql_real_connect Error:[%u][%s]\n", __FILE__, __LINE__, uLastError, pstrError);
 
 		return false;
 	}
@@ -142,20 +152,20 @@ bool CMysqlQuery::Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPasswo
 
 	if (0 != mysql_select_db(m_pDBHandle, m_strDBName.c_str()))
 	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
+		unsigned int	uLastError	= mysql_errno(m_pDBHandle);
+		const char		*pstrError	= mysql_error(m_pDBHandle);
 
-		g_pFileLog->WriteLog("%s[%d] mysql_select_db Error:[%u]\n[%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
+		g_pFileLog->WriteLog("%s[%d] mysql_select_db Error:[%u]\n[%s]\n", __FILE__, __LINE__, uLastError, pstrError);
 
 		return false;
 	}
 
 	if (0 != mysql_set_character_set(m_pDBHandle, m_strCharacterSet.c_str()))
 	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
+		unsigned int	uLastError	= mysql_errno(m_pDBHandle);
+		const char		*pstrError	= mysql_error(m_pDBHandle);
 
-		g_pFileLog->WriteLog("%s[%d] mysql_set_character_set Error:[%u]\n[%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
+		g_pFileLog->WriteLog("%s[%d] mysql_set_character_set Error:[%u]\n[%s]\n", __FILE__, __LINE__, uLastError, pstrError);
 
 		return false;
 	}
@@ -164,6 +174,14 @@ bool CMysqlQuery::Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPasswo
 
 	std::thread	threadMysqlQuery(&CMysqlQuery::DBThreadFunc, this);
 	threadMysqlQuery.detach();
+
+	return true;
+}
+
+bool CMysqlQuery::Initialize(char *pstrSettingFile, char *pstrSection)
+{
+	if (!LoadConfig(pstrSection))
+		return false;
 
 	return true;
 }
@@ -181,6 +199,11 @@ const void *CMysqlQuery::GetDBRespond(unsigned int &uPackLen)
 void CMysqlQuery::Release()
 {
 	delete this;
+}
+
+bool CMysqlQuery::LoadConfig(char *pstrSection)
+{
+	return true;
 }
 
 void CMysqlQuery::DBThreadFunc()
@@ -235,10 +258,10 @@ void CMysqlQuery::DBActive()
 
 	g_pFileLog->WriteLog("Reconnect To Role DB...\n");
 
-	m_pDBHandle	= mysql_init(NULL);
+	m_pDBHandle	= mysql_init(nullptr);
 	if (!m_pDBHandle)
 	{
-		g_pFileLog->WriteLog("%s[%d] m_pDBHandle Is NULL\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("%s[%d] m_pDBHandle Is nullptr\n", __FILE__, __LINE__);
 
 		m_uNextConnectTime = m_nTimeNow + m_uReconnectInterval;
 
@@ -248,10 +271,10 @@ void CMysqlQuery::DBActive()
 	char	cReconnectFlag = 1;
 	if (0 != mysql_options(m_pDBHandle, MYSQL_OPT_RECONNECT, &cReconnectFlag))
 	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
+		unsigned int	uLastError	= mysql_errno(m_pDBHandle);
+		const char		*pstrError	= mysql_error(m_pDBHandle);
 
-		g_pFileLog->WriteLog("%s[%d] mysql_options Error:\n[%u][%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
+		g_pFileLog->WriteLog("%s[%d] mysql_options Error:\n[%u][%s]\n", __FILE__, __LINE__, uLastError, pstrError);
 
 		Disconnect();
 
@@ -262,10 +285,10 @@ void CMysqlQuery::DBActive()
 
 	if (!mysql_real_connect(m_pDBHandle, m_strDBIP.c_str(), m_strUserName.c_str(), m_strPassword.c_str(), m_strDBName.c_str(), m_usDBPort, m_strDBName.c_str(), 0))
 	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
+		unsigned int	uLastError	= mysql_errno(m_pDBHandle);
+		const char		*pstrError	= mysql_error(m_pDBHandle);
 
-		g_pFileLog->WriteLog("%s[%d] mysql_real_connect Error:\n[%u][%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
+		g_pFileLog->WriteLog("%s[%d] mysql_real_connect Error:\n[%u][%s]\n", __FILE__, __LINE__, uLastError, pstrError);
 
 		Disconnect();
 
@@ -289,57 +312,30 @@ void CMysqlQuery::DBActive()
 
 void CMysqlQuery::ProcessRequest()
 {
-	UINT		uiPackLen	= 0;
-	const void	*pPack		= NULL;
+	UINT		uPackLen	= 0;
+	const void	*pPack		= nullptr;
 
-	while(NULL != (pPack = m_pRBRequest->RcvPack(uiPackLen)))
+	while(nullptr != (pPack = m_pRBRequest->RcvPack(uPackLen)))
 	{
-		BYTE	byProtocol = *((BYTE*)pPack);
-
-		//if (byProtocol >= role_db_end)
-		//{
-		//	g_pFileLog->WriteLog("%s[%d] Invalid Protocol[%hhu]\n", __FILE__, __LINE__, byProtocol);
-		//	return;
-		//}
-
-		//(this->*m_ProtocolFunc[byProtocol])(pPack, uiPackLen);
+		ExecuteSQL((const char *)pPack, uPackLen);
 	};
 }
 
-bool CMysqlQuery::Query(const char *pstrSQL, const unsigned int uSQLLen)
+bool CMysqlQuery::ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen)
 {
 	if (!m_pDBHandle)
 	{
-		g_pFileLog->WriteLog("%s[%d] m_pDBHandle Is NULL\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("%s[%d] m_pDBHandle Is nullptr\n", __FUNCTION__, __LINE__);
 		return false;
 	}
 
-	if (0 != mysql_real_query(m_pDBHandle, pstrSQL, uSQLLen))	// 执行单个sql查询
+	if (0 != mysql_real_query(m_pDBHandle, pstrSQL, uSQLLen))
 	{
-		m_uLastError			= mysql_errno(m_pDBHandle);
-		const char	*pstrError	= mysql_error(m_pDBHandle);
+		unsigned int	uLastError	= mysql_errno(m_pDBHandle);
+		const char		*pstrError	= mysql_error(m_pDBHandle);
 
-		g_pFileLog->WriteLog("%s[%d] mysql_real_query Error:[%u]\n[%s]\n", __FILE__, __LINE__, m_uLastError, pstrError);
+		g_pFileLog->WriteLog("%s[%d] mysql_real_query Error:[%u]\n[%s]\n", __FUNCTION__, __LINE__, uLastError, pstrError);
 
-		return false;
-	}
-
-	return true;
-}
-
-bool CMysqlQuery::ExecuteSQL(const char *pstrSQL)
-{
-	int nStrLen	= snprintf(m_strSQL, sizeof(m_strSQL), pstrSQL);
-
-	if (nStrLen <= 0 || nStrLen >= sizeof(m_strSQL))
-	{
-		g_pFileLog->WriteLog("%s[%d] nStrLen Is Error:\n[%d]\n", __FILE__, __LINE__, nStrLen);
-		return false;
-	}
-
-	if (!Query(m_strSQL, nStrLen))
-	{
-		g_pFileLog->WriteLog("%s[%d] Query Error:\n[%s]\n", __FILE__, __LINE__, m_strSQL);
 		return false;
 	}
 
@@ -351,6 +347,6 @@ void CMysqlQuery::Disconnect()
 	if (m_pDBHandle)
 	{
 		mysql_close(m_pDBHandle);
-		m_pDBHandle	= NULL;
+		m_pDBHandle	= nullptr;
 	}
 }

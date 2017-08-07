@@ -2,8 +2,8 @@
 #define __ROLE_DB_THREAD_H_
 
 #include "IRingBuffer.h"
-#include "ITabFile.h"
 #include "IMysqlQuery.h"
+#include "IIniFile.h"
 #include "my_global.h"
 #include "mysql.h"
 #include <string>
@@ -20,7 +20,8 @@ using namespace std;
 class CMysqlQuery : public IMysqlQuery
 {
 private:
-	ITabFile				*m_pFile;
+	IIniFile				*m_pIniFile;
+
 	IRingBuffer				*m_pRBRequest;
 	IRingBuffer				*m_pRBRespond;
 
@@ -29,7 +30,11 @@ private:
 	MYSQL_ROW				m_pRow;
 
 	char					m_strSQL[MAX_SQL_LEN];
-	unsigned int			m_uLastError;
+
+	UINT					m_uSqlBufferLen;
+	UINT					m_uMaxSqlLen;
+	UINT					m_uResultBufferLen;
+	UINT					m_uMaxResultLen;
 
 	UINT					m_uNextPingTime;
 	UINT					m_uNextConnectTime;
@@ -55,7 +60,16 @@ public:
 	CMysqlQuery();
 	~CMysqlQuery();
 
-	bool					Initialize(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort, char *pstrCharset, unsigned int uPingTime);
+	bool					Initialize(
+										char *pstrDBIP,
+										char *pstrAccount,
+										char *pstrPassword,
+										char *pstrDBName,
+										unsigned short usDBPort,
+										char *pstrCharset,
+										unsigned int uPingTime
+										);
+	bool					Initialize(char *pstrSettingFile, char *pstrSection);
 	bool					SendDBRequest(const void *pPack, const unsigned int uPackLen);
 	const void				*GetDBRespond(unsigned int &uPackLen);
 
@@ -83,12 +97,12 @@ public:
 
 	void					Release();
 private:
+	bool					LoadConfig(char *pstrSection);
 	void					DBThreadFunc();
 	void					DBActive();
 	void					ProcessRequest();
 
-	bool					Query(const char *pstrSQL, const unsigned int uSQLLen);
-	bool					ExecuteSQL(const char *pstrSQL);
+	bool					ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen);
 	void					Disconnect();
 };
 
