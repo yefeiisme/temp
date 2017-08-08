@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Share\Header\Mysql\IMysqlQuery.h" />
     <ClInclude Include="Mysql\MysqlQuery.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}</ProjectGuid>

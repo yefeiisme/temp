@@ -18,8 +18,6 @@
 #include <list>
 #include <map>
 #include <string>
-#include "my_global.h"
-#include "mysql.h"
 using namespace std;
 
 #ifdef _MSC_VER

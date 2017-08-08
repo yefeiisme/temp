@@ -6,14 +6,6 @@ class IMysqlQuery
 public:
 };
 
-IMysqlQuery			*CreateMysqlQuery(
-										char *pstrDBIP,
-										char *pstrAccount,
-										char *pstrPassword,
-										char *pstrDBName,
-										unsigned short usDBPort,
-										char *pstrCharset,
-										unsigned int uPingTime
-										);
+IMysqlQuery			*CreateMysqlQuery(const char *pstrSettingFile, const char *pstrSection);
 
 #endif

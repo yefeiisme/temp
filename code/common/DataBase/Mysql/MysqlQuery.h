@@ -3,9 +3,6 @@
 
 #include "IRingBuffer.h"
 #include "IMysqlQuery.h"
-#include "IIniFile.h"
-#include "my_global.h"
-#include "mysql.h"
 #include <string>
 #include <thread>
 
@@ -60,16 +57,7 @@ public:
 	CMysqlQuery();
 	~CMysqlQuery();
 
-	bool					Initialize(
-										char *pstrDBIP,
-										char *pstrAccount,
-										char *pstrPassword,
-										char *pstrDBName,
-										unsigned short usDBPort,
-										char *pstrCharset,
-										unsigned int uPingTime
-										);
-	bool					Initialize(char *pstrSettingFile, char *pstrSection);
+	bool					Initialize(const char *pstrSettingFile, const char *pstrSection);
 	bool					SendDBRequest(const void *pPack, const unsigned int uPackLen);
 	const void				*GetDBRespond(unsigned int &uPackLen);
 
@@ -97,12 +85,12 @@ public:
 
 	void					Release();
 private:
-	bool					LoadConfig(char *pstrSection);
+	bool					LoadConfig(const char *pstrSettingFile, const char *pstrSection);
 	void					DBThreadFunc();
 	void					DBActive();
 	void					ProcessRequest();
 
-	bool					ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen);
+	void					ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen);
 	void					Disconnect();
 };
 

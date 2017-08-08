@@ -1,8 +1,8 @@
 syntax = "proto2";
 
-package WS_CS_NET_PACK;
+package Sensor_Server_Protocol;
 
-message WS2CS_LOGIN
+message Sensor2Server_Login
 { 
 	required bytes	account		= 1;	// ÕËºÅ
 	required bytes	password	= 2;	// ÃÜÂë
@@ -11,7 +11,7 @@ message WS2CS_LOGIN
 
 
 
-message CS2WS_LOGIN_RESULT
+message Server2Sensor_LoginResult
 {
 	required uint32	result	= 1;	// µÇÂ½½á¹û£º0£¬µÇÂ½³É¹¦£»1£¬ÕÊºÅ»òÕßÃÜÂë´íÎó£»
 }

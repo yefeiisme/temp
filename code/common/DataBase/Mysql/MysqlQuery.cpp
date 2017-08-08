@@ -1,14 +1,19 @@
 #include "stdafx.h"
 #include "Daemon.h"
+#include "rapidjson/rapidjson.h"
+#include "rapidjson/document.h"
+#include "rapidjson/filereadstream.h"
+#include "my_global.h"
+#include "mysql.h"
 #include "MysqlQuery.h"
 
-IMysqlQuery *CreateMysqlQuery(char *pstrDBIP, char *pstrAccount, char *pstrPassword, char *pstrDBName, unsigned short usDBPort, char *pstrCharset, unsigned int uPingTime)
+IMysqlQuery *CreateMysqlQuery(const char *pstrSettingFile, const char *pstrSection)
 {
 	CMysqlQuery *pMysqlQuery	= new CMysqlQuery;
 	if (nullptr == pMysqlQuery)
 		return nullptr;
 
-	if (!pMysqlQuery->Initialize(pstrDBIP, pstrAccount, pstrPassword, pstrDBName, usDBPort, pstrCharset, uPingTime))
+	if (!pMysqlQuery->Initialize(pstrSettingFile, pstrSection))
 	{
 		SAFE_DELETE(pMysqlQuery);
 		return nullptr;
@@ -81,23 +86,13 @@ CMysqlQuery::~CMysqlQuery()
 	}
 }
 
-bool CMysqlQuery::Initialize(
-							char *pstrDBIP,
-							char *pstrAccount,
-							char *pstrPassword,
-							char *pstrDBName,
-							unsigned short usDBPort,
-							char *pstrCharset,
-							unsigned int uPingTime
-							)
+bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSection)
 {
-	m_strDBIP			= pstrDBIP;
-	m_strUserName		= pstrAccount;
-	m_strPassword		= pstrPassword;
-	m_strDBName			= pstrDBName;
-	m_usDBPort			= usDBPort;
-	m_strCharacterSet	= pstrCharset;
-	m_uPingInterval		= uPingTime;
+	if (!LoadConfig(pstrSettingFile, pstrSection))
+	{
+		g_pFileLog->WriteLog("[%s][%d] Load Config[%s] Section[%s] Failed\n", __FUNCTION__, __LINE__, pstrSettingFile, pstrSection);
+		return false;
+	}
 
 	m_pRBRequest	= CreateRingBuffer(m_uSqlBufferLen, m_uMaxSqlLen);
 	if (!m_pRBRequest)
@@ -178,14 +173,6 @@ bool CMysqlQuery::Initialize(
 	return true;
 }
 
-bool CMysqlQuery::Initialize(char *pstrSettingFile, char *pstrSection)
-{
-	if (!LoadConfig(pstrSection))
-		return false;
-
-	return true;
-}
-
 bool CMysqlQuery::SendDBRequest(const void *pPack, const unsigned int uPackLen)
 {
 	return m_pRBRequest->SndPack(pPack, uPackLen);
@@ -201,8 +188,45 @@ void CMysqlQuery::Release()
 	delete this;
 }
 
-bool CMysqlQuery::LoadConfig(char *pstrSection)
+bool CMysqlQuery::LoadConfig(const char *pstrSettingFile, const char *pstrSection)
 {
+	m_pIniFile	= OpenIniFile(pstrSettingFile);
+	if (nullptr == m_pIniFile)
+	{
+		g_pFileLog->WriteLog("%s[%d] Open File[%s] Failed\n", __FILE__, __LINE__, pstrSettingFile);
+		return false;
+	}
+
+	char	strDBIP[0xf];
+	char	strUserName[0xf];
+	char	strPassword[0xf];
+	char	strDBName[0xf];
+	char	strCharacterSet[0xf];
+	int		nPingTime;
+
+	m_pIniFile->GetString(pstrSection, "IP", "", strDBIP, sizeof(strDBIP));
+	strDBIP[sizeof(strDBIP)-1]	= '\0';
+	m_strDBIP	= strDBIP;
+
+	m_pIniFile->GetString(pstrSection, "Account", "", strUserName, sizeof(strUserName));
+	strUserName[sizeof(strUserName)-1]	= '\0';
+	m_strUserName	= strUserName;
+
+	m_pIniFile->GetString(pstrSection, "Password", "", strPassword, sizeof(strPassword));
+	strPassword[sizeof(strPassword)-1]	= '\0';
+	m_strPassword	= strPassword;
+
+	m_pIniFile->GetString(pstrSection, "DBName", "", strDBName, sizeof(strDBName));
+	strDBName[sizeof(strDBName)-1]	= '\0';
+	m_strDBName	= strDBName;
+
+	m_pIniFile->GetString(pstrSection, "CharacterSet", "", strCharacterSet, sizeof(strCharacterSet));
+	strCharacterSet[sizeof(strCharacterSet)-1]	= '\0';
+	m_strCharacterSet	= strCharacterSet;
+
+	m_pIniFile->GetInteger(pstrSection, "PingTime", 0, &nPingTime);
+	m_uPingInterval	= nPingTime;
+
 	return true;
 }
 
@@ -321,12 +345,12 @@ void CMysqlQuery::ProcessRequest()
 	};
 }
 
-bool CMysqlQuery::ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen)
+void CMysqlQuery::ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen)
 {
 	if (!m_pDBHandle)
 	{
 		g_pFileLog->WriteLog("%s[%d] m_pDBHandle Is nullptr\n", __FUNCTION__, __LINE__);
-		return false;
+		return;
 	}
 
 	if (0 != mysql_real_query(m_pDBHandle, pstrSQL, uSQLLen))
@@ -336,10 +360,11 @@ bool CMysqlQuery::ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen)
 
 		g_pFileLog->WriteLog("%s[%d] mysql_real_query Error:[%u]\n[%s]\n", __FUNCTION__, __LINE__, uLastError, pstrError);
 
-		return false;
+		return;
 	}
 
-	return true;
+	// handle result
+	// ...
 }
 
 void CMysqlQuery::Disconnect()

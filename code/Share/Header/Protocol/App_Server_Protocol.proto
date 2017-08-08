@@ -1,17 +1,98 @@
 syntax = "proto2";
 
-package APP_CS_NET_PACK;
+package APP_CS_NET_Protocol;
 
-message APP2CS_LOGIN
+// App Request Server
+
+enum APP2S
+{
+	app2s_login						= 1;
+	app2s_request_slope_list		= 2;
+	app2s_request_sensor_list		= 3;
+	app2s_request_sensor_history	= 4;
+}
+
+message App2S_Login
 { 
-	required bytes	account		= 1;	// ÕËºÅ
-	required bytes	password	= 2;	// ÃÜÂë
+	required bytes	account			= 1;
+	required bytes	password		= 2;
+}
+
+message APP2S_Request_Slope_List
+{
+	required uint32 server_id		= 1;
+}
+
+message APP2S_Request_Sensor_List
+{
+	required uint32 slope_id		= 1;
+}
+
+message APP2S_Request_Sensor_History
+{
+	required uint32 sensor_id		= 1;
+	required uint32 begin_time		= 2;
+	required uint32 end_time		= 3;
 }
 
 
+// Server Respond App
 
-
-message CS2APP_LOGIN_RESULT
+enum S2APP
 {
-	required uint32	result	= 1;	// µÇÂ½½á¹û£º0£¬µÇÂ½³É¹¦£»1£¬ÕÊºÅ»òÕßÃÜÂë´íÎó£»
+	s2app_login_result				= 1;
+	s2app_slope_list				= 2;
+	s2app_sensor_list				= 3;
+	s2app_sensor_history			= 4;
+}
+
+message S2App_Login_Result
+{
+	message ServerData
+	{
+		required uint32 id			= 1;
+		required bytes	ip			= 2;
+		required bytes	port		= 3;
+	}
+	required uint32	result			= 1;	// µÇÂ½½á¹û£º0£¬µÇÂ½³É¹¦£»1£¬ÕÊºÅ»òÕßÃÜÂë´íÎó£»
+	repeated ServerData	server_list	= 2;
+}
+
+message S2App_Slope_List
+{
+	message SlopeData
+	{
+		required uint32 id			= 1;
+		required uint32 state		= 2;
+		required double	longitude	= 3;
+		required double	latitude	= 4;
+	}
+
+	repeated SlopeData	slope_list	= 1;
+}
+
+message S2App_Sensor_List
+{
+	message SensorData
+	{
+		required uint32 id			= 1;
+		required uint32 state		= 2;
+		required double	longitude	= 3;
+		required double	latitude	= 4;
+	}
+
+	repeated SensorData	sensor_list	= 1;
+}
+
+message S2App_Sensor_History
+{
+	message SensorData
+	{
+		required uint32 state		= 1;
+		required double	longitude	= 2;
+		required double	latitude	= 3;
+	}
+
+	required uint32 id				= 1;
+	repeated SensorData	history_list= 2;
 }
