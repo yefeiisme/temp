@@ -60,13 +60,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Share\Header\Protocol\Data_Server_Protocol.proto">
-      <Filter>Client</Filter>
-    </None>
     <None Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">
       <Filter>Client</Filter>
     </None>
     <None Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
+      <Filter>Client</Filter>
+    </None>
+    <None Include="..\..\Share\Header\Protocol\Sensor_Server_Protocol.proto">
       <Filter>Client</Filter>
     </None>
   </ItemGroup>

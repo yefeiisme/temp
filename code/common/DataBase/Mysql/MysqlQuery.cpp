@@ -363,12 +363,46 @@ void CMysqlQuery::ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen)
 		return;
 	}
 
-	// handle result
+	HandleResult();
+}
+
+void CMysqlQuery::ClearResult()
+{
+	// 这里后面要修改一下，确认一下mysql_next_result
 	// ...
+	if (m_pQueryRes)
+	{
+		mysql_free_result(m_pQueryRes);
+		m_uRowCount	= 0;
+		m_uColCount	= 0;
+	}
+}
+
+bool CMysqlQuery::HandleResult()
+{
+	ClearResult();
+
+	m_pQueryRes	= mysql_store_result(m_pDBHandle);
+	if (nullptr == m_pQueryRes)
+	{
+		unsigned int	uLastError	= mysql_errno(m_pDBHandle);
+		const char		*pstrError	= mysql_error(m_pDBHandle);
+
+		g_pFileLog->WriteLog("%s[%d] mysql_store_result Error:[%u]\n[%s]\n", __FUNCTION__, __LINE__, uLastError, pstrError);
+
+		return false;
+	}
+
+	m_uColCount	= mysql_num_fields(m_pQueryRes);
+	m_uRowCount	= mysql_num_rows(m_pQueryRes);
+
+	return true;
 }
 
 void CMysqlQuery::Disconnect()
 {
+	ClearResult();
+
 	if (m_pDBHandle)
 	{
 		mysql_close(m_pDBHandle);

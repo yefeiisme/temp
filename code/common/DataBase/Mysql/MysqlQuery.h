@@ -9,10 +9,6 @@
 using namespace std;
 
 #define MAX_SQL_LEN						1024*1024
-#define	ROLE_DB_RB_REQUEST_LEN			16*1024*1024
-#define ROLE_DB_RB_REQUEST_PACK_LEN		1024*1024
-#define ROLE_DB_RB_RESPOND_LEN			16*1024*1024
-#define ROLE_DB_RB_RESPOND_PACK_LEN		1024*1024
 
 class CMysqlQuery : public IMysqlQuery
 {
@@ -28,6 +24,11 @@ private:
 
 	char					m_strSQL[MAX_SQL_LEN];
 
+	// Sql Result
+	UINT					m_uRowCount;
+	UINT					m_uColCount;
+
+	// RingBuffer Setting
 	UINT					m_uSqlBufferLen;
 	UINT					m_uMaxSqlLen;
 	UINT					m_uResultBufferLen;
@@ -57,7 +58,6 @@ public:
 	CMysqlQuery();
 	~CMysqlQuery();
 
-	bool					Initialize(const char *pstrSettingFile, const char *pstrSection);
 	bool					SendDBRequest(const void *pPack, const unsigned int uPackLen);
 	const void				*GetDBRespond(unsigned int &uPackLen);
 
@@ -71,6 +71,9 @@ public:
 		return m_bExit;
 	}
 
+	void					Release();
+	bool					Initialize(const char *pstrSettingFile, const char *pstrSection);
+private:
 	inline void				yield()
 	{
 #if defined (WIN32) || defined (WIN64)
@@ -83,14 +86,14 @@ public:
 #endif
 	}
 
-	void					Release();
-private:
 	bool					LoadConfig(const char *pstrSettingFile, const char *pstrSection);
 	void					DBThreadFunc();
 	void					DBActive();
 	void					ProcessRequest();
 
 	void					ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen);
+	void					ClearResult();
+	bool					HandleResult();
 	void					Disconnect();
 };
 
