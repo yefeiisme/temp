@@ -1,9 +1,37 @@
 #include "stdafx.h"
 #include "WebClient.h"
 
-CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[256] =
+CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::WEB2S::web2s_max] =
 {
 	&CWebClient::RecvPing,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::DefaultProtocolFunc,
 };
 
 CWebClient::CWebClient() : CClient()
@@ -39,6 +67,10 @@ void CWebClient::ProcessNetPack()
 
 		m_pClientConn->ResetTimeOut();
 	};
+}
+
+void CWebClient::DefaultProtocolFunc(const void *pPack, const unsigned int uPackLen)
+{
 }
 
 void CWebClient::RecvPing(const void *pPack, const unsigned int uPackLen)

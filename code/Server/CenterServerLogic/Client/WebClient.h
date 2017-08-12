@@ -2,6 +2,7 @@
 #define __WEB_CLIENT_H_
 
 #include "Client.h"
+#include "Web_Server_Protocol.pb.h"
 
 class CWebClient : public CClient
 {
@@ -13,10 +14,12 @@ public:
 private:
 	void					ProcessNetPack();
 
+	void					DefaultProtocolFunc(const void *pPack, const unsigned int uPackLen);
+
 	void					RecvPing(const void *pPack, const unsigned int uPackLen);
 private:
 	typedef void			(CWebClient::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
-	static pfnProtocolFunc	m_ProtocolFunc[256];
+	static pfnProtocolFunc	m_ProtocolFunc[WEB_SERVER_NET_Protocol::WEB2S::web2s_max];
 private:
 };
 

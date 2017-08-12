@@ -35,6 +35,9 @@
     <ClCompile Include="Client\DataClient.cpp">
       <Filter>Client</Filter>
     </ClCompile>
+    <ClCompile Include="Client\App_Server_Protocol.pb.cc">
+      <Filter>Client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CenterServerLogic.h">
@@ -58,16 +61,21 @@
     <ClInclude Include="Client\DataClient.h">
       <Filter>Client</Filter>
     </ClInclude>
+    <ClInclude Include="Client\App_Server_Protocol.pb.h">
+      <Filter>Client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">
-      <Filter>Client</Filter>
-    </None>
-    <None Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
-      <Filter>Client</Filter>
-    </None>
     <None Include="..\..\Share\Header\Protocol\Sensor_Server_Protocol.proto">
       <Filter>Client</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
+      <Filter>Client</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">
+      <Filter>Client</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

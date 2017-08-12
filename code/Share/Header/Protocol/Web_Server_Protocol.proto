@@ -1,17 +1,166 @@
 syntax = "proto2";
 
-package WS_CS_NET_PACK;
+package WEB_SERVER_NET_Protocol;
 
-message WS2CS_LOGIN
+
+
+// Web Request Server
+// Web 向服务器请求的协议编号
+enum WEB2S
+{
+	web2s_login						= 0;	// 客户端向服务器请求登陆
+	web2s_request_slope_list		= 1;	// web向服务器请求边坡列表
+	web2s_request_sensor_list		= 2;	// web向服务器请求传感器列表
+	web2s_request_sensor_history	= 3;	// web向服务器请求传感器在一定时间段内的数据
+	web2s_reserve1					= 4;	// 保留用的协议
+	web2s_reserve2					= 5;	// 保留用的协议
+	web2s_reserve3					= 6;	// 保留用的协议
+	web2s_reserve4					= 7;	// 保留用的协议
+	web2s_reserve5					= 8;	// 保留用的协议
+	web2s_reserve6					= 9;	// 保留用的协议
+	web2s_reserve7					= 10;	// 保留用的协议
+	web2s_reserve8					= 11;	// 保留用的协议
+	web2s_reserve9					= 12;	// 保留用的协议
+	web2s_reserve10					= 13;	// 保留用的协议
+	web2s_reserve11					= 14;	// 保留用的协议
+	web2s_reserve12					= 15;	// 保留用的协议
+	web2s_reserve13					= 16;	// 保留用的协议
+	web2s_reserve14					= 17;	// 保留用的协议
+	web2s_reserve15					= 18;	// 保留用的协议
+	web2s_reserve16					= 19;	// 保留用的协议
+	web2s_reserve17					= 20;	// 保留用的协议
+	web2s_reserve18					= 21;	// 保留用的协议
+	web2s_reserve19					= 22;	// 保留用的协议
+	web2s_reserve20					= 23;	// 保留用的协议
+
+	web2s_max						= 256;	// 最大协议号
+}
+
+
+
+// Web Request Struct
+// 客户端请求协议对应的数据结构
+
+// 客户端向服务器请求登陆
+message Web2S_Login
 { 
-	required bytes	account		= 1;	// 账号
-	required bytes	password	= 2;	// 密码
+	required bytes	account			= 1;	// 账号
+	required bytes	password		= 2;	// 密码
+}
+
+// web向服务器请求边坡列表
+message WEB2S_Request_Slope_List
+{
+	required uint32 server_id		= 1;	// 服务器ID
+}
+
+// web向服务器请求传感器列表
+message WEB2S_Request_Sensor_List
+{
+	required uint32 slope_id		= 1;	// 边坡ID
+}
+
+// web向服务器请求传感器在一定时间段内的数据
+message WEB2S_Request_Sensor_History
+{
+	required uint32 sensor_id		= 1;	// 传感器ID
+	required uint32 begin_time		= 2;	// 开始时间
+	required uint32 end_time		= 3;	// 结束时间
 }
 
 
 
 
-message CS2WS_LOGIN_RESULT
+
+
+
+
+// Server Respond Web
+// 服务器回应Web请求的协议编号
+enum S2WEB
 {
-	required uint32	result	= 1;	// 登陆结果：0，登陆成功；1，帐号或者密码错误；
+	s2web_login_result				= 0;	// 登陆结果
+	s2web_slope_list				= 1;	// 边坡列表
+	s2web_sensor_list				= 2;	// 传感器列表
+	s2web_sensor_history			= 3;	// 传感器历史数据
+
+	s2web_max						= 256;	// 最大协议号
+}
+
+
+
+// Server Respond Protocol Struct
+// 服务器回应Web协议对应的数据结构
+
+// 登陆结果
+message S2Web_Login_Result
+{
+	message ServerData
+	{
+		required uint32 id			= 1;	// 服务器ID
+		required bytes	ip			= 2;	// 服务器IP
+		required bytes	port		= 3;	// 服务器端口号
+	}
+
+	required uint32	result			= 1;	// 登陆结果：0，登陆成功；1，帐号或者密码错误；
+	repeated ServerData	server_list	= 2;	// 服务器列表数据
+}
+
+// 边坡列表
+message S2Web_Slope_List
+{
+	message SlopeData
+	{// 边坡数据结构
+		required uint32	id			= 1;	// ID
+		required uint32	type		= 2;	// 类型
+		required bytes	name		= 3;	// 名称
+		required uint32	state		= 4;	// 预警状态
+		required double	longitude	= 5;	// 经度
+		required double	latitude	= 6;	// 纬度
+	}
+
+	repeated SlopeData	slope_list	= 1;
+}
+
+// 传感器列表
+message S2Web_Sensor_List
+{
+	message SensorData
+	{// 传感器器数据结构
+		required uint32	id			= 1;	// ID
+		required uint32	type		= 2;	// 类型
+		required uint32	state		= 3;	// 预警状态
+		required double	longitude	= 4;	// 经度
+		required double	latitude	= 5;	// 纬度
+		required double	cur_value1	= 6;	// 当前物理量1
+		required double	cur_value2	= 7;	// 当前物理量2
+		required double	cur_value3	= 8;	// 当前物理量3
+	}
+
+	repeated SensorData	sensor_list	= 1;
+}
+
+// 传感器历史数据
+message S2Web_Sensor_History
+{
+	message SensorData
+	{//传感器数据
+		required uint32 state			= 1;	// 预警状态
+		required double	longitude		= 2;	// 经度
+		required double	latitude		= 3;	// 纬度
+		required double	value1			= 4;	// 物理量1
+		required double	value2			= 5;	// 物理量2
+		required double	value3			= 6;	// 物理量3
+		required double	offset_value1	= 7;	// 偏移物理量1
+		required double	offset_value2	= 8;	// 偏移物理量2
+		required double	offset_value3	= 9;	// 偏移物理量3
+	}
+
+	required uint32 id					= 1;	// ID
+	required uint32 begin_time			= 2;	// 起始时间
+	required uint32 end_time			= 3;	// 结束时间
+	required double	avg_value1			= 4;	// 平均物理量1
+	required double	avg_value2			= 5;	// 平均物理量2
+	required double	avg_value3			= 6;	// 平均物理量3
+	repeated SensorData	history_list	= 7;	// 起始时间到结束时间内的传感器数据
 }

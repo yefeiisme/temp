@@ -1,9 +1,38 @@
 #include "stdafx.h"
 #include "AppClient.h"
 
-CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[256] =
+CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[APP_SERVER_NET_Protocol::APP2S::app2s_max] =
 {
 	&CAppClient::RecvPing,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::DefaultProtocolFunc,
+
 };
 
 CAppClient::CAppClient() : CClient()
@@ -39,6 +68,10 @@ void CAppClient::ProcessNetPack()
 
 		m_pClientConn->ResetTimeOut();
 	};
+}
+
+void CAppClient::DefaultProtocolFunc(const void *pPack, const unsigned int uPackLen)
+{
 }
 
 void CAppClient::RecvPing(const void *pPack, const unsigned int uPackLen)
