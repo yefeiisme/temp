@@ -3,10 +3,10 @@
 
 CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[APP_SERVER_NET_Protocol::APP2S::app2s_max] =
 {
-	&CAppClient::RecvPing,
-	&CAppClient::DefaultProtocolFunc,
-	&CAppClient::DefaultProtocolFunc,
-	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::RecvLogin,
+	&CAppClient::RecvRequestSlopeList,
+	&CAppClient::RecvRequestSensorList,
+	&CAppClient::RecvRequestSensorHistory,
 	&CAppClient::DefaultProtocolFunc,
 
 	&CAppClient::DefaultProtocolFunc,
@@ -74,6 +74,18 @@ void CAppClient::DefaultProtocolFunc(const void *pPack, const unsigned int uPack
 {
 }
 
-void CAppClient::RecvPing(const void *pPack, const unsigned int uPackLen)
+void CAppClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CAppClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CAppClient::RecvRequestSensorList(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CAppClient::RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen)
 {
 }

@@ -12,7 +12,7 @@ enum APP2S
 	app2s_request_slope_list		= 1;	// app向服务器请求边坡列表
 	app2s_request_sensor_list		= 2;	// app向服务器请求传感器列表
 	app2s_request_sensor_history	= 3;	// app向服务器请求传感器在一定时间段内的数据
-	app2s_reserve1					= 4;	// 保留用的协议
+	app2s_ping						= 4;	// 定时ping server，以保持连接
 	app2s_reserve2					= 5;	// 保留用的协议
 	app2s_reserve3					= 6;	// 保留用的协议
 	app2s_reserve4					= 7;	// 保留用的协议

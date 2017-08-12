@@ -12,7 +12,7 @@ enum WEB2S
 	web2s_request_slope_list		= 1;	// web向服务器请求边坡列表
 	web2s_request_sensor_list		= 2;	// web向服务器请求传感器列表
 	web2s_request_sensor_history	= 3;	// web向服务器请求传感器在一定时间段内的数据
-	web2s_reserve1					= 4;	// 保留用的协议
+	web2s_ping						= 4;	// 定时ping server，以保持连接
 	web2s_reserve2					= 5;	// 保留用的协议
 	web2s_reserve3					= 6;	// 保留用的协议
 	web2s_reserve4					= 7;	// 保留用的协议

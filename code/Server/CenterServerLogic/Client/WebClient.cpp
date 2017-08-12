@@ -3,10 +3,10 @@
 
 CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::WEB2S::web2s_max] =
 {
-	&CWebClient::RecvPing,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::RecvLogin,
+	&CWebClient::RecvRequestSlopeList,
+	&CWebClient::RecvRequestSensorList,
+	&CWebClient::RecvRequestSensorHistory,
 	&CWebClient::DefaultProtocolFunc,
 
 	&CWebClient::DefaultProtocolFunc,
@@ -73,6 +73,18 @@ void CWebClient::DefaultProtocolFunc(const void *pPack, const unsigned int uPack
 {
 }
 
-void CWebClient::RecvPing(const void *pPack, const unsigned int uPackLen)
+void CWebClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvRequestSensorList(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen)
 {
 }

@@ -16,7 +16,10 @@ private:
 
 	void					DefaultProtocolFunc(const void *pPack, const unsigned int uPackLen);
 
-	void					RecvPing(const void *pPack, const unsigned int uPackLen);
+	void					RecvLogin(const void *pPack, const unsigned int uPackLen);
+	void					RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen);
+	void					RecvRequestSensorList(const void *pPack, const unsigned int uPackLen);
+	void					RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen);
 private:
 	typedef void			(CAppClient::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
 	static pfnProtocolFunc	m_ProtocolFunc[APP_SERVER_NET_Protocol::APP2S::app2s_max];
