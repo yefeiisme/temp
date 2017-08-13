@@ -368,33 +368,48 @@ void CMysqlQuery::ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen)
 
 void CMysqlQuery::ClearResult()
 {
-	// 这里后面要修改一下，确认一下mysql_next_result
-	// ...
-	if (m_pQueryRes)
+	if (nullptr == m_pQueryRes)
+		return;
+
+	mysql_free_result(m_pQueryRes);
+
+	while (!mysql_next_result(m_pDBHandle))
 	{
-		mysql_free_result(m_pQueryRes);
-		m_uRowCount	= 0;
-		m_uColCount	= 0;
+		MYSQL_RES	*pResult = mysql_store_result(m_pDBHandle);
+		mysql_free_result(pResult);
 	}
+
+	m_uRowCount = 0;
+	m_uColCount	= 0;
 }
 
 bool CMysqlQuery::HandleResult()
 {
 	ClearResult();
 
-	m_pQueryRes	= mysql_store_result(m_pDBHandle);
+	m_uColCount = mysql_num_fields(m_pQueryRes);
+	//m_uRowCount = mysql_num_rows(m_pQueryRes);
+
+	m_pQueryRes = mysql_use_result(m_pDBHandle);
 	if (nullptr == m_pQueryRes)
 	{
-		unsigned int	uLastError	= mysql_errno(m_pDBHandle);
-		const char		*pstrError	= mysql_error(m_pDBHandle);
+		unsigned int	uLastError = mysql_errno(m_pDBHandle);
+		const char		*pstrError = mysql_error(m_pDBHandle);
 
 		g_pFileLog->WriteLog("%s[%d] mysql_store_result Error:[%u]\n[%s]\n", __FUNCTION__, __LINE__, uLastError, pstrError);
 
-		return false;
+		return;
 	}
 
-	m_uColCount	= mysql_num_fields(m_pQueryRes);
-	m_uRowCount	= mysql_num_rows(m_pQueryRes);
+	while (NULL != (m_pRow = mysql_fetch_row(m_pQueryRes)))
+	{
+		unsigned long	*pRowLength = mysql_fetch_lengths(m_pQueryRes);
+		if (!pRowLength)
+		{
+			g_pFileLog->WriteLog("%s[%d] mysql_fetch_lengths Failed\n", __FILE__, __LINE__);
+			return false;
+		}
+	}
 
 	return true;
 }
