@@ -45,7 +45,7 @@ void CMysqlResult::Clear()
 
 bool CMysqlResult::AddResult(const UINT uRow, const UINT uCol, const char *pstrData, const UINT uDataLen)
 {
-	if (uRow >= m_uRowCount)
+	if (uRow >= m_uRowCount || uCol >= m_uColCount || nullptr == pstrData || 0 == uDataLen)
 		return false;
 
 	if (m_uOffset + uDataLen > m_uBufferLen)
@@ -53,6 +53,14 @@ bool CMysqlResult::AddResult(const UINT uRow, const UINT uCol, const char *pstrD
 		Clear();
 		return false;
 	}
+
+	auto	nIndex = m_uColCount * uRow + uCol;
+	m_pDataHead[nIndex].uDataLen	= uDataLen;
+	m_pDataHead[nIndex].uOffset		= m_uOffset;
+
+	memcpy(m_pDataBuffer + m_uOffset, pstrData, uDataLen);
+
+	m_uOffset += uDataLen;
 
 	return true;
 }

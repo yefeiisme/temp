@@ -1,8 +1,5 @@
 #include "stdafx.h"
 #include "Daemon.h"
-#include "rapidjson/rapidjson.h"
-#include "rapidjson/document.h"
-#include "rapidjson/filereadstream.h"
 #include "my_global.h"
 #include "mysql.h"
 #include "MysqlQuery.h"
@@ -410,12 +407,12 @@ void CMysqlQuery::ClearResult()
 		MYSQL_RES	*pResult = mysql_store_result(m_pDBHandle);
 		mysql_free_result(pResult);
 	}
+
+	m_pResult->Clear();
 }
 
 bool CMysqlQuery::HandleResult()
 {
-	m_pResult->Clear();
-
 	my_bool	bMultiResult	= mysql_more_results(m_pDBHandle);
 
 	m_pQueryRes = mysql_store_result(m_pDBHandle);
