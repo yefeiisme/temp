@@ -10,6 +10,8 @@ using namespace std;
 
 #define MAX_SQL_LEN						1024*1024
 
+class CMysqlResult;
+
 class CMysqlQuery : public IMysqlQuery
 {
 private:
@@ -17,10 +19,15 @@ private:
 
 	IRingBuffer				*m_pRBRequest;
 	IRingBuffer				*m_pRBRespond;
+	CMysqlResult			*m_pResult;
 
 	MYSQL					*m_pDBHandle;
 	MYSQL_RES				*m_pQueryRes;
 	MYSQL_ROW				m_pRow;
+
+	char					*m_pResultBuffer;
+	SMysqlResultHead		*m_pResultHead;
+	SMysqlDataHead			*m_pDataHead;
 
 	char					m_strSQL[MAX_SQL_LEN];
 

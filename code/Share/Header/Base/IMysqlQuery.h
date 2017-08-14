@@ -13,8 +13,15 @@ public:
 
 struct SMysqlResultHead
 {
-	int	nOffset;
-	int	nDataLen;
+	unsigned int	uRowCount;
+	unsigned int	uColCount;
+	int				nRetCode;
+};
+
+struct SMysqlDataHead
+{
+	unsigned int	uOffset;
+	unsigned int	uDataLen;
 };
 
 IMysqlQuery				*CreateMysqlQuery(const char *pstrSettingFile, const char *pstrSection);

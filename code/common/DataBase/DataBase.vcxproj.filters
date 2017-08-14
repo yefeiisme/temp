@@ -17,6 +17,9 @@
     <ClCompile Include="Mysql\MysqlQuery.cpp">
       <Filter>Mysql</Filter>
     </ClCompile>
+    <ClCompile Include="Mysql\MysqlResult.cpp">
+      <Filter>Mysql</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mysql\MysqlQuery.h">
@@ -27,6 +30,9 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Mysql\MysqlResult.h">
+      <Filter>Mysql</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

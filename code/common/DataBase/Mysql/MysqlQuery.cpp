@@ -6,6 +6,7 @@
 #include "my_global.h"
 #include "mysql.h"
 #include "MysqlQuery.h"
+#include "MysqlResult.h"
 
 IMysqlQuery *CreateMysqlQuery(const char *pstrSettingFile, const char *pstrSection)
 {
@@ -28,10 +29,14 @@ CMysqlQuery::CMysqlQuery()
 
 	m_pRBRequest	= nullptr;
 	m_pRBRespond	= nullptr;
+	m_pResult		= nullptr;
 
 	m_pDBHandle		= nullptr;
 	m_pQueryRes		= nullptr;
 	m_pRow			= nullptr;
+	m_pResultBuffer	= nullptr;
+	m_pResultHead	= nullptr;
+	m_pDataHead		= nullptr;
 
 	m_usDBPort		= 0;
 	m_strDBIP.clear();
@@ -67,12 +72,6 @@ CMysqlQuery::~CMysqlQuery()
 		m_pIniFile	= nullptr;
 	}
 
-	if (m_pDBHandle)
-	{
-		mysql_close(m_pDBHandle);
-		m_pDBHandle	= nullptr;
-	}
-
 	if (m_pRBRequest)
 	{
 		m_pRBRequest->Release();
@@ -84,6 +83,14 @@ CMysqlQuery::~CMysqlQuery()
 		m_pRBRespond->Release();
 		m_pRBRespond	= nullptr;
 	}
+
+	if (m_pDBHandle)
+	{
+		mysql_close(m_pDBHandle);
+		m_pDBHandle	= nullptr;
+	}
+
+	SAFE_DELETE_ARR(m_pResultBuffer);
 }
 
 bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSection)
@@ -107,6 +114,29 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 		g_pFileLog->WriteLog("%s[%d] Create RingBuffer For RoleDB Send Failed!\n", __FILE__, __LINE__);
 		return false;
 	}
+
+	m_pResult	= new CMysqlResult;
+	if (nullptr == m_pResult)
+	{
+		g_pFileLog->WriteLog("[%s][%d] new CMysqlResult Failed!\n", __FILE__, __LINE__);
+		return false;
+	}
+
+	if (!m_pResult->Initialize(m_uResultBufferLen))
+	{
+		g_pFileLog->WriteLog("[%s][%d] CMysqlResult::Initialize Failed!\n", __FILE__, __LINE__);
+		return false;
+	}
+
+	m_pResultBuffer	= new char[m_uResultBufferLen];
+	if (nullptr == m_pResultBuffer)
+	{
+		g_pFileLog->WriteLog("[%s][%d] new char[%u] For Result Buffer Failed!\n", __FILE__, __LINE__, m_uResultBufferLen);
+		return false;
+	}
+
+	m_pResultHead	= (SMysqlResultHead*)m_pResultBuffer;
+	m_pDataHead		= (SMysqlDataHead*)(m_pResultBuffer + sizeof(SMysqlResultHead));
 
 	m_pDBHandle = mysql_init(nullptr);
 	if (nullptr == m_pDBHandle)
@@ -364,6 +394,8 @@ void CMysqlQuery::ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen)
 	}
 
 	HandleResult();
+
+	ClearResult();
 }
 
 void CMysqlQuery::ClearResult()
@@ -378,19 +410,15 @@ void CMysqlQuery::ClearResult()
 		MYSQL_RES	*pResult = mysql_store_result(m_pDBHandle);
 		mysql_free_result(pResult);
 	}
-
-	m_uRowCount = 0;
-	m_uColCount	= 0;
 }
 
 bool CMysqlQuery::HandleResult()
 {
-	ClearResult();
+	m_pResult->Clear();
 
-	m_uColCount = mysql_num_fields(m_pQueryRes);
-	//m_uRowCount = mysql_num_rows(m_pQueryRes);
+	my_bool	bMultiResult	= mysql_more_results(m_pDBHandle);
 
-	m_pQueryRes = mysql_use_result(m_pDBHandle);
+	m_pQueryRes = mysql_store_result(m_pDBHandle);
 	if (nullptr == m_pQueryRes)
 	{
 		unsigned int	uLastError = mysql_errno(m_pDBHandle);
@@ -398,10 +426,19 @@ bool CMysqlQuery::HandleResult()
 
 		g_pFileLog->WriteLog("%s[%d] mysql_store_result Error:[%u]\n[%s]\n", __FUNCTION__, __LINE__, uLastError, pstrError);
 
-		return;
+		return false;
 	}
 
-	while (NULL != (m_pRow = mysql_fetch_row(m_pQueryRes)))
+	if (!m_pResult->SetResultSize(mysql_num_rows(m_pQueryRes), mysql_num_fields(m_pQueryRes)))
+	{
+		g_pFileLog->WriteLog("[%s][%d] SetResultSize Failed\n", __FUNCTION__, __LINE__);
+
+		return false;
+	}
+
+	UINT	uRowIndex	= 0;
+
+	while (nullptr != (m_pRow = mysql_fetch_row(m_pQueryRes)))
 	{
 		unsigned long	*pRowLength = mysql_fetch_lengths(m_pQueryRes);
 		if (!pRowLength)
@@ -409,6 +446,13 @@ bool CMysqlQuery::HandleResult()
 			g_pFileLog->WriteLog("%s[%d] mysql_fetch_lengths Failed\n", __FILE__, __LINE__);
 			return false;
 		}
+
+		for (auto uCol = 0; uCol < m_uColCount; ++uCol)
+		{
+			m_pResult->AddResult(uRowIndex, uCol, nullptr, 0);
+		}
+
+		++uRowIndex;
 	}
 
 	return true;
