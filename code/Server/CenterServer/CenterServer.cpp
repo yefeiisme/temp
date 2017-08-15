@@ -37,7 +37,7 @@ BOOL WINAPI pfnOnQuitSignal(DWORD CtrlType)
 #else
 void pfnOnQuitSignal(int nSignal)
 {
-	g_pGameServer.Stop();
+	g_pCenterServer.Stop();
 }
 #endif
 

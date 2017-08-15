@@ -37,7 +37,7 @@ link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../Share/llib)
 
 ADD_EXECUTABLE(centerserver ${SRC_LIST})
 
-add_subdirectory ("CenterServerLogic" "../CenterServerLogic")
+add_subdirectory ("../CenterServerLogic" "../CenterServerLogic")
 
 target_link_libraries (centerserver
 	daemon
