@@ -91,7 +91,7 @@ enum APP2S {
   app2s_request_slope_list = 1,
   app2s_request_sensor_list = 2,
   app2s_request_sensor_history = 3,
-  app2s_reserve1 = 4,
+  app2s_ping = 4,
   app2s_reserve2 = 5,
   app2s_reserve3 = 6,
   app2s_reserve4 = 7,

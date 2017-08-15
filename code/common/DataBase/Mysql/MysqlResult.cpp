@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include "my_global.h"
+#include "mysql.h"
 #include "MysqlResult.h"
 
 CMysqlResult::CMysqlResult()
@@ -26,11 +28,14 @@ bool CMysqlResult::Initialize(const UINT uBufferLen)
 		return false;
 	}
 
-	m_pDataBuffer		= new char[m_uBufferLen];
+	m_pDataBuffer	= new char[m_uBufferLen];
 	if (nullptr == m_pDataBuffer)
 	{
 		return false;
 	}
+
+	m_pResultHead	= (SMysqlResultHead*)m_pDataBuffer;
+	m_pDataHead		= (SMysqlDataHead*)(m_pDataBuffer+sizeof(SMysqlResultHead));
 
 	return true;
 }
@@ -41,6 +46,10 @@ void CMysqlResult::Clear()
 	m_uColCount	= 0;
 
 	m_uOffset	= 0;
+
+	m_pResultHead->uColCount	= 0;
+	m_pResultHead->uRowCount	= 0;
+	m_pResultHead->nRetCode		= 0;
 }
 
 bool CMysqlResult::AddResult(const UINT uRow, const UINT uCol, const char *pstrData, const UINT uDataLen)

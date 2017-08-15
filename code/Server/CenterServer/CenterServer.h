@@ -2,6 +2,7 @@
 #define __CENTER_SERVER_H_
 
 #include "INetwork.h"
+#include "IMysqlQuery.h"
 #include "ICenterServer.h"
 
 class CAppConnection;
@@ -41,6 +42,8 @@ private:
 	static void					DataConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
 	void						OnDataConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
 private:
+	IMysqlQuery					*m_pSensorQuery;
+
 	IServerNetwork				*m_pAppNetwork;
 	IServerNetwork				*m_pWebNetwork;
 	IServerNetwork				*m_pDataNetwork;

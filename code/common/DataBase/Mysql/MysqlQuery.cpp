@@ -230,6 +230,11 @@ bool CMysqlQuery::LoadConfig(const char *pstrSettingFile, const char *pstrSectio
 	char	strDBName[0xf];
 	char	strCharacterSet[0xf];
 	int		nPingTime;
+	int		nSqlBufferLen;
+	int		nMaxSqlLen;
+	int		nResultBufferLen;
+	int		nMaxResultLen;
+	int		nFrame;
 
 	m_pIniFile->GetString(pstrSection, "IP", "", strDBIP, sizeof(strDBIP));
 	strDBIP[sizeof(strDBIP)-1]	= '\0';
@@ -253,6 +258,21 @@ bool CMysqlQuery::LoadConfig(const char *pstrSettingFile, const char *pstrSectio
 
 	m_pIniFile->GetInteger(pstrSection, "PingTime", 0, &nPingTime);
 	m_uPingInterval	= nPingTime;
+
+	m_pIniFile->GetInteger(pstrSection, "SqlBufferLen", 0, &nSqlBufferLen);
+	m_uSqlBufferLen	= nSqlBufferLen;
+
+	m_pIniFile->GetInteger(pstrSection, "MaxSqlLen", 0, &nMaxSqlLen);
+	m_uMaxSqlLen	= nMaxSqlLen;
+
+	m_pIniFile->GetInteger(pstrSection, "ResultBufferLen", 0, &nResultBufferLen);
+	m_uResultBufferLen	= nResultBufferLen;
+
+	m_pIniFile->GetInteger(pstrSection, "MaxResultLen", 0, &nMaxResultLen);
+	m_uMaxResultLen	= nMaxResultLen;
+
+	m_pIniFile->GetInteger(pstrSection, "Frame", 0, &nFrame);
+	m_uFrame	= nFrame;
 
 	return true;
 }
@@ -446,7 +466,7 @@ bool CMysqlQuery::HandleResult()
 
 		for (auto uCol = 0; uCol < m_uColCount; ++uCol)
 		{
-			m_pResult->AddResult(uRowIndex, uCol, nullptr, 0);
+			m_pResult->AddResult(uRowIndex, uCol, m_pRow[uCol], pRowLength[uCol]);
 		}
 
 		++uRowIndex;

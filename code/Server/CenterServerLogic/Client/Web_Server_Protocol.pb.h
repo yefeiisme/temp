@@ -91,7 +91,7 @@ enum WEB2S {
   web2s_request_slope_list = 1,
   web2s_request_sensor_list = 2,
   web2s_request_sensor_history = 3,
-  web2s_reserve1 = 4,
+  web2s_ping = 4,
   web2s_reserve2 = 5,
   web2s_reserve3 = 6,
   web2s_reserve4 = 7,

@@ -20,6 +20,9 @@ public:
 		m_uRowCount	= uRow;
 		m_uColCount	= uCol;
 
+		m_pResultHead->uRowCount	= uRow;
+		m_pResultHead->uColCount	= uCol;
+
 		return true;
 	}
 

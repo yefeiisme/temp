@@ -28,7 +28,7 @@ public:
 	bool						DataClientLogin(IClientConnection *pClientConnection);
 	void						DataClientLogout(IClientConnection *pClientConnection);
 
-	inline CAppClient				*GetFreeAppClient()
+	inline CAppClient			*GetFreeAppClient()
 	{
 		if (m_listFreeAppClient.empty())
 			return nullptr;
@@ -39,7 +39,7 @@ public:
 		return pAppClient;
 	}
 
-	inline CWebClient				*GetFreeWebClient()
+	inline CWebClient			*GetFreeWebClient()
 	{
 		if (m_listFreeWebClient.empty())
 			return nullptr;
@@ -50,7 +50,7 @@ public:
 		return pWebClient;
 	}
 
-	inline CDataClient				*GetFreeDataClient()
+	inline CDataClient			*GetFreeDataClient()
 	{
 		if (m_listFreeDataClient.empty())
 			return nullptr;

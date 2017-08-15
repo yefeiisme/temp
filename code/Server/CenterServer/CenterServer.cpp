@@ -47,6 +47,8 @@ int				g_nTimeNow			= 0;
 
 CCenterServer::CCenterServer()
 {
+	m_pSensorQuery		= nullptr;
+
 	m_pAppNetwork		= nullptr;
 	m_pWebNetwork		= nullptr;
 	m_pDataNetwork		= nullptr;
@@ -71,6 +73,12 @@ CCenterServer::CCenterServer()
 
 CCenterServer::~CCenterServer()
 {
+	if (m_pSensorQuery)
+	{
+		m_pSensorQuery->Release();
+		m_pSensorQuery	= nullptr;
+	}
+
 	if (m_pAppNetwork)
 	{
 		m_pAppNetwork->Release();
@@ -128,6 +136,13 @@ bool CCenterServer::Initialize(const bool bDaemon)
 	if (!g_ICenterServerLogic.Initialize())
 	{
 		g_pFileLog->WriteLog("g_ICenterServerLogic.Initialize Failed\n");
+		return false;
+	}
+
+	m_pSensorQuery	= CreateMysqlQuery("server.ini", "SensorDB");
+	if (nullptr == m_pSensorQuery)
+	{
+		g_pFileLog->WriteLog("Create Mysql Query For Sensor Failed\n");
 		return false;
 	}
 
