@@ -1,7 +1,9 @@
 SET(LIBDATABASE_SRC
-Mysql/MysqlThread.cpp
+Mysql/MysqlQuery.cpp
+Mysql/MysqlResult.cpp
 )
 include_directories (
+	"./"
 	"../../Share/Header"
 	"../../Share/Header/Base"
 )

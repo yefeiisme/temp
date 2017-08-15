@@ -27,7 +27,7 @@ Connection/WebConnection.cpp
 )
 
 include_directories (
-	"CenterServer"
+	"./"
 	"../../Share/Header"
 	"../../Share/Header/Base"
 	"../../Share/Header/CenterServer"
