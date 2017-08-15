@@ -1,16 +1,19 @@
-SET(LIBGAMESERVERLOGIC_SRC
-GameServerLogic.cpp
-Config/GameServerLogicConfig.cpp
-Player/Player.cpp
-Player/PlayerProtocol.cpp
-Player/ClientGSProtocol.pb.cc
+SET(LIBCENTERSERVERLOGIC_SRC
+CenterServerLogic.cpp
+Config/CenterServerLogicConfig.cpp
+Client/App_Server_Protocol.pb.cc
+Client/AppClient.cpp
+Client/Client.cpp
+Client/DataClient.cpp
+Client/Web_Server_Protocol.pb.cc
+Client/WebClient.cpp
 )
 include_directories (
 	"./"
 	"../../share/header"
 	"../../share/header/base"
-	"../../share/header/GameServer"
+	"../../share/header/CenterServer"
 )
-ADD_LIBRARY(gameserverlogic STATIC ${LIBGAMESERVERLOGIC_SRC})
-INSTALL(TARGETS gameserverlogic
+ADD_LIBRARY(centerserverlogic STATIC ${LIBCENTERSERVERLOGIC_SRC})
+INSTALL(TARGETS centerserverlogic
         ARCHIVE DESTINATION lib)
