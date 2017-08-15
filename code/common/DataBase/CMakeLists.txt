@@ -6,6 +6,7 @@ include_directories (
 	"./"
 	"../../Share/Header"
 	"../../Share/Header/Base"
+	"../../Share/Header/mysql/linux"
 )
 ADD_LIBRARY(database STATIC ${LIBDATABASE_SRC})
 INSTALL(TARGETS database

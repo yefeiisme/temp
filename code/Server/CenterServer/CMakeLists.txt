@@ -44,6 +44,7 @@ target_link_libraries (centerserver
 	filelog
 	filereader
 	network
+	database
 	ringbuffer
 	centerserverlogic
 	protobuf
