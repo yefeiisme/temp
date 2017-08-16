@@ -272,6 +272,16 @@ void CCenterServer::Run()
 	}
 }
 
+bool CCenterServer::SendDBRequest(const void *pPack, const unsigned int uPackLen)
+{
+	return m_pSensorQuery->SendDBRequest(pPack, uPackLen);
+}
+
+const void *CCenterServer::GetDBRespond(unsigned int &uPackLen)
+{
+	return m_pSensorQuery->GetDBRespond(uPackLen);
+}
+
 void CCenterServer::ProcessAppConn()
 {
 	for (auto nIndex = 0; nIndex < g_pCenterServerConfig.m_nAppCount; ++nIndex)

@@ -15,6 +15,9 @@
     <Filter Include="Client">
       <UniqueIdentifier>{0fc9ba6d-e80d-43a6-9014-5ee3ad7211b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SensorDB">
+      <UniqueIdentifier>{3497e6e3-3b9d-48dd-90e1-a526a8257d47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CenterServerLogic.cpp">
@@ -37,6 +40,9 @@
     </ClCompile>
     <ClCompile Include="Client\App_Server_Protocol.pb.cc">
       <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="SensorDB\SensorDBConn.cpp">
+      <Filter>SensorDB</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +69,9 @@
     </ClInclude>
     <ClInclude Include="Client\App_Server_Protocol.pb.h">
       <Filter>Client</Filter>
+    </ClInclude>
+    <ClInclude Include="SensorDB\SensorDBConn.h">
+      <Filter>SensorDB</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

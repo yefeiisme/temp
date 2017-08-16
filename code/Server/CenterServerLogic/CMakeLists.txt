@@ -7,6 +7,7 @@ Client/Client.cpp
 Client/DataClient.cpp
 Client/Web_Server_Protocol.pb.cc
 Client/WebClient.cpp
+SensorDB/SensorDBConn.cpp
 )
 include_directories (
 	"./"

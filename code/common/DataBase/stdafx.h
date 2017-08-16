@@ -24,21 +24,4 @@ using namespace std;
 #define snprintf _snprintf
 #endif
 
-template<class T>
-int	StrToArray(char *szStr, const char *szTag, T *pOutArray, int nMaxCount)
-{
-	int	nCount = 0;
-	const char *pToken = strtok(szStr, szTag);
-
-	while(pToken && nCount < nMaxCount)
-	{
-		*pOutArray = (T)atoi(pToken);
-		pToken = strtok(NULL, szTag);
-		++pOutArray;
-		++nCount;
-	}
-
-	return nCount;
-}
-
 #endif

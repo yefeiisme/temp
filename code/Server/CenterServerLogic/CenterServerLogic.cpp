@@ -4,6 +4,7 @@
 #include "Client/AppClient.h"
 #include "Client/WebClient.h"
 #include "Client/DataClient.h"
+#include "ICenterServer.h"
 
 CCenterServerLogic	&g_pCenterServerLogic	= CCenterServerLogic::Singleton();
 ICenterServerLogic	&g_ICenterServerLogic	= g_pCenterServerLogic;
