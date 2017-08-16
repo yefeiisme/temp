@@ -15,7 +15,7 @@
     <ClCompile Include="Mysql\MysqlResult.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Share\Header\Mysql\IMysqlQuery.h" />
+    <ClInclude Include="..\..\Share\Header\Base\IMysqlQuery.h" />
     <ClInclude Include="Mysql\MysqlQuery.h" />
     <ClInclude Include="Mysql\MysqlResult.h" />
     <ClInclude Include="stdafx.h" />

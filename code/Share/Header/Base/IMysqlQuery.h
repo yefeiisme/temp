@@ -11,11 +11,26 @@ public:
 	virtual void		Release() = 0;
 };
 
-struct SMysqlResultHead
+struct SMysqlRequest
 {
+	unsigned int	uParam1;
+	unsigned int	uParam2;
+	unsigned int	uParam3;
+
+	unsigned char	byOpt;
+};
+
+struct SMysqlRespond
+{
+	unsigned int	uParam1;
+	unsigned int	uParam2;
+	unsigned int	uParam3;
+
 	unsigned int	uRowCount;
 	unsigned int	uColCount;
 	int				nRetCode;
+
+	unsigned char	byOpt;
 };
 
 struct SMysqlDataHead

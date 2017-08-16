@@ -10,6 +10,7 @@ using namespace std;
 class CAppClient;
 class CWebClient;
 class CDataClient;
+class CSensorDBConn;
 
 class CCenterServerLogic : public ICenterServerLogic
 {
@@ -61,6 +62,8 @@ public:
 		return pDataClient;
 	}
 private:
+	CSensorDBConn							*m_pSensorDBConn;
+
 	CAppClient								*m_pAppClientList;
 	CWebClient								*m_pWebClientList;
 	CDataClient								*m_pDataClientList;

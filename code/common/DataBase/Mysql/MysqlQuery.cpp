@@ -32,7 +32,7 @@ CMysqlQuery::CMysqlQuery()
 	m_pQueryRes		= nullptr;
 	m_pRow			= nullptr;
 	m_pResultBuffer	= nullptr;
-	m_pResultHead	= nullptr;
+	m_pRespond		= nullptr;
 	m_pDataHead		= nullptr;
 
 	m_usDBPort		= 0;
@@ -132,8 +132,8 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 		return false;
 	}
 
-	m_pResultHead	= (SMysqlResultHead*)m_pResultBuffer;
-	m_pDataHead		= (SMysqlDataHead*)(m_pResultBuffer + sizeof(SMysqlResultHead));
+	m_pRespond	= (SMysqlRespond*)m_pResultBuffer;
+	m_pDataHead	= (SMysqlDataHead*)(m_pResultBuffer + sizeof(SMysqlRespond));
 
 	m_pDBHandle = mysql_init(nullptr);
 	if (nullptr == m_pDBHandle)

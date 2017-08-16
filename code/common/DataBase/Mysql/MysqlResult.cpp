@@ -34,8 +34,8 @@ bool CMysqlResult::Initialize(const UINT uBufferLen)
 		return false;
 	}
 
-	m_pResultHead	= (SMysqlResultHead*)m_pDataBuffer;
-	m_pDataHead		= (SMysqlDataHead*)(m_pDataBuffer+sizeof(SMysqlResultHead));
+	m_pResultHead	= (SMysqlRespond*)m_pDataBuffer;
+	m_pDataHead		= (SMysqlDataHead*)(m_pDataBuffer+sizeof(SMysqlRespond));
 
 	return true;
 }

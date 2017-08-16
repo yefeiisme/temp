@@ -14,7 +14,7 @@ public:
 
 	inline bool				SetResultSize(const UINT uRow, const UINT uCol)
 	{
-		if (sizeof(SMysqlResultHead)+sizeof(SMysqlDataHead)*uRow*uCol > m_uBufferLen)
+		if (sizeof(SMysqlRespond)+sizeof(SMysqlDataHead)*uRow*uCol > m_uBufferLen)
 			return false;
 
 		m_uRowCount	= uRow;
@@ -30,7 +30,7 @@ public:
 private:
 	char					*m_pDataBuffer;
 
-	SMysqlResultHead		*m_pResultHead;
+	SMysqlRespond		*m_pResultHead;
 	SMysqlDataHead			*m_pDataHead;
 
 	UINT					m_uBufferLen;

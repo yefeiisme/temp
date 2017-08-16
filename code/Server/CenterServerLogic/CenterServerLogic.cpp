@@ -4,6 +4,7 @@
 #include "Client/AppClient.h"
 #include "Client/WebClient.h"
 #include "Client/DataClient.h"
+#include "SensorDB/SensorDBConn.h"
 #include "ICenterServer.h"
 
 CCenterServerLogic	&g_pCenterServerLogic	= CCenterServerLogic::Singleton();
@@ -11,6 +12,8 @@ ICenterServerLogic	&g_ICenterServerLogic	= g_pCenterServerLogic;
 
 CCenterServerLogic::CCenterServerLogic()
 {
+	m_pSensorDBConn		= nullptr;
+
 	m_pAppClientList	= nullptr;
 	m_pWebClientList	= nullptr;
 	m_pDataClientList	= nullptr;
@@ -26,6 +29,8 @@ CCenterServerLogic::CCenterServerLogic()
 
 CCenterServerLogic::~CCenterServerLogic()
 {
+	SAFE_DELETE(m_pSensorDBConn);
+
 	SAFE_DELETE_ARR(m_pAppClientList);
 	SAFE_DELETE_ARR(m_pWebClientList);
 	SAFE_DELETE_ARR(m_pDataClientList);
@@ -87,6 +92,8 @@ bool CCenterServerLogic::Initialize()
 
 void CCenterServerLogic::Run()
 {
+	m_pSensorDBConn->Run();
+
 	for (auto Iter_App = m_mapOnlineAppClient.begin(); Iter_App != m_mapOnlineAppClient.end(); ++Iter_App)
 	{
 		Iter_App->second->DoAction();

@@ -29,6 +29,7 @@
     <ClInclude Include="Client\WebClient.h" />
     <ClInclude Include="Config\CenterServerLogicConfig.h" />
     <ClInclude Include="SensorDB\SensorDBConn.h" />
+    <ClInclude Include="SensorDB\SensorDBOperation.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

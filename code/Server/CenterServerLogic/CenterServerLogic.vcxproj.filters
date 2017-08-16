@@ -73,6 +73,9 @@
     <ClInclude Include="SensorDB\SensorDBConn.h">
       <Filter>SensorDB</Filter>
     </ClInclude>
+    <ClInclude Include="SensorDB\SensorDBOperation.h">
+      <Filter>SensorDB</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Share\Header\Protocol\Sensor_Server_Protocol.proto">
