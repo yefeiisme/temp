@@ -9,6 +9,11 @@ public:
 	CClient();
 	~CClient();
 
+	inline void				SetIndex(const UINT uIndex)
+	{
+		m_uIndex	= uIndex;
+	}
+
 	inline void				AttachClient(IClientConnection *pClientConn)
 	{
 		m_pClientConn	= pClientConn;
@@ -23,6 +28,7 @@ public:
 protected:
 	IClientConnection		*m_pClientConn;
 	UINT					m_uUniqueID;
+	UINT					m_uIndex;
 };
 
 #endif

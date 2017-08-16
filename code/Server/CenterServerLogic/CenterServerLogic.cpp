@@ -56,34 +56,53 @@ bool CCenterServerLogic::Initialize()
 {
 	if (!g_pCenterServerLogicConfig.Initialize())
 	{
-		g_pFileLog->WriteLog("[%s][%d] Failed\n", __FUNCTION__, __LINE__);
+		g_pFileLog->WriteLog("[%s][%d] CCenterServerLogic::Initialize Failed\n", __FUNCTION__, __LINE__);
+		return false;
+	}
+
+	m_pSensorDBConn		= new CSensorDBConn;
+	if (nullptr == m_pSensorDBConn)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Create SensorDBConn Failed\n", __FUNCTION__, __LINE__);
 		return false;
 	}
 
 	m_pAppClientList	= new CAppClient[g_pCenterServerLogicConfig.m_nAppClientCount];
 	if (nullptr == m_pAppClientList)
-		return false;
-
-	for (int nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nAppClientCount; ++nIndex)
 	{
+		g_pFileLog->WriteLog("[%s][%d] Create CAppClient[%d] Failed\n", __FUNCTION__, __LINE__, g_pCenterServerLogicConfig.m_nAppClientCount);
+		return false;
+	}
+
+	for (auto nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nAppClientCount; ++nIndex)
+	{
+		m_pAppClientList[nIndex].SetIndex(nIndex);
 		m_listFreeAppClient.push_back(&m_pAppClientList[nIndex]);
 	}
 
 	m_pWebClientList	= new CWebClient[g_pCenterServerLogicConfig.m_nWebClientCount];
 	if (nullptr == m_pWebClientList)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Create CWebClient[%d] Failed\n", __FUNCTION__, __LINE__, g_pCenterServerLogicConfig.m_nWebClientCount);
 		return false;
+	}
 
 	for (auto nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nWebClientCount; ++nIndex)
 	{
+		m_pWebClientList[nIndex].SetIndex(nIndex);
 		m_listFreeWebClient.push_back(&m_pWebClientList[nIndex]);
 	}
 
 	m_pDataClientList = new CDataClient[g_pCenterServerLogicConfig.m_nDataClientCount];
 	if (nullptr == m_pDataClientList)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Create CDataClient[%d] Failed\n", __FUNCTION__, __LINE__, g_pCenterServerLogicConfig.m_nDataClientCount);
 		return false;
+	}
 
 	for (auto nIndex = 0; nIndex < g_pCenterServerLogicConfig.m_nDataClientCount; ++nIndex)
 	{
+		m_pDataClientList[nIndex].SetIndex(nIndex);
 		m_listFreeDataClient.push_back(&m_pDataClientList[nIndex]);
 	}
 

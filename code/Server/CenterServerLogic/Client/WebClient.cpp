@@ -57,7 +57,7 @@ void CWebClient::ProcessNetPack()
 	{
 		byProtocol	= *((BYTE*)pPack);
 
-		if (byProtocol >= 256)
+		if (byProtocol >= WEB_SERVER_NET_Protocol::WEB2S::web2s_max)
 		{
 			g_pFileLog->WriteLog("[%s][%d] App Client[%u] Invalid Protocol[%hhu]\n", __FUNCTION__, __LINE__, m_uUniqueID, byProtocol);
 			return;
