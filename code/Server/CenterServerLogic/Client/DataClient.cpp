@@ -19,6 +19,10 @@ void CDataClient::DoAction()
 	ProcessNetPack();
 }
 
+void CDataClient::ProcessDBPack(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+{
+}
+
 void CDataClient::ProcessNetPack()
 {
 	const void		*pPack = nullptr;

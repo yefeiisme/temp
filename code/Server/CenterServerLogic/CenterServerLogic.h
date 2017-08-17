@@ -22,6 +22,7 @@ public:
 
 	bool						Initialize();
 	void						Run();
+
 	bool						AppClientLogin(IClientConnection *pClientConnection);
 	void						AppClientLogout(IClientConnection *pClientConnection);
 	bool						WebClientLogin(IClientConnection *pClientConnection);
@@ -61,12 +62,20 @@ public:
 
 		return pDataClient;
 	}
+
+	CAppClient					*GetAppClient(const UINT uClientIndex, const uint64 uClientID);
+	CWebClient					*GetWebClient(const UINT uClientIndex, const uint64 uClientID);
+	CDataClient					*GetDataClient(const UINT uClientIndex, const uint64 uClientID);
 private:
 	CSensorDBConn							*m_pSensorDBConn;
 
 	CAppClient								*m_pAppClientList;
 	CWebClient								*m_pWebClientList;
 	CDataClient								*m_pDataClientList;
+
+	uint64									m_uAppID;
+	uint64									m_uWebID;
+	uint64									m_uDataID;
 
 	list<CAppClient*>						m_listFreeAppClient;
 	list<CWebClient*>						m_listFreeWebClient;

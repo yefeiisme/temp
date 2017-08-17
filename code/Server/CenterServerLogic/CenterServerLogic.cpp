@@ -18,6 +18,10 @@ CCenterServerLogic::CCenterServerLogic()
 	m_pWebClientList	= nullptr;
 	m_pDataClientList	= nullptr;
 
+	m_uAppID			= 0;
+	m_uWebID			= 0;
+	m_uDataID			= 0;
+
 	m_listFreeAppClient.clear();
 	m_listFreeWebClient.clear();
 	m_listFreeDataClient.clear();
@@ -132,6 +136,8 @@ bool CCenterServerLogic::AppClientLogin(IClientConnection *pClientConnection)
 
 	pAppClient->AttachClient(pClientConnection);
 
+	pAppClient->SetUniqueID(++m_uAppID);
+
 	m_mapOnlineAppClient[pClientConnection]	= pAppClient;
 
 	return true;
@@ -156,6 +162,8 @@ bool CCenterServerLogic::WebClientLogin(IClientConnection *pClientConnection)
 		return false;
 
 	pWebClient->AttachClient(pClientConnection);
+
+	pWebClient->SetUniqueID(++m_uWebID);
 
 	m_mapOnlineWebClient[pClientConnection]	= pWebClient;
 
@@ -182,6 +190,8 @@ bool CCenterServerLogic::DataClientLogin(IClientConnection *pClientConnection)
 
 	pDataClient->AttachClient(pClientConnection);
 
+	pDataClient->SetUniqueID(++m_uDataID);
+
 	m_mapOnlineDataClient[pClientConnection] = pDataClient;
 
 	return true;
@@ -197,4 +207,37 @@ void CCenterServerLogic::DataClientLogout(IClientConnection *pClientConnection)
 		Iter->second->DetachClient();
 		m_mapOnlineDataClient.erase(Iter);
 	}
+}
+
+CAppClient *CCenterServerLogic::GetAppClient(const UINT uClientIndex, const uint64 uClientID)
+{
+	if (uClientIndex >= g_pCenterServerLogicConfig.m_nAppClientCount)
+		return nullptr;
+
+	if (m_pAppClientList[uClientIndex].GetUniqueID() != uClientID)
+		return nullptr;
+
+	return &m_pAppClientList[uClientIndex];
+}
+
+CWebClient *CCenterServerLogic::GetWebClient(const UINT uClientIndex, const uint64 uClientID)
+{
+	if (uClientIndex >= g_pCenterServerLogicConfig.m_nWebClientCount)
+		return nullptr;
+
+	if (m_pWebClientList[uClientIndex].GetUniqueID() != uClientID)
+		return nullptr;
+
+	return &m_pWebClientList[uClientIndex];
+}
+
+CDataClient *CCenterServerLogic::GetDataClient(const UINT uClientIndex, const uint64 uClientID)
+{
+	if (uClientIndex >= g_pCenterServerLogicConfig.m_nDataClientCount)
+		return nullptr;
+
+	if (m_pDataClientList[uClientIndex].GetUniqueID() != uClientID)
+		return nullptr;
+
+	return &m_pDataClientList[uClientIndex];
 }

@@ -5,6 +5,7 @@
 
 class CClient
 {
+protected:
 public:
 	CClient();
 	~CClient();
@@ -22,12 +23,23 @@ public:
 	inline void				DetachClient()
 	{
 		m_pClientConn	= nullptr;
+		m_uUniqueID		= 0;
+	}
+
+	inline void				SetUniqueID(const uint64 uID)
+	{
+		m_uUniqueID	= uID;
+	}
+
+	inline uint64			GetUniqueID() const
+	{
+		return m_uUniqueID;
 	}
 
 	virtual void			DoAction();
 protected:
 	IClientConnection		*m_pClientConn;
-	UINT					m_uUniqueID;
+	uint64					m_uUniqueID;
 	UINT					m_uIndex;
 };
 

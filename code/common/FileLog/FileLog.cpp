@@ -70,7 +70,11 @@ void CFileLog::WriteLogInner(const char *pcLogMsg, unsigned char bKeepOpen)
 
 	m_nTimeNow			= time(nullptr);
 	time_t  tmCurTime	= m_nTimeNow;
-	m_tagTimeNow		= *localtime(&tmCurTime);;
+#if defined(WIN32) || defined(WIN64)
+	localtime_s(&m_tagTimeNow, &tmCurTime);
+#else
+	localtime_r(&tmCurTime, &m_tagTimeNow);
+#endif
 
 	OpenDirectory();
 

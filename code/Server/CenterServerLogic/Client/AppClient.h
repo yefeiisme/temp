@@ -1,6 +1,7 @@
 #ifndef __APP_CLIENT_H_
 #define __APP_CLIENT_H_
 
+#include "IMysqlQuery.h"
 #include "Client.h"
 #include "App_Server_Protocol.pb.h"
 
@@ -11,6 +12,7 @@ public:
 	~CAppClient();
 
 	void					DoAction();
+	void					ProcessDBPack(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead);
 private:
 	void					ProcessNetPack();
 

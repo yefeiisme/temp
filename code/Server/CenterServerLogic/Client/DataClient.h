@@ -1,6 +1,7 @@
 #ifndef __DATA_CLIENT_H_
 #define __DATA_CLIENT_H_
 
+#include "IMysqlQuery.h"
 #include "Client.h"
 
 class CDataClient : public CClient
@@ -10,6 +11,7 @@ public:
 	~CDataClient();
 
 	void					DoAction();
+	void					ProcessDBPack(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead);
 private:
 	void					ProcessNetPack();
 

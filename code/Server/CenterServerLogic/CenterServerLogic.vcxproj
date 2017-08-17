@@ -17,6 +17,7 @@
     <ClCompile Include="Client\Client.cpp" />
     <ClCompile Include="Client\DataClient.cpp" />
     <ClCompile Include="Client\WebClient.cpp" />
+    <ClCompile Include="Client\Web_Server_Protocol.pb.cc" />
     <ClCompile Include="Config\CenterServerLogicConfig.cpp" />
     <ClCompile Include="SensorDB\SensorDBConn.cpp" />
   </ItemGroup>
@@ -27,6 +28,7 @@
     <ClInclude Include="Client\Client.h" />
     <ClInclude Include="Client\DataClient.h" />
     <ClInclude Include="Client\WebClient.h" />
+    <ClInclude Include="Client\Web_Server_Protocol.pb.h" />
     <ClInclude Include="Config\CenterServerLogicConfig.h" />
     <ClInclude Include="SensorDB\SensorDBConn.h" />
     <ClInclude Include="SensorDB\SensorDBOperation.h" />

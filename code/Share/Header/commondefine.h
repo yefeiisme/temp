@@ -17,21 +17,11 @@ typedef unsigned long long	uint64;
 typedef long long			int64;
 #endif
 
-#ifndef NULL
-#define NULL    0
-#endif
-#ifndef TRUE
-#define TRUE 1
-#endif
-#ifndef FALSE
-#define FALSE 0
-#endif
-
 #ifndef SAFE_DELETE
-#define SAFE_DELETE(Address)				{ if( NULL != (Address) )	delete(Address);	Address = NULL; }
+#define SAFE_DELETE(Address)		{ if( nullptr != (Address) )	delete(Address);	Address = nullptr; }
 #endif
 #ifndef SAFE_DELETE_ARR
-#define SAFE_DELETE_ARR(Address)			{ if( NULL != (Address) )	delete[](Address);	Address = NULL; }
+#define SAFE_DELETE_ARR(Address)	{ if( nullptr != (Address) )	delete[](Address);	Address = nullptr; }
 #endif
 
 #ifndef STRING_INSURE
@@ -45,24 +35,5 @@ typedef long long			int64;
 #ifndef STRING_COPY_SIZE
 #define STRING_COPY_SIZE(dest, src, size) {strncpy(dest, src, size); dest[size - 1] = '\0';}
 #endif
-
-#pragma	pack(push, 1)
-typedef struct __SDefinedProtocolHead
-{
-	BYTE			byProtocol;
-}SDefinedProtocolHead;
-
-typedef struct __SUndefinedProtocolHead
-{
-	BYTE			byProtocol;
-	WORD			wSize;
-}SUndefinedProtocolHead;
-
-#pragma pack(pop)
-
-#define MAX_TEMP_CHAR_LEN				128
-
-
-
 
 #endif

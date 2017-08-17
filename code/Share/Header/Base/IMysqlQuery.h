@@ -1,6 +1,8 @@
 #ifndef __I_MYSQL_QUERY_H_
 #define __I_MYSQL_QUERY_H_
 
+#include "commondefine.h"
+
 class IMysqlQuery
 {
 public:
@@ -13,30 +15,28 @@ public:
 
 struct SMysqlRequest
 {
-	unsigned int	uParam1;
-	unsigned int	uParam2;
-	unsigned int	uParam3;
-
-	unsigned char	byOpt;
+	uint64	uClientID;
+	UINT	uClientIndex;
+	WORD	wSqlLen;
+	BYTE	byClientType;
+	BYTE	byOpt;
 };
 
 struct SMysqlRespond
 {
-	unsigned int	uParam1;
-	unsigned int	uParam2;
-	unsigned int	uParam3;
-
-	unsigned int	uRowCount;
-	unsigned int	uColCount;
-	int				nRetCode;
-
-	unsigned char	byOpt;
+	uint64	uClientID;
+	UINT	uClientIndex;
+	UINT	uRowCount;
+	UINT	uColCount;
+	int		nRetCode;
+	BYTE	byClientType;
+	BYTE	byOpt;
 };
 
 struct SMysqlDataHead
 {
-	unsigned int	uOffset;
-	unsigned int	uDataLen;
+	UINT	uOffset;
+	UINT	uDataLen;
 };
 
 IMysqlQuery				*CreateMysqlQuery(const char *pstrSettingFile, const char *pstrSection);

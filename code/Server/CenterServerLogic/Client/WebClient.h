@@ -1,6 +1,7 @@
 #ifndef __WEB_CLIENT_H_
 #define __WEB_CLIENT_H_
 
+#include "IMysqlQuery.h"
 #include "Client.h"
 #include "Web_Server_Protocol.pb.h"
 
@@ -11,6 +12,7 @@ public:
 	~CWebClient();
 
 	void					DoAction();
+	void					ProcessDBPack(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead);
 private:
 	void					ProcessNetPack();
 
