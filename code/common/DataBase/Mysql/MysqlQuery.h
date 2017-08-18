@@ -8,6 +8,7 @@
 
 using namespace std;
 
+class CProcObj;
 class CMysqlResult;
 
 class CMysqlQuery : public IMysqlQuery
@@ -17,6 +18,8 @@ private:
 
 	IRingBuffer				*m_pRBRequest;
 	IRingBuffer				*m_pRBRespond;
+
+	CProcObj				*m_pProcSqlObj;
 	CMysqlResult			*m_pResult;
 
 	MYSQL					*m_pDBHandle;
@@ -76,7 +79,18 @@ public:
 
 	void					Release();
 	bool					Initialize(const char *pstrSettingFile, const char *pstrSection);
+
+	bool					AddParam(const int nParam);
+	bool					AddParam(const unsigned int uParam);
+	bool					AddParam(const short sParam);
+	bool					AddParam(const unsigned short usParam);
+	bool					AddParam(const char cParam);
+	bool					AddParam(const unsigned char byParam);
+	bool					AddParam(const char *pstrParam);
+	bool					AddParam(const void *pParam);
 private:
+	void					Clear();
+
 	inline void				yield()
 	{
 #if defined (WIN32) || defined (WIN64)

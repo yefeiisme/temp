@@ -13,11 +13,13 @@
   <ItemGroup>
     <ClCompile Include="Mysql\MysqlQuery.cpp" />
     <ClCompile Include="Mysql\MysqlResult.cpp" />
+    <ClCompile Include="Mysql\ProcedureSqlObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Share\Header\Base\IMysqlQuery.h" />
     <ClInclude Include="Mysql\MysqlQuery.h" />
     <ClInclude Include="Mysql\MysqlResult.h" />
+    <ClInclude Include="Mysql\ProcedureSqlObject.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

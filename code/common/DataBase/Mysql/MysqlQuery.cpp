@@ -3,6 +3,7 @@
 #include "my_global.h"
 #include "mysql.h"
 #include "MysqlQuery.h"
+#include "ProcedureSqlObject.h"
 #include "MysqlResult.h"
 
 IMysqlQuery *CreateMysqlQuery(const char *pstrSettingFile, const char *pstrSection)
@@ -26,6 +27,8 @@ CMysqlQuery::CMysqlQuery()
 
 	m_pRBRequest	= nullptr;
 	m_pRBRespond	= nullptr;
+
+	m_pProcSqlObj	= nullptr;
 	m_pResult		= nullptr;
 
 	m_pDBHandle		= nullptr;
@@ -81,6 +84,9 @@ CMysqlQuery::~CMysqlQuery()
 		m_pRBRespond	= nullptr;
 	}
 
+	SAFE_DELETE(m_pProcSqlObj);
+	SAFE_DELETE(m_pResult);
+
 	if (m_pDBHandle)
 	{
 		mysql_close(m_pDBHandle);
@@ -101,34 +107,47 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 	m_pRBRequest	= CreateRingBuffer(m_uSqlBufferLen, m_uMaxSqlLen);
 	if (!m_pRBRequest)
 	{
-		g_pFileLog->WriteLog("%s[%d] Create RingBuffer For RoleDB Recv Failed!\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("%s[%d] Create RingBuffer For RoleDB Recv Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 
 	m_pRBRespond	= CreateRingBuffer(m_uResultBufferLen, m_uMaxResultLen);
 	if (!m_pRBRespond)
 	{
-		g_pFileLog->WriteLog("%s[%d] Create RingBuffer For RoleDB Send Failed!\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("%s[%d] Create RingBuffer For RoleDB Send Failed\n", __FILE__, __LINE__);
+		return false;
+	}
+
+	m_pProcSqlObj	= new CProcObj(*this);
+	if (nullptr == m_pProcSqlObj)
+	{
+		g_pFileLog->WriteLog("[%s][%d] new CProcSqlObj Failed\n", __FILE__, __LINE__);
+		return false;
+	}
+
+	if (!m_pProcSqlObj->Initialize(m_uSqlBufferLen, *m_pDBHandle))
+	{
+		g_pFileLog->WriteLog("[%s][%d] CProcSqlObj Initialize Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 
 	m_pResult	= new CMysqlResult;
 	if (nullptr == m_pResult)
 	{
-		g_pFileLog->WriteLog("[%s][%d] new CMysqlResult Failed!\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("[%s][%d] new CMysqlResult Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 
 	if (!m_pResult->Initialize(m_uResultBufferLen))
 	{
-		g_pFileLog->WriteLog("[%s][%d] CMysqlResult::Initialize Failed!\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("[%s][%d] CMysqlResult::Initialize Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 
 	m_pResultBuffer	= new char[m_uResultBufferLen];
 	if (nullptr == m_pResultBuffer)
 	{
-		g_pFileLog->WriteLog("[%s][%d] new char[%u] For Result Buffer Failed!\n", __FILE__, __LINE__, m_uResultBufferLen);
+		g_pFileLog->WriteLog("[%s][%d] new char[%u] For Result Buffer Failed\n", __FILE__, __LINE__, m_uResultBufferLen);
 		return false;
 	}
 
@@ -138,7 +157,7 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 	m_pDBHandle = mysql_init(nullptr);
 	if (nullptr == m_pDBHandle)
 	{
-		g_pFileLog->WriteLog("%s[%d] mysql_init Failed!\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("%s[%d] mysql_init Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 
@@ -164,7 +183,7 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 
 		return false;
 	}
-	g_pFileLog->WriteLog("Connect To DB[%s] Success!\n", m_strDBIP);
+	g_pFileLog->WriteLog("Connect To DB[%s] Success\n", m_strDBIP);
 
 	//if (0 != mysql_autocommit(m_pDBHandle, 0))
 	//{
@@ -198,6 +217,50 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 	threadMysqlQuery.detach();
 
 	return true;
+}
+
+bool CMysqlQuery::AddParam(const int nParam)
+{
+	return true;
+}
+
+bool CMysqlQuery::AddParam(const unsigned int uParam)
+{
+	return true;
+}
+
+bool CMysqlQuery::AddParam(const short sParam)
+{
+	return true;
+}
+
+bool CMysqlQuery::AddParam(const unsigned short usParam)
+{
+	return true;
+}
+
+bool CMysqlQuery::AddParam(const char cParam)
+{
+	return true;
+}
+
+bool CMysqlQuery::AddParam(const unsigned char byParam)
+{
+	return true;
+}
+
+bool CMysqlQuery::AddParam(const char *pstrParam)
+{
+	return true;
+}
+
+bool CMysqlQuery::AddParam(const void *pParam)
+{
+	return true;
+}
+
+void CMysqlQuery::Clear()
+{
 }
 
 bool CMysqlQuery::SendDBRequest(const void *pPack, const unsigned int uPackLen)
