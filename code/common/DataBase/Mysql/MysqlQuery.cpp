@@ -475,11 +475,18 @@ void CMysqlQuery::ProcessRequest()
 
 	while(nullptr != (pPack = m_pRBRequest->RcvPack(uPackLen)))
 	{
-		ExecuteSQL((const char *)pPack, uPackLen);
+		if (uPackLen <= sizeof(SMysqlRequest))
+			continue;
+
+		SMysqlRequest	*pRequest	= (SMysqlRequest*)pPack;
+		const char		*pstrSql	= (char*)pPack + sizeof(SMysqlRequest);
+		UINT			uSqlLen		= uPackLen - sizeof(SMysqlRequest);
+
+		ExecuteSQL(*pRequest, pstrSql, uSqlLen);
 	};
 }
 
-void CMysqlQuery::ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen)
+void CMysqlQuery::ExecuteSQL(SMysqlRequest &pRequest, const char *pstrSQL, const unsigned int uSQLLen)
 {
 	if (!m_pDBHandle)
 	{
@@ -497,7 +504,7 @@ void CMysqlQuery::ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen)
 		return;
 	}
 
-	HandleResult();
+	HandleResult(pRequest);
 
 	ClearResult();
 }
@@ -518,11 +525,39 @@ void CMysqlQuery::ClearResult()
 	m_pResult->Clear();
 }
 
-bool CMysqlQuery::HandleResult()
+bool CMysqlQuery::HandleResult(SMysqlRequest &pRequest)
 {
 	my_bool	bMultiResult	= mysql_more_results(m_pDBHandle);
 
-	m_pQueryRes = mysql_store_result(m_pDBHandle);
+	if (bMultiResult)
+	{
+		//must be mysql_store_result or mysql_next_result will be error out of sync
+		m_pQueryRes = mysql_store_result(m_pDBHandle);
+
+		//get last res for procret
+		MYSQL_RES	*pRes = NULL;
+
+		while (!mysql_next_result(m_pDBHandle))
+		{
+			if (pRes)
+			{
+				mysql_free_result(pRes);
+				pRes = NULL;
+			}
+
+			pRes = mysql_use_result(m_pDBHandle);
+		}
+
+		//get ret
+		GetProcRet(pRes);
+
+		mysql_free_result(pRes);
+	}
+	else
+	{
+		m_pQueryRes = mysql_store_result(m_pDBHandle);
+	}
+
 	if (nullptr == m_pQueryRes)
 	{
 		unsigned int	uLastError = mysql_errno(m_pDBHandle);
@@ -559,7 +594,29 @@ bool CMysqlQuery::HandleResult()
 		++uRowIndex;
 	}
 
+	m_pResult->SetResultHead(pRequest);
+
 	return true;
+}
+
+void CMysqlQuery::GetProcRet(MYSQL_RES *pRes)
+{
+	m_pResult->SetResultCode(0);
+
+	if (nullptr == pRes)
+		return;
+
+	int nColCount = mysql_num_fields(pRes);
+
+	if (1 != nColCount)
+		return;
+
+	MYSQL_ROW	pRow	= mysql_fetch_row(pRes);
+
+	if (nullptr == pRow)
+		return;
+
+	m_pResult->SetResultCode(strtoul(pRow[0], NULL, 10));
 }
 
 void CMysqlQuery::Disconnect()

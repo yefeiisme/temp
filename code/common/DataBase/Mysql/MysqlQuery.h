@@ -109,9 +109,10 @@ private:
 	void					DBActive();
 	void					ProcessRequest();
 
-	void					ExecuteSQL(const char *pstrSQL, const unsigned int uSQLLen);
+	void					ExecuteSQL(SMysqlRequest &pRequest, const char *pstrSQL, const unsigned int uSQLLen);
+	bool					HandleResult(SMysqlRequest &pRequest);
+	void					GetProcRet(MYSQL_RES *pRes);
 	void					ClearResult();
-	bool					HandleResult();
 	void					Disconnect();
 };
 

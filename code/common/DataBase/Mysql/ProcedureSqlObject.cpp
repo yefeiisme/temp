@@ -126,7 +126,6 @@ bool CProcObj::Query(const void *pPack, const unsigned int uPackLen)
 
 void CProcObj::Clear()
 {
-	m_pRequest->wSqlLen		= 0;
 	m_pRequest->uClientID	= 0;
 	m_bAddParam				= false;
 }

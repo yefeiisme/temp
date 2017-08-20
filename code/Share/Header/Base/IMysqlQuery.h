@@ -7,7 +7,6 @@ struct SMysqlRequest
 {
 	uint64	uClientID;
 	UINT	uClientIndex;
-	WORD	wSqlLen;
 	BYTE	byClientType;
 	BYTE	byOpt;
 };
