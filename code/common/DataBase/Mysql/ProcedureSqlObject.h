@@ -18,19 +18,17 @@ public:
 	bool					AddParam(const unsigned int uParam);
 	bool					AddParam(const short sParam);
 	bool					AddParam(const unsigned short usParam);
-	bool					AddParam(const char cParam);
 	bool					AddParam(const unsigned char byParam);
 	bool					AddParam(const char *pstrParam);
 	bool					AddParam(const void *pParam);
 	bool					EndPrepareProc(SMysqlRequest &tagRequest);
-	bool					CallProc();
 	bool					Query(const void *pPack, const unsigned int uPackLen);
 
 	void					Clear();
 
-	inline const char		*GetRequest(UINT &uRequestLen)
+	inline const char		*GetRequest(UINT &uSQLLen)
 	{
-		uRequestLen = m_uRequestLen;
+		uSQLLen = m_uSQLLen;
 
 		return m_strBuffer;
 	}
@@ -44,7 +42,7 @@ private:
 
 	UINT					m_uBufferLen;
 	UINT					m_uMaxSQLLen;
-	UINT					m_uRequestLen;
+	UINT					m_uSQLLen;
 
 	bool					m_bAddParam;
 };

@@ -40,7 +40,6 @@ public:
 	virtual bool		AddParam(const unsigned int uParam) = 0;
 	virtual bool		AddParam(const short sParam) = 0;
 	virtual bool		AddParam(const unsigned short usParam) = 0;
-	virtual bool		AddParam(const char cParam) = 0;
 	virtual bool		AddParam(const unsigned char byParam) = 0;
 	virtual bool		AddParam(const char *pstrParam) = 0;
 	virtual bool		AddParam(const void *pParam) = 0;

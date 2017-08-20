@@ -82,7 +82,6 @@ public:
 	bool					AddParam(const unsigned int uParam);
 	bool					AddParam(const short sParam);
 	bool					AddParam(const unsigned short usParam);
-	bool					AddParam(const char cParam);
 	bool					AddParam(const unsigned char byParam);
 	bool					AddParam(const char *pstrParam);
 	bool					AddParam(const void *pParam);

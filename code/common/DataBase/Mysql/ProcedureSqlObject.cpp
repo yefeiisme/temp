@@ -14,7 +14,7 @@ CProcObj::CProcObj(CMysqlQuery &pMysqlQuery) : m_pQuery(pMysqlQuery)
 
 	m_uBufferLen	= 0;
 	m_uMaxSQLLen	= 0;
-	m_uRequestLen	= 0;
+	m_uSQLLen	= 0;
 
 	m_bAddParam		= false;
 }
@@ -49,55 +49,133 @@ bool CProcObj::Initialize(const UINT uQueryBufferLen, MYSQL &pDBHandle)
 
 void CProcObj::PrepareProc(const char *pstrProcName)
 {
+	Clear();
+
+	m_uSQLLen += snprintf(m_strSQL, m_uMaxSQLLen - m_uSQLLen, "CALL %s (", pstrProcName);
 }
 
 bool CProcObj::AddParam(const int nParam)
 {
+	if (m_uMaxSQLLen == m_uSQLLen)
+		return false;
+
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+	}
+
+	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%d", nParam);
+
+	m_bAddParam = true;
+
 	return true;
 }
 
 bool CProcObj::AddParam(const unsigned int uParam)
 {
+	if (m_uMaxSQLLen == m_uSQLLen)
+		return false;
+
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+	}
+
+	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%u", uParam);
+
+	m_bAddParam = true;
+
 	return true;
 }
 
 bool CProcObj::AddParam(const short sParam)
 {
+	if (m_uMaxSQLLen == m_uSQLLen)
+		return false;
+
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+	}
+
+	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%hd", sParam);
+
+	m_bAddParam = true;
+
 	return true;
 }
 
 bool CProcObj::AddParam(const unsigned short usParam)
 {
-	return true;
-}
+	if (m_uMaxSQLLen == m_uSQLLen)
+		return false;
 
-bool CProcObj::AddParam(const char cParam)
-{
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+	}
+
+	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%hu", usParam);
+
+	m_bAddParam = true;
+
 	return true;
 }
 
 bool CProcObj::AddParam(const unsigned char byParam)
 {
+	if (m_uMaxSQLLen == m_uSQLLen)
+		return false;
+
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+	}
+
+	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%hhu", byParam);
+
+	m_bAddParam = true;
+
 	return true;
 }
 
 bool CProcObj::AddParam(const char *pstrParam)
 {
+	size_t	nParamLen	= strlen(pstrParam);
+
+	if (m_uMaxSQLLen - m_uSQLLen < nParamLen * 2 + 3)
+		return false;
+
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+	}
+
+	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "'");
+
+	m_uSQLLen += mysql_real_escape_string(m_pDBHandle, m_strSQL + m_uSQLLen, pstrParam, nParamLen);
+
+	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "'");
+
+	m_bAddParam = true;
+
 	return true;
 }
 
 bool CProcObj::AddParam(const void *pParam)
 {
-	return true;
+	return (m_uSQLLen < m_uMaxSQLLen);
 }
 
 bool CProcObj::EndPrepareProc(SMysqlRequest &tagRequest)
 {
-	return true;
-}
+	if (m_uSQLLen >= m_uMaxSQLLen)
+		return false;
 
-bool CProcObj::CallProc()
-{
+	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ");SELECT @result");
+
+	memcpy(m_pRequest, &tagRequest, sizeof(SMysqlRequest));
+
 	return true;
 }
 
@@ -115,7 +193,7 @@ bool CProcObj::Query(const void *pPack, const unsigned int uPackLen)
 		return false;
 	}
 
-	m_uRequestLen		= uPackLen;
+	m_uSQLLen		= uPackLen;
 	char	*pstrSql	= (char*)pPack + sizeof(SMysqlRequest);
 	memcpy(m_pRequest, pPack, sizeof(SMysqlRequest));
 	strncpy(m_strSQL, pstrSql, uSqlLen);

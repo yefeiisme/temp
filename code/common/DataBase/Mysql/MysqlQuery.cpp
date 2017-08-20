@@ -244,11 +244,6 @@ bool CMysqlQuery::AddParam(const unsigned short usParam)
 	return m_pProcSqlObj->AddParam(usParam);
 }
 
-bool CMysqlQuery::AddParam(const char cParam)
-{
-	return m_pProcSqlObj->AddParam(cParam);
-}
-
 bool CMysqlQuery::AddParam(const unsigned char byParam)
 {
 	return m_pProcSqlObj->AddParam(byParam);
@@ -271,7 +266,10 @@ bool CMysqlQuery::EndPrepareProc(SMysqlRequest &tagRequest)
 
 bool CMysqlQuery::CallProc()
 {
-	return m_pProcSqlObj->CallProc();
+	UINT		uPackLen	= 0;
+	const void	*pPack		= m_pProcSqlObj->GetRequest(uPackLen);
+
+	return m_pRBRequest->SndPack(pPack, uPackLen);
 }
 
 void CMysqlQuery::Query(const void *pPack, const unsigned int uPackLen)
