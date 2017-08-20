@@ -183,7 +183,7 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 
 		return false;
 	}
-	g_pFileLog->WriteLog("Connect To DB[%s] Success\n", m_strDBIP);
+	g_pFileLog->WriteLog("Connect To DB[%s] Success\n", m_strDBIP.c_str());
 
 	//if (0 != mysql_autocommit(m_pDBHandle, 0))
 	//{
