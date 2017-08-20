@@ -219,53 +219,77 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 	return true;
 }
 
+void CMysqlQuery::PrepareProc(const char *pstrProcName)
+{
+	m_pProcSqlObj->PrepareProc(pstrProcName);
+}
+
 bool CMysqlQuery::AddParam(const int nParam)
 {
-	return true;
+	return m_pProcSqlObj->AddParam(nParam);
 }
 
 bool CMysqlQuery::AddParam(const unsigned int uParam)
 {
-	return true;
+	return m_pProcSqlObj->AddParam(uParam);
 }
 
 bool CMysqlQuery::AddParam(const short sParam)
 {
-	return true;
+	return m_pProcSqlObj->AddParam(sParam);
 }
 
 bool CMysqlQuery::AddParam(const unsigned short usParam)
 {
-	return true;
+	return m_pProcSqlObj->AddParam(usParam);
 }
 
 bool CMysqlQuery::AddParam(const char cParam)
 {
-	return true;
+	return m_pProcSqlObj->AddParam(cParam);
 }
 
 bool CMysqlQuery::AddParam(const unsigned char byParam)
 {
-	return true;
+	return m_pProcSqlObj->AddParam(byParam);
 }
 
 bool CMysqlQuery::AddParam(const char *pstrParam)
 {
-	return true;
+	return m_pProcSqlObj->AddParam(pstrParam);
 }
 
 bool CMysqlQuery::AddParam(const void *pParam)
 {
-	return true;
+	return m_pProcSqlObj->AddParam(pParam);
 }
 
-void CMysqlQuery::Clear()
+bool CMysqlQuery::EndPrepareProc(SMysqlRequest &tagRequest)
 {
+	return m_pProcSqlObj->EndPrepareProc(tagRequest);
 }
 
-bool CMysqlQuery::SendDBRequest(const void *pPack, const unsigned int uPackLen)
+bool CMysqlQuery::CallProc()
 {
-	return m_pRBRequest->SndPack(pPack, uPackLen);
+	return m_pProcSqlObj->CallProc();
+}
+
+void CMysqlQuery::Query(const void *pPack, const unsigned int uPackLen)
+{
+	if (!m_pDBHandle)
+	{
+		g_pFileLog->WriteLog("%s[%d] m_pDBHandle Is nullptr\n", __FUNCTION__, __LINE__);
+		return;
+	}
+
+	if (!m_pProcSqlObj->Query(pPack, uPackLen))
+	{
+		return;
+	}
+
+	UINT	uLen	= 0;
+	const char	*pRequest = m_pProcSqlObj->GetRequest(uLen);
+	m_pRBRequest->SndPack(pRequest, uLen);
 }
 
 const void *CMysqlQuery::GetDBRespond(unsigned int &uPackLen)

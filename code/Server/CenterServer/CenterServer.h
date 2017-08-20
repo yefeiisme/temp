@@ -28,7 +28,12 @@ public:
 		m_bRunning = false;
 		m_bWaitExit = false;
 	}
-	bool						SendDBRequest(const void *pPack, const unsigned int uPackLen);
+
+	inline IMysqlQuery			*GetMysqlQuery()
+	{
+		return m_pSensorQuery;
+	}
+
 	const void					*GetDBRespond(unsigned int &uPackLen);
 private:
 	void						ProcessAppConn();

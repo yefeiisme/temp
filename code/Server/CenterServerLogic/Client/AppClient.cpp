@@ -93,7 +93,8 @@ void CAppClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 	pRequet->uClientIndex		= m_uIndex;
 	pRequet->byClientType		= APP_CLIENT;
 
-	g_ICenterServer.SendDBRequest(strBuffer, 0);
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	pMysqlQuery->Query(strBuffer, 0);
 }
 
 void CAppClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen)

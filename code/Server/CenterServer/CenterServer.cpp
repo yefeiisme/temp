@@ -255,6 +255,7 @@ void CCenterServer::Run()
 		ProcessDataConn();
 	}
 
+	m_pSensorQuery->Stop();
 	m_pAppNetwork->Stop();
 	m_pWebNetwork->Stop();
 	m_pDataNetwork->Stop();
@@ -270,11 +271,10 @@ void CCenterServer::Run()
 	while (!m_pDataNetwork->IsExited())
 	{
 	}
-}
 
-bool CCenterServer::SendDBRequest(const void *pPack, const unsigned int uPackLen)
-{
-	return m_pSensorQuery->SendDBRequest(pPack, uPackLen);
+	while (!m_pSensorQuery->IsExit())
+	{
+	}
 }
 
 const void *CCenterServer::GetDBRespond(unsigned int &uPackLen)

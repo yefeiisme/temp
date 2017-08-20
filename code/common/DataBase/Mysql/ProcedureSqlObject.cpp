@@ -14,6 +14,7 @@ CProcObj::CProcObj(CMysqlQuery &pMysqlQuery) : m_pQuery(pMysqlQuery)
 
 	m_uBufferLen	= 0;
 	m_uMaxSQLLen	= 0;
+	m_uRequestLen	= 0;
 
 	m_bAddParam		= false;
 }
@@ -44,6 +45,10 @@ bool CProcObj::Initialize(const UINT uQueryBufferLen, MYSQL &pDBHandle)
 	m_strSQL	= m_strBuffer + sizeof(SMysqlRequest);
 
 	return true;
+}
+
+void CProcObj::PrepareProc(const char *pstrProcName)
+{
 }
 
 bool CProcObj::AddParam(const int nParam)
@@ -83,6 +88,39 @@ bool CProcObj::AddParam(const char *pstrParam)
 
 bool CProcObj::AddParam(const void *pParam)
 {
+	return true;
+}
+
+bool CProcObj::EndPrepareProc(SMysqlRequest &tagRequest)
+{
+	return true;
+}
+
+bool CProcObj::CallProc()
+{
+	return true;
+}
+
+bool CProcObj::Query(const void *pPack, const unsigned int uPackLen)
+{
+	if (uPackLen <= sizeof(SMysqlRequest))
+	{
+		return false;
+	}
+
+	UINT	uSqlLen	= uPackLen - sizeof(SMysqlRequest);
+
+	if (0 == uSqlLen || uSqlLen >= m_uMaxSQLLen)
+	{
+		return false;
+	}
+
+	m_uRequestLen		= uPackLen;
+	char	*pstrSql	= (char*)pPack + sizeof(SMysqlRequest);
+	memcpy(m_pRequest, pPack, sizeof(SMysqlRequest));
+	strncpy(m_strSQL, pstrSql, uSqlLen);
+	m_strSQL[uSqlLen - 1] = '\0';
+
 	return true;
 }
 

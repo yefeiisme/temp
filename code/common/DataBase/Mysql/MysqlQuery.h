@@ -64,9 +64,6 @@ public:
 	CMysqlQuery();
 	~CMysqlQuery();
 
-	bool					SendDBRequest(const void *pPack, const unsigned int uPackLen);
-	const void				*GetDBRespond(unsigned int &uPackLen);
-
 	inline void				Stop()
 	{
 		m_bRunning	= false;
@@ -80,6 +77,7 @@ public:
 	void					Release();
 	bool					Initialize(const char *pstrSettingFile, const char *pstrSection);
 
+	void					PrepareProc(const char *pstrProcName);
 	bool					AddParam(const int nParam);
 	bool					AddParam(const unsigned int uParam);
 	bool					AddParam(const short sParam);
@@ -88,9 +86,12 @@ public:
 	bool					AddParam(const unsigned char byParam);
 	bool					AddParam(const char *pstrParam);
 	bool					AddParam(const void *pParam);
-private:
-	void					Clear();
+	bool					EndPrepareProc(SMysqlRequest &tagRequest);
+	bool					CallProc();
+	void					Query(const void *pPack, const unsigned int uPackLen);
 
+	const void				*GetDBRespond(unsigned int &uPackLen);
+private:
 	inline void				yield()
 	{
 #if defined (WIN32) || defined (WIN64)
