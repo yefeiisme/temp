@@ -161,7 +161,7 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 		return false;
 	}
 
-	g_pFileLog->WriteLog("Connect DB[%s]...\n", m_strDBIP);
+	g_pFileLog->WriteLog("Connect DB[%s]...\n", m_strDBIP.c_str());
 
 	char	cReconnectFlag = 1;
 	if (0 != mysql_options(m_pDBHandle, MYSQL_OPT_RECONNECT, &cReconnectFlag))
