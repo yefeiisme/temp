@@ -3,12 +3,20 @@
 
 #include "IMysqlQuery.h"
 
-class CMysqlResult
+class CMysqlResult : public IQueryResult
 {
 public:
 	CMysqlResult();
 	~CMysqlResult();
-
+public:
+	bool					GetData(const UINT uRow, const UINT uCol, int &nData);
+	bool					GetData(const UINT uRow, const UINT uCol, unsigned int &uData);
+	bool					GetData(const UINT uRow, const UINT uCol, short &sData);
+	bool					GetData(const UINT uRow, const UINT uCol, unsigned short &wData);
+	bool					GetData(const UINT uRow, const UINT uCol, unsigned char &byData);
+	bool					GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize);
+	bool					GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize);
+public:
 	bool					Initialize(const UINT uBufferLen);
 	void					Clear();
 
@@ -38,7 +46,9 @@ public:
 	{
 		m_pResultHead->nRetCode = nRetCode;
 	}
+
 	bool					AddResult(const UINT uRow, const UINT uCol, const char *pstrData, const UINT uDataLen);
+	bool					ParseResult(const void *pPack, const UINT uPackLen);
 private:
 	char					*m_pDataBuffer;
 

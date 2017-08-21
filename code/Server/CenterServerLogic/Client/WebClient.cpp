@@ -207,10 +207,16 @@ void CWebClient::DBResopndLoginResult(SMysqlRespond *pRespond, SMysqlDataHead *p
 	WEB_SERVER_NET_Protocol::S2Web_Login_Result	tagLoginResult;
 	tagLoginResult.set_result(pRespond->nRetCode);
 
-	WEB_SERVER_NET_Protocol::S2Web_Login_Result::ServerData	*pServerData	= tagLoginResult.add_server_list();
-	if (nullptr == pServerData)
-		return;
+	for (auto nIndex = 0; nIndex < pRespond->uRowCount; ++nIndex)
+	{
+		WEB_SERVER_NET_Protocol::S2Web_Login_Result::ServerData	*pServerData = tagLoginResult.add_server_list();
+		if (nullptr == pServerData)
+			continue;
 
+		pServerData->set_id(0);
+		pServerData->set_ip("");
+		pServerData->set_port(0);
+	}
 }
 
 void CWebClient::DBResopndSlopeList(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)

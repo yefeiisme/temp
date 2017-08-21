@@ -20,6 +20,41 @@ CMysqlResult::~CMysqlResult()
 	SAFE_DELETE_ARR(m_pDataBuffer);
 }
 
+bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, int &nData)
+{
+	return true;
+}
+
+bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned int &uData)
+{
+	return true;
+}
+
+bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, short &sData)
+{
+	return true;
+}
+
+bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned short &wData)
+{
+	return true;
+}
+
+bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned char &byData)
+{
+	return true;
+}
+
+bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize)
+{
+	return true;
+}
+
+bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize)
+{
+	return true;
+}
+
 bool CMysqlResult::Initialize(const UINT uBufferLen)
 {
 	m_uBufferLen	= uBufferLen;
@@ -71,5 +106,10 @@ bool CMysqlResult::AddResult(const UINT uRow, const UINT uCol, const char *pstrD
 
 	m_uOffset += uDataLen;
 
+	return true;
+}
+
+bool CMysqlResult::ParseResult(const void *pPack, const UINT uPackLen)
+{
 	return true;
 }

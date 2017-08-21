@@ -295,6 +295,14 @@ const void *CMysqlQuery::GetDBRespond(unsigned int &uPackLen)
 	return m_pRBRespond->RcvPack(uPackLen);
 }
 
+IQueryResult *CMysqlQuery::GetQueryResult()
+{
+	UINT		uLen		= 0;
+	const void	*pRespond	= m_pRBRespond->RcvPack(uLen);
+
+	return (m_pResult->ParseResult(pRespond, uLen) ? m_pResult : nullptr);
+}
+
 void CMysqlQuery::Release()
 {
 	delete this;

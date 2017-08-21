@@ -121,9 +121,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Login_Result_ServerData, id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Login_Result_ServerData, ip_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Login_Result_ServerData, port_),
-  2,
-  0,
   1,
+  0,
+  2,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Login_Result, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Login_Result, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -345,7 +345,7 @@ void AddDescriptorsImpl() {
       " \002(\r\022K\n\013server_list\030\002 \003(\01326.WEB_SERVER_N"
       "ET_Protocol.S2Web_Login_Result.ServerDat"
       "a\0322\n\nServerData\022\n\n\002id\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022"
-      "\014\n\004port\030\003 \002(\014\"\304\001\n\020S2Web_Slope_List\022G\n\nsl"
+      "\014\n\004port\030\003 \002(\r\"\304\001\n\020S2Web_Slope_List\022G\n\nsl"
       "ope_list\030\001 \003(\01323.WEB_SERVER_NET_Protocol"
       ".S2Web_Slope_List.SlopeData\032g\n\tSlopeData"
       "\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014"
@@ -1887,19 +1887,17 @@ S2Web_Login_Result_ServerData::S2Web_Login_Result_ServerData(const S2Web_Login_R
   if (from.has_ip()) {
     ip_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ip_);
   }
-  port_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_port()) {
-    port_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.port_);
-  }
-  id_ = from.id_;
+  ::memcpy(&id_, &from.id_,
+    reinterpret_cast<char*>(&port_) -
+    reinterpret_cast<char*>(&id_) + sizeof(port_));
   // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData)
 }
 
 void S2Web_Login_Result_ServerData::SharedCtor() {
   _cached_size_ = 0;
   ip_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  port_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  id_ = 0u;
+  ::memset(&id_, 0, reinterpret_cast<char*>(&port_) -
+    reinterpret_cast<char*>(&id_) + sizeof(port_));
 }
 
 S2Web_Login_Result_ServerData::~S2Web_Login_Result_ServerData() {
@@ -1909,7 +1907,6 @@ S2Web_Login_Result_ServerData::~S2Web_Login_Result_ServerData() {
 
 void S2Web_Login_Result_ServerData::SharedDtor() {
   ip_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  port_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void S2Web_Login_Result_ServerData::SetCachedSize(int size) const {
@@ -1937,17 +1934,14 @@ S2Web_Login_Result_ServerData* S2Web_Login_Result_ServerData::New(::google::prot
 
 void S2Web_Login_Result_ServerData::Clear() {
 // @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData)
-  if (_has_bits_[0 / 32] & 3u) {
-    if (has_ip()) {
-      GOOGLE_DCHECK(!ip_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*ip_.UnsafeRawStringPointer())->clear();
-    }
-    if (has_port()) {
-      GOOGLE_DCHECK(!port_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*port_.UnsafeRawStringPointer())->clear();
-    }
+  if (has_ip()) {
+    GOOGLE_DCHECK(!ip_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*ip_.UnsafeRawStringPointer())->clear();
   }
-  id_ = 0u;
+  if (_has_bits_[0 / 32] & 6u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&port_) -
+      reinterpret_cast<char*>(&id_) + sizeof(port_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -1988,12 +1982,14 @@ bool S2Web_Login_Result_ServerData::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes port = 3;
+      // required uint32 port = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_port()));
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_port();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &port_)));
         } else {
           goto handle_unusual;
         }
@@ -2030,7 +2026,7 @@ void S2Web_Login_Result_ServerData::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 id = 1;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
   }
 
@@ -2040,10 +2036,9 @@ void S2Web_Login_Result_ServerData::SerializeWithCachedSizes(
       2, this->ip(), output);
   }
 
-  // required bytes port = 3;
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      3, this->port(), output);
+  // required uint32 port = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->port(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2061,7 +2056,7 @@ void S2Web_Login_Result_ServerData::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 id = 1;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
   }
 
@@ -2072,11 +2067,9 @@ void S2Web_Login_Result_ServerData::SerializeWithCachedSizes(
         2, this->ip(), target);
   }
 
-  // required bytes port = 3;
-  if (cached_has_bits & 0x00000002u) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->port(), target);
+  // required uint32 port = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->port(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2098,18 +2091,18 @@ size_t S2Web_Login_Result_ServerData::RequiredFieldsByteSizeFallback() const {
         this->ip());
   }
 
-  if (has_port()) {
-    // required bytes port = 3;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->port());
-  }
-
   if (has_id()) {
     // required uint32 id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->id());
+  }
+
+  if (has_port()) {
+    // required uint32 port = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->port());
   }
 
   return total_size;
@@ -2129,15 +2122,15 @@ size_t S2Web_Login_Result_ServerData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->ip());
 
-    // required bytes port = 3;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->port());
-
     // required uint32 id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->id());
+
+    // required uint32 port = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->port());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -2178,11 +2171,10 @@ void S2Web_Login_Result_ServerData::MergeFrom(const S2Web_Login_Result_ServerDat
       ip_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ip_);
     }
     if (cached_has_bits & 0x00000002u) {
-      set_has_port();
-      port_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.port_);
+      id_ = from.id_;
     }
     if (cached_has_bits & 0x00000004u) {
-      id_ = from.id_;
+      port_ = from.port_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -2213,8 +2205,8 @@ void S2Web_Login_Result_ServerData::Swap(S2Web_Login_Result_ServerData* other) {
 }
 void S2Web_Login_Result_ServerData::InternalSwap(S2Web_Login_Result_ServerData* other) {
   ip_.Swap(&other->ip_);
-  port_.Swap(&other->port_);
   std::swap(id_, other->id_);
+  std::swap(port_, other->port_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2230,13 +2222,13 @@ void S2Web_Login_Result_ServerData::InternalSwap(S2Web_Login_Result_ServerData* 
 
 // required uint32 id = 1;
 bool S2Web_Login_Result_ServerData::has_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 void S2Web_Login_Result_ServerData::set_has_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 void S2Web_Login_Result_ServerData::clear_has_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 void S2Web_Login_Result_ServerData::clear_id() {
   id_ = 0u;
@@ -2315,67 +2307,28 @@ void S2Web_Login_Result_ServerData::set_allocated_ip(::std::string* ip) {
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData.ip)
 }
 
-// required bytes port = 3;
+// required uint32 port = 3;
 bool S2Web_Login_Result_ServerData::has_port() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 void S2Web_Login_Result_ServerData::set_has_port() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 void S2Web_Login_Result_ServerData::clear_has_port() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 void S2Web_Login_Result_ServerData::clear_port() {
-  port_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0u;
   clear_has_port();
 }
-const ::std::string& S2Web_Login_Result_ServerData::port() const {
+::google::protobuf::uint32 S2Web_Login_Result_ServerData::port() const {
   // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData.port)
-  return port_.GetNoArena();
+  return port_;
 }
-void S2Web_Login_Result_ServerData::set_port(const ::std::string& value) {
+void S2Web_Login_Result_ServerData::set_port(::google::protobuf::uint32 value) {
   set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  port_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData.port)
-}
-#if LANG_CXX11
-void S2Web_Login_Result_ServerData::set_port(::std::string&& value) {
-  set_has_port();
-  port_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData.port)
-}
-#endif
-void S2Web_Login_Result_ServerData::set_port(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData.port)
-}
-void S2Web_Login_Result_ServerData::set_port(const void* value, size_t size) {
-  set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData.port)
-}
-::std::string* S2Web_Login_Result_ServerData::mutable_port() {
-  set_has_port();
-  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData.port)
-  return port_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* S2Web_Login_Result_ServerData::release_port() {
-  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData.port)
-  clear_has_port();
-  return port_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void S2Web_Login_Result_ServerData::set_allocated_port(::std::string* port) {
-  if (port != NULL) {
-    set_has_port();
-  } else {
-    clear_has_port();
-  }
-  port_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), port);
-  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData.port)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

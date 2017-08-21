@@ -99,7 +99,7 @@ message S2App_Login_Result
 	{
 		required uint32 id			= 1;	// 服务器ID
 		required bytes	ip			= 2;	// 服务器IP
-		required bytes	port		= 3;	// 服务器端口号
+		required uint32	port		= 3;	// 服务器端口号
 	}
 
 	required uint32	result			= 1;	// 登陆结果：0，登陆成功；1，帐号或者密码错误；

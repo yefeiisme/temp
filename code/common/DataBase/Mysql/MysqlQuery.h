@@ -90,6 +90,7 @@ public:
 	void					Query(const void *pPack, const unsigned int uPackLen);
 
 	const void				*GetDBRespond(unsigned int &uPackLen);
+	IQueryResult			*GetQueryResult();
 private:
 	inline void				yield()
 	{

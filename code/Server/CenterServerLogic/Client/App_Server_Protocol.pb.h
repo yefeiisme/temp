@@ -659,27 +659,19 @@ class S2App_Login_Result_ServerData : public ::google::protobuf::Message /* @@pr
   ::std::string* release_ip();
   void set_allocated_ip(::std::string* ip);
 
-  // required bytes port = 3;
-  bool has_port() const;
-  void clear_port();
-  static const int kPortFieldNumber = 3;
-  const ::std::string& port() const;
-  void set_port(const ::std::string& value);
-  #if LANG_CXX11
-  void set_port(::std::string&& value);
-  #endif
-  void set_port(const char* value);
-  void set_port(const void* value, size_t size);
-  ::std::string* mutable_port();
-  ::std::string* release_port();
-  void set_allocated_port(::std::string* port);
-
   // required uint32 id = 1;
   bool has_id() const;
   void clear_id();
   static const int kIdFieldNumber = 1;
   ::google::protobuf::uint32 id() const;
   void set_id(::google::protobuf::uint32 value);
+
+  // required uint32 port = 3;
+  bool has_port() const;
+  void clear_port();
+  static const int kPortFieldNumber = 3;
+  ::google::protobuf::uint32 port() const;
+  void set_port(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData)
  private:
@@ -697,8 +689,8 @@ class S2App_Login_Result_ServerData : public ::google::protobuf::Message /* @@pr
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr ip_;
-  ::google::protobuf::internal::ArenaStringPtr port_;
   ::google::protobuf::uint32 id_;
+  ::google::protobuf::uint32 port_;
   friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -1927,13 +1919,13 @@ inline void APP2S_Request_Sensor_History::set_end_time(::google::protobuf::uint3
 
 // required uint32 id = 1;
 inline bool S2App_Login_Result_ServerData::has_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void S2App_Login_Result_ServerData::set_has_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void S2App_Login_Result_ServerData::clear_has_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void S2App_Login_Result_ServerData::clear_id() {
   id_ = 0u;
@@ -2012,67 +2004,28 @@ inline void S2App_Login_Result_ServerData::set_allocated_ip(::std::string* ip) {
   // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData.ip)
 }
 
-// required bytes port = 3;
+// required uint32 port = 3;
 inline bool S2App_Login_Result_ServerData::has_port() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void S2App_Login_Result_ServerData::set_has_port() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void S2App_Login_Result_ServerData::clear_has_port() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void S2App_Login_Result_ServerData::clear_port() {
-  port_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0u;
   clear_has_port();
 }
-inline const ::std::string& S2App_Login_Result_ServerData::port() const {
+inline ::google::protobuf::uint32 S2App_Login_Result_ServerData::port() const {
   // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData.port)
-  return port_.GetNoArena();
+  return port_;
 }
-inline void S2App_Login_Result_ServerData::set_port(const ::std::string& value) {
+inline void S2App_Login_Result_ServerData::set_port(::google::protobuf::uint32 value) {
   set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  port_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData.port)
-}
-#if LANG_CXX11
-inline void S2App_Login_Result_ServerData::set_port(::std::string&& value) {
-  set_has_port();
-  port_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData.port)
-}
-#endif
-inline void S2App_Login_Result_ServerData::set_port(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData.port)
-}
-inline void S2App_Login_Result_ServerData::set_port(const void* value, size_t size) {
-  set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData.port)
-}
-inline ::std::string* S2App_Login_Result_ServerData::mutable_port() {
-  set_has_port();
-  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData.port)
-  return port_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* S2App_Login_Result_ServerData::release_port() {
-  // @@protoc_insertion_point(field_release:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData.port)
-  clear_has_port();
-  return port_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void S2App_Login_Result_ServerData::set_allocated_port(::std::string* port) {
-  if (port != NULL) {
-    set_has_port();
-  } else {
-    clear_has_port();
-  }
-  port_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), port);
-  // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData.port)
 }
 
 // -------------------------------------------------------------------
