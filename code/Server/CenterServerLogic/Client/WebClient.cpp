@@ -37,6 +37,14 @@ CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::
 	&CWebClient::DefaultProtocolFunc,
 };
 
+CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
+{
+	&CWebClient::DBResopndLoginResult,
+	&CWebClient::DBResopndSlopeList,
+	&CWebClient::DBResopndSensorList,
+	&CWebClient::DBResopndSensorHistory,
+};
+
 CWebClient::CWebClient() : CClient()
 {
 }
@@ -52,6 +60,13 @@ void CWebClient::DoAction()
 
 void CWebClient::ProcessDBPack(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
 {
+	if (pRespond->byOpt >= SENSOR_DB_OPT_MAX)
+	{
+		g_pFileLog->WriteLog("[%s][%d] DB Respond Invalid Protocol[%hhu]\n", __FILE__, __LINE__, pRespond->byOpt);
+		return;
+	}
+
+	(this->*m_pfnDBRespondFunc[pRespond->byOpt])(pRespond, pDataHead);
 }
 
 void CWebClient::ProcessNetPack()
@@ -66,7 +81,7 @@ void CWebClient::ProcessNetPack()
 
 		if (byProtocol >= WEB_SERVER_NET_Protocol::WEB2S::web2s_max)
 		{
-			g_pFileLog->WriteLog("[%s][%d] App Client[%u] Invalid Protocol[%hhu]\n", __FUNCTION__, __LINE__, m_uUniqueID, byProtocol);
+			g_pFileLog->WriteLog("[%s][%d] App Client[%u] Invalid Protocol[%hhu]\n", __FILE__, __LINE__, m_uUniqueID, byProtocol);
 			return;
 		}
 
@@ -86,63 +101,126 @@ void CWebClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
 	tagLoginInfo.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
 
-	char			strBuffer[0xffff] = {0};
-	SMysqlRequest	*pRequet	= (SMysqlRequest*)strBuffer;
-	pRequet->byOpt			= SENSOR_DB_VERIFY_ACCOUNT;
-	pRequet->uClientID		= m_uUniqueID;
-	pRequet->uClientIndex	= m_uIndex;
-	pRequet->byClientType	= WEB_CLIENT;
-	// 组织请求的结构，向数据库线程发送请示
-	// ...
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_VERIFY_ACCOUNT;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("AccountLogin");
+	pMysqlQuery->AddParam(tagLoginInfo.account().c_str());
+	pMysqlQuery->AddParam(tagLoginInfo.password().c_str());
+	pMysqlQuery->EndPrepareProc(tagRequest);
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen)
 {
-	WEB_SERVER_NET_Protocol::WEB2S_Request_Slope_List	tagRequest;
+	if (0 == m_uAccountID)
+		return;
+
+	WEB_SERVER_NET_Protocol::WEB2S_Request_Slope_List	tagRequestSlope;
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
-	tagRequest.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
+	tagRequestSlope.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
 
-	char			strBuffer[0xffff] = {0};
-	SMysqlRequest	*pRequet	= (SMysqlRequest*)strBuffer;
-	pRequet->byOpt			= SENSOR_DB_SLOPE_LIST;
-	pRequet->uClientID		= m_uUniqueID;
-	pRequet->uClientIndex	= m_uIndex;
-	pRequet->byClientType	= WEB_CLIENT;
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_SLOPE_LIST;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
 
-	// 组织请求的结构，向数据库线程发送请示
-	// ...
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("LoadSlopeList");
+	pMysqlQuery->AddParam(m_uAccountID);
+	pMysqlQuery->AddParam(tagRequestSlope.server_id());
+	pMysqlQuery->EndPrepareProc(tagRequest);
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvRequestSensorList(const void *pPack, const unsigned int uPackLen)
 {
-	WEB_SERVER_NET_Protocol::WEB2S_Request_Sensor_List	tagRequest;
+	if (0 == m_uAccountID)
+		return;
+
+	WEB_SERVER_NET_Protocol::WEB2S_Request_Sensor_List	tagRequestSensorList;
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
-	tagRequest.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
+	tagRequestSensorList.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
 
-	char			strBuffer[0xffff] ={ 0 };
-	SMysqlRequest	*pRequet	= (SMysqlRequest*)strBuffer;
-	pRequet->byOpt			= SENSOR_DB_SENSOR_LIST;
-	pRequet->uClientID		= m_uUniqueID;
-	pRequet->uClientIndex	= m_uIndex;
-	pRequet->byClientType	= WEB_CLIENT;
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_SENSOR_LIST;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
 
-	// 组织请求的结构，向数据库线程发送请示
-	// ...
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("LoadSensorList");
+	pMysqlQuery->AddParam(m_uAccountID);
+	pMysqlQuery->AddParam(tagRequestSensorList.slope_id());
+	pMysqlQuery->EndPrepareProc(tagRequest);
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen)
 {
-	WEB_SERVER_NET_Protocol::WEB2S_Request_Sensor_History	tagRequest;
+	if (0 == m_uAccountID)
+		return;
+
+	WEB_SERVER_NET_Protocol::WEB2S_Request_Sensor_History	tagRequestSensorHistory;
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
-	tagRequest.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
+	tagRequestSensorHistory.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
 
-	char			strBuffer[0xffff] = {0};
-	SMysqlRequest	*pRequet	= (SMysqlRequest*)strBuffer;
-	pRequet->byOpt			= SENSOR_DB_SENSOR_HISTORY;
-	pRequet->uClientID		= m_uUniqueID;
-	pRequet->uClientIndex	= m_uIndex;
-	pRequet->byClientType	= WEB_CLIENT;
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_SENSOR_LIST;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
 
-	// 组织请求的结构，向数据库线程发送请示
-	// ...
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("LoadSensorHistory");
+	pMysqlQuery->AddParam(m_uAccountID);
+	pMysqlQuery->AddParam(tagRequestSensorHistory.sensor_id());
+	pMysqlQuery->AddParam(tagRequestSensorHistory.begin_time());
+	pMysqlQuery->AddParam(tagRequestSensorHistory.end_time());
+	pMysqlQuery->EndPrepareProc(tagRequest);
+
+	pMysqlQuery->CallProc();
+}
+
+void CWebClient::DBResopndLoginResult(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+{
+	WEB_SERVER_NET_Protocol::S2Web_Login_Result	tagLoginResult;
+	tagLoginResult.set_result(pRespond->nRetCode);
+
+	WEB_SERVER_NET_Protocol::S2Web_Login_Result::ServerData	*pServerData	= tagLoginResult.add_server_list();
+	if (nullptr == pServerData)
+		return;
+
+}
+
+void CWebClient::DBResopndSlopeList(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+{
+}
+
+void CWebClient::DBResopndSensorList(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+{
+}
+
+void CWebClient::DBResopndSensorHistory(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+{
 }

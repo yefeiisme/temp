@@ -41,6 +41,7 @@ protected:
 	IClientConnection		*m_pClientConn;
 	uint64					m_uUniqueID;
 	UINT					m_uIndex;
+	UINT					m_uAccountID;
 };
 
 #endif

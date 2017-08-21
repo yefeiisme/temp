@@ -61,10 +61,12 @@ bool CProcObj::AddParam(const int nParam)
 
 	if (m_bAddParam)
 	{
-		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%d", nParam);
 	}
-
-	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%d", nParam);
+	else
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%d", nParam);
+	}
 
 	m_bAddParam = true;
 
@@ -78,10 +80,12 @@ bool CProcObj::AddParam(const unsigned int uParam)
 
 	if (m_bAddParam)
 	{
-		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%u", uParam);
 	}
-
-	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%u", uParam);
+	else
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%u", uParam);
+	}
 
 	m_bAddParam = true;
 
@@ -95,10 +99,12 @@ bool CProcObj::AddParam(const short sParam)
 
 	if (m_bAddParam)
 	{
-		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%hd", sParam);
 	}
-
-	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%hd", sParam);
+	else
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%hd", sParam);
+	}
 
 	m_bAddParam = true;
 
@@ -112,10 +118,12 @@ bool CProcObj::AddParam(const unsigned short usParam)
 
 	if (m_bAddParam)
 	{
-		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%hu", usParam);
 	}
-
-	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%hu", usParam);
+	else
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%hu", usParam);
+	}
 
 	m_bAddParam = true;
 
@@ -129,10 +137,12 @@ bool CProcObj::AddParam(const unsigned char byParam)
 
 	if (m_bAddParam)
 	{
-		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%hhu", byParam);
 	}
-
-	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%hhu", byParam);
+	else
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%hhu", byParam);
+	}
 
 	m_bAddParam = true;
 
@@ -148,10 +158,12 @@ bool CProcObj::AddParam(const char *pstrParam)
 
 	if (m_bAddParam)
 	{
-		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",");
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",'");
 	}
-
-	m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "'");
+	else
+	{
+		m_uSQLLen += snprintf(m_strSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "'");
+	}
 
 	m_uSQLLen += mysql_real_escape_string(m_pDBHandle, m_strSQL + m_uSQLLen, pstrParam, nParamLen);
 
@@ -164,7 +176,7 @@ bool CProcObj::AddParam(const char *pstrParam)
 
 bool CProcObj::AddParam(const void *pParam)
 {
-	return (m_uSQLLen < m_uMaxSQLLen);
+	return true;
 }
 
 bool CProcObj::EndPrepareProc(SMysqlRequest &tagRequest)

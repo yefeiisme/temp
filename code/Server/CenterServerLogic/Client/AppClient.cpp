@@ -37,6 +37,14 @@ CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[APP_SERVER_NET_Protocol::
 	&CAppClient::DefaultProtocolFunc,
 };
 
+CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
+{
+	&CAppClient::DBResopndLoginResult,
+	&CAppClient::DBResopndSlopeList,
+	&CAppClient::DBResopndSensorList,
+	&CAppClient::DBResopndSensorHistory,
+};
+
 CAppClient::CAppClient() : CClient()
 {
 }
@@ -52,6 +60,13 @@ void CAppClient::DoAction()
 
 void CAppClient::ProcessDBPack(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
 {
+	if (pRespond->byOpt >= SENSOR_DB_OPT_MAX)
+	{
+		g_pFileLog->WriteLog("[%s][%d] DB Respond Invalid Protocol[%hhu]\n", __FILE__, __LINE__, pRespond->byOpt);
+		return;
+	}
+
+	(this->*m_pfnDBRespondFunc[pRespond->byOpt])(pRespond, pDataHead);
 }
 
 void CAppClient::ProcessNetPack()
@@ -66,7 +81,7 @@ void CAppClient::ProcessNetPack()
 
 		if (byProtocol >= APP_SERVER_NET_Protocol::APP2S::app2s_max)
 		{
-			g_pFileLog->WriteLog("[%s][%d] App Client[%u] Invalid Protocol[%hhu]\n", __FUNCTION__, __LINE__, m_uUniqueID, byProtocol);
+			g_pFileLog->WriteLog("[%s][%d] App Client[%u] Invalid Protocol[%hhu]\n", __FILE__, __LINE__, m_uUniqueID, byProtocol);
 			return;
 		}
 
@@ -86,64 +101,119 @@ void CAppClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
 	tagLoginInfo.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
 
-	char			strBuffer[0xffff] = {0};
-	SMysqlRequest	*pRequet	= (SMysqlRequest*)strBuffer;
-	pRequet->byOpt				= SENSOR_DB_VERIFY_ACCOUNT;
-	pRequet->uClientID			= m_uUniqueID;
-	pRequet->uClientIndex		= m_uIndex;
-	pRequet->byClientType		= APP_CLIENT;
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_VERIFY_ACCOUNT;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= APP_CLIENT;
 
 	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
-	pMysqlQuery->Query(strBuffer, 0);
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("AccountLogin");
+	pMysqlQuery->AddParam(tagLoginInfo.account().c_str());
+	pMysqlQuery->AddParam(tagLoginInfo.password().c_str());
+	pMysqlQuery->EndPrepareProc(tagRequest);
+
+	pMysqlQuery->CallProc();
 }
 
 void CAppClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen)
 {
-	APP_SERVER_NET_Protocol::APP2S_Request_Slope_List	tagRequest;
+	if (0 == m_uAccountID)
+		return;
+
+	APP_SERVER_NET_Protocol::APP2S_Request_Slope_List	tagRequestSlope;
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
-	tagRequest.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
+	tagRequestSlope.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
 
-	char			strBuffer[0xffff] = {0};
-	SMysqlRequest	*pRequet	= (SMysqlRequest*)strBuffer;
-	pRequet->byOpt			= SENSOR_DB_SLOPE_LIST;
-	pRequet->uClientID		= m_uUniqueID;
-	pRequet->uClientIndex	= m_uIndex;
-	pRequet->byClientType	= APP_CLIENT;
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_SLOPE_LIST;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= APP_CLIENT;
 
-	// 组织请求的结构，向数据库线程发送请示
-	// ...
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("LoadSlopeList");
+	pMysqlQuery->AddParam(m_uAccountID);
+	pMysqlQuery->AddParam(tagRequestSlope.server_id());
+	pMysqlQuery->EndPrepareProc(tagRequest);
+
+	pMysqlQuery->CallProc();
 }
 
 void CAppClient::RecvRequestSensorList(const void *pPack, const unsigned int uPackLen)
 {
-	APP_SERVER_NET_Protocol::APP2S_Request_Sensor_List	tagRequest;
+	if (0 == m_uAccountID)
+		return;
+
+	APP_SERVER_NET_Protocol::APP2S_Request_Sensor_List	tagRequestSensorList;
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
-	tagRequest.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
+	tagRequestSensorList.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
 
-	char			strBuffer[0xffff] = {0};
-	SMysqlRequest	*pRequet	= (SMysqlRequest*)strBuffer;
-	pRequet->byOpt			= SENSOR_DB_SENSOR_LIST;
-	pRequet->uClientID		= m_uUniqueID;
-	pRequet->uClientIndex	= m_uIndex;
-	pRequet->byClientType	= APP_CLIENT;
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_SENSOR_LIST;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= APP_CLIENT;
 
-	// 组织请求的结构，向数据库线程发送请示
-	// ...
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("LoadSensorList");
+	pMysqlQuery->AddParam(m_uAccountID);
+	pMysqlQuery->AddParam(tagRequestSensorList.slope_id());
+	pMysqlQuery->EndPrepareProc(tagRequest);
+
+	pMysqlQuery->CallProc();
 }
 
 void CAppClient::RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen)
 {
-	APP_SERVER_NET_Protocol::APP2S_Request_Sensor_History	tagRequest;
+	if (0 == m_uAccountID)
+		return;
+
+	APP_SERVER_NET_Protocol::APP2S_Request_Sensor_History	tagRequestSensorHistory;
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
-	tagRequest.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
+	tagRequestSensorHistory.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
 
-	char			strBuffer[0xffff] = {0};
-	SMysqlRequest	*pRequet	= (SMysqlRequest*)strBuffer;
-	pRequet->byOpt			= SENSOR_DB_SENSOR_HISTORY;
-	pRequet->uClientID		= m_uUniqueID;
-	pRequet->uClientIndex	= m_uIndex;
-	pRequet->byClientType	= APP_CLIENT;
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_SENSOR_LIST;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= APP_CLIENT;
 
-	// 组织请求的结构，向数据库线程发送请示
-	// ...
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("LoadSensorHistory");
+	pMysqlQuery->AddParam(m_uAccountID);
+	pMysqlQuery->AddParam(tagRequestSensorHistory.sensor_id());
+	pMysqlQuery->AddParam(tagRequestSensorHistory.begin_time());
+	pMysqlQuery->AddParam(tagRequestSensorHistory.end_time());
+	pMysqlQuery->EndPrepareProc(tagRequest);
+
+	pMysqlQuery->CallProc();
+}
+
+void CAppClient::DBResopndLoginResult(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+{
+}
+
+void CAppClient::DBResopndSlopeList(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+{
+}
+
+void CAppClient::DBResopndSensorList(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+{
+}
+
+void CAppClient::DBResopndSensorHistory(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+{
 }
