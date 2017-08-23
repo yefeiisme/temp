@@ -58,15 +58,15 @@ void CWebClient::DoAction()
 	ProcessNetPack();
 }
 
-void CWebClient::ProcessDBPack(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+void CWebClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
 {
-	if (pRespond->byOpt >= SENSOR_DB_OPT_MAX)
+	if (pRespond.byOpt >= SENSOR_DB_OPT_MAX)
 	{
-		g_pFileLog->WriteLog("[%s][%d] DB Respond Invalid Protocol[%hhu]\n", __FILE__, __LINE__, pRespond->byOpt);
+		g_pFileLog->WriteLog("[%s][%d] DB Respond Invalid Protocol[%hhu]\n", __FILE__, __LINE__, pRespond.byOpt);
 		return;
 	}
 
-	(this->*m_pfnDBRespondFunc[pRespond->byOpt])(pRespond, pDataHead);
+	(this->*m_pfnDBRespondFunc[pRespond.byOpt])(pRespond, pDataHead);
 }
 
 void CWebClient::ProcessNetPack()
@@ -202,12 +202,12 @@ void CWebClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	pMysqlQuery->CallProc();
 }
 
-void CWebClient::DBResopndLoginResult(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+void CWebClient::DBResopndLoginResult(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
 {
 	WEB_SERVER_NET_Protocol::S2Web_Login_Result	tagLoginResult;
-	tagLoginResult.set_result(pRespond->nRetCode);
+	tagLoginResult.set_result(pRespond.nRetCode);
 
-	for (auto nIndex = 0; nIndex < pRespond->uRowCount; ++nIndex)
+	for (auto nIndex = 0; nIndex < pRespond.uRowCount; ++nIndex)
 	{
 		WEB_SERVER_NET_Protocol::S2Web_Login_Result::ServerData	*pServerData = tagLoginResult.add_server_list();
 		if (nullptr == pServerData)
@@ -219,14 +219,14 @@ void CWebClient::DBResopndLoginResult(SMysqlRespond *pRespond, SMysqlDataHead *p
 	}
 }
 
-void CWebClient::DBResopndSlopeList(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+void CWebClient::DBResopndSlopeList(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
 {
 }
 
-void CWebClient::DBResopndSensorList(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+void CWebClient::DBResopndSensorList(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
 {
 }
 
-void CWebClient::DBResopndSensorHistory(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+void CWebClient::DBResopndSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
 {
 }

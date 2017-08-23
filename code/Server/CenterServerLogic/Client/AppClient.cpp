@@ -58,15 +58,15 @@ void CAppClient::DoAction()
 	ProcessNetPack();
 }
 
-void CAppClient::ProcessDBPack(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+void CAppClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
 {
-	if (pRespond->byOpt >= SENSOR_DB_OPT_MAX)
+	if (pRespond.byOpt >= SENSOR_DB_OPT_MAX)
 	{
-		g_pFileLog->WriteLog("[%s][%d] DB Respond Invalid Protocol[%hhu]\n", __FILE__, __LINE__, pRespond->byOpt);
+		g_pFileLog->WriteLog("[%s][%d] DB Respond Invalid Protocol[%hhu]\n", __FILE__, __LINE__, pRespond.byOpt);
 		return;
 	}
 
-	(this->*m_pfnDBRespondFunc[pRespond->byOpt])(pRespond, pDataHead);
+	(this->*m_pfnDBRespondFunc[pRespond.byOpt])(pRespond, pDataHead);
 }
 
 void CAppClient::ProcessNetPack()
@@ -202,18 +202,18 @@ void CAppClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	pMysqlQuery->CallProc();
 }
 
-void CAppClient::DBResopndLoginResult(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+void CAppClient::DBResopndLoginResult(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
 {
 }
 
-void CAppClient::DBResopndSlopeList(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+void CAppClient::DBResopndSlopeList(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
 {
 }
 
-void CAppClient::DBResopndSensorList(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+void CAppClient::DBResopndSensorList(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
 {
 }
 
-void CAppClient::DBResopndSensorHistory(SMysqlRespond *pRespond, SMysqlDataHead *pDataHead)
+void CAppClient::DBResopndSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
 {
 }

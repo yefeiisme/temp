@@ -10,8 +10,7 @@ CMysqlResult::CMysqlResult()
 	m_pDataHead			= nullptr;
 
 	m_uBufferLen		= 0;
-	m_uRowCount			= 0;
-	m_uColCount			= 0;
+
 	m_uOffset			= 0;
 }
 
@@ -20,39 +19,114 @@ CMysqlResult::~CMysqlResult()
 	SAFE_DELETE_ARR(m_pDataBuffer);
 }
 
+char *CMysqlResult::GetDataString(const UINT uRow, const UINT uCol, unsigned int &uSize)
+{
+	if (0 == m_pResultHead->uRowCount || 0 == m_pResultHead->uRowCount)
+		return nullptr;
+
+	if (uRow >= m_pResultHead->uRowCount || uCol >= m_pResultHead->uColCount)
+		return nullptr;
+
+	auto	nIndex		= m_pResultHead->uColCount * uRow + uCol;
+	auto	uMinSize	= min(m_pDataHead[nIndex].uDataLen, uSize);
+
+	uSize	= m_pDataHead[nIndex].uDataLen;
+	return (m_pDataBuffer+m_pDataHead[nIndex].uOffset);
+}
+
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, int &nData)
 {
+	char	strResultData[64]	= {0};
+
+	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
+		return false;
+
+	nData	= atoi(strResultData);
+
 	return true;
 }
 
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned int &uData)
 {
+	char	strResultData[64]	={ 0 };
+
+	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
+		return false;
+
+	uData	= strtoul(strResultData, nullptr, 10);
+
 	return true;
 }
 
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, short &sData)
 {
+	char	strResultData[64]	={ 0 };
+
+	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
+		return false;
+
+	sData	= atoi(strResultData);
+
 	return true;
 }
 
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned short &wData)
 {
+	char	strResultData[64]	={ 0 };
+
+	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
+		return false;
+
+	wData	= strtoul(strResultData, nullptr, 10);
+
 	return true;
 }
 
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned char &byData)
 {
+	char	strResultData[64]	={ 0 };
+
+	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
+		return false;
+
+	byData	= strtoul(strResultData, nullptr, 10);
+
 	return true;
 }
 
-bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize)
+UINT CMysqlResult::GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize)
 {
-	return true;
+	if (nullptr == pstrParam || 0 == uSize)
+		return 0;
+
+	UINT	uStringSize			= 0;
+	char	*pstrResultString	= GetDataString(uRow, uCol, uStringSize);
+
+	if (nullptr == pstrResultString)
+		return 0;
+
+	int	nCopySize	= uSize > uStringSize ? uStringSize : uSize - 1;
+	memcpy(pstrParam, pstrResultString, uSize);
+	pstrResultString[nCopySize]	= '\0';
+
+	return (nCopySize - 1);
 }
 
-bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize)
+UINT CMysqlResult::GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize)
 {
-	return true;
+	if (nullptr == pParam || 0 == uSize)
+		return 0;
+
+	UINT	uStringSize			= 0;
+	char	*pstrResultString	= GetDataString(uRow, uCol, uStringSize);
+
+	if (nullptr == pstrResultString)
+		return 0;
+
+	int	nCopySize	= uSize > uStringSize ? uStringSize : uSize;
+	memcpy(pParam, pstrResultString, uSize);
+
+	return nCopySize;
 }
 
 bool CMysqlResult::Initialize(const UINT uBufferLen)
@@ -77,9 +151,6 @@ bool CMysqlResult::Initialize(const UINT uBufferLen)
 
 void CMysqlResult::Clear()
 {
-	m_uRowCount	= 0;
-	m_uColCount	= 0;
-
 	m_uOffset	= 0;
 
 	m_pResultHead->uColCount	= 0;
@@ -89,7 +160,10 @@ void CMysqlResult::Clear()
 
 bool CMysqlResult::AddResult(const UINT uRow, const UINT uCol, const char *pstrData, const UINT uDataLen)
 {
-	if (uRow >= m_uRowCount || uCol >= m_uColCount || nullptr == pstrData || 0 == uDataLen)
+	if (0 == m_pResultHead->uRowCount || 0 == m_pResultHead->uColCount)
+		return false;
+
+	if (uRow >= m_pResultHead->uRowCount || uCol >= m_pResultHead->uColCount || nullptr == pstrData || 0 == uDataLen)
 		return false;
 
 	if (m_uOffset + uDataLen > m_uBufferLen)
@@ -98,7 +172,7 @@ bool CMysqlResult::AddResult(const UINT uRow, const UINT uCol, const char *pstrD
 		return false;
 	}
 
-	auto	nIndex = m_uColCount * uRow + uCol;
+	auto	nIndex = m_pResultHead->uColCount * uRow + uCol;
 	m_pDataHead[nIndex].uDataLen	= uDataLen;
 	m_pDataHead[nIndex].uOffset		= m_uOffset;
 

@@ -9,13 +9,23 @@ public:
 	CMysqlResult();
 	~CMysqlResult();
 public:
+	char					*GetDataString(const UINT uRow, const UINT uCol, unsigned int &uSize);
 	bool					GetData(const UINT uRow, const UINT uCol, int &nData);
 	bool					GetData(const UINT uRow, const UINT uCol, unsigned int &uData);
 	bool					GetData(const UINT uRow, const UINT uCol, short &sData);
 	bool					GetData(const UINT uRow, const UINT uCol, unsigned short &wData);
 	bool					GetData(const UINT uRow, const UINT uCol, unsigned char &byData);
-	bool					GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize);
-	bool					GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize);
+	UINT					GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize);
+	UINT					GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize);
+	inline SMysqlRespond	&GetRespond()
+	{
+		return *m_pResultHead;
+	}
+
+	inline SMysqlDataHead	&GetDataHead()
+	{
+		return *m_pDataHead;
+	}
 public:
 	bool					Initialize(const UINT uBufferLen);
 	void					Clear();
@@ -32,9 +42,6 @@ public:
 	{
 		if (sizeof(SMysqlRespond)+sizeof(SMysqlDataHead)*uRow*uCol > m_uBufferLen)
 			return false;
-
-		m_uRowCount	= uRow;
-		m_uColCount	= uCol;
 
 		m_pResultHead->uRowCount	= uRow;
 		m_pResultHead->uColCount	= uCol;

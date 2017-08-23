@@ -277,9 +277,9 @@ void CCenterServer::Run()
 	}
 }
 
-const void *CCenterServer::GetDBRespond(unsigned int &uPackLen)
+IQueryResult *CCenterServer::GetQueryResult()
 {
-	return m_pSensorQuery->GetDBRespond(uPackLen);
+	return m_pSensorQuery->GetQueryResult();
 }
 
 void CCenterServer::ProcessAppConn()

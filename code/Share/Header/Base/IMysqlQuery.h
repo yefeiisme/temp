@@ -30,13 +30,16 @@ struct SMysqlDataHead
 
 class IQueryResult
 {
-	virtual bool			GetData(const UINT uRow, const UINT uCol, int &nData);
-	virtual bool			GetData(const UINT uRow, const UINT uCol, unsigned int &uData);
-	virtual bool			GetData(const UINT uRow, const UINT uCol, short &sData);
-	virtual bool			GetData(const UINT uRow, const UINT uCol, unsigned short &wData);
-	virtual bool			GetData(const UINT uRow, const UINT uCol, unsigned char &byData);
-	virtual bool			GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize);
-	virtual bool			GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize);
+public:
+	virtual int				GetData(const UINT uRow, const UINT uCol, int &nData) = 0;
+	virtual int				GetData(const UINT uRow, const UINT uCol, unsigned int &uData) = 0;
+	virtual int				GetData(const UINT uRow, const UINT uCol, short &sData) = 0;
+	virtual int				GetData(const UINT uRow, const UINT uCol, unsigned short &wData) = 0;
+	virtual int				GetData(const UINT uRow, const UINT uCol, unsigned char &byData) = 0;
+	virtual UINT			GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize) = 0;
+	virtual UINT			GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize) = 0;
+	virtual SMysqlRespond	&GetRespond() = 0;
+	virtual SMysqlDataHead	&GetDataHead() = 0;
 };
 
 class IMysqlQuery

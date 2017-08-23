@@ -34,7 +34,7 @@ public:
 		return m_pSensorQuery;
 	}
 
-	const void					*GetDBRespond(unsigned int &uPackLen);
+	IQueryResult				*GetQueryResult();
 private:
 	void						ProcessAppConn();
 	void						ProcessWebConn();
