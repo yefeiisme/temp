@@ -19,6 +19,7 @@ CSensorDBConn::CSensorDBConn()
 	m_ProtocolFunc[SENSOR_DB_SLOPE_LIST]		= &CSensorDBConn::RecvSlopeList;
 	m_ProtocolFunc[SENSOR_DB_SENSOR_LIST]		= &CSensorDBConn::RecvSensorList;
 	m_ProtocolFunc[SENSOR_DB_SENSOR_HISTORY]	= &CSensorDBConn::RecvSensorHistory;
+	m_ProtocolFunc[SENSOR_DB_LOAD_ALL_LIST]		= &CSensorDBConn::RecvLoadAllList;
 
 	for (auto nIndex = 0; nIndex < CLIENT_TYPE_MAX; ++nIndex)
 	{
@@ -49,64 +50,69 @@ void CSensorDBConn::Run()
 	SMysqlRespond	&pRespond	= pQueryResult->GetRespond();
 	if (pRespond.byClientType >= CLIENT_TYPE_MAX)
 	{
-		g_pFileLog->WriteLog("Invalid DB Respond Client Type[%hhu]", pRespond.byClientType);
+		g_pFileLog->WriteLog("Invalid DB Respond Client Type[%hhu]\n", pRespond.byClientType);
 		return;
 	}
 
 	if (pRespond.byOpt >= SENSOR_DB_OPT_MAX)
 	{
-		g_pFileLog->WriteLog("Invalid DB Respond Opt[%hhu]", pRespond.byOpt);
+		g_pFileLog->WriteLog("Invalid DB Respond Opt[%hhu]\n", pRespond.byOpt);
 		return;
 	}
 
-	SMysqlDataHead	&pDataHead	= pQueryResult->GetDataHead();
-	(this->*m_pfnTypeFunc[pRespond.byClientType])(pRespond, pDataHead);
+	SMysqlDataHead	*pDataHead	= pQueryResult->GetDataHead();
+
+	(this->*m_pfnTypeFunc[pRespond.byClientType])(pRespond, pDataHead, pQueryResult);
 }
 
-void CSensorDBConn::GlobalQuery(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CSensorDBConn::GlobalQuery(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
-	(this->*m_ProtocolFunc[pRespond.byOpt])(pRespond, pDataHead);
+	(this->*m_ProtocolFunc[pRespond.byOpt])(pRespond, pDataHead, pResult);
 }
 
-void CSensorDBConn::AppQuery(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CSensorDBConn::AppQuery(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 	CAppClient	*pClient	= g_pCenterServerLogic.GetAppClient(pRespond.uClientIndex, pRespond.uClientID);
 	if (nullptr == pClient)
 		return;
 
-	pClient->ProcessDBPack(pRespond, pDataHead);
+	pClient->ProcessDBPack(pRespond, pDataHead, pResult);
 }
 
-void CSensorDBConn::WebQuery(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CSensorDBConn::WebQuery(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 	CWebClient	*pClient	= g_pCenterServerLogic.GetWebClient(pRespond.uClientIndex, pRespond.uClientID);
 	if (nullptr == pClient)
 		return;
 
-	pClient->ProcessDBPack(pRespond, pDataHead);
+	pClient->ProcessDBPack(pRespond, pDataHead, pResult);
 }
 
-void CSensorDBConn::DataQuery(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CSensorDBConn::DataQuery(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 	CDataClient	*pClient	= g_pCenterServerLogic.GetDataClient(pRespond.uClientIndex, pRespond.uClientID);
 	if (nullptr == pClient)
 		return;
 
-	pClient->ProcessDBPack(pRespond, pDataHead);
+	pClient->ProcessDBPack(pRespond, pDataHead, pResult);
 }
 
-void CSensorDBConn::RecvVerifyAccount(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CSensorDBConn::RecvVerifyAccount(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 }
 
-void CSensorDBConn::RecvSlopeList(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CSensorDBConn::RecvSlopeList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 }
 
-void CSensorDBConn::RecvSensorList(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CSensorDBConn::RecvSensorList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 }
 
-void CSensorDBConn::RecvSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CSensorDBConn::RecvSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+{
+}
+
+void CSensorDBConn::RecvLoadAllList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 }

@@ -10,7 +10,7 @@ CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[APP_SERVER_NET_Protocol::
 	&CAppClient::RecvRequestSlopeList,
 	&CAppClient::RecvRequestSensorList,
 	&CAppClient::RecvRequestSensorHistory,
-	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::RecvRequestAllList,
 
 	&CAppClient::DefaultProtocolFunc,
 	&CAppClient::DefaultProtocolFunc,
@@ -43,6 +43,7 @@ CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CAppClient::DBResopndSlopeList,
 	&CAppClient::DBResopndSensorList,
 	&CAppClient::DBResopndSensorHistory,
+	&CAppClient::DBResopndAllList,
 };
 
 CAppClient::CAppClient() : CClient()
@@ -58,7 +59,7 @@ void CAppClient::DoAction()
 	ProcessNetPack();
 }
 
-void CAppClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CAppClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 	if (pRespond.byOpt >= SENSOR_DB_OPT_MAX)
 	{
@@ -66,7 +67,7 @@ void CAppClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead &pDataHea
 		return;
 	}
 
-	(this->*m_pfnDBRespondFunc[pRespond.byOpt])(pRespond, pDataHead);
+	(this->*m_pfnDBRespondFunc[pRespond.byOpt])(pRespond, pDataHead, pResult);
 }
 
 void CAppClient::ProcessNetPack()
@@ -202,18 +203,44 @@ void CAppClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	pMysqlQuery->CallProc();
 }
 
-void CAppClient::DBResopndLoginResult(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CAppClient::RecvRequestAllList(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+		return;
+
+	SMysqlRequest	tagRequest	={ 0 };
+	tagRequest.byOpt			= SENSOR_DB_SENSOR_LIST;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= APP_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("LoadAllList");
+	pMysqlQuery->AddParam(m_uAccountID);
+	pMysqlQuery->EndPrepareProc(tagRequest);
+
+	pMysqlQuery->CallProc();
+}
+
+void CAppClient::DBResopndLoginResult(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 }
 
-void CAppClient::DBResopndSlopeList(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CAppClient::DBResopndSlopeList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 }
 
-void CAppClient::DBResopndSensorList(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CAppClient::DBResopndSensorList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 }
 
-void CAppClient::DBResopndSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CAppClient::DBResopndSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+{
+}
+
+void CAppClient::DBResopndAllList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 }

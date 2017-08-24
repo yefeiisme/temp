@@ -15,6 +15,7 @@ public:
 	bool					GetData(const UINT uRow, const UINT uCol, short &sData);
 	bool					GetData(const UINT uRow, const UINT uCol, unsigned short &wData);
 	bool					GetData(const UINT uRow, const UINT uCol, unsigned char &byData);
+	bool					GetData(const UINT uRow, const UINT uCol, double &dData);
 	UINT					GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize);
 	UINT					GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize);
 	inline SMysqlRespond	&GetRespond()
@@ -22,9 +23,14 @@ public:
 		return *m_pResultHead;
 	}
 
-	inline SMysqlDataHead	&GetDataHead()
+	inline SMysqlDataHead	*GetDataHead()
 	{
-		return *m_pDataHead;
+		return m_pDataHead;
+	}
+
+	inline char				*GetDataPtr()
+	{
+		return m_pData;
 	}
 public:
 	bool					Initialize(const UINT uBufferLen);
@@ -46,6 +52,8 @@ public:
 		m_pResultHead->uRowCount	= uRow;
 		m_pResultHead->uColCount	= uCol;
 
+		m_pData	= m_pBuffer + sizeof(SMysqlRespond)+sizeof(SMysqlDataHead)*uRow*uCol;
+
 		return true;
 	}
 
@@ -57,7 +65,8 @@ public:
 	bool					AddResult(const UINT uRow, const UINT uCol, const char *pstrData, const UINT uDataLen);
 	bool					ParseResult(const void *pPack, const UINT uPackLen);
 private:
-	char					*m_pDataBuffer;
+	char					*m_pBuffer;
+	char					*m_pData;
 
 	SMysqlRespond			*m_pResultHead;
 	SMysqlDataHead			*m_pDataHead;

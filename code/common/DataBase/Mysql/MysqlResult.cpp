@@ -5,18 +5,18 @@
 
 CMysqlResult::CMysqlResult()
 {
-	m_pDataBuffer		= nullptr;
-	m_pResultHead		= nullptr;
-	m_pDataHead			= nullptr;
+	m_pBuffer		= nullptr;
+	m_pResultHead	= nullptr;
+	m_pDataHead		= nullptr;
 
-	m_uBufferLen		= 0;
+	m_uBufferLen	= 0;
 
-	m_uOffset			= 0;
+	m_uOffset		= 0;
 }
 
 CMysqlResult::~CMysqlResult()
 {
-	SAFE_DELETE_ARR(m_pDataBuffer);
+	SAFE_DELETE_ARR(m_pBuffer);
 }
 
 char *CMysqlResult::GetDataString(const UINT uRow, const UINT uCol, unsigned int &uSize)
@@ -31,7 +31,7 @@ char *CMysqlResult::GetDataString(const UINT uRow, const UINT uCol, unsigned int
 	auto	uMinSize	= min(m_pDataHead[nIndex].uDataLen, uSize);
 
 	uSize	= m_pDataHead[nIndex].uDataLen;
-	return (m_pDataBuffer+m_pDataHead[nIndex].uOffset);
+	return (m_pBuffer+m_pDataHead[nIndex].uOffset);
 }
 
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, int &nData)
@@ -48,7 +48,7 @@ bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, int &nData)
 
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned int &uData)
 {
-	char	strResultData[64]	={ 0 };
+	char	strResultData[64]	= {0};
 
 	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
 		return false;
@@ -60,7 +60,7 @@ bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned int &uData
 
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, short &sData)
 {
-	char	strResultData[64]	={ 0 };
+	char	strResultData[64]	= {0};
 
 	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
 		return false;
@@ -72,7 +72,7 @@ bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, short &sData)
 
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned short &wData)
 {
-	char	strResultData[64]	={ 0 };
+	char	strResultData[64]	= {0};
 
 	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
 		return false;
@@ -84,12 +84,24 @@ bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned short &wDa
 
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned char &byData)
 {
-	char	strResultData[64]	={ 0 };
+	char	strResultData[64]	= {0};
 
 	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
 		return false;
 
 	byData	= strtoul(strResultData, nullptr, 10);
+
+	return true;
+}
+
+bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, double &dData)
+{
+	char	strResultData[64]	={ 0 };
+
+	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
+		return false;
+
+	dData	= atof(strResultData);
 
 	return true;
 }
@@ -137,14 +149,14 @@ bool CMysqlResult::Initialize(const UINT uBufferLen)
 		return false;
 	}
 
-	m_pDataBuffer	= new char[m_uBufferLen];
-	if (nullptr == m_pDataBuffer)
+	m_pBuffer	= new char[m_uBufferLen];
+	if (nullptr == m_pBuffer)
 	{
 		return false;
 	}
 
-	m_pResultHead	= (SMysqlRespond*)m_pDataBuffer;
-	m_pDataHead		= (SMysqlDataHead*)(m_pDataBuffer+sizeof(SMysqlRespond));
+	m_pResultHead	= (SMysqlRespond*)m_pBuffer;
+	m_pDataHead		= (SMysqlDataHead*)(m_pBuffer+sizeof(SMysqlRespond));
 
 	return true;
 }
@@ -176,7 +188,7 @@ bool CMysqlResult::AddResult(const UINT uRow, const UINT uCol, const char *pstrD
 	m_pDataHead[nIndex].uDataLen	= uDataLen;
 	m_pDataHead[nIndex].uOffset		= m_uOffset;
 
-	memcpy(m_pDataBuffer + m_uOffset, pstrData, uDataLen);
+	memcpy(m_pBuffer + m_uOffset, pstrData, uDataLen);
 
 	m_uOffset += uDataLen;
 

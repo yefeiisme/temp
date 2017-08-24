@@ -19,7 +19,7 @@ void CDataClient::DoAction()
 	ProcessNetPack();
 }
 
-void CDataClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead &pDataHead)
+void CDataClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
 {
 }
 

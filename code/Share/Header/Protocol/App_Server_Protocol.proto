@@ -13,7 +13,7 @@ enum APP2S
 	app2s_request_sensor_list		= 2;	// app向服务器请求传感器列表
 	app2s_request_sensor_history	= 3;	// app向服务器请求传感器在一定时间段内的数据
 	app2s_ping						= 4;	// 定时ping server，以保持连接
-	app2s_reserve2					= 5;	// 保留用的协议
+	app2s_request_all_list			= 5;	// 请求所有的slope和senser数据
 	app2s_reserve3					= 6;	// 保留用的协议
 	app2s_reserve4					= 7;	// 保留用的协议
 	app2s_reserve5					= 8;	// 保留用的协议
@@ -83,6 +83,7 @@ enum S2APP
 	s2app_slope_list				= 1;	// 边坡列表
 	s2app_sensor_list				= 2;	// 传感器列表
 	s2app_sensor_history			= 3;	// 传感器历史数据
+	s2app_all_list					= 4;	// 所有边坡和传感器数据
 
 	s2app_max						= 256;	// 最大协议号
 }
@@ -163,4 +164,33 @@ message S2App_Sensor_History
 	required double	avg_value2			= 5;	// 平均物理量2
 	required double	avg_value3			= 6;	// 平均物理量3
 	repeated SensorData	history_list	= 7;	// 起始时间到结束时间内的传感器数据
+}
+
+// 传感器历史数据
+message S2App_All_List
+{
+	message SlopeData
+	{// 边坡数据结构
+		required uint32	id			= 1;	// ID
+		required uint32	type		= 2;	// 类型
+		required bytes	name		= 3;	// 名称
+		required uint32	state		= 4;	// 预警状态
+		required double	longitude	= 5;	// 经度
+		required double	latitude	= 6;	// 纬度
+	}
+
+	message SensorData
+	{// 传感器器数据结构
+		required uint32	id			= 1;	// ID
+		required uint32	type		= 2;	// 类型
+		required uint32	state		= 3;	// 预警状态
+		required double	longitude	= 4;	// 经度
+		required double	latitude	= 5;	// 纬度
+		required double	cur_value1	= 6;	// 当前物理量1
+		required double	cur_value2	= 7;	// 当前物理量2
+		required double	cur_value3	= 8;	// 当前物理量3
+	}
+
+	repeated SlopeData	slope_list	= 1;
+	repeated SensorData	sensor_list	= 2;
 }

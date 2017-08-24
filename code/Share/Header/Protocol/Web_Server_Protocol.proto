@@ -13,7 +13,7 @@ enum WEB2S
 	web2s_request_sensor_list		= 2;	// web向服务器请求传感器列表
 	web2s_request_sensor_history	= 3;	// web向服务器请求传感器在一定时间段内的数据
 	web2s_ping						= 4;	// 定时ping server，以保持连接
-	web2s_reserve2					= 5;	// 保留用的协议
+	web2s_request_all_list			= 5;	// 请求所有的slope和senser数据
 	web2s_reserve3					= 6;	// 保留用的协议
 	web2s_reserve4					= 7;	// 保留用的协议
 	web2s_reserve5					= 8;	// 保留用的协议
@@ -83,6 +83,7 @@ enum S2WEB
 	s2web_slope_list				= 1;	// 边坡列表
 	s2web_sensor_list				= 2;	// 传感器列表
 	s2web_sensor_history			= 3;	// 传感器历史数据
+	s2web_all_list					= 4;	// 所有边坡和传感器数据
 
 	s2web_max						= 256;	// 最大协议号
 }
@@ -130,14 +131,18 @@ message S2Web_Sensor_List
 		required uint32	id			= 1;	// ID
 		required uint32	type		= 2;	// 类型
 		required uint32	state		= 3;	// 预警状态
-		required double	longitude	= 4;	// 经度
-		required double	latitude	= 5;	// 纬度
-		required double	cur_value1	= 6;	// 当前物理量1
-		required double	cur_value2	= 7;	// 当前物理量2
-		required double	cur_value3	= 8;	// 当前物理量3
+		required uint32	slope_id	= 4;	// 所属边坡ID
+		required double	longitude	= 5;	// 经度
+		required double	latitude	= 6;	// 纬度
+		required double	cur_value1	= 7;	// 当前物理量1
+		required double	cur_value2	= 8;	// 当前物理量2
+		required double	cur_value3	= 9;	// 当前物理量3
+		required double	avg_value1	= 10;	// 平均物理量1
+		required double	avg_value2	= 11;	// 平均物理量2
+		required double	avg_value3	= 12;	// 平均物理量3
 	}
 
-	repeated SensorData	sensor_list	= 1;
+	repeated SensorData	sensor_list	= 2;
 }
 
 // 传感器历史数据
@@ -146,21 +151,53 @@ message S2Web_Sensor_History
 	message SensorData
 	{//传感器数据
 		required uint32 state			= 1;	// 预警状态
-		required double	longitude		= 2;	// 经度
-		required double	latitude		= 3;	// 纬度
-		required double	value1			= 4;	// 物理量1
-		required double	value2			= 5;	// 物理量2
-		required double	value3			= 6;	// 物理量3
-		required double	offset_value1	= 7;	// 偏移物理量1
-		required double	offset_value2	= 8;	// 偏移物理量2
-		required double	offset_value3	= 9;	// 偏移物理量3
+		required double	value1			= 2;	// 物理量1
+		required double	value2			= 3;	// 物理量2
+		required double	value3			= 4;	// 物理量3
+		required double	offset_value1	= 5;	// 偏移物理量1
+		required double	offset_value2	= 6;	// 偏移物理量2
+		required double	offset_value3	= 7;	// 偏移物理量3
 	}
 
 	required uint32 id					= 1;	// ID
-	required uint32 begin_time			= 2;	// 起始时间
-	required uint32 end_time			= 3;	// 结束时间
-	required double	avg_value1			= 4;	// 平均物理量1
-	required double	avg_value2			= 5;	// 平均物理量2
-	required double	avg_value3			= 6;	// 平均物理量3
-	repeated SensorData	history_list	= 7;	// 起始时间到结束时间内的传感器数据
+	required double	longitude			= 2;	// 经度
+	required double	latitude			= 3;	// 纬度
+	required uint32 begin_time			= 4;	// 起始时间
+	required uint32 end_time			= 5;	// 结束时间
+	required double	avg_value1			= 6;	// 平均物理量1
+	required double	avg_value2			= 7;	// 平均物理量2
+	required double	avg_value3			= 8;	// 平均物理量3
+	repeated SensorData	history_list	= 9;	// 起始时间到结束时间内的传感器数据
+}
+
+// 传感器历史数据
+message S2App_All_List
+{
+	message SlopeData
+	{// 边坡数据结构
+		required uint32	id			= 1;	// ID
+		required uint32	type		= 2;	// 类型
+		required bytes	name		= 3;	// 名称
+		required uint32	state		= 4;	// 预警状态
+		required double	longitude	= 5;	// 经度
+		required double	latitude	= 6;	// 纬度
+	}
+
+	message SensorData
+	{// 传感器器数据结构
+		required uint32	id			= 1;	// ID
+		required uint32	type		= 2;	// 类型
+		required uint32	state		= 3;	// 预警状态
+		required double	longitude	= 4;	// 经度
+		required double	latitude	= 5;	// 纬度
+		required double	cur_value1	= 6;	// 当前物理量1
+		required double	cur_value2	= 7;	// 当前物理量2
+		required double	cur_value3	= 8;	// 当前物理量3
+		required double	avg_value1	= 9;	// 平均物理量1
+		required double	avg_value2	= 10;	// 平均物理量2
+		required double	avg_value3	= 11;	// 平均物理量3
+	}
+
+	repeated SlopeData	slope_list	= 1;
+	repeated SensorData	sensor_list	= 2;
 }
