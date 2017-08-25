@@ -77,7 +77,7 @@ public:
 	void					Release();
 	bool					Initialize(const char *pstrSettingFile, const char *pstrSection);
 
-	void					PrepareProc(const char *pstrProcName);
+	bool					PrepareProc(const char *pstrProcName, const WORD wOpt);
 	bool					AddParam(const int nParam);
 	bool					AddParam(const unsigned int uParam);
 	bool					AddParam(const short sParam);
@@ -85,12 +85,11 @@ public:
 	bool					AddParam(const unsigned char byParam);
 	bool					AddParam(const char *pstrParam);
 	bool					AddParam(const void *pParam);
-	bool					EndPrepareProc(SMysqlRequest &tagRequest);
+	bool					EndPrepareProc(void *pCallbackData, const WORD wDataLen);
 	bool					CallProc();
-	void					Query(const void *pPack, const unsigned int uPackLen);
 
 	const void				*GetDBRespond(unsigned int &uPackLen);
-	IQueryResult			*GetQueryResult();
+	IMysqlResultSet			*GetMysqlResultSet();
 private:
 	inline void				yield()
 	{
@@ -109,8 +108,8 @@ private:
 	void					DBActive();
 	void					ProcessRequest();
 
-	void					ExecuteSQL(SMysqlRequest &pRequest, const char *pstrSQL, const unsigned int uSQLLen);
-	bool					HandleResult(SMysqlRequest &pRequest);
+	void					ExecuteSQL(const void *pPack, const unsigned int uPackLen);
+	bool					HandleResult(const void *pCallbackData, const WORD wDataLen);
 	void					GetProcRet(MYSQL_RES *pRes);
 	void					ClearResult();
 	void					Disconnect();

@@ -1,13 +1,13 @@
-#ifndef __MYSQL_RESULT_H_
-#define __MYSQL_RESULT_H_
+#ifndef __MYSQL_RESULT_SET_H_
+#define __MYSQL_RESULT_SET_H_
 
 #include "IMysqlQuery.h"
 
-class CMysqlResult : public IMysqlResultSet
+class CMysqlResultSet : public IMysqlResultSet
 {
 public:
-	CMysqlResult();
-	~CMysqlResult();
+	CMysqlResultSet();
+	~CMysqlResultSet();
 public:
 	char					*GetDataString(const UINT uRow, const UINT uCol, unsigned int &uSize);
 	bool					GetData(const UINT uRow, const UINT uCol, int &nData);

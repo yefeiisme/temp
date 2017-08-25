@@ -59,7 +59,7 @@ void CAppClient::DoAction()
 	ProcessNetPack();
 }
 
-void CAppClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CAppClient::ProcessDBPack(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 	if (pRespond.byOpt >= SENSOR_DB_OPT_MAX)
 	{
@@ -67,7 +67,7 @@ void CAppClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead *pDataHea
 		return;
 	}
 
-	(this->*m_pfnDBRespondFunc[pRespond.byOpt])(pRespond, pDataHead, pResult);
+	(this->*m_pfnDBRespondFunc[pRespond.byOpt])(pRespond, pResult);
 }
 
 void CAppClient::ProcessNetPack()
@@ -225,22 +225,22 @@ void CAppClient::RecvRequestAllList(const void *pPack, const unsigned int uPackL
 	pMysqlQuery->CallProc();
 }
 
-void CAppClient::DBResopndLoginResult(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CAppClient::DBResopndLoginResult(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }
 
-void CAppClient::DBResopndSlopeList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CAppClient::DBResopndSlopeList(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }
 
-void CAppClient::DBResopndSensorList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CAppClient::DBResopndSensorList(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }
 
-void CAppClient::DBResopndSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CAppClient::DBResopndSensorHistory(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }
 
-void CAppClient::DBResopndAllList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CAppClient::DBResopndAllList(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }

@@ -23,6 +23,9 @@
     <ClCompile Include="Mysql\ProcedureSqlObject.cpp">
       <Filter>Mysql</Filter>
     </ClCompile>
+    <ClCompile Include="Mysql\MysqlResultSet.cpp">
+      <Filter>Mysql</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mysql\MysqlQuery.h">
@@ -38,6 +41,9 @@
       <Filter>Mysql</Filter>
     </ClInclude>
     <ClInclude Include="Mysql\ProcedureSqlObject.h">
+      <Filter>Mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="Mysql\MysqlResultSet.h">
       <Filter>Mysql</Filter>
     </ClInclude>
   </ItemGroup>

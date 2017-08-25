@@ -13,7 +13,7 @@ public:
 	~CWebClient();
 
 	void					DoAction();
-	void					ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult);
+	void					ProcessDBPack(SMysqlRespond &pRespond, IQueryResult *pResult);
 private:
 	void					ProcessNetPack();
 
@@ -25,11 +25,11 @@ private:
 	void					RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen);
 	void					RecvRequestAllList(const void *pPack, const unsigned int uPackLen);
 private:
-	void					DBResopndLoginResult(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult);
-	void					DBResopndSlopeList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult);
-	void					DBResopndSensorList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult);
-	void					DBResopndSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult);
-	void					DBResopndAllList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult);
+	void					DBResopndLoginResult(SMysqlRespond &pRespond, IQueryResult *pResult);
+	void					DBResopndSlopeList(SMysqlRespond &pRespond, IQueryResult *pResult);
+	void					DBResopndSensorList(SMysqlRespond &pRespond, IQueryResult *pResult);
+	void					DBResopndSensorHistory(SMysqlRespond &pRespond, IQueryResult *pResult);
+	void					DBResopndAllList(SMysqlRespond &pRespond, IQueryResult *pResult);
 private:
 	void					SendWebLoginResult(WEB_SERVER_NET_Protocol::S2Web_Login_Result &tagLoginResult);
 	void					SendWebSlopeList(WEB_SERVER_NET_Protocol::S2Web_Slope_List &tagSlopeList);
@@ -39,7 +39,7 @@ private:
 	typedef void			(CWebClient::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
 	static pfnProtocolFunc	m_ProtocolFunc[WEB_SERVER_NET_Protocol::WEB2S::web2s_max];
 
-	typedef void			(CWebClient::*pfnDBRespondFunc)(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult);
+	typedef void			(CWebClient::*pfnDBRespondFunc)(SMysqlRespond &pRespond, IQueryResult *pResult);
 	static pfnDBRespondFunc	m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX];
 private:
 };

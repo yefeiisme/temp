@@ -59,7 +59,7 @@ void CWebClient::DoAction()
 	ProcessNetPack();
 }
 
-void CWebClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CWebClient::ProcessDBPack(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 	if (pRespond.byOpt >= SENSOR_DB_OPT_MAX)
 	{
@@ -67,7 +67,7 @@ void CWebClient::ProcessDBPack(SMysqlRespond &pRespond, SMysqlDataHead *pDataHea
 		return;
 	}
 
-	(this->*m_pfnDBRespondFunc[pRespond.byOpt])(pRespond, pDataHead, pResult);
+	(this->*m_pfnDBRespondFunc[pRespond.byOpt])(pRespond, pResult);
 }
 
 void CWebClient::ProcessNetPack()
@@ -220,13 +220,16 @@ void CWebClient::RecvRequestAllList(const void *pPack, const unsigned int uPackL
 
 	pMysqlQuery->PrepareProc("LoadSlopeList");
 	pMysqlQuery->AddParam(m_uAccountID);
+	// ÁÙÊ±Êý¾Ý
+	// ...
+	pMysqlQuery->AddParam(1);
 	//pMysqlQuery->AddParam(tagRequestSlope.server_id());
 	pMysqlQuery->EndPrepareProc(tagRequest);
 
 	pMysqlQuery->CallProc();
 }
 
-void CWebClient::DBResopndLoginResult(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CWebClient::DBResopndLoginResult(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 	WEB_SERVER_NET_Protocol::S2Web_Login_Result	tagLoginResult;
 	tagLoginResult.set_result(pRespond.nRetCode);
@@ -256,7 +259,7 @@ void CWebClient::DBResopndLoginResult(SMysqlRespond &pRespond, SMysqlDataHead *p
 	SendWebLoginResult(tagLoginResult);
 }
 
-void CWebClient::DBResopndSlopeList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CWebClient::DBResopndSlopeList(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 	WEB_SERVER_NET_Protocol::S2Web_Slope_List	tagSlopeList;
 
@@ -294,7 +297,7 @@ void CWebClient::DBResopndSlopeList(SMysqlRespond &pRespond, SMysqlDataHead *pDa
 	SendWebSlopeList(tagSlopeList);
 }
 
-void CWebClient::DBResopndSensorList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CWebClient::DBResopndSensorList(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 	WEB_SERVER_NET_Protocol::S2Web_Sensor_List	tagSensorList;
 
@@ -350,7 +353,7 @@ void CWebClient::DBResopndSensorList(SMysqlRespond &pRespond, SMysqlDataHead *pD
 	SendWebSensorList(tagSensorList);
 }
 
-void CWebClient::DBResopndSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CWebClient::DBResopndSensorHistory(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 	WEB_SERVER_NET_Protocol::S2Web_Sensor_History	tagSensorHistory;
 
@@ -399,7 +402,7 @@ void CWebClient::DBResopndSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead 
 	SendWebSensorHistory(tagSensorHistory);
 }
 
-void CWebClient::DBResopndAllList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CWebClient::DBResopndAllList(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }
 

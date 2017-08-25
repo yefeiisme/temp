@@ -60,59 +60,57 @@ void CSensorDBConn::Run()
 		return;
 	}
 
-	SMysqlDataHead	*pDataHead	= pQueryResult->GetDataHead();
-
-	(this->*m_pfnTypeFunc[pRespond.byClientType])(pRespond, pDataHead, pQueryResult);
+	(this->*m_pfnTypeFunc[pRespond.byClientType])(pRespond, pQueryResult);
 }
 
-void CSensorDBConn::GlobalQuery(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CSensorDBConn::GlobalQuery(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
-	(this->*m_ProtocolFunc[pRespond.byOpt])(pRespond, pDataHead, pResult);
+	(this->*m_ProtocolFunc[pRespond.byOpt])(pRespond, pResult);
 }
 
-void CSensorDBConn::AppQuery(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CSensorDBConn::AppQuery(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 	CAppClient	*pClient	= g_pCenterServerLogic.GetAppClient(pRespond.uClientIndex, pRespond.uClientID);
 	if (nullptr == pClient)
 		return;
 
-	pClient->ProcessDBPack(pRespond, pDataHead, pResult);
+	pClient->ProcessDBPack(pRespond, pResult);
 }
 
-void CSensorDBConn::WebQuery(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CSensorDBConn::WebQuery(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 	CWebClient	*pClient	= g_pCenterServerLogic.GetWebClient(pRespond.uClientIndex, pRespond.uClientID);
 	if (nullptr == pClient)
 		return;
 
-	pClient->ProcessDBPack(pRespond, pDataHead, pResult);
+	pClient->ProcessDBPack(pRespond, pResult);
 }
 
-void CSensorDBConn::DataQuery(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CSensorDBConn::DataQuery(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 	CDataClient	*pClient	= g_pCenterServerLogic.GetDataClient(pRespond.uClientIndex, pRespond.uClientID);
 	if (nullptr == pClient)
 		return;
 
-	pClient->ProcessDBPack(pRespond, pDataHead, pResult);
+	pClient->ProcessDBPack(pRespond, pResult);
 }
 
-void CSensorDBConn::RecvVerifyAccount(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CSensorDBConn::RecvVerifyAccount(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }
 
-void CSensorDBConn::RecvSlopeList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CSensorDBConn::RecvSlopeList(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }
 
-void CSensorDBConn::RecvSensorList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CSensorDBConn::RecvSensorList(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }
 
-void CSensorDBConn::RecvSensorHistory(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CSensorDBConn::RecvSensorHistory(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }
 
-void CSensorDBConn::RecvLoadAllList(SMysqlRespond &pRespond, SMysqlDataHead *pDataHead, IQueryResult *pResult)
+void CSensorDBConn::RecvLoadAllList(SMysqlRespond &pRespond, IQueryResult *pResult)
 {
 }

@@ -118,7 +118,7 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 		return false;
 	}
 
-	m_pProcSqlObj	= new CProcObj(*this);
+	m_pProcSqlObj	= new CProcObj;
 	if (nullptr == m_pProcSqlObj)
 	{
 		g_pFileLog->WriteLog("[%s][%d] new CProcSqlObj Failed\n", __FILE__, __LINE__);
@@ -219,9 +219,9 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 	return true;
 }
 
-void CMysqlQuery::PrepareProc(const char *pstrProcName)
+bool CMysqlQuery::PrepareProc(const char *pstrProcName, const WORD wOpt)
 {
-	m_pProcSqlObj->PrepareProc(pstrProcName);
+	return m_pProcSqlObj->PrepareProc(pstrProcName, wOpt);
 }
 
 bool CMysqlQuery::AddParam(const int nParam)
@@ -259,9 +259,9 @@ bool CMysqlQuery::AddParam(const void *pParam)
 	return m_pProcSqlObj->AddParam(pParam);
 }
 
-bool CMysqlQuery::EndPrepareProc(SMysqlRequest &tagRequest)
+bool CMysqlQuery::EndPrepareProc(void *pCallbackData, const WORD wDataLen)
 {
-	return m_pProcSqlObj->EndPrepareProc(tagRequest);
+	return m_pProcSqlObj->EndPrepareProc(pCallbackData, wDataLen);
 }
 
 bool CMysqlQuery::CallProc()
@@ -272,30 +272,12 @@ bool CMysqlQuery::CallProc()
 	return m_pRBRequest->SndPack(pPack, uPackLen);
 }
 
-void CMysqlQuery::Query(const void *pPack, const unsigned int uPackLen)
-{
-	if (!m_pDBHandle)
-	{
-		g_pFileLog->WriteLog("%s[%d] m_pDBHandle Is nullptr\n", __FUNCTION__, __LINE__);
-		return;
-	}
-
-	if (!m_pProcSqlObj->Query(pPack, uPackLen))
-	{
-		return;
-	}
-
-	UINT	uLen	= 0;
-	const char	*pRequest = m_pProcSqlObj->GetRequest(uLen);
-	m_pRBRequest->SndPack(pRequest, uLen);
-}
-
 const void *CMysqlQuery::GetDBRespond(unsigned int &uPackLen)
 {
 	return m_pRBRespond->RcvPack(uPackLen);
 }
 
-IQueryResult *CMysqlQuery::GetQueryResult()
+IMysqlResultSet *CMysqlQuery::GetMysqlResultSet()
 {
 	UINT		uLen		= 0;
 	const void	*pRespond	= m_pRBRespond->RcvPack(uLen);
@@ -481,24 +463,22 @@ void CMysqlQuery::ProcessRequest()
 
 	while(nullptr != (pPack = m_pRBRequest->RcvPack(uPackLen)))
 	{
-		if (uPackLen <= sizeof(SMysqlRequest))
-			continue;
-
-		SMysqlRequest	*pRequest	= (SMysqlRequest*)pPack;
-		const char		*pstrSql	= (char*)pPack + sizeof(SMysqlRequest);
-		UINT			uSqlLen		= uPackLen - sizeof(SMysqlRequest);
-
-		ExecuteSQL(*pRequest, pstrSql, uSqlLen);
+		ExecuteSQL(pPack, uPackLen);
 	};
 }
 
-void CMysqlQuery::ExecuteSQL(SMysqlRequest &pRequest, const char *pstrSQL, const unsigned int uSQLLen)
+void CMysqlQuery::ExecuteSQL(const void *pPack, const unsigned int uPackLen)
 {
 	if (!m_pDBHandle)
 	{
 		g_pFileLog->WriteLog("%s[%d] m_pDBHandle Is nullptr\n", __FUNCTION__, __LINE__);
 		return;
 	}
+
+	WORD		*pCallbackDataLen	= (WORD*)pPack;
+	const void	*pCallbackData		= (char*)pPack + sizeof(WORD);
+	char		*pstrSQL			= (char*)pPack + sizeof(WORD) + MAX_CALLBACK_DATA_LEN;
+	UINT		uSQLLen				= uPackLen - sizeof(WORD) + MAX_CALLBACK_DATA_LEN;
 
 	if (0 != mysql_real_query(m_pDBHandle, pstrSQL, uSQLLen))
 	{
@@ -510,7 +490,7 @@ void CMysqlQuery::ExecuteSQL(SMysqlRequest &pRequest, const char *pstrSQL, const
 		return;
 	}
 
-	HandleResult(pRequest);
+	HandleResult(pCallbackData, *pCallbackDataLen);
 
 	ClearResult();
 }
@@ -531,10 +511,12 @@ void CMysqlQuery::ClearResult()
 	m_pResult->Clear();
 }
 
-bool CMysqlQuery::HandleResult(SMysqlRequest &pRequest)
+bool CMysqlQuery::HandleResult(const void *pCallbackData, const WORD wDataLen)
 {
 	my_bool	bMultiResult	= mysql_more_results(m_pDBHandle);
 
+	// 后面要改成返回多个数据集合，请修改下面的代码
+	// ...
 	if (bMultiResult)
 	{
 		//must be mysql_store_result or mysql_next_result will be error out of sync
@@ -564,6 +546,9 @@ bool CMysqlQuery::HandleResult(SMysqlRequest &pRequest)
 		m_pQueryRes = mysql_store_result(m_pDBHandle);
 	}
 
+	// 下面的代码有误 ，应该将数据取出来，放到环形缓冲区中
+	// 再由逻辑线程调用m_pResult->ParseResult取出数据
+	// ...
 	if (nullptr == m_pQueryRes)
 	{
 		unsigned int	uLastError = mysql_errno(m_pDBHandle);
@@ -600,7 +585,7 @@ bool CMysqlQuery::HandleResult(SMysqlRequest &pRequest)
 		++uRowIndex;
 	}
 
-	m_pResult->SetResultHead(pRequest);
+	m_pResult->SetCallbackData(pCallbackData, wDataLen);
 
 	return true;
 }

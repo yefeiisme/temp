@@ -12,6 +12,8 @@ CMysqlResult::CMysqlResult()
 	m_uBufferLen	= 0;
 
 	m_uOffset		= 0;
+
+	m_nReturnCode	= 0;
 }
 
 CMysqlResult::~CMysqlResult()
@@ -21,7 +23,7 @@ CMysqlResult::~CMysqlResult()
 
 char *CMysqlResult::GetDataString(const UINT uRow, const UINT uCol, unsigned int &uSize)
 {
-	if (0 == m_pResultHead->uRowCount || 0 == m_pResultHead->uRowCount)
+	if (0 == m_pResultHead->uRowCount || 0 == m_pResultHead->uColCount)
 		return nullptr;
 
 	if (uRow >= m_pResultHead->uRowCount || uCol >= m_pResultHead->uColCount)
@@ -163,7 +165,9 @@ bool CMysqlResult::Initialize(const UINT uBufferLen)
 
 void CMysqlResult::Clear()
 {
-	m_uOffset	= 0;
+	m_uOffset		= 0;
+
+	m_nReturnCode	= 0;
 
 	m_pResultHead->uColCount	= 0;
 	m_pResultHead->uRowCount	= 0;
@@ -197,5 +201,11 @@ bool CMysqlResult::AddResult(const UINT uRow, const UINT uCol, const char *pstrD
 
 bool CMysqlResult::ParseResult(const void *pPack, const UINT uPackLen)
 {
+	if (nullptr == pPack || 0 == uPackLen)
+		return false;
+
+	m_wCallbackDataLen	= *(WORD*)pPack;
+	m_pCallbackData		= (char*)pPack + sizeof(WORD);
+
 	return true;
 }

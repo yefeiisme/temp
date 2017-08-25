@@ -3,17 +3,15 @@
 
 #include "IMysqlQuery.h"
 
-class CMysqlQuery;
-
 class CProcObj
 {
 public:
-	CProcObj(CMysqlQuery &pMysqlQuery);
+	CProcObj();
 	~CProcObj();
 
 	bool					Initialize(const UINT uQueryBufferLen, MYSQL &pDBHandle);
 
-	void					PrepareProc(const char *pstrProcName);
+	bool					PrepareProc(const char *pstrProcName, const WORD wOpt);
 	bool					AddParam(const int nParam);
 	bool					AddParam(const unsigned int uParam);
 	bool					AddParam(const short sParam);
@@ -21,28 +19,30 @@ public:
 	bool					AddParam(const unsigned char byParam);
 	bool					AddParam(const char *pstrParam);
 	bool					AddParam(const void *pParam);
-	bool					EndPrepareProc(SMysqlRequest &tagRequest);
-	bool					Query(const void *pPack, const unsigned int uPackLen);
+	bool					EndPrepareProc(void *pCallbackData, const WORD wDataLen);
 
 	void					Clear();
 
 	inline const char		*GetRequest(UINT &uSQLLen)
 	{
-		uSQLLen = m_uSQLLen;
+		uSQLLen = m_wMaxCallbackDataLen + m_uSQLLen;
 
-		return m_strBuffer;
+		return m_pstrBuffer;
 	}
 private:
-	CMysqlQuery				&m_pQuery;
 	MYSQL					*m_pDBHandle;
 
-	char					*m_strBuffer;
-	SMysqlRequest			*m_pRequest;
-	char					*m_strSQL;
+	char					*m_pstrBuffer;
+	WORD					*m_pCallbackDataLen;
+	char					*m_pstrCallbackData;
+	char					*m_pstrSQL;
 
 	UINT					m_uBufferLen;
 	UINT					m_uMaxSQLLen;
 	UINT					m_uSQLLen;
+
+	WORD					m_wMaxCallbackDataLen;
+	WORD					m_wOpt;
 
 	bool					m_bAddParam;
 };
