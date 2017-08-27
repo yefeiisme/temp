@@ -1,0 +1,2 @@
+load data local infile 'E:\\Sensor.csv' into table sensor fields terminated by ',';
+load data local infile 'C:\\SourceCode\\temp\\bin\\server\\DataBase\\slope.csv' into table slope fields terminated by ',';
