@@ -3,6 +3,7 @@
 
 #include "IMysqlQuery.h"
 #include "Client.h"
+#include "../SensorDB/SensorDBOperation.h"
 
 class CDataClient : public CClient
 {

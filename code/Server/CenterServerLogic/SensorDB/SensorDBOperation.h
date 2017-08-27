@@ -22,4 +22,23 @@ enum E_SensorDBOperation
 	SENSOR_DB_OPT_MAX,
 };
 
+struct SMysqlRequest
+{
+	uint64	uClientID;
+	UINT	uClientIndex;
+	BYTE	byClientType;
+	BYTE	byOpt;
+};
+
+struct SMysqlRespond
+{
+	uint64	uClientID;
+	UINT	uClientIndex;
+	UINT	uRowCount;
+	UINT	uColCount;
+	int		nRetCode;
+	BYTE	byClientType;
+	BYTE	byOpt;
+};
+
 #endif
