@@ -27,20 +27,20 @@ USE `SensorDB`;
 CREATE TABLE `sensor` (
   `ID` int(4) unsigned NOT NULL AUTO_INCREMENT,
   `Type` tinyint(4) unsigned NOT NULL,
-  `Value1` varchar(32) DEFAULT NULL,
-  `Value2` varchar(32) DEFAULT NULL,
-  `Value3` varchar(32) DEFAULT NULL,
-  `AverageValue1` double(15,3) NOT NULL DEFAULT '0.000',
-  `AverageValue2` double(15,3) NOT NULL DEFAULT '0.000',
-  `AverageValue3` double(15,3) NOT NULL DEFAULT '0.000',
-  `OffsetValue1` double(15,3) NOT NULL DEFAULT '0.000',
-  `OffsetValue2` double(15,3) NOT NULL DEFAULT '0.000',
-  `OffsetValue3` double(15,3) NOT NULL DEFAULT '0.000',
+  `Value1` double NOT NULL DEFAULT '0.000',
+  `Value2` double NOT NULL DEFAULT '0.000',
+  `Value3` double NOT NULL DEFAULT '0.000',
+  `AverageValue1` double NOT NULL DEFAULT '0.000',
+  `AverageValue2` double NOT NULL DEFAULT '0.000',
+  `AverageValue3` double NOT NULL DEFAULT '0.000',
+  `OffsetValue1` double NOT NULL DEFAULT '0.000',
+  `OffsetValue2` double NOT NULL DEFAULT '0.000',
+  `OffsetValue3` double NOT NULL DEFAULT '0.000',
   `AlarmState` int(11) NOT NULL DEFAULT '0',
   `SlopeID` int(2) unsigned NOT NULL,
   `DataTime` datetime NOT NULL,
-  `Longitude` double(8,3) NOT NULL,
-  `Latitude` double(8,3) NOT NULL,
+  `Longitude` double NOT NULL,
+  `Latitude` double NOT NULL,
   KEY `ID` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
@@ -51,9 +51,9 @@ CREATE TABLE `sensor` (
 CREATE TABLE `sensor_type` (
   `ID` tinyint(4) unsigned NOT NULL AUTO_INCREMENT,
   `Name` varchar(64) DEFAULT NULL,
-  `Value1` double(8,3) DEFAULT NULL,
-  `Value2` double(8,3) DEFAULT NULL,
-  `Value3` double(8,3) DEFAULT NULL,
+  `Value1` double DEFAULT NULL,
+  `Value2` double DEFAULT NULL,
+  `Value3` double DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -76,8 +76,8 @@ CREATE TABLE `slope` (
   `ID` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
   `Type` tinyint(4) unsigned NOT NULL,
   `Name` varchar(64) DEFAULT NULL,
-  `Longitude` double(8,3) NOT NULL,
-  `Latitude` double(8,3) NOT NULL,
+  `Longitude` double NOT NULL,
+  `Latitude` double NOT NULL,
   `OwnerID` int(4) unsigned NOT NULL,
   `State` int(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
