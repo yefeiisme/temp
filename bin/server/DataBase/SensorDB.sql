@@ -26,7 +26,7 @@ USE `SensorDB`;
 
 CREATE TABLE `sensor` (
   `ID` int(4) unsigned NOT NULL AUTO_INCREMENT,
-  `Type` int(1) unsigned NOT NULL,
+  `Type` tinyint(4) unsigned NOT NULL,
   `Value1` varchar(32) DEFAULT NULL,
   `Value2` varchar(32) DEFAULT NULL,
   `Value3` varchar(32) DEFAULT NULL,
@@ -49,7 +49,8 @@ CREATE TABLE `sensor` (
 #
 
 CREATE TABLE `sensor_type` (
-  `ID` int(2) unsigned NOT NULL AUTO_INCREMENT,
+  `ID` tinyint(4) unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(64) DEFAULT NULL,
   `Value1` double(8,3) DEFAULT NULL,
   `Value2` double(8,3) DEFAULT NULL,
   `Value3` double(8,3) DEFAULT NULL,
@@ -72,8 +73,8 @@ CREATE TABLE `server` (
 #
 
 CREATE TABLE `slope` (
-  `ID` int(2) unsigned NOT NULL AUTO_INCREMENT,
-  `Type` int(1) unsigned NOT NULL,
+  `ID` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
+  `Type` tinyint(4) unsigned NOT NULL,
   `Name` varchar(64) DEFAULT NULL,
   `Longitude` double(8,3) NOT NULL,
   `Latitude` double(8,3) NOT NULL,
@@ -100,9 +101,9 @@ CREATE TABLE `user` (
 #
 
 CREATE TABLE `user_group` (
-  `ID` int(2) unsigned NOT NULL AUTO_INCREMENT,
+  `ID` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
   `Name` varchar(20) DEFAULT NULL,
-  `ServerID` int(2) unsigned DEFAULT NULL,
+  `ServerID` smallint(6) unsigned DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
