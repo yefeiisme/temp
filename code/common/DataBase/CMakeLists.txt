@@ -1,6 +1,7 @@
 SET(LIBDATABASE_SRC
 Mysql/MysqlQuery.cpp
 Mysql/MysqlResult.cpp
+Mysql/MysqlResultSet.cpp
 Mysql/ProcedureSqlObject.cpp
 )
 include_directories (
