@@ -13,7 +13,7 @@ public:
 	~CAppClient();
 
 	void					DoAction();
-	void					ProcessDBPack(SMysqlRespond &pRespond, IQueryResult *pResult);
+	void					ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	void					ProcessNetPack();
 
@@ -25,16 +25,16 @@ private:
 	void					RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen);
 	void					RecvRequestAllList(const void *pPack, const unsigned int uPackLen);
 private:
-	void					DBResopndLoginResult(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void					DBResopndSlopeList(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void					DBResopndSensorList(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void					DBResopndSensorHistory(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void					DBResopndAllList(SMysqlRespond &pRespond, IQueryResult *pResult);
+	void					DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	typedef void			(CAppClient::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
 	static pfnProtocolFunc	m_ProtocolFunc[APP_SERVER_NET_Protocol::APP2S::app2s_max];
 
-	typedef void			(CAppClient::*pfnDBRespondFunc)(SMysqlRespond &pRespond, IQueryResult *pResult);
+	typedef void			(CAppClient::*pfnDBRespondFunc)(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	static pfnDBRespondFunc	m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX];
 private:
 };

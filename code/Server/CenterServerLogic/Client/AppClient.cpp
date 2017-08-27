@@ -59,15 +59,15 @@ void CAppClient::DoAction()
 	ProcessNetPack();
 }
 
-void CAppClient::ProcessDBPack(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CAppClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	if (pRespond.byOpt >= SENSOR_DB_OPT_MAX)
+	if (pCallbackData->byOpt >= SENSOR_DB_OPT_MAX)
 	{
-		g_pFileLog->WriteLog("[%s][%d] DB Respond Invalid Protocol[%hhu]\n", __FILE__, __LINE__, pRespond.byOpt);
+		g_pFileLog->WriteLog("[%s][%d] DB Respond Invalid Protocol[%hhu]\n", __FILE__, __LINE__, pCallbackData->byOpt);
 		return;
 	}
 
-	(this->*m_pfnDBRespondFunc[pRespond.byOpt])(pRespond, pResult);
+	(this->*m_pfnDBRespondFunc[pCallbackData->byOpt])(pResultSet, pCallbackData);
 }
 
 void CAppClient::ProcessNetPack()
@@ -115,7 +115,7 @@ void CAppClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->PrepareProc("AccountLogin");
 	pMysqlQuery->AddParam(tagLoginInfo.account().c_str());
 	pMysqlQuery->AddParam(tagLoginInfo.password().c_str());
-	pMysqlQuery->EndPrepareProc(tagRequest);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
@@ -142,7 +142,7 @@ void CAppClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPac
 	pMysqlQuery->PrepareProc("LoadSlopeList");
 	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagRequestSlope.server_id());
-	pMysqlQuery->EndPrepareProc(tagRequest);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
@@ -169,7 +169,7 @@ void CAppClient::RecvRequestSensorList(const void *pPack, const unsigned int uPa
 	pMysqlQuery->PrepareProc("LoadSensorList");
 	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagRequestSensorList.slope_id());
-	pMysqlQuery->EndPrepareProc(tagRequest);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
@@ -198,7 +198,7 @@ void CAppClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	pMysqlQuery->AddParam(tagRequestSensorHistory.sensor_id());
 	pMysqlQuery->AddParam(tagRequestSensorHistory.begin_time());
 	pMysqlQuery->AddParam(tagRequestSensorHistory.end_time());
-	pMysqlQuery->EndPrepareProc(tagRequest);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
@@ -220,27 +220,27 @@ void CAppClient::RecvRequestAllList(const void *pPack, const unsigned int uPackL
 
 	pMysqlQuery->PrepareProc("LoadAllList");
 	pMysqlQuery->AddParam(m_uAccountID);
-	pMysqlQuery->EndPrepareProc(tagRequest);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
 
-void CAppClient::DBResopndLoginResult(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CAppClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 
-void CAppClient::DBResopndSlopeList(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 
-void CAppClient::DBResopndSensorList(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 
-void CAppClient::DBResopndSensorHistory(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 
-void CAppClient::DBResopndAllList(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CAppClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }

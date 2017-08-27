@@ -34,7 +34,7 @@ public:
 		return m_pSensorQuery;
 	}
 
-	IQueryResult				*GetQueryResult();
+	IMysqlResultSet				*GetQueryResult();
 private:
 	void						ProcessAppConn();
 	void						ProcessWebConn();

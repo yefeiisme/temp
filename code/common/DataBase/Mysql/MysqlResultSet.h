@@ -1,88 +1,65 @@
 #ifndef __MYSQL_RESULT_SET_H_
 #define __MYSQL_RESULT_SET_H_
 
+#include <vector>
 #include "IMysqlQuery.h"
+
+using namespace std;
+
+class CMysqlResult;
+class CMysqlQuery;
 
 class CMysqlResultSet : public IMysqlResultSet
 {
 public:
-	CMysqlResultSet();
+	CMysqlResultSet(CMysqlQuery &pMysqlQuery);
 	~CMysqlResultSet();
 public:
-	char					*GetDataString(const UINT uRow, const UINT uCol, unsigned int &uSize);
-	bool					GetData(const UINT uRow, const UINT uCol, int &nData);
-	bool					GetData(const UINT uRow, const UINT uCol, unsigned int &uData);
-	bool					GetData(const UINT uRow, const UINT uCol, short &sData);
-	bool					GetData(const UINT uRow, const UINT uCol, unsigned short &wData);
-	bool					GetData(const UINT uRow, const UINT uCol, unsigned char &byData);
-	bool					GetData(const UINT uRow, const UINT uCol, double &dData);
-	UINT					GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize);
-	UINT					GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize);
-	inline SMysqlRespond	&GetRespond()
+	inline char				*GetCallbackData()
 	{
-		return *m_pResultHead;
+		return m_pResultSetHead->strCallBackDta;
 	}
 
-	inline SMysqlDataHead	*GetDataHead()
+	inline WORD				GetCallbackDataLen()
 	{
-		return m_pDataHead;
+		return m_pResultSetHead->wCallBackDataLen;
 	}
 
-	inline char				*GetDataPtr()
+	inline BYTE				GetResultCount()
 	{
-		return m_pData;
+		return m_pResultSetHead->byResultCount;
 	}
-public:
-	bool					Initialize(const UINT uBufferLen);
+
+	inline IMysqlResult		*GetMysqlResult(const BYTE byIndex)
+	{
+		return (byIndex >= m_pResultSetHead->byResultCount ? nullptr : &m_pMysqlResultList[byIndex]);
+	}
+
+	bool					Initialize(const BYTE byMaxResultCount);
 	void					Clear();
 
-	inline void				SetCallbackData(const void *pPack, const WORD wDataLen)
+	inline void				AddResult(CMysqlResult *pResult)
 	{
-		memcpy(m_pCallbackData, pPack, wDataLen);
-		m_wCallbackDataLen	= wDataLen;
+		if (nullptr == pResult)
+			return;
+
+		m_vectMysqlResult.push_back(pResult);
 	}
 
-	inline bool				SetResultSize(const UINT uRow, const UINT uCol)
-	{
-		if (sizeof(SMysqlRespond)+sizeof(SMysqlDataHead)*uRow*uCol > m_uBufferLen)
-			return false;
-
-		m_pResultHead->uRowCount	= uRow;
-		m_pResultHead->uColCount	= uCol;
-
-		m_pData	= m_pBuffer + sizeof(SMysqlRespond)+sizeof(SMysqlDataHead)*uRow*uCol;
-
-		return true;
-	}
-
-	inline void				SetResultCode(const int nRetCode)
-	{
-		m_pResultHead->nRetCode = nRetCode;
-	}
-
-	bool					AddResult(const UINT uRow, const UINT uCol, const char *pstrData, const UINT uDataLen);
+	bool					CreateResultObj(const WORD wObjCount);
 	bool					ParseResult(const void *pPack, const UINT uPackLen);
 private:
-	void					*m_pCallbackData;
+	CMysqlQuery				&m_pMysqlQuery;
 
-	// 以下变量，直接用指针，指向取的缓冲区指针
-	// ...
-	char					*m_pBuffer;
-	char					*m_pData;
+	CMysqlResult			*m_pMysqlResultList;
 
-	SMysqlRespond			*m_pResultHead;
-	SMysqlDataHead			*m_pDataHead;
+	SResultSetHead			*m_pResultSetHead;
+	SResultHead				*m_pResultHead;
+	char					*m_pResultData;
 
-	UINT					m_uBufferLen;
-	UINT					m_uRowCount;
-	UINT					m_uColCount;
+	BYTE					m_byMaxResultCount;
 
-	UINT					m_uOffset;
-
-	int						m_nReturnCode;
-
-	WORD					m_wResultCount;
-	WORD					m_wCallbackDataLen;
+	vector<CMysqlResult*>	m_vectMysqlResult;
 };
 
 #endif

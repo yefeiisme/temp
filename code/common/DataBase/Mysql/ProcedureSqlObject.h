@@ -11,7 +11,7 @@ public:
 
 	bool					Initialize(const UINT uQueryBufferLen, MYSQL &pDBHandle);
 
-	bool					PrepareProc(const char *pstrProcName, const WORD wOpt);
+	bool					PrepareProc(const char *pstrProcName);
 	bool					AddParam(const int nParam);
 	bool					AddParam(const unsigned int uParam);
 	bool					AddParam(const short sParam);
@@ -42,7 +42,6 @@ private:
 	UINT					m_uSQLLen;
 
 	WORD					m_wMaxCallbackDataLen;
-	WORD					m_wOpt;
 
 	bool					m_bAddParam;
 };

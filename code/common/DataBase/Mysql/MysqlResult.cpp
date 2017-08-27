@@ -5,35 +5,13 @@
 
 CMysqlResult::CMysqlResult()
 {
-	m_pBuffer		= nullptr;
 	m_pResultHead	= nullptr;
 	m_pDataHead		= nullptr;
-
-	m_uBufferLen	= 0;
-
-	m_uOffset		= 0;
-
-	m_nReturnCode	= 0;
+	m_pData			= nullptr;
 }
 
 CMysqlResult::~CMysqlResult()
 {
-	SAFE_DELETE_ARR(m_pBuffer);
-}
-
-char *CMysqlResult::GetDataString(const UINT uRow, const UINT uCol, unsigned int &uSize)
-{
-	if (0 == m_pResultHead->uRowCount || 0 == m_pResultHead->uColCount)
-		return nullptr;
-
-	if (uRow >= m_pResultHead->uRowCount || uCol >= m_pResultHead->uColCount)
-		return nullptr;
-
-	auto	nIndex		= m_pResultHead->uColCount * uRow + uCol;
-	auto	uMinSize	= min(m_pDataHead[nIndex].uDataLen, uSize);
-
-	uSize	= m_pDataHead[nIndex].uDataLen;
-	return (m_pBuffer+m_pDataHead[nIndex].uOffset);
 }
 
 bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, int &nData)
@@ -143,69 +121,36 @@ UINT CMysqlResult::GetData(const UINT uRow, const UINT uCol, void *pParam, const
 	return nCopySize;
 }
 
-bool CMysqlResult::Initialize(const UINT uBufferLen)
+bool CMysqlResult::ParseResult(char *pstrBuffer)
 {
-	m_uBufferLen	= uBufferLen;
-	if (0 == m_uBufferLen)
-	{
+	m_pResultHead	= (SResultHead*)pstrBuffer;
+	if (0 == m_pResultHead->uRowCount || 0 == m_pResultHead->uColCount || 0 == m_pResultHead->uLen)
 		return false;
-	}
 
-	m_pBuffer	= new char[m_uBufferLen];
-	if (nullptr == m_pBuffer)
+	m_pDataHead		= (SMysqlDataHead*)(pstrBuffer + sizeof(SResultHead));
+	m_pData			= pstrBuffer + sizeof(SResultHead) + sizeof(SMysqlDataHead)*m_pResultHead->uRowCount*m_pResultHead->uColCount;
+
+	for (auto uRowIndex = 0; uRowIndex < m_pResultHead->uRowCount; ++uRowIndex)
 	{
-		return false;
+		for (auto uColIndex = 0; uColIndex < m_pResultHead->uColCount; ++uColIndex)
+		{
+		}
 	}
-
-	m_pResultHead	= (SMysqlRespond*)m_pBuffer;
-	m_pDataHead		= (SMysqlDataHead*)(m_pBuffer+sizeof(SMysqlRespond));
 
 	return true;
 }
 
-void CMysqlResult::Clear()
-{
-	m_uOffset		= 0;
-
-	m_nReturnCode	= 0;
-
-	m_pResultHead->uColCount	= 0;
-	m_pResultHead->uRowCount	= 0;
-	m_pResultHead->nRetCode		= 0;
-}
-
-bool CMysqlResult::AddResult(const UINT uRow, const UINT uCol, const char *pstrData, const UINT uDataLen)
+char *CMysqlResult::GetDataString(const UINT uRow, const UINT uCol, unsigned int &uSize)
 {
 	if (0 == m_pResultHead->uRowCount || 0 == m_pResultHead->uColCount)
-		return false;
+		return nullptr;
 
-	if (uRow >= m_pResultHead->uRowCount || uCol >= m_pResultHead->uColCount || nullptr == pstrData || 0 == uDataLen)
-		return false;
-
-	if (m_uOffset + uDataLen > m_uBufferLen)
-	{
-		Clear();
-		return false;
-	}
+	if (uRow >= m_pResultHead->uRowCount || uCol >= m_pResultHead->uColCount)
+		return nullptr;
 
 	auto	nIndex = m_pResultHead->uColCount * uRow + uCol;
-	m_pDataHead[nIndex].uDataLen	= uDataLen;
-	m_pDataHead[nIndex].uOffset		= m_uOffset;
+	auto	uMinSize = min(m_pDataHead[nIndex].uDataLen, uSize);
 
-	memcpy(m_pBuffer + m_uOffset, pstrData, uDataLen);
-
-	m_uOffset += uDataLen;
-
-	return true;
-}
-
-bool CMysqlResult::ParseResult(const void *pPack, const UINT uPackLen)
-{
-	if (nullptr == pPack || 0 == uPackLen)
-		return false;
-
-	m_wCallbackDataLen	= *(WORD*)pPack;
-	m_pCallbackData		= (char*)pPack + sizeof(WORD);
-
-	return true;
+	uSize = m_pDataHead[nIndex].uDataLen;
+	return (m_pData + m_pDataHead[nIndex].uOffset);
 }

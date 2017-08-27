@@ -18,7 +18,6 @@ CProcObj::CProcObj()
 	m_uSQLLen				= 0;
 
 	m_wMaxCallbackDataLen	= 0;
-	m_wOpt					= 0;
 
 	m_bAddParam				= false;
 }
@@ -55,14 +54,12 @@ bool CProcObj::Initialize(const UINT uQueryBufferLen, MYSQL &pDBHandle)
 	return true;
 }
 
-bool CProcObj::PrepareProc(const char *pstrProcName, const WORD wOpt)
+bool CProcObj::PrepareProc(const char *pstrProcName)
 {
 	if (nullptr == pstrProcName)
 		return false;
 
 	Clear();
-
-	m_wOpt	= wOpt;
 
 	m_uSQLLen += snprintf(m_pstrSQL, m_uMaxSQLLen - m_uSQLLen, "CALL %s (", pstrProcName);
 
@@ -236,6 +233,5 @@ void CProcObj::Clear()
 {
 	*m_pCallbackDataLen	= 0;
 	m_uSQLLen			= 0;
-	m_wOpt				= 0;
 	m_bAddParam			= false;
 }

@@ -59,15 +59,15 @@ void CWebClient::DoAction()
 	ProcessNetPack();
 }
 
-void CWebClient::ProcessDBPack(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CWebClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	if (pRespond.byOpt >= SENSOR_DB_OPT_MAX)
+	if (pCallbackData->byOpt >= SENSOR_DB_OPT_MAX)
 	{
-		g_pFileLog->WriteLog("[%s][%d] DB Respond Invalid Protocol[%hhu]\n", __FILE__, __LINE__, pRespond.byOpt);
+		g_pFileLog->WriteLog("[%s][%d] DB Respond Invalid Protocol[%hhu]\n", __FILE__, __LINE__, pCallbackData->byOpt);
 		return;
 	}
 
-	(this->*m_pfnDBRespondFunc[pRespond.byOpt])(pRespond, pResult);
+	(this->*m_pfnDBRespondFunc[pCallbackData->byOpt])(pResultSet, pCallbackData);
 }
 
 void CWebClient::ProcessNetPack()
@@ -115,7 +115,7 @@ void CWebClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->PrepareProc("AccountLogin");
 	pMysqlQuery->AddParam(tagLoginInfo.account().c_str());
 	pMysqlQuery->AddParam(tagLoginInfo.password().c_str());
-	pMysqlQuery->EndPrepareProc(tagRequest);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
@@ -142,7 +142,7 @@ void CWebClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPac
 	pMysqlQuery->PrepareProc("LoadSlopeList");
 	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagRequestSlope.server_id());
-	pMysqlQuery->EndPrepareProc(tagRequest);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
@@ -169,7 +169,7 @@ void CWebClient::RecvRequestSensorList(const void *pPack, const unsigned int uPa
 	pMysqlQuery->PrepareProc("LoadSensorList");
 	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagRequestSensorList.slope_id());
-	pMysqlQuery->EndPrepareProc(tagRequest);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
@@ -198,7 +198,7 @@ void CWebClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	pMysqlQuery->AddParam(tagRequestSensorHistory.sensor_id());
 	pMysqlQuery->AddParam(tagRequestSensorHistory.begin_time());
 	pMysqlQuery->AddParam(tagRequestSensorHistory.end_time());
-	pMysqlQuery->EndPrepareProc(tagRequest);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
@@ -224,13 +224,14 @@ void CWebClient::RecvRequestAllList(const void *pPack, const unsigned int uPackL
 	// ...
 	pMysqlQuery->AddParam(1);
 	//pMysqlQuery->AddParam(tagRequestSlope.server_id());
-	pMysqlQuery->EndPrepareProc(tagRequest);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
 
-void CWebClient::DBResopndLoginResult(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+	/*
 	WEB_SERVER_NET_Protocol::S2Web_Login_Result	tagLoginResult;
 	tagLoginResult.set_result(pRespond.nRetCode);
 
@@ -257,10 +258,12 @@ void CWebClient::DBResopndLoginResult(SMysqlRespond &pRespond, IQueryResult *pRe
 	}
 
 	SendWebLoginResult(tagLoginResult);
+	*/
 }
 
-void CWebClient::DBResopndSlopeList(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CWebClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+	/*
 	WEB_SERVER_NET_Protocol::S2Web_Slope_List	tagSlopeList;
 
 	UINT	uCol			= 0;
@@ -295,10 +298,12 @@ void CWebClient::DBResopndSlopeList(SMysqlRespond &pRespond, IQueryResult *pResu
 	}
 
 	SendWebSlopeList(tagSlopeList);
+	*/
 }
 
-void CWebClient::DBResopndSensorList(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+	/*
 	WEB_SERVER_NET_Protocol::S2Web_Sensor_List	tagSensorList;
 
 	UINT	uCol			= 0;
@@ -351,16 +356,15 @@ void CWebClient::DBResopndSensorList(SMysqlRespond &pRespond, IQueryResult *pRes
 	}
 
 	SendWebSensorList(tagSensorList);
+	*/
 }
 
-void CWebClient::DBResopndSensorHistory(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	WEB_SERVER_NET_Protocol::S2Web_Sensor_History	tagSensorHistory;
 
 	UINT	uCol			= 0;
 	BYTE	bySensorState	= 0;
-	double	dLongitude		= 0.0f;
-	double	dLatitude		= 0.0f;
 	double	dCurValue1		= 0.0f;
 	double	dCurValue2		= 0.0f;
 	double	dCurValue3		= 0.0f;
@@ -368,7 +372,33 @@ void CWebClient::DBResopndSensorHistory(SMysqlRespond &pRespond, IQueryResult *p
 	double	dOffsetValue2	= 0.0f;
 	double	dOffsetValue3	= 0.0f;
 
-	for (auto uRow = 0; uRow < pRespond.uRowCount; ++uRow)
+	UINT	uSensorID		= 0;
+	double	dLongitude		= 0.0f;
+	double	dLatitude		= 0.0f;
+	int		nBeginTime		= 0;
+	int		nEndTime		= 0;
+	double	dAvgValue1		= 0.0f;
+	double	dAvgValue2		= 0.0f;
+	double	dAvgValue3		= 0.0f;
+
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (3 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+	IMysqlResult	*pResult2 = pResultSet->GetMysqlResult(1);
+	IMysqlResult	*pResult3 = pResultSet->GetMysqlResult(2);
+
+	if (nullptr == pResult1 || nullptr == pResult2 || nullptr == pResult3)
+	{
+		return;
+	}
+
+	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
 	{
 		WEB_SERVER_NET_Protocol::S2Web_Sensor_History::SensorData	*pSensorData	= tagSensorHistory.add_history_list();
 		if (nullptr == pSensorData)
@@ -376,15 +406,13 @@ void CWebClient::DBResopndSensorHistory(SMysqlRespond &pRespond, IQueryResult *p
 
 		uCol	= 0;
 
-		pResult->GetData(uRow, uCol++, bySensorState);
-		pResult->GetData(uRow, uCol++, dLongitude);
-		pResult->GetData(uRow, uCol++, dLatitude);
-		pResult->GetData(uRow, uCol++, dCurValue1);
-		pResult->GetData(uRow, uCol++, dCurValue2);
-		pResult->GetData(uRow, uCol++, dCurValue3);
-		pResult->GetData(uRow, uCol++, dOffsetValue1);
-		pResult->GetData(uRow, uCol++, dOffsetValue2);
-		pResult->GetData(uRow, uCol++, dOffsetValue3);
+		pResult1->GetData(uRow, uCol++, bySensorState);
+		pResult1->GetData(uRow, uCol++, dCurValue1);
+		pResult1->GetData(uRow, uCol++, dCurValue2);
+		pResult1->GetData(uRow, uCol++, dCurValue3);
+		pResult1->GetData(uRow, uCol++, dOffsetValue1);
+		pResult1->GetData(uRow, uCol++, dOffsetValue2);
+		pResult1->GetData(uRow, uCol++, dOffsetValue3);
 
 		pSensorData->set_state(bySensorState);
 		pSensorData->set_value1(dCurValue1);
@@ -395,14 +423,32 @@ void CWebClient::DBResopndSensorHistory(SMysqlRespond &pRespond, IQueryResult *p
 		pSensorData->set_offset_value3(dOffsetValue3);
 	}
 
-	// tagSensorHistory中还有一些数据未赋值，考虑一下，怎么从查询开始，经Mysql的Execute，再传到这里来
-	// 如非必要，不要通过Mysql的Sql语句来
-	// ...
+	uCol = 0;
 
+	pResult2->GetData(0, uCol++, uSensorID);
+	pResult2->GetData(0, uCol++, dLongitude);
+	pResult2->GetData(0, uCol++, dLatitude);
+	pResult2->GetData(0, uCol++, nBeginTime);
+	pResult2->GetData(0, uCol++, nEndTime);
+	pResult2->GetData(0, uCol++, dAvgValue1);
+	pResult2->GetData(0, uCol++, dAvgValue2);
+	pResult2->GetData(0, uCol++, dAvgValue3);
+
+	tagSensorHistory.set_id(uSensorID);
+	tagSensorHistory.set_longitude(dLongitude);
+	tagSensorHistory.set_latitude(dLatitude);
+	tagSensorHistory.set_begin_time(nBeginTime);
+	tagSensorHistory.set_end_time(nEndTime);
+	tagSensorHistory.set_avg_value1(dAvgValue1);
+	tagSensorHistory.set_avg_value2(dAvgValue2);
+	tagSensorHistory.set_avg_value3(dAvgValue3);
+
+	// 如果有可能的话，这里再取一个result
+	// ...
 	SendWebSensorHistory(tagSensorHistory);
 }
 
-void CWebClient::DBResopndAllList(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CWebClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 

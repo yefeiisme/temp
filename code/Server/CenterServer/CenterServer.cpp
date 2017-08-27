@@ -277,9 +277,9 @@ void CCenterServer::Run()
 	}
 }
 
-IQueryResult *CCenterServer::GetQueryResult()
+IMysqlResultSet *CCenterServer::GetQueryResult()
 {
-	return m_pSensorQuery->GetQueryResult();
+	return m_pSensorQuery->GetMysqlResultSet();
 }
 
 void CCenterServer::ProcessAppConn()

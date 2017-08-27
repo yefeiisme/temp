@@ -24,4 +24,26 @@ using namespace std;
 #define snprintf _snprintf
 #endif
 
+#define MAX_CALLBACK_DATA_LEN	128
+
+struct SResultSetHead
+{
+	char	strCallBackDta[MAX_CALLBACK_DATA_LEN];
+	WORD	wCallBackDataLen;
+	BYTE	byResultCount;
+};
+
+struct SResultHead
+{
+	UINT	uRowCount;
+	UINT	uColCount;
+	UINT	uLen;
+};
+
+struct SMysqlDataHead
+{
+	UINT	uOffset;
+	UINT	uDataLen;
+};
+
 #endif

@@ -43,74 +43,77 @@ bool CSensorDBConn::Initialize()
 
 void CSensorDBConn::Run()
 {
-	IQueryResult	*pQueryResult	= g_ICenterServer.GetQueryResult();
-	if (nullptr == pQueryResult)
+	IMysqlResultSet	*pResultSet = g_ICenterServer.GetQueryResult();
+	if (nullptr == pResultSet)
 		return;
 
-	SMysqlRespond	&pRespond	= pQueryResult->GetRespond();
-	if (pRespond.byClientType >= CLIENT_TYPE_MAX)
+	SMysqlRequest	*pCallbackData	= (SMysqlRequest*)pResultSet->GetCallbackData();
+	if (nullptr == pCallbackData)
+		return;
+
+	if (pCallbackData->byClientType >= CLIENT_TYPE_MAX)
 	{
-		g_pFileLog->WriteLog("Invalid DB Respond Client Type[%hhu]\n", pRespond.byClientType);
+		g_pFileLog->WriteLog("Invalid DB Respond Client Type[%hhu]\n", pCallbackData->byClientType);
 		return;
 	}
 
-	if (pRespond.byOpt >= SENSOR_DB_OPT_MAX)
+	if (pCallbackData->byOpt >= SENSOR_DB_OPT_MAX)
 	{
-		g_pFileLog->WriteLog("Invalid DB Respond Opt[%hhu]\n", pRespond.byOpt);
+		g_pFileLog->WriteLog("Invalid DB Respond Opt[%hhu]\n", pCallbackData->byOpt);
 		return;
 	}
 
-	(this->*m_pfnTypeFunc[pRespond.byClientType])(pRespond, pQueryResult);
+	(this->*m_pfnTypeFunc[pCallbackData->byClientType])(pResultSet, pCallbackData);
 }
 
-void CSensorDBConn::GlobalQuery(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CSensorDBConn::GlobalQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	(this->*m_ProtocolFunc[pRespond.byOpt])(pRespond, pResult);
+	(this->*m_ProtocolFunc[pCallbackData->byOpt])(pResultSet, pCallbackData);
 }
 
-void CSensorDBConn::AppQuery(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CSensorDBConn::AppQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	CAppClient	*pClient	= g_pCenterServerLogic.GetAppClient(pRespond.uClientIndex, pRespond.uClientID);
+	CAppClient	*pClient	= g_pCenterServerLogic.GetAppClient(pCallbackData->uClientIndex, pCallbackData->uClientIndex);
 	if (nullptr == pClient)
 		return;
 
-	pClient->ProcessDBPack(pRespond, pResult);
+	pClient->ProcessDBPack(pResultSet, pCallbackData);
 }
 
-void CSensorDBConn::WebQuery(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CSensorDBConn::WebQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	CWebClient	*pClient	= g_pCenterServerLogic.GetWebClient(pRespond.uClientIndex, pRespond.uClientID);
+	CWebClient	*pClient	= g_pCenterServerLogic.GetWebClient(pCallbackData->uClientIndex, pCallbackData->uClientIndex);
 	if (nullptr == pClient)
 		return;
 
-	pClient->ProcessDBPack(pRespond, pResult);
+	pClient->ProcessDBPack(pResultSet, pCallbackData);
 }
 
-void CSensorDBConn::DataQuery(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CSensorDBConn::DataQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	CDataClient	*pClient	= g_pCenterServerLogic.GetDataClient(pRespond.uClientIndex, pRespond.uClientID);
+	CDataClient	*pClient	= g_pCenterServerLogic.GetDataClient(pCallbackData->uClientIndex, pCallbackData->uClientIndex);
 	if (nullptr == pClient)
 		return;
 
-	pClient->ProcessDBPack(pRespond, pResult);
+	pClient->ProcessDBPack(pResultSet, pCallbackData);
 }
 
-void CSensorDBConn::RecvVerifyAccount(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CSensorDBConn::RecvVerifyAccount(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 
-void CSensorDBConn::RecvSlopeList(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CSensorDBConn::RecvSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 
-void CSensorDBConn::RecvSensorList(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CSensorDBConn::RecvSensorList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 
-void CSensorDBConn::RecvSensorHistory(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CSensorDBConn::RecvSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 
-void CSensorDBConn::RecvLoadAllList(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CSensorDBConn::RecvLoadAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }

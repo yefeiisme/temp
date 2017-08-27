@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "DataClient.h"
+#include "../SensorDB/SensorDBOperation.h"
 
 CDataClient::pfnProtocolFunc CDataClient::m_ProtocolFunc[256] =
 {
@@ -19,7 +20,7 @@ void CDataClient::DoAction()
 	ProcessNetPack();
 }
 
-void CDataClient::ProcessDBPack(SMysqlRespond &pRespond, IQueryResult *pResult)
+void CDataClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 

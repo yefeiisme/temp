@@ -5,6 +5,7 @@
 #include "MysqlQuery.h"
 #include "ProcedureSqlObject.h"
 #include "MysqlResult.h"
+#include "MysqlResultSet.h"
 
 IMysqlQuery *CreateMysqlQuery(const char *pstrSettingFile, const char *pstrSection)
 {
@@ -23,32 +24,30 @@ IMysqlQuery *CreateMysqlQuery(const char *pstrSettingFile, const char *pstrSecti
 
 CMysqlQuery::CMysqlQuery()
 {
-	m_pIniFile		= nullptr;
+	m_pIniFile			= nullptr;
 
-	m_pRBRequest	= nullptr;
-	m_pRBRespond	= nullptr;
+	m_pRBRequest		= nullptr;
+	m_pRBRespond		= nullptr;
 
-	m_pProcSqlObj	= nullptr;
-	m_pResult		= nullptr;
+	m_pProcSqlObj		= nullptr;
+	m_pResultSet		= nullptr;
 
-	m_pDBHandle		= nullptr;
-	m_pQueryRes		= nullptr;
-	m_pRow			= nullptr;
-	m_pResultBuffer	= nullptr;
-	m_pRespond		= nullptr;
-	m_pDataHead		= nullptr;
-
-	m_usDBPort		= 0;
-	m_strDBIP.clear();
-	m_strUserName.clear();
-	m_strPassword.clear();
-	m_strDBName.clear();
-	m_strCharacterSet.clear();
+	m_pDBHandle			= nullptr;
+	m_pQueryRes			= nullptr;
+	m_pRow				= nullptr;
+	m_pResultBuffer		= nullptr;
+	m_pCurPos			= nullptr;
+	m_pResultSetHead	= nullptr;
+	m_pResultHead		= nullptr;
+	m_pDataHead			= nullptr;
 
 	m_uSqlBufferLen		= 0;
 	m_uMaxSqlLen		= 0;
 	m_uResultBufferLen	= 0;
 	m_uMaxResultLen		= 0;
+
+	m_uLeftBufferLen	= 0;
+	m_byMaxResultCount	= 0;
 
 	m_uNextPingTime		= 0;
 	m_uNextConnectTime	= 0;
@@ -59,6 +58,15 @@ CMysqlQuery::CMysqlQuery()
 	m_uReconnectInterval= 0;
 
 	m_nTimeNow			= 0;
+
+	m_usDBPort			= 0;
+	m_strDBIP.clear();
+	m_strUserName.clear();
+	m_strPassword.clear();
+	m_strDBName.clear();
+	m_strCharacterSet.clear();
+
+	m_vectMysqlRes.clear();
 
 	m_bRunning			= false;
 	m_bExit				= true;
@@ -85,7 +93,7 @@ CMysqlQuery::~CMysqlQuery()
 	}
 
 	SAFE_DELETE(m_pProcSqlObj);
-	SAFE_DELETE(m_pResult);
+	SAFE_DELETE(m_pResultSet);
 
 	if (m_pDBHandle)
 	{
@@ -111,7 +119,7 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 		return false;
 	}
 
-	m_pRBRespond	= CreateRingBuffer(m_uResultBufferLen, m_uMaxResultLen);
+	m_pRBRespond = CreateRingBuffer(m_uResultBufferLen*m_byMaxResultCount, m_uMaxResultLen);
 	if (!m_pRBRespond)
 	{
 		g_pFileLog->WriteLog("%s[%d] Create RingBuffer For RoleDB Send Failed\n", __FILE__, __LINE__);
@@ -131,28 +139,33 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 		return false;
 	}
 
-	m_pResult	= new CMysqlResult;
-	if (nullptr == m_pResult)
+	m_pResultSet	= new CMysqlResultSet(*this);
+	if (nullptr == m_pResultSet)
 	{
-		g_pFileLog->WriteLog("[%s][%d] new CMysqlResult Failed\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("[%s][%d] new CMysqlResultSet Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 
-	if (!m_pResult->Initialize(m_uResultBufferLen))
+	if (!m_pResultSet->Initialize(m_byMaxResultCount))
 	{
-		g_pFileLog->WriteLog("[%s][%d] CMysqlResult::Initialize Failed\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("[%s][%d] CMysqlResultSet::Initialize Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 
-	m_pResultBuffer	= new char[m_uResultBufferLen];
+	if (m_uResultBufferLen*m_byMaxResultCount < sizeof(SResultSetHead))
+	{
+		g_pFileLog->WriteLog("[%s][%d] CMysqlResultSet::Initialize Result Buffer[%u] Not Enough\n", __FILE__, __LINE__, m_uResultBufferLen*m_byMaxResultCount);
+		return false;
+	}
+
+	m_pResultBuffer = new char[m_uResultBufferLen*m_byMaxResultCount];
 	if (nullptr == m_pResultBuffer)
 	{
-		g_pFileLog->WriteLog("[%s][%d] new char[%u] For Result Buffer Failed\n", __FILE__, __LINE__, m_uResultBufferLen);
+		g_pFileLog->WriteLog("[%s][%d] new char[%u] For Result Buffer Failed\n", __FILE__, __LINE__, m_uResultBufferLen*m_byMaxResultCount);
 		return false;
 	}
 
-	m_pRespond	= (SMysqlRespond*)m_pResultBuffer;
-	m_pDataHead	= (SMysqlDataHead*)(m_pResultBuffer + sizeof(SMysqlRespond));
+	m_pResultSetHead	= (SResultSetHead *)m_pResultBuffer;
 
 	m_pDBHandle = mysql_init(nullptr);
 	if (nullptr == m_pDBHandle)
@@ -219,9 +232,9 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 	return true;
 }
 
-bool CMysqlQuery::PrepareProc(const char *pstrProcName, const WORD wOpt)
+bool CMysqlQuery::PrepareProc(const char *pstrProcName)
 {
-	return m_pProcSqlObj->PrepareProc(pstrProcName, wOpt);
+	return m_pProcSqlObj->PrepareProc(pstrProcName);
 }
 
 bool CMysqlQuery::AddParam(const int nParam)
@@ -282,7 +295,7 @@ IMysqlResultSet *CMysqlQuery::GetMysqlResultSet()
 	UINT		uLen		= 0;
 	const void	*pRespond	= m_pRBRespond->RcvPack(uLen);
 
-	return (m_pResult->ParseResult(pRespond, uLen) ? m_pResult : nullptr);
+	return (m_pResultSet->ParseResult(pRespond, uLen) ? m_pResultSet : nullptr);
 }
 
 void CMysqlQuery::Release()
@@ -309,6 +322,7 @@ bool CMysqlQuery::LoadConfig(const char *pstrSettingFile, const char *pstrSectio
 	int		nMaxSqlLen;
 	int		nResultBufferLen;
 	int		nMaxResultLen;
+	int		nMaxResultCount;
 	int		nFrame;
 
 	m_pIniFile->GetString(pstrSection, "IP", "", strDBIP, sizeof(strDBIP));
@@ -345,6 +359,9 @@ bool CMysqlQuery::LoadConfig(const char *pstrSettingFile, const char *pstrSectio
 
 	m_pIniFile->GetInteger(pstrSection, "MaxResultLen", 0, &nMaxResultLen);
 	m_uMaxResultLen	= nMaxResultLen;
+
+	m_pIniFile->GetInteger(pstrSection, "MaxResultCount", 0, &nMaxResultCount);
+	m_byMaxResultCount = nMaxResultCount;
 
 	m_pIniFile->GetInteger(pstrSection, "Frame", 0, &nFrame);
 	m_uFrame	= nFrame;
@@ -497,58 +514,71 @@ void CMysqlQuery::ExecuteSQL(const void *pPack, const unsigned int uPackLen)
 
 void CMysqlQuery::ClearResult()
 {
-	if (nullptr == m_pQueryRes)
-		return;
+	m_uLeftBufferLen	= m_uResultBufferLen * m_byMaxResultCount;
+	m_pCurPos			= m_pResultBuffer;
+	m_pResultHead		= nullptr;
+	m_pDataHead			= nullptr;
 
-	mysql_free_result(m_pQueryRes);
-
-	while (!mysql_next_result(m_pDBHandle))
+	if (m_pQueryRes)
 	{
-		MYSQL_RES	*pResult = mysql_store_result(m_pDBHandle);
-		mysql_free_result(pResult);
-	}
+		mysql_free_result(m_pQueryRes);
 
-	m_pResult->Clear();
+		while (!mysql_next_result(m_pDBHandle))
+		{
+			mysql_free_result(mysql_store_result(m_pDBHandle));
+		}
+	}
 }
 
 bool CMysqlQuery::HandleResult(const void *pCallbackData, const WORD wDataLen)
 {
-	my_bool	bMultiResult	= mysql_more_results(m_pDBHandle);
+	m_pResultSetHead->wCallBackDataLen	= wDataLen;
+	m_pResultSetHead->byResultCount		= 0;
+	memcpy(m_pResultSetHead->strCallBackDta, pCallbackData, wDataLen);
 
-	// 后面要改成返回多个数据集合，请修改下面的代码
-	// ...
-	if (bMultiResult)
+	m_pCurPos			+= sizeof(SResultSetHead);
+	m_uLeftBufferLen	-= sizeof(SResultSetHead);
+
+	m_pQueryRes = mysql_store_result(m_pDBHandle);
+	if (nullptr == m_pQueryRes)
 	{
-		//must be mysql_store_result or mysql_next_result will be error out of sync
-		m_pQueryRes = mysql_store_result(m_pDBHandle);
+		ClearResult();
+		return false;
+	}
 
-		//get last res for procret
-		MYSQL_RES	*pRes = NULL;
+	if (!AddResult())
+	{
+		ClearResult();
 
-		while (!mysql_next_result(m_pDBHandle))
+		return false;
+	}
+
+	while (!mysql_next_result(m_pDBHandle))
+	{
+		MYSQL_RES	*m_pQueryRes = mysql_store_result(m_pDBHandle);
+		if (nullptr == m_pQueryRes)
+			continue;
+
+		if (m_pResultSetHead->byResultCount >= m_byMaxResultCount)
 		{
-			if (pRes)
-			{
-				mysql_free_result(pRes);
-				pRes = NULL;
-			}
-
-			pRes = mysql_use_result(m_pDBHandle);
+			ClearResult();
+			return false;
 		}
 
-		//get ret
-		GetProcRet(pRes);
+		if (!AddResult())
+		{
+			ClearResult();
+			return false;
+		}
 
-		mysql_free_result(pRes);
-	}
-	else
-	{
-		m_pQueryRes = mysql_store_result(m_pDBHandle);
+		++m_pResultSetHead->byResultCount;
 	}
 
-	// 下面的代码有误 ，应该将数据取出来，放到环形缓冲区中
-	// 再由逻辑线程调用m_pResult->ParseResult取出数据
-	// ...
+	return m_pRBRespond->SndPack(m_pResultBuffer, m_pResultBuffer - m_pCurPos);
+}
+
+bool CMysqlQuery::AddResult()
+{
 	if (nullptr == m_pQueryRes)
 	{
 		unsigned int	uLastError = mysql_errno(m_pDBHandle);
@@ -559,14 +589,30 @@ bool CMysqlQuery::HandleResult(const void *pCallbackData, const WORD wDataLen)
 		return false;
 	}
 
-	if (!m_pResult->SetResultSize(mysql_num_rows(m_pQueryRes), mysql_num_fields(m_pQueryRes)))
-	{
-		g_pFileLog->WriteLog("[%s][%d] SetResultSize Failed\n", __FUNCTION__, __LINE__);
-
+	if (m_uLeftBufferLen < sizeof(SResultHead))
 		return false;
-	}
+
+	m_pResultHead				= (SResultHead*)m_pCurPos;
+	m_pResultHead->uRowCount	= mysql_num_rows(m_pQueryRes);
+	m_pResultHead->uColCount	= mysql_num_fields(m_pQueryRes);
+	m_pResultHead->uLen			= sizeof(SResultHead);
+
+	m_pCurPos					+= sizeof(SResultHead);
+	m_uLeftBufferLen			-= sizeof(SResultHead);
+
+	auto	uTotalHeadLen		= sizeof(SMysqlDataHead)* m_pResultHead->uRowCount * m_pResultHead->uColCount;
+	if (m_uLeftBufferLen < uTotalHeadLen)
+		return false;
+
+	m_pDataHead					= (SMysqlDataHead*)m_pCurPos;
+
+	m_pResultHead->uLen			+= uTotalHeadLen;
+
+	m_pCurPos					+= uTotalHeadLen;
+	m_uLeftBufferLen			-= uTotalHeadLen;
 
 	UINT	uRowIndex	= 0;
+	UINT	uOffset		= 0;
 
 	while (nullptr != (m_pRow = mysql_fetch_row(m_pQueryRes)))
 	{
@@ -579,35 +625,36 @@ bool CMysqlQuery::HandleResult(const void *pCallbackData, const WORD wDataLen)
 
 		for (auto uCol = 0; uCol < m_uColCount; ++uCol)
 		{
-			m_pResult->AddResult(uRowIndex, uCol, m_pRow[uCol], pRowLength[uCol]);
+			if (!AddResultData(uRowIndex, uCol, m_pRow[uCol], pRowLength[uCol], uOffset))
+			{
+				ClearResult();
+				return false;
+			}
 		}
 
 		++uRowIndex;
 	}
 
-	m_pResult->SetCallbackData(pCallbackData, wDataLen);
-
 	return true;
 }
 
-void CMysqlQuery::GetProcRet(MYSQL_RES *pRes)
+bool CMysqlQuery::AddResultData(const UINT uRow, const UINT uCol, const void *pData, const UINT uDataLen, UINT &uOffset)
 {
-	m_pResult->SetResultCode(0);
+	if (m_uLeftBufferLen < uDataLen)
+		return false;
 
-	if (nullptr == pRes)
-		return;
+	auto	nIndex = m_pResultHead->uColCount * uRow + uCol;
+	m_pDataHead[nIndex].uDataLen	= uDataLen;
+	m_pDataHead[nIndex].uOffset		= uOffset;//m_pCurPos - m_pResultBuffer;
 
-	int nColCount = mysql_num_fields(pRes);
+	memcpy(m_pCurPos, pData, uDataLen);
 
-	if (1 != nColCount)
-		return;
+	m_pCurPos			+= uDataLen;
+	m_uLeftBufferLen	-= uDataLen;
+	m_pResultHead->uLen	+= uDataLen;
+	uOffset				+= uDataLen;
 
-	MYSQL_ROW	pRow	= mysql_fetch_row(pRes);
-
-	if (nullptr == pRow)
-		return;
-
-	m_pResult->SetResultCode(strtoul(pRow[0], NULL, 10));
+	return true;
 }
 
 void CMysqlQuery::Disconnect()

@@ -3,42 +3,11 @@
 
 #include "commondefine.h"
 
-#define MAX_CALLBACK_DATA_LEN	128
-
-struct SMysqlRequest
-{
-	uint64	uClientID;
-	UINT	uClientIndex;
-	BYTE	byClientType;
-	BYTE	byOpt;
-};
-
-struct SMysqlRespond
-{
-	uint64	uClientID;
-	UINT	uClientIndex;
-	UINT	uRowCount;
-	UINT	uColCount;
-	int		nRetCode;
-	BYTE	byClientType;
-	BYTE	byOpt;
-};
-
-struct SMysqlResult
-{
-	UINT	uRowCount;
-	UINT	uColCount;
-};
-
-struct SMysqlDataHead
-{
-	UINT	uOffset;
-	UINT	uDataLen;
-};
-
-class IMysqlResultSet
+class IMysqlResult
 {
 public:
+	virtual UINT			GetRowCount() = 0;
+	virtual UINT			GetColCount() = 0;
 	virtual bool			GetData(const UINT uRow, const UINT uCol, int &nData) = 0;
 	virtual bool			GetData(const UINT uRow, const UINT uCol, unsigned int &uData) = 0;
 	virtual bool			GetData(const UINT uRow, const UINT uCol, short &sData) = 0;
@@ -47,9 +16,15 @@ public:
 	virtual bool			GetData(const UINT uRow, const UINT uCol, double &dData) = 0;
 	virtual UINT			GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize) = 0;
 	virtual UINT			GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize) = 0;
-	virtual SMysqlRespond	&GetRespond() = 0;
-	virtual SMysqlDataHead	*GetDataHead() = 0;
-	virtual char			*GetDataPtr() = 0;
+};
+
+class IMysqlResultSet
+{
+public:
+	virtual char			*GetCallbackData() = 0;
+	virtual WORD			GetCallbackDataLen() = 0;
+	virtual BYTE			GetResultCount() = 0;
+	virtual IMysqlResult	*GetMysqlResult(const BYTE byIndex) = 0;
 };
 
 class IMysqlQuery
@@ -59,7 +34,7 @@ public:
 	virtual bool			IsExit() = 0;
 	virtual void			Release() = 0;
 
-	virtual bool			PrepareProc(const char *pstrProcName, const WORD wOpt) = 0;
+	virtual bool			PrepareProc(const char *pstrProcName) = 0;
 	virtual bool			AddParam(const int nParam) = 0;
 	virtual bool			AddParam(const unsigned int uParam) = 0;
 	virtual bool			AddParam(const short sParam) = 0;

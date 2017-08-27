@@ -2,7 +2,7 @@
 #define __I_CENTER_SERVER_H_
 
 class IMysqlQuery;
-class IQueryResult;
+class IMysqlResultSet;
 
 class ICenterServer
 {
@@ -12,7 +12,7 @@ public:
 	virtual void			Stop() = 0;
 	virtual void			Exit() = 0;
 	virtual IMysqlQuery		*GetMysqlQuery() = 0;
-	virtual IQueryResult	*GetQueryResult() = 0;
+	virtual IMysqlResultSet	*GetQueryResult() = 0;
 };
 
 extern ICenterServer		&g_ICenterServer;

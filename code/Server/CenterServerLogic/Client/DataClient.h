@@ -11,7 +11,7 @@ public:
 	~CDataClient();
 
 	void					DoAction();
-	void					ProcessDBPack(SMysqlRespond &pRespond, IQueryResult *pResult);
+	void					ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	void					ProcessNetPack();
 

@@ -13,22 +13,22 @@ public:
 	bool						Initialize();
 	void						Run();
 private:
-	typedef void				(CSensorDBConn::*pfnProtocolFunc)(SMysqlRespond &pRespond, IQueryResult *pResult);
+	typedef void				(CSensorDBConn::*pfnProtocolFunc)(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	pfnProtocolFunc				m_ProtocolFunc[SENSOR_DB_OPT_MAX];
 
-	typedef void				(CSensorDBConn::*pfnTypeFunc)(SMysqlRespond &pRespond, IQueryResult *pResult);
+	typedef void				(CSensorDBConn::*pfnTypeFunc)(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	pfnTypeFunc					m_pfnTypeFunc[CLIENT_TYPE_MAX];
 
-	void						GlobalQuery(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void						AppQuery(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void						WebQuery(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void						DataQuery(SMysqlRespond &pRespond, IQueryResult *pResult);
+	void						GlobalQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void						AppQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void						WebQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void						DataQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 
-	void						RecvVerifyAccount(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void						RecvSlopeList(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void						RecvSensorList(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void						RecvSensorHistory(SMysqlRespond &pRespond, IQueryResult *pResult);
-	void						RecvLoadAllList(SMysqlRespond &pRespond, IQueryResult *pResult);
+	void						RecvVerifyAccount(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void						RecvSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void						RecvSensorList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void						RecvSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void						RecvLoadAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 };
 
 #endif

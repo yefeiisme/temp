@@ -5,11 +5,13 @@
 #include "IMysqlQuery.h"
 #include <string>
 #include <thread>
+#include <vector>
 
 using namespace std;
 
 class CProcObj;
 class CMysqlResult;
+class CMysqlResultSet;
 
 class CMysqlQuery : public IMysqlQuery
 {
@@ -20,14 +22,16 @@ private:
 	IRingBuffer				*m_pRBRespond;
 
 	CProcObj				*m_pProcSqlObj;
-	CMysqlResult			*m_pResult;
+	CMysqlResultSet			*m_pResultSet;
 
 	MYSQL					*m_pDBHandle;
 	MYSQL_RES				*m_pQueryRes;
 	MYSQL_ROW				m_pRow;
 
 	char					*m_pResultBuffer;
-	SMysqlRespond			*m_pRespond;
+	char					*m_pCurPos;
+	SResultSetHead			*m_pResultSetHead;
+	SResultHead				*m_pResultHead;
 	SMysqlDataHead			*m_pDataHead;
 
 	// Sql Result
@@ -39,6 +43,8 @@ private:
 	UINT					m_uMaxSqlLen;
 	UINT					m_uResultBufferLen;
 	UINT					m_uMaxResultLen;
+
+	UINT					m_uLeftBufferLen;
 
 	UINT					m_uNextPingTime;
 	UINT					m_uNextConnectTime;
@@ -52,11 +58,15 @@ private:
 
 	unsigned short			m_usDBPort;
 
+	BYTE					m_byMaxResultCount;
+
 	string					m_strDBIP;
 	string					m_strUserName;
 	string					m_strPassword;
 	string					m_strDBName;
 	string					m_strCharacterSet;
+
+	vector<MYSQL_RES*>		m_vectMysqlRes;
 
 	bool					m_bRunning;
 	bool					m_bExit;
@@ -77,7 +87,7 @@ public:
 	void					Release();
 	bool					Initialize(const char *pstrSettingFile, const char *pstrSection);
 
-	bool					PrepareProc(const char *pstrProcName, const WORD wOpt);
+	bool					PrepareProc(const char *pstrProcName);
 	bool					AddParam(const int nParam);
 	bool					AddParam(const unsigned int uParam);
 	bool					AddParam(const short sParam);
@@ -110,7 +120,8 @@ private:
 
 	void					ExecuteSQL(const void *pPack, const unsigned int uPackLen);
 	bool					HandleResult(const void *pCallbackData, const WORD wDataLen);
-	void					GetProcRet(MYSQL_RES *pRes);
+	bool					AddResult();
+	bool					AddResultData(const UINT uRow, const UINT uCol, const void *pData, const UINT uDataLen, UINT &uOffset);
 	void					ClearResult();
 	void					Disconnect();
 };
