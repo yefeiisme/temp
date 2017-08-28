@@ -135,7 +135,7 @@ bool CSimulatorLogic::Initialize()
 												g_pSimulatorConfig.m_nRecvBuffLen,
 												g_pSimulatorConfig.m_nMaxSendPackLen,
 												g_pSimulatorConfig.m_nMaxRecvPackLen,
-												&CSimulatorLogic::AppClientConnected,
+												&CSimulatorLogic::WebServerConnected,
 												this,
 												1
 												);
@@ -247,17 +247,17 @@ void CSimulatorLogic::ProcessConnection()
 
 	for (int nIndex = 0; nIndex < g_pSimulatorConfig.m_nConnectionCount; ++nIndex)
 	{
-		if (m_pAppServerConnList[nIndex].IsIdle())
+		if (m_pWebServerConnList[nIndex].IsIdle())
 		{
 			if (m_pWebClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nWebServerPort, nIndex))
 			{
-				m_pAppServerConnList[nIndex].ConnectWait();
+				m_pWebServerConnList[nIndex].ConnectWait();
 			}
 
 			continue;
 		}
 
-		m_pAppServerConnList[nIndex].DoAction();
+		m_pWebServerConnList[nIndex].DoAction();
 	}
 }
 
