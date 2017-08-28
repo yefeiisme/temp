@@ -23,9 +23,6 @@
     <ClInclude Include="SimulatorLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ServerConnection\ServerConnection.h">
-      <Filter>Server</Filter>
-    </ClInclude>
     <ClInclude Include="Config\SimulatorConfig.h">
       <Filter>Config</Filter>
     </ClInclude>
@@ -35,24 +32,36 @@
     <ClInclude Include="ServerConnection\Web_Server_Protocol.pb.h">
       <Filter>Server</Filter>
     </ClInclude>
+    <ClInclude Include="ServerConnection\APPServerConnection.h">
+      <Filter>Server</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerConnection\WebServerConnection.h">
+      <Filter>Server</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SimulatorLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ServerConnection\ServerConnection.cpp">
-      <Filter>Server</Filter>
-    </ClCompile>
     <ClCompile Include="Config\SimulatorConfig.cpp">
       <Filter>Config</Filter>
-    </ClCompile>
-    <ClCompile Include="ServerConnection\ServerProtocol.cpp">
-      <Filter>Server</Filter>
     </ClCompile>
     <ClCompile Include="ServerConnection\App_Server_Protocol.pb.cc">
       <Filter>Server</Filter>
     </ClCompile>
     <ClCompile Include="ServerConnection\Web_Server_Protocol.pb.cc">
+      <Filter>Server</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerConnection\AppServerConnection.cpp">
+      <Filter>Server</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerConnection\AppServerProtocol.cpp">
+      <Filter>Server</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerConnection\WebServerConnection.cpp">
+      <Filter>Server</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerConnection\WebServerProtocol.cpp">
       <Filter>Server</Filter>
     </ClCompile>
   </ItemGroup>

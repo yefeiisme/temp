@@ -17,7 +17,9 @@ private:
 private:
 	IIniFile					*m_pIniFile;
 public:
-	int							m_nServerPort;
+	int							m_nAppServerPort;
+	int							m_nWebServerPort;
+
 	int							m_nConnectionCount;
 	int							m_nRecvBuffLen;
 	int							m_nSendBuffLen;

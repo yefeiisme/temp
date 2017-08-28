@@ -1,16 +1,16 @@
 #include "stdafx.h"
-#include "ServerConnection.h"
+#include "AppServerConnection.h"
 #include "SimulatorLogic.h"
 
-CServerConnection::StateFuncArray CServerConnection::m_pfnStateFunc[SERVER_CONN_STATE_MAX] =
+CAppServerConnection::StateFuncArray CAppServerConnection::m_pfnStateFunc[SERVER_CONN_STATE_MAX] =
 {
-	&CServerConnection::OnIdle,
-	&CServerConnection::OnWaitConnect,
-	&CServerConnection::OnRunning,
-	&CServerConnection::OnDisconnect,
+	&CAppServerConnection::OnIdle,
+	&CAppServerConnection::OnWaitConnect,
+	&CAppServerConnection::OnRunning,
+	&CAppServerConnection::OnDisconnect,
 };
 
-CServerConnection::CServerConnection()
+CAppServerConnection::CAppServerConnection()
 {
 	m_pTcpConnection	= nullptr;
 
@@ -19,7 +19,7 @@ CServerConnection::CServerConnection()
 	m_nTimeOut			= 0;
 }
 
-CServerConnection::~CServerConnection()
+CAppServerConnection::~CAppServerConnection()
 {
 	if (m_pTcpConnection)
 	{
@@ -28,12 +28,12 @@ CServerConnection::~CServerConnection()
 	}
 }
 
-void CServerConnection::DoAction()
+void CAppServerConnection::DoAction()
 {
-	(this->*CServerConnection::m_pfnStateFunc[m_eState])();
+	(this->*CAppServerConnection::m_pfnStateFunc[m_eState])();
 }
 
-const void *CServerConnection::GetPack(unsigned int &uPackLen)
+const void *CAppServerConnection::GetPack(unsigned int &uPackLen)
 {
 	if (nullptr == m_pTcpConnection)
 		return nullptr;
@@ -41,7 +41,7 @@ const void *CServerConnection::GetPack(unsigned int &uPackLen)
 	return m_pTcpConnection->GetPack(uPackLen);
 }
 
-bool CServerConnection::PutPack(const void *pPack, unsigned int uPackLen)
+bool CAppServerConnection::PutPack(const void *pPack, unsigned int uPackLen)
 {
 	if (nullptr == m_pTcpConnection)
 		return false;
@@ -49,16 +49,16 @@ bool CServerConnection::PutPack(const void *pPack, unsigned int uPackLen)
 	return m_pTcpConnection->PutPack(pPack, uPackLen);
 }
 
-void CServerConnection::ResetTimeOut()
+void CAppServerConnection::ResetTimeOut()
 {
 	m_nTimeOut	= g_nSimulatorSecond + 10;
 }
 
-void CServerConnection::OnIdle()
+void CAppServerConnection::OnIdle()
 {
 }
 
-void CServerConnection::OnWaitConnect()
+void CAppServerConnection::OnWaitConnect()
 {
 	if (IsTimeOut())
 	{
@@ -75,7 +75,7 @@ void CServerConnection::OnWaitConnect()
 	ChangeState(SERVER_CONN_STATE_RUNNING);
 }
 
-void CServerConnection::OnRunning()
+void CAppServerConnection::OnRunning()
 {
 	if (IsTimeOut())
 	{
@@ -100,7 +100,7 @@ void CServerConnection::OnRunning()
 	};
 }
 
-void CServerConnection::OnDisconnect()
+void CAppServerConnection::OnDisconnect()
 {
 	if (m_pTcpConnection)
 	{
@@ -109,7 +109,7 @@ void CServerConnection::OnDisconnect()
 	}
 	else
 	{
-		g_pSimulatorLogic.ShutDownConnection(m_uIndex);
+		g_pSimulatorLogic.ShutDownAppServerConnection(m_uIndex);
 	}
 
 	ChangeState(SERVER_CONN_STATE_IDLE);

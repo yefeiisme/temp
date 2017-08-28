@@ -6,8 +6,10 @@ CSimulatorConfig	&g_pSimulatorConfig	= CSimulatorConfig::Singleton();
 CSimulatorConfig::CSimulatorConfig()
 {
 	m_pIniFile			= nullptr;
-	m_nServerPort		= 0;
-	m_nConnectionCount		= 0;
+	m_nAppServerPort	= 0;
+	m_nWebServerPort	= 0;
+
+	m_nConnectionCount	= 0;
 	m_nRecvBuffLen		= 0;
 	m_nSendBuffLen		= 0;
 	m_nMaxRecvPackLen	= 0;
@@ -49,7 +51,9 @@ bool CSimulatorConfig::LoadConfig()
 		return false;
 	}
 
-	m_pIniFile->GetInteger("Server", "ServerPort", 0, &m_nServerPort);
+	m_pIniFile->GetInteger("Server", "AppServerPort", 0, &m_nAppServerPort);
+	m_pIniFile->GetInteger("Server", "WebServerPort", 0, &m_nWebServerPort);
+
 	m_pIniFile->GetInteger("Server", "ConnectionCount", 0, &m_nConnectionCount);
 	m_pIniFile->GetInteger("Server", "RecvBuffLen", 0, &m_nRecvBuffLen);
 	m_pIniFile->GetInteger("Server", "SendBuffLen", 0, &m_nSendBuffLen);

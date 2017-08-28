@@ -13,7 +13,8 @@
   <ItemGroup>
     <ClInclude Include="Config\SimulatorConfig.h" />
     <ClInclude Include="ServerConnection\App_Server_Protocol.pb.h" />
-    <ClInclude Include="ServerConnection\ServerConnection.h" />
+    <ClInclude Include="ServerConnection\APPServerConnection.h" />
+    <ClInclude Include="ServerConnection\WebServerConnection.h" />
     <ClInclude Include="ServerConnection\Web_Server_Protocol.pb.h" />
     <ClInclude Include="SimulatorLogic.h" />
     <ClInclude Include="stdafx.h" />
@@ -21,8 +22,10 @@
   <ItemGroup>
     <ClCompile Include="Config\SimulatorConfig.cpp" />
     <ClCompile Include="ServerConnection\App_Server_Protocol.pb.cc" />
-    <ClCompile Include="ServerConnection\ServerConnection.cpp" />
-    <ClCompile Include="ServerConnection\ServerProtocol.cpp" />
+    <ClCompile Include="ServerConnection\AppServerConnection.cpp" />
+    <ClCompile Include="ServerConnection\AppServerProtocol.cpp" />
+    <ClCompile Include="ServerConnection\WebServerConnection.cpp" />
+    <ClCompile Include="ServerConnection\WebServerProtocol.cpp" />
     <ClCompile Include="ServerConnection\Web_Server_Protocol.pb.cc" />
     <ClCompile Include="SimulatorLogic.cpp" />
   </ItemGroup>

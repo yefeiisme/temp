@@ -10,7 +10,8 @@
 #endif
 using namespace std;
 
-class CServerConnection;
+class CAppServerConnection;
+class CWebServerConnection;
 
 class CSimulatorLogic : public ISimulatorLogic
 {
@@ -34,7 +35,8 @@ public:
 		m_bWaitExit	= false;
 	}
 
-	void						ShutDownConnection(const unsigned int uConnIndex);
+	void						ShutDownAppServerConnection(const unsigned int uConnIndex);
+	void						ShutDownWebServerConnection(const unsigned int uConnIndex);
 private:
 	inline void					yield(const unsigned int uSleepTime)
 	{
@@ -52,14 +54,20 @@ private:
 	void						ProcessConnection();
 	void						ProcessRequest();
 
-	static void					ClientConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
-	void						OnClientConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	static void					AppClientConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	void						OnAppClientConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
+
+	static void					WebServerConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
+	void						OnWebServerConnected(ITcpConnection *pTcpConnection, const unsigned int uIndex);
 private:
-	IClientNetwork				*m_pClientNetwork;
+	IClientNetwork				*m_pAppClientNetwork;
+	IClientNetwork				*m_pWebClientNetwork;
+
 	IRingBuffer					*m_pRBRequest;
 	IRingBuffer					*m_pRBRespond;
 
-	CServerConnection			*m_pServerConnList;
+	CAppServerConnection		*m_pAppServerConnList;
+	CWebServerConnection		*m_pWebServerConnList;
 
 	uint64						m_uFrame;
 
