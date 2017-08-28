@@ -4,10 +4,12 @@
 #include "INetwork.h"
 #include "ISimulatorLogic.h"
 #include "IRingBuffer.h"
+#include "UI2LogicProtocol.h"
 #if defined (WIN32) || defined (WIN64)
 #include <windows.h>
 #else
 #endif
+
 using namespace std;
 
 class CAppServerConnection;
@@ -60,6 +62,12 @@ private:
 	static void					WebServerConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
 	void						OnWebServerConnected(ITcpConnection *pTcpConnection, const unsigned int uIndex);
 private:
+	void						RecvAppLogin(const void *pPack, const unsigned int uPackLen);
+	void						RecvWebLogin(const void *pPack, const unsigned int uPackLen);
+private:
+	typedef void			(CSimulatorLogic::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
+	pfnProtocolFunc				m_ProtocolFunc[u2l_end];
+
 	IClientNetwork				*m_pAppClientNetwork;
 	IClientNetwork				*m_pWebClientNetwork;
 

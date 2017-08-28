@@ -64,6 +64,9 @@
     <ClCompile Include="ServerConnection\WebServerProtocol.cpp">
       <Filter>Server</Filter>
     </ClCompile>
+    <ClCompile Include="UIMsgProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\Share\Header\ClientGSProtocol.proto" />

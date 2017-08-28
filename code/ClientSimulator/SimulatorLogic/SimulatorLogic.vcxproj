@@ -28,6 +28,7 @@
     <ClCompile Include="ServerConnection\WebServerProtocol.cpp" />
     <ClCompile Include="ServerConnection\Web_Server_Protocol.pb.cc" />
     <ClCompile Include="SimulatorLogic.cpp" />
+    <ClCompile Include="UIMsgProcess.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\Share\Header\ClientGSProtocol.proto">

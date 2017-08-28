@@ -21,6 +21,8 @@ time_t			g_nSimulatorSecond	= time(nullptr);
 
 CSimulatorLogic::CSimulatorLogic()
 {
+	memset(m_ProtocolFunc, 0, sizeof(m_ProtocolFunc));
+
 	m_pAppClientNetwork		= nullptr;
 	m_pWebClientNetwork		= nullptr;
 
@@ -259,17 +261,6 @@ void CSimulatorLogic::ProcessConnection()
 
 		m_pWebServerConnList[nIndex].DoAction();
 	}
-}
-
-void CSimulatorLogic::ProcessRequest()
-{
-	const void		*pPack		= nullptr;
-	unsigned int	uPackLen	= 0;
-
-	while (nullptr != (pPack = m_pRBRequest->RcvPack(uPackLen)))
-	{
-		m_pAppServerConnList[0].PutPack(pPack, uPackLen);
-	};
 }
 
 void CSimulatorLogic::AppClientConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
