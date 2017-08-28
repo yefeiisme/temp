@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "ServerConnection.h"
 #include "SimulatorLogic.h"
-#include "../Player/Player.h"
 
 CServerConnection::StateFuncArray CServerConnection::m_pfnStateFunc[SERVER_CONN_STATE_MAX] =
 {
@@ -14,7 +13,6 @@ CServerConnection::StateFuncArray CServerConnection::m_pfnStateFunc[SERVER_CONN_
 CServerConnection::CServerConnection()
 {
 	m_pTcpConnection	= nullptr;
-	m_pPlayer			= nullptr;
 
 	m_uIndex			= 0;
 	m_eState			= SERVER_CONN_STATE_IDLE;
@@ -96,12 +94,10 @@ void CServerConnection::OnRunning()
 
 	while (nullptr != (pPack = GetPack(uPackLen)))
 	{
-		m_pPlayer->ProcessNetPack(pPack, uPackLen);
+		ProcessNetPack(pPack, uPackLen);
 
 		ResetTimeOut();
 	};
-
-	m_pPlayer->DoAction();
 }
 
 void CServerConnection::OnDisconnect()

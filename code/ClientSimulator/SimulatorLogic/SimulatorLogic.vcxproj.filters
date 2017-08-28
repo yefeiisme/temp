@@ -9,9 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Player">
-      <UniqueIdentifier>{c0d02f4c-fc3c-4e6a-af99-2a87d6f8a98d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Server">
       <UniqueIdentifier>{50bae1c6-f6de-4fae-b632-508c7bda6051}</UniqueIdentifier>
     </Filter>
@@ -26,34 +23,46 @@
     <ClInclude Include="SimulatorLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player\Player.h">
-      <Filter>Player</Filter>
-    </ClInclude>
     <ClInclude Include="ServerConnection\ServerConnection.h">
       <Filter>Server</Filter>
     </ClInclude>
     <ClInclude Include="Config\SimulatorConfig.h">
       <Filter>Config</Filter>
     </ClInclude>
+    <ClInclude Include="ServerConnection\App_Server_Protocol.pb.h">
+      <Filter>Server</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerConnection\Web_Server_Protocol.pb.h">
+      <Filter>Server</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SimulatorLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player\ProcessProtocol.cpp">
-      <Filter>Player</Filter>
-    </ClCompile>
     <ClCompile Include="ServerConnection\ServerConnection.cpp">
       <Filter>Server</Filter>
-    </ClCompile>
-    <ClCompile Include="Player\Player.cpp">
-      <Filter>Player</Filter>
     </ClCompile>
     <ClCompile Include="Config\SimulatorConfig.cpp">
       <Filter>Config</Filter>
     </ClCompile>
+    <ClCompile Include="ServerConnection\ServerProtocol.cpp">
+      <Filter>Server</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerConnection\App_Server_Protocol.pb.cc">
+      <Filter>Server</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerConnection\Web_Server_Protocol.pb.cc">
+      <Filter>Server</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\Share\Header\ClientGSProtocol.proto" />
+    <CustomBuild Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
+      <Filter>Server</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">
+      <Filter>Server</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

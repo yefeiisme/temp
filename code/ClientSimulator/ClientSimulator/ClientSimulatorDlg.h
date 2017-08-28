@@ -31,8 +31,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnBnClickedOk();
+	afx_msg void OnBnClickedAppSend();
 	afx_msg void OnBnClickedCancel();
-	CString m_strSendMsg;
+	CString m_strAccountMsg;
 	CString m_strPassword;
+	afx_msg void OnBnClickedWebSend();
 };

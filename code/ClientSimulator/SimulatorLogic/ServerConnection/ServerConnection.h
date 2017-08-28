@@ -3,8 +3,7 @@
 
 #include "INetwork.h"
 #include "ISimulatorLogic.h"
-
-class CPlayer;
+#include "App_Server_Protocol.pb.h"
 
 class CServerConnection
 {
@@ -69,11 +68,17 @@ private:
 	void					OnRunning();
 	void					OnDisconnect();
 private:
+	void					ProcessNetPack(const void *pPack, const unsigned int uPackLen);
+
+	void					RecvLoginResult(const void *pPack, const unsigned int uPackLen);
+private:
 	typedef void (CServerConnection::*StateFuncArray)();
 	static StateFuncArray	m_pfnStateFunc[SERVER_CONN_STATE_MAX];
 
+	typedef void			(CServerConnection::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
+	static pfnProtocolFunc	m_ProtocolFunc[APP_SERVER_NET_Protocol::S2APP::s2app_max];
+
 	ITcpConnection			*m_pTcpConnection;
-	CPlayer					*m_pPlayer;
 
 	unsigned int			m_uIndex;
 	E_SERVER_CONN_STATE		m_eState;

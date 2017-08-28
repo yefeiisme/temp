@@ -12,16 +12,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config\SimulatorConfig.h" />
-    <ClInclude Include="Player\Player.h" />
+    <ClInclude Include="ServerConnection\App_Server_Protocol.pb.h" />
     <ClInclude Include="ServerConnection\ServerConnection.h" />
+    <ClInclude Include="ServerConnection\Web_Server_Protocol.pb.h" />
     <ClInclude Include="SimulatorLogic.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Config\SimulatorConfig.cpp" />
-    <ClCompile Include="Player\ProcessProtocol.cpp" />
-    <ClCompile Include="Player\Player.cpp" />
+    <ClCompile Include="ServerConnection\App_Server_Protocol.pb.cc" />
     <ClCompile Include="ServerConnection\ServerConnection.cpp" />
+    <ClCompile Include="ServerConnection\ServerProtocol.cpp" />
+    <ClCompile Include="ServerConnection\Web_Server_Protocol.pb.cc" />
     <ClCompile Include="SimulatorLogic.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -29,6 +31,18 @@
       <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/ --cpp_out=./Player/ ../../Share/Header/ClientGSProtocol.proto</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ClientGSProtocol.pb.cc;../../share/Header/ClientGSProtocol.pb.h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/Protocol/ --cpp_out=ServerConnection/ ../../Share/Header/Protocol/App_Server_Protocol.proto</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ServerConnection/;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/Protocol/ --cpp_out=ServerConnection/ ../../Share/Header/Protocol/Web_Server_Protocol.proto</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ServerConnection/;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <PropertyGroup Label="Globals">

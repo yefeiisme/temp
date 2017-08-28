@@ -6,9 +6,8 @@
 #include "ClientSimulator.h"
 #include "ClientSimulatorDlg.h"
 #include "afxdialogex.h"
-#include "ClientGSProtocol.h"
 #include "ISimulatorLogic.h"
-#include "ClientGSProtocol.pb.h"
+#include "UI2LogicProtocol.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -52,7 +51,7 @@ END_MESSAGE_MAP()
 
 CClientSimulatorDlg::CClientSimulatorDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CClientSimulatorDlg::IDD, pParent)
-, m_strSendMsg(_T(""))
+, m_strAccountMsg(_T(""))
 , m_strPassword(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -61,8 +60,8 @@ CClientSimulatorDlg::CClientSimulatorDlg(CWnd* pParent /*=NULL*/)
 void CClientSimulatorDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_EDIT_MSG, m_strSendMsg);
-	DDV_MaxChars(pDX, m_strSendMsg, 1024);
+	DDX_Text(pDX, IDC_EDIT_MSG, m_strAccountMsg);
+	DDV_MaxChars(pDX, m_strAccountMsg, 1024);
 	DDX_Text(pDX, IDC_EDIT_MSG2, m_strPassword);
 	DDV_MaxChars(pDX, m_strPassword, 1024);
 }
@@ -71,8 +70,9 @@ BEGIN_MESSAGE_MAP(CClientSimulatorDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-ON_BN_CLICKED(IDOK, &CClientSimulatorDlg::OnBnClickedOk)
+ON_BN_CLICKED(IDOK, &CClientSimulatorDlg::OnBnClickedAppSend)
 ON_BN_CLICKED(IDCANCEL, &CClientSimulatorDlg::OnBnClickedCancel)
+ON_BN_CLICKED(IDOK_WEB_SEND, &CClientSimulatorDlg::OnBnClickedWebSend)
 END_MESSAGE_MAP()
 
 
@@ -176,18 +176,34 @@ BOOL CClientSimulatorDlg::PreTranslateMessage(MSG* pMsg)
 }
 
 
-void CClientSimulatorDlg::OnBnClickedOk()
+void CClientSimulatorDlg::OnBnClickedAppSend()
 {
 	UpdateData(TRUE);
 
-	WS_CS_NET_PACK::WS2CS_LOGIN	tagSendMsg;
-	BYTE	strBuffer[0xffff]	= {0};
-	strBuffer[0]	= c2s_broad_cast_msg;
-	tagSendMsg.set_account(m_strSendMsg.GetBuffer(m_strSendMsg.GetLength()));
-	tagSendMsg.set_password(m_strPassword.GetBuffer(m_strPassword.GetLength()));
-	tagSendMsg.SerializeToArray(strBuffer + sizeof(BYTE), tagSendMsg.ByteSize());
+	U2L_APP_LOGIN	tagAppLogin;
+	memset(&tagAppLogin, 0, sizeof(tagAppLogin));
+	tagAppLogin.byProtocol	= u2l_app_login;
+	strncpy(tagAppLogin.strAccount, m_strAccountMsg.GetBuffer(m_strAccountMsg.GetLength()), sizeof(tagAppLogin.strAccount));
+	tagAppLogin.strAccount[sizeof(tagAppLogin.strAccount)-1]	= '\0';
+	strncpy(tagAppLogin.strPassword, m_strPassword.GetBuffer(m_strPassword.GetLength()), sizeof(tagAppLogin.strPassword));
+	tagAppLogin.strPassword[sizeof(tagAppLogin.strPassword) - 1]	= '\0';
 
-	g_ISimulatorLogic.SendRequest(strBuffer, sizeof(BYTE)+tagSendMsg.ByteSize());
+	g_ISimulatorLogic.SendRequest(&tagAppLogin, sizeof(tagAppLogin));
+}
+
+void CClientSimulatorDlg::OnBnClickedWebSend()
+{
+	UpdateData(TRUE);
+
+	U2L_APP_LOGIN	tagWebLogin;
+	memset(&tagWebLogin, 0, sizeof(tagWebLogin));
+	tagWebLogin.byProtocol	= u2l_web_login;
+	strncpy(tagWebLogin.strAccount, m_strAccountMsg.GetBuffer(m_strAccountMsg.GetLength()), sizeof(tagWebLogin.strAccount));
+	tagWebLogin.strAccount[sizeof(tagWebLogin.strAccount) - 1]	= '\0';
+	strncpy(tagWebLogin.strPassword, m_strPassword.GetBuffer(m_strPassword.GetLength()), sizeof(tagWebLogin.strPassword));
+	tagWebLogin.strPassword[sizeof(tagWebLogin.strPassword) - 1]	= '\0';
+
+	g_ISimulatorLogic.SendRequest(&tagWebLogin, sizeof(tagWebLogin));
 }
 
 
@@ -197,3 +213,4 @@ void CClientSimulatorDlg::OnBnClickedCancel()
 
 	CDialogEx::OnCancel();
 }
+
