@@ -195,7 +195,7 @@ void CClientSimulatorDlg::OnBnClickedWebSend()
 {
 	UpdateData(TRUE);
 
-	U2L_APP_LOGIN	tagWebLogin;
+	U2L_WEB_LOGIN	tagWebLogin;
 	memset(&tagWebLogin, 0, sizeof(tagWebLogin));
 	tagWebLogin.byProtocol	= u2l_web_login;
 	strncpy(tagWebLogin.strAccount, m_strAccountMsg.GetBuffer(m_strAccountMsg.GetLength()), sizeof(tagWebLogin.strAccount));

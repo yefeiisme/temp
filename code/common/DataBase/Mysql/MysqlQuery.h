@@ -34,10 +34,6 @@ private:
 	SResultHead				*m_pResultHead;
 	SMysqlDataHead			*m_pDataHead;
 
-	// Sql Result
-	UINT					m_uRowCount;
-	UINT					m_uColCount;
-
 	// RingBuffer Setting
 	UINT					m_uSqlBufferLen;
 	UINT					m_uMaxSqlLen;

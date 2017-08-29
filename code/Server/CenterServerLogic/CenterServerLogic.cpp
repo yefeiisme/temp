@@ -60,21 +60,21 @@ bool CCenterServerLogic::Initialize()
 {
 	if (!g_pCenterServerLogicConfig.Initialize())
 	{
-		g_pFileLog->WriteLog("[%s][%d] CCenterServerLogic::Initialize Failed\n", __FUNCTION__, __LINE__);
+		g_pFileLog->WriteLog("[%s][%d] CCenterServerLogic::Initialize Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 
 	m_pSensorDBConn		= new CSensorDBConn;
 	if (nullptr == m_pSensorDBConn)
 	{
-		g_pFileLog->WriteLog("[%s][%d] Create SensorDBConn Failed\n", __FUNCTION__, __LINE__);
+		g_pFileLog->WriteLog("[%s][%d] Create SensorDBConn Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 
 	m_pAppClientList	= new CAppClient[g_pCenterServerLogicConfig.m_nAppClientCount];
 	if (nullptr == m_pAppClientList)
 	{
-		g_pFileLog->WriteLog("[%s][%d] Create CAppClient[%d] Failed\n", __FUNCTION__, __LINE__, g_pCenterServerLogicConfig.m_nAppClientCount);
+		g_pFileLog->WriteLog("[%s][%d] Create CAppClient[%d] Failed\n", __FILE__, __LINE__, g_pCenterServerLogicConfig.m_nAppClientCount);
 		return false;
 	}
 
@@ -87,7 +87,7 @@ bool CCenterServerLogic::Initialize()
 	m_pWebClientList	= new CWebClient[g_pCenterServerLogicConfig.m_nWebClientCount];
 	if (nullptr == m_pWebClientList)
 	{
-		g_pFileLog->WriteLog("[%s][%d] Create CWebClient[%d] Failed\n", __FUNCTION__, __LINE__, g_pCenterServerLogicConfig.m_nWebClientCount);
+		g_pFileLog->WriteLog("[%s][%d] Create CWebClient[%d] Failed\n", __FILE__, __LINE__, g_pCenterServerLogicConfig.m_nWebClientCount);
 		return false;
 	}
 
@@ -100,7 +100,7 @@ bool CCenterServerLogic::Initialize()
 	m_pDataClientList = new CDataClient[g_pCenterServerLogicConfig.m_nDataClientCount];
 	if (nullptr == m_pDataClientList)
 	{
-		g_pFileLog->WriteLog("[%s][%d] Create CDataClient[%d] Failed\n", __FUNCTION__, __LINE__, g_pCenterServerLogicConfig.m_nDataClientCount);
+		g_pFileLog->WriteLog("[%s][%d] Create CDataClient[%d] Failed\n", __FILE__, __LINE__, g_pCenterServerLogicConfig.m_nDataClientCount);
 		return false;
 	}
 

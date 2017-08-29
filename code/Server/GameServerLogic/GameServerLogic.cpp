@@ -35,7 +35,7 @@ bool CGameServerLogic::Initialize()
 {
 	if (!g_pGameServerLogicConfig.Initialize())
 	{
-		g_pFileLog->WriteLog("[%s][%d] Failed\n", __FUNCTION__, __LINE__);
+		g_pFileLog->WriteLog("[%s][%d] Failed\n", __FILE__, __LINE__);
 		return false;
 	}
 

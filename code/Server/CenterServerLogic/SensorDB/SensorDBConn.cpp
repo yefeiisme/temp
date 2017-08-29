@@ -73,7 +73,7 @@ void CSensorDBConn::GlobalQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCal
 
 void CSensorDBConn::AppQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	CAppClient	*pClient	= g_pCenterServerLogic.GetAppClient(pCallbackData->uClientIndex, pCallbackData->uClientIndex);
+	CAppClient	*pClient	= g_pCenterServerLogic.GetAppClient(pCallbackData->uClientIndex, pCallbackData->uClientID);
 	if (nullptr == pClient)
 		return;
 
@@ -82,7 +82,7 @@ void CSensorDBConn::AppQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallba
 
 void CSensorDBConn::WebQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	CWebClient	*pClient	= g_pCenterServerLogic.GetWebClient(pCallbackData->uClientIndex, pCallbackData->uClientIndex);
+	CWebClient	*pClient	= g_pCenterServerLogic.GetWebClient(pCallbackData->uClientIndex, pCallbackData->uClientID);
 	if (nullptr == pClient)
 		return;
 
@@ -91,7 +91,7 @@ void CSensorDBConn::WebQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallba
 
 void CSensorDBConn::DataQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	CDataClient	*pClient	= g_pCenterServerLogic.GetDataClient(pCallbackData->uClientIndex, pCallbackData->uClientIndex);
+	CDataClient	*pClient	= g_pCenterServerLogic.GetDataClient(pCallbackData->uClientIndex, pCallbackData->uClientID);
 	if (nullptr == pClient)
 		return;
 

@@ -89,12 +89,13 @@ CREATE TABLE `slope` (
 
 CREATE TABLE `user` (
   `ID` int(4) unsigned NOT NULL AUTO_INCREMENT,
-  `Name` varchar(64) DEFAULT NULL,
+  `Account` varchar(64) NOT NULL,
+  `Password` varchar(64) NOT NULL,
   `Addr` varchar(40) DEFAULT NULL,
-  `TelNum` int(11) DEFAULT NULL,
+  `TelNum` varchar(32) DEFAULT NULL,
   `GroupID` int(2) unsigned NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `user_group` table : 
@@ -106,6 +107,24 @@ CREATE TABLE `user_group` (
   `ServerID` smallint(6) unsigned DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Definition for the `AccountLogin` procedure : 
+#
+
+DROP PROCEDURE IF EXISTS `AccountLogin`;
+
+CREATE PROCEDURE `AccountLogin`(IN paramAccount VARCHAR(64), IN paramPasword VARCHAR(64))
+BEGIN
+	Set @result	= 0;
+	select ID from user where Account=paramAccount and Password=md5(paramPasword);
+    if found_rows() > 0 then
+    Set @result	= 0;
+    ELSE
+    Set @result	= 1;
+    end if;
+    SELECT @result;
+END;
 
 
 

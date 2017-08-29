@@ -133,7 +133,7 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 		return false;
 	}
 
-	if (!m_pProcSqlObj->Initialize(m_uSqlBufferLen, *m_pDBHandle))
+	if (!m_pProcSqlObj->Initialize(m_uSqlBufferLen))
 	{
 		g_pFileLog->WriteLog("[%s][%d] CProcSqlObj Initialize Failed\n", __FILE__, __LINE__);
 		return false;
@@ -165,7 +165,8 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 		return false;
 	}
 
-	m_pResultSetHead	= (SResultSetHead *)m_pResultBuffer;
+	m_pResultSetHead	= (SResultSetHead*)m_pResultBuffer;
+	m_pCurPos			= m_pResultBuffer;
 
 	m_pDBHandle = mysql_init(nullptr);
 	if (nullptr == m_pDBHandle)
@@ -196,6 +197,9 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 
 		return false;
 	}
+
+	m_pProcSqlObj->SetDBHandle(m_pDBHandle);
+
 	g_pFileLog->WriteLog("Connect To DB[%s] Success\n", m_strDBIP.c_str());
 
 	//if (0 != mysql_autocommit(m_pDBHandle, 0))
@@ -460,6 +464,8 @@ void CMysqlQuery::DBActive()
 		return;
 	}
 
+	m_pProcSqlObj->SetDBHandle(m_pDBHandle);
+
 	//if (0 != mysql_autocommit(m_pDBHandle, 0))
 	//{
 	//	g_pFileLog->WriteLog("%s:%d, mysql_autocommit Close Failed!\n", __FILE__, __LINE__);
@@ -523,7 +529,7 @@ void CMysqlQuery::ClearResult()
 	{
 		mysql_free_result(m_pQueryRes);
 
-		while (!mysql_next_result(m_pDBHandle))
+		while (0 == mysql_next_result(m_pDBHandle))
 		{
 			mysql_free_result(mysql_store_result(m_pDBHandle));
 		}
@@ -553,9 +559,13 @@ bool CMysqlQuery::HandleResult(const void *pCallbackData, const WORD wDataLen)
 		return false;
 	}
 
-	while (!mysql_next_result(m_pDBHandle))
+	++m_pResultSetHead->byResultCount;
+
+	mysql_free_result(m_pQueryRes);
+
+	while (0 == mysql_next_result(m_pDBHandle))
 	{
-		MYSQL_RES	*m_pQueryRes = mysql_store_result(m_pDBHandle);
+		m_pQueryRes = mysql_store_result(m_pDBHandle);
 		if (nullptr == m_pQueryRes)
 			continue;
 
@@ -571,10 +581,12 @@ bool CMysqlQuery::HandleResult(const void *pCallbackData, const WORD wDataLen)
 			return false;
 		}
 
+		mysql_free_result(m_pQueryRes);
+
 		++m_pResultSetHead->byResultCount;
 	}
 
-	return m_pRBRespond->SndPack(m_pResultBuffer, m_pResultBuffer - m_pCurPos);
+	return m_pRBRespond->SndPack(m_pResultBuffer, m_pCurPos-m_pResultBuffer);
 }
 
 bool CMysqlQuery::AddResult()
@@ -623,7 +635,7 @@ bool CMysqlQuery::AddResult()
 			return false;
 		}
 
-		for (auto uCol = 0; uCol < m_uColCount; ++uCol)
+		for (auto uCol = 0; uCol < m_pResultHead->uColCount; ++uCol)
 		{
 			if (!AddResultData(uRowIndex, uCol, m_pRow[uCol], pRowLength[uCol], uOffset))
 			{

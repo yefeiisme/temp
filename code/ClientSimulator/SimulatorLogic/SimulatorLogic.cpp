@@ -23,6 +23,9 @@ CSimulatorLogic::CSimulatorLogic()
 {
 	memset(m_ProtocolFunc, 0, sizeof(m_ProtocolFunc));
 
+	m_ProtocolFunc[u2l_app_login]	= &CSimulatorLogic::RecvAppLogin;
+	m_ProtocolFunc[u2l_web_login]	= &CSimulatorLogic::RecvWebLogin;
+
 	m_pAppClientNetwork		= nullptr;
 	m_pWebClientNetwork		= nullptr;
 

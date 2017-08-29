@@ -27,10 +27,8 @@ CProcObj::~CProcObj()
 	SAFE_DELETE(m_pstrBuffer);
 }
 
-bool CProcObj::Initialize(const UINT uQueryBufferLen, MYSQL &pDBHandle)
+bool CProcObj::Initialize(const UINT uQueryBufferLen)
 {
-	m_pDBHandle		= &pDBHandle;
-
 	m_uMaxSQLLen	= uQueryBufferLen;
 	if (0 == m_uMaxSQLLen)
 	{
@@ -68,9 +66,6 @@ bool CProcObj::PrepareProc(const char *pstrProcName)
 
 bool CProcObj::AddParam(const int nParam)
 {
-	if (nullptr == m_pstrSQL)
-		return false;
-
 	if (m_uMaxSQLLen == m_uSQLLen)
 		return false;
 
@@ -90,9 +85,6 @@ bool CProcObj::AddParam(const int nParam)
 
 bool CProcObj::AddParam(const unsigned int uParam)
 {
-	if (nullptr == m_pstrSQL)
-		return false;
-
 	if (m_uMaxSQLLen == m_uSQLLen)
 		return false;
 
@@ -112,9 +104,6 @@ bool CProcObj::AddParam(const unsigned int uParam)
 
 bool CProcObj::AddParam(const short sParam)
 {
-	if (nullptr == m_pstrSQL)
-		return false;
-
 	if (m_uMaxSQLLen == m_uSQLLen)
 		return false;
 
@@ -134,9 +123,6 @@ bool CProcObj::AddParam(const short sParam)
 
 bool CProcObj::AddParam(const unsigned short usParam)
 {
-	if (nullptr == m_pstrSQL)
-		return false;
-
 	if (m_uMaxSQLLen == m_uSQLLen)
 		return false;
 
@@ -156,9 +142,6 @@ bool CProcObj::AddParam(const unsigned short usParam)
 
 bool CProcObj::AddParam(const unsigned char byParam)
 {
-	if (nullptr == m_pstrSQL)
-		return false;
-
 	if (m_uMaxSQLLen == m_uSQLLen)
 		return false;
 
@@ -178,12 +161,7 @@ bool CProcObj::AddParam(const unsigned char byParam)
 
 bool CProcObj::AddParam(const char *pstrParam)
 {
-	if (nullptr == m_pstrSQL)
-		return false;
-
-	size_t	nParamLen	= strlen(pstrParam);
-
-	if (m_uMaxSQLLen - m_uSQLLen < nParamLen * 2 + 3)
+	if (nullptr == pstrParam)
 		return false;
 
 	if (m_bAddParam)
@@ -194,6 +172,11 @@ bool CProcObj::AddParam(const char *pstrParam)
 	{
 		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "'");
 	}
+
+	size_t	nParamLen	= strlen(pstrParam);
+
+	if (m_uMaxSQLLen - m_uSQLLen < nParamLen * 2 + 1)
+		return false;
 
 	m_uSQLLen += mysql_real_escape_string(m_pDBHandle, m_pstrSQL + m_uSQLLen, pstrParam, nParamLen);
 
@@ -206,9 +189,6 @@ bool CProcObj::AddParam(const char *pstrParam)
 
 bool CProcObj::AddParam(const void *pParam)
 {
-	if (nullptr == m_pstrSQL)
-		return false;
-
 	return true;
 }
 
@@ -222,7 +202,7 @@ bool CProcObj::EndPrepareProc(void *pCallbackData, const WORD wDataLen)
 
 	*m_pCallbackDataLen	= wDataLen;
 
-	m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ");SELECT @result");
+	m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ");");
 
 	memcpy(m_pstrCallbackData, pCallbackData, wDataLen);
 

@@ -36,7 +36,7 @@ void CDataClient::ProcessNetPack()
 
 		if (byProtocol >= 256)
 		{
-			g_pFileLog->WriteLog("[%s][%d] App Client[%u] Invalid Protocol[%hhu]\n", __FUNCTION__, __LINE__, m_uUniqueID, byProtocol);
+			g_pFileLog->WriteLog("[%s][%d] App Client[%u] Invalid Protocol[%hhu]\n", __FILE__, __LINE__, m_uUniqueID, byProtocol);
 			return;
 		}
 

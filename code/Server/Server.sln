@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CenterServer", "CenterServe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CenterServerLogic", "CenterServerLogic\CenterServerLogic.vcxproj", "{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataBase", "..\common\DataBase\DataBase.vcxproj", "{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -39,6 +41,10 @@ Global
 		{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}.Debug|Win32.Build.0 = Debug|Win32
 		{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}.Release|Win32.ActiveCfg = Release|Win32
 		{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}.Release|Win32.Build.0 = Release|Win32
+		{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}.Debug|Win32.Build.0 = Debug|Win32
+		{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}.Release|Win32.ActiveCfg = Release|Win32
+		{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

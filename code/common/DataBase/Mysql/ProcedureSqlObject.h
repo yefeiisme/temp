@@ -9,7 +9,7 @@ public:
 	CProcObj();
 	~CProcObj();
 
-	bool					Initialize(const UINT uQueryBufferLen, MYSQL &pDBHandle);
+	bool					Initialize(const UINT uQueryBufferLen);
 
 	bool					PrepareProc(const char *pstrProcName);
 	bool					AddParam(const int nParam);
@@ -28,6 +28,11 @@ public:
 		uSQLLen = m_wMaxCallbackDataLen + m_uSQLLen;
 
 		return m_pstrBuffer;
+	}
+
+	inline void				SetDBHandle(MYSQL *pDBHandle)
+	{
+		m_pDBHandle	= pDBHandle;
 	}
 private:
 	MYSQL					*m_pDBHandle;
