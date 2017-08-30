@@ -27,22 +27,22 @@ USE `SensorDB`;
 CREATE TABLE `sensor` (
   `ID` int(4) unsigned NOT NULL AUTO_INCREMENT,
   `Type` tinyint(4) unsigned NOT NULL,
-  `Value1` double NOT NULL DEFAULT '0.000',
-  `Value2` double NOT NULL DEFAULT '0.000',
-  `Value3` double NOT NULL DEFAULT '0.000',
-  `AverageValue1` double NOT NULL DEFAULT '0.000',
-  `AverageValue2` double NOT NULL DEFAULT '0.000',
-  `AverageValue3` double NOT NULL DEFAULT '0.000',
-  `OffsetValue1` double NOT NULL DEFAULT '0.000',
-  `OffsetValue2` double NOT NULL DEFAULT '0.000',
-  `OffsetValue3` double NOT NULL DEFAULT '0.000',
+  `Value1` double NOT NULL DEFAULT '0',
+  `Value2` double NOT NULL DEFAULT '0',
+  `Value3` double NOT NULL DEFAULT '0',
+  `AverageValue1` double NOT NULL DEFAULT '0',
+  `AverageValue2` double NOT NULL DEFAULT '0',
+  `AverageValue3` double NOT NULL DEFAULT '0',
+  `OffsetValue1` double NOT NULL DEFAULT '0',
+  `OffsetValue2` double NOT NULL DEFAULT '0',
+  `OffsetValue3` double NOT NULL DEFAULT '0',
   `AlarmState` int(11) NOT NULL DEFAULT '0',
   `SlopeID` int(2) unsigned NOT NULL,
   `DataTime` datetime NOT NULL,
   `Longitude` double NOT NULL,
   `Latitude` double NOT NULL,
   KEY `ID` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `sensor_type` table : 
@@ -108,22 +108,33 @@ CREATE TABLE `user_group` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-#
-# Definition for the `AccountLogin` procedure : 
-#
 
 DROP PROCEDURE IF EXISTS `AccountLogin`;
 
 CREATE PROCEDURE `AccountLogin`(IN paramAccount VARCHAR(64), IN paramPasword VARCHAR(64))
 BEGIN
-	Set @result	= 0;
 	select ID from user where Account=paramAccount and Password=md5(paramPasword);
-    if found_rows() > 0 then
-    Set @result	= 0;
-    ELSE
-    Set @result	= 1;
-    end if;
-    SELECT @result;
+END;
+
+DROP PROCEDURE IF EXISTS `LoadSensorHistory`;
+
+CREATE PROCEDURE `LoadSensorHistory`(IN paramAccount INTEGER UNSIGNED, IN paramSensorID INTEGER UNSIGNED, IN paramBeginTime INTEGER, IN paramEndTime INTEGER)
+BEGIN
+	select ID from sensor where SensorID=paramSensorID and DataTime>FROM_UNIXTIME(paramBeginTime) and DataTime<FROM_UNIXTIME(paramEndTime);
+END;
+
+DROP PROCEDURE IF EXISTS `LoadSensorList`;
+
+CREATE PROCEDURE `LoadSensorList`(IN paramAccount INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED)
+BEGIN
+	select ID from sensor where SlopeID=paramSlopeID;
+END;
+
+DROP PROCEDURE IF EXISTS `LoadSlopeList`;
+
+CREATE PROCEDURE `LoadSlopeList`(IN paramAccount INTEGER UNSIGNED, IN paramServerID INTEGER UNSIGNED)
+BEGIN
+	select ID from slope where Account=paramAccount;
 END;
 
 
