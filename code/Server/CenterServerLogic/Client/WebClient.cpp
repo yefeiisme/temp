@@ -112,7 +112,7 @@ void CWebClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 	if (nullptr == pMysqlQuery)
 		return;
 
-	pMysqlQuery->PrepareProc("AccountLogin");
+	pMysqlQuery->PrepareProc("WebLogin");
 	pMysqlQuery->AddParam(tagLoginInfo.account().c_str());
 	pMysqlQuery->AddParam(tagLoginInfo.password().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
@@ -231,16 +231,34 @@ void CWebClient::RecvRequestAllList(const void *pPack, const unsigned int uPackL
 
 void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	/*
-	WEB_SERVER_NET_Protocol::S2Web_Login_Result	tagLoginResult;
-	tagLoginResult.set_result(pRespond.nRetCode);
-
 	UINT	uCol		= 0;
 	UINT	uServerID	= 0;
 	WORD	wServerPort	= 0;
 	char	strServerIP[16];
 
-	for (auto uRow = 0; uRow < pRespond.uRowCount; ++uRow)
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (2 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+	IMysqlResult	*pResult2 = pResultSet->GetMysqlResult(1);
+
+	if (nullptr == pResult1 || nullptr == pResult2)
+	{
+		return;
+	}
+
+	if (1 != pResult1->GetRowCount())
+	{
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::S2Web_Login_Result	tagLoginResult;
+
+	for (auto uRow = 0; uRow < pResult2->GetRowCount(); ++uRow)
 	{
 		WEB_SERVER_NET_Protocol::S2Web_Login_Result::ServerData	*pServerData = tagLoginResult.add_server_list();
 		if (nullptr == pServerData)
@@ -248,9 +266,9 @@ void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest
 
 		uCol	= 0;
 
-		pResult->GetData(uRow, uCol++, uServerID);
-		pResult->GetData(uRow, uCol++, strServerIP, sizeof(strServerIP));
-		pResult->GetData(uRow, uCol++, wServerPort);
+		pResult2->GetData(uRow, uCol++, uServerID);
+		pResult2->GetData(uRow, uCol++, strServerIP, sizeof(strServerIP));
+		pResult2->GetData(uRow, uCol++, wServerPort);
 
 		pServerData->set_id(uServerID);
 		pServerData->set_ip(strServerIP);
@@ -258,7 +276,6 @@ void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest
 	}
 
 	SendWebLoginResult(tagLoginResult);
-	*/
 }
 
 void CWebClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
@@ -391,9 +408,8 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 
 	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
 	IMysqlResult	*pResult2 = pResultSet->GetMysqlResult(1);
-	IMysqlResult	*pResult3 = pResultSet->GetMysqlResult(2);
 
-	if (nullptr == pResult1 || nullptr == pResult2 || nullptr == pResult3)
+	if (nullptr == pResult1 || nullptr == pResult2)
 	{
 		return;
 	}
@@ -454,16 +470,48 @@ void CWebClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pC
 
 void CWebClient::SendWebLoginResult(WEB_SERVER_NET_Protocol::S2Web_Login_Result &tagLoginResult)
 {
+	char	strBuffer[0xffff]	= {0};
+	if (sizeof(BYTE)+tagLoginResult.ByteSize() > sizeof(strBuffer))
+		return;
+
+	*(BYTE*)strBuffer	= WEB_SERVER_NET_Protocol::S2WEB::s2web_login_result;
+	tagLoginResult.SerializeToArray(strBuffer+sizeof(BYTE), tagLoginResult.ByteSize());
+
+	m_pClientConn->PutPack(strBuffer, sizeof(BYTE)+tagLoginResult.ByteSize());
 }
 
 void CWebClient::SendWebSlopeList(WEB_SERVER_NET_Protocol::S2Web_Slope_List &tagSlopeList)
 {
+	char	strBuffer[0xffff]	={ 0 };
+	if (sizeof(BYTE)+tagSlopeList.ByteSize() > sizeof(strBuffer))
+		return;
+
+	*(BYTE*)strBuffer	= WEB_SERVER_NET_Protocol::S2WEB::s2web_slope_list;
+	tagSlopeList.SerializeToArray(strBuffer + sizeof(BYTE), tagSlopeList.ByteSize());
+
+	m_pClientConn->PutPack(strBuffer, sizeof(BYTE)+tagSlopeList.ByteSize());
 }
 
 void CWebClient::SendWebSensorList(WEB_SERVER_NET_Protocol::S2Web_Sensor_List &tagSensorList)
 {
+	char	strBuffer[0xffff]	={ 0 };
+	if (sizeof(BYTE)+tagSensorList.ByteSize() > sizeof(strBuffer))
+		return;
+
+	*(BYTE*)strBuffer	= WEB_SERVER_NET_Protocol::S2WEB::s2web_sensor_list;
+	tagSensorList.SerializeToArray(strBuffer + sizeof(BYTE), tagSensorList.ByteSize());
+
+	m_pClientConn->PutPack(strBuffer, sizeof(BYTE)+tagSensorList.ByteSize());
 }
 
 void CWebClient::SendWebSensorHistory(WEB_SERVER_NET_Protocol::S2Web_Sensor_History &tagSensorHistory)
 {
+	char	strBuffer[0xffff]	={ 0 };
+	if (sizeof(BYTE)+tagSensorHistory.ByteSize() > sizeof(strBuffer))
+		return;
+
+	*(BYTE*)strBuffer	= WEB_SERVER_NET_Protocol::S2WEB::s2web_sensor_history;
+	tagSensorHistory.SerializeToArray(strBuffer + sizeof(BYTE), tagSensorHistory.ByteSize());
+
+	m_pClientConn->PutPack(strBuffer, sizeof(BYTE)+tagSensorHistory.ByteSize());
 }

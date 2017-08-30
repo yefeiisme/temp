@@ -31,6 +31,11 @@ private:
 	void					DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
+	void					SendAppLoginResult(APP_SERVER_NET_Protocol::S2App_Login_Result &tagLoginResult);
+	void					SendAppSlopeList(APP_SERVER_NET_Protocol::S2App_Slope_List &tagSlopeList);
+	void					SendAppSensorList(APP_SERVER_NET_Protocol::S2App_Sensor_List &tagSensorList);
+	void					SendAppSensorHistory(APP_SERVER_NET_Protocol::S2App_Sensor_History &tagSensorHistory);
+private:
 	typedef void			(CAppClient::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
 	static pfnProtocolFunc	m_ProtocolFunc[APP_SERVER_NET_Protocol::APP2S::app2s_max];
 
