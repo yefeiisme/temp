@@ -166,10 +166,21 @@ void CAppClient::RecvRequestSensorList(const void *pPack, const unsigned int uPa
 	if (nullptr == pMysqlQuery)
 		return;
 
-	pMysqlQuery->PrepareProc("LoadSensorList");
-	pMysqlQuery->AddParam(m_uAccountID);
-	pMysqlQuery->AddParam(tagRequestSensorList.slope_id());
-	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+	if (tagRequestSensorList.sensor_type())
+	{
+		pMysqlQuery->PrepareProc("LoadSensorListByType");
+		pMysqlQuery->AddParam(m_uAccountID);
+		pMysqlQuery->AddParam(tagRequestSensorList.slope_id());
+		pMysqlQuery->AddParam(tagRequestSensorList.sensor_type());
+		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+	}
+	else
+	{
+		pMysqlQuery->PrepareProc("LoadSensorList");
+		pMysqlQuery->AddParam(m_uAccountID);
+		pMysqlQuery->AddParam(tagRequestSensorList.slope_id());
+		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+	}
 
 	pMysqlQuery->CallProc();
 }
@@ -372,6 +383,84 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		return;
 	}
 
+	APP_SERVER_NET_Protocol::S2App_Sensor_History	tagSensorHistory;
+
+	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
+	{
+		APP_SERVER_NET_Protocol::S2App_Sensor_History::SensorData	*pSensor = tagSensorHistory.add_history_list();
+		if (nullptr == pSensor)
+			continue;
+
+		uCol	= 0;
+
+		//pResult1->GetData(uRow, uCol++, uSensorID);
+		//pResult1->GetData(uRow, uCol++, bySensorType);
+		//pResult1->GetData(uRow, uCol++, dCurValue1);
+		//pResult1->GetData(uRow, uCol++, dCurValue2);
+		//pResult1->GetData(uRow, uCol++, dCurValue3);
+		//pResult1->GetData(uRow, uCol++, dAvgValue1);
+		//pResult1->GetData(uRow, uCol++, dAvgValue2);
+		//pResult1->GetData(uRow, uCol++, dAvgValue3);
+		//pResult1->GetData(uRow, uCol++, byState);
+		//pResult1->GetData(uRow, uCol++, wSlopeID);
+		//pResult1->GetData(uRow, uCol++, dLongitude);
+		//pResult1->GetData(uRow, uCol++, dLatitude);
+
+		//pSensor->set_id(uSensorID);
+		//pSensor->set_type(bySensorType);
+		//pSensor->set_cur_value1(dCurValue1);
+		//pSensor->set_cur_value2(dCurValue2);
+		//pSensor->set_cur_value3(dCurValue3);
+		//pSensor->set_avg_value1(dAvgValue1);
+		//pSensor->set_avg_value2(dAvgValue2);
+		//pSensor->set_avg_value3(dAvgValue3);
+		//pSensor->set_state(byState);
+		//pSensor->set_slope_id(wSlopeID);
+		//pSensor->set_longitude(dLongitude);
+		//pSensor->set_latitude(dLatitude);
+	}
+
+	SendAppSensorHistory(tagSensorHistory);
+}
+
+void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	UINT	uCol				= 0;
+	UINT	uSensorID			= 0;
+	BYTE	bySensorType		= 0;
+	double	dCurValue1			= 0.0f;
+	double	dCurValue2			= 0.0f;
+	double	dCurValue3			= 0.0f;
+	double	dAvgValue1			= 0.0f;
+	double	dAvgValue2			= 0.0f;
+	double	dAvgValue3			= 0.0f;
+	double	dOffsetValue1		= 0.0f;
+	double	dOffsetValue2		= 0.0f;
+	double	dOffsetValue3		= 0.0f;
+	BYTE	byState				= 0;
+	WORD	wSlopeID			= 0;
+	double	dLongitude			= 0.0f;
+	double	dLatitude			= 0.0f;
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (1 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+	{
+		return;
+	}
+
+	if (1 != pResult1->GetRowCount())
+	{
+		return;
+	}
+
 	APP_SERVER_NET_Protocol::S2App_Sensor_List	tagSensorList;
 
 	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
@@ -410,10 +499,6 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 	}
 
 	SendAppSensorList(tagSensorList);
-}
-
-void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
-{
 }
 
 void CAppClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
