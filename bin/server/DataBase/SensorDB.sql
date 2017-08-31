@@ -65,6 +65,7 @@ CREATE TABLE `server` (
   `ID` int(2) unsigned NOT NULL AUTO_INCREMENT,
   `IP` varchar(16) CHARACTER SET latin1 NOT NULL,
   `Port` int(2) unsigned DEFAULT NULL,
+  `ClientType` tinyint(4) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -109,32 +110,87 @@ CREATE TABLE `user_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-DROP PROCEDURE IF EXISTS `AccountLogin`;
+DROP PROCEDURE IF EXISTS `AppLogin`;
 
-CREATE PROCEDURE `AccountLogin`(IN paramAccount VARCHAR(64), IN paramPasword VARCHAR(64))
+CREATE PROCEDURE `AppLogin`(IN paramAccount VARCHAR(64), IN paramPasword VARCHAR(64))
 BEGIN
 	select ID from user where Account=paramAccount and Password=md5(paramPasword);
+	select ID,IP,Port from server where ClientType=1;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorHistory`;
 
 CREATE PROCEDURE `LoadSensorHistory`(IN paramAccount INTEGER UNSIGNED, IN paramSensorID INTEGER UNSIGNED, IN paramBeginTime INTEGER, IN paramEndTime INTEGER)
 BEGIN
-	select ID from sensor where SensorID=paramSensorID and DataTime>FROM_UNIXTIME(paramBeginTime) and DataTime<FROM_UNIXTIME(paramEndTime);
+	DECLARE _AvgValue1 double default 0;
+	DECLARE _AvgValue2 double default 0;
+	DECLARE _AvgValue3 double default 0;
+
+	select AVG(Value1),AVG(Value2),(Value3) into _AvgValue1,_AvgValue2,_AvgValue3 from sensor
+	where SensorID=paramSensorID and DataTime>FROM_UNIXTIME(paramBeginTime) and DataTime<FROM_UNIXTIME(paramEndTime);
+
+	select ID,Longitude,Latitude,paramBeginTime,paramEndTime,_AvgValue1,_AvgValue2,_AvgValue3,'' from sensor
+	where SensorID=paramSensorID and DataTime>FROM_UNIXTIME(paramBeginTime) and DataTime<FROM_UNIXTIME(paramEndTime);
+
+	select AlarmState,Value1,Value2,Value3,Value1-_AvgValue1,Value2-_AvgValue2,Value3-_AvgValue3,DataTime from sensor
+	where SensorID=paramSensorID and DataTime>FROM_UNIXTIME(paramBeginTime) and DataTime<FROM_UNIXTIME(paramEndTime);
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorList`;
 
 CREATE PROCEDURE `LoadSensorList`(IN paramAccount INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED)
 BEGIN
-	select ID from sensor where SlopeID=paramSlopeID;
+	select 
+    ID,
+    Type,
+    Value1,
+    Value2,
+    Value3,
+    AverageValue1,
+    AverageValue2,
+    AverageValue3,
+    AlarmState,
+    SlopeID,
+    Longitude,
+    Latitude
+    
+    from sensor where SlopeID=paramSlopeID;
+END;
+
+DROP PROCEDURE IF EXISTS `LoadSensorListByType`;
+
+CREATE PROCEDURE `LoadSensorListByType`(IN paramAccount INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
+BEGIN
+	select 
+    ID,
+    Type,
+    Value1,
+    Value2,
+    Value3,
+    AverageValue1,
+    AverageValue2,
+    AverageValue3,
+    AlarmState,
+    SlopeID,
+    Longitude,
+    Latitude
+
+    from sensor where SlopeID=paramSlopeID and Type=paramSensorType;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSlopeList`;
 
 CREATE PROCEDURE `LoadSlopeList`(IN paramAccount INTEGER UNSIGNED, IN paramServerID INTEGER UNSIGNED)
 BEGIN
-	select ID from slope where Account=paramAccount;
+	select ID,Type,Name,Longitude,Latitude,State from slope where OwnerID=paramAccount;
+END;
+
+DROP PROCEDURE IF EXISTS `WebLogin`;
+
+CREATE PROCEDURE `WebLogin`(IN paramAccount VARCHAR(64), IN paramPasword VARCHAR(64))
+BEGIN
+	select ID from user where Account=paramAccount and Password=md5(paramPasword);
+	select ID,IP,Port from server where ClientType=2;
 END;
 
 

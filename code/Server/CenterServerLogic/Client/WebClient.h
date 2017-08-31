@@ -31,10 +31,7 @@ private:
 	void					DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
-	void					SendWebLoginResult(WEB_SERVER_NET_Protocol::S2Web_Login_Result &tagLoginResult);
-	void					SendWebSlopeList(WEB_SERVER_NET_Protocol::S2Web_Slope_List &tagSlopeList);
-	void					SendWebSensorList(WEB_SERVER_NET_Protocol::S2Web_Sensor_List &tagSensorList);
-	void					SendWebSensorHistory(WEB_SERVER_NET_Protocol::S2Web_Sensor_History &tagSensorHistory);
+	void					SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg);
 private:
 	typedef void			(CWebClient::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
 	static pfnProtocolFunc	m_ProtocolFunc[WEB_SERVER_NET_Protocol::WEB2S::web2s_max];
