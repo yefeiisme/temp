@@ -71,6 +71,12 @@ private:
 	void					ProcessNetPack(const void *pPack, const unsigned int uPackLen);
 
 	void					RecvLoginResult(const void *pPack, const unsigned int uPackLen);
+	void					RecvSlopeList(const void *pPack, const unsigned int uPackLen);
+	void					RecvSensorList(const void *pPack, const unsigned int uPackLen);
+	void					RecvSensorHistory(const void *pPack, const unsigned int uPackLen);
+	void					RecvAllList(const void *pPack, const unsigned int uPackLen);
+private:
+	void					ParseFromPackage(google::protobuf::Message &tagMsg, const void *pPack, const unsigned int uPackLen);
 private:
 	typedef void (CWebServerConnection::*StateFuncArray)();
 	static StateFuncArray	m_pfnStateFunc[WEB_SERVER_CONN_STATE_MAX];

@@ -69,7 +69,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\Share\Header\ClientGSProtocol.proto" />
     <CustomBuild Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
       <Filter>Server</Filter>
     </CustomBuild>

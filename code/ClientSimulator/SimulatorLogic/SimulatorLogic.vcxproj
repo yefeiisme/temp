@@ -31,13 +31,6 @@
     <ClCompile Include="UIMsgProcess.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\Share\Header\ClientGSProtocol.proto">
-      <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/ --cpp_out=./Player/ ../../Share/Header/ClientGSProtocol.proto</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ClientGSProtocol.pb.cc;../../share/Header/ClientGSProtocol.pb.h;%(Outputs)</Outputs>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
     <CustomBuild Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
       <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/Protocol/ --cpp_out=ServerConnection/ ../../Share/Header/Protocol/App_Server_Protocol.proto</Command>
