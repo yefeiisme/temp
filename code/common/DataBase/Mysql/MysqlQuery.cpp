@@ -368,7 +368,8 @@ bool CMysqlQuery::LoadConfig(const char *pstrSettingFile, const char *pstrSectio
 	m_byMaxResultCount = nMaxResultCount;
 
 	m_pIniFile->GetInteger(pstrSection, "Frame", 0, &nFrame);
-	m_uFrame	= nFrame;
+	m_uFrame		= nFrame;
+	m_uSleepTime	= 1000 / m_uSleepTime;
 
 	return true;
 }
