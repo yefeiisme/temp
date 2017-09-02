@@ -98,10 +98,10 @@ UINT CMysqlResult::GetData(const UINT uRow, const UINT uCol, char *pstrParam, co
 		return 0;
 
 	int	nCopySize	= uSize > uStringSize ? uStringSize : uSize - 1;
-	memcpy(pstrParam, pstrResultString, uSize);
-	pstrResultString[nCopySize]	= '\0';
+	memcpy(pstrParam, pstrResultString, nCopySize);
+	pstrParam[nCopySize] = '\0';
 
-	return (nCopySize - 1);
+	return nCopySize;
 }
 
 UINT CMysqlResult::GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize)
@@ -116,7 +116,7 @@ UINT CMysqlResult::GetData(const UINT uRow, const UINT uCol, void *pParam, const
 		return 0;
 
 	int	nCopySize	= uSize > uStringSize ? uStringSize : uSize;
-	memcpy(pParam, pstrResultString, uSize);
+	memcpy(pParam, pstrResultString, nCopySize);
 
 	return nCopySize;
 }
@@ -149,8 +149,8 @@ char *CMysqlResult::GetDataString(const UINT uRow, const UINT uCol, unsigned int
 		return nullptr;
 
 	auto	nIndex = m_pResultHead->uColCount * uRow + uCol;
-	auto	uMinSize = min(m_pDataHead[nIndex].uDataLen, uSize);
 
 	uSize = m_pDataHead[nIndex].uDataLen;
+
 	return (m_pData + m_pDataHead[nIndex].uOffset);
 }

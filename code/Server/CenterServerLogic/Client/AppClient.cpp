@@ -238,9 +238,10 @@ void CAppClient::RecvRequestAllList(const void *pPack, const unsigned int uPackL
 
 void CAppClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	UINT	uCol		= 0;
-	UINT	uServerID	= 0;
-	WORD	wServerPort	= 0;
+	UINT	uCol			= 0;
+	UINT	uAccountCount	= 0;
+	UINT	uServerID		= 0;
+	WORD	wServerPort		= 0;
 	char	strServerIP[16];
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
@@ -265,8 +266,18 @@ void CAppClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest
 
 	uCol	= 0;
 	pResult1->GetData(0, uCol++, m_uAccountID);
+	pResult1->GetData(0, uCol++, uAccountCount);
 
 	APP_SERVER_NET_Protocol::S2App_Login_Result	tagLoginResult;
+
+	if (1 == uAccountCount)
+	{
+		tagLoginResult.set_result(1);
+	}
+	else
+	{
+		tagLoginResult.set_result(0);
+	}
 
 	for (auto uRow = 0; uRow < pResult2->GetRowCount(); ++uRow)
 	{

@@ -502,7 +502,7 @@ void CMysqlQuery::ExecuteSQL(const void *pPack, const unsigned int uPackLen)
 	WORD		*pCallbackDataLen	= (WORD*)pPack;
 	const void	*pCallbackData		= (char*)pPack + sizeof(WORD);
 	char		*pstrSQL			= (char*)pPack + sizeof(WORD) + MAX_CALLBACK_DATA_LEN;
-	UINT		uSQLLen				= uPackLen - sizeof(WORD) + MAX_CALLBACK_DATA_LEN;
+	UINT		uSQLLen				= uPackLen - sizeof(WORD) - MAX_CALLBACK_DATA_LEN;
 
 	if (0 != mysql_real_query(m_pDBHandle, pstrSQL, uSQLLen))
 	{
