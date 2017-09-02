@@ -32,14 +32,17 @@ protected:
 public:
 	CString m_strAccountMsg;
 	CString m_strPassword;
-	CString m_strSlopeID;
-	CString m_strSensorID;
+	UINT m_wServerID;
+	UINT m_uSensorID;
+	UINT m_wSlopeID;
 
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedAppSend();
-	afx_msg void OnBnClickedCancel();
+	afx_msg void OnBnClickedButtonAslope();
+	afx_msg void OnBnClickedButtonAsensorList();
+	afx_msg void OnBnClickedButtonAsensorHistory();
 	afx_msg void OnBnClickedWebSend();
-	afx_msg void OnBnClickedButtonSlope();
-	afx_msg void OnBnClickedButtonSensorList();
-	afx_msg void OnBnClickedButtonSensorHistory();
+	afx_msg void OnBnClickedButtonWslope();
+	afx_msg void OnBnClickedButtonWsensorList();
+	afx_msg void OnBnClickedButtonWsensorHistory();
 };

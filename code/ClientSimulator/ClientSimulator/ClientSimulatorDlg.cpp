@@ -53,8 +53,9 @@ CClientSimulatorDlg::CClientSimulatorDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CClientSimulatorDlg::IDD, pParent)
 , m_strAccountMsg(_T(""))
 , m_strPassword(_T(""))
-, m_strSlopeID(_T(""))
-, m_strSensorID(_T(""))
+, m_wSlopeID(0)
+, m_uSensorID(0)
+, m_wServerID(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -66,10 +67,9 @@ void CClientSimulatorDlg::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_strAccountMsg, 1024);
 	DDX_Text(pDX, IDC_EDIT_MSG2, m_strPassword);
 	DDV_MaxChars(pDX, m_strPassword, 1024);
-	DDX_Text(pDX, IDC_EDIT_SLOPE_ID, m_strSlopeID);
-	DDV_MaxChars(pDX, m_strSlopeID, 16);
-	DDX_Text(pDX, IDC_EDIT_SENSOR_ID, m_strSensorID);
-	DDV_MaxChars(pDX, m_strSensorID, 16);
+	DDX_Text(pDX, IDC_EDIT_SLOPE_ID, m_wSlopeID);
+	DDX_Text(pDX, IDC_EDIT_SENSOR_ID, m_uSensorID);
+	DDX_Text(pDX, IDC_EDIT_SERVER_ID, m_wServerID);
 }
 
 BEGIN_MESSAGE_MAP(CClientSimulatorDlg, CDialogEx)
@@ -77,11 +77,13 @@ BEGIN_MESSAGE_MAP(CClientSimulatorDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 ON_BN_CLICKED(IDOK, &CClientSimulatorDlg::OnBnClickedAppSend)
-ON_BN_CLICKED(IDCANCEL, &CClientSimulatorDlg::OnBnClickedCancel)
 ON_BN_CLICKED(IDOK_WEB_SEND, &CClientSimulatorDlg::OnBnClickedWebSend)
-ON_BN_CLICKED(IDC_BUTTON_SLOPE, &CClientSimulatorDlg::OnBnClickedButtonSlope)
-ON_BN_CLICKED(IDC_BUTTON_SENSOR_LIST, &CClientSimulatorDlg::OnBnClickedButtonSensorList)
-ON_BN_CLICKED(IDC_BUTTON_SENSOR_HISTORY, &CClientSimulatorDlg::OnBnClickedButtonSensorHistory)
+ON_BN_CLICKED(IDC_BUTTON_ASLOPE, &CClientSimulatorDlg::OnBnClickedButtonAslope)
+ON_BN_CLICKED(IDC_BUTTON_ASENSOR_LIST, &CClientSimulatorDlg::OnBnClickedButtonAsensorList)
+ON_BN_CLICKED(IDC_BUTTON_ASENSOR_HISTORY, &CClientSimulatorDlg::OnBnClickedButtonAsensorHistory)
+ON_BN_CLICKED(IDC_BUTTON_WSLOPE, &CClientSimulatorDlg::OnBnClickedButtonWslope)
+ON_BN_CLICKED(IDC_BUTTON_WSENSOR_LIST, &CClientSimulatorDlg::OnBnClickedButtonWsensorList)
+ON_BN_CLICKED(IDC_BUTTON_WSENSOR_HISTORY, &CClientSimulatorDlg::OnBnClickedButtonWsensorHistory)
 END_MESSAGE_MAP()
 
 
@@ -200,44 +202,89 @@ void CClientSimulatorDlg::OnBnClickedAppSend()
 	g_ISimulatorLogic.SendRequest(&tagAppLogin, sizeof(tagAppLogin));
 }
 
+void CClientSimulatorDlg::OnBnClickedButtonAslope()
+{
+	UpdateData(TRUE);
+
+	U2L_APP_SLOPE_LIST	tagAppSlopeList;
+	memset(&tagAppSlopeList, 0, sizeof(tagAppSlopeList));
+	tagAppSlopeList.byProtocol	= u2l_app_slope_list;
+	tagAppSlopeList.wServerID	= m_wServerID;
+
+	g_ISimulatorLogic.SendRequest(&tagAppSlopeList, sizeof(tagAppSlopeList));
+}
+
+void CClientSimulatorDlg::OnBnClickedButtonAsensorList()
+{
+	UpdateData(TRUE);
+
+	U2L_APP_SENSOR_LIST	tagAppSensorList;
+	memset(&tagAppSensorList, 0, sizeof(tagAppSensorList));
+	tagAppSensorList.byProtocol	= u2l_app_sensor_list;
+	tagAppSensorList.wSlopeID	= m_wSlopeID;
+
+	g_ISimulatorLogic.SendRequest(&tagAppSensorList, sizeof(tagAppSensorList));
+}
+
+void CClientSimulatorDlg::OnBnClickedButtonAsensorHistory()
+{
+	UpdateData(TRUE);
+
+	U2L_APP_SENSOR_HISTORY	tagAppSensorHistory;
+	memset(&tagAppSensorHistory, 0, sizeof(tagAppSensorHistory));
+	tagAppSensorHistory.byProtocol	= u2l_app_sensor_history;
+	tagAppSensorHistory.uSensorID	= m_uSensorID;
+
+	g_ISimulatorLogic.SendRequest(&tagAppSensorHistory, sizeof(tagAppSensorHistory));
+}
+
 void CClientSimulatorDlg::OnBnClickedWebSend()
 {
 	UpdateData(TRUE);
 
 	U2L_WEB_LOGIN	tagWebLogin;
 	memset(&tagWebLogin, 0, sizeof(tagWebLogin));
-	tagWebLogin.byProtocol	= u2l_web_login;
+	tagWebLogin.byProtocol = u2l_web_login;
 	strncpy(tagWebLogin.strAccount, m_strAccountMsg.GetBuffer(m_strAccountMsg.GetLength()), sizeof(tagWebLogin.strAccount));
-	tagWebLogin.strAccount[sizeof(tagWebLogin.strAccount) - 1]	= '\0';
+	tagWebLogin.strAccount[sizeof(tagWebLogin.strAccount) - 1] = '\0';
 	strncpy(tagWebLogin.strPassword, m_strPassword.GetBuffer(m_strPassword.GetLength()), sizeof(tagWebLogin.strPassword));
-	tagWebLogin.strPassword[sizeof(tagWebLogin.strPassword) - 1]	= '\0';
+	tagWebLogin.strPassword[sizeof(tagWebLogin.strPassword) - 1] = '\0';
 
 	g_ISimulatorLogic.SendRequest(&tagWebLogin, sizeof(tagWebLogin));
 }
 
-
-void CClientSimulatorDlg::OnBnClickedCancel()
+void CClientSimulatorDlg::OnBnClickedButtonWslope()
 {
 	UpdateData(TRUE);
 
-	CDialogEx::OnCancel();
+	U2L_WEB_SLOPE_LIST	tagWebSlopeList;
+	memset(&tagWebSlopeList, 0, sizeof(tagWebSlopeList));
+	tagWebSlopeList.byProtocol	= u2l_web_slope_list;
+	tagWebSlopeList.wServerID	= m_wServerID;
+
+	g_ISimulatorLogic.SendRequest(&tagWebSlopeList, sizeof(tagWebSlopeList));
 }
 
-
-
-void CClientSimulatorDlg::OnBnClickedButtonSlope()
+void CClientSimulatorDlg::OnBnClickedButtonWsensorList()
 {
-	// TODO:  在此添加控件通知处理程序代码
+	UpdateData(TRUE);
+
+	U2L_WEB_SENSOR_LIST	tagWebSensorList;
+	memset(&tagWebSensorList, 0, sizeof(tagWebSensorList));
+	tagWebSensorList.byProtocol	= u2l_web_sensor_list;
+	tagWebSensorList.wSlopeID	= m_wSlopeID;
+
+	g_ISimulatorLogic.SendRequest(&tagWebSensorList, sizeof(tagWebSensorList));
 }
 
-
-void CClientSimulatorDlg::OnBnClickedButtonSensorList()
+void CClientSimulatorDlg::OnBnClickedButtonWsensorHistory()
 {
-	// TODO:  在此添加控件通知处理程序代码
-}
+	UpdateData(TRUE);
 
+	U2L_WEB_SENSOR_HISTORY	tagWebSensorHistory;
+	memset(&tagWebSensorHistory, 0, sizeof(tagWebSensorHistory));
+	tagWebSensorHistory.byProtocol	= u2l_web_sensor_history;
+	tagWebSensorHistory.uSensorID	= m_uSensorID;
 
-void CClientSimulatorDlg::OnBnClickedButtonSensorHistory()
-{
-	// TODO:  在此添加控件通知处理程序代码
+	g_ISimulatorLogic.SendRequest(&tagWebSensorHistory, sizeof(tagWebSensorHistory));
 }

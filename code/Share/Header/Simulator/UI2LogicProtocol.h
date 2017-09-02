@@ -7,6 +7,13 @@ enum c2s_Protocol
 {
 	u2l_app_login,
 	u2l_web_login,
+	u2l_app_slope_list,
+	u2l_web_slope_list,
+	u2l_app_sensor_list,
+
+	u2l_web_sensor_list,
+	u2l_app_sensor_history,
+	u2l_web_sensor_history,
 
 	u2l_end,
 };
@@ -42,5 +49,38 @@ struct U2L_WEB_LOGIN : public SDefinedProtocolHead
 	char	strPassword[64];
 };
 
+struct U2L_APP_SLOPE_LIST : public SDefinedProtocolHead
+{
+	WORD	wServerID;
+};
+
+struct U2L_WEB_SLOPE_LIST : public SDefinedProtocolHead
+{
+	WORD	wServerID;
+};
+
+struct U2L_APP_SENSOR_LIST : public SDefinedProtocolHead
+{
+	WORD	wSlopeID;
+};
+
+struct U2L_WEB_SENSOR_LIST : public SDefinedProtocolHead
+{
+	WORD	wSlopeID;
+};
+
+struct U2L_APP_SENSOR_HISTORY : public SDefinedProtocolHead
+{
+	UINT	uSensorID;
+	int		nBeginTime;
+	int		nEndTime;
+};
+
+struct U2L_WEB_SENSOR_HISTORY : public SDefinedProtocolHead
+{
+	UINT	uSensorID;
+	int		nBeginTime;
+	int		nEndTime;
+};
 
 #endif

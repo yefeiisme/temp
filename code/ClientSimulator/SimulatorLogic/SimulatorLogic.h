@@ -64,6 +64,12 @@ private:
 private:
 	void						RecvAppLogin(const void *pPack, const unsigned int uPackLen);
 	void						RecvWebLogin(const void *pPack, const unsigned int uPackLen);
+	void						RecvAppSlopeList(const void *pPack, const unsigned int uPackLen);
+	void						RecvWebSlopeList(const void *pPack, const unsigned int uPackLen);
+	void						RecvAppSensorList(const void *pPack, const unsigned int uPackLen);
+	void						RecvWebSensorList(const void *pPack, const unsigned int uPackLen);
+	void						RecvAppSensorHistory(const void *pPack, const unsigned int uPackLen);
+	void						RecvWebSensorHistory(const void *pPack, const unsigned int uPackLen);
 private:
 	typedef void (CSimulatorLogic::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
 	pfnProtocolFunc				m_ProtocolFunc[u2l_end];

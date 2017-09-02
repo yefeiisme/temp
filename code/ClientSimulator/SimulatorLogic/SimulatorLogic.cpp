@@ -23,8 +23,14 @@ CSimulatorLogic::CSimulatorLogic()
 {
 	memset(m_ProtocolFunc, 0, sizeof(m_ProtocolFunc));
 
-	m_ProtocolFunc[u2l_app_login]	= &CSimulatorLogic::RecvAppLogin;
-	m_ProtocolFunc[u2l_web_login]	= &CSimulatorLogic::RecvWebLogin;
+	m_ProtocolFunc[u2l_app_login]			= &CSimulatorLogic::RecvAppLogin;
+	m_ProtocolFunc[u2l_web_login]			= &CSimulatorLogic::RecvWebLogin;
+	m_ProtocolFunc[u2l_app_slope_list]		= &CSimulatorLogic::RecvAppSlopeList;
+	m_ProtocolFunc[u2l_web_slope_list]		= &CSimulatorLogic::RecvWebSlopeList;
+	m_ProtocolFunc[u2l_app_sensor_list]		= &CSimulatorLogic::RecvAppSensorList;
+	m_ProtocolFunc[u2l_web_sensor_list]		= &CSimulatorLogic::RecvWebSensorList;
+	m_ProtocolFunc[u2l_app_sensor_history]	= &CSimulatorLogic::RecvAppSensorHistory;
+	m_ProtocolFunc[u2l_web_sensor_history]	= &CSimulatorLogic::RecvWebSensorHistory;
 
 	m_pAppClientNetwork		= nullptr;
 	m_pWebClientNetwork		= nullptr;

@@ -382,7 +382,7 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		return;
 	}
 
-	if (1 != pResult1->GetRowCount())
+	if (0 == pResult1->GetRowCount())
 	{
 		return;
 	}
