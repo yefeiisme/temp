@@ -14,7 +14,7 @@ AC_PROG_LIBTOOL
 AC_PROG_CXX
 AC_PROG_CC
 #CXXFLAGS="$CXXFLAGS"
-CXXFLAGS="-g -O0"
+CXXFLAGS="-g -O0 -std=c++11"
 CFLAGS ="CXXFLAGS"
 # Checks for libraries.
 
@@ -25,6 +25,5 @@ CFLAGS ="CXXFLAGS"
 # Checks for library functions.
 
 AC_OUTPUT(Makefile
-        CenterServer/Makefile
         CenterServerLogic/Makefile)
 ~
