@@ -8,7 +8,7 @@ centerserver_SOURCES += CenterServer/Connection/ClientConnection.cpp
 centerserver_SOURCES += CenterServer/Connection/DataConnection.cpp
 centerserver_SOURCES += CenterServer/Connection/WebConnection.cpp
 
-SUBDIRS = CenterServer CenterServerLogic
+SUBDIRS = CenterServerLogic
 centerserver_LDFLAGS = -static -std=c++0x
 centerserver_LDADD = -lpthread
 centerserver_LDADD+= ../Share/llib/libdaemon.a
