@@ -170,5 +170,6 @@ message S2App_Sensor_History
 	required double	avg_value2			= 7;	// 平均物理量2
 	required double	avg_value3			= 8;	// 平均物理量3
 	required bytes	url					= 9;	// 特殊传感器类型的url
-	repeated SensorData	history_list	= 10;	// 起始时间到结束时间内的传感器数据
+	required bytes	description			= 10;	// 安装位置的描述
+	repeated SensorData	history_list	= 11;	// 起始时间到结束时间内的传感器数据
 }

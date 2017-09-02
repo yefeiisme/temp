@@ -1594,10 +1594,10 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
 
   // accessors -------------------------------------------------------
 
-  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 10;
+  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 11;
   int history_list_size() const;
   void clear_history_list();
-  static const int kHistoryListFieldNumber = 10;
+  static const int kHistoryListFieldNumber = 11;
   const ::WEB_SERVER_NET_Protocol::S2Web_Sensor_History_SensorData& history_list(int index) const;
   ::WEB_SERVER_NET_Protocol::S2Web_Sensor_History_SensorData* mutable_history_list(int index);
   ::WEB_SERVER_NET_Protocol::S2Web_Sensor_History_SensorData* add_history_list();
@@ -1620,6 +1620,21 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
   ::std::string* mutable_url();
   ::std::string* release_url();
   void set_allocated_url(::std::string* url);
+
+  // required bytes description = 10;
+  bool has_description() const;
+  void clear_description();
+  static const int kDescriptionFieldNumber = 10;
+  const ::std::string& description() const;
+  void set_description(const ::std::string& value);
+  #if LANG_CXX11
+  void set_description(::std::string&& value);
+  #endif
+  void set_description(const char* value);
+  void set_description(const void* value, size_t size);
+  ::std::string* mutable_description();
+  ::std::string* release_description();
+  void set_allocated_description(::std::string* description);
 
   // required double longitude = 2;
   bool has_longitude() const;
@@ -1697,6 +1712,8 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
   void clear_has_avg_value3();
   void set_has_url();
   void clear_has_url();
+  void set_has_description();
+  void clear_has_description();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -1706,6 +1723,7 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
   mutable int _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2Web_Sensor_History_SensorData > history_list_;
   ::google::protobuf::internal::ArenaStringPtr url_;
+  ::google::protobuf::internal::ArenaStringPtr description_;
   double longitude_;
   ::google::protobuf::uint32 id_;
   ::google::protobuf::uint32 begin_time_;
@@ -2904,13 +2922,13 @@ inline void S2Web_Sensor_History_SensorData::set_time(::google::protobuf::uint32
 
 // required uint32 id = 1;
 inline bool S2Web_Sensor_History::has_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void S2Web_Sensor_History::set_has_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void S2Web_Sensor_History::clear_has_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void S2Web_Sensor_History::clear_id() {
   id_ = 0u;
@@ -2928,13 +2946,13 @@ inline void S2Web_Sensor_History::set_id(::google::protobuf::uint32 value) {
 
 // required double longitude = 2;
 inline bool S2Web_Sensor_History::has_longitude() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void S2Web_Sensor_History::set_has_longitude() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void S2Web_Sensor_History::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void S2Web_Sensor_History::clear_longitude() {
   longitude_ = 0;
@@ -2952,13 +2970,13 @@ inline void S2Web_Sensor_History::set_longitude(double value) {
 
 // required double latitude = 3;
 inline bool S2Web_Sensor_History::has_latitude() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void S2Web_Sensor_History::set_has_latitude() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void S2Web_Sensor_History::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void S2Web_Sensor_History::clear_latitude() {
   latitude_ = 0;
@@ -2976,13 +2994,13 @@ inline void S2Web_Sensor_History::set_latitude(double value) {
 
 // required uint32 begin_time = 4;
 inline bool S2Web_Sensor_History::has_begin_time() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void S2Web_Sensor_History::set_has_begin_time() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void S2Web_Sensor_History::clear_has_begin_time() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void S2Web_Sensor_History::clear_begin_time() {
   begin_time_ = 0u;
@@ -3000,13 +3018,13 @@ inline void S2Web_Sensor_History::set_begin_time(::google::protobuf::uint32 valu
 
 // required uint32 end_time = 5;
 inline bool S2Web_Sensor_History::has_end_time() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void S2Web_Sensor_History::set_has_end_time() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void S2Web_Sensor_History::clear_has_end_time() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void S2Web_Sensor_History::clear_end_time() {
   end_time_ = 0u;
@@ -3024,13 +3042,13 @@ inline void S2Web_Sensor_History::set_end_time(::google::protobuf::uint32 value)
 
 // required double avg_value1 = 6;
 inline bool S2Web_Sensor_History::has_avg_value1() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void S2Web_Sensor_History::set_has_avg_value1() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void S2Web_Sensor_History::clear_has_avg_value1() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void S2Web_Sensor_History::clear_avg_value1() {
   avg_value1_ = 0;
@@ -3048,13 +3066,13 @@ inline void S2Web_Sensor_History::set_avg_value1(double value) {
 
 // required double avg_value2 = 7;
 inline bool S2Web_Sensor_History::has_avg_value2() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void S2Web_Sensor_History::set_has_avg_value2() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void S2Web_Sensor_History::clear_has_avg_value2() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void S2Web_Sensor_History::clear_avg_value2() {
   avg_value2_ = 0;
@@ -3072,13 +3090,13 @@ inline void S2Web_Sensor_History::set_avg_value2(double value) {
 
 // required double avg_value3 = 8;
 inline bool S2Web_Sensor_History::has_avg_value3() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void S2Web_Sensor_History::set_has_avg_value3() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void S2Web_Sensor_History::clear_has_avg_value3() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void S2Web_Sensor_History::clear_avg_value3() {
   avg_value3_ = 0;
@@ -3157,7 +3175,70 @@ inline void S2Web_Sensor_History::set_allocated_url(::std::string* url) {
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.url)
 }
 
-// repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 10;
+// required bytes description = 10;
+inline bool S2Web_Sensor_History::has_description() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2Web_Sensor_History::set_has_description() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2Web_Sensor_History::clear_has_description() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2Web_Sensor_History::clear_description() {
+  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_description();
+}
+inline const ::std::string& S2Web_Sensor_History::description() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
+  return description_.GetNoArena();
+}
+inline void S2Web_Sensor_History::set_description(const ::std::string& value) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
+}
+#if LANG_CXX11
+inline void S2Web_Sensor_History::set_description(::std::string&& value) {
+  set_has_description();
+  description_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
+}
+#endif
+inline void S2Web_Sensor_History::set_description(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
+}
+inline void S2Web_Sensor_History::set_description(const void* value, size_t size) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
+}
+inline ::std::string* S2Web_Sensor_History::mutable_description() {
+  set_has_description();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
+  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2Web_Sensor_History::release_description() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
+  clear_has_description();
+  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2Web_Sensor_History::set_allocated_description(::std::string* description) {
+  if (description != NULL) {
+    set_has_description();
+  } else {
+    clear_has_description();
+  }
+  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
+}
+
+// repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 11;
 inline int S2Web_Sensor_History::history_list_size() const {
   return history_list_.size();
 }

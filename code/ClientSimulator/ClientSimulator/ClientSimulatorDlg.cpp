@@ -53,6 +53,8 @@ CClientSimulatorDlg::CClientSimulatorDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CClientSimulatorDlg::IDD, pParent)
 , m_strAccountMsg(_T(""))
 , m_strPassword(_T(""))
+, m_strSlopeID(_T(""))
+, m_strSensorID(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -64,6 +66,10 @@ void CClientSimulatorDlg::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_strAccountMsg, 1024);
 	DDX_Text(pDX, IDC_EDIT_MSG2, m_strPassword);
 	DDV_MaxChars(pDX, m_strPassword, 1024);
+	DDX_Text(pDX, IDC_EDIT_SLOPE_ID, m_strSlopeID);
+	DDV_MaxChars(pDX, m_strSlopeID, 16);
+	DDX_Text(pDX, IDC_EDIT_SENSOR_ID, m_strSensorID);
+	DDV_MaxChars(pDX, m_strSensorID, 16);
 }
 
 BEGIN_MESSAGE_MAP(CClientSimulatorDlg, CDialogEx)
@@ -73,6 +79,9 @@ BEGIN_MESSAGE_MAP(CClientSimulatorDlg, CDialogEx)
 ON_BN_CLICKED(IDOK, &CClientSimulatorDlg::OnBnClickedAppSend)
 ON_BN_CLICKED(IDCANCEL, &CClientSimulatorDlg::OnBnClickedCancel)
 ON_BN_CLICKED(IDOK_WEB_SEND, &CClientSimulatorDlg::OnBnClickedWebSend)
+ON_BN_CLICKED(IDC_BUTTON_SLOPE, &CClientSimulatorDlg::OnBnClickedButtonSlope)
+ON_BN_CLICKED(IDC_BUTTON_SENSOR_LIST, &CClientSimulatorDlg::OnBnClickedButtonSensorList)
+ON_BN_CLICKED(IDC_BUTTON_SENSOR_HISTORY, &CClientSimulatorDlg::OnBnClickedButtonSensorHistory)
 END_MESSAGE_MAP()
 
 
@@ -214,3 +223,21 @@ void CClientSimulatorDlg::OnBnClickedCancel()
 	CDialogEx::OnCancel();
 }
 
+
+
+void CClientSimulatorDlg::OnBnClickedButtonSlope()
+{
+	// TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CClientSimulatorDlg::OnBnClickedButtonSensorList()
+{
+	// TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CClientSimulatorDlg::OnBnClickedButtonSensorHistory()
+{
+	// TODO:  在此添加控件通知处理程序代码
+}
