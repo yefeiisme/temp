@@ -144,12 +144,14 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Slope_List_SlopeData, state_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Slope_List_SlopeData, longitude_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Slope_List_SlopeData, latitude_),
-  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Slope_List_SlopeData, url_),
   2,
-  0,
-  5,
   3,
+  0,
+  6,
   4,
+  5,
+  1,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Slope_List, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Slope_List, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -174,8 +176,11 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_List_SensorData, avg_value1_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_List_SensorData, avg_value2_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_List_SensorData, avg_value3_),
-  0,
-  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_List_SensorData, offset_value1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_List_SensorData, offset_value2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_List_SensorData, offset_value3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_List_SensorData, url_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_List_SensorData, description_),
   2,
   3,
   4,
@@ -186,6 +191,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   9,
   10,
   11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  0,
+  1,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_List, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_List, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -227,19 +239,15 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, avg_value1_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, avg_value2_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, avg_value3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, url_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, description_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, history_list_),
+  1,
+  0,
   3,
   2,
-  5,
-  4,
-  9,
-  6,
   7,
-  8,
-  0,
-  1,
+  4,
+  5,
+  6,
   ~0u,
 };
 
@@ -250,12 +258,12 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 23, 31, sizeof(WEB2S_Request_Sensor_History)},
   { 34, 42, sizeof(S2Web_Login_Result_ServerData)},
   { 45, 52, sizeof(S2Web_Login_Result)},
-  { 54, 65, sizeof(S2Web_Slope_List_SlopeData)},
-  { 71, 77, sizeof(S2Web_Slope_List)},
-  { 78, 95, sizeof(S2Web_Sensor_List_SensorData)},
-  { 107, 113, sizeof(S2Web_Sensor_List)},
-  { 114, 127, sizeof(S2Web_Sensor_History_SensorData)},
-  { 135, 151, sizeof(S2Web_Sensor_History)},
+  { 54, 66, sizeof(S2Web_Slope_List_SlopeData)},
+  { 73, 79, sizeof(S2Web_Slope_List)},
+  { 80, 102, sizeof(S2Web_Sensor_List_SensorData)},
+  { 119, 125, sizeof(S2Web_Sensor_List)},
+  { 126, 139, sizeof(S2Web_Sensor_History_SensorData)},
+  { 147, 161, sizeof(S2Web_Sensor_History)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -359,52 +367,54 @@ void AddDescriptorsImpl() {
       " \002(\r\022K\n\013server_list\030\002 \003(\01326.WEB_SERVER_N"
       "ET_Protocol.S2Web_Login_Result.ServerDat"
       "a\0322\n\nServerData\022\n\n\002id\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022"
-      "\014\n\004port\030\003 \002(\r\"\304\001\n\020S2Web_Slope_List\022G\n\nsl"
+      "\014\n\004port\030\003 \002(\r\"\321\001\n\020S2Web_Slope_List\022G\n\nsl"
       "ope_list\030\001 \003(\01323.WEB_SERVER_NET_Protocol"
-      ".S2Web_Slope_List.SlopeData\032g\n\tSlopeData"
+      ".S2Web_Slope_List.SlopeData\032t\n\tSlopeData"
       "\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014"
       "\022\r\n\005state\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010la"
-      "titude\030\006 \002(\001\"\306\002\n\021S2Web_Sensor_List\022J\n\013se"
-      "nsor_list\030\001 \003(\01325.WEB_SERVER_NET_Protoco"
-      "l.S2Web_Sensor_List.SensorData\032\344\001\n\nSenso"
-      "rData\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state"
-      "\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 "
-      "\002(\001\022\020\n\010latitude\030\006 \002(\001\022\022\n\ncur_value1\030\007 \002("
-      "\001\022\022\n\ncur_value2\030\010 \002(\001\022\022\n\ncur_value3\030\t \002("
-      "\001\022\022\n\navg_value1\030\n \002(\001\022\022\n\navg_value2\030\013 \002("
-      "\001\022\022\n\navg_value3\030\014 \002(\001\"\274\003\n\024S2Web_Sensor_H"
-      "istory\022\n\n\002id\030\001 \002(\r\022\021\n\tlongitude\030\002 \002(\001\022\020\n"
-      "\010latitude\030\003 \002(\001\022\022\n\nbegin_time\030\004 \002(\r\022\020\n\010e"
-      "nd_time\030\005 \002(\r\022\022\n\navg_value1\030\006 \002(\001\022\022\n\navg"
-      "_value2\030\007 \002(\001\022\022\n\navg_value3\030\010 \002(\001\022\013\n\003url"
-      "\030\t \002(\014\022\023\n\013description\030\n \002(\014\022N\n\014history_l"
-      "ist\030\013 \003(\01328.WEB_SERVER_NET_Protocol.S2We"
-      "b_Sensor_History.SensorData\032\236\001\n\nSensorDa"
-      "ta\022\r\n\005state\030\001 \002(\r\022\016\n\006value1\030\002 \002(\001\022\016\n\006val"
-      "ue2\030\003 \002(\001\022\016\n\006value3\030\004 \002(\001\022\025\n\roffset_valu"
-      "e1\030\005 \002(\001\022\025\n\roffset_value2\030\006 \002(\001\022\025\n\roffse"
-      "t_value3\030\007 \002(\001\022\014\n\004time\030\010 \002(\r*\246\004\n\005WEB2S\022\017"
-      "\n\013web2s_login\020\000\022\034\n\030web2s_request_slope_l"
-      "ist\020\001\022\035\n\031web2s_request_sensor_list\020\002\022 \n\034"
-      "web2s_request_sensor_history\020\003\022\016\n\nweb2s_"
-      "ping\020\004\022\032\n\026web2s_request_all_list\020\005\022\022\n\016we"
-      "b2s_reserve3\020\006\022\022\n\016web2s_reserve4\020\007\022\022\n\016we"
-      "b2s_reserve5\020\010\022\022\n\016web2s_reserve6\020\t\022\022\n\016we"
-      "b2s_reserve7\020\n\022\022\n\016web2s_reserve8\020\013\022\022\n\016we"
-      "b2s_reserve9\020\014\022\023\n\017web2s_reserve10\020\r\022\023\n\017w"
-      "eb2s_reserve11\020\016\022\023\n\017web2s_reserve12\020\017\022\023\n"
-      "\017web2s_reserve13\020\020\022\023\n\017web2s_reserve14\020\021\022"
-      "\023\n\017web2s_reserve15\020\022\022\023\n\017web2s_reserve16\020"
-      "\023\022\023\n\017web2s_reserve17\020\024\022\023\n\017web2s_reserve1"
-      "8\020\025\022\023\n\017web2s_reserve19\020\026\022\023\n\017web2s_reserv"
-      "e20\020\027\022\016\n\tweb2s_max\020\200\002*\216\001\n\005S2WEB\022\026\n\022s2web"
-      "_login_result\020\000\022\024\n\020s2web_slope_list\020\001\022\025\n"
-      "\021s2web_sensor_list\020\002\022\030\n\024s2web_sensor_his"
-      "tory\020\003\022\026\n\022s2web_all_list_end\020\004\022\016\n\ts2web_"
-      "max\020\200\002"
+      "titude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\"\255\003\n\021S2Web_Sens"
+      "or_List\022J\n\013sensor_list\030\001 \003(\01325.WEB_SERVE"
+      "R_NET_Protocol.S2Web_Sensor_List.SensorD"
+      "ata\032\313\002\n\nSensorData\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002"
+      " \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n"
+      "\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\022\n\ncu"
+      "r_value1\030\007 \002(\001\022\022\n\ncur_value2\030\010 \002(\001\022\022\n\ncu"
+      "r_value3\030\t \002(\001\022\022\n\navg_value1\030\n \002(\001\022\022\n\nav"
+      "g_value2\030\013 \002(\001\022\022\n\navg_value3\030\014 \002(\001\022\025\n\rof"
+      "fset_value1\030\r \002(\001\022\025\n\roffset_value2\030\016 \002(\001"
+      "\022\025\n\roffset_value3\030\017 \002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013"
+      "description\030\021 \002(\014\"\232\003\n\024S2Web_Sensor_Histo"
+      "ry\022\n\n\002id\030\001 \002(\r\022\021\n\tlongitude\030\002 \002(\001\022\020\n\010lat"
+      "itude\030\003 \002(\001\022\022\n\nbegin_time\030\004 \002(\r\022\020\n\010end_t"
+      "ime\030\005 \002(\r\022\022\n\navg_value1\030\006 \002(\001\022\022\n\navg_val"
+      "ue2\030\007 \002(\001\022\022\n\navg_value3\030\010 \002(\001\022N\n\014history"
+      "_list\030\t \003(\01328.WEB_SERVER_NET_Protocol.S2"
+      "Web_Sensor_History.SensorData\032\236\001\n\nSensor"
+      "Data\022\r\n\005state\030\001 \002(\r\022\016\n\006value1\030\002 \002(\001\022\016\n\006v"
+      "alue2\030\003 \002(\001\022\016\n\006value3\030\004 \002(\001\022\025\n\roffset_va"
+      "lue1\030\005 \002(\001\022\025\n\roffset_value2\030\006 \002(\001\022\025\n\roff"
+      "set_value3\030\007 \002(\001\022\014\n\004time\030\010 \002(\r*\246\004\n\005WEB2S"
+      "\022\017\n\013web2s_login\020\000\022\034\n\030web2s_request_slope"
+      "_list\020\001\022\035\n\031web2s_request_sensor_list\020\002\022 "
+      "\n\034web2s_request_sensor_history\020\003\022\016\n\nweb2"
+      "s_ping\020\004\022\032\n\026web2s_request_all_list\020\005\022\022\n\016"
+      "web2s_reserve3\020\006\022\022\n\016web2s_reserve4\020\007\022\022\n\016"
+      "web2s_reserve5\020\010\022\022\n\016web2s_reserve6\020\t\022\022\n\016"
+      "web2s_reserve7\020\n\022\022\n\016web2s_reserve8\020\013\022\022\n\016"
+      "web2s_reserve9\020\014\022\023\n\017web2s_reserve10\020\r\022\023\n"
+      "\017web2s_reserve11\020\016\022\023\n\017web2s_reserve12\020\017\022"
+      "\023\n\017web2s_reserve13\020\020\022\023\n\017web2s_reserve14\020"
+      "\021\022\023\n\017web2s_reserve15\020\022\022\023\n\017web2s_reserve1"
+      "6\020\023\022\023\n\017web2s_reserve17\020\024\022\023\n\017web2s_reserv"
+      "e18\020\025\022\023\n\017web2s_reserve19\020\026\022\023\n\017web2s_rese"
+      "rve20\020\027\022\016\n\tweb2s_max\020\200\002*\216\001\n\005S2WEB\022\026\n\022s2w"
+      "eb_login_result\020\000\022\024\n\020s2web_slope_list\020\001\022"
+      "\025\n\021s2web_sensor_list\020\002\022\030\n\024s2web_sensor_h"
+      "istory\020\003\022\026\n\022s2web_all_list_end\020\004\022\016\n\ts2we"
+      "b_max\020\200\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2126);
+      descriptor, 2208);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Web_Server_Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -2698,6 +2708,7 @@ const int S2Web_Slope_List_SlopeData::kNameFieldNumber;
 const int S2Web_Slope_List_SlopeData::kStateFieldNumber;
 const int S2Web_Slope_List_SlopeData::kLongitudeFieldNumber;
 const int S2Web_Slope_List_SlopeData::kLatitudeFieldNumber;
+const int S2Web_Slope_List_SlopeData::kUrlFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 S2Web_Slope_List_SlopeData::S2Web_Slope_List_SlopeData()
@@ -2718,6 +2729,10 @@ S2Web_Slope_List_SlopeData::S2Web_Slope_List_SlopeData(const S2Web_Slope_List_Sl
   if (from.has_name()) {
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
   ::memcpy(&id_, &from.id_,
     reinterpret_cast<char*>(&state_) -
     reinterpret_cast<char*>(&id_) + sizeof(state_));
@@ -2727,6 +2742,7 @@ S2Web_Slope_List_SlopeData::S2Web_Slope_List_SlopeData(const S2Web_Slope_List_Sl
 void S2Web_Slope_List_SlopeData::SharedCtor() {
   _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, reinterpret_cast<char*>(&state_) -
     reinterpret_cast<char*>(&id_) + sizeof(state_));
 }
@@ -2738,6 +2754,7 @@ S2Web_Slope_List_SlopeData::~S2Web_Slope_List_SlopeData() {
 
 void S2Web_Slope_List_SlopeData::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void S2Web_Slope_List_SlopeData::SetCachedSize(int size) const {
@@ -2765,11 +2782,17 @@ S2Web_Slope_List_SlopeData* S2Web_Slope_List_SlopeData::New(::google::protobuf::
 
 void S2Web_Slope_List_SlopeData::Clear() {
 // @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData)
-  if (has_name()) {
-    GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-    (*name_.UnsafeRawStringPointer())->clear();
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_name()) {
+      GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*name_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
   }
-  if (_has_bits_[0 / 32] & 62u) {
+  if (_has_bits_[0 / 32] & 124u) {
     ::memset(&id_, 0, reinterpret_cast<char*>(&state_) -
       reinterpret_cast<char*>(&id_) + sizeof(state_));
   }
@@ -2869,6 +2892,18 @@ bool S2Web_Slope_List_SlopeData::MergePartialFromCodedStream(
         break;
       }
 
+      // required bytes url = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0 ||
@@ -2899,12 +2934,12 @@ void S2Web_Slope_List_SlopeData::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
   }
 
   // required uint32 type = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->type(), output);
   }
 
@@ -2915,18 +2950,24 @@ void S2Web_Slope_List_SlopeData::SerializeWithCachedSizes(
   }
 
   // required uint32 state = 4;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->state(), output);
   }
 
   // required double longitude = 5;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude(), output);
   }
 
   // required double latitude = 6;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->latitude(), output);
+  }
+
+  // required bytes url = 7;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      7, this->url(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2944,12 +2985,12 @@ void S2Web_Slope_List_SlopeData::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
   }
 
   // required uint32 type = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->type(), target);
   }
 
@@ -2961,18 +3002,25 @@ void S2Web_Slope_List_SlopeData::SerializeWithCachedSizes(
   }
 
   // required uint32 state = 4;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->state(), target);
   }
 
   // required double longitude = 5;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude(), target);
   }
 
   // required double latitude = 6;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->latitude(), target);
+  }
+
+  // required bytes url = 7;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        7, this->url(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2992,6 +3040,13 @@ size_t S2Web_Slope_List_SlopeData::RequiredFieldsByteSizeFallback() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->name());
+  }
+
+  if (has_url()) {
+    // required bytes url = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
   }
 
   if (has_id()) {
@@ -3036,11 +3091,16 @@ size_t S2Web_Slope_List_SlopeData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000007f) ^ 0x0000007f) == 0) {  // All required fields are present.
     // required bytes name = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->name());
+
+    // required bytes url = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
 
     // required uint32 id = 1;
     total_size += 1 +
@@ -3096,24 +3156,28 @@ void S2Web_Slope_List_SlopeData::MergeFrom(const S2Web_Slope_List_SlopeData& fro
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 63u) {
+  if (cached_has_bits & 127u) {
     if (cached_has_bits & 0x00000001u) {
       set_has_name();
       name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
     }
     if (cached_has_bits & 0x00000002u) {
-      id_ = from.id_;
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
     }
     if (cached_has_bits & 0x00000004u) {
-      type_ = from.type_;
+      id_ = from.id_;
     }
     if (cached_has_bits & 0x00000008u) {
-      longitude_ = from.longitude_;
+      type_ = from.type_;
     }
     if (cached_has_bits & 0x00000010u) {
-      latitude_ = from.latitude_;
+      longitude_ = from.longitude_;
     }
     if (cached_has_bits & 0x00000020u) {
+      latitude_ = from.latitude_;
+    }
+    if (cached_has_bits & 0x00000040u) {
       state_ = from.state_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -3135,7 +3199,7 @@ void S2Web_Slope_List_SlopeData::CopyFrom(const S2Web_Slope_List_SlopeData& from
 }
 
 bool S2Web_Slope_List_SlopeData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
   return true;
 }
 
@@ -3145,6 +3209,7 @@ void S2Web_Slope_List_SlopeData::Swap(S2Web_Slope_List_SlopeData* other) {
 }
 void S2Web_Slope_List_SlopeData::InternalSwap(S2Web_Slope_List_SlopeData* other) {
   name_.Swap(&other->name_);
+  url_.Swap(&other->url_);
   std::swap(id_, other->id_);
   std::swap(type_, other->type_);
   std::swap(longitude_, other->longitude_);
@@ -3165,13 +3230,13 @@ void S2Web_Slope_List_SlopeData::InternalSwap(S2Web_Slope_List_SlopeData* other)
 
 // required uint32 id = 1;
 bool S2Web_Slope_List_SlopeData::has_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 void S2Web_Slope_List_SlopeData::set_has_id() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 void S2Web_Slope_List_SlopeData::clear_has_id() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 void S2Web_Slope_List_SlopeData::clear_id() {
   id_ = 0u;
@@ -3189,13 +3254,13 @@ void S2Web_Slope_List_SlopeData::set_id(::google::protobuf::uint32 value) {
 
 // required uint32 type = 2;
 bool S2Web_Slope_List_SlopeData::has_type() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 void S2Web_Slope_List_SlopeData::set_has_type() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 void S2Web_Slope_List_SlopeData::clear_has_type() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 void S2Web_Slope_List_SlopeData::clear_type() {
   type_ = 0u;
@@ -3276,13 +3341,13 @@ void S2Web_Slope_List_SlopeData::set_allocated_name(::std::string* name) {
 
 // required uint32 state = 4;
 bool S2Web_Slope_List_SlopeData::has_state() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 void S2Web_Slope_List_SlopeData::set_has_state() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 void S2Web_Slope_List_SlopeData::clear_has_state() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 void S2Web_Slope_List_SlopeData::clear_state() {
   state_ = 0u;
@@ -3300,13 +3365,13 @@ void S2Web_Slope_List_SlopeData::set_state(::google::protobuf::uint32 value) {
 
 // required double longitude = 5;
 bool S2Web_Slope_List_SlopeData::has_longitude() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 void S2Web_Slope_List_SlopeData::set_has_longitude() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 void S2Web_Slope_List_SlopeData::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 void S2Web_Slope_List_SlopeData::clear_longitude() {
   longitude_ = 0;
@@ -3324,13 +3389,13 @@ void S2Web_Slope_List_SlopeData::set_longitude(double value) {
 
 // required double latitude = 6;
 bool S2Web_Slope_List_SlopeData::has_latitude() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 void S2Web_Slope_List_SlopeData::set_has_latitude() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 void S2Web_Slope_List_SlopeData::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 void S2Web_Slope_List_SlopeData::clear_latitude() {
   latitude_ = 0;
@@ -3344,6 +3409,69 @@ void S2Web_Slope_List_SlopeData::set_latitude(double value) {
   set_has_latitude();
   latitude_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.latitude)
+}
+
+// required bytes url = 7;
+bool S2Web_Slope_List_SlopeData::has_url() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2Web_Slope_List_SlopeData::set_has_url() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2Web_Slope_List_SlopeData::clear_has_url() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2Web_Slope_List_SlopeData::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& S2Web_Slope_List_SlopeData::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.url)
+  return url_.GetNoArena();
+}
+void S2Web_Slope_List_SlopeData::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.url)
+}
+#if LANG_CXX11
+void S2Web_Slope_List_SlopeData::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.url)
+}
+#endif
+void S2Web_Slope_List_SlopeData::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.url)
+}
+void S2Web_Slope_List_SlopeData::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.url)
+}
+::std::string* S2Web_Slope_List_SlopeData::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2Web_Slope_List_SlopeData::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2Web_Slope_List_SlopeData::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.url)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -3635,6 +3763,11 @@ const int S2Web_Sensor_List_SensorData::kCurValue3FieldNumber;
 const int S2Web_Sensor_List_SensorData::kAvgValue1FieldNumber;
 const int S2Web_Sensor_List_SensorData::kAvgValue2FieldNumber;
 const int S2Web_Sensor_List_SensorData::kAvgValue3FieldNumber;
+const int S2Web_Sensor_List_SensorData::kOffsetValue1FieldNumber;
+const int S2Web_Sensor_List_SensorData::kOffsetValue2FieldNumber;
+const int S2Web_Sensor_List_SensorData::kOffsetValue3FieldNumber;
+const int S2Web_Sensor_List_SensorData::kUrlFieldNumber;
+const int S2Web_Sensor_List_SensorData::kDescriptionFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 S2Web_Sensor_List_SensorData::S2Web_Sensor_List_SensorData()
@@ -3651,16 +3784,26 @@ S2Web_Sensor_List_SensorData::S2Web_Sensor_List_SensorData(const S2Web_Sensor_Li
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_description()) {
+    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+  }
   ::memcpy(&id_, &from.id_,
-    reinterpret_cast<char*>(&avg_value3_) -
-    reinterpret_cast<char*>(&id_) + sizeof(avg_value3_));
+    reinterpret_cast<char*>(&offset_value3_) -
+    reinterpret_cast<char*>(&id_) + sizeof(offset_value3_));
   // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData)
 }
 
 void S2Web_Sensor_List_SensorData::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&id_, 0, reinterpret_cast<char*>(&avg_value3_) -
-    reinterpret_cast<char*>(&id_) + sizeof(avg_value3_));
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&id_, 0, reinterpret_cast<char*>(&offset_value3_) -
+    reinterpret_cast<char*>(&id_) + sizeof(offset_value3_));
 }
 
 S2Web_Sensor_List_SensorData::~S2Web_Sensor_List_SensorData() {
@@ -3669,6 +3812,8 @@ S2Web_Sensor_List_SensorData::~S2Web_Sensor_List_SensorData() {
 }
 
 void S2Web_Sensor_List_SensorData::SharedDtor() {
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void S2Web_Sensor_List_SensorData::SetCachedSize(int size) const {
@@ -3696,14 +3841,25 @@ S2Web_Sensor_List_SensorData* S2Web_Sensor_List_SensorData::New(::google::protob
 
 void S2Web_Sensor_List_SensorData::Clear() {
 // @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData)
-  if (_has_bits_[0 / 32] & 255u) {
-    ::memset(&id_, 0, reinterpret_cast<char*>(&cur_value2_) -
-      reinterpret_cast<char*>(&id_) + sizeof(cur_value2_));
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_description()) {
+      GOOGLE_DCHECK(!description_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*description_.UnsafeRawStringPointer())->clear();
+    }
   }
-  if (_has_bits_[8 / 32] & 3840u) {
-    ::memset(&cur_value3_, 0, reinterpret_cast<char*>(&avg_value3_) -
-      reinterpret_cast<char*>(&cur_value3_) + sizeof(avg_value3_));
+  if (_has_bits_[0 / 32] & 252u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&latitude_) -
+      reinterpret_cast<char*>(&id_) + sizeof(latitude_));
   }
+  if (_has_bits_[8 / 32] & 65280u) {
+    ::memset(&cur_value1_, 0, reinterpret_cast<char*>(&offset_value2_) -
+      reinterpret_cast<char*>(&cur_value1_) + sizeof(offset_value2_));
+  }
+  offset_value3_ = 0;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -3714,7 +3870,7 @@ bool S2Web_Sensor_List_SensorData::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
@@ -3886,6 +4042,72 @@ bool S2Web_Sensor_List_SensorData::MergePartialFromCodedStream(
         break;
       }
 
+      // required double offset_value1 = 13;
+      case 13: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(105u)) {
+          set_has_offset_value1();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &offset_value1_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double offset_value2 = 14;
+      case 14: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(113u)) {
+          set_has_offset_value2();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &offset_value2_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double offset_value3 = 15;
+      case 15: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(121u)) {
+          set_has_offset_value3();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &offset_value3_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 16;
+      case 16: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(130u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes description = 17;
+      case 17: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(138u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_description()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0 ||
@@ -3916,63 +4138,90 @@ void S2Web_Sensor_List_SensorData::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
   }
 
   // required uint32 type = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->type(), output);
   }
 
   // required uint32 state = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->state(), output);
   }
 
   // required uint32 slope_id = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000020u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->slope_id(), output);
   }
 
   // required double longitude = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000040u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude(), output);
   }
 
   // required double latitude = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000080u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->latitude(), output);
   }
 
   // required double cur_value1 = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000100u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->cur_value1(), output);
   }
 
   // required double cur_value2 = 8;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000200u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(8, this->cur_value2(), output);
   }
 
   // required double cur_value3 = 9;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000400u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(9, this->cur_value3(), output);
   }
 
   // required double avg_value1 = 10;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000800u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(10, this->avg_value1(), output);
   }
 
   // required double avg_value2 = 11;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00001000u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(11, this->avg_value2(), output);
   }
 
   // required double avg_value3 = 12;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00002000u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(12, this->avg_value3(), output);
+  }
+
+  // required double offset_value1 = 13;
+  if (cached_has_bits & 0x00004000u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(13, this->offset_value1(), output);
+  }
+
+  // required double offset_value2 = 14;
+  if (cached_has_bits & 0x00008000u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(14, this->offset_value2(), output);
+  }
+
+  // required double offset_value3 = 15;
+  if (cached_has_bits & 0x00010000u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(15, this->offset_value3(), output);
+  }
+
+  // required bytes url = 16;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      16, this->url(), output);
+  }
+
+  // required bytes description = 17;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      17, this->description(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3990,63 +4239,92 @@ void S2Web_Sensor_List_SensorData::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
   }
 
   // required uint32 type = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->type(), target);
   }
 
   // required uint32 state = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->state(), target);
   }
 
   // required uint32 slope_id = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000020u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->slope_id(), target);
   }
 
   // required double longitude = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000040u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude(), target);
   }
 
   // required double latitude = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000080u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->latitude(), target);
   }
 
   // required double cur_value1 = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000100u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->cur_value1(), target);
   }
 
   // required double cur_value2 = 8;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000200u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(8, this->cur_value2(), target);
   }
 
   // required double cur_value3 = 9;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000400u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(9, this->cur_value3(), target);
   }
 
   // required double avg_value1 = 10;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000800u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(10, this->avg_value1(), target);
   }
 
   // required double avg_value2 = 11;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00001000u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(11, this->avg_value2(), target);
   }
 
   // required double avg_value3 = 12;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00002000u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(12, this->avg_value3(), target);
+  }
+
+  // required double offset_value1 = 13;
+  if (cached_has_bits & 0x00004000u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(13, this->offset_value1(), target);
+  }
+
+  // required double offset_value2 = 14;
+  if (cached_has_bits & 0x00008000u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(14, this->offset_value2(), target);
+  }
+
+  // required double offset_value3 = 15;
+  if (cached_has_bits & 0x00010000u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(15, this->offset_value3(), target);
+  }
+
+  // required bytes url = 16;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        16, this->url(), target);
+  }
+
+  // required bytes description = 17;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        17, this->description(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4060,6 +4338,20 @@ void S2Web_Sensor_List_SensorData::SerializeWithCachedSizes(
 size_t S2Web_Sensor_List_SensorData::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData)
   size_t total_size = 0;
+
+  if (has_url()) {
+    // required bytes url = 16;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_description()) {
+    // required bytes description = 17;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+  }
 
   if (has_id()) {
     // required uint32 id = 1;
@@ -4129,6 +4421,21 @@ size_t S2Web_Sensor_List_SensorData::RequiredFieldsByteSizeFallback() const {
     total_size += 1 + 8;
   }
 
+  if (has_offset_value1()) {
+    // required double offset_value1 = 13;
+    total_size += 1 + 8;
+  }
+
+  if (has_offset_value2()) {
+    // required double offset_value2 = 14;
+    total_size += 1 + 8;
+  }
+
+  if (has_offset_value3()) {
+    // required double offset_value3 = 15;
+    total_size += 1 + 8;
+  }
+
   return total_size;
 }
 size_t S2Web_Sensor_List_SensorData::ByteSizeLong() const {
@@ -4140,7 +4447,17 @@ size_t S2Web_Sensor_List_SensorData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
-  if (((_has_bits_[0] & 0x00000fff) ^ 0x00000fff) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0001ffff) ^ 0x0001ffff) == 0) {  // All required fields are present.
+    // required bytes url = 16;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required bytes description = 17;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+
     // required uint32 id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
@@ -4185,6 +4502,15 @@ size_t S2Web_Sensor_List_SensorData::ByteSizeLong() const {
     // required double avg_value3 = 12;
     total_size += 1 + 8;
 
+    // required double offset_value1 = 13;
+    total_size += 1 + 8;
+
+    // required double offset_value2 = 14;
+    total_size += 1 + 8;
+
+    // required double offset_value3 = 15;
+    total_size += 1 + 8;
+
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
@@ -4220,45 +4546,62 @@ void S2Web_Sensor_List_SensorData::MergeFrom(const S2Web_Sensor_List_SensorData&
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
-      id_ = from.id_;
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
     }
     if (cached_has_bits & 0x00000002u) {
-      type_ = from.type_;
+      set_has_description();
+      description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
     }
     if (cached_has_bits & 0x00000004u) {
-      state_ = from.state_;
+      id_ = from.id_;
     }
     if (cached_has_bits & 0x00000008u) {
-      slope_id_ = from.slope_id_;
+      type_ = from.type_;
     }
     if (cached_has_bits & 0x00000010u) {
-      longitude_ = from.longitude_;
+      state_ = from.state_;
     }
     if (cached_has_bits & 0x00000020u) {
-      latitude_ = from.latitude_;
+      slope_id_ = from.slope_id_;
     }
     if (cached_has_bits & 0x00000040u) {
-      cur_value1_ = from.cur_value1_;
+      longitude_ = from.longitude_;
     }
     if (cached_has_bits & 0x00000080u) {
-      cur_value2_ = from.cur_value2_;
+      latitude_ = from.latitude_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 3840u) {
+  if (cached_has_bits & 65280u) {
     if (cached_has_bits & 0x00000100u) {
-      cur_value3_ = from.cur_value3_;
+      cur_value1_ = from.cur_value1_;
     }
     if (cached_has_bits & 0x00000200u) {
-      avg_value1_ = from.avg_value1_;
+      cur_value2_ = from.cur_value2_;
     }
     if (cached_has_bits & 0x00000400u) {
-      avg_value2_ = from.avg_value2_;
+      cur_value3_ = from.cur_value3_;
     }
     if (cached_has_bits & 0x00000800u) {
+      avg_value1_ = from.avg_value1_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      avg_value2_ = from.avg_value2_;
+    }
+    if (cached_has_bits & 0x00002000u) {
       avg_value3_ = from.avg_value3_;
     }
+    if (cached_has_bits & 0x00004000u) {
+      offset_value1_ = from.offset_value1_;
+    }
+    if (cached_has_bits & 0x00008000u) {
+      offset_value2_ = from.offset_value2_;
+    }
     _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00010000u) {
+    set_offset_value3(from.offset_value3());
   }
 }
 
@@ -4277,7 +4620,7 @@ void S2Web_Sensor_List_SensorData::CopyFrom(const S2Web_Sensor_List_SensorData& 
 }
 
 bool S2Web_Sensor_List_SensorData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000fff) != 0x00000fff) return false;
+  if ((_has_bits_[0] & 0x0001ffff) != 0x0001ffff) return false;
   return true;
 }
 
@@ -4286,6 +4629,8 @@ void S2Web_Sensor_List_SensorData::Swap(S2Web_Sensor_List_SensorData* other) {
   InternalSwap(other);
 }
 void S2Web_Sensor_List_SensorData::InternalSwap(S2Web_Sensor_List_SensorData* other) {
+  url_.Swap(&other->url_);
+  description_.Swap(&other->description_);
   std::swap(id_, other->id_);
   std::swap(type_, other->type_);
   std::swap(state_, other->state_);
@@ -4298,6 +4643,9 @@ void S2Web_Sensor_List_SensorData::InternalSwap(S2Web_Sensor_List_SensorData* ot
   std::swap(avg_value1_, other->avg_value1_);
   std::swap(avg_value2_, other->avg_value2_);
   std::swap(avg_value3_, other->avg_value3_);
+  std::swap(offset_value1_, other->offset_value1_);
+  std::swap(offset_value2_, other->offset_value2_);
+  std::swap(offset_value3_, other->offset_value3_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -4313,13 +4661,13 @@ void S2Web_Sensor_List_SensorData::InternalSwap(S2Web_Sensor_List_SensorData* ot
 
 // required uint32 id = 1;
 bool S2Web_Sensor_List_SensorData::has_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_id() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000004u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_id() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 void S2Web_Sensor_List_SensorData::clear_id() {
   id_ = 0u;
@@ -4337,13 +4685,13 @@ void S2Web_Sensor_List_SensorData::set_id(::google::protobuf::uint32 value) {
 
 // required uint32 type = 2;
 bool S2Web_Sensor_List_SensorData::has_type() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_type() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000008u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_type() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 void S2Web_Sensor_List_SensorData::clear_type() {
   type_ = 0u;
@@ -4361,13 +4709,13 @@ void S2Web_Sensor_List_SensorData::set_type(::google::protobuf::uint32 value) {
 
 // required uint32 state = 3;
 bool S2Web_Sensor_List_SensorData::has_state() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_state() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000010u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_state() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 void S2Web_Sensor_List_SensorData::clear_state() {
   state_ = 0u;
@@ -4385,13 +4733,13 @@ void S2Web_Sensor_List_SensorData::set_state(::google::protobuf::uint32 value) {
 
 // required uint32 slope_id = 4;
 bool S2Web_Sensor_List_SensorData::has_slope_id() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_slope_id() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000020u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_slope_id() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 void S2Web_Sensor_List_SensorData::clear_slope_id() {
   slope_id_ = 0u;
@@ -4409,13 +4757,13 @@ void S2Web_Sensor_List_SensorData::set_slope_id(::google::protobuf::uint32 value
 
 // required double longitude = 5;
 bool S2Web_Sensor_List_SensorData::has_longitude() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_longitude() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000040u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 void S2Web_Sensor_List_SensorData::clear_longitude() {
   longitude_ = 0;
@@ -4433,13 +4781,13 @@ void S2Web_Sensor_List_SensorData::set_longitude(double value) {
 
 // required double latitude = 6;
 bool S2Web_Sensor_List_SensorData::has_latitude() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_latitude() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000080u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 void S2Web_Sensor_List_SensorData::clear_latitude() {
   latitude_ = 0;
@@ -4457,13 +4805,13 @@ void S2Web_Sensor_List_SensorData::set_latitude(double value) {
 
 // required double cur_value1 = 7;
 bool S2Web_Sensor_List_SensorData::has_cur_value1() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_cur_value1() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000100u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_cur_value1() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 void S2Web_Sensor_List_SensorData::clear_cur_value1() {
   cur_value1_ = 0;
@@ -4481,13 +4829,13 @@ void S2Web_Sensor_List_SensorData::set_cur_value1(double value) {
 
 // required double cur_value2 = 8;
 bool S2Web_Sensor_List_SensorData::has_cur_value2() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_cur_value2() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000200u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_cur_value2() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 void S2Web_Sensor_List_SensorData::clear_cur_value2() {
   cur_value2_ = 0;
@@ -4505,13 +4853,13 @@ void S2Web_Sensor_List_SensorData::set_cur_value2(double value) {
 
 // required double cur_value3 = 9;
 bool S2Web_Sensor_List_SensorData::has_cur_value3() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_cur_value3() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000400u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_cur_value3() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 void S2Web_Sensor_List_SensorData::clear_cur_value3() {
   cur_value3_ = 0;
@@ -4529,13 +4877,13 @@ void S2Web_Sensor_List_SensorData::set_cur_value3(double value) {
 
 // required double avg_value1 = 10;
 bool S2Web_Sensor_List_SensorData::has_avg_value1() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_avg_value1() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000800u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_avg_value1() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 void S2Web_Sensor_List_SensorData::clear_avg_value1() {
   avg_value1_ = 0;
@@ -4553,13 +4901,13 @@ void S2Web_Sensor_List_SensorData::set_avg_value1(double value) {
 
 // required double avg_value2 = 11;
 bool S2Web_Sensor_List_SensorData::has_avg_value2() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_avg_value2() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00001000u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_avg_value2() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 void S2Web_Sensor_List_SensorData::clear_avg_value2() {
   avg_value2_ = 0;
@@ -4577,13 +4925,13 @@ void S2Web_Sensor_List_SensorData::set_avg_value2(double value) {
 
 // required double avg_value3 = 12;
 bool S2Web_Sensor_List_SensorData::has_avg_value3() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 void S2Web_Sensor_List_SensorData::set_has_avg_value3() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00002000u;
 }
 void S2Web_Sensor_List_SensorData::clear_has_avg_value3() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 void S2Web_Sensor_List_SensorData::clear_avg_value3() {
   avg_value3_ = 0;
@@ -4597,6 +4945,204 @@ void S2Web_Sensor_List_SensorData::set_avg_value3(double value) {
   set_has_avg_value3();
   avg_value3_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.avg_value3)
+}
+
+// required double offset_value1 = 13;
+bool S2Web_Sensor_List_SensorData::has_offset_value1() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+void S2Web_Sensor_List_SensorData::set_has_offset_value1() {
+  _has_bits_[0] |= 0x00004000u;
+}
+void S2Web_Sensor_List_SensorData::clear_has_offset_value1() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+void S2Web_Sensor_List_SensorData::clear_offset_value1() {
+  offset_value1_ = 0;
+  clear_has_offset_value1();
+}
+double S2Web_Sensor_List_SensorData::offset_value1() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.offset_value1)
+  return offset_value1_;
+}
+void S2Web_Sensor_List_SensorData::set_offset_value1(double value) {
+  set_has_offset_value1();
+  offset_value1_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.offset_value1)
+}
+
+// required double offset_value2 = 14;
+bool S2Web_Sensor_List_SensorData::has_offset_value2() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+void S2Web_Sensor_List_SensorData::set_has_offset_value2() {
+  _has_bits_[0] |= 0x00008000u;
+}
+void S2Web_Sensor_List_SensorData::clear_has_offset_value2() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+void S2Web_Sensor_List_SensorData::clear_offset_value2() {
+  offset_value2_ = 0;
+  clear_has_offset_value2();
+}
+double S2Web_Sensor_List_SensorData::offset_value2() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.offset_value2)
+  return offset_value2_;
+}
+void S2Web_Sensor_List_SensorData::set_offset_value2(double value) {
+  set_has_offset_value2();
+  offset_value2_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.offset_value2)
+}
+
+// required double offset_value3 = 15;
+bool S2Web_Sensor_List_SensorData::has_offset_value3() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+void S2Web_Sensor_List_SensorData::set_has_offset_value3() {
+  _has_bits_[0] |= 0x00010000u;
+}
+void S2Web_Sensor_List_SensorData::clear_has_offset_value3() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+void S2Web_Sensor_List_SensorData::clear_offset_value3() {
+  offset_value3_ = 0;
+  clear_has_offset_value3();
+}
+double S2Web_Sensor_List_SensorData::offset_value3() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.offset_value3)
+  return offset_value3_;
+}
+void S2Web_Sensor_List_SensorData::set_offset_value3(double value) {
+  set_has_offset_value3();
+  offset_value3_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.offset_value3)
+}
+
+// required bytes url = 16;
+bool S2Web_Sensor_List_SensorData::has_url() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2Web_Sensor_List_SensorData::set_has_url() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2Web_Sensor_List_SensorData::clear_has_url() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2Web_Sensor_List_SensorData::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& S2Web_Sensor_List_SensorData::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.url)
+  return url_.GetNoArena();
+}
+void S2Web_Sensor_List_SensorData::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.url)
+}
+#if LANG_CXX11
+void S2Web_Sensor_List_SensorData::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.url)
+}
+#endif
+void S2Web_Sensor_List_SensorData::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.url)
+}
+void S2Web_Sensor_List_SensorData::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.url)
+}
+::std::string* S2Web_Sensor_List_SensorData::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2Web_Sensor_List_SensorData::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2Web_Sensor_List_SensorData::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.url)
+}
+
+// required bytes description = 17;
+bool S2Web_Sensor_List_SensorData::has_description() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2Web_Sensor_List_SensorData::set_has_description() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2Web_Sensor_List_SensorData::clear_has_description() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2Web_Sensor_List_SensorData::clear_description() {
+  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_description();
+}
+const ::std::string& S2Web_Sensor_List_SensorData::description() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.description)
+  return description_.GetNoArena();
+}
+void S2Web_Sensor_List_SensorData::set_description(const ::std::string& value) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.description)
+}
+#if LANG_CXX11
+void S2Web_Sensor_List_SensorData::set_description(::std::string&& value) {
+  set_has_description();
+  description_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.description)
+}
+#endif
+void S2Web_Sensor_List_SensorData::set_description(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.description)
+}
+void S2Web_Sensor_List_SensorData::set_description(const void* value, size_t size) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.description)
+}
+::std::string* S2Web_Sensor_List_SensorData::mutable_description() {
+  set_has_description();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.description)
+  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2Web_Sensor_List_SensorData::release_description() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.description)
+  clear_has_description();
+  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2Web_Sensor_List_SensorData::set_allocated_description(::std::string* description) {
+  if (description != NULL) {
+    set_has_description();
+  } else {
+    clear_has_description();
+  }
+  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.description)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -5606,8 +6152,6 @@ const int S2Web_Sensor_History::kEndTimeFieldNumber;
 const int S2Web_Sensor_History::kAvgValue1FieldNumber;
 const int S2Web_Sensor_History::kAvgValue2FieldNumber;
 const int S2Web_Sensor_History::kAvgValue3FieldNumber;
-const int S2Web_Sensor_History::kUrlFieldNumber;
-const int S2Web_Sensor_History::kDescriptionFieldNumber;
 const int S2Web_Sensor_History::kHistoryListFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -5626,14 +6170,6 @@ S2Web_Sensor_History::S2Web_Sensor_History(const S2Web_Sensor_History& from)
       _cached_size_(0),
       history_list_(from.history_list_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_url()) {
-    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
-  }
-  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_description()) {
-    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
-  }
   ::memcpy(&longitude_, &from.longitude_,
     reinterpret_cast<char*>(&end_time_) -
     reinterpret_cast<char*>(&longitude_) + sizeof(end_time_));
@@ -5642,8 +6178,6 @@ S2Web_Sensor_History::S2Web_Sensor_History(const S2Web_Sensor_History& from)
 
 void S2Web_Sensor_History::SharedCtor() {
   _cached_size_ = 0;
-  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&longitude_, 0, reinterpret_cast<char*>(&end_time_) -
     reinterpret_cast<char*>(&longitude_) + sizeof(end_time_));
 }
@@ -5654,8 +6188,6 @@ S2Web_Sensor_History::~S2Web_Sensor_History() {
 }
 
 void S2Web_Sensor_History::SharedDtor() {
-  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void S2Web_Sensor_History::SetCachedSize(int size) const {
@@ -5684,23 +6216,9 @@ S2Web_Sensor_History* S2Web_Sensor_History::New(::google::protobuf::Arena* arena
 void S2Web_Sensor_History::Clear() {
 // @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2Web_Sensor_History)
   history_list_.Clear();
-  if (_has_bits_[0 / 32] & 3u) {
-    if (has_url()) {
-      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*url_.UnsafeRawStringPointer())->clear();
-    }
-    if (has_description()) {
-      GOOGLE_DCHECK(!description_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*description_.UnsafeRawStringPointer())->clear();
-    }
-  }
-  if (_has_bits_[0 / 32] & 252u) {
-    ::memset(&longitude_, 0, reinterpret_cast<char*>(&avg_value2_) -
-      reinterpret_cast<char*>(&longitude_) + sizeof(avg_value2_));
-  }
-  if (_has_bits_[8 / 32] & 768u) {
-    ::memset(&avg_value3_, 0, reinterpret_cast<char*>(&end_time_) -
-      reinterpret_cast<char*>(&avg_value3_) + sizeof(end_time_));
+  if (_has_bits_[0 / 32] & 255u) {
+    ::memset(&longitude_, 0, reinterpret_cast<char*>(&end_time_) -
+      reinterpret_cast<char*>(&longitude_) + sizeof(end_time_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -5828,34 +6346,10 @@ bool S2Web_Sensor_History::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes url = 9;
+      // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 9;
       case 9: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(74u)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_url()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required bytes description = 10;
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(82u)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_description()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 11;
-      case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(90u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_history_list()));
         } else {
@@ -5894,61 +6388,49 @@ void S2Web_Sensor_History::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 id = 1;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
   }
 
   // required double longitude = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->longitude(), output);
   }
 
   // required double latitude = 3;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->latitude(), output);
   }
 
   // required uint32 begin_time = 4;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->begin_time(), output);
   }
 
   // required uint32 end_time = 5;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000080u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->end_time(), output);
   }
 
   // required double avg_value1 = 6;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->avg_value1(), output);
   }
 
   // required double avg_value2 = 7;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000020u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->avg_value2(), output);
   }
 
   // required double avg_value3 = 8;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000040u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(8, this->avg_value3(), output);
   }
 
-  // required bytes url = 9;
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      9, this->url(), output);
-  }
-
-  // required bytes description = 10;
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      10, this->description(), output);
-  }
-
-  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 11;
+  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 9;
   for (unsigned int i = 0, n = this->history_list_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      11, this->history_list(i), output);
+      9, this->history_list(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5966,64 +6448,50 @@ void S2Web_Sensor_History::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 id = 1;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
   }
 
   // required double longitude = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->longitude(), target);
   }
 
   // required double latitude = 3;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->latitude(), target);
   }
 
   // required uint32 begin_time = 4;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->begin_time(), target);
   }
 
   // required uint32 end_time = 5;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000080u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->end_time(), target);
   }
 
   // required double avg_value1 = 6;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->avg_value1(), target);
   }
 
   // required double avg_value2 = 7;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000020u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->avg_value2(), target);
   }
 
   // required double avg_value3 = 8;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000040u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(8, this->avg_value3(), target);
   }
 
-  // required bytes url = 9;
-  if (cached_has_bits & 0x00000001u) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        9, this->url(), target);
-  }
-
-  // required bytes description = 10;
-  if (cached_has_bits & 0x00000002u) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        10, this->description(), target);
-  }
-
-  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 11;
+  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 9;
   for (unsigned int i = 0, n = this->history_list_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        11, this->history_list(i), deterministic, target);
+        9, this->history_list(i), deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6037,20 +6505,6 @@ void S2Web_Sensor_History::SerializeWithCachedSizes(
 size_t S2Web_Sensor_History::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2Web_Sensor_History)
   size_t total_size = 0;
-
-  if (has_url()) {
-    // required bytes url = 9;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->url());
-  }
-
-  if (has_description()) {
-    // required bytes description = 10;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->description());
-  }
 
   if (has_longitude()) {
     // required double longitude = 2;
@@ -6109,17 +6563,7 @@ size_t S2Web_Sensor_History::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
-  if (((_has_bits_[0] & 0x000003ff) ^ 0x000003ff) == 0) {  // All required fields are present.
-    // required bytes url = 9;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->url());
-
-    // required bytes description = 10;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->description());
-
+  if (((_has_bits_[0] & 0x000000ff) ^ 0x000000ff) == 0) {  // All required fields are present.
     // required double longitude = 2;
     total_size += 1 + 8;
 
@@ -6153,7 +6597,7 @@ size_t S2Web_Sensor_History::ByteSizeLong() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 11;
+  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 9;
   {
     unsigned int count = this->history_list_size();
     total_size += 1UL * count;
@@ -6197,38 +6641,27 @@ void S2Web_Sensor_History::MergeFrom(const S2Web_Sensor_History& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
-      set_has_url();
-      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
-    }
-    if (cached_has_bits & 0x00000002u) {
-      set_has_description();
-      description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
-    }
-    if (cached_has_bits & 0x00000004u) {
       longitude_ = from.longitude_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       id_ = from.id_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       begin_time_ = from.begin_time_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       latitude_ = from.latitude_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       avg_value1_ = from.avg_value1_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       avg_value2_ = from.avg_value2_;
     }
-    _has_bits_[0] |= cached_has_bits;
-  }
-  if (cached_has_bits & 768u) {
-    if (cached_has_bits & 0x00000100u) {
+    if (cached_has_bits & 0x00000040u) {
       avg_value3_ = from.avg_value3_;
     }
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000080u) {
       end_time_ = from.end_time_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -6250,7 +6683,7 @@ void S2Web_Sensor_History::CopyFrom(const S2Web_Sensor_History& from) {
 }
 
 bool S2Web_Sensor_History::IsInitialized() const {
-  if ((_has_bits_[0] & 0x000003ff) != 0x000003ff) return false;
+  if ((_has_bits_[0] & 0x000000ff) != 0x000000ff) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->history_list())) return false;
   return true;
 }
@@ -6261,8 +6694,6 @@ void S2Web_Sensor_History::Swap(S2Web_Sensor_History* other) {
 }
 void S2Web_Sensor_History::InternalSwap(S2Web_Sensor_History* other) {
   history_list_.InternalSwap(&other->history_list_);
-  url_.Swap(&other->url_);
-  description_.Swap(&other->description_);
   std::swap(longitude_, other->longitude_);
   std::swap(id_, other->id_);
   std::swap(begin_time_, other->begin_time_);
@@ -6286,13 +6717,13 @@ void S2Web_Sensor_History::InternalSwap(S2Web_Sensor_History* other) {
 
 // required uint32 id = 1;
 bool S2Web_Sensor_History::has_id() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 void S2Web_Sensor_History::set_has_id() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000002u;
 }
 void S2Web_Sensor_History::clear_has_id() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 void S2Web_Sensor_History::clear_id() {
   id_ = 0u;
@@ -6310,13 +6741,13 @@ void S2Web_Sensor_History::set_id(::google::protobuf::uint32 value) {
 
 // required double longitude = 2;
 bool S2Web_Sensor_History::has_longitude() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 void S2Web_Sensor_History::set_has_longitude() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000001u;
 }
 void S2Web_Sensor_History::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 void S2Web_Sensor_History::clear_longitude() {
   longitude_ = 0;
@@ -6334,13 +6765,13 @@ void S2Web_Sensor_History::set_longitude(double value) {
 
 // required double latitude = 3;
 bool S2Web_Sensor_History::has_latitude() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 void S2Web_Sensor_History::set_has_latitude() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000008u;
 }
 void S2Web_Sensor_History::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 void S2Web_Sensor_History::clear_latitude() {
   latitude_ = 0;
@@ -6358,13 +6789,13 @@ void S2Web_Sensor_History::set_latitude(double value) {
 
 // required uint32 begin_time = 4;
 bool S2Web_Sensor_History::has_begin_time() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 void S2Web_Sensor_History::set_has_begin_time() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000004u;
 }
 void S2Web_Sensor_History::clear_has_begin_time() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 void S2Web_Sensor_History::clear_begin_time() {
   begin_time_ = 0u;
@@ -6382,13 +6813,13 @@ void S2Web_Sensor_History::set_begin_time(::google::protobuf::uint32 value) {
 
 // required uint32 end_time = 5;
 bool S2Web_Sensor_History::has_end_time() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 void S2Web_Sensor_History::set_has_end_time() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000080u;
 }
 void S2Web_Sensor_History::clear_has_end_time() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 void S2Web_Sensor_History::clear_end_time() {
   end_time_ = 0u;
@@ -6406,13 +6837,13 @@ void S2Web_Sensor_History::set_end_time(::google::protobuf::uint32 value) {
 
 // required double avg_value1 = 6;
 bool S2Web_Sensor_History::has_avg_value1() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 void S2Web_Sensor_History::set_has_avg_value1() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000010u;
 }
 void S2Web_Sensor_History::clear_has_avg_value1() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 void S2Web_Sensor_History::clear_avg_value1() {
   avg_value1_ = 0;
@@ -6430,13 +6861,13 @@ void S2Web_Sensor_History::set_avg_value1(double value) {
 
 // required double avg_value2 = 7;
 bool S2Web_Sensor_History::has_avg_value2() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 void S2Web_Sensor_History::set_has_avg_value2() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000020u;
 }
 void S2Web_Sensor_History::clear_has_avg_value2() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 void S2Web_Sensor_History::clear_avg_value2() {
   avg_value2_ = 0;
@@ -6454,13 +6885,13 @@ void S2Web_Sensor_History::set_avg_value2(double value) {
 
 // required double avg_value3 = 8;
 bool S2Web_Sensor_History::has_avg_value3() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 void S2Web_Sensor_History::set_has_avg_value3() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000040u;
 }
 void S2Web_Sensor_History::clear_has_avg_value3() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 void S2Web_Sensor_History::clear_avg_value3() {
   avg_value3_ = 0;
@@ -6476,133 +6907,7 @@ void S2Web_Sensor_History::set_avg_value3(double value) {
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value3)
 }
 
-// required bytes url = 9;
-bool S2Web_Sensor_History::has_url() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void S2Web_Sensor_History::set_has_url() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void S2Web_Sensor_History::clear_has_url() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-void S2Web_Sensor_History::clear_url() {
-  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_url();
-}
-const ::std::string& S2Web_Sensor_History::url() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.url)
-  return url_.GetNoArena();
-}
-void S2Web_Sensor_History::set_url(const ::std::string& value) {
-  set_has_url();
-  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.url)
-}
-#if LANG_CXX11
-void S2Web_Sensor_History::set_url(::std::string&& value) {
-  set_has_url();
-  url_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.url)
-}
-#endif
-void S2Web_Sensor_History::set_url(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_url();
-  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.url)
-}
-void S2Web_Sensor_History::set_url(const void* value, size_t size) {
-  set_has_url();
-  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.url)
-}
-::std::string* S2Web_Sensor_History::mutable_url() {
-  set_has_url();
-  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.url)
-  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* S2Web_Sensor_History::release_url() {
-  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.url)
-  clear_has_url();
-  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void S2Web_Sensor_History::set_allocated_url(::std::string* url) {
-  if (url != NULL) {
-    set_has_url();
-  } else {
-    clear_has_url();
-  }
-  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
-  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.url)
-}
-
-// required bytes description = 10;
-bool S2Web_Sensor_History::has_description() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void S2Web_Sensor_History::set_has_description() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void S2Web_Sensor_History::clear_has_description() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-void S2Web_Sensor_History::clear_description() {
-  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_description();
-}
-const ::std::string& S2Web_Sensor_History::description() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
-  return description_.GetNoArena();
-}
-void S2Web_Sensor_History::set_description(const ::std::string& value) {
-  set_has_description();
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
-}
-#if LANG_CXX11
-void S2Web_Sensor_History::set_description(::std::string&& value) {
-  set_has_description();
-  description_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
-}
-#endif
-void S2Web_Sensor_History::set_description(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_description();
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
-}
-void S2Web_Sensor_History::set_description(const void* value, size_t size) {
-  set_has_description();
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
-}
-::std::string* S2Web_Sensor_History::mutable_description() {
-  set_has_description();
-  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
-  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* S2Web_Sensor_History::release_description() {
-  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
-  clear_has_description();
-  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void S2Web_Sensor_History::set_allocated_description(::std::string* description) {
-  if (description != NULL) {
-    set_has_description();
-  } else {
-    clear_has_description();
-  }
-  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
-  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.description)
-}
-
-// repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 11;
+// repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 9;
 int S2Web_Sensor_History::history_list_size() const {
   return history_list_.size();
 }

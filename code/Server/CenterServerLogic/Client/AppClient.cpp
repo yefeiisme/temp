@@ -272,11 +272,11 @@ void CAppClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest
 
 	if (1 == uAccountCount)
 	{
-		tagLoginResult.set_result(1);
+		tagLoginResult.set_result(0);
 	}
 	else
 	{
-		tagLoginResult.set_result(0);
+		tagLoginResult.set_result(1);
 	}
 
 	for (auto uRow = 0; uRow < pResult2->GetRowCount(); ++uRow)
@@ -308,6 +308,7 @@ void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 	double	dLongitude			= 0.0f;
 	double	dLatitude			= 0.0f;
 	BYTE	byState				= 0;
+	char	strUrl[0xffff]		= {0};
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (1 != byResultCount)
@@ -344,6 +345,7 @@ void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 		pResult1->GetData(uRow, uCol++, dLongitude);
 		pResult1->GetData(uRow, uCol++, dLatitude);
 		pResult1->GetData(uRow, uCol++, byState);
+		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
 
 		pSlopeData->set_id(wSlopeID);
 		pSlopeData->set_type(bySlopeType);
@@ -374,6 +376,8 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 	WORD	wSlopeID		= 0;
 	double	dLongitude		= 0.0f;
 	double	dLatitude		= 0.0f;
+	char	strUrl[0xffff]	= {0};
+	char	strDesc[0xffff]	= {0};
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (1 != byResultCount)
@@ -412,10 +416,15 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		pResult1->GetData(uRow, uCol++, dAvgValue1);
 		pResult1->GetData(uRow, uCol++, dAvgValue2);
 		pResult1->GetData(uRow, uCol++, dAvgValue3);
+		pResult1->GetData(uRow, uCol++, dOffsetValue1);
+		pResult1->GetData(uRow, uCol++, dOffsetValue2);
+		pResult1->GetData(uRow, uCol++, dOffsetValue3);
 		pResult1->GetData(uRow, uCol++, byState);
 		pResult1->GetData(uRow, uCol++, wSlopeID);
 		pResult1->GetData(uRow, uCol++, dLongitude);
 		pResult1->GetData(uRow, uCol++, dLatitude);
+		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
+		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strDesc));
 
 		pSensor->set_id(uSensorID);
 		pSensor->set_type(bySensorType);
@@ -425,10 +434,15 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		pSensor->set_avg_value1(dAvgValue1);
 		pSensor->set_avg_value2(dAvgValue2);
 		pSensor->set_avg_value3(dAvgValue3);
+		pSensor->set_offset_value1(dOffsetValue1);
+		pSensor->set_offset_value2(dOffsetValue2);
+		pSensor->set_offset_value3(dOffsetValue3);
 		pSensor->set_state(byState);
 		pSensor->set_slope_id(wSlopeID);
 		pSensor->set_longitude(dLongitude);
 		pSensor->set_latitude(dLatitude);
+		pSensor->set_url(strUrl);
+		pSensor->set_description(strDesc);
 	}
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_sensor_list, tagSensorList);
@@ -455,7 +469,6 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	int		nBeginTime		= 0;
 	int		nEndTime		= 0;
 	int		nDataTime		= 0;
-	char	strUrl[128]		= {0};
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (1 != byResultCount)
@@ -489,7 +502,6 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	pResult1->GetData(0, uCol++, dAvgValue1);
 	pResult1->GetData(0, uCol++, dAvgValue2);
 	pResult1->GetData(0, uCol++, dAvgValue3);
-	pResult1->GetData(0, uCol++, strUrl, sizeof(strUrl));
 
 	tagSensorHistory.set_id(uSensorID);
 	tagSensorHistory.set_longitude(dLongitude);
@@ -499,7 +511,6 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	tagSensorHistory.set_avg_value1(dAvgValue1);
 	tagSensorHistory.set_avg_value2(dAvgValue2);
 	tagSensorHistory.set_avg_value3(dAvgValue3);
-	tagSensorHistory.set_url(strUrl);
 
 	for (auto uRow = 0; uRow < pResult2->GetRowCount(); ++uRow)
 	{

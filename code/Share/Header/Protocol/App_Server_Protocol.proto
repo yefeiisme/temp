@@ -129,18 +129,23 @@ message S2App_Sensor_List
 {
 	message SensorData
 	{// 传感器器数据结构
-		required uint32	id			= 1;	// ID
-		required uint32	type		= 2;	// 类型
-		required uint32	state		= 3;	// 预警状态
-		required uint32	slope_id	= 4;	// 所属边坡ID
-		required double	longitude	= 5;	// 经度
-		required double	latitude	= 6;	// 纬度
-		required double	cur_value1	= 7;	// 当前物理量1
-		required double	cur_value2	= 8;	// 当前物理量2
-		required double	cur_value3	= 9;	// 当前物理量3
-		required double	avg_value1	= 10;	// 平均物理量1
-		required double	avg_value2	= 11;	// 平均物理量2
-		required double	avg_value3	= 12;	// 平均物理量3
+		required uint32	id				= 1;	// ID
+		required uint32	type			= 2;	// 类型
+		required uint32	state			= 3;	// 预警状态
+		required uint32	slope_id		= 4;	// 所属边坡ID
+		required double	longitude		= 5;	// 经度
+		required double	latitude		= 6;	// 纬度
+		required double	cur_value1		= 7;	// 当前物理量1
+		required double	cur_value2		= 8;	// 当前物理量2
+		required double	cur_value3		= 9;	// 当前物理量3
+		required double	avg_value1		= 10;	// 平均物理量1
+		required double	avg_value2		= 11;	// 平均物理量2
+		required double	avg_value3		= 12;	// 平均物理量3
+		required double	offset_value1	= 13;	// 平均物理量1
+		required double	offset_value2	= 14;	// 平均物理量2
+		required double	offset_value3	= 15;	// 平均物理量3
+		required bytes	url				= 16;	// 特殊传感器类型的url
+		required bytes	description		= 17;	// 安装位置的描述
 	}
 
 	repeated SensorData	sensor_list	= 1;
@@ -169,7 +174,5 @@ message S2App_Sensor_History
 	required double	avg_value1			= 6;	// 平均物理量1
 	required double	avg_value2			= 7;	// 平均物理量2
 	required double	avg_value3			= 8;	// 平均物理量3
-	required bytes	url					= 9;	// 特殊传感器类型的url
-	required bytes	description			= 10;	// 安装位置的描述
-	repeated SensorData	history_list	= 11;	// 起始时间到结束时间内的传感器数据
+	repeated SensorData	history_list	= 9;	// 起始时间到结束时间内的传感器数据
 }

@@ -70,15 +70,16 @@ CREATE TABLE `server` (
 ) ENGINE=InnoDB ADEFAULT CHARSET=utf8;
 
 CREATE TABLE `slope` (
-  `ID` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
-  `Type` tinyint(4) unsigned NOT NULL,
-  `Name` varchar(64) DEFAULT NULL,
+  `ID` smallint unsigned NOT NULL AUTO_INCREMENT,
+  `Type` tinyint unsigned NOT NULL,
+  `Name` varchar DEFAULT NULL,
   `Longitude` double NOT NULL,
   `Latitude` double NOT NULL,
-  `OwnerID` int(4) unsigned NOT NULL,
-  `State` int(1) unsigned NOT NULL DEFAULT '0',
+  `OwnerID` int unsigned NOT NULL,
+  `State` int unsigned NOT NULL DEFAULT '0',
+  `VideoUrl` mediumtext,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `user` (
   `ID` int(4) unsigned NOT NULL AUTO_INCREMENT,
@@ -138,6 +139,9 @@ BEGIN
     AvgValue1,
     AvgValue2,
     AvgValue3,
+    OffsetValue1,
+    OffsetValue2,
+    OffsetValue3,
     AlarmState,
     SlopeID,
     Longitude,
@@ -171,7 +175,7 @@ DROP PROCEDURE IF EXISTS `LoadSlopeList`;
 
 CREATE PROCEDURE `LoadSlopeList`(IN paramAccount INTEGER UNSIGNED, IN paramServerID INTEGER UNSIGNED)
 BEGIN
-	select ID,Type,Name,Longitude,Latitude,State from slope where OwnerID=paramAccount;
+	select ID,Type,Name,Longitude,Latitude,State,VideoUrl from slope where OwnerID=paramAccount;
 END;
 
 DROP PROCEDURE IF EXISTS `WebLogin`;
