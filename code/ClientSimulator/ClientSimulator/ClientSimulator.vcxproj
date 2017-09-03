@@ -55,7 +55,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;../../share/header;../../share/header/base;../../share/header/Simulator</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../../share/header;../../share/header/base;../../share/header/libiconv;../../share/header/Simulator</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
@@ -63,7 +63,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../../share/Lib/Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Daemon.lib;FileLog.lib;FileReader.lib;Network.lib;RingBuffer.lib;SimulatorLogic.lib;Ws2_32.lib;libprotocd.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Daemon.lib;FileLog.lib;FileReader.lib;Network.lib;RingBuffer.lib;SimulatorLogic.lib;Ws2_32.lib;libprotocd.lib;libprotobufd.lib;libiconv.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>

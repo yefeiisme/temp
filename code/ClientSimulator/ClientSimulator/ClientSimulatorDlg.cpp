@@ -8,6 +8,7 @@
 #include "afxdialogex.h"
 #include "ISimulatorLogic.h"
 #include "UI2LogicProtocol.h"
+#include "iconv.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -194,10 +195,44 @@ void CClientSimulatorDlg::OnBnClickedAppSend()
 	U2L_APP_LOGIN	tagAppLogin;
 	memset(&tagAppLogin, 0, sizeof(tagAppLogin));
 	tagAppLogin.byProtocol	= u2l_app_login;
-	strncpy(tagAppLogin.strAccount, m_strAccountMsg.GetBuffer(m_strAccountMsg.GetLength()), sizeof(tagAppLogin.strAccount));
-	tagAppLogin.strAccount[sizeof(tagAppLogin.strAccount)-1]	= '\0';
-	strncpy(tagAppLogin.strPassword, m_strPassword.GetBuffer(m_strPassword.GetLength()), sizeof(tagAppLogin.strPassword));
-	tagAppLogin.strPassword[sizeof(tagAppLogin.strPassword) - 1]	= '\0';
+
+	char szPlayerName[0xffff];
+	memset(szPlayerName, 0, sizeof(szPlayerName));
+
+	size_t		nAccountLen		= m_strAccountMsg.GetLength();
+	size_t		nOutAccountLen	= sizeof(tagAppLogin.strAccount);
+
+	const char	*pstrAccount	= m_strAccountMsg.GetBuffer(m_strAccountMsg.GetLength());
+	char		*pstrOutAccount = tagAppLogin.strAccount;
+
+	size_t		nPasswordLen	= m_strPassword.GetLength();
+	size_t		nOutPasswordLen	= sizeof(tagAppLogin.strPassword);
+
+	const char	*pstrPassword	= m_strPassword.GetBuffer(m_strPassword.GetLength());
+	char		*pstrOutPassword= tagAppLogin.strPassword;
+
+	iconv_t pLibiconv = iconv_open("gb2312", "utf-8");
+
+	if (-1 == iconv(pLibiconv, &pstrAccount, &nAccountLen, &pstrOutAccount, &nOutAccountLen))
+	{
+		iconv_close(pLibiconv);
+		AfxMessageBox("[%s][%d] iconv gb2312 to utf-8 Failed\n", MB_OK);
+		return;
+	}
+
+	if (-1 == iconv(pLibiconv, &pstrPassword, &nPasswordLen, &pstrOutPassword, &nOutPasswordLen))
+	{
+		iconv_close(pLibiconv);
+		AfxMessageBox("[%s][%d] iconv gb2312 to utf-8 Failed\n", MB_OK);
+		return;
+	}
+
+	iconv_close(pLibiconv);
+
+	//strncpy(tagAppLogin.strAccount, m_strAccountMsg.GetBuffer(m_strAccountMsg.GetLength()), sizeof(tagAppLogin.strAccount));
+	//tagAppLogin.strAccount[sizeof(tagAppLogin.strAccount)-1]	= '\0';
+	//strncpy(tagAppLogin.strPassword, m_strPassword.GetBuffer(m_strPassword.GetLength()), sizeof(tagAppLogin.strPassword));
+	//tagAppLogin.strPassword[sizeof(tagAppLogin.strPassword) - 1]	= '\0';
 
 	g_ISimulatorLogic.SendRequest(&tagAppLogin, sizeof(tagAppLogin));
 }

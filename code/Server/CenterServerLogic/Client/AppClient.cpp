@@ -424,7 +424,7 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		pResult1->GetData(uRow, uCol++, dLongitude);
 		pResult1->GetData(uRow, uCol++, dLatitude);
 		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
-		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strDesc));
+		pResult1->GetData(uRow, uCol++, strDesc, sizeof(strDesc));
 
 		pSensor->set_id(uSensorID);
 		pSensor->set_type(bySensorType);
