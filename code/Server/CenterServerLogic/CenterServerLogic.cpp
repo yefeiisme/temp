@@ -134,11 +134,11 @@ bool CCenterServerLogic::AppClientLogin(IClientConnection *pClientConnection)
 	if (nullptr == pAppClient)
 		return false;
 
-	pAppClient->AttachClient(pClientConnection);
-
-	pAppClient->SetUniqueID(++m_uAppID);
+	pAppClient->Login(pClientConnection, ++m_uAppID);
 
 	m_mapOnlineAppClient[pClientConnection]	= pAppClient;
+
+	g_pFileLog->WriteLog("App Client[%llu] Login, time[%d]\n", m_uAppID, g_nTimeNow);
 
 	return true;
 }
@@ -149,8 +149,10 @@ void CCenterServerLogic::AppClientLogout(IClientConnection *pClientConnection)
 
 	if (Iter != m_mapOnlineAppClient.end())
 	{
+		g_pFileLog->WriteLog("App Client[%llu] Logout, time[%d]\n", Iter->second->GetUniqueID(), g_nTimeNow);
+
 		m_listFreeAppClient.push_back(Iter->second);
-		Iter->second->DetachClient();
+		Iter->second->Logout();
 		m_mapOnlineAppClient.erase(Iter);
 	}
 }
@@ -161,11 +163,11 @@ bool CCenterServerLogic::WebClientLogin(IClientConnection *pClientConnection)
 	if (nullptr == pWebClient)
 		return false;
 
-	pWebClient->AttachClient(pClientConnection);
-
-	pWebClient->SetUniqueID(++m_uWebID);
+	pWebClient->Login(pClientConnection, ++m_uWebID);
 
 	m_mapOnlineWebClient[pClientConnection]	= pWebClient;
+
+	g_pFileLog->WriteLog("Web Client[%llu] Login, time[%d]\n", m_uWebID, g_nTimeNow);
 
 	return true;
 }
@@ -176,8 +178,10 @@ void CCenterServerLogic::WebClientLogout(IClientConnection *pClientConnection)
 
 	if (Iter != m_mapOnlineWebClient.end())
 	{
+		g_pFileLog->WriteLog("Web Client[%llu] Logout, time[%d]\n", Iter->second->GetUniqueID(), g_nTimeNow);
+
 		m_listFreeWebClient.push_back(Iter->second);
-		Iter->second->DetachClient();
+		Iter->second->Logout();
 		m_mapOnlineWebClient.erase(Iter);
 	}
 }
@@ -188,11 +192,11 @@ bool CCenterServerLogic::DataClientLogin(IClientConnection *pClientConnection)
 	if (nullptr == pDataClient)
 		return false;
 
-	pDataClient->AttachClient(pClientConnection);
-
-	pDataClient->SetUniqueID(++m_uDataID);
+	pDataClient->Login(pClientConnection, ++m_uDataID);
 
 	m_mapOnlineDataClient[pClientConnection] = pDataClient;
+
+	g_pFileLog->WriteLog("Data Client[%llu] Login, time[%d]\n", m_uDataID, g_nTimeNow);
 
 	return true;
 }
@@ -203,8 +207,10 @@ void CCenterServerLogic::DataClientLogout(IClientConnection *pClientConnection)
 
 	if (Iter != m_mapOnlineDataClient.end())
 	{
+		g_pFileLog->WriteLog("Data Client[%llu] Logout, time[%d]\n", Iter->second->GetUniqueID(), g_nTimeNow);
+
 		m_listFreeDataClient.push_back(Iter->second);
-		Iter->second->DetachClient();
+		Iter->second->Logout();
 		m_mapOnlineDataClient.erase(Iter);
 	}
 }

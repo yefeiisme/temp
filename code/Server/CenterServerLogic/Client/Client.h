@@ -15,25 +15,21 @@ public:
 		m_uIndex	= uIndex;
 	}
 
-	inline void				AttachClient(IClientConnection *pClientConn)
-	{
-		m_pClientConn	= pClientConn;
-	}
-
-	inline void				DetachClient()
-	{
-		m_pClientConn	= nullptr;
-		m_uUniqueID		= 0;
-	}
-
-	inline void				SetUniqueID(const uint64 uID)
-	{
-		m_uUniqueID	= uID;
-	}
-
 	inline uint64			GetUniqueID() const
 	{
 		return m_uUniqueID;
+	}
+
+	inline void				Login(IClientConnection *pClientConn, const uint64 uID)
+	{
+		m_pClientConn	= pClientConn;
+		m_uUniqueID		= uID;
+	}
+	inline void				Logout()
+	{
+		m_pClientConn	= nullptr;
+		m_uUniqueID		= 0;
+		m_uAccountID	= 0;
 	}
 
 	virtual void			DoAction();
