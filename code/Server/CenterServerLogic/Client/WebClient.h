@@ -23,6 +23,8 @@ private:
 	void					RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen);
 	void					RecvRequestSensorList(const void *pPack, const unsigned int uPackLen);
 	void					RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen);
+	void					RecvPing(const void *pPack, const unsigned int uPackLen);
+
 	void					RecvRequestAllList(const void *pPack, const unsigned int uPackLen);
 private:
 	void					DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);

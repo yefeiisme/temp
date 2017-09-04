@@ -10,9 +10,9 @@ CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[APP_SERVER_NET_Protocol::
 	&CAppClient::RecvRequestSlopeList,
 	&CAppClient::RecvRequestSensorList,
 	&CAppClient::RecvRequestSensorHistory,
-	&CAppClient::RecvRequestAllList,
+	&CAppClient::RecvPing,
 
-	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::RecvRequestAllList,
 	&CAppClient::DefaultProtocolFunc,
 	&CAppClient::DefaultProtocolFunc,
 	&CAppClient::DefaultProtocolFunc,
@@ -212,6 +212,10 @@ void CAppClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
+}
+
+void CAppClient::RecvPing(const void *pPack, const unsigned int uPackLen)
+{
 }
 
 void CAppClient::RecvRequestAllList(const void *pPack, const unsigned int uPackLen)

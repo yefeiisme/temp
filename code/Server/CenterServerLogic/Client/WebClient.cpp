@@ -10,9 +10,9 @@ CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::
 	&CWebClient::RecvRequestSlopeList,
 	&CWebClient::RecvRequestSensorList,
 	&CWebClient::RecvRequestSensorHistory,
-	&CWebClient::RecvRequestAllList,
+	&CWebClient::RecvPing,
 
-	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::RecvRequestAllList,
 	&CWebClient::DefaultProtocolFunc,
 	&CWebClient::DefaultProtocolFunc,
 	&CWebClient::DefaultProtocolFunc,
@@ -201,6 +201,10 @@ void CWebClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
+}
+
+void CWebClient::RecvPing(const void *pPack, const unsigned int uPackLen)
+{
 }
 
 void CWebClient::RecvRequestAllList(const void *pPack, const unsigned int uPackLen)
