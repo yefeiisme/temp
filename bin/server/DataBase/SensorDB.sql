@@ -59,8 +59,6 @@ CREATE TABLE `sensor_type` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `server`;
-
 CREATE TABLE `server` (
   `ID` int(2) unsigned NOT NULL AUTO_INCREMENT,
   `IP` varchar(16) CHARACTER SET latin1 NOT NULL,
