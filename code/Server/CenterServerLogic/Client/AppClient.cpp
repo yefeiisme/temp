@@ -205,7 +205,6 @@ void CAppClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 		return;
 
 	pMysqlQuery->PrepareProc("LoadSensorHistory");
-	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagRequestSensorHistory.sensor_id());
 	pMysqlQuery->AddParam(tagRequestSensorHistory.begin_time());
 	pMysqlQuery->AddParam(tagRequestSensorHistory.end_time());

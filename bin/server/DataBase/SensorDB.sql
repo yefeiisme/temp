@@ -114,7 +114,7 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorHistory`;
-CREATE PROCEDURE `LoadSensorHistory`(IN paramAccount INTEGER UNSIGNED, IN paramSensorID INTEGER UNSIGNED, IN paramBeginTime INTEGER, IN paramEndTime INTEGER)
+CREATE PROCEDURE `LoadSensorHistory`(IN paramSensorID INTEGER UNSIGNED, IN paramBeginTime INTEGER, IN paramEndTime INTEGER)
 BEGIN
 	DECLARE _AvgValue1 double default 0;
 	DECLARE _AvgValue2 double default 0;
