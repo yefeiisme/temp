@@ -120,13 +120,11 @@ BEGIN
 	DECLARE _AvgValue2 double default 0;
 	DECLARE _AvgValue3 double default 0;
     
-    select AVG(Value1),AVG(Value2),(Value3) into _AvgValue1,_AvgValue2,_AvgValue3 from sensor
-    where SensorID=paramSensorID and DataTime between paramBeginTime and paramEndTime;
+    select AVG(Value1),AVG(Value2),(Value3) into _AvgValue1,_AvgValue2,_AvgValue3 from sensor_data where ID=paramSensorID and DataTime between paramBeginTime and paramEndTime;
     
-	select ID,Longitude,Latitude,paramBeginTime,paramEndTime,_AvgValue1,_AvgValue2,_AvgValue3,'' from sensor where SensorID=paramSensorID;
+	select ID,Longitude,Latitude,paramBeginTime,paramEndTime,_AvgValue1,_AvgValue2,_AvgValue3,'' from sensor_data where ID=paramSensorID;
     
-    select AlarmState,Value1,Value2,Value3,Value1-_AvgValue1,Value2-_AvgValue2,Value3-_AvgValue3,UNIX_TIMESTAMP(DataTime) from sensor
-    where SensorID=paramSensorID and DataTime between paramBeginTime and paramEndTime group by UNIX_TIMESTAMP(DataTime)-UNIX_TIMESTAMP(DataTime)%3600;
+    select AlarmState,Value1,Value2,Value3,Value1-_AvgValue1,Value2-_AvgValue2,Value3-_AvgValue3,UNIX_TIMESTAMP(DataTime) from sensor_data where ID=paramSensorID and DataTime between paramBeginTime and paramEndTime group by UNIX_TIMESTAMP(DataTime)-UNIX_TIMESTAMP(DataTime)%3600;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorList`;
