@@ -110,7 +110,8 @@ DROP PROCEDURE IF EXISTS `LoadAllList`;
 CREATE PROCEDURE `LoadAllList`(IN paramAccount INTEGER UNSIGNED)
 BEGIN
 	select ID,Type,Name,Longitude,Latitude,State,VideoUrl from slope where OwnerID=paramAccount;
-	select ID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where SlopeID=paramSlopeID;
+	select ID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where 
+	SlopeID in (select ID from slope where OwnerID=paramAccount);
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorHistory`;
