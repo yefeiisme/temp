@@ -84,11 +84,10 @@ enum S2WEB
 	s2web_sensor_list				= 2;	// 传感器列表
 	s2web_sensor_history			= 3;	// 传感器历史数据
 	s2web_all_list_end				= 4;	// 所有边坡和传感器数据发送完毕
+	s2web_error						= 5;	// 有错误时返回对应的值
 
 	s2web_max						= 256;	// 最大协议号
 }
-
-
 
 // Server Respond Protocol Struct
 // 服务器回应Web协议对应的数据结构
@@ -175,4 +174,10 @@ message S2Web_Sensor_History
 	required double	avg_value2			= 7;	// 平均物理量2
 	required double	avg_value3			= 8;	// 平均物理量3
 	repeated SensorData	history_list	= 9;	// 起始时间到结束时间内的传感器数据
+}
+
+// 有错误时返回对应的值
+message S2WEB_ERROR
+{
+	required uint32 error_code			= 1;	// 错误值
 }

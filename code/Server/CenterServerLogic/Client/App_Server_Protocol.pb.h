@@ -44,6 +44,9 @@ extern APP2S_Request_Slope_ListDefaultTypeInternal _APP2S_Request_Slope_List_def
 class App2S_Login;
 class App2S_LoginDefaultTypeInternal;
 extern App2S_LoginDefaultTypeInternal _App2S_Login_default_instance_;
+class S2APP_ERROR;
+class S2APP_ERRORDefaultTypeInternal;
+extern S2APP_ERRORDefaultTypeInternal _S2APP_ERROR_default_instance_;
 class S2App_Login_Result;
 class S2App_Login_ResultDefaultTypeInternal;
 extern S2App_Login_ResultDefaultTypeInternal _S2App_Login_Result_default_instance_;
@@ -134,6 +137,7 @@ enum S2APP {
   s2app_sensor_list = 2,
   s2app_sensor_history = 3,
   s2app_all_list_end = 4,
+  s2app_error = 5,
   s2app_max = 256
 };
 bool S2APP_IsValid(int value);
@@ -1777,6 +1781,98 @@ class S2App_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::uint32 end_time_;
   friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class S2APP_ERROR : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:APP_SERVER_NET_Protocol.S2APP_ERROR) */ {
+ public:
+  S2APP_ERROR();
+  virtual ~S2APP_ERROR();
+
+  S2APP_ERROR(const S2APP_ERROR& from);
+
+  inline S2APP_ERROR& operator=(const S2APP_ERROR& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2APP_ERROR& default_instance();
+
+  static inline const S2APP_ERROR* internal_default_instance() {
+    return reinterpret_cast<const S2APP_ERROR*>(
+               &_S2APP_ERROR_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    12;
+
+  void Swap(S2APP_ERROR* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2APP_ERROR* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2APP_ERROR* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2APP_ERROR& from);
+  void MergeFrom(const S2APP_ERROR& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2APP_ERROR* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 error_code = 1;
+  bool has_error_code() const;
+  void clear_error_code();
+  static const int kErrorCodeFieldNumber = 1;
+  ::google::protobuf::uint32 error_code() const;
+  void set_error_code(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:APP_SERVER_NET_Protocol.S2APP_ERROR)
+ private:
+  void set_has_error_code();
+  void clear_has_error_code();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 error_code_;
+  friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -3407,7 +3503,37 @@ S2App_Sensor_History::history_list() const {
   return history_list_;
 }
 
+// -------------------------------------------------------------------
+
+// S2APP_ERROR
+
+// required uint32 error_code = 1;
+inline bool S2APP_ERROR::has_error_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2APP_ERROR::set_has_error_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2APP_ERROR::clear_has_error_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2APP_ERROR::clear_error_code() {
+  error_code_ = 0u;
+  clear_has_error_code();
+}
+inline ::google::protobuf::uint32 S2APP_ERROR::error_code() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_ERROR.error_code)
+  return error_code_;
+}
+inline void S2APP_ERROR::set_error_code(::google::protobuf::uint32 value) {
+  set_has_error_code();
+  error_code_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_ERROR.error_code)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -85,6 +85,7 @@ enum S2APP
 	s2app_sensor_list				= 2;	// 传感器列表
 	s2app_sensor_history			= 3;	// 传感器历史数据
 	s2app_all_list_end				= 4;	// 所有边坡和传感器数据发送完毕
+	s2app_error						= 5;	// 有错误时返回对应的值
 
 	s2app_max						= 256;	// 最大协议号
 }
@@ -175,4 +176,10 @@ message S2App_Sensor_History
 	required double	avg_value2			= 7;	// 平均物理量2
 	required double	avg_value3			= 8;	// 平均物理量3
 	repeated SensorData	history_list	= 9;	// 起始时间到结束时间内的传感器数据
+}
+
+// 有错误时返回对应的值
+message S2APP_ERROR
+{
+	required uint32 error_code			= 1;	// 错误值
 }

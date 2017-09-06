@@ -3,6 +3,7 @@
 #include "ICenterServer.h"
 #include "IMysqlQuery.h"
 #include "../SensorDB/SensorDBOperation.h"
+#include "CommonDefine.pb.h"
 
 CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[APP_SERVER_NET_Protocol::APP2S::app2s_max] =
 {
@@ -123,7 +124,14 @@ void CAppClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 void CAppClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
+	{
+		APP_SERVER_NET_Protocol::S2APP_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_error, tagError);
+
 		return;
+	}
 
 	APP_SERVER_NET_Protocol::APP2S_Request_Slope_List	tagRequestSlope;
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
@@ -169,7 +177,6 @@ void CAppClient::RecvRequestSensorList(const void *pPack, const unsigned int uPa
 	if (tagRequestSensorList.sensor_type())
 	{
 		pMysqlQuery->PrepareProc("LoadSensorListByType");
-		pMysqlQuery->AddParam(m_uAccountID);
 		pMysqlQuery->AddParam(tagRequestSensorList.slope_id());
 		pMysqlQuery->AddParam(tagRequestSensorList.sensor_type());
 		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
@@ -177,7 +184,6 @@ void CAppClient::RecvRequestSensorList(const void *pPack, const unsigned int uPa
 	else
 	{
 		pMysqlQuery->PrepareProc("LoadSensorList");
-		pMysqlQuery->AddParam(m_uAccountID);
 		pMysqlQuery->AddParam(tagRequestSensorList.slope_id());
 		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 	}

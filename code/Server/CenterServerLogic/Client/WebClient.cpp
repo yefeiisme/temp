@@ -3,6 +3,7 @@
 #include "ICenterServer.h"
 #include "IMysqlQuery.h"
 #include "../SensorDB/SensorDBOperation.h"
+#include "CommonDefine.pb.h"
 
 CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::WEB2S::web2s_max] =
 {
@@ -123,7 +124,14 @@ void CWebClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 void CWebClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
 		return;
+	}
 
 	WEB_SERVER_NET_Protocol::WEB2S_Request_Slope_List	tagRequestSlope;
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
@@ -150,7 +158,14 @@ void CWebClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPac
 void CWebClient::RecvRequestSensorList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
 		return;
+	}
 
 	WEB_SERVER_NET_Protocol::WEB2S_Request_Sensor_List	tagRequestSensorList;
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
@@ -167,7 +182,6 @@ void CWebClient::RecvRequestSensorList(const void *pPack, const unsigned int uPa
 		return;
 
 	pMysqlQuery->PrepareProc("LoadSensorList");
-	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagRequestSensorList.slope_id());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
@@ -177,7 +191,14 @@ void CWebClient::RecvRequestSensorList(const void *pPack, const unsigned int uPa
 void CWebClient::RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
 		return;
+	}
 
 	WEB_SERVER_NET_Protocol::WEB2S_Request_Sensor_History	tagRequestSensorHistory;
 	BYTE	*pLoginInfo = (BYTE*)pPack + sizeof(BYTE);
@@ -208,28 +229,6 @@ void CWebClient::RecvPing(const void *pPack, const unsigned int uPackLen)
 
 void CWebClient::RecvRequestAllList(const void *pPack, const unsigned int uPackLen)
 {
-	if (0 == m_uAccountID)
-		return;
-
-	SMysqlRequest	tagRequest	= {0};
-	tagRequest.byOpt			= SENSOR_DB_SENSOR_LIST;
-	tagRequest.uClientID		= m_uUniqueID;
-	tagRequest.uClientIndex		= m_uIndex;
-	tagRequest.byClientType		= WEB_CLIENT;
-
-	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
-	if (nullptr == pMysqlQuery)
-		return;
-
-	pMysqlQuery->PrepareProc("LoadSlopeList");
-	pMysqlQuery->AddParam(m_uAccountID);
-	// ÁÙÊ±Êý¾Ý
-	// ...
-	pMysqlQuery->AddParam(1);
-	//pMysqlQuery->AddParam(tagRequestSlope.server_id());
-	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
-
-	pMysqlQuery->CallProc();
 }
 
 void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)

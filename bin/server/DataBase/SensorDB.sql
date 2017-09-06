@@ -129,13 +129,13 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorList`;
-CREATE PROCEDURE `LoadSensorList`(IN paramAccount INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED)
+CREATE PROCEDURE `LoadSensorList`(IN paramSlopeID INTEGER UNSIGNED)
 BEGIN
 	select ID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where SlopeID=paramSlopeID;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorListByType`;
-CREATE PROCEDURE `LoadSensorListByType`(IN paramAccount INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
+CREATE PROCEDURE `LoadSensorListByType`(IN paramSlopeID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
 BEGIN
 	select ID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where SlopeID=paramSlopeID and Type=paramSensorType;
 END;

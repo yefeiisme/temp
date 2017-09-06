@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package CommonDefine;
+
+enum ERROR_CODE
+{
+	ec_please_login	= 1;			// ук╨ен╢╣гб╫ё╛гКох╣гб╫
+}

@@ -15,6 +15,7 @@
     <ClCompile Include="Client\AppClient.cpp" />
     <ClCompile Include="Client\App_Server_Protocol.pb.cc" />
     <ClCompile Include="Client\Client.cpp" />
+    <ClCompile Include="Client\CommonDefine.pb.cc" />
     <ClCompile Include="Client\DataClient.cpp" />
     <ClCompile Include="Client\WebClient.cpp" />
     <ClCompile Include="Client\Web_Server_Protocol.pb.cc" />
@@ -26,6 +27,7 @@
     <ClInclude Include="Client\AppClient.h" />
     <ClInclude Include="Client\App_Server_Protocol.pb.h" />
     <ClInclude Include="Client\Client.h" />
+    <ClInclude Include="Client\CommonDefine.pb.h" />
     <ClInclude Include="Client\DataClient.h" />
     <ClInclude Include="Client\WebClient.h" />
     <ClInclude Include="Client\Web_Server_Protocol.pb.h" />
@@ -40,6 +42,11 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/Protocol/ --cpp_out=./Client/ ../../Share/Header/Protocol/App_Server_Protocol.proto</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Client/;%(Outputs)</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+    </CustomBuild>
+    <CustomBuild Include="..\..\Share\Header\Protocol\CommonDefine.proto">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/Protocol/ --cpp_out=./Client/ ../../Share/Header/Protocol/CommonDefine.proto</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Client/;%(Outputs)</Outputs>
     </CustomBuild>
     <None Include="..\..\Share\Header\Protocol\Sensor_Server_Protocol.proto" />
     <CustomBuild Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">

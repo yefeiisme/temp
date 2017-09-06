@@ -14,6 +14,8 @@ libcenterserverlogic_a_SOURCES += Client/Web_Server_Protocol.pb.cc
 
 libcenterserverlogic_a_SOURCES += Client/WebClient.cpp
 
+libcenterserverlogic_a_SOURCES += Client/CommonDefine.pb.cc
+
 libcenterserverlogic_a_SOURCES += Config/CenterServerLogicConfig.cpp
 
 libcenterserverlogic_a_SOURCES += SensorDB/SensorDBConn.cpp
