@@ -481,7 +481,7 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	int		nDataTime		= 0;
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
-	if (1 != byResultCount)
+	if (2 != byResultCount)
 	{
 		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
 		return;
@@ -495,7 +495,7 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 		return;
 	}
 
-	if (2 != pResult1->GetRowCount())
+	if (1 != pResult1->GetRowCount())
 	{
 		return;
 	}
