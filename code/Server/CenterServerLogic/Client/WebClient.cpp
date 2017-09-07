@@ -553,4 +553,19 @@ void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &ta
 	tagMsg.SerializeToArray(strBuffer + sizeof(BYTE), tagMsg.ByteSize());
 
 	m_pClientConn->PutPack(strBuffer, sizeof(BYTE)+tagMsg.ByteSize());
+
+	if (WEB_SERVER_NET_Protocol::S2WEB::s2web_slope_list == byProtocol)
+	{
+		FILE	*pFile = fopen("s2web_slope_list.txt", "a+");
+		if (nullptr == pFile)
+		{
+			g_pFileLog->WriteLog("Open s2web_slope_list.txt Failed\n", __FILE__, __LINE__);
+			return;
+		}
+
+		fwrite(strBuffer, 1, sizeof(BYTE)+tagMsg.ByteSize(), pFile);
+		fprintf(pFile, "\n");
+
+		fclose(pFile);
+	}
 }
