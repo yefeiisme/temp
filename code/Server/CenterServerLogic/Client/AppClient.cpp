@@ -201,7 +201,7 @@ void CAppClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	tagRequestSensorHistory.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
 
 	SMysqlRequest	tagRequest	= {0};
-	tagRequest.byOpt			= SENSOR_DB_SENSOR_LIST;
+	tagRequest.byOpt			= SENSOR_DB_SENSOR_HISTORY;
 	tagRequest.uClientID		= m_uUniqueID;
 	tagRequest.uClientIndex		= m_uIndex;
 	tagRequest.byClientType		= APP_CLIENT;
@@ -404,6 +404,7 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 
 	if (0 == pResult1->GetRowCount())
 	{
+		g_pFileLog->WriteLog("CAppClient::DBResopndSensorList Return Row Count 0\n", __FILE__, __LINE__);
 		return;
 	}
 

@@ -205,7 +205,7 @@ void CWebClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	tagRequestSensorHistory.ParseFromArray(pLoginInfo, uPackLen - sizeof(BYTE));
 
 	SMysqlRequest	tagRequest	= {0};
-	tagRequest.byOpt			= SENSOR_DB_SENSOR_LIST;
+	tagRequest.byOpt			= SENSOR_DB_SENSOR_HISTORY;
 	tagRequest.uClientID		= m_uUniqueID;
 	tagRequest.uClientIndex		= m_uIndex;
 	tagRequest.byClientType		= WEB_CLIENT;
@@ -391,6 +391,7 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 
 	if (0 == pResult1->GetRowCount())
 	{
+		g_pFileLog->WriteLog("CWebClient::DBResopndSensorList Return Row Count 0\n", __FILE__, __LINE__);
 		return;
 	}
 
@@ -467,7 +468,7 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	int		nDataTime		= 0;
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
-	if (1 != byResultCount)
+	if (2 != byResultCount)
 	{
 		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
 		return;
@@ -481,7 +482,7 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 		return;
 	}
 
-	if (2 != pResult1->GetRowCount())
+	if (1 != pResult1->GetRowCount())
 	{
 		return;
 	}
