@@ -553,6 +553,74 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 
 void CAppClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+	UINT	uCol				= 0;
+	WORD	wSlopeID			= 0;
+	BYTE	bySlopeType			= 0;
+	char	strSlopeName[128]	= {0};
+	double	dSlopeLongitude		= 0.0f;
+	double	dSlopeLatitude		= 0.0f;
+	BYTE	bySlopeState		= 0;
+
+	UINT	uSensorID			= 0;
+	BYTE	bySensorType		= 0;
+	double	dCurValue1			= 0.0f;
+	double	dCurValue2			= 0.0f;
+	double	dCurValue3			= 0.0f;
+	double	dAvgValue1			= 0.0f;
+	double	dAvgValue2			= 0.0f;
+	double	dAvgValue3			= 0.0f;
+	double	dOffsetValue1		= 0.0f;
+	double	dOffsetValue2		= 0.0f;
+	double	dOffsetValue3		= 0.0f;
+	BYTE	bySensorState		= 0;
+	double	dLongitude			= 0.0f;
+	double	dLatitude			= 0.0f;
+	char	strSensorUrl[256]	= {0};
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (2 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
+	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
+
+	if (nullptr == pResult1 || nullptr == pResult2)
+	{
+		return;
+	}
+
+	APP_SERVER_NET_Protocol::S2App_Slope_List	tagSlopeList;
+
+	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
+	{
+		APP_SERVER_NET_Protocol::S2App_Slope_List::SlopeData	*pSlopeData = tagSlopeList.add_slope_list();
+		if (nullptr == pSlopeData)
+			continue;
+
+		uCol	= 0;
+
+		pResult1->GetData(uRow, uCol++, wSlopeID);
+		pResult1->GetData(uRow, uCol++, bySlopeType);
+		pResult1->GetData(uRow, uCol++, strSlopeName, sizeof(strSlopeName));
+		pResult1->GetData(uRow, uCol++, dLongitude);
+		pResult1->GetData(uRow, uCol++, dLatitude);
+		pResult1->GetData(uRow, uCol++, bySlopeState);
+
+		pSlopeData->set_id(wSlopeID);
+		pSlopeData->set_type(bySlopeType);
+		pSlopeData->set_name(strSlopeName);
+		pSlopeData->set_longitude(dLongitude);
+		pSlopeData->set_latitude(dLatitude);
+		pSlopeData->set_state(bySlopeState);
+	}
+
+	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_slope_list, tagSlopeList);
+
+	// 后面添加sensor数据的读取
+	// ...
 }
 
 void CAppClient::SendAppMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)
