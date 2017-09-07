@@ -41,14 +41,14 @@
     <ClCompile Include="SensorDB\SensorDBConn.cpp">
       <Filter>SensorDB</Filter>
     </ClCompile>
-    <ClCompile Include="CenterServerLogic.cpp">
-      <Filter>Client</Filter>
-    </ClCompile>
     <ClCompile Include="Client\Web_Server_Protocol.pb.cc">
       <Filter>Client</Filter>
     </ClCompile>
     <ClCompile Include="Client\CommonDefine.pb.cc">
       <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="CenterServerLogic.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

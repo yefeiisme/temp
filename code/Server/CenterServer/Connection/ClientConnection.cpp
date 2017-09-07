@@ -15,6 +15,8 @@ CClientConnection::CClientConnection()
 	m_pTcpConnection	= nullptr;
 
 	m_eState			= CLIENT_CONN_STATE_IDLE;
+
+	m_nTimeOut			= 0;
 }
 
 CClientConnection::~CClientConnection()
