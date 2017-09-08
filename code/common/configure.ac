@@ -1,0 +1,31 @@
+AC_PREREQ(2.59)
+#AC_INIT(CenterServer/Main.cpp)
+AC_INIT(libhello.a,1.1,[])
+AM_INIT_AUTOMAKE
+#AM_INIT_AUTOMAKE(centerserver,1.00)
+#AC_CONFIG_HEADER(config.h)
+AC_DEFINE(__linux,1,Linux)
+AC_DEFINE(_SERVER,1,Server compile flag)
+AC_DEFINE(_DEBUG,1,debug)
+# Checks for programs.
+AC_PROG_CXX
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_PROG_LIBTOOL
+
+# Checks for programs.
+AC_PROG_CXX
+AC_PROG_CC
+#CXXFLAGS="$CXXFLAGS"
+CXXFLAGS="-g -O0 -std=c++11"
+CFLAGS ="CXXFLAGS"
+# Checks for libraries.
+
+# Checks for header files.
+
+# Checks for typedefs, structures, and compiler characteristics.
+
+# Checks for library functions.
+
+AC_OUTPUT(Makefile)
+~
