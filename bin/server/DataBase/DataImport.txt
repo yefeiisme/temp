@@ -1,2 +1,3 @@
+load data local infile '/home/sensor_cur.csv' into table sensor fields terminated by ',';
 load data local infile 'sensor_data.csv' into table sensor_data fields terminated by ',';
 load data local infile 'slope.csv' into table slope fields terminated by ',';

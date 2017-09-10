@@ -9,8 +9,8 @@ CREATE DATABASE `SensorDB`
 USE `SensorDB`;
 
 CREATE TABLE `sensor` (
-  `ID` int(4) unsigned NOT NULL AUTO_INCREMENT,
-  `Type` tinyint(4) unsigned NOT NULL,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `Type` tinyint unsigned NOT NULL,
   `Value1` double NOT NULL DEFAULT '0',
   `Value2` double NOT NULL DEFAULT '0',
   `Value3` double NOT NULL DEFAULT '0',
@@ -20,8 +20,8 @@ CREATE TABLE `sensor` (
   `OffsetValue1` double DEFAULT NULL,
   `OffsetValue2` double DEFAULT NULL,
   `OffsetValue3` double DEFAULT NULL,
-  `AlarmState` int(11) NOT NULL DEFAULT '0',
-  `SlopeID` int(2) unsigned NOT NULL,
+  `AlarmState` int NOT NULL DEFAULT '0',
+  `SlopeID` int unsigned NOT NULL,
   `DataTime` datetime NOT NULL,
   `Longitude` double NOT NULL,
   `Latitude` double NOT NULL,
@@ -31,8 +31,8 @@ CREATE TABLE `sensor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `sensor_data` (
-  `ID` int(4) unsigned NOT NULL AUTO_INCREMENT,
-  `Type` tinyint(4) unsigned NOT NULL,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `Type` tinyint unsigned NOT NULL,
   `Value1` double NOT NULL DEFAULT '0',
   `Value2` double NOT NULL DEFAULT '0',
   `Value3` double NOT NULL DEFAULT '0',
@@ -42,8 +42,8 @@ CREATE TABLE `sensor_data` (
   `OffsetValue1` double NOT NULL DEFAULT '0',
   `OffsetValue2` double NOT NULL DEFAULT '0',
   `OffsetValue3` double NOT NULL DEFAULT '0',
-  `AlarmState` int(11) NOT NULL DEFAULT '0',
-  `SlopeID` int(2) unsigned NOT NULL,
+  `AlarmState` int NOT NULL DEFAULT '0',
+  `SlopeID` int unsigned NOT NULL,
   `DataTime` datetime NOT NULL,
   `Longitude` double NOT NULL,
   `Latitude` double NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE `sensor_data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `sensor_type` (
-  `ID` tinyint(4) unsigned NOT NULL AUTO_INCREMENT,
+  `ID` tinyint unsigned NOT NULL AUTO_INCREMENT,
   `Name` varchar(64) DEFAULT NULL,
   `Value1` double DEFAULT NULL,
   `Value2` double DEFAULT NULL,
@@ -60,10 +60,10 @@ CREATE TABLE `sensor_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `server` (
-  `ID` int(2) unsigned NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `IP` varchar(16) CHARACTER SET latin1 NOT NULL,
-  `Port` int(2) unsigned DEFAULT NULL,
-  `ClientType` tinyint(4) unsigned NOT NULL DEFAULT '0',
+  `Port` int unsigned DEFAULT NULL,
+  `ClientType` tinyint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB ADEFAULT CHARSET=utf8;
 
@@ -80,20 +80,20 @@ CREATE TABLE `slope` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `user` (
-  `ID` int(4) unsigned NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `Account` varchar(64) NOT NULL,
   `Password` varchar(64) NOT NULL,
   `Addr` varchar(40) DEFAULT NULL,
   `TelNum` varchar(32) DEFAULT NULL,
-  `GroupID` int(2) unsigned NOT NULL,
+  `GroupID` int unsigned NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Account` (`Account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `user_group` (
-  `ID` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
+  `ID` smallint unsigned NOT NULL AUTO_INCREMENT,
   `Name` varchar(20) DEFAULT NULL,
-  `ServerID` smallint(6) unsigned DEFAULT NULL,
+  `ServerID` smallint unsigned DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
