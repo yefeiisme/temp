@@ -319,8 +319,9 @@ void CWebClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 		return;
 	}
 
-	if (1 != pResult1->GetRowCount())
+	if (0 == pResult1->GetRowCount())
 	{
+		g_pFileLog->WriteLog("[%s][%d] Result1 Row Count 0\n", __FILE__, __LINE__);
 		return;
 	}
 
