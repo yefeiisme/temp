@@ -63,7 +63,7 @@ CREATE TABLE `server` (
   `Port` int(2) unsigned DEFAULT NULL,
   `ClientType` tinyint(4) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB ADEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `slope` (
   `ID` smallint unsigned NOT NULL AUTO_INCREMENT,
