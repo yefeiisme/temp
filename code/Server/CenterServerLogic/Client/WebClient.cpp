@@ -456,6 +456,7 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	double	dMaxValue1	= 0.0f;
 	double	dMaxValue2	= 0.0f;
 	double	dMaxValue3	= 0.0f;
+	UINT	uInterval	= 0;
 
 	WORD	wSlopeID	= 0;
 	double	dLongitude	= 0.0f;
@@ -493,12 +494,14 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	pResult1->GetData(0, uCol++, dLatitude);
 	pResult1->GetData(0, uCol++, nBeginTime);
 	pResult1->GetData(0, uCol++, nEndTime);
+	pResult1->GetData(0, uCol++, uInterval);
 
 	tagSensorHistory.set_id(uSensorID);
 	tagSensorHistory.set_longitude(dLongitude);
 	tagSensorHistory.set_latitude(dLatitude);
 	tagSensorHistory.set_begin_time(nBeginTime);
 	tagSensorHistory.set_end_time(nEndTime);
+	tagSensorHistory.set_invterval(uInterval);
 
 	for (auto uRow = 0; uRow < pResult2->GetRowCount(); ++uRow)
 	{
