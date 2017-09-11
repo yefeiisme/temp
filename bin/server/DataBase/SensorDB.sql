@@ -2,9 +2,7 @@
 
 DROP DATABASE IF EXISTS `SensorDB`;
 
-CREATE DATABASE `SensorDB`
-    CHARACTER SET 'utf8'
-    COLLATE 'utf8_general_ci';
+CREATE DATABASE `SensorDB` CHARACTER SET 'utf8' COLLATE 'utf8_general_ci';
 
 USE `SensorDB`;
 
@@ -70,7 +68,7 @@ CREATE TABLE `server` (
 CREATE TABLE `slope` (
   `ID` smallint unsigned NOT NULL AUTO_INCREMENT,
   `Type` tinyint unsigned NOT NULL,
-  `Name` varchar DEFAULT NULL,
+  `Name` varchar(64) DEFAULT NULL,
   `Longitude` double NOT NULL,
   `Latitude` double NOT NULL,
   `OwnerID` int unsigned NOT NULL,
