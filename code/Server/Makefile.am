@@ -11,12 +11,7 @@ centerserver_SOURCES += CenterServer/Connection/WebConnection.cpp
 SUBDIRS = CenterServerLogic
 centerserver_LDFLAGS = -static -std=c++0x
 centerserver_LDADD = -lpthread
-centerserver_LDADD+= ../Share/llib/libdaemon.a
-centerserver_LDADD+= ../Share/llib/libfilelog.a
-centerserver_LDADD+= ../Share/llib/libfilereader.a
-centerserver_LDADD+= ../Share/llib/libnetwork.a
-centerserver_LDADD+= ../Share/llib/libdatabase.a
-centerserver_LDADD+= ../Share/llib/libringbuffer.a
+centerserver_LDADD+= ../Share/llib/libcommon.a
 centerserver_LDADD+= ../Share/llib/libcenterserverlogic.a
 centerserver_LDADD+= ../Share/llib/libprotobuf.a
 centerserver_LDADD+= ../Share/llib/libmysqlclient.a

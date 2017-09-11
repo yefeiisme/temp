@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "../stdafx.h"
 #include "my_global.h"
 #include "mysql.h"
 #include "ProcedureSqlObject.h"

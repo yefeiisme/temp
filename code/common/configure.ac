@@ -3,7 +3,7 @@ AC_PREREQ(2.59)
 AC_INIT(libhello.a,1.1,[])
 AM_INIT_AUTOMAKE
 #AM_INIT_AUTOMAKE(centerserver,1.00)
-#AC_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADER(config.h)
 AC_DEFINE(__linux,1,Linux)
 AC_DEFINE(_SERVER,1,Server compile flag)
 AC_DEFINE(_DEBUG,1,debug)
