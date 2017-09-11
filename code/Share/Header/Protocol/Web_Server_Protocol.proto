@@ -155,14 +155,12 @@ message S2Web_Sensor_History
 {
 	message SensorData
 	{//传感器数据
-		required uint32 state			= 1;	// 预警状态
-		required double	value1			= 2;	// 物理量1
-		required double	value2			= 3;	// 物理量2
-		required double	value3			= 4;	// 物理量3
-		required double	offset_value1	= 5;	// 偏移物理量1
-		required double	offset_value2	= 6;	// 偏移物理量2
-		required double	offset_value3	= 7;	// 偏移物理量3
-		required uint32 time			= 8;	// 这一组数据的时间
+		required double	min_value1		= 1;	// 最小物理量1
+		required double	min_value2		= 2;	// 最小物理量2
+		required double	min_value3		= 3;	// 最小物理量3
+		required double	max_value1		= 4;	// 最大物理量1
+		required double	max_value2		= 5;	// 最大物理量2
+		required double	max_value3		= 6;	// 最大物理量3
 	}
 
 	required uint32 id					= 1;	// ID
@@ -170,10 +168,8 @@ message S2Web_Sensor_History
 	required double	latitude			= 3;	// 纬度
 	required uint32 begin_time			= 4;	// 起始时间
 	required uint32 end_time			= 5;	// 结束时间
-	required double	avg_value1			= 6;	// 平均物理量1
-	required double	avg_value2			= 7;	// 平均物理量2
-	required double	avg_value3			= 8;	// 平均物理量3
-	repeated SensorData	history_list	= 9;	// 起始时间到结束时间内的传感器数据
+	required uint32 invterval			= 6;	// 间隔时间
+	repeated SensorData	history_list	= 7;	// 起始时间到结束时间内的传感器数据
 }
 
 // 有错误时返回对应的值

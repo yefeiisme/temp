@@ -447,25 +447,21 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 
 void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	UINT	uCol			= 0;
-	UINT	uSensorID		= 0;
-	BYTE	bySensorType	= 0;
-	double	dCurValue1		= 0.0f;
-	double	dCurValue2		= 0.0f;
-	double	dCurValue3		= 0.0f;
-	double	dAvgValue1		= 0.0f;
-	double	dAvgValue2		= 0.0f;
-	double	dAvgValue3		= 0.0f;
-	double	dOffsetValue1	= 0.0f;
-	double	dOffsetValue2	= 0.0f;
-	double	dOffsetValue3	= 0.0f;
-	BYTE	byState			= 0;
-	WORD	wSlopeID		= 0;
-	double	dLongitude		= 0.0f;
-	double	dLatitude		= 0.0f;
-	int		nBeginTime		= 0;
-	int		nEndTime		= 0;
-	int		nDataTime		= 0;
+	UINT	uCol		= 0;
+	UINT	uSensorID	= 0;
+	double	dMinValue1	= 0.0f;
+	double	dMinValue2	= 0.0f;
+	double	dMinValue3	= 0.0f;
+	double	dMaxValue1	= 0.0f;
+	double	dMaxValue2	= 0.0f;
+	double	dMaxValue3	= 0.0f;
+
+	WORD	wSlopeID	= 0;
+	double	dLongitude	= 0.0f;
+	double	dLatitude	= 0.0f;
+	int		nBeginTime	= 0;
+	int		nEndTime	= 0;
+	int		nDataTime	= 0;
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (2 != byResultCount)
@@ -496,18 +492,12 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	pResult1->GetData(0, uCol++, dLatitude);
 	pResult1->GetData(0, uCol++, nBeginTime);
 	pResult1->GetData(0, uCol++, nEndTime);
-	pResult1->GetData(0, uCol++, dAvgValue1);
-	pResult1->GetData(0, uCol++, dAvgValue2);
-	pResult1->GetData(0, uCol++, dAvgValue3);
 
 	tagSensorHistory.set_id(uSensorID);
 	tagSensorHistory.set_longitude(dLongitude);
 	tagSensorHistory.set_latitude(dLatitude);
 	tagSensorHistory.set_begin_time(nBeginTime);
 	tagSensorHistory.set_end_time(nEndTime);
-	tagSensorHistory.set_avg_value1(dAvgValue1);
-	tagSensorHistory.set_avg_value2(dAvgValue2);
-	tagSensorHistory.set_avg_value3(dAvgValue3);
 
 	for (auto uRow = 0; uRow < pResult2->GetRowCount(); ++uRow)
 	{
@@ -517,23 +507,19 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 
 		uCol	= 0;
 
-		pResult2->GetData(uRow, uCol++, byState);
-		pResult2->GetData(uRow, uCol++, dCurValue1);
-		pResult2->GetData(uRow, uCol++, dCurValue2);
-		pResult2->GetData(uRow, uCol++, dCurValue3);
-		pResult2->GetData(uRow, uCol++, dOffsetValue1);
-		pResult2->GetData(uRow, uCol++, dOffsetValue2);
-		pResult2->GetData(uRow, uCol++, dOffsetValue3);
-		pResult2->GetData(uRow, uCol++, nDataTime);
+		pResult2->GetData(uRow, uCol++, dMinValue1);
+		pResult2->GetData(uRow, uCol++, dMinValue2);
+		pResult2->GetData(uRow, uCol++, dMinValue3);
+		pResult2->GetData(uRow, uCol++, dMaxValue1);
+		pResult2->GetData(uRow, uCol++, dMaxValue2);
+		pResult2->GetData(uRow, uCol++, dMaxValue3);
 
-		pSensor->set_state(byState);
-		pSensor->set_value1(dCurValue1);
-		pSensor->set_value2(dCurValue2);
-		pSensor->set_value3(dCurValue3);
-		pSensor->set_offset_value1(dOffsetValue1);
-		pSensor->set_offset_value2(dOffsetValue2);
-		pSensor->set_offset_value3(dOffsetValue3);
-		pSensor->set_time(nDataTime);
+		pSensor->set_min_value1(dMinValue1);
+		pSensor->set_min_value2(dMinValue2);
+		pSensor->set_min_value3(dMinValue3);
+		pSensor->set_max_value1(dMaxValue1);
+		pSensor->set_max_value2(dMaxValue2);
+		pSensor->set_max_value3(dMaxValue3);
 	}
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_sensor_history, tagSensorHistory);

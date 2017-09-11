@@ -115,8 +115,8 @@ END;
 DROP PROCEDURE IF EXISTS `LoadSensorHistory`;
 CREATE PROCEDURE `LoadSensorHistory`(IN paramSensorID INTEGER UNSIGNED, IN paramBeginTime INTEGER, IN paramEndTime INTEGER)
 BEGIN
-	select ID,Longitude,Latitude,paramBeginTime,paramEndTime,AvgValue1,AvgValue2,AvgValue3 from sensor where ID=paramSensorID;
-	select AlarmState,min(Value1),min(Value2),min(Value3),MAX(Value1),MAX(Value2),max(Value3),UNIX_TIMESTAMP(DataTime) from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between paramBeginTime and paramEndTime group by UNIX_TIMESTAMP(DataTime)-UNIX_TIMESTAMP(DataTime)%3600;
+	select ID,Longitude,Latitude,paramBeginTime,paramEndTime from sensor where ID=paramSensorID;
+	select min(Value1),min(Value2),min(Value3),MAX(Value1),MAX(Value2),max(Value3) from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between paramBeginTime and paramEndTime group by UNIX_TIMESTAMP(DataTime)-UNIX_TIMESTAMP(DataTime)%3600;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorList`;
