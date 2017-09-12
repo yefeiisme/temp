@@ -11,8 +11,8 @@ add_compile_options(-std=c++11)
 project (centerserver)
 if (NOT SET_OUTPUT_DIRECTORY)
 	set (CMAKE_RUNTIME_OUTPUT_DIRECTORY "../../../bin/server")
-	set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY "../../Share/llib")
-	set (CMAKE_LIBRARY_OUTPUT_DIRECTORY "../../Share/llib")
+	set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY "../../share/llib")
+	set (CMAKE_LIBRARY_OUTPUT_DIRECTORY "../../share/llib")
 	set (SET_OUTPUT_DIRECTORY ON)
 endif (NOT SET_OUTPUT_DIRECTORY)
 
@@ -28,16 +28,16 @@ Connection/WebConnection.cpp
 
 include_directories (
 	"./"
-	"../../Share/Header"
-	"../../Share/Header/Base"
-	"../../Share/Header/CenterServer"
+	"../../share/header"
+	"../../share/header/Base"
+	"../../share/header/CenterServer"
 )
 
-link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../Share/llib)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../share/llib)
 
 ADD_EXECUTABLE(centerserver ${SRC_LIST})
 
-add_subdirectory ("../CenterServerLogic" "../CenterServerLogic")
+add_subdirectory ("CenterServerLogic" "CenterServerLogic")
 
 target_link_libraries (centerserver
 	daemon

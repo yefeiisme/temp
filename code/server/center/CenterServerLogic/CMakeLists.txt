@@ -11,9 +11,9 @@ SensorDB/SensorDBConn.cpp
 )
 include_directories (
 	"./"
-	"../../share/header"
-	"../../share/header/base"
-	"../../share/header/CenterServer"
+	"../../../share/header"
+	"../../../share/header/base"
+	"../../../share/header/CenterServer"
 )
 ADD_LIBRARY(centerserverlogic STATIC ${LIBCENTERSERVERLOGIC_SRC})
 INSTALL(TARGETS centerserverlogic

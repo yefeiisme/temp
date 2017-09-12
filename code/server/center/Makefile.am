@@ -11,14 +11,14 @@ centerserver_SOURCES += CenterServer/Connection/WebConnection.cpp
 SUBDIRS = CenterServerLogic
 centerserver_LDFLAGS = -static -std=c++0x
 centerserver_LDADD = -lpthread
-centerserver_LDADD+= ../Share/llib/libcommon.a
-centerserver_LDADD+= ../Share/llib/libcenterserverlogic.a
-centerserver_LDADD+= ../Share/llib/libprotobuf.a
-centerserver_LDADD+= ../Share/llib/libmysqlclient.a
+centerserver_LDADD+= ../../share/llib/libcommon.a
+centerserver_LDADD+= ../../share/llib/libcenterserverlogic.a
+centerserver_LDADD+= ../../share/llib/libprotobuf.a
+centerserver_LDADD+= ../../share/llib/libmysqlclient.a
 
-INCLUDES = -I@top_srcdir@/Share/Header/
+INCLUDES = -I@top_srcdir@/share/header/
 INCLUDES += -I./CenterServer/
-INCLUDES += -I../Share/Header/
-INCLUDES += -I../Share/Header/Base/
-INCLUDES += -I../Share/Header/Server/
-INCLUDES += -I../Share/Header/CenterServer/
+INCLUDES += -I../../share/header/
+INCLUDES += -I../../share/header/Base/
+INCLUDES += -I../../share/header/Server/
+INCLUDES += -I../../share/header/CenterServer/
