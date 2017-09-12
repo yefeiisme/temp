@@ -116,13 +116,20 @@ DROP PROCEDURE IF EXISTS `LoadSensorHistory`;
 CREATE PROCEDURE `LoadSensorHistory`(IN paramSensorID INTEGER UNSIGNED, IN paramBeginTime INTEGER, IN paramEndTime INTEGER)
 BEGIN
 	DECLARE _Interval int default 0;
-	if paramEndTime - paramBeginTime < 100 then
-		_Interval = 1;
-	else
-		_Interval = (paramEndTime - paramBeginTime) / 100
+	DECLARE _RecordCount int default 0;
+	DECLARE _MinDateTime int default 0;
+	DECLARE _MaxDateTime int default 0;
+	
+	select count(*),min(UNIX_TIMESTAMP(DataTime)),max(UNIX_TIMESTAMP(DataTime)) into _RecordCount,_MinDateTime,_MaxDateTime from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between paramBeginTime and paramEndTime;
+	
+	if _RecordCount > 100 then
+		set _RecordCount	= 100;
 	end if;
-	select ID,Longitude,Latitude,paramBeginTime,paramEndTime from sensor where ID=paramSensorID;
-	select min(Value1),min(Value2),min(Value3),MAX(Value1),MAX(Value2),max(Value3) from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between paramBeginTime and paramEndTime group by UNIX_TIMESTAMP(DataTime)-UNIX_TIMESTAMP(DataTime)%3600;
+	
+	set _Interval	= (_MaxDateTime - _MinDateTime) DIV _RecordCount;
+
+	select ID,Longitude,Latitude,paramBeginTime,paramEndTime,_Interval from sensor where ID=paramSensorID;
+	select min(Value1),min(Value2),min(Value3),MAX(Value1),MAX(Value2),max(Value3) from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between _MinDateTime and _MaxDateTime group by UNIX_TIMESTAMP(DataTime)-UNIX_TIMESTAMP(DataTime)%_Interval;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorList`;
