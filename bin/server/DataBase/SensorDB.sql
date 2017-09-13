@@ -128,7 +128,7 @@ BEGIN
 	
 	set _Interval	= (_MaxDateTime - _MinDateTime) DIV _RecordCount;
 
-	select ID,Longitude,Latitude,paramBeginTime,paramEndTime,_Interval from sensor where ID=paramSensorID;
+	select ID,Longitude,Latitude,_MinDateTime,_MaxDateTime,_Interval from sensor where ID=paramSensorID;
 	select min(Value1),min(Value2),min(Value3),MAX(Value1),MAX(Value2),max(Value3) from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between _MinDateTime and _MaxDateTime group by UNIX_TIMESTAMP(DataTime)-UNIX_TIMESTAMP(DataTime)%_Interval;
 END;
 
