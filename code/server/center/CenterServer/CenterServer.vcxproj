@@ -41,11 +41,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>../../../bin/server</OutDir>
+    <OutDir>../../../../bin/server</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>../../../bin/server</OutDir>
+    <OutDir>../../../../bin/server</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -54,14 +54,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;../../share/header;../../share/header/base;../../share/header/CenterServer</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../../../share/header;../../../share/header/base;../../../share/header/CenterServer</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../../share/Lib/Debug</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../../share/Lib/Debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>Common.lib;Daemon.lib;FileLog.lib;FileReader.lib;CenterServerLogic.lib;Network.lib;RingBuffer.lib;Ws2_32.lib;libprotocd.lib;libprotobufd.lib;libmysql.lib;DataBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -74,7 +74,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;../../share/header;../../share/header/base;../../share/header/CenterServer</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../../../share/header;../../../share/header/base;../../../share/header/CenterServer</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -82,7 +82,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>../../share/Lib/Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../../share/Lib/Release</AdditionalLibraryDirectories>
       <AdditionalDependencies>Common.lib;Daemon.lib;FileLog.lib;FileReader.lib;CenterServerLogic.lib;Network.lib;RingBuffer.lib;Ws2_32.lib;libprotobuf.lib;libprotoc.lib;DataBase.lib;mysqlclient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

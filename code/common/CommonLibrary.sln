@@ -17,8 +17,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataBase", "DataBase\DataBase.vcxproj", "{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataBase", "DBWrap\DBWrap.vcxproj", "{B2AA7E8E-F9A5-49A4-A004-0798ED89C308}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -53,10 +51,6 @@ Global
 		{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}.Debug|Win32.Build.0 = Debug|Win32
 		{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}.Release|Win32.ActiveCfg = Release|Win32
 		{BA6AE1EB-362E-441A-8ADC-74469C12C8D7}.Release|Win32.Build.0 = Release|Win32
-		{B2AA7E8E-F9A5-49A4-A004-0798ED89C308}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B2AA7E8E-F9A5-49A4-A004-0798ED89C308}.Debug|Win32.Build.0 = Debug|Win32
-		{B2AA7E8E-F9A5-49A4-A004-0798ED89C308}.Release|Win32.ActiveCfg = Release|Win32
-		{B2AA7E8E-F9A5-49A4-A004-0798ED89C308}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

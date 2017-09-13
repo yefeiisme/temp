@@ -39,19 +39,19 @@
   <ItemGroup>
     <CustomBuild Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/Protocol/ --cpp_out=./Client/ ../../Share/Header/Protocol/App_Server_Protocol.proto</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../../Share/Header/Protocol/ --cpp_out=./Client/ ../../../Share/Header/Protocol/App_Server_Protocol.proto</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Client/;%(Outputs)</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
     </CustomBuild>
     <CustomBuild Include="..\..\Share\Header\Protocol\CommonDefine.proto">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/Protocol/ --cpp_out=./Client/ ../../Share/Header/Protocol/CommonDefine.proto</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../../Share/Header/Protocol/ --cpp_out=./Client/ ../../../Share/Header/Protocol/CommonDefine.proto</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Client/;%(Outputs)</Outputs>
     </CustomBuild>
     <None Include="..\..\Share\Header\Protocol\Sensor_Server_Protocol.proto" />
     <CustomBuild Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../Share/Header/Protocol/ --cpp_out=./Client/ ../../Share/Header/Protocol/Web_Server_Protocol.proto</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../../Share/Header/Protocol/ --cpp_out=./Client/ ../../../Share/Header/Protocol/Web_Server_Protocol.proto</Command>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Client/;%(Outputs)</Outputs>
     </CustomBuild>
@@ -86,10 +86,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>../../share/Lib/Debug</OutDir>
+    <OutDir>../../../share/Lib/Debug</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>../../share/Lib/Release</OutDir>
+    <OutDir>../../../share/Lib/Release</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -98,7 +98,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;../../share/header;../../share/header/base;../../share/header/CenterServer</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../../../share/header;../../../share/header/base;../../../share/header/CenterServer</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
@@ -116,7 +116,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;../../share/header;../../share/header/base;../../share/header/CenterServer</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../../../share/header;../../../share/header/base;../../../share/header/CenterServer</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
