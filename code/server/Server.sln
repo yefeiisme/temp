@@ -10,6 +10,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CenterServer", "center\Cent
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CenterServerLogic", "center\CenterServerLogic\CenterServerLogic.vcxproj", "{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "data_server", "data\data_server\data_server.vcxproj", "{C7348A39-38E2-470F-A230-134ED197C284}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "data_logic", "data\data_logic\data_logic.vcxproj", "{A70FC34D-6C91-413C-BCB1-CA9A7667438F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -24,6 +28,14 @@ Global
 		{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}.Debug|Win32.Build.0 = Debug|Win32
 		{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}.Release|Win32.ActiveCfg = Release|Win32
 		{0A43511F-7EA3-45A0-BB28-F32FCAD4A10D}.Release|Win32.Build.0 = Release|Win32
+		{C7348A39-38E2-470F-A230-134ED197C284}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C7348A39-38E2-470F-A230-134ED197C284}.Debug|Win32.Build.0 = Debug|Win32
+		{C7348A39-38E2-470F-A230-134ED197C284}.Release|Win32.ActiveCfg = Release|Win32
+		{C7348A39-38E2-470F-A230-134ED197C284}.Release|Win32.Build.0 = Release|Win32
+		{A70FC34D-6C91-413C-BCB1-CA9A7667438F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A70FC34D-6C91-413C-BCB1-CA9A7667438F}.Debug|Win32.Build.0 = Debug|Win32
+		{A70FC34D-6C91-413C-BCB1-CA9A7667438F}.Release|Win32.ActiveCfg = Release|Win32
+		{A70FC34D-6C91-413C-BCB1-CA9A7667438F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
