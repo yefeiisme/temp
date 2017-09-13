@@ -32,6 +32,6 @@ AUTOMAKE_OPTIONS=foreign
 libcommon_a_LDFLAGS = -static -std=c++0x
 
 INCLUDES = -I@top_srcdir@/Share/Header/
-INCLUDES += -I../Share/Header/
-INCLUDES += -I../Share/Header/Base/
-INCLUDES += -I../Share/Header/mysql/linux/
+INCLUDES += -I../share/header/
+INCLUDES += -I../share/header/Base/
+INCLUDES += -I../share/header/mysql/linux/

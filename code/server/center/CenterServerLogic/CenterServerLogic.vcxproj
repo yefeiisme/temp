@@ -39,19 +39,19 @@
   <ItemGroup>
     <CustomBuild Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../../Share/Header/Protocol/ --cpp_out=./Client/ ../../../Share/Header/Protocol/App_Server_Protocol.proto</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../../share/header/Protocol/ --cpp_out=./Client/ ../../../share/header/Protocol/App_Server_Protocol.proto</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Client/;%(Outputs)</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
     </CustomBuild>
     <CustomBuild Include="..\..\Share\Header\Protocol\CommonDefine.proto">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../../Share/Header/Protocol/ --cpp_out=./Client/ ../../../Share/Header/Protocol/CommonDefine.proto</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../../share/header/Protocol/ --cpp_out=./Client/ ../../../share/header/Protocol/CommonDefine.proto</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Client/;%(Outputs)</Outputs>
     </CustomBuild>
     <None Include="..\..\Share\Header\Protocol\Sensor_Server_Protocol.proto" />
     <CustomBuild Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../../Share/Header/Protocol/ --cpp_out=./Client/ ../../../Share/Header/Protocol/Web_Server_Protocol.proto</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">protoc -I=../../../share/header/Protocol/ --cpp_out=./Client/ ../../../share/header/Protocol/Web_Server_Protocol.proto</Command>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Client/;%(Outputs)</Outputs>
     </CustomBuild>
