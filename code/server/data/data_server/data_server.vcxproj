@@ -62,7 +62,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../../../share/Lib/Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Common.lib;Daemon.lib;FileLog.lib;FileReader.lib;DataLogic.lib;Network.lib;RingBuffer.lib;Ws2_32.lib;libprotocd.lib;libprotobufd.lib;libmysql.lib;DataBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Common.lib;Daemon.lib;FileLog.lib;FileReader.lib;data_logic.lib;Network.lib;RingBuffer.lib;Ws2_32.lib;libprotocd.lib;libprotobufd.lib;libmysql.lib;DataBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -94,8 +94,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\share\header\DataServer\IDataConnection.h" />
+    <ClInclude Include="..\..\..\share\header\DataServer\IDataLogic.h" />
     <ClInclude Include="..\..\..\share\header\DataServer\IDataServer.h" />
-    <ClInclude Include="..\..\..\share\header\DataServer\IDataServerLogic.h" />
     <ClInclude Include="Config\DataServerConfig.h" />
     <ClInclude Include="Connection\ClientConnection.h" />
     <ClInclude Include="Connection\DataConnection.h" />

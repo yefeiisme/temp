@@ -52,7 +52,7 @@
     <ClInclude Include="..\..\..\share\header\DataServer\IDataServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\share\header\DataServer\IDataServerLogic.h">
+    <ClInclude Include="..\..\..\share\header\DataServer\IDataLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

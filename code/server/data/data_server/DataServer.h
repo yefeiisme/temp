@@ -1,5 +1,5 @@
-#ifndef __CENTER_SERVER_H_
-#define __CENTER_SERVER_H_
+#ifndef __DATA_SERVER_H_
+#define __DATA_SERVER_H_
 
 #include "INetwork.h"
 #include "IMysqlQuery.h"
@@ -34,23 +34,13 @@ public:
 
 	IMysqlResultSet				*GetQueryResult();
 private:
-	void						ProcessAppConn();
-	void						ProcessWebConn();
 	void						ProcessDataConn();
-
-	static void					AppConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
-	void						OnAppConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
-
-	static void					WebConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
-	void						OnWebConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
 
 	static void					DataConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex);
 	void						OnDataConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex);
 private:
 	IMysqlQuery					*m_pSensorQuery;
 
-	IServerNetwork				*m_pAppNetwork;
-	IServerNetwork				*m_pWebNetwork;
 	IServerNetwork				*m_pDataNetwork;
 
 	CDataConnection				*m_pDataConnList;

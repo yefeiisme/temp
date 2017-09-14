@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ClientConnection.h"
-#include "CenterServer.h"
+#include "DataServer.h"
 //#include "IGameServerLogic.h"
 
 CClientConnection::StateFuncArray CClientConnection::m_pfnStateFunc[CLIENT_CONN_STATE_MAX] =

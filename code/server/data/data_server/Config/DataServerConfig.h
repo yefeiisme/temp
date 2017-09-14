@@ -1,15 +1,15 @@
-#ifndef __CENTER_SERVER_CONFIG_H_
-#define __CENTER_SERVER_CONFIG_H_
+#ifndef __DATA_SERVER_CONFIG_H_
+#define __DATA_SERVER_CONFIG_H_
 
 #include "IIniFile.h"
 
-class CCenterServerConfig
+class CDataServerConfig
 {
 public:
-	CCenterServerConfig();
-	~CCenterServerConfig();
+	CDataServerConfig();
+	~CDataServerConfig();
 
-	static CCenterServerConfig	&Singleton();
+	static CDataServerConfig	&Singleton();
 
 	bool						Initialize();
 private:
@@ -17,24 +17,6 @@ private:
 private:
 	IIniFile					*m_pIniFile;
 public:
-	int							m_nAppPort;
-	int							m_nAppCount;
-	int							m_nAppRecvBuffLen;
-	int							m_nAppSendBuffLen;
-	int							m_nAppMaxRecvPackLen;
-	int							m_nAppMaxSendPackLen;
-	int							m_nAppSleepTime;
-	int							m_nAppTimeOut;
-
-	int							m_nWebPort;
-	int							m_nWebCount;
-	int							m_nWebRecvBuffLen;
-	int							m_nWebSendBuffLen;
-	int							m_nWebMaxRecvPackLen;
-	int							m_nWebMaxSendPackLen;
-	int							m_nWebSleepTime;
-	int							m_nWebTimeOut;
-
 	int							m_nDataPort;
 	int							m_nDataCount;
 	int							m_nDataRecvBuffLen;
@@ -45,6 +27,6 @@ public:
 	int							m_nDataTimeOut;
 };
 
-extern CCenterServerConfig		&g_pCenterServerConfig;
+extern CDataServerConfig		&g_pDataServerConfig;
 
 #endif

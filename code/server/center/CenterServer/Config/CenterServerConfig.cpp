@@ -24,6 +24,15 @@ CCenterServerConfig::CCenterServerConfig()
 	m_nWebMaxSendPackLen	= 0;
 	m_nWebSleepTime			= 0;
 	m_nWebTimeOut			= 0;
+
+	m_nDataPort				= 0;
+	m_nDataCount			= 0;
+	m_nDataRecvBuffLen		= 0;
+	m_nDataSendBuffLen		= 0;
+	m_nDataMaxRecvPackLen	= 0;
+	m_nDataMaxSendPackLen	= 0;
+	m_nDataSleepTime		= 0;
+	m_nDataTimeOut			= 0;
 }
 
 CCenterServerConfig::~CCenterServerConfig()

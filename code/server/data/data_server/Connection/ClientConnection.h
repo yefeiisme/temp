@@ -3,7 +3,7 @@
 
 #include "INetwork.h"
 #include "IClientConnection.h"
-#include "ICenterServer.h"
+#include "IDataServer.h"
 
 class CClientConnection : public IClientConnection
 {

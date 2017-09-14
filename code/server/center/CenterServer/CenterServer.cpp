@@ -204,7 +204,7 @@ bool CCenterServer::Initialize(const bool bDaemon)
 	m_pDataNetwork = CreateServerNetwork(
 		g_pCenterServerConfig.m_nDataPort,
 		this,
-		&CCenterServer::WebConnConnected,
+		&CCenterServer::DataConnConnected,
 		g_pCenterServerConfig.m_nDataCount,
 		g_pCenterServerConfig.m_nDataSendBuffLen,
 		g_pCenterServerConfig.m_nDataRecvBuffLen,

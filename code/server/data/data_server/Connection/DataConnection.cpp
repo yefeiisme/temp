@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "DataConnection.h"
-#include "ICenterServerLogic.h"
-#include "../Config/CenterServerConfig.h"
+#include "IDataLogic.h"
+#include "../Config/DataServerConfig.h"
 
 CDataConnection::CDataConnection()
 {
@@ -13,12 +13,12 @@ CDataConnection::~CDataConnection()
 
 void CDataConnection::ResetTimeOut()
 {
-	m_nTimeOut = g_nTimeNow + g_pCenterServerConfig.m_nDataTimeOut;
+	m_nTimeOut = g_nTimeNow + g_pDataServerConfig.m_nDataTimeOut;
 }
 
 void CDataConnection::Disconnect()
 {
-	g_ICenterServerLogic.DataClientLogout(this);
+	g_IDataLogic.DataClientLogout(this);
 
 	m_eState = CLIENT_CONN_STATE_IDLE;
 
@@ -34,7 +34,7 @@ void CDataConnection::Disconnect()
 
 void CDataConnection::OnWaitLogin()
 {
-	if (!g_ICenterServerLogic.DataClientLogin(this))
+	if (!g_IDataLogic.DataClientLogin(this))
 	{
 		Disconnect();
 		return;
