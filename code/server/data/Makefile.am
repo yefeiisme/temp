@@ -15,7 +15,7 @@ dataserver_LDADD+= ../../share/llib/libprotobuf.a
 dataserver_LDADD+= ../../share/llib/libmysqlclient.a
 
 INCLUDES = -I@top_srcdir@/share/header/
-INCLUDES += -I./DataServer/
+INCLUDES += -I./data_server/
 INCLUDES += -I../../share/header/
 INCLUDES += -I../../share/header/Base/
 INCLUDES += -I../../share/header/Server/
