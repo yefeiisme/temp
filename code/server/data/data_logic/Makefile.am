@@ -2,8 +2,6 @@ llib_LIBRARIES = libdataserverlogic.a
 
 libdataserverlogic_a_SOURCES = DataLogic.cpp
 
-libdataserverlogic_a_SOURCES += Client/App_Server_Protocol.pb.cc
-
 libdataserverlogic_a_SOURCES += Client/Client.cpp
 
 libdataserverlogic_a_SOURCES += Client/DataClient.cpp
