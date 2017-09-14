@@ -19,9 +19,9 @@ void CDataClient::DoAction()
 	ProcessNetPack();
 }
 
-//void CDataClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
-//{
-//}
+void CDataClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
 
 void CDataClient::ProcessNetPack()
 {

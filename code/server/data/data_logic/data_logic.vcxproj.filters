@@ -15,6 +15,9 @@
     <Filter Include="Config">
       <UniqueIdentifier>{44528d5c-ccb5-467d-aa1c-d03463af3317}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SensorDB">
+      <UniqueIdentifier>{8d770994-db57-4d12-8e2f-3e63203bb3f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client\DataClient.cpp">
@@ -28,6 +31,9 @@
     </ClCompile>
     <ClCompile Include="Client\Client.cpp">
       <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="SensorDB\SensorDBConn.cpp">
+      <Filter>SensorDB</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +57,12 @@
     </ClInclude>
     <ClInclude Include="Client\Client.h">
       <Filter>Client</Filter>
+    </ClInclude>
+    <ClInclude Include="SensorDB\SensorDBConn.h">
+      <Filter>SensorDB</Filter>
+    </ClInclude>
+    <ClInclude Include="SensorDB\SensorDBOperation.h">
+      <Filter>SensorDB</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

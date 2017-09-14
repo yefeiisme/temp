@@ -3,6 +3,7 @@
 
 #include "IMysqlQuery.h"
 #include "Client.h"
+#include "../SensorDB/SensorDBOperation.h"
 
 class CDataClient : public CClient
 {
@@ -11,7 +12,7 @@ public:
 	~CDataClient();
 
 	void					DoAction();
-	//void					ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	void					ProcessNetPack();
 

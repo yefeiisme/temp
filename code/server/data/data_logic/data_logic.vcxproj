@@ -15,6 +15,7 @@
     <ClCompile Include="Client\DataClient.cpp" />
     <ClCompile Include="Config\DataLogicConfig.cpp" />
     <ClCompile Include="DataLogic.cpp" />
+    <ClCompile Include="SensorDB\SensorDBConn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\share\header\DataServer\IDataConnection.h" />
@@ -24,6 +25,8 @@
     <ClInclude Include="Client\DataClient.h" />
     <ClInclude Include="Config\DataLogicConfig.h" />
     <ClInclude Include="DataLogic.h" />
+    <ClInclude Include="SensorDB\SensorDBConn.h" />
+    <ClInclude Include="SensorDB\SensorDBOperation.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A70FC34D-6C91-413C-BCB1-CA9A7667438F}</ProjectGuid>
