@@ -9,13 +9,13 @@ CTcpConnection::CTcpConnection()
 	m_pSendBuf			= nullptr;
 	m_pTempSendBuf		= nullptr;
 	m_pFlush			= nullptr;
-	m_pSend				= nullptr;
+	m_pWritePtr			= nullptr;
 	m_uSendBufLen		= 0;
 	m_uTempSendBufLen	= 0;
 
 	m_pRecvBuf			= nullptr;
 	m_pTempRecvBuf		= nullptr;
-	m_pPack				= nullptr;
+	m_pNextPack			= nullptr;
 	m_pRecv				= nullptr;
 	m_pUnreleased		= nullptr;
 	m_uRecvBufLen		= 0;
@@ -164,87 +164,83 @@ const void *CTcpConnection::GetPack(unsigned int &uPackLen)
 	if (!m_bTcpConnected)
 		return nullptr;
 	
-	char			*pPackStart	= m_pPack;
-	char			*pPackEnd	= m_pRecv;
-	unsigned short	usPackLength;
+	char	*pPackStart	= m_pNextPack;
+	char	*pPackEnd	= m_pRecv;
+	NetHead	uPackLength;
 	
-	// get data and tail length
+	// 计算接收到的数据长度和缓冲区尾部长度
 	int nDataLen = pPackEnd >= pPackStart ? pPackEnd - pPackStart : m_uRecvBufLen + pPackEnd - pPackStart;
 	int nTailLen = m_uRecvBufLen + m_pRecvBuf - pPackStart;
 
-	// verify the length is ok.
-	if (nDataLen < sizeof(unsigned short))
-	{
+	// 数据长度不够一个包头的长度，直接返回
+	if (nDataLen < sizeof(NetHead))
 		return nullptr;
-	}
 	
-	// get packet length, since the data length is larger than 2
-	// we can make sure that the following 2 bytes are data
-	if (nTailLen > sizeof(unsigned short))
-	{
-		usPackLength	= *(unsigned short *)pPackStart;
-		pPackStart		+= sizeof(unsigned short);
-		nTailLen		= nTailLen - sizeof(unsigned short);
+	// 运行到这里，数据的长度肯定是大于包头的长度。根据尾部长度确定是否环绕，以便决定包头长度数据怎么获取
+	if (nTailLen > sizeof(NetHead))
+	{// 尾部长度大于包头的长度，则直接获取包头长度，并将数据指针指向包头后面
+		uPackLength	= *(NetHead*)pPackStart;
+		pPackStart	+= sizeof(NetHead);
+		nTailLen	= nTailLen - sizeof(NetHead);
 	}
-	else if (nTailLen == sizeof(unsigned short))
-	{
-		usPackLength	= *(unsigned short *)pPackStart;
+	else if (nTailLen == sizeof(NetHead))
+	{// 尾部长度等于包头的长度，环绕了，先获取包头长度，并将数据指针指向缓冲区头
+		uPackLength	= *(NetHead*)pPackStart;
 		pPackStart		= m_pRecvBuf;
 	}
 	else
-	{
-		usPackLength	= *(unsigned char*)pPackStart;
-		usPackLength	+= (*(unsigned char*)m_pRecvBuf) << 8;
-		pPackStart		= m_pRecvBuf + 1;
+	{// 尾部长度小于包头的长度，环绕了，从尾部和缓冲区头的数据，组成真正的包头，并将数据指针指向包头后面
+		int	nLeftDataLen	= sizeof(NetHead) - nTailLen;
+
+		memcpy(&uPackLength, pPackStart, nTailLen);
+
+		// 这里要测试一下，看地址是否是按1个字节大小进行位移的
+		// ...
+		memcpy((&uPackLength)+nTailLen, m_pRecvBuf, nLeftDataLen);
+
+		pPackStart		= m_pRecvBuf + nLeftDataLen;
 	}
 	
-	// check if the pack length is correct, if not, close the client
-	if (usPackLength <= sizeof(unsigned short))
+	// 包头里的数据值（包长）比包头的大小还小，说明数据有问题，不处理这条数据，将m_pNextPack指向已接收的数据指针当前位置（关闭连接，因为数据有误了）
+	if (uPackLength <= sizeof(NetHead))
 	{
-		m_pPack = m_pRecv;
+		m_pNextPack = m_pRecv;
 		return nullptr;
 	}
-	
-	// check if there is a whole packet in the buffer
-	if (usPackLength > nDataLen)
-	{
-		// only parts of the packet is received, do nothing, just return;
+
+	// 已接收到的缓冲区数据长度，比包头的小。说明只收到了这个包的部分数据。先返回，等接收完了再处理
+	if (uPackLength > nDataLen)
 		return nullptr;
-	}
+
+	// 运行到这里，则肯定是收到了一个完整的包。先将数据长度减掉包头的长度，以表示包体的长度（真正要传输的数据长度）
+	uPackLength -= sizeof(NetHead);
 	
-	// substract the length of header
-	usPackLength -= sizeof(unsigned short);
-	
-	// return the ptr
 	char *pRetBuf = nullptr;
-	if (pPackEnd > pPackStart || usPackLength < nTailLen)
-	{
-		// Not wrap
-		m_pPack			= pPackStart + usPackLength;
-		uPackLen		= usPackLength;
+	if (pPackEnd > pPackStart || uPackLength < nTailLen)
+	{// 没有环绕
+		m_pNextPack		= pPackStart + uPackLength;
+		uPackLen		= uPackLength;
 		m_pUnreleased	= pPackStart;
 		pRetBuf			= pPackStart;
 	}
-	else if (usPackLength > nTailLen)
-	{
-		// wrapped
-		if (nTailLen > m_uTempRecvBufLen || usPackLength - nTailLen > m_uTempRecvBufLen - nTailLen)
+	else if (uPackLength > nTailLen)
+	{// 环绕了
+		if (nTailLen > m_uTempRecvBufLen || uPackLength > m_uTempRecvBufLen)
 		{
 			g_pFileLog->WriteLog("[%s][%d] Client[%4u]:Recv temp buff overflow tail_length = %d tmp_recvbuf_len = %u, pack_length = %u\n", __FILE__, __LINE__, m_uConnID, nTailLen, m_uTempSendBufLen, uPackLen);
 			return nullptr;
 		}
 		memcpy(m_pTempRecvBuf, pPackStart, nTailLen);
-		memcpy(m_pTempRecvBuf + nTailLen, m_pRecvBuf, usPackLength - nTailLen);
+		memcpy(m_pTempRecvBuf + nTailLen, m_pRecvBuf, uPackLength - nTailLen);
 		m_pUnreleased	= pPackStart;
-		m_pPack			= m_pRecvBuf + usPackLength - nTailLen;
-		uPackLen		= usPackLength;
+		m_pNextPack		= m_pRecvBuf + uPackLength - nTailLen;
+		uPackLen		= uPackLength;
 		pRetBuf			= m_pTempRecvBuf;
 	}
-	else if (usPackLength == nTailLen)
-	{
-		// broken at the end of the buffer
-		m_pPack			= m_pRecvBuf;
-		uPackLen		= usPackLength;
+	else if (uPackLength == nTailLen)
+	{// 没有环绕，且正好数据长度就是剩余的尾部长度
+		m_pNextPack		= m_pRecvBuf;
+		uPackLen		= uPackLength;
 		m_pUnreleased	= pPackStart;
 		pRetBuf			= pPackStart;
 	}
@@ -261,18 +257,18 @@ bool CTcpConnection::PutPack(const void* pPack, unsigned int uPackLen)
 	if (!m_bLogicConnected)
 		return false;
 
-	char	*pPutStart	= m_pSend;
+	char	*pPutStart	= m_pWritePtr;
 	char	*pPutEnd	= m_pFlush;
 	char	*pData		= (char*)pPack;
 
-	// add 2 to the pack_len, so it's the total length included the pack header
-	uPackLen	+= sizeof(unsigned short);
+	// 包的长度添加包头的大小
+	NetHead		uTotalPackLen	= uPackLen + sizeof(NetHead);
+	uPackLen	+= sizeof(NetHead);
 
-	int		nEmptyLen	= pPutStart >= pPutEnd ? pPutEnd + m_uSendBufLen - pPutStart : nEmptyLen = pPutEnd - pPutStart;
+	int	nEmptyLen	= pPutStart >= pPutEnd ? pPutEnd + m_uSendBufLen - pPutStart : nEmptyLen = pPutEnd - pPutStart;
 
-	// if buffer is full, there are must be something wrong,
-	// in this case; we just close the conn;
-	if (uPackLen >= nEmptyLen)
+	// 缓冲区满了，或者剩余空间不够放入这个长度的包，返回错误（需要关闭连接）
+	if (uTotalPackLen >= nEmptyLen)
 	{
 		g_pFileLog->WriteLog("[%s][%d] CNetLink::putpack Client[%4u]: Send buffer overflow!!!\n", __FILE__, __LINE__, m_uConnID);
 		return false;
@@ -280,51 +276,54 @@ bool CTcpConnection::PutPack(const void* pPack, unsigned int uPackLen)
 
 	int	nTailLen = m_pSendBuf + m_uSendBufLen - pPutStart;
 	
-	if (pPutEnd > pPutStart || uPackLen < nTailLen)
-	{
-		// data will not wrap, copy and return
-		*(unsigned short*)pPutStart = (unsigned short)(uPackLen);
-		memcpy( pPutStart + sizeof(unsigned short), pData, uPackLen - sizeof(unsigned short) );
+	if (pPutEnd > pPutStart || uTotalPackLen < nTailLen)
+	{// 环绕了，但尾部空间够写入这个包
+		*(NetHead*)pPutStart = uTotalPackLen;
 
-		m_pSend = pPutStart + uPackLen;
+		memcpy(pPutStart + sizeof(NetHead), pData, uPackLen);
+
+		m_pWritePtr = pPutStart + uTotalPackLen;
 	}
-	else if (uPackLen == nTailLen)
-	{
-		*(unsigned short*)pPutStart = (unsigned short)(uPackLen);
-		memcpy( pPutStart + sizeof(unsigned short), pData, uPackLen - sizeof(unsigned short) );
+	else if (uTotalPackLen == nTailLen)
+	{// 尾部空间正好容纳这个包
+		*(NetHead*)pPutStart = uTotalPackLen;
 
-		m_pSend = m_pSendBuf;
+		memcpy(pPutStart + sizeof(NetHead), pData, uPackLen);
+
+		m_pWritePtr = m_pSendBuf;
 	}
 	else
 	{
-		if (m_uTempSendBufLen < uPackLen - sizeof(unsigned short))
-		{
-			g_pFileLog->WriteLog("[%s][%d] Client[%4u]:Send temp buff overflow tmp_sendbuf_len = %u, pack_len = %u\n", __FILE__, __LINE__, m_uConnID, m_uTempSendBufLen, uPackLen);
-			return false;
+		if (nTailLen > sizeof(NetHead))
+		{// 尾部空间，可以容纳包头，以及部分包体的数据
+			*(NetHead*)pPutStart = uTotalPackLen;
+			memcpy(pPutStart + sizeof(NetHead), pData, nTailLen - sizeof(NetHead));
+			memcpy(m_pSendBuf, pData + (nTailLen - sizeof(NetHead)), uTotalPackLen - nTailLen);
+			m_pWritePtr	= m_pSendBuf + uTotalPackLen - nTailLen;
 		}
-		memcpy(m_pTempSendBuf, pData, uPackLen - sizeof(unsigned short));
-
-		// data will wrap
-		if (nTailLen > sizeof(unsigned short))
-		{
-			*(unsigned short*)pPutStart = (unsigned short)(uPackLen);
-			memcpy(pPutStart + sizeof(unsigned short), m_pTempSendBuf, nTailLen - sizeof(unsigned short));
-			memcpy(m_pSendBuf, m_pTempSendBuf + nTailLen - sizeof(unsigned short), uPackLen - nTailLen);
-			m_pSend	= m_pSendBuf + uPackLen - nTailLen;
-		}
-		else if (nTailLen == sizeof(unsigned short))
-		{
-			*(unsigned short*)pPutStart = (unsigned short)(uPackLen);
-			memcpy(m_pSendBuf, m_pTempSendBuf, uPackLen - sizeof(unsigned short));
-			m_pSend	= m_pSendBuf + uPackLen - sizeof(unsigned short);
+		else if (nTailLen == sizeof(NetHead))
+		{// 尾部空间，正好可以容纳下包头的长度
+			*(NetHead*)pPutStart = uTotalPackLen;
+			memcpy(m_pSendBuf, pData, uPackLen);
+			m_pWritePtr	= m_pSendBuf + uPackLen;
 		}
 		else
-		{
-			// tail_len == 1 
-			*(unsigned char*)pPutStart		= uPackLen & 0x0FF;
-			*(unsigned char*)m_pSendBuf		= (uPackLen >> 8) & 0xFF;
-			memcpy(m_pSendBuf + 1, m_pTempSendBuf, uPackLen - sizeof(unsigned short));
-			m_pSend	= m_pSendBuf + uPackLen - 1;
+		{// 尾部空间比包头小，则将包头的数据，写一部分在尾部，剩余部分写在缓冲区的头部
+			int	nLeftHeadData	= sizeof(NetHead) - nTailLen;
+
+			// 先拷贝一部分包头到尾部
+			memcpy(pPutStart, &uTotalPackLen, nTailLen);
+
+			// 这里要测试一下，看地址是否是按1个字节大小进行位移的
+			// ...
+
+			// 再拷贝剩余部分到缓冲区头部
+			memcpy(m_pSendBuf, (&uTotalPackLen)+nTailLen, nLeftHeadData);
+
+			// 最后拷贝包体数据
+			memcpy(m_pSendBuf + nLeftHeadData, m_pTempSendBuf, uPackLen);
+
+			m_pWritePtr	= m_pSendBuf + uTotalPackLen - nTailLen;
 		}
 	}
 	return true;
@@ -334,7 +333,7 @@ bool CTcpConnection::PutPack(const void* pPack, unsigned int uPackLen)
 bool CTcpConnection::SendData()
 {
 	char	*pFlushStart	= m_pFlush;
-	char	*pFlushEnd		= m_pSend;
+	char	*pFlushEnd		= m_pWritePtr;
 	int		nMaxSendBytes;
 	int		nSendedBytes;
 	int		nTailLen = 0;

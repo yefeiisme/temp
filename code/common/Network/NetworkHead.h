@@ -43,4 +43,8 @@
 #define SAFE_DELETE_ARR(Address)			{ if( nullptr != (Address) )	delete[](Address);	Address = nullptr; }
 #endif
 
+typedef unsigned short	NetHead;
+// 如果要用uint32类型的包头发数据，请用下面的定议
+//typedef unsigned int	NetHead;
+
 #endif

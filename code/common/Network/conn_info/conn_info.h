@@ -12,19 +12,19 @@ protected:
 	char						*m_pSendBuf;
 	char						*m_pTempSendBuf;
 	char						*m_pFlush;
-	char						*m_pSend;
+	char						*m_pWritePtr;
 	unsigned int				m_uSendBufLen;
 	unsigned int				m_uTempSendBufLen;
 	/**********************发送缓冲区**********************/
 	
 	/**********************接收缓冲区**********************/
-	char						*m_pRecvBuf;
-	char						*m_pTempRecvBuf;
-	char						*m_pPack;
-	char						*m_pRecv;
-	char						*m_pUnreleased;
-	unsigned int				m_uRecvBufLen;
-	unsigned int				m_uTempRecvBufLen;
+	char						*m_pRecvBuf;			// 缓冲区的指针
+	char						*m_pTempRecvBuf;		// Temp缓冲区的指针
+	char						*m_pNextPack;			// 下个包所在地址的指针
+	char						*m_pRecv;				// 当前网络数据接收地址的指针
+	char						*m_pUnreleased;			// 已读数据的指针，用于保护数据不被写指针写超过
+	unsigned int				m_uRecvBufLen;			// 缓冲区长度
+	unsigned int				m_uTempRecvBufLen;		// Temp缓冲区长度
 	/**********************接收缓冲区**********************/
 
 	SOCKET						m_nSock;
@@ -69,8 +69,8 @@ public:
 	bool						Initialize(const unsigned int uIndex, unsigned int uRecvBufferLen, unsigned int uSendBufferLen, unsigned int uTempRecvBufLen, unsigned int uTempSendBufLen);
 	inline void					ReInit(const int nSocket)
 	{
-		m_pUnreleased	= m_pRecv = m_pPack = m_pRecvBuf;
-		m_pFlush		= m_pSend = m_pSendBuf;
+		m_pUnreleased	= m_pRecv = m_pNextPack = m_pRecvBuf;
+		m_pFlush		= m_pWritePtr = m_pSendBuf;
 		m_nSock			= nSocket;
 	}
 
