@@ -63,7 +63,8 @@ bool CClientNetwork::Initialize(
 	const unsigned int uTempRecvBuffLen,
 	pfnConnectEvent pfnConnectCallBack,
 	void *lpParm,
-	const unsigned int uSleepTime
+	const unsigned int uSleepTime,
+	const unsigned char byPackHeadSize
 	)
 {
 	if (nullptr == pfnConnectCallBack)
@@ -89,7 +90,7 @@ bool CClientNetwork::Initialize(
 
 	for (unsigned int uIndex = 0; uIndex < m_uMaxConnCount; ++uIndex)
 	{
-		if (!m_pTcpConnection[uIndex].Initialize(uIndex, uRecvBuffLen, uSendBuffLen, uTempRecvBuffLen, uTempSendBuffLen))
+		if (!m_pTcpConnection[uIndex].Initialize(uIndex, uRecvBuffLen, uSendBuffLen, uTempRecvBuffLen, uTempSendBuffLen, byPackHeadSize))
 			return false;
 	}
 
@@ -360,14 +361,15 @@ IClientNetwork *CreateClientNetwork(
 	unsigned int uMaxTempReceiveBuff,
 	pfnConnectEvent pfnConnectCallBack,
 	void *lpParm,
-	const unsigned int uSleepTime
+	const unsigned int uSleepTime,
+	const unsigned char byPackHeadSize
 	)
 {
 	CClientNetwork	*pClient = new CClientNetwork();
 	if (nullptr == pClient)
 		return nullptr;
 
-	if (!pClient->Initialize(uLinkCount, uMaxSendBuff, uMaxReceiveBuff, uMaxTempSendBuff, uMaxTempReceiveBuff, pfnConnectCallBack, lpParm, uSleepTime))
+	if (!pClient->Initialize(uLinkCount, uMaxSendBuff, uMaxReceiveBuff, uMaxTempSendBuff, uMaxTempReceiveBuff, pfnConnectCallBack, lpParm, uSleepTime, byPackHeadSize))
 	{
 		pClient->Release();
 		return nullptr;

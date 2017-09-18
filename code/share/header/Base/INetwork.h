@@ -41,7 +41,8 @@ IServerNetwork *CreateServerNetwork(
 	const unsigned int uRecvBufferLen,			// 每个连接接收缓冲区的大小
 	const unsigned int uTempSendBufferLen,		// 最大发送包的大小
 	const unsigned int uTempRecvBufferLen,		// 最大接收包的大小
-	const unsigned int uSleepTime				// 线程的Sleep时间
+	const unsigned int uSleepTime,				// 线程的Sleep时间
+	const unsigned char byPackHeadSize = 16		// 包头的大小，默认16位大小
 	);
 IClientNetwork *CreateClientNetwork(
 	const unsigned int uConnectionNum,			// 最大连接数
@@ -51,7 +52,8 @@ IClientNetwork *CreateClientNetwork(
 	const unsigned int uTempRecvBufferLen,		// 最大接收包的大小
 	pfnConnectEvent pfnConnectCallBack,			// 连接成功后的回调函数
 	void *lpParm,								// 回调函数的参数
-	const unsigned int uSleepTime				// 线程的Sleep时间
+	const unsigned int uSleepTime,				// 线程的Sleep时间
+	const unsigned char byPackHeadSize = 16		// 包头的大小，默认16位大小
 	);
 
 #endif

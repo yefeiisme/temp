@@ -75,7 +75,8 @@ public:
 										const unsigned int uRecvBufferLen,
 										const unsigned int uTempSendBufferLen,
 										const unsigned int uTempRecvBufferLen,
-										const unsigned int uSleepTime
+										const unsigned int uSleepTime,
+										const unsigned char byPackHeadSize
 										);
 	inline void				Stop()
 	{

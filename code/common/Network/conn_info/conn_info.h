@@ -8,6 +8,12 @@
 class CTcpConnection : public ITcpConnection
 {
 protected:
+	typedef bool (CTcpConnection::*pfnPutPack)(const void *pPack, unsigned int uPackLen);
+	pfnPutPack					m_pfnPutPack;
+
+	typedef const void *(CTcpConnection::*pfnGetPack)(unsigned int &uPackLen);
+	pfnGetPack					m_pfnGetPack;
+
 	/**********************·¢ËÍ»º³åÇø**********************/
 	char						*m_pSendBuf;
 	char						*m_pTempSendBuf;
@@ -66,7 +72,7 @@ public:
 		return m_bTcpConnected;
 	}
 
-	bool						Initialize(const unsigned int uIndex, unsigned int uRecvBufferLen, unsigned int uSendBufferLen, unsigned int uTempRecvBufLen, unsigned int uTempSendBufLen);
+	bool						Initialize(const unsigned int uIndex, unsigned int uRecvBufferLen, unsigned int uSendBufferLen, unsigned int uTempRecvBufLen, unsigned int uTempSendBufLen, unsigned char byPackSize);
 	inline void					ReInit(const int nSocket)
 	{
 		m_pUnreleased	= m_pRecv = m_pNextPack = m_pRecvBuf;
@@ -93,6 +99,11 @@ public:
 		m_bTcpConnected		= true;
 		m_bLogicConnected	= true;
 	}
+private:
+	bool						Put16Pack(const void *pPack, unsigned int uPackLen);
+	bool						Put32Pack(const void *pPack, unsigned int uPackLen);
+	const void					*Get16Pack(unsigned int &uPackLen);
+	const void					*Get32Pack(unsigned int &uPackLen);
 };
 
 #endif

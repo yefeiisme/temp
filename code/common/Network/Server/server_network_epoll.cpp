@@ -235,7 +235,8 @@ bool CServerNetwork::Initialize(
 	const unsigned int uRecvBufferLen,
 	const unsigned int uTempSendBufferLen,
 	const unsigned int uTempRecvBufferLen,
-	const unsigned int uSleepTime
+	const unsigned int uSleepTime,
+	const unsigned char byPackHeadSize
 	)
 {
 	m_uMaxConnCount			= uConnectionNum;
@@ -274,7 +275,7 @@ bool CServerNetwork::Initialize(
 
 	for (unsigned int uIndex = 0; uIndex < m_uMaxConnCount; ++uIndex)
 	{
-		if (!m_pTcpConnection[uIndex].Initialize(uIndex, uRecvBufferLen, uSendBufferLen, uTempSendBufferLen, uTempRecvBufferLen))
+		if (!m_pTcpConnection[uIndex].Initialize(uIndex, uRecvBufferLen, uSendBufferLen, uTempSendBufferLen, uTempRecvBufferLen, byPackHeadSize))
 			return false;
 
 		m_pFreeConn[uIndex]	= &m_pTcpConnection[uIndex];
@@ -348,14 +349,15 @@ IServerNetwork *CreateServerNetwork(
 	unsigned int uRecvBufferLen,
 	unsigned int uTempSendBufferLen,
 	unsigned int uTempRecvBufferLen,
-	const unsigned int uSleepTime
+	const unsigned int uSleepTime,
+	const unsigned char byPackHeadSize
 )
 {
 	CServerNetwork	*pServer = new CServerNetwork();
 	if (nullptr == pServer)
 		return nullptr;
 
-	if (!pServer->Initialize(usPort, lpParam, pfnConnectCallBack, uConnectionNum, uSendBufferLen, uRecvBufferLen, uTempSendBufferLen, uTempRecvBufferLen, uSleepTime))
+	if (!pServer->Initialize(usPort, lpParam, pfnConnectCallBack, uConnectionNum, uSendBufferLen, uRecvBufferLen, uTempSendBufferLen, uTempRecvBufferLen, uSleepTime, byPackHeadSize))
 	{
 		pServer->Release();
 		return nullptr;

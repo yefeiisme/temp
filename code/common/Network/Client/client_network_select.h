@@ -48,7 +48,8 @@ public:
 										const unsigned int uTempRecvBuffLen,
 										pfnConnectEvent pfnConnectCallBack,
 										void *lpParm,
-										const unsigned int uSleepTime
+										const unsigned int uSleepTime,
+										const unsigned char byPackHeadSize
 										);
 	inline void				Stop()
 	{
