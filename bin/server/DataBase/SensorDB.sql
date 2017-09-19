@@ -119,8 +119,11 @@ BEGIN
 	DECLARE _RecordCount int default 0;
 	DECLARE _MinDateTime int default 0;
 	DECLARE _MaxDateTime int default 0;
+	DECLARE _AvgValue1 double default 0;
+	DECLARE _AvgValue2 double default 0;
+	DECLARE _AvgValue3 double default 0;
 	
-	select count(*),min(UNIX_TIMESTAMP(DataTime)),max(UNIX_TIMESTAMP(DataTime)) into _RecordCount,_MinDateTime,_MaxDateTime from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between paramBeginTime and paramEndTime;
+	select count(*),min(UNIX_TIMESTAMP(DataTime)),max(UNIX_TIMESTAMP(DataTime)),AVG(AverageValue1),AVG(AverageValue2),AVG(AverageValue3) into _RecordCount,_MinDateTime,_MaxDateTime,_AvgValue1,_AvgValue2,_AvgValue3 from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between paramBeginTime and paramEndTime;
 	
 	if _RecordCount > 100 then
 		set _RecordCount	= 100;
@@ -128,7 +131,7 @@ BEGIN
 	
 	set _Interval	= (_MaxDateTime - _MinDateTime) DIV _RecordCount;
 
-	select ID,Longitude,Latitude,_MinDateTime,_MaxDateTime,_Interval from sensor where ID=paramSensorID;
+	select ID,Longitude,Latitude,_MinDateTime,_MaxDateTime,_Interval,_AvgValue1,_AvgValue2,_AvgValue3 from sensor where ID=paramSensorID;
 	select min(OffsetValue1),min(OffsetValue2),min(OffsetValue3),MAX(OffsetValue1),MAX(OffsetValue2),max(OffsetValue3) from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between _MinDateTime and _MaxDateTime group by UNIX_TIMESTAMP(DataTime)-UNIX_TIMESTAMP(DataTime)%_Interval;
 END;
 

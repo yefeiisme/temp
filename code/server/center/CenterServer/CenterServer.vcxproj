@@ -87,8 +87,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Share\Header\CenterServer\ICenterServer.h" />
-    <ClInclude Include="..\..\Share\Header\CenterServer\ICenterServerLogic.h" />
+    <ClInclude Include="..\..\..\share\header\CenterServer\ICenterServer.h" />
+    <ClInclude Include="..\..\..\share\header\CenterServer\ICenterServerLogic.h" />
     <ClInclude Include="CenterServer.h" />
     <ClInclude Include="Config\CenterServerConfig.h" />
     <ClInclude Include="Connection\AppConnection.h" />

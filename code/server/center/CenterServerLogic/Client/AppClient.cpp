@@ -463,20 +463,23 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 {
 	UINT	uCol		= 0;
 	UINT	uSensorID	= 0;
+	double	dLongitude	= 0.0f;
+	double	dLatitude	= 0.0f;
+	int		nBeginTime	= 0;
+	int		nEndTime	= 0;
+	int		nDataTime	= 0;
+	UINT	uInterval	= 0;
+	double	dAvgValue1	= 0.0f;
+	double	dAvgValue2	= 0.0f;
+	double	dAvgValue3	= 0.0f;
+
+	WORD	wSlopeID	= 0;
 	double	dMinValue1	= 0.0f;
 	double	dMinValue2	= 0.0f;
 	double	dMinValue3	= 0.0f;
 	double	dMaxValue1	= 0.0f;
 	double	dMaxValue2	= 0.0f;
 	double	dMaxValue3	= 0.0f;
-	UINT	uInterval	= 0;
-
-	WORD	wSlopeID	= 0;
-	double	dLongitude	= 0.0f;
-	double	dLatitude	= 0.0f;
-	int		nBeginTime	= 0;
-	int		nEndTime	= 0;
-	int		nDataTime	= 0;
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (2 != byResultCount)
@@ -508,6 +511,9 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	pResult1->GetData(0, uCol++, nBeginTime);
 	pResult1->GetData(0, uCol++, nEndTime);
 	pResult1->GetData(0, uCol++, uInterval);
+	pResult1->GetData(0, uCol++, dAvgValue1);
+	pResult1->GetData(0, uCol++, dAvgValue2);
+	pResult1->GetData(0, uCol++, dAvgValue3);
 
 	tagSensorHistory.set_id(uSensorID);
 	tagSensorHistory.set_longitude(dLongitude);
@@ -515,6 +521,9 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	tagSensorHistory.set_begin_time(nBeginTime);
 	tagSensorHistory.set_end_time(nEndTime);
 	tagSensorHistory.set_invterval(uInterval);
+	tagSensorHistory.set_avg_value1(dAvgValue1);
+	tagSensorHistory.set_avg_value2(dAvgValue2);
+	tagSensorHistory.set_avg_value3(dAvgValue3);
 
 	for (auto uRow = 0; uRow < pResult2->GetRowCount(); ++uRow)
 	{

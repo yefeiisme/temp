@@ -171,7 +171,10 @@ message S2App_Sensor_History
 	required uint32 begin_time			= 4;	// 起始时间
 	required uint32 end_time			= 5;	// 结束时间
 	required uint32 invterval			= 6;	// 间隔时间
-	repeated SensorData	history_list	= 7;	// 起始时间到结束时间内的传感器数据
+	required double	avg_value1			= 7;	// 平均物理量1
+	required double	avg_value2			= 8;	// 平均物理量2
+	required double	avg_value3			= 9;	// 平均物理量2
+	repeated SensorData	history_list	= 10;	// 起始时间到结束时间内的传感器数据
 }
 
 // 有错误时返回对应的值

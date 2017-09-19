@@ -82,26 +82,24 @@
     <ClInclude Include="SensorDB\SensorDBOperation.h">
       <Filter>SensorDB</Filter>
     </ClInclude>
-    <ClInclude Include="Client\Web_Server_Protocol.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Client\CommonDefine.pb.h">
       <Filter>Client</Filter>
     </ClInclude>
+    <ClInclude Include="Client\Web_Server_Protocol.pb.h">
+      <Filter>Client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Share\Header\Protocol\Sensor_Server_Protocol.proto">
-      <Filter>Client</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="..\..\Share\Header\Protocol\App_Server_Protocol.proto">
+    <CustomBuild Include="..\..\..\share\header\Protocol\App_Server_Protocol.proto">
       <Filter>Client</Filter>
     </CustomBuild>
-    <CustomBuild Include="..\..\Share\Header\Protocol\Web_Server_Protocol.proto">
+    <CustomBuild Include="..\..\..\share\header\Protocol\Sensor_Server_Protocol.proto">
       <Filter>Client</Filter>
     </CustomBuild>
-    <CustomBuild Include="..\..\Share\Header\Protocol\CommonDefine.proto">
+    <CustomBuild Include="..\..\..\share\header\Protocol\Web_Server_Protocol.proto">
+      <Filter>Client</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\share\header\Protocol\CommonDefine.proto">
       <Filter>Client</Filter>
     </CustomBuild>
   </ItemGroup>

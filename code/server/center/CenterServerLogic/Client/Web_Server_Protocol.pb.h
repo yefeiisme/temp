@@ -1662,10 +1662,10 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
 
   // accessors -------------------------------------------------------
 
-  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 7;
+  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 10;
   int history_list_size() const;
   void clear_history_list();
-  static const int kHistoryListFieldNumber = 7;
+  static const int kHistoryListFieldNumber = 10;
   const ::WEB_SERVER_NET_Protocol::S2Web_Sensor_History_SensorData& history_list(int index) const;
   ::WEB_SERVER_NET_Protocol::S2Web_Sensor_History_SensorData* mutable_history_list(int index);
   ::WEB_SERVER_NET_Protocol::S2Web_Sensor_History_SensorData* add_history_list();
@@ -1716,6 +1716,27 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::uint32 invterval() const;
   void set_invterval(::google::protobuf::uint32 value);
 
+  // required double avg_value1 = 7;
+  bool has_avg_value1() const;
+  void clear_avg_value1();
+  static const int kAvgValue1FieldNumber = 7;
+  double avg_value1() const;
+  void set_avg_value1(double value);
+
+  // required double avg_value2 = 8;
+  bool has_avg_value2() const;
+  void clear_avg_value2();
+  static const int kAvgValue2FieldNumber = 8;
+  double avg_value2() const;
+  void set_avg_value2(double value);
+
+  // required double avg_value3 = 9;
+  bool has_avg_value3() const;
+  void clear_avg_value3();
+  static const int kAvgValue3FieldNumber = 9;
+  double avg_value3() const;
+  void set_avg_value3(double value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2Web_Sensor_History)
  private:
   void set_has_id();
@@ -1730,6 +1751,12 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
   void clear_has_end_time();
   void set_has_invterval();
   void clear_has_invterval();
+  void set_has_avg_value1();
+  void clear_has_avg_value1();
+  void set_has_avg_value2();
+  void clear_has_avg_value2();
+  void set_has_avg_value3();
+  void clear_has_avg_value3();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -1744,6 +1771,9 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
   double latitude_;
   ::google::protobuf::uint32 end_time_;
   ::google::protobuf::uint32 invterval_;
+  double avg_value1_;
+  double avg_value2_;
+  double avg_value3_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -3381,7 +3411,79 @@ inline void S2Web_Sensor_History::set_invterval(::google::protobuf::uint32 value
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.invterval)
 }
 
-// repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 7;
+// required double avg_value1 = 7;
+inline bool S2Web_Sensor_History::has_avg_value1() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void S2Web_Sensor_History::set_has_avg_value1() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void S2Web_Sensor_History::clear_has_avg_value1() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void S2Web_Sensor_History::clear_avg_value1() {
+  avg_value1_ = 0;
+  clear_has_avg_value1();
+}
+inline double S2Web_Sensor_History::avg_value1() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value1)
+  return avg_value1_;
+}
+inline void S2Web_Sensor_History::set_avg_value1(double value) {
+  set_has_avg_value1();
+  avg_value1_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value1)
+}
+
+// required double avg_value2 = 8;
+inline bool S2Web_Sensor_History::has_avg_value2() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void S2Web_Sensor_History::set_has_avg_value2() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void S2Web_Sensor_History::clear_has_avg_value2() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void S2Web_Sensor_History::clear_avg_value2() {
+  avg_value2_ = 0;
+  clear_has_avg_value2();
+}
+inline double S2Web_Sensor_History::avg_value2() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value2)
+  return avg_value2_;
+}
+inline void S2Web_Sensor_History::set_avg_value2(double value) {
+  set_has_avg_value2();
+  avg_value2_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value2)
+}
+
+// required double avg_value3 = 9;
+inline bool S2Web_Sensor_History::has_avg_value3() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void S2Web_Sensor_History::set_has_avg_value3() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void S2Web_Sensor_History::clear_has_avg_value3() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void S2Web_Sensor_History::clear_avg_value3() {
+  avg_value3_ = 0;
+  clear_has_avg_value3();
+}
+inline double S2Web_Sensor_History::avg_value3() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value3)
+  return avg_value3_;
+}
+inline void S2Web_Sensor_History::set_avg_value3(double value) {
+  set_has_avg_value3();
+  avg_value3_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value3)
+}
+
+// repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 10;
 inline int S2Web_Sensor_History::history_list_size() const {
   return history_list_.size();
 }

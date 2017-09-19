@@ -236,6 +236,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Sensor_History, begin_time_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Sensor_History, end_time_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Sensor_History, invterval_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Sensor_History, avg_value1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Sensor_History, avg_value2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Sensor_History, avg_value3_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Sensor_History, history_list_),
   1,
   0,
@@ -243,6 +246,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   2,
   4,
   5,
+  6,
+  7,
+  8,
   ~0u,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_ERROR, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_ERROR, _internal_metadata_),
@@ -265,8 +271,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 80, 102, sizeof(S2App_Sensor_List_SensorData)},
   { 119, 125, sizeof(S2App_Sensor_List)},
   { 126, 137, sizeof(S2App_Sensor_History_SensorData)},
-  { 143, 155, sizeof(S2App_Sensor_History)},
-  { 162, 168, sizeof(S2APP_ERROR)},
+  { 143, 158, sizeof(S2App_Sensor_History)},
+  { 168, 174, sizeof(S2APP_ERROR)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -390,38 +396,39 @@ void AddDescriptorsImpl() {
       "(\001\022\022\n\navg_value2\030\013 \002(\001\022\022\n\navg_value3\030\014 \002"
       "(\001\022\025\n\roffset_value1\030\r \002(\001\022\025\n\roffset_valu"
       "e2\030\016 \002(\001\022\025\n\roffset_value3\030\017 \002(\001\022\013\n\003url\030\020"
-      " \002(\014\022\023\n\013description\030\021 \002(\014\"\327\002\n\024S2App_Sens"
+      " \002(\014\022\023\n\013description\030\021 \002(\014\"\223\003\n\024S2App_Sens"
       "or_History\022\n\n\002id\030\001 \002(\r\022\021\n\tlongitude\030\002 \002("
       "\001\022\020\n\010latitude\030\003 \002(\001\022\022\n\nbegin_time\030\004 \002(\r\022"
-      "\020\n\010end_time\030\005 \002(\r\022\021\n\tinvterval\030\006 \002(\r\022N\n\014"
-      "history_list\030\007 \003(\01328.APP_SERVER_NET_Prot"
-      "ocol.S2App_Sensor_History.SensorData\032\204\001\n"
-      "\nSensorData\022\022\n\nmin_value1\030\001 \002(\001\022\022\n\nmin_v"
-      "alue2\030\002 \002(\001\022\022\n\nmin_value3\030\003 \002(\001\022\022\n\nmax_v"
-      "alue1\030\004 \002(\001\022\022\n\nmax_value2\030\005 \002(\001\022\022\n\nmax_v"
-      "alue3\030\006 \002(\001\"!\n\013S2APP_ERROR\022\022\n\nerror_code"
-      "\030\001 \002(\r*\246\004\n\005APP2S\022\017\n\013app2s_login\020\000\022\034\n\030app"
-      "2s_request_slope_list\020\001\022\035\n\031app2s_request"
-      "_sensor_list\020\002\022 \n\034app2s_request_sensor_h"
-      "istory\020\003\022\016\n\napp2s_ping\020\004\022\032\n\026app2s_reques"
-      "t_all_list\020\005\022\022\n\016app2s_reserve3\020\006\022\022\n\016app2"
-      "s_reserve4\020\007\022\022\n\016app2s_reserve5\020\010\022\022\n\016app2"
-      "s_reserve6\020\t\022\022\n\016app2s_reserve7\020\n\022\022\n\016app2"
-      "s_reserve8\020\013\022\022\n\016app2s_reserve9\020\014\022\023\n\017app2"
-      "s_reserve10\020\r\022\023\n\017app2s_reserve11\020\016\022\023\n\017ap"
-      "p2s_reserve12\020\017\022\023\n\017app2s_reserve13\020\020\022\023\n\017"
-      "app2s_reserve14\020\021\022\023\n\017app2s_reserve15\020\022\022\023"
-      "\n\017app2s_reserve16\020\023\022\023\n\017app2s_reserve17\020\024"
-      "\022\023\n\017app2s_reserve18\020\025\022\023\n\017app2s_reserve19"
-      "\020\026\022\023\n\017app2s_reserve20\020\027\022\016\n\tapp2s_max\020\200\002*"
-      "\237\001\n\005S2APP\022\026\n\022s2app_login_result\020\000\022\024\n\020s2a"
-      "pp_slope_list\020\001\022\025\n\021s2app_sensor_list\020\002\022\030"
-      "\n\024s2app_sensor_history\020\003\022\026\n\022s2app_all_li"
-      "st_end\020\004\022\017\n\013s2app_error\020\005\022\016\n\ts2app_max\020\200"
-      "\002"
+      "\020\n\010end_time\030\005 \002(\r\022\021\n\tinvterval\030\006 \002(\r\022\022\n\n"
+      "avg_value1\030\007 \002(\001\022\022\n\navg_value2\030\010 \002(\001\022\022\n\n"
+      "avg_value3\030\t \002(\001\022N\n\014history_list\030\n \003(\01328"
+      ".APP_SERVER_NET_Protocol.S2App_Sensor_Hi"
+      "story.SensorData\032\204\001\n\nSensorData\022\022\n\nmin_v"
+      "alue1\030\001 \002(\001\022\022\n\nmin_value2\030\002 \002(\001\022\022\n\nmin_v"
+      "alue3\030\003 \002(\001\022\022\n\nmax_value1\030\004 \002(\001\022\022\n\nmax_v"
+      "alue2\030\005 \002(\001\022\022\n\nmax_value3\030\006 \002(\001\"!\n\013S2APP"
+      "_ERROR\022\022\n\nerror_code\030\001 \002(\r*\246\004\n\005APP2S\022\017\n\013"
+      "app2s_login\020\000\022\034\n\030app2s_request_slope_lis"
+      "t\020\001\022\035\n\031app2s_request_sensor_list\020\002\022 \n\034ap"
+      "p2s_request_sensor_history\020\003\022\016\n\napp2s_pi"
+      "ng\020\004\022\032\n\026app2s_request_all_list\020\005\022\022\n\016app2"
+      "s_reserve3\020\006\022\022\n\016app2s_reserve4\020\007\022\022\n\016app2"
+      "s_reserve5\020\010\022\022\n\016app2s_reserve6\020\t\022\022\n\016app2"
+      "s_reserve7\020\n\022\022\n\016app2s_reserve8\020\013\022\022\n\016app2"
+      "s_reserve9\020\014\022\023\n\017app2s_reserve10\020\r\022\023\n\017app"
+      "2s_reserve11\020\016\022\023\n\017app2s_reserve12\020\017\022\023\n\017a"
+      "pp2s_reserve13\020\020\022\023\n\017app2s_reserve14\020\021\022\023\n"
+      "\017app2s_reserve15\020\022\022\023\n\017app2s_reserve16\020\023\022"
+      "\023\n\017app2s_reserve17\020\024\022\023\n\017app2s_reserve18\020"
+      "\025\022\023\n\017app2s_reserve19\020\026\022\023\n\017app2s_reserve2"
+      "0\020\027\022\016\n\tapp2s_max\020\200\002*\237\001\n\005S2APP\022\026\n\022s2app_l"
+      "ogin_result\020\000\022\024\n\020s2app_slope_list\020\001\022\025\n\021s"
+      "2app_sensor_list\020\002\022\030\n\024s2app_sensor_histo"
+      "ry\020\003\022\026\n\022s2app_all_list_end\020\004\022\017\n\013s2app_er"
+      "ror\020\005\022\016\n\ts2app_max\020\200\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2201);
+      descriptor, 2261);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "App_Server_Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -6001,6 +6008,9 @@ const int S2App_Sensor_History::kLatitudeFieldNumber;
 const int S2App_Sensor_History::kBeginTimeFieldNumber;
 const int S2App_Sensor_History::kEndTimeFieldNumber;
 const int S2App_Sensor_History::kInvtervalFieldNumber;
+const int S2App_Sensor_History::kAvgValue1FieldNumber;
+const int S2App_Sensor_History::kAvgValue2FieldNumber;
+const int S2App_Sensor_History::kAvgValue3FieldNumber;
 const int S2App_Sensor_History::kHistoryListFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -6020,15 +6030,15 @@ S2App_Sensor_History::S2App_Sensor_History(const S2App_Sensor_History& from)
       history_list_(from.history_list_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&longitude_, &from.longitude_,
-    reinterpret_cast<char*>(&invterval_) -
-    reinterpret_cast<char*>(&longitude_) + sizeof(invterval_));
+    reinterpret_cast<char*>(&avg_value3_) -
+    reinterpret_cast<char*>(&longitude_) + sizeof(avg_value3_));
   // @@protoc_insertion_point(copy_constructor:APP_SERVER_NET_Protocol.S2App_Sensor_History)
 }
 
 void S2App_Sensor_History::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&longitude_, 0, reinterpret_cast<char*>(&invterval_) -
-    reinterpret_cast<char*>(&longitude_) + sizeof(invterval_));
+  ::memset(&longitude_, 0, reinterpret_cast<char*>(&avg_value3_) -
+    reinterpret_cast<char*>(&longitude_) + sizeof(avg_value3_));
 }
 
 S2App_Sensor_History::~S2App_Sensor_History() {
@@ -6065,10 +6075,11 @@ S2App_Sensor_History* S2App_Sensor_History::New(::google::protobuf::Arena* arena
 void S2App_Sensor_History::Clear() {
 // @@protoc_insertion_point(message_clear_start:APP_SERVER_NET_Protocol.S2App_Sensor_History)
   history_list_.Clear();
-  if (_has_bits_[0 / 32] & 63u) {
-    ::memset(&longitude_, 0, reinterpret_cast<char*>(&invterval_) -
-      reinterpret_cast<char*>(&longitude_) + sizeof(invterval_));
+  if (_has_bits_[0 / 32] & 255u) {
+    ::memset(&longitude_, 0, reinterpret_cast<char*>(&avg_value2_) -
+      reinterpret_cast<char*>(&longitude_) + sizeof(avg_value2_));
   }
+  avg_value3_ = 0;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -6167,10 +6178,52 @@ bool S2App_Sensor_History::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .APP_SERVER_NET_Protocol.S2App_Sensor_History.SensorData history_list = 7;
+      // required double avg_value1 = 7;
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(58u)) {
+            static_cast< ::google::protobuf::uint8>(57u)) {
+          set_has_avg_value1();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &avg_value1_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double avg_value2 = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(65u)) {
+          set_has_avg_value2();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &avg_value2_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double avg_value3 = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(73u)) {
+          set_has_avg_value3();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &avg_value3_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .APP_SERVER_NET_Protocol.S2App_Sensor_History.SensorData history_list = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(82u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_history_list()));
         } else {
@@ -6238,10 +6291,25 @@ void S2App_Sensor_History::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->invterval(), output);
   }
 
-  // repeated .APP_SERVER_NET_Protocol.S2App_Sensor_History.SensorData history_list = 7;
+  // required double avg_value1 = 7;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->avg_value1(), output);
+  }
+
+  // required double avg_value2 = 8;
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(8, this->avg_value2(), output);
+  }
+
+  // required double avg_value3 = 9;
+  if (cached_has_bits & 0x00000100u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(9, this->avg_value3(), output);
+  }
+
+  // repeated .APP_SERVER_NET_Protocol.S2App_Sensor_History.SensorData history_list = 10;
   for (unsigned int i = 0, n = this->history_list_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, this->history_list(i), output);
+      10, this->history_list(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6288,11 +6356,26 @@ void S2App_Sensor_History::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->invterval(), target);
   }
 
-  // repeated .APP_SERVER_NET_Protocol.S2App_Sensor_History.SensorData history_list = 7;
+  // required double avg_value1 = 7;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->avg_value1(), target);
+  }
+
+  // required double avg_value2 = 8;
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(8, this->avg_value2(), target);
+  }
+
+  // required double avg_value3 = 9;
+  if (cached_has_bits & 0x00000100u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(9, this->avg_value3(), target);
+  }
+
+  // repeated .APP_SERVER_NET_Protocol.S2App_Sensor_History.SensorData history_list = 10;
   for (unsigned int i = 0, n = this->history_list_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        7, this->history_list(i), deterministic, target);
+        10, this->history_list(i), deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6345,6 +6428,21 @@ size_t S2App_Sensor_History::RequiredFieldsByteSizeFallback() const {
         this->invterval());
   }
 
+  if (has_avg_value1()) {
+    // required double avg_value1 = 7;
+    total_size += 1 + 8;
+  }
+
+  if (has_avg_value2()) {
+    // required double avg_value2 = 8;
+    total_size += 1 + 8;
+  }
+
+  if (has_avg_value3()) {
+    // required double avg_value3 = 9;
+    total_size += 1 + 8;
+  }
+
   return total_size;
 }
 size_t S2App_Sensor_History::ByteSizeLong() const {
@@ -6356,7 +6454,7 @@ size_t S2App_Sensor_History::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x000001ff) ^ 0x000001ff) == 0) {  // All required fields are present.
     // required double longitude = 2;
     total_size += 1 + 8;
 
@@ -6383,10 +6481,19 @@ size_t S2App_Sensor_History::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->invterval());
 
+    // required double avg_value1 = 7;
+    total_size += 1 + 8;
+
+    // required double avg_value2 = 8;
+    total_size += 1 + 8;
+
+    // required double avg_value3 = 9;
+    total_size += 1 + 8;
+
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // repeated .APP_SERVER_NET_Protocol.S2App_Sensor_History.SensorData history_list = 7;
+  // repeated .APP_SERVER_NET_Protocol.S2App_Sensor_History.SensorData history_list = 10;
   {
     unsigned int count = this->history_list_size();
     total_size += 1UL * count;
@@ -6428,7 +6535,7 @@ void S2App_Sensor_History::MergeFrom(const S2App_Sensor_History& from) {
 
   history_list_.MergeFrom(from.history_list_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 63u) {
+  if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
       longitude_ = from.longitude_;
     }
@@ -6447,7 +6554,16 @@ void S2App_Sensor_History::MergeFrom(const S2App_Sensor_History& from) {
     if (cached_has_bits & 0x00000020u) {
       invterval_ = from.invterval_;
     }
+    if (cached_has_bits & 0x00000040u) {
+      avg_value1_ = from.avg_value1_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      avg_value2_ = from.avg_value2_;
+    }
     _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000100u) {
+    set_avg_value3(from.avg_value3());
   }
 }
 
@@ -6466,7 +6582,7 @@ void S2App_Sensor_History::CopyFrom(const S2App_Sensor_History& from) {
 }
 
 bool S2App_Sensor_History::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+  if ((_has_bits_[0] & 0x000001ff) != 0x000001ff) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->history_list())) return false;
   return true;
 }
@@ -6483,6 +6599,9 @@ void S2App_Sensor_History::InternalSwap(S2App_Sensor_History* other) {
   std::swap(latitude_, other->latitude_);
   std::swap(end_time_, other->end_time_);
   std::swap(invterval_, other->invterval_);
+  std::swap(avg_value1_, other->avg_value1_);
+  std::swap(avg_value2_, other->avg_value2_);
+  std::swap(avg_value3_, other->avg_value3_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -6640,7 +6759,79 @@ void S2App_Sensor_History::set_invterval(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2App_Sensor_History.invterval)
 }
 
-// repeated .APP_SERVER_NET_Protocol.S2App_Sensor_History.SensorData history_list = 7;
+// required double avg_value1 = 7;
+bool S2App_Sensor_History::has_avg_value1() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void S2App_Sensor_History::set_has_avg_value1() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void S2App_Sensor_History::clear_has_avg_value1() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void S2App_Sensor_History::clear_avg_value1() {
+  avg_value1_ = 0;
+  clear_has_avg_value1();
+}
+double S2App_Sensor_History::avg_value1() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2App_Sensor_History.avg_value1)
+  return avg_value1_;
+}
+void S2App_Sensor_History::set_avg_value1(double value) {
+  set_has_avg_value1();
+  avg_value1_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2App_Sensor_History.avg_value1)
+}
+
+// required double avg_value2 = 8;
+bool S2App_Sensor_History::has_avg_value2() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+void S2App_Sensor_History::set_has_avg_value2() {
+  _has_bits_[0] |= 0x00000080u;
+}
+void S2App_Sensor_History::clear_has_avg_value2() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+void S2App_Sensor_History::clear_avg_value2() {
+  avg_value2_ = 0;
+  clear_has_avg_value2();
+}
+double S2App_Sensor_History::avg_value2() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2App_Sensor_History.avg_value2)
+  return avg_value2_;
+}
+void S2App_Sensor_History::set_avg_value2(double value) {
+  set_has_avg_value2();
+  avg_value2_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2App_Sensor_History.avg_value2)
+}
+
+// required double avg_value3 = 9;
+bool S2App_Sensor_History::has_avg_value3() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+void S2App_Sensor_History::set_has_avg_value3() {
+  _has_bits_[0] |= 0x00000100u;
+}
+void S2App_Sensor_History::clear_has_avg_value3() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+void S2App_Sensor_History::clear_avg_value3() {
+  avg_value3_ = 0;
+  clear_has_avg_value3();
+}
+double S2App_Sensor_History::avg_value3() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2App_Sensor_History.avg_value3)
+  return avg_value3_;
+}
+void S2App_Sensor_History::set_avg_value3(double value) {
+  set_has_avg_value3();
+  avg_value3_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2App_Sensor_History.avg_value3)
+}
+
+// repeated .APP_SERVER_NET_Protocol.S2App_Sensor_History.SensorData history_list = 10;
 int S2App_Sensor_History::history_list_size() const {
   return history_list_.size();
 }
