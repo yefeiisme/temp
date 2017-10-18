@@ -23,11 +23,6 @@ public:
 	{
 		m_bRunning = false;
 	}
-	inline void					Exit()
-	{
-		m_bRunning = false;
-		m_bWaitExit = false;
-	}
 
 	inline IMysqlQuery			*GetMysqlQuery()
 	{
@@ -70,7 +65,6 @@ private:
 	UINT						m_uDataConnCount;
 
 	bool						m_bRunning;
-	bool						m_bWaitExit;
 };
 
 extern CCenterServer			&g_pCenterServer;

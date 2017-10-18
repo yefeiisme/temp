@@ -68,7 +68,6 @@ CCenterServer::CCenterServer()
 	m_uDataConnCount	= 0;
 
 	m_bRunning			= false;
-	m_bWaitExit			= false;
 }
 
 CCenterServer::~CCenterServer()
@@ -221,7 +220,6 @@ bool CCenterServer::Initialize(const bool bDaemon)
 	g_pFileLog->WriteLog("CenterServer Start!\n");
 
 	m_bRunning = true;
-	m_bWaitExit = true;
 
 	return true;
 }
