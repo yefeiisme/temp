@@ -155,12 +155,18 @@ message S2Web_Sensor_History
 {
 	message SensorData
 	{//传感器数据
-		required double	min_value1		= 1;	// 最小物理量1
-		required double	min_value2		= 2;	// 最小物理量2
-		required double	min_value3		= 3;	// 最小物理量3
-		required double	max_value1		= 4;	// 最大物理量1
-		required double	max_value2		= 5;	// 最大物理量2
-		required double	max_value3		= 6;	// 最大物理量3
+		required double	min_value1			= 1;	// 最小物理量1
+		required double	min_value2			= 2;	// 最小物理量2
+		required double	min_value3			= 3;	// 最小物理量3
+		required double	max_value1			= 4;	// 最大物理量1
+		required double	max_value2			= 5;	// 最大物理量2
+		required double	max_value3			= 6;	// 最大物理量3
+		required double	min_offset_value1	= 7;	// 最小偏移量1
+		required double	min_offset_value2	= 8;	// 最小偏移量2
+		required double	min_offset_value3	= 9;	// 最小偏移量3
+		required double	max_offset_value1	= 10;	// 最大偏移量1
+		required double	max_offset_value2	= 11;	// 最大偏移量2
+		required double	max_offset_value3	= 12;	// 最大偏移量3
 	}
 
 	required uint32 id					= 1;	// ID

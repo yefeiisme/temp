@@ -461,25 +461,31 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 
 void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	UINT	uCol		= 0;
-	UINT	uSensorID	= 0;
-	double	dLongitude	= 0.0f;
-	double	dLatitude	= 0.0f;
-	int		nBeginTime	= 0;
-	int		nEndTime	= 0;
-	int		nDataTime	= 0;
-	UINT	uInterval	= 0;
-	double	dAvgValue1	= 0.0f;
-	double	dAvgValue2	= 0.0f;
-	double	dAvgValue3	= 0.0f;
+	UINT	uCol				= 0;
+	UINT	uSensorID			= 0;
+	double	dLongitude			= 0.0f;
+	double	dLatitude			= 0.0f;
+	int		nBeginTime			= 0;
+	int		nEndTime			= 0;
+	int		nDataTime			= 0;
+	UINT	uInterval			= 0;
+	double	dAvgValue1			= 0.0f;
+	double	dAvgValue2			= 0.0f;
+	double	dAvgValue3			= 0.0f;
 
-	WORD	wSlopeID	= 0;
-	double	dMinValue1	= 0.0f;
-	double	dMinValue2	= 0.0f;
-	double	dMinValue3	= 0.0f;
-	double	dMaxValue1	= 0.0f;
-	double	dMaxValue2	= 0.0f;
-	double	dMaxValue3	= 0.0f;
+	WORD	wSlopeID			= 0;
+	double	dMinValue1			= 0.0f;
+	double	dMinValue2			= 0.0f;
+	double	dMinValue3			= 0.0f;
+	double	dMaxValue1			= 0.0f;
+	double	dMaxValue2			= 0.0f;
+	double	dMaxValue3			= 0.0f;
+	double	dMinOffsetValue1	= 0.0f;
+	double	dMinOffsetValue2	= 0.0f;
+	double	dMinOffsetValue3	= 0.0f;
+	double	dMaxOffsetValue1	= 0.0f;
+	double	dMaxOffsetValue2	= 0.0f;
+	double	dMaxOffsetValue3	= 0.0f;
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (2 != byResultCount)
@@ -539,6 +545,12 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 		pResult2->GetData(uRow, uCol++, dMaxValue1);
 		pResult2->GetData(uRow, uCol++, dMaxValue2);
 		pResult2->GetData(uRow, uCol++, dMaxValue3);
+		pResult2->GetData(uRow, uCol++, dMinOffsetValue1);
+		pResult2->GetData(uRow, uCol++, dMinOffsetValue2);
+		pResult2->GetData(uRow, uCol++, dMinOffsetValue3);
+		pResult2->GetData(uRow, uCol++, dMaxOffsetValue1);
+		pResult2->GetData(uRow, uCol++, dMaxOffsetValue2);
+		pResult2->GetData(uRow, uCol++, dMaxOffsetValue3);
 
 		pSensor->set_min_value1(dMinValue1);
 		pSensor->set_min_value2(dMinValue2);
@@ -546,6 +558,12 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 		pSensor->set_max_value1(dMaxValue1);
 		pSensor->set_max_value2(dMaxValue2);
 		pSensor->set_max_value3(dMaxValue3);
+		pSensor->set_min_offset_value1(dMinOffsetValue1);
+		pSensor->set_min_offset_value2(dMinOffsetValue2);
+		pSensor->set_min_offset_value3(dMinOffsetValue3);
+		pSensor->set_max_offset_value1(dMaxOffsetValue1);
+		pSensor->set_max_offset_value2(dMaxOffsetValue2);
+		pSensor->set_max_offset_value3(dMaxOffsetValue3);
 	}
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_sensor_history, tagSensorHistory);

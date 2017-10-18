@@ -1557,6 +1557,48 @@ class S2Web_Sensor_History_SensorData : public ::google::protobuf::Message /* @@
   double max_value3() const;
   void set_max_value3(double value);
 
+  // required double min_offset_value1 = 7;
+  bool has_min_offset_value1() const;
+  void clear_min_offset_value1();
+  static const int kMinOffsetValue1FieldNumber = 7;
+  double min_offset_value1() const;
+  void set_min_offset_value1(double value);
+
+  // required double min_offset_value2 = 8;
+  bool has_min_offset_value2() const;
+  void clear_min_offset_value2();
+  static const int kMinOffsetValue2FieldNumber = 8;
+  double min_offset_value2() const;
+  void set_min_offset_value2(double value);
+
+  // required double min_offset_value3 = 9;
+  bool has_min_offset_value3() const;
+  void clear_min_offset_value3();
+  static const int kMinOffsetValue3FieldNumber = 9;
+  double min_offset_value3() const;
+  void set_min_offset_value3(double value);
+
+  // required double max_offset_value1 = 10;
+  bool has_max_offset_value1() const;
+  void clear_max_offset_value1();
+  static const int kMaxOffsetValue1FieldNumber = 10;
+  double max_offset_value1() const;
+  void set_max_offset_value1(double value);
+
+  // required double max_offset_value2 = 11;
+  bool has_max_offset_value2() const;
+  void clear_max_offset_value2();
+  static const int kMaxOffsetValue2FieldNumber = 11;
+  double max_offset_value2() const;
+  void set_max_offset_value2(double value);
+
+  // required double max_offset_value3 = 12;
+  bool has_max_offset_value3() const;
+  void clear_max_offset_value3();
+  static const int kMaxOffsetValue3FieldNumber = 12;
+  double max_offset_value3() const;
+  void set_max_offset_value3(double value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData)
  private:
   void set_has_min_value1();
@@ -1571,6 +1613,18 @@ class S2Web_Sensor_History_SensorData : public ::google::protobuf::Message /* @@
   void clear_has_max_value2();
   void set_has_max_value3();
   void clear_has_max_value3();
+  void set_has_min_offset_value1();
+  void clear_has_min_offset_value1();
+  void set_has_min_offset_value2();
+  void clear_has_min_offset_value2();
+  void set_has_min_offset_value3();
+  void clear_has_min_offset_value3();
+  void set_has_max_offset_value1();
+  void clear_has_max_offset_value1();
+  void set_has_max_offset_value2();
+  void clear_has_max_offset_value2();
+  void set_has_max_offset_value3();
+  void clear_has_max_offset_value3();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -1584,6 +1638,12 @@ class S2Web_Sensor_History_SensorData : public ::google::protobuf::Message /* @@
   double max_value1_;
   double max_value2_;
   double max_value3_;
+  double min_offset_value1_;
+  double min_offset_value2_;
+  double min_offset_value3_;
+  double max_offset_value1_;
+  double max_offset_value2_;
+  double max_offset_value3_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -3261,6 +3321,150 @@ inline void S2Web_Sensor_History_SensorData::set_max_value3(double value) {
   set_has_max_value3();
   max_value3_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_value3)
+}
+
+// required double min_offset_value1 = 7;
+inline bool S2Web_Sensor_History_SensorData::has_min_offset_value1() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void S2Web_Sensor_History_SensorData::set_has_min_offset_value1() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_has_min_offset_value1() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_min_offset_value1() {
+  min_offset_value1_ = 0;
+  clear_has_min_offset_value1();
+}
+inline double S2Web_Sensor_History_SensorData::min_offset_value1() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value1)
+  return min_offset_value1_;
+}
+inline void S2Web_Sensor_History_SensorData::set_min_offset_value1(double value) {
+  set_has_min_offset_value1();
+  min_offset_value1_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value1)
+}
+
+// required double min_offset_value2 = 8;
+inline bool S2Web_Sensor_History_SensorData::has_min_offset_value2() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void S2Web_Sensor_History_SensorData::set_has_min_offset_value2() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_has_min_offset_value2() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_min_offset_value2() {
+  min_offset_value2_ = 0;
+  clear_has_min_offset_value2();
+}
+inline double S2Web_Sensor_History_SensorData::min_offset_value2() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value2)
+  return min_offset_value2_;
+}
+inline void S2Web_Sensor_History_SensorData::set_min_offset_value2(double value) {
+  set_has_min_offset_value2();
+  min_offset_value2_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value2)
+}
+
+// required double min_offset_value3 = 9;
+inline bool S2Web_Sensor_History_SensorData::has_min_offset_value3() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void S2Web_Sensor_History_SensorData::set_has_min_offset_value3() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_has_min_offset_value3() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_min_offset_value3() {
+  min_offset_value3_ = 0;
+  clear_has_min_offset_value3();
+}
+inline double S2Web_Sensor_History_SensorData::min_offset_value3() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value3)
+  return min_offset_value3_;
+}
+inline void S2Web_Sensor_History_SensorData::set_min_offset_value3(double value) {
+  set_has_min_offset_value3();
+  min_offset_value3_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value3)
+}
+
+// required double max_offset_value1 = 10;
+inline bool S2Web_Sensor_History_SensorData::has_max_offset_value1() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void S2Web_Sensor_History_SensorData::set_has_max_offset_value1() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_has_max_offset_value1() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_max_offset_value1() {
+  max_offset_value1_ = 0;
+  clear_has_max_offset_value1();
+}
+inline double S2Web_Sensor_History_SensorData::max_offset_value1() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value1)
+  return max_offset_value1_;
+}
+inline void S2Web_Sensor_History_SensorData::set_max_offset_value1(double value) {
+  set_has_max_offset_value1();
+  max_offset_value1_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value1)
+}
+
+// required double max_offset_value2 = 11;
+inline bool S2Web_Sensor_History_SensorData::has_max_offset_value2() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void S2Web_Sensor_History_SensorData::set_has_max_offset_value2() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_has_max_offset_value2() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_max_offset_value2() {
+  max_offset_value2_ = 0;
+  clear_has_max_offset_value2();
+}
+inline double S2Web_Sensor_History_SensorData::max_offset_value2() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value2)
+  return max_offset_value2_;
+}
+inline void S2Web_Sensor_History_SensorData::set_max_offset_value2(double value) {
+  set_has_max_offset_value2();
+  max_offset_value2_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value2)
+}
+
+// required double max_offset_value3 = 12;
+inline bool S2Web_Sensor_History_SensorData::has_max_offset_value3() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void S2Web_Sensor_History_SensorData::set_has_max_offset_value3() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_has_max_offset_value3() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void S2Web_Sensor_History_SensorData::clear_max_offset_value3() {
+  max_offset_value3_ = 0;
+  clear_has_max_offset_value3();
+}
+inline double S2Web_Sensor_History_SensorData::max_offset_value3() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value3)
+  return max_offset_value3_;
+}
+inline void S2Web_Sensor_History_SensorData::set_max_offset_value3(double value) {
+  set_has_max_offset_value3();
+  max_offset_value3_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value3)
 }
 
 // -------------------------------------------------------------------
