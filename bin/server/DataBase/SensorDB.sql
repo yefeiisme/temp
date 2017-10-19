@@ -125,8 +125,8 @@ BEGIN
 	
 	select count(*),min(UNIX_TIMESTAMP(DataTime)),max(UNIX_TIMESTAMP(DataTime)),AVG(Value1),AVG(Value2),AVG(Value3) into _RecordCount,_MinDateTime,_MaxDateTime,_AvgValue1,_AvgValue2,_AvgValue3 from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between paramBeginTime and paramEndTime;
 	
-	if _RecordCount > 100 then
-		set _RecordCount	= 100;
+	if _RecordCount > 200 then
+		set _RecordCount	= 200;
 	end if;
 	
 	set _Interval	= (_MaxDateTime - _MinDateTime) DIV _RecordCount;
