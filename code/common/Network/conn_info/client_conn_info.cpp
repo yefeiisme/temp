@@ -23,8 +23,8 @@ void CClientConnInfo::Disconnect()
 
 void CClientConnInfo::LogicDisconnect()
 {
-	m_eState		= CLIENT_CONN_IDLE;
 	m_uTargetIndex	= 0xffffffff;
 	m_usPort		= 0;
 	memset(m_strConnectToIP, 0, sizeof(m_strConnectToIP));
+	m_eState		= CLIENT_CONN_IDLE;
 }

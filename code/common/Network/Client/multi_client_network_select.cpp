@@ -117,11 +117,11 @@ bool CMultiClientNetwork::ConnectTo(char *pstrAddr, const unsigned short usPort,
 	if (uIndex >= m_uMaxConnCount)
 		return false;
 
-	CClientConnInfo	&pClientConn = m_pTcpConnection[uIndex];
-	if (!pClientConn.IsIdle())
+	CClientConnInfo	&pTcpConnection = m_pTcpConnection[uIndex];
+	if (pTcpConnection.IsLogicConnected() || !pTcpConnection.IsIdle())
 		return false;
 
-	pClientConn.ConnectTo(pstrAddr, usPort);
+	pTcpConnection.ConnectTo(pstrAddr, usPort);
 
 	return true;
 }
@@ -132,7 +132,7 @@ bool CMultiClientNetwork::ConnectToUrl(char *pstrAddr, const unsigned short usPo
 		return false;
 
 	CClientConnInfo	&pTcpConnection = m_pTcpConnection[uIndex];
-	if (pTcpConnection.IsLogicConnected() || pTcpConnection.IsSocketConnected())
+	if (pTcpConnection.IsLogicConnected() || !pTcpConnection.IsIdle())
 	{
 		// 这个连接已经是Connect状态，不再处理建立连接的消息
 		return false;
@@ -335,7 +335,15 @@ void CMultiClientNetwork::ThreadFunc()
 	{
 		for (int nIndex = 0; nIndex < m_uMaxConnCount; ++nIndex)
 		{
-			(this->*m_pfnClientStateFunc[m_pTcpConnection[nIndex].GetState()])(m_pTcpConnection[nIndex]);
+			if (m_pTcpConnection[nIndex].IsLogicConnected())
+			{
+				(this->*m_pfnClientStateFunc[m_pTcpConnection[nIndex].GetState()])(m_pTcpConnection[nIndex]);
+			}
+			else
+			{
+				m_pTcpConnection[nIndex].Disconnect();
+				m_pTcpConnection[nIndex].LogicDisconnect();
+			}
 		}
 
 		yield();

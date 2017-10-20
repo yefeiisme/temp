@@ -105,7 +105,7 @@ void CClientNetwork::Release()
 
 bool CClientNetwork::ConnectTo(char *pstrAddr, const unsigned short usPort)
 {
-	if (!m_pTcpConnection->IsIdle())
+	if (m_pTcpConnection->IsLogicConnected() || !m_pTcpConnection->IsIdle())
 		return false;
 
 	m_pTcpConnection->ConnectTo(pstrAddr, usPort);
@@ -115,7 +115,7 @@ bool CClientNetwork::ConnectTo(char *pstrAddr, const unsigned short usPort)
 
 bool CClientNetwork::ConnectToUrl(char *pstrAddr, const unsigned short usPort)
 {
-	if (m_pTcpConnection->IsLogicConnected() || m_pTcpConnection->IsSocketConnected())
+	if (m_pTcpConnection->IsLogicConnected() || !m_pTcpConnection->IsIdle())
 	{
 		// 这个连接已经是Connect状态，不再处理建立连接的消息
 		return false;
@@ -314,7 +314,15 @@ void CClientNetwork::ThreadFunc()
 {
 	while (m_bRunning)
 	{
-		(this->*m_pfnClientStateFunc[m_pTcpConnection->GetState()])();
+		if (m_pTcpConnection->IsLogicConnected())
+		{
+			(this->*m_pfnClientStateFunc[m_pTcpConnection->GetState()])();
+		}
+		else
+		{
+			m_pTcpConnection->Disconnect();
+			m_pTcpConnection->LogicDisconnect();
+		}
 
 		yield();
 	}
