@@ -232,22 +232,15 @@ void CSimulatorLogic::ProcessConnection()
 {
 	if (m_pAppServerConnList->IsIdle())
 	{
-		if (m_pAppClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nAppServerPort))
-		{
-			m_pAppServerConnList->ConnectWait();
-		}
+		m_pAppClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nAppServerPort);
 	}
-
-	m_pAppServerConnList->DoAction();
 
 	if (m_pWebServerConnList->IsIdle())
 	{
-		if (m_pWebClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nWebServerPort))
-		{
-			m_pWebServerConnList->ConnectWait();
-		}
+		m_pWebClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nWebServerPort);
 	}
 
+	m_pAppServerConnList->DoAction();
 	m_pWebServerConnList->DoAction();
 }
 

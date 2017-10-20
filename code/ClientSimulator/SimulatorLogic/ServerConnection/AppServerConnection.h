@@ -31,12 +31,6 @@ public:
 	bool					PutPack(const void *pPack, unsigned int uPackLen);
 	void					ResetTimeOut();
 
-	inline void				ConnectWait()
-	{
-		m_eState	= SERVER_CONN_STATE_WAIT_CONNECT;
-		m_nTimeOut	= g_nSimulatorSecond + 10;
-	}
-
 	inline bool				IsIdle()
 	{
 		return SERVER_CONN_STATE_IDLE == m_eState;
