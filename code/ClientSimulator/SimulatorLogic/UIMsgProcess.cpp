@@ -33,7 +33,7 @@ void CSimulatorLogic::RecvAppLogin(const void *pPack, const unsigned int uPackLe
 
 	tagLogin.SerializePartialToArray(strBuffer + sizeof(BYTE), tagLogin.ByteSize());
 
-	m_pAppServerConnList[0].PutPack(strBuffer, sizeof(BYTE) + tagLogin.ByteSize());
+	m_pAppServerConnList->PutPack(strBuffer, sizeof(BYTE) + tagLogin.ByteSize());
 }
 
 void CSimulatorLogic::RecvWebLogin(const void *pPack, const unsigned int uPackLen)
@@ -53,7 +53,7 @@ void CSimulatorLogic::RecvWebLogin(const void *pPack, const unsigned int uPackLe
 
 	tagLogin.SerializePartialToArray(strBuffer + sizeof(BYTE), tagLogin.ByteSize());
 
-	m_pWebServerConnList[0].PutPack(strBuffer, sizeof(BYTE)+tagLogin.ByteSize());
+	m_pWebServerConnList->PutPack(strBuffer, sizeof(BYTE)+tagLogin.ByteSize());
 }
 
 void CSimulatorLogic::RecvAppSlopeList(const void *pPack, const unsigned int uPackLen)
@@ -72,7 +72,7 @@ void CSimulatorLogic::RecvAppSlopeList(const void *pPack, const unsigned int uPa
 
 	tagRequest.SerializePartialToArray(strBuffer + sizeof(BYTE), tagRequest.ByteSize());
 
-	m_pAppServerConnList[0].PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
+	m_pAppServerConnList->PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
 }
 
 void CSimulatorLogic::RecvWebSlopeList(const void *pPack, const unsigned int uPackLen)
@@ -91,7 +91,7 @@ void CSimulatorLogic::RecvWebSlopeList(const void *pPack, const unsigned int uPa
 
 	tagRequest.SerializePartialToArray(strBuffer + sizeof(BYTE), tagRequest.ByteSize());
 
-	m_pWebServerConnList[0].PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
+	m_pWebServerConnList->PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
 }
 
 void CSimulatorLogic::RecvAppSensorList(const void *pPack, const unsigned int uPackLen)
@@ -111,7 +111,7 @@ void CSimulatorLogic::RecvAppSensorList(const void *pPack, const unsigned int uP
 
 	tagRequest.SerializePartialToArray(strBuffer + sizeof(BYTE), tagRequest.ByteSize());
 
-	m_pAppServerConnList[0].PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
+	m_pAppServerConnList->PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
 }
 
 void CSimulatorLogic::RecvWebSensorList(const void *pPack, const unsigned int uPackLen)
@@ -130,7 +130,7 @@ void CSimulatorLogic::RecvWebSensorList(const void *pPack, const unsigned int uP
 
 	tagRequest.SerializePartialToArray(strBuffer + sizeof(BYTE), tagRequest.ByteSize());
 
-	m_pWebServerConnList[0].PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
+	m_pWebServerConnList->PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
 }
 
 void CSimulatorLogic::RecvAppSensorHistory(const void *pPack, const unsigned int uPackLen)
@@ -151,7 +151,7 @@ void CSimulatorLogic::RecvAppSensorHistory(const void *pPack, const unsigned int
 
 	tagRequest.SerializePartialToArray(strBuffer + sizeof(BYTE), tagRequest.ByteSize());
 
-	m_pAppServerConnList[0].PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
+	m_pAppServerConnList->PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
 }
 
 void CSimulatorLogic::RecvWebSensorHistory(const void *pPack, const unsigned int uPackLen)
@@ -172,5 +172,5 @@ void CSimulatorLogic::RecvWebSensorHistory(const void *pPack, const unsigned int
 
 	tagRequest.SerializePartialToArray(strBuffer + sizeof(BYTE), tagRequest.ByteSize());
 
-	m_pWebServerConnList[0].PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
+	m_pWebServerConnList->PutPack(strBuffer, sizeof(BYTE)+tagRequest.ByteSize());
 }

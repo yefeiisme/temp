@@ -14,7 +14,6 @@ CAppServerConnection::CAppServerConnection()
 {
 	m_pTcpConnection	= nullptr;
 
-	m_uIndex			= 0;
 	m_eState			= SERVER_CONN_STATE_IDLE;
 	m_nTimeOut			= 0;
 }
@@ -109,7 +108,7 @@ void CAppServerConnection::OnDisconnect()
 	}
 	else
 	{
-		g_pSimulatorLogic.ShutDownAppServerConnection(m_uIndex);
+		g_pSimulatorLogic.ShutDownAppServerConnection();
 	}
 
 	ChangeState(SERVER_CONN_STATE_IDLE);

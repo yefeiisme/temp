@@ -19,11 +19,6 @@ public:
 	CAppServerConnection();
 	~CAppServerConnection();
 
-	inline void				SetIndex(const unsigned int uIndex)
-	{
-		m_uIndex = uIndex;
-	}
-
 	inline void				Connect(ITcpConnection &pTcpConnection)
 	{
 		m_pTcpConnection	= &pTcpConnection;
@@ -86,7 +81,6 @@ private:
 
 	ITcpConnection			*m_pTcpConnection;
 
-	unsigned int			m_uIndex;
 	E_SERVER_CONN_STATE		m_eState;
 
 	time_t					m_nTimeOut;

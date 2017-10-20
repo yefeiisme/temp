@@ -19,11 +19,6 @@ public:
 	CWebServerConnection();
 	~CWebServerConnection();
 
-	inline void				SetIndex(const unsigned int uIndex)
-	{
-		m_uIndex = uIndex;
-	}
-
 	inline void				Connect(ITcpConnection &pTcpConnection)
 	{
 		m_pTcpConnection	= &pTcpConnection;

@@ -37,8 +37,8 @@ public:
 		m_bWaitExit	= false;
 	}
 
-	void						ShutDownAppServerConnection(const unsigned int uConnIndex);
-	void						ShutDownWebServerConnection(const unsigned int uConnIndex);
+	void						ShutDownAppServerConnection();
+	void						ShutDownWebServerConnection();
 private:
 	inline void					yield(const unsigned int uSleepTime)
 	{

@@ -19,6 +19,7 @@ libcommon_a_SOURCES += FileReader/KPakFile.cpp
 libcommon_a_SOURCES += FileReader/KStrBase.cpp
 libcommon_a_SOURCES += FileReader/KTabFile.cpp
 libcommon_a_SOURCES += Network/Client/client_network_select.cpp
+libcommon_a_SOURCES += Network/Client/multi_client_network_select.cpp
 libcommon_a_SOURCES += Network/conn_info/client_conn_info.cpp
 libcommon_a_SOURCES += Network/conn_info/conn_info.cpp
 libcommon_a_SOURCES += Network/conn_info/server_conn_info.cpp

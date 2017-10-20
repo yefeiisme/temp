@@ -14,7 +14,6 @@ CWebServerConnection::CWebServerConnection()
 {
 	m_pTcpConnection	= nullptr;
 
-	m_uIndex			= 0;
 	m_eState			= WEB_SERVER_CONN_STATE_IDLE;
 	m_nTimeOut			= 0;
 }
@@ -109,7 +108,7 @@ void CWebServerConnection::OnDisconnect()
 	}
 	else
 	{
-		g_pSimulatorLogic.ShutDownWebServerConnection(m_uIndex);
+		g_pSimulatorLogic.ShutDownWebServerConnection();
 	}
 
 	ChangeState(WEB_SERVER_CONN_STATE_IDLE);

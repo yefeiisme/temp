@@ -53,8 +53,8 @@ CSimulatorLogic::CSimulatorLogic()
 
 CSimulatorLogic::~CSimulatorLogic()
 {
-	SAFE_DELETE_ARR(m_pAppServerConnList);
-	SAFE_DELETE_ARR(m_pWebServerConnList);
+	SAFE_DELETE(m_pAppServerConnList);
+	SAFE_DELETE(m_pWebServerConnList);
 
 	if (m_pAppClientNetwork)
 	{
@@ -106,20 +106,14 @@ bool CSimulatorLogic::Initialize()
 	if (!g_pSimulatorConfig.Initialize())
 		return false;
 
-	m_pAppServerConnList	= new CAppServerConnection[g_pSimulatorConfig.m_nConnectionCount];
+	m_pAppServerConnList	= new CAppServerConnection;
 	if (nullptr == m_pAppServerConnList)
 	{
-		g_pFileLog->WriteLog("Create CAppServerConnection[%d] Failed\n", g_pSimulatorConfig.m_nConnectionCount);
+		g_pFileLog->WriteLog("Create CAppServerConnection Failed\n");
 		return false;
 	}
 
-	for (unsigned int uIndex = 0; uIndex < g_pSimulatorConfig.m_nConnectionCount; ++uIndex)
-	{
-		m_pAppServerConnList[uIndex].SetIndex(uIndex);
-	}
-
 	m_pAppClientNetwork	= CreateClientNetwork(
-												g_pSimulatorConfig.m_nConnectionCount,
 												g_pSimulatorConfig.m_nSendBuffLen,
 												g_pSimulatorConfig.m_nRecvBuffLen,
 												g_pSimulatorConfig.m_nMaxSendPackLen,
@@ -128,20 +122,15 @@ bool CSimulatorLogic::Initialize()
 												this,
 												1
 												);
-	m_pWebServerConnList	= new CWebServerConnection[g_pSimulatorConfig.m_nConnectionCount];
+
+	m_pWebServerConnList	= new CWebServerConnection;
 	if (nullptr == m_pWebServerConnList)
 	{
-		g_pFileLog->WriteLog("Create CWebServerConnection[%d] Failed\n", g_pSimulatorConfig.m_nConnectionCount);
+		g_pFileLog->WriteLog("Create CWebServerConnection Failed\n");
 		return false;
 	}
 
-	for (unsigned int uIndex = 0; uIndex < g_pSimulatorConfig.m_nConnectionCount; ++uIndex)
-	{
-		m_pWebServerConnList[uIndex].SetIndex(uIndex);
-	}
-
 	m_pWebClientNetwork	= CreateClientNetwork(
-												g_pSimulatorConfig.m_nConnectionCount,
 												g_pSimulatorConfig.m_nSendBuffLen,
 												g_pSimulatorConfig.m_nRecvBuffLen,
 												g_pSimulatorConfig.m_nMaxSendPackLen,
@@ -189,14 +178,14 @@ const void *CSimulatorLogic::GetRespond(unsigned int &uPackLen)
 	return m_pRBRespond->RcvPack(uPackLen);
 }
 
-void CSimulatorLogic::ShutDownAppServerConnection(const unsigned int uConnIndex)
+void CSimulatorLogic::ShutDownAppServerConnection()
 {
-	m_pAppClientNetwork->ShutDown(uConnIndex);
+	m_pAppClientNetwork->ShutDown();
 }
 
-void CSimulatorLogic::ShutDownWebServerConnection(const unsigned int uConnIndex)
+void CSimulatorLogic::ShutDownWebServerConnection()
 {
-	m_pWebClientNetwork->ShutDown(uConnIndex);
+	m_pWebClientNetwork->ShutDown();
 }
 
 void CSimulatorLogic::ThreadFunc()
@@ -241,35 +230,25 @@ void CSimulatorLogic::ThreadFunc()
 
 void CSimulatorLogic::ProcessConnection()
 {
-	for (int nIndex = 0; nIndex < g_pSimulatorConfig.m_nConnectionCount; ++nIndex)
+	if (m_pAppServerConnList->IsIdle())
 	{
-		if (m_pAppServerConnList[nIndex].IsIdle())
+		if (m_pAppClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nAppServerPort))
 		{
-			if (m_pAppClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nAppServerPort, nIndex))
-			{
-				m_pAppServerConnList[nIndex].ConnectWait();
-			}
-
-			continue;
+			m_pAppServerConnList->ConnectWait();
 		}
-
-		m_pAppServerConnList[nIndex].DoAction();
 	}
 
-	for (int nIndex = 0; nIndex < g_pSimulatorConfig.m_nConnectionCount; ++nIndex)
+	m_pAppServerConnList->DoAction();
+
+	if (m_pWebServerConnList->IsIdle())
 	{
-		if (m_pWebServerConnList[nIndex].IsIdle())
+		if (m_pWebClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nWebServerPort))
 		{
-			if (m_pWebClientNetwork->ConnectTo(g_pSimulatorConfig.m_strServerIP, g_pSimulatorConfig.m_nWebServerPort, nIndex))
-			{
-				m_pWebServerConnList[nIndex].ConnectWait();
-			}
-
-			continue;
+			m_pWebServerConnList->ConnectWait();
 		}
-
-		m_pWebServerConnList[nIndex].DoAction();
 	}
+
+	m_pWebServerConnList->DoAction();
 }
 
 void CSimulatorLogic::AppClientConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
@@ -283,14 +262,7 @@ void CSimulatorLogic::OnAppClientConnect(ITcpConnection *pTcpConnection, const u
 	if (nullptr == pTcpConnection)
 		return;
 
-	if (uIndex >= g_pSimulatorConfig.m_nConnectionCount)
-	{
-		pTcpConnection->ShutDown();
-		return;
-	}
-
-	CAppServerConnection	&pNewClient	= m_pAppServerConnList[uIndex];
-	pNewClient.Connect(*pTcpConnection);
+	m_pAppServerConnList->Connect(*pTcpConnection);
 }
 
 void CSimulatorLogic::WebServerConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
@@ -304,12 +276,5 @@ void CSimulatorLogic::OnWebServerConnected(ITcpConnection *pTcpConnection, const
 	if (nullptr == pTcpConnection)
 		return;
 
-	if (uIndex >= g_pSimulatorConfig.m_nConnectionCount)
-	{
-		pTcpConnection->ShutDown();
-		return;
-	}
-
-	CWebServerConnection	&pNewClient	= m_pWebServerConnList[uIndex];
-	pNewClient.Connect(*pTcpConnection);
+	m_pWebServerConnList->Connect(*pTcpConnection);
 }

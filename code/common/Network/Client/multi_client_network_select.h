@@ -1,5 +1,5 @@
-#ifndef __CLIENT_NETWORK_SELECT_H_
-#define __CLIENT_NETWORK_SELECT_H_
+#ifndef __MULTI_CLIENT_NETWORK_SELECT_H_
+#define __MULTI_CLIENT_NETWORK_SELECT_H_
 
 #include "INetwork.h"
 #include "IRingBuffer.h"
@@ -8,16 +8,18 @@
 
 class CClientConnInfo;
 
-class CClientNetwork : public IClientNetwork
+class CMultiClientNetwork : public IMultiClientNetwork
 {
 private:
 	pfnConnectEvent			m_pfnConnectCallBack;
 	void					*m_pFunParam;
 
-	typedef void			(CClientNetwork::*pfnStateFunc)();
+	typedef void			(CMultiClientNetwork::*pfnStateFunc)(CClientConnInfo &pClientConn);
 	static pfnStateFunc		m_pfnClientStateFunc[CLIENT_CONN_STATE_MAX];
 
 	CClientConnInfo			*m_pTcpConnection;
+
+	unsigned int			m_uMaxConnCount;
 
 	unsigned int			m_uSleepTime;
 
@@ -28,10 +30,11 @@ private:
 	bool					m_bRunning;
 	bool					m_bExited;
 public:
-	CClientNetwork();
-	~CClientNetwork();
+	CMultiClientNetwork();
+	~CMultiClientNetwork();
 
 	bool					Initialize(
+										const unsigned int uClientCount,
 										const unsigned int uSendBuffLen,
 										const unsigned int uRecvBuffLen,
 										const unsigned int uTempSendBuffLen,
@@ -52,15 +55,15 @@ public:
 	}
 
 	void					Release();
-	bool					ConnectTo(char *pstrAddr, const unsigned short usPort);
-	bool					ConnectToUrl(char *pstrAddr, const unsigned short usPort);
-	void					ShutDown();
+	bool					ConnectTo(char *pstrAddr, const unsigned short usPort, const unsigned int uIndex);
+	bool					ConnectToUrl(char *pstrAddr, const unsigned short usPort, const unsigned int uIndex);
+	void					ShutDown(const unsigned int uIndex);
 private:
-	void					OnClientIdle();
-	void					OnClientTryConnect();
-	void					OnClientWaitConnect();
-	void					OnClientConnect();
-	void					OnClientWaitLogicExit();
+	void					OnClientIdle(CClientConnInfo &pClientConn);
+	void					OnClientTryConnect(CClientConnInfo &pClientConn);
+	void					OnClientWaitConnect(CClientConnInfo &pClientConn);
+	void					OnClientConnect(CClientConnInfo &pClientConn);
+	void					OnClientWaitLogicExit(CClientConnInfo &pClientConn);
 
 	int						SetNoBlocking(const SOCKET nSock);
 
