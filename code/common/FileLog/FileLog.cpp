@@ -11,14 +11,9 @@
 #endif
 #include "FileLog.h"
 
-#define FILESTATUS_CLOSE			0
-#define FILESTATUS_OPEN				1
-
 #define MAXSIZE_PATHNAME			512
 #define MAXSIZE_MSGBUF				(1024*64)
-#define SERVERLOG_SKIP				" -> "
 
-#define MAXSIZE_TIMESTRING			64
 #ifdef _MSC_VER
 #define snprintf _snprintf
 #endif
@@ -61,7 +56,7 @@ CFileLog &CFileLog::Singleton()
 	return singleton;
 }
 
-void CFileLog::WriteLogInner(const char *pcLogMsg, unsigned char bKeepOpen)
+void CFileLog::WriteLogInner(const char *pcLogMsg)
 {
 	if (pcLogMsg == nullptr)
 		return;
@@ -113,7 +108,7 @@ void CFileLog::WriteLog(const char *pcLogMsg, ...)
 	va_start(va, pcLogMsg);
 	vsnprintf(szMsgBuf, sizeof(szMsgBuf), pcLogMsg, va);
 #ifdef WIN32
-	printf( szMsgBuf );
+	printf(szMsgBuf);
 #endif
 	va_end(va);
 	WriteLogInner(szMsgBuf);
@@ -204,7 +199,7 @@ bool CFileLog::IsOverHour()
 			m_tagOpenTime.tm_hour != m_tagTimeNow.tm_hour);
 }
 
-Mutex::Mutex( int mutex_type )
+Mutex::Mutex(int mutex_type)
 {
 #ifdef WIN32
 	InitializeCriticalSection(&m_mutex);

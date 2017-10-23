@@ -132,7 +132,7 @@ int CTcpConnection::RecvData()
 #elif defined(__APPLE__)
 #endif
 			{
-				g_pFileLog->WriteLog("file: %s, line: %d, errno: %d\n", __FILE__, __LINE__, nError);
+				g_pFileLog->WriteLog("[%s][%d] errno: %d\n", __FILE__, __LINE__, nError);
 			}
 			return -1;
 		}

@@ -31,13 +31,13 @@ private:
 	char			m_strRootDir[LOG_ROOT_DIRECTORY];
 	char			m_strLogDir[LOG_DIRECTORY_LEN];
 private:
-	void			WriteLogInner(const char *pcLogMsg, unsigned char bKeepOpen = 0);
+	void			WriteLogInner(const char *pcLogMsg);
 	void			OpenDirectory();
 	bool			OpenLogFile();
 	bool			IsOverHour();		// 是否过了当前的小时
 public:
 	CFileLog();
-	virtual ~CFileLog();
+	~CFileLog();
 
 	static CFileLog	&Singleton();
 
