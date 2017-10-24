@@ -140,6 +140,12 @@ enum S2WEB
 	s2web_sensor_history			= 3;	// 传感器历史数据
 	s2web_all_list_end				= 4;	// 所有边坡和传感器数据发送完毕
 	s2web_error						= 5;	// 有错误时返回对应的值
+	s2web_new_slope					= 6;	// 添加边坡
+	s2web_del_slope					= 7;	// 删除边坡
+	s2web_update_slope				= 8;	// 更新边坡数据
+	s2web_add_sensor				= 9;	// 添加传感器
+	s2web_del_sensor				= 10;	// 删除传感器
+	s2web_update_sensor				= 11;	// 更新传感器数据
 
 	s2web_max						= 256;	// 最大协议号
 }
@@ -240,4 +246,84 @@ message S2Web_Sensor_History
 message S2WEB_ERROR
 {
 	required uint32 error_code			= 1;	// 错误值
+}
+
+// 添加边坡
+message S2WEB_New_Slope
+{
+	required uint32	id			= 1;	// ID
+	required uint32	type		= 2;	// 类型
+	required bytes	name		= 3;	// 名称
+	required uint32	state		= 4;	// 预警状态
+	required double	longitude	= 5;	// 经度
+	required double	latitude	= 6;	// 纬度
+	required bytes	url			= 7;	// 边坡视频的url
+}
+
+// 删除边坡
+message S2WEB_Del_Slope
+{
+	required uint32	id				= 1;	// ID
+}
+
+// 更新边坡数据
+message S2WEB_Update_Slope
+{
+	required uint32	id			= 1;	// ID
+	required uint32	type		= 2;	// 类型
+	required bytes	name		= 3;	// 名称
+	required uint32	state		= 4;	// 预警状态
+	required double	longitude	= 5;	// 经度
+	required double	latitude	= 6;	// 纬度
+	required bytes	url			= 7;	// 边坡视频的url
+}
+
+// 添加传感器
+message S2WEB_Add_Sensor
+{
+	required uint32	id				= 1;	// ID
+	required uint32	type			= 2;	// 类型
+	required uint32	state			= 3;	// 预警状态
+	required uint32	slope_id		= 4;	// 所属边坡ID
+	required double	longitude		= 5;	// 经度
+	required double	latitude		= 6;	// 纬度
+	required double	cur_value1		= 7;	// 当前物理量1
+	required double	cur_value2		= 8;	// 当前物理量2
+	required double	cur_value3		= 9;	// 当前物理量3
+	required double	avg_value1		= 10;	// 平均物理量1
+	required double	avg_value2		= 11;	// 平均物理量2
+	required double	avg_value3		= 12;	// 平均物理量3
+	required double	offset_value1	= 13;	// 平均物理量1
+	required double	offset_value2	= 14;	// 平均物理量2
+	required double	offset_value3	= 15;	// 平均物理量3
+	required bytes	url				= 16;	// 特殊传感器类型的url
+	required bytes	description		= 17;	// 安装位置的描述
+}
+
+// 删除传感器
+message S2WEB_Del_Sensor
+{
+	required uint32	id				= 1;	// ID
+}
+
+// 更新传感器数据
+message S2WEB_Update_Sensor
+{
+	required uint32	id				= 1;	// ID
+	required uint32	type			= 2;	// 类型
+	required uint32	state			= 3;	// 预警状态
+	required uint32	slope_id		= 4;	// 所属边坡ID
+	required double	longitude		= 5;	// 经度
+	required double	latitude		= 6;	// 纬度
+	required double	cur_value1		= 7;	// 当前物理量1
+	required double	cur_value2		= 8;	// 当前物理量2
+	required double	cur_value3		= 9;	// 当前物理量3
+	required double	avg_value1		= 10;	// 平均物理量1
+	required double	avg_value2		= 11;	// 平均物理量2
+	required double	avg_value3		= 12;	// 平均物理量3
+	required double	offset_value1	= 13;	// 平均物理量1
+	required double	offset_value2	= 14;	// 平均物理量2
+	required double	offset_value3	= 15;	// 平均物理量3
+	required bytes	url				= 16;	// 特殊传感器类型的url
+	required bytes	description		= 17;	// 安装位置的描述
 }
