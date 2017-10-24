@@ -69,6 +69,61 @@ message WEB2S_Request_Sensor_History
 }
 
 
+// web向服务器请求增加一个新的边坡
+message WEB2S_Add_Slope
+{
+	required uint32	type			= 1;	// 类型
+	required bytes	name			= 2;	// 名称
+	required double	longitude		= 3;	// 经度
+	required double	latitude		= 4;	// 纬度
+	required bytes	url				= 5;	// 边坡视频的url
+}
+
+// web向服务器请求删除指定ID的边坡
+message WEB2S_Del_Slope
+{
+	required uint32	id				= 1;	// 边坡ID
+}
+
+// web向服务器请求修改指定ID的边坡数据
+message WEB2S_Update_Slope_Data
+{
+	required uint32	id				= 1;	// 边坡ID
+	required uint32	type			= 2;	// 类型
+	required bytes	name			= 3;	// 名称
+	required double	longitude		= 4;	// 经度
+	required double	latitude		= 5;	// 纬度
+	required bytes	url				= 6;	// 边坡视频的url
+}
+
+// web向服务器请求增加一个新的传感器
+message WEB2S_Add_Sensor
+{
+	required uint32	type			= 1;	// 类型
+	required bytes	name			= 2;	// 名称
+	required double	longitude		= 3;	// 经度
+	required double	latitude		= 4;	// 纬度
+	required bytes	url				= 5;	// 特殊传感器类型的url
+	required bytes	description		= 6;	// 安装位置的描述
+}
+
+// web向服务器请求删除指定ID的传感器
+message WEB2S_Del_Sensor
+{
+	required uint32	id				= 1;	// 传感器ID
+}
+
+// web向服务器请求修改指定ID的传感器数据
+message WEB2S_Update_Sensor_Data
+{
+	required uint32	id				= 1;	// 传感器ID
+	required uint32	type			= 2;	// 类型
+	required bytes	name			= 3;	// 名称
+	required double	longitude		= 4;	// 经度
+	required double	latitude		= 5;	// 纬度
+	required bytes	url				= 6;	// 特殊传感器类型的url
+	required bytes	description		= 7;	// 安装位置的描述
+}
 
 
 
