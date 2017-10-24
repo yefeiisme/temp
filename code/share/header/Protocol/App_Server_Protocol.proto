@@ -14,13 +14,13 @@ enum APP2S
 	app2s_request_sensor_history	= 3;	// app向服务器请求传感器在一定时间段内的数据
 	app2s_ping						= 4;	// 定时ping server，以保持连接
 	app2s_request_all_list			= 5;	// 请求所有的slope和senser数据
-	app2s_reserve3					= 6;	// 保留用的协议
-	app2s_reserve4					= 7;	// 保留用的协议
-	app2s_reserve5					= 8;	// 保留用的协议
-	app2s_reserve6					= 9;	// 保留用的协议
-	app2s_reserve7					= 10;	// 保留用的协议
-	app2s_reserve8					= 11;	// 保留用的协议
-	app2s_reserve9					= 12;	// 保留用的协议
+	app2s_add_slope					= 6;	// 增加一个新的边坡
+	app2s_del_slope					= 7;	// 删除指定ID的边坡
+	app2s_update_slope_data			= 8;	// 修改指定ID的边坡数据
+	app2s_add_sensor				= 9;	// 增加一个新的传感器
+	app2s_del_sensor				= 10;	// 删除指定ID的传感器
+	app2s_update_sensor_data		= 11;	// 修改指定ID的传感器数据
+	app2s_modify_password			= 12;	// 修改密码
 	app2s_reserve10					= 13;	// 保留用的协议
 	app2s_reserve11					= 14;	// 保留用的协议
 	app2s_reserve12					= 15;	// 保留用的协议
@@ -69,6 +69,68 @@ message APP2S_Request_Sensor_History
 	required uint32 end_time		= 3;	// 结束时间
 }
 
+// app向服务器请求增加一个新的边坡
+message APP2S_Add_Slope
+{
+	required uint32	type			= 1;	// 类型
+	required bytes	name			= 2;	// 名称
+	required double	longitude		= 3;	// 经度
+	required double	latitude		= 4;	// 纬度
+	required bytes	url				= 5;	// 边坡视频的url
+}
+
+// app向服务器请求删除指定ID的边坡
+message APP2S_Del_Slope
+{
+	required uint32	id				= 1;	// 边坡ID
+}
+
+// app向服务器请求修改指定ID的边坡数据
+message APP2S_Update_Slope_Data
+{
+	required uint32	id				= 1;	// 边坡ID
+	required uint32	type			= 2;	// 类型
+	required bytes	name			= 3;	// 名称
+	required double	longitude		= 4;	// 经度
+	required double	latitude		= 5;	// 纬度
+	required bytes	url				= 6;	// 边坡视频的url
+}
+
+// app向服务器请求增加一个新的传感器
+message APP2S_Add_Sensor
+{
+	required uint32	type			= 1;	// 类型
+	required bytes	name			= 2;	// 名称
+	required double	longitude		= 3;	// 经度
+	required double	latitude		= 4;	// 纬度
+	required bytes	url				= 5;	// 特殊传感器类型的url
+	required bytes	description		= 6;	// 安装位置的描述
+}
+
+// app向服务器请求删除指定ID的传感器
+message APP2S_Del_Sensor
+{
+	required uint32	id				= 1;	// 传感器ID
+}
+
+// app向服务器请求修改指定ID的传感器数据
+message APP2S_Update_Sensor_Data
+{
+	required uint32	id				= 1;	// 传感器ID
+	required uint32	type			= 2;	// 类型
+	required bytes	name			= 3;	// 名称
+	required double	longitude		= 4;	// 经度
+	required double	latitude		= 5;	// 纬度
+	required bytes	url				= 6;	// 特殊传感器类型的url
+	required bytes	description		= 7;	// 安装位置的描述
+}
+
+// 修改密码
+message APP2S_Modify_Password
+{
+	required bytes	account			= 1;	// 账号
+	required bytes	new_password	= 2;	// 新密码
+}
 
 
 
@@ -86,11 +148,16 @@ enum S2APP
 	s2app_sensor_history			= 3;	// 传感器历史数据
 	s2app_all_list_end				= 4;	// 所有边坡和传感器数据发送完毕
 	s2app_error						= 5;	// 有错误时返回对应的值
+	s2app_new_slope					= 6;	// 添加边坡
+	s2app_del_slope					= 7;	// 删除边坡
+	s2app_update_slope				= 8;	// 更新边坡数据
+	s2app_add_sensor				= 9;	// 添加传感器
+	s2app_del_sensor				= 10;	// 删除传感器
+	s2app_update_sensor				= 11;	// 更新传感器数据
+	s2app_modify_password_result	= 12;	// 修改密码结果
 
 	s2app_max						= 256;	// 最大协议号
 }
-
-
 
 // Server Respond Protocol Struct
 // 服务器回应App协议对应的数据结构
@@ -187,4 +254,72 @@ message S2App_Sensor_History
 message S2APP_ERROR
 {
 	required uint32 error_code			= 1;	// 错误值
+}
+
+// 添加边坡
+message S2APP_New_Slope
+{
+	required uint32	id			= 1;	// ID
+	required uint32	type		= 2;	// 类型
+	required bytes	name		= 3;	// 名称
+	required uint32	state		= 4;	// 预警状态
+	required double	longitude	= 5;	// 经度
+	required double	latitude	= 6;	// 纬度
+	required bytes	url			= 7;	// 边坡视频的url
+}
+
+// 删除边坡
+message S2APP_Del_Slope
+{
+	required uint32	id				= 1;	// ID
+}
+
+// 更新边坡数据
+message S2APP_Update_Slope
+{
+	required uint32	id			= 1;	// ID
+	required uint32	type		= 2;	// 类型
+	required bytes	name		= 3;	// 名称
+	required uint32	state		= 4;	// 预警状态
+	required double	longitude	= 5;	// 经度
+	required double	latitude	= 6;	// 纬度
+	required bytes	url			= 7;	// 边坡视频的url
+}
+
+// 添加传感器
+message S2APP_Add_Sensor
+{
+	required uint32	id				= 1;	// ID
+	required uint32	type			= 2;	// 类型
+	required uint32	state			= 3;	// 预警状态
+	required uint32	slope_id		= 4;	// 所属边坡ID
+	required double	longitude		= 5;	// 经度
+	required double	latitude		= 6;	// 纬度
+	required bytes	url				= 7;	// 特殊传感器类型的url
+	required bytes	description		= 8;	// 安装位置的描述
+}
+
+// 删除传感器
+message S2APP_Del_Sensor
+{
+	required uint32	id				= 1;	// ID
+}
+
+// 更新传感器数据
+message S2APP_Update_Sensor
+{
+	required uint32	id				= 1;	// ID
+	required uint32	type			= 2;	// 类型
+	required uint32	state			= 3;	// 预警状态
+	required uint32	slope_id		= 4;	// 所属边坡ID
+	required double	longitude		= 5;	// 经度
+	required double	latitude		= 6;	// 纬度
+	required bytes	url				= 7;	// 特殊传感器类型的url
+	required bytes	description		= 8;	// 安装位置的描述
+}
+
+// 更新传感器数据
+message S2APP_Modify_Password_Result
+{
+	required uint32	result			= 1;	// 修改结果
 }

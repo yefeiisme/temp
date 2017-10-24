@@ -20,7 +20,7 @@ enum WEB2S
 	web2s_add_sensor				= 9;	// 增加一个新的传感器
 	web2s_del_sensor				= 10;	// 删除指定ID的传感器
 	web2s_update_sensor_data		= 11;	// 修改指定ID的传感器数据
-	web2s_reserve9					= 12;	// 保留用的协议
+	web2s_modify_password			= 12;	// 修改密码
 	web2s_reserve10					= 13;	// 保留用的协议
 	web2s_reserve11					= 14;	// 保留用的协议
 	web2s_reserve12					= 15;	// 保留用的协议
@@ -125,6 +125,13 @@ message WEB2S_Update_Sensor_Data
 	required bytes	description		= 7;	// 安装位置的描述
 }
 
+// 修改密码
+message WEB2S_Modify_Password
+{
+	required bytes	account			= 1;	// 账号
+	required bytes	new_password	= 2;	// 新密码
+}
+
 
 
 
@@ -146,6 +153,7 @@ enum S2WEB
 	s2web_add_sensor				= 9;	// 添加传感器
 	s2web_del_sensor				= 10;	// 删除传感器
 	s2web_update_sensor				= 11;	// 更新传感器数据
+	s2web_modify_password_result	= 12;	// 修改密码结果
 
 	s2web_max						= 256;	// 最大协议号
 }
@@ -287,17 +295,8 @@ message S2WEB_Add_Sensor
 	required uint32	slope_id		= 4;	// 所属边坡ID
 	required double	longitude		= 5;	// 经度
 	required double	latitude		= 6;	// 纬度
-	required double	cur_value1		= 7;	// 当前物理量1
-	required double	cur_value2		= 8;	// 当前物理量2
-	required double	cur_value3		= 9;	// 当前物理量3
-	required double	avg_value1		= 10;	// 平均物理量1
-	required double	avg_value2		= 11;	// 平均物理量2
-	required double	avg_value3		= 12;	// 平均物理量3
-	required double	offset_value1	= 13;	// 平均物理量1
-	required double	offset_value2	= 14;	// 平均物理量2
-	required double	offset_value3	= 15;	// 平均物理量3
-	required bytes	url				= 16;	// 特殊传感器类型的url
-	required bytes	description		= 17;	// 安装位置的描述
+	required bytes	url				= 7;	// 特殊传感器类型的url
+	required bytes	description		= 8;	// 安装位置的描述
 }
 
 // 删除传感器
@@ -315,15 +314,12 @@ message S2WEB_Update_Sensor
 	required uint32	slope_id		= 4;	// 所属边坡ID
 	required double	longitude		= 5;	// 经度
 	required double	latitude		= 6;	// 纬度
-	required double	cur_value1		= 7;	// 当前物理量1
-	required double	cur_value2		= 8;	// 当前物理量2
-	required double	cur_value3		= 9;	// 当前物理量3
-	required double	avg_value1		= 10;	// 平均物理量1
-	required double	avg_value2		= 11;	// 平均物理量2
-	required double	avg_value3		= 12;	// 平均物理量3
-	required double	offset_value1	= 13;	// 平均物理量1
-	required double	offset_value2	= 14;	// 平均物理量2
-	required double	offset_value3	= 15;	// 平均物理量3
-	required bytes	url				= 16;	// 特殊传感器类型的url
-	required bytes	description		= 17;	// 安装位置的描述
+	required bytes	url				= 7;	// 特殊传感器类型的url
+	required bytes	description		= 8;	// 安装位置的描述
+}
+
+// 更新传感器数据
+message S2WEB_Modify_Password_Result
+{
+	required uint32	result			= 1;	// 修改结果
 }
