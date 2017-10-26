@@ -266,6 +266,16 @@ bool CMysqlQuery::AddParam(const unsigned char byParam)
 	return m_pProcSqlObj->AddParam(byParam);
 }
 
+bool CMysqlQuery::AddParam(const float fParam)
+{
+	return m_pProcSqlObj->AddParam(fParam);
+}
+
+bool CMysqlQuery::AddParam(const double dParam)
+{
+	return m_pProcSqlObj->AddParam(dParam);
+}
+
 bool CMysqlQuery::AddParam(const char *pstrParam)
 {
 	return m_pProcSqlObj->AddParam(pstrParam);

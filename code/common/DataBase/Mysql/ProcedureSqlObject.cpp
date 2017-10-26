@@ -159,6 +159,44 @@ bool CProcObj::AddParam(const unsigned char byParam)
 	return true;
 }
 
+bool CProcObj::AddParam(const float fParam)
+{
+	if (m_uMaxSQLLen == m_uSQLLen)
+		return false;
+
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%f", fParam);
+	}
+	else
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%f", fParam);
+	}
+
+	m_bAddParam = true;
+
+	return true;
+}
+
+bool CProcObj::AddParam(const double dParam)
+{
+	if (m_uMaxSQLLen == m_uSQLLen)
+		return false;
+
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%f", dParam);
+	}
+	else
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%f", dParam);
+	}
+
+	m_bAddParam = true;
+
+	return true;
+}
+
 bool CProcObj::AddParam(const char *pstrParam)
 {
 	if (nullptr == pstrParam)
