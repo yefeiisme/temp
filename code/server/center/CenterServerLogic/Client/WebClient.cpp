@@ -14,13 +14,13 @@ CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::
 	&CWebClient::RecvPing,
 
 	&CWebClient::RecvRequestAllList,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::RecvAddSlope,
+	&CWebClient::RecvDelSlope,
+	&CWebClient::RecvUpdateSlope,
+	&CWebClient::RecvAddSensor,
 
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::RecvDelSensor,
+	&CWebClient::RecvUpdateSensor,
 	&CWebClient::DefaultProtocolFunc,
 	&CWebClient::DefaultProtocolFunc,
 	&CWebClient::DefaultProtocolFunc,
@@ -45,6 +45,14 @@ CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CWebClient::DBResopndSensorList,
 	&CWebClient::DBResopndSensorHistory,
 	&CWebClient::DBResopndAllList,
+
+	&CWebClient::DBResopndAddSlopeResult,
+	&CWebClient::DBResopndDelSlopeResult,
+	&CWebClient::DBResopndUpdateSlopeResult,
+	&CWebClient::DBResopndAddSensorResult,
+	&CWebClient::DBResopndDelSensorResult,
+
+	&CWebClient::DBResopndUpdateSensorResult,
 };
 
 CWebClient::CWebClient() : CClient()
@@ -229,6 +237,225 @@ void CWebClient::RecvPing(const void *pPack, const unsigned int uPackLen)
 
 void CWebClient::RecvRequestAllList(const void *pPack, const unsigned int uPackLen)
 {
+}
+
+void CWebClient::RecvAddSlope(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Add_Slope	tagAddSlope;
+	BYTE	*pSlopeInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagAddSlope.ParseFromArray(pSlopeInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_ADD_SLOPE;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("AddSlope");
+	pMysqlQuery->AddParam(tagAddSlope.type());
+	pMysqlQuery->AddParam(tagAddSlope.name().c_str());
+	pMysqlQuery->AddParam(tagAddSlope.longitude());
+	pMysqlQuery->AddParam(tagAddSlope.latitude());
+	pMysqlQuery->AddParam(tagAddSlope.url().c_str());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+void CWebClient::RecvDelSlope(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Del_Slope	tagDelSlope;
+	BYTE	*pSlopeInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagDelSlope.ParseFromArray(pSlopeInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_DEL_SLOPE;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("DeleteSlope");
+	pMysqlQuery->AddParam(tagDelSlope.id());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+void CWebClient::RecvUpdateSlope(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Update_Slope_Data	tagSlopeData;
+	BYTE	*pSlopeInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagSlopeData.ParseFromArray(pSlopeInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_UPDATE_SLOPE;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("UpdateSlope");
+	pMysqlQuery->AddParam(tagSlopeData.id());
+	pMysqlQuery->AddParam(tagSlopeData.type());
+	pMysqlQuery->AddParam(tagSlopeData.name().c_str());
+	pMysqlQuery->AddParam(tagSlopeData.longitude());
+	pMysqlQuery->AddParam(tagSlopeData.latitude());
+	pMysqlQuery->AddParam(tagSlopeData.url().c_str());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+void CWebClient::RecvAddSensor(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Add_Sensor	tagAddSensor;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagAddSensor.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_ADD_SENSOR;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("AddSensor");
+	pMysqlQuery->AddParam(tagAddSensor.type());
+	pMysqlQuery->AddParam(tagAddSensor.name().c_str());
+	pMysqlQuery->AddParam(tagAddSensor.longitude());
+	pMysqlQuery->AddParam(tagAddSensor.latitude());
+	pMysqlQuery->AddParam(tagAddSensor.url().c_str());
+	pMysqlQuery->AddParam(tagAddSensor.description().c_str());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+
+void CWebClient::RecvDelSensor(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Del_Sensor	tagDelSensor;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagDelSensor.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_DEL_SENSOR;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("DeleteSensor");
+	pMysqlQuery->AddParam(tagDelSensor.id());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+void CWebClient::RecvUpdateSensor(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Update_Sensor_Data	tagSensorData;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagSensorData.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_UPDATE_SENSOR;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("UpdateSensor");
+	pMysqlQuery->AddParam(tagSensorData.id());
+	pMysqlQuery->AddParam(tagSensorData.type());
+	pMysqlQuery->AddParam(tagSensorData.name().c_str());
+	pMysqlQuery->AddParam(tagSensorData.longitude());
+	pMysqlQuery->AddParam(tagSensorData.latitude());
+	pMysqlQuery->AddParam(tagSensorData.url().c_str());
+	pMysqlQuery->AddParam(tagSensorData.description().c_str());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
@@ -558,6 +785,325 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 
 void CWebClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+}
+
+void CWebClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	UINT	uCol			= 0;
+	BYTE	byResult		= 0;
+	WORD	wSlopeID		= 0;
+	BYTE	byType			= 0;
+	char	strName[256]	= {0};
+	BYTE	byState			= 0;
+	double	dLongitude		= 0.0f;
+	double	dLatitude		= 0.0f;
+	char	strUrl[1024]	= {0};
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (2 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
+	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
+
+	if (nullptr == pResult1 || nullptr == pResult2)
+	{
+		return;
+	}
+
+	pResult1->GetData(0, 0, byResult);
+	if (0 != byResult)
+	{
+		// Send Error Code
+		// ...
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::S2WEB_New_Slope	tagNewSlope;
+
+	uCol	= 0;
+
+	pResult2->GetData(0, uCol++, wSlopeID);
+	pResult2->GetData(0, uCol++, byType);
+	pResult2->GetData(0, uCol++, strName, sizeof(strName));
+	pResult2->GetData(0, uCol++, dLongitude);
+	pResult2->GetData(0, uCol++, dLatitude);
+	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
+
+	tagNewSlope.set_id(wSlopeID);
+	tagNewSlope.set_type(byType);
+	tagNewSlope.set_name(strName);
+	tagNewSlope.set_state(0);
+	tagNewSlope.set_longitude(dLongitude);
+	tagNewSlope.set_latitude(dLatitude);
+	tagNewSlope.set_url(strUrl);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_new_slope, tagNewSlope);
+}
+
+void CWebClient::DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	UINT	uCol		= 0;
+	BYTE	byResult	= 0;
+	WORD	wSlopeID	= 0;
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (2 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
+	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
+
+	if (nullptr == pResult1 || nullptr == pResult2)
+	{
+		return;
+	}
+
+	if (1 != pResult1->GetRowCount())
+	{
+		return;
+	}
+
+	pResult1->GetData(0, 0, byResult);
+	if (0 != byResult)
+	{
+		// Send Error Code
+		// ...
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::S2WEB_Del_Slope	tagDelSlope;
+
+	uCol	= 0;
+
+	pResult2->GetData(0, uCol++, wSlopeID);
+
+	tagDelSlope.set_id(wSlopeID);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_del_slope, tagDelSlope);
+}
+
+void CWebClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	UINT	uCol			= 0;
+	BYTE	byResult		= 0;
+	WORD	wSlopeID		= 0;
+	BYTE	byType			= 0;
+	char	strName[256]	= {0};
+	BYTE	byState			= 0;
+	double	dLongitude		= 0.0f;
+	double	dLatitude		= 0.0f;
+	char	strUrl[1024]	= {0};
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (2 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
+	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
+
+	if (nullptr == pResult1 || nullptr == pResult2)
+	{
+		return;
+	}
+
+	pResult1->GetData(0, 0, byResult);
+	if (0 != byResult)
+	{
+		// Send Error Code
+		// ...
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::S2WEB_Update_Slope	tagUpdateSlope;
+
+	uCol	= 0;
+
+	pResult2->GetData(0, uCol++, wSlopeID);
+	pResult2->GetData(0, uCol++, byType);
+	pResult2->GetData(0, uCol++, strName, sizeof(strName));
+	pResult2->GetData(0, uCol++, dLongitude);
+	pResult2->GetData(0, uCol++, dLatitude);
+	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
+
+	tagUpdateSlope.set_id(wSlopeID);
+	tagUpdateSlope.set_type(byType);
+	tagUpdateSlope.set_name(strName);
+	tagUpdateSlope.set_state(0);
+	tagUpdateSlope.set_longitude(dLongitude);
+	tagUpdateSlope.set_latitude(dLatitude);
+	tagUpdateSlope.set_url(strUrl);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_update_slope, tagUpdateSlope);
+}
+
+void CWebClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	UINT	uCol					= 0;
+	BYTE	byResult				= 0;
+	UINT	uSensorID				= 0;
+	BYTE	byType					= 0;
+	BYTE	byState					= 0;
+	WORD	wSlopeID				= 0;
+	double	dLongitude				= 0.0f;
+	double	dLatitude				= 0.0f;
+	char	strUrl[1024]			= {0};
+	char	strDescription[1024]	= {0};
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (2 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
+	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
+
+	if (nullptr == pResult1 || nullptr == pResult2)
+	{
+		return;
+	}
+
+	pResult1->GetData(0, 0, byResult);
+	if (0 != byResult)
+	{
+		// Send Error Code
+		// ...
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::S2WEB_Add_Sensor	tagNewSensor;
+
+	uCol	= 0;
+
+	pResult2->GetData(0, uCol++, uSensorID);
+	pResult2->GetData(0, uCol++, byType);
+	pResult2->GetData(0, uCol++, wSlopeID);
+	pResult2->GetData(0, uCol++, dLongitude);
+	pResult2->GetData(0, uCol++, dLatitude);
+	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
+	pResult2->GetData(0, uCol++, strDescription, sizeof(strDescription));
+
+	tagNewSensor.set_id(uSensorID);
+	tagNewSensor.set_type(byType);
+	tagNewSensor.set_slope_id(wSlopeID);
+	tagNewSensor.set_state(0);
+	tagNewSensor.set_longitude(dLongitude);
+	tagNewSensor.set_latitude(dLatitude);
+	tagNewSensor.set_url(strUrl);
+	tagNewSensor.set_description(strDescription);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_add_sensor, tagNewSensor);
+}
+
+void CWebClient::DBResopndDelSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	UINT	uCol		= 0;
+	BYTE	byResult	= 0;
+	UINT	uSensorID	= 0;
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (2 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
+	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
+
+	if (nullptr == pResult1 || nullptr == pResult2)
+	{
+		return;
+	}
+
+	pResult1->GetData(0, 0, byResult);
+	if (0 != byResult)
+	{
+		// Send Error Code
+		// ...
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::S2WEB_Del_Sensor	tagDelSensor;
+
+	uCol	= 0;
+
+	pResult2->GetData(0, uCol++, uSensorID);
+
+	tagDelSensor.set_id(uSensorID);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_del_sensor, tagDelSensor);
+}
+
+void CWebClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	UINT	uCol					= 0;
+	BYTE	byResult				= 0;
+	UINT	uSensorID				= 0;
+	BYTE	byType					= 0;
+	BYTE	byState					= 0;
+	WORD	wSlopeID				= 0;
+	double	dLongitude				= 0.0f;
+	double	dLatitude				= 0.0f;
+	char	strUrl[1024]			= {0};
+	char	strDescription[1024]	= {0};
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (2 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
+	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
+
+	if (nullptr == pResult1 || nullptr == pResult2)
+	{
+		return;
+	}
+
+	pResult1->GetData(0, 0, byResult);
+	if (0 != byResult)
+	{
+		// Send Error Code
+		// ...
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::S2WEB_Update_Sensor	tagUpdateSensor;
+
+	uCol	= 0;
+
+	pResult2->GetData(0, uCol++, uSensorID);
+	pResult2->GetData(0, uCol++, byType);
+	pResult2->GetData(0, uCol++, wSlopeID);
+	pResult2->GetData(0, uCol++, dLongitude);
+	pResult2->GetData(0, uCol++, dLatitude);
+	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
+	pResult2->GetData(0, uCol++, strDescription, sizeof(strDescription));
+
+	tagUpdateSensor.set_id(uSensorID);
+	tagUpdateSensor.set_type(byType);
+	tagUpdateSensor.set_slope_id(wSlopeID);
+	tagUpdateSensor.set_state(0);
+	tagUpdateSensor.set_longitude(dLongitude);
+	tagUpdateSensor.set_latitude(dLatitude);
+	tagUpdateSensor.set_url(strUrl);
+	tagUpdateSensor.set_description(strDescription);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_update_sensor, tagUpdateSensor);
 }
 
 void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)
