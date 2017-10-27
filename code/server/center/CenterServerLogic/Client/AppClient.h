@@ -26,12 +26,29 @@ private:
 	void					RecvPing(const void *pPack, const unsigned int uPackLen);
 
 	void					RecvRequestAllList(const void *pPack, const unsigned int uPackLen);
+	void					RecvAddSlope(const void *pPack, const unsigned int uPackLen);
+	void					RecvDelSlope(const void *pPack, const unsigned int uPackLen);
+	void					RecvUpdateSlope(const void *pPack, const unsigned int uPackLen);
+	void					RecvAddSensor(const void *pPack, const unsigned int uPackLen);
+
+	void					RecvDelSensor(const void *pPack, const unsigned int uPackLen);
+	void					RecvUpdateSensor(const void *pPack, const unsigned int uPackLen);
+	void					RecvModifyPassword(const void *pPack, const unsigned int uPackLen);
 private:
 	void					DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+
+	void					DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndDelSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+
+	void					DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	void					SendAppMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg);
 private:

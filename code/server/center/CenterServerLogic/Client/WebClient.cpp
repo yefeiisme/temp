@@ -21,7 +21,7 @@ CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::
 
 	&CWebClient::RecvDelSensor,
 	&CWebClient::RecvUpdateSensor,
-	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::RecvModifyPassword,
 	&CWebClient::DefaultProtocolFunc,
 	&CWebClient::DefaultProtocolFunc,
 
@@ -53,6 +53,7 @@ CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CWebClient::DBResopndDelSensorResult,
 
 	&CWebClient::DBResopndUpdateSensorResult,
+	&CWebClient::DBResopndModifyPasswordResult,
 };
 
 CWebClient::CWebClient() : CClient()
@@ -375,7 +376,7 @@ void CWebClient::RecvAddSensor(const void *pPack, const unsigned int uPackLen)
 
 	pMysqlQuery->PrepareProc("AddSensor");
 	pMysqlQuery->AddParam(tagAddSensor.type());
-	pMysqlQuery->AddParam(tagAddSensor.name().c_str());
+	pMysqlQuery->AddParam(tagAddSensor.slope_id());
 	pMysqlQuery->AddParam(tagAddSensor.longitude());
 	pMysqlQuery->AddParam(tagAddSensor.latitude());
 	pMysqlQuery->AddParam(tagAddSensor.url().c_str());
@@ -448,11 +449,45 @@ void CWebClient::RecvUpdateSensor(const void *pPack, const unsigned int uPackLen
 	pMysqlQuery->PrepareProc("UpdateSensor");
 	pMysqlQuery->AddParam(tagSensorData.id());
 	pMysqlQuery->AddParam(tagSensorData.type());
-	pMysqlQuery->AddParam(tagSensorData.name().c_str());
+	pMysqlQuery->AddParam(tagSensorData.slope_id());
 	pMysqlQuery->AddParam(tagSensorData.longitude());
 	pMysqlQuery->AddParam(tagSensorData.latitude());
 	pMysqlQuery->AddParam(tagSensorData.url().c_str());
 	pMysqlQuery->AddParam(tagSensorData.description().c_str());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+void CWebClient::RecvModifyPassword(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Modify_Password	tagModifyPassword;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagModifyPassword.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_MODIFY_PASSWORD;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("ModifyPassword");
+	pMysqlQuery->AddParam(tagModifyPassword.account().c_str());
+	pMysqlQuery->AddParam(tagModifyPassword.new_password().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -1106,6 +1141,31 @@ void CWebClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysql
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_update_sensor, tagUpdateSensor);
 }
 
+void CWebClient::DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (1 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	BYTE	byResult	= 0;
+
+	pResult1->GetData(0, 0, byResult);
+
+	WEB_SERVER_NET_Protocol::S2WEB_Modify_Password_Result	tagModifyPassword;
+	tagModifyPassword.set_result(byResult);
+
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_modify_password_result, tagModifyPassword);
+}
+
 void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)
 {
 	char	strBuffer[0xffff]	= {0};
@@ -1117,6 +1177,7 @@ void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &ta
 
 	m_pClientConn->PutPack(strBuffer, sizeof(BYTE)+tagMsg.ByteSize());
 
+	/*
 	if (WEB_SERVER_NET_Protocol::S2WEB::s2web_slope_list == byProtocol)
 	{
 		FILE	*pFile = fopen("s2web_slope_list.txt", "a+");
@@ -1131,4 +1192,5 @@ void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &ta
 
 		fclose(pFile);
 	}
+	*/
 }

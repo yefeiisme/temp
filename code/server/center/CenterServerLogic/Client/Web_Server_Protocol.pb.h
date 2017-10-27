@@ -1102,21 +1102,6 @@ class WEB2S_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
-  // required bytes name = 2;
-  bool has_name() const;
-  void clear_name();
-  static const int kNameFieldNumber = 2;
-  const ::std::string& name() const;
-  void set_name(const ::std::string& value);
-  #if LANG_CXX11
-  void set_name(::std::string&& value);
-  #endif
-  void set_name(const char* value);
-  void set_name(const void* value, size_t size);
-  ::std::string* mutable_name();
-  ::std::string* release_name();
-  void set_allocated_name(::std::string* name);
-
   // required bytes url = 5;
   bool has_url() const;
   void clear_url();
@@ -1147,6 +1132,20 @@ class WEB2S_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
   ::std::string* release_description();
   void set_allocated_description(::std::string* description);
 
+  // required uint32 type = 1;
+  bool has_type() const;
+  void clear_type();
+  static const int kTypeFieldNumber = 1;
+  ::google::protobuf::uint32 type() const;
+  void set_type(::google::protobuf::uint32 value);
+
+  // required uint32 slope_id = 2;
+  bool has_slope_id() const;
+  void clear_slope_id();
+  static const int kSlopeIdFieldNumber = 2;
+  ::google::protobuf::uint32 slope_id() const;
+  void set_slope_id(::google::protobuf::uint32 value);
+
   // required double longitude = 3;
   bool has_longitude() const;
   void clear_longitude();
@@ -1161,19 +1160,12 @@ class WEB2S_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
   double latitude() const;
   void set_latitude(double value);
 
-  // required uint32 type = 1;
-  bool has_type() const;
-  void clear_type();
-  static const int kTypeFieldNumber = 1;
-  ::google::protobuf::uint32 type() const;
-  void set_type(::google::protobuf::uint32 value);
-
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
  private:
   void set_has_type();
   void clear_has_type();
-  void set_has_name();
-  void clear_has_name();
+  void set_has_slope_id();
+  void clear_has_slope_id();
   void set_has_longitude();
   void clear_has_longitude();
   void set_has_latitude();
@@ -1189,12 +1181,12 @@ class WEB2S_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr url_;
   ::google::protobuf::internal::ArenaStringPtr description_;
+  ::google::protobuf::uint32 type_;
+  ::google::protobuf::uint32 slope_id_;
   double longitude_;
   double latitude_;
-  ::google::protobuf::uint32 type_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -1363,21 +1355,6 @@ class WEB2S_Update_Sensor_Data : public ::google::protobuf::Message /* @@protoc_
 
   // accessors -------------------------------------------------------
 
-  // required bytes name = 3;
-  bool has_name() const;
-  void clear_name();
-  static const int kNameFieldNumber = 3;
-  const ::std::string& name() const;
-  void set_name(const ::std::string& value);
-  #if LANG_CXX11
-  void set_name(::std::string&& value);
-  #endif
-  void set_name(const char* value);
-  void set_name(const void* value, size_t size);
-  ::std::string* mutable_name();
-  ::std::string* release_name();
-  void set_allocated_name(::std::string* name);
-
   // required bytes url = 6;
   bool has_url() const;
   void clear_url();
@@ -1436,14 +1413,21 @@ class WEB2S_Update_Sensor_Data : public ::google::protobuf::Message /* @@protoc_
   double latitude() const;
   void set_latitude(double value);
 
+  // required uint32 slope_id = 3;
+  bool has_slope_id() const;
+  void clear_slope_id();
+  static const int kSlopeIdFieldNumber = 3;
+  ::google::protobuf::uint32 slope_id() const;
+  void set_slope_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
  private:
   void set_has_id();
   void clear_has_id();
   void set_has_type();
   void clear_has_type();
-  void set_has_name();
-  void clear_has_name();
+  void set_has_slope_id();
+  void clear_has_slope_id();
   void set_has_longitude();
   void clear_has_longitude();
   void set_has_latitude();
@@ -1459,13 +1443,13 @@ class WEB2S_Update_Sensor_Data : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr url_;
   ::google::protobuf::internal::ArenaStringPtr description_;
   ::google::protobuf::uint32 id_;
   ::google::protobuf::uint32 type_;
   double longitude_;
   double latitude_;
+  ::google::protobuf::uint32 slope_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -4650,13 +4634,13 @@ inline void WEB2S_Update_Slope_Data::set_allocated_url(::std::string* url) {
 
 // required uint32 type = 1;
 inline bool WEB2S_Add_Sensor::has_type() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void WEB2S_Add_Sensor::set_has_type() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void WEB2S_Add_Sensor::clear_has_type() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void WEB2S_Add_Sensor::clear_type() {
   type_ = 0u;
@@ -4672,78 +4656,39 @@ inline void WEB2S_Add_Sensor::set_type(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.type)
 }
 
-// required bytes name = 2;
-inline bool WEB2S_Add_Sensor::has_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// required uint32 slope_id = 2;
+inline bool WEB2S_Add_Sensor::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void WEB2S_Add_Sensor::set_has_name() {
-  _has_bits_[0] |= 0x00000001u;
+inline void WEB2S_Add_Sensor::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000008u;
 }
-inline void WEB2S_Add_Sensor::clear_has_name() {
-  _has_bits_[0] &= ~0x00000001u;
+inline void WEB2S_Add_Sensor::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000008u;
 }
-inline void WEB2S_Add_Sensor::clear_name() {
-  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
+inline void WEB2S_Add_Sensor::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
 }
-inline const ::std::string& WEB2S_Add_Sensor::name() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.name)
-  return name_.GetNoArena();
+inline ::google::protobuf::uint32 WEB2S_Add_Sensor::slope_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.slope_id)
+  return slope_id_;
 }
-inline void WEB2S_Add_Sensor::set_name(const ::std::string& value) {
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.name)
-}
-#if LANG_CXX11
-inline void WEB2S_Add_Sensor::set_name(::std::string&& value) {
-  set_has_name();
-  name_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.name)
-}
-#endif
-inline void WEB2S_Add_Sensor::set_name(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.name)
-}
-inline void WEB2S_Add_Sensor::set_name(const void* value, size_t size) {
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.name)
-}
-inline ::std::string* WEB2S_Add_Sensor::mutable_name() {
-  set_has_name();
-  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.name)
-  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* WEB2S_Add_Sensor::release_name() {
-  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.name)
-  clear_has_name();
-  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void WEB2S_Add_Sensor::set_allocated_name(::std::string* name) {
-  if (name != NULL) {
-    set_has_name();
-  } else {
-    clear_has_name();
-  }
-  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.name)
+inline void WEB2S_Add_Sensor::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.slope_id)
 }
 
 // required double longitude = 3;
 inline bool WEB2S_Add_Sensor::has_longitude() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void WEB2S_Add_Sensor::set_has_longitude() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void WEB2S_Add_Sensor::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void WEB2S_Add_Sensor::clear_longitude() {
   longitude_ = 0;
@@ -4761,13 +4706,13 @@ inline void WEB2S_Add_Sensor::set_longitude(double value) {
 
 // required double latitude = 4;
 inline bool WEB2S_Add_Sensor::has_latitude() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void WEB2S_Add_Sensor::set_has_latitude() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void WEB2S_Add_Sensor::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void WEB2S_Add_Sensor::clear_latitude() {
   latitude_ = 0;
@@ -4785,13 +4730,13 @@ inline void WEB2S_Add_Sensor::set_latitude(double value) {
 
 // required bytes url = 5;
 inline bool WEB2S_Add_Sensor::has_url() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 inline void WEB2S_Add_Sensor::set_has_url() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
 }
 inline void WEB2S_Add_Sensor::clear_has_url() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void WEB2S_Add_Sensor::clear_url() {
   url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -4848,13 +4793,13 @@ inline void WEB2S_Add_Sensor::set_allocated_url(::std::string* url) {
 
 // required bytes description = 6;
 inline bool WEB2S_Add_Sensor::has_description() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void WEB2S_Add_Sensor::set_has_description() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void WEB2S_Add_Sensor::clear_has_description() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void WEB2S_Add_Sensor::clear_description() {
   description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -4943,13 +4888,13 @@ inline void WEB2S_Del_Sensor::set_id(::google::protobuf::uint32 value) {
 
 // required uint32 id = 1;
 inline bool WEB2S_Update_Sensor_Data::has_id() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void WEB2S_Update_Sensor_Data::set_has_id() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_has_id() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_id() {
   id_ = 0u;
@@ -4967,13 +4912,13 @@ inline void WEB2S_Update_Sensor_Data::set_id(::google::protobuf::uint32 value) {
 
 // required uint32 type = 2;
 inline bool WEB2S_Update_Sensor_Data::has_type() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void WEB2S_Update_Sensor_Data::set_has_type() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_has_type() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_type() {
   type_ = 0u;
@@ -4989,78 +4934,39 @@ inline void WEB2S_Update_Sensor_Data::set_type(::google::protobuf::uint32 value)
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.type)
 }
 
-// required bytes name = 3;
-inline bool WEB2S_Update_Sensor_Data::has_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// required uint32 slope_id = 3;
+inline bool WEB2S_Update_Sensor_Data::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void WEB2S_Update_Sensor_Data::set_has_name() {
-  _has_bits_[0] |= 0x00000001u;
+inline void WEB2S_Update_Sensor_Data::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000040u;
 }
-inline void WEB2S_Update_Sensor_Data::clear_has_name() {
-  _has_bits_[0] &= ~0x00000001u;
+inline void WEB2S_Update_Sensor_Data::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000040u;
 }
-inline void WEB2S_Update_Sensor_Data::clear_name() {
-  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
+inline void WEB2S_Update_Sensor_Data::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
 }
-inline const ::std::string& WEB2S_Update_Sensor_Data::name() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.name)
-  return name_.GetNoArena();
+inline ::google::protobuf::uint32 WEB2S_Update_Sensor_Data::slope_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.slope_id)
+  return slope_id_;
 }
-inline void WEB2S_Update_Sensor_Data::set_name(const ::std::string& value) {
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.name)
-}
-#if LANG_CXX11
-inline void WEB2S_Update_Sensor_Data::set_name(::std::string&& value) {
-  set_has_name();
-  name_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.name)
-}
-#endif
-inline void WEB2S_Update_Sensor_Data::set_name(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.name)
-}
-inline void WEB2S_Update_Sensor_Data::set_name(const void* value, size_t size) {
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.name)
-}
-inline ::std::string* WEB2S_Update_Sensor_Data::mutable_name() {
-  set_has_name();
-  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.name)
-  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* WEB2S_Update_Sensor_Data::release_name() {
-  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.name)
-  clear_has_name();
-  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void WEB2S_Update_Sensor_Data::set_allocated_name(::std::string* name) {
-  if (name != NULL) {
-    set_has_name();
-  } else {
-    clear_has_name();
-  }
-  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.name)
+inline void WEB2S_Update_Sensor_Data::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.slope_id)
 }
 
 // required double longitude = 4;
 inline bool WEB2S_Update_Sensor_Data::has_longitude() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void WEB2S_Update_Sensor_Data::set_has_longitude() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_longitude() {
   longitude_ = 0;
@@ -5078,13 +4984,13 @@ inline void WEB2S_Update_Sensor_Data::set_longitude(double value) {
 
 // required double latitude = 5;
 inline bool WEB2S_Update_Sensor_Data::has_latitude() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void WEB2S_Update_Sensor_Data::set_has_latitude() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_latitude() {
   latitude_ = 0;
@@ -5102,13 +5008,13 @@ inline void WEB2S_Update_Sensor_Data::set_latitude(double value) {
 
 // required bytes url = 6;
 inline bool WEB2S_Update_Sensor_Data::has_url() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 inline void WEB2S_Update_Sensor_Data::set_has_url() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_has_url() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_url() {
   url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -5165,13 +5071,13 @@ inline void WEB2S_Update_Sensor_Data::set_allocated_url(::std::string* url) {
 
 // required bytes description = 7;
 inline bool WEB2S_Update_Sensor_Data::has_description() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void WEB2S_Update_Sensor_Data::set_has_description() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_has_description() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void WEB2S_Update_Sensor_Data::clear_description() {
   description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());

@@ -14,14 +14,14 @@ CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[APP_SERVER_NET_Protocol::
 	&CAppClient::RecvPing,
 
 	&CAppClient::RecvRequestAllList,
-	&CAppClient::DefaultProtocolFunc,
-	&CAppClient::DefaultProtocolFunc,
-	&CAppClient::DefaultProtocolFunc,
-	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::RecvAddSlope,
+	&CAppClient::RecvDelSlope,
+	&CAppClient::RecvUpdateSlope,
+	&CAppClient::RecvAddSensor,
 
-	&CAppClient::DefaultProtocolFunc,
-	&CAppClient::DefaultProtocolFunc,
-	&CAppClient::DefaultProtocolFunc,
+	&CAppClient::RecvDelSensor,
+	&CAppClient::RecvUpdateSensor,
+	&CAppClient::RecvModifyPassword,
 	&CAppClient::DefaultProtocolFunc,
 	&CAppClient::DefaultProtocolFunc,
 
@@ -45,6 +45,15 @@ CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CAppClient::DBResopndSensorList,
 	&CAppClient::DBResopndSensorHistory,
 	&CAppClient::DBResopndAllList,
+
+	&CAppClient::DBResopndAddSlopeResult,
+	&CAppClient::DBResopndDelSlopeResult,
+	&CAppClient::DBResopndUpdateSlopeResult,
+	&CAppClient::DBResopndAddSensorResult,
+	&CAppClient::DBResopndDelSensorResult,
+
+	&CAppClient::DBResopndUpdateSensorResult,
+	&CAppClient::DBResopndModifyPasswordResult,
 };
 
 CAppClient::CAppClient() : CClient()
@@ -240,6 +249,64 @@ void CAppClient::RecvRequestAllList(const void *pPack, const unsigned int uPackL
 
 	pMysqlQuery->PrepareProc("LoadAllList");
 	pMysqlQuery->AddParam(m_uAccountID);
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+void CAppClient::RecvAddSlope(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CAppClient::RecvDelSlope(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CAppClient::RecvUpdateSlope(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CAppClient::RecvAddSensor(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CAppClient::RecvDelSensor(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CAppClient::RecvUpdateSensor(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CAppClient::RecvModifyPassword(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		APP_SERVER_NET_Protocol::S2APP_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_error, tagError);
+
+		return;
+	}
+
+	APP_SERVER_NET_Protocol::APP2S_Modify_Password	tagModifyPassword;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagModifyPassword.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	={ 0 };
+	tagRequest.byOpt			= SENSOR_DB_MODIFY_PASSWORD;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= APP_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("ModifyPassword");
+	pMysqlQuery->AddParam(tagModifyPassword.account().c_str());
+	pMysqlQuery->AddParam(tagModifyPassword.new_password().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -639,6 +706,55 @@ void CAppClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pC
 
 	// 后面添加sensor数据的读取
 	// ...
+}
+
+void CAppClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndDelSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (1 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	BYTE	byResult	= 0;
+
+	pResult1->GetData(0, 0, byResult);
+
+	APP_SERVER_NET_Protocol::S2APP_Modify_Password_Result	tagModifyPassword;
+	tagModifyPassword.set_result(byResult);
+
+
+	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_modify_password_result, tagModifyPassword);
 }
 
 void CAppClient::SendAppMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)

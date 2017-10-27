@@ -160,5 +160,97 @@ BEGIN
     select ID,IP,Port from server where ClientType=2;
 END;
 
+DROP PROCEDURE IF EXISTS `ModifyPassword`;
+CREATE PROCEDURE `ModifyPassword`(IN paramAccount VARCHAR(64), IN paramPasword VARCHAR(64))
+BEGIN
+	update user set Password=md5(paramPasword);
+	
+	if ROW_COUNT() > 0 then
+		select 0;
+	else
+		select 1;
+	end if;
+END;
+
+DROP PROCEDURE IF EXISTS `AddSlope`;
+CREATE PROCEDURE `AddSlope`(IN paramType INTEGER UNSIGNED, IN paramName VARCHAR(64), IN paramLongitude DOUBLE, IN paramLatitude DOUBLE, IN paramOwnerID INTEGER UNSIGNED, IN paramUrl mediumtext)
+BEGIN
+	insert into slope(Type,Name,Longitude,Latitude,OwnerID,VideoUrl) value(paramType,paramName,paramLongitude,paramLatitude,paramOwnerID,paramUrl);
+	
+	if ROW_COUNT() > 0 then
+		select 0;
+	else
+		select 1;
+	end if;
+	
+	select LAST_INSERT_ID(),paramType,paramName,paramLongitude,paramLatitude,paramOwnerID,paramUrl;
+END;
+
+DROP PROCEDURE IF EXISTS `DeleteSlope`;
+CREATE PROCEDURE `DeleteSlope`(IN paramSlopeID INTEGER UNSIGNED)
+BEGIN
+	delete from slope where ID=paramSlopeID;
+	
+	if ROW_COUNT() > 0 then
+		select 0;
+	else
+		select 1;
+	end if;
+END;
+
+DROP PROCEDURE IF EXISTS `UpdateSlope`;
+CREATE PROCEDURE `UpdateSlope`(IN paramType INTEGER UNSIGNED, IN paramName VARCHAR(64), IN paramLongitude DOUBLE, IN paramLatitude DOUBLE, IN paramOwnerID INTEGER UNSIGNED, IN paramUrl mediumtext, IN paramSlopeID INTEGER UNSIGNED)
+BEGIN
+	update slope set Type=paramType,Name=paramName,Longitude=paramLongitude,Latitude=paramLatitude,OwnerID=paramOwnerID,VideoUrl=paramUrl where ID=paramSlopeID;
+	
+	if ROW_COUNT() > 0 then
+		select 0;
+	else
+		select 1;
+	end if;
+	
+	select paramSlopeID,paramType,paramName,paramLongitude,paramLatitude,paramOwnerID,paramUrl;
+END;
+
+DROP PROCEDURE IF EXISTS `AddSensor`;
+CREATE PROCEDURE `AddSensor`(IN paramType INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED, IN paramLongitude DOUBLE, IN paramLatitude DOUBLE, IN paramOwnerID INTEGER UNSIGNED, IN paramUrl mediumtext, IN paramDesc mediumtext)
+BEGIN
+	insert into sensor(Type,SlopeID,Longitude,Latitude,OwnerID,VideoUrl,Description) value(paramType,paramSlopeID,paramLongitude,paramLatitude,paramOwnerID,paramUrl,paramDesc);
+	
+	if ROW_COUNT() > 0 then
+		select 0;
+	else
+		select 1;
+	end if;
+	
+	select LAST_INSERT_ID(),paramType,paramSlopeID,paramLongitude,paramLatitude,paramOwnerID,paramUrl,paramDesc;
+END;
+
+DROP PROCEDURE IF EXISTS `DeleteSensor`;
+CREATE PROCEDURE `DeleteSensor`(IN paramSensorID INTEGER UNSIGNED)
+BEGIN
+	delete from sensor where ID=paramSensorID;
+	
+	if ROW_COUNT() > 0 then
+		select 0;
+	else
+		select 1;
+	end if;
+END;
+
+DROP PROCEDURE IF EXISTS `UpdateSensor`;
+CREATE PROCEDURE `UpdateSensor`(IN paramSensorID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED, IN paramLongitude DOUBLE, IN paramLatitude DOUBLE, IN paramOwnerID INTEGER UNSIGNED, IN paramUrl mediumtext, IN paramDesc mediumtext)
+BEGIN
+	update sensor set Type=paramType,SlopeID=paramSlopeID,Longitude=paramLongitude,Latitude=paramLatitude,OwnerID=paramOwnerID,VideoUrl=paramUrl,Description=paramDesc where ID=paramSensorID;
+	
+	if ROW_COUNT() > 0 then
+		select 0;
+	else
+		select 1;
+	end if;
+	
+	select paramSensorID,paramType,paramSlopeID,paramLongitude,paramLatitude,paramOwnerID,paramUrl,paramDesc;
+END;
+
 //
 delimiter ; //
