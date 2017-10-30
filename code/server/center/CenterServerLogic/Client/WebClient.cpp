@@ -845,15 +845,19 @@ void CWebClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
 
 	if (nullptr == pResult1 || nullptr == pResult2)
-	{
 		return;
-	}
+
+	if (1 != pResult1->GetRowCount())
+		return;
 
 	pResult1->GetData(0, 0, byResult);
 	if (0 != byResult)
 	{
-		// Send Error Code
-		// ...
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(byResult);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
 		return;
 	}
 
@@ -896,20 +900,19 @@ void CWebClient::DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
 
 	if (nullptr == pResult1 || nullptr == pResult2)
-	{
 		return;
-	}
 
 	if (1 != pResult1->GetRowCount())
-	{
 		return;
-	}
 
 	pResult1->GetData(0, 0, byResult);
 	if (0 != byResult)
 	{
-		// Send Error Code
-		// ...
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(byResult);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
 		return;
 	}
 
@@ -947,15 +950,19 @@ void CWebClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
 
 	if (nullptr == pResult1 || nullptr == pResult2)
-	{
 		return;
-	}
+
+	if (1 != pResult1->GetRowCount())
+		return;
 
 	pResult1->GetData(0, 0, byResult);
 	if (0 != byResult)
 	{
-		// Send Error Code
-		// ...
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(byResult);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
 		return;
 	}
 
@@ -1005,15 +1012,19 @@ void CWebClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlReq
 	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
 
 	if (nullptr == pResult1 || nullptr == pResult2)
-	{
 		return;
-	}
+
+	if (1 != pResult1->GetRowCount())
+		return;
 
 	pResult1->GetData(0, 0, byResult);
 	if (0 != byResult)
 	{
-		// Send Error Code
-		// ...
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(byResult);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
 		return;
 	}
 
@@ -1058,15 +1069,19 @@ void CWebClient::DBResopndDelSensorResult(IMysqlResultSet *pResultSet, SMysqlReq
 	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
 
 	if (nullptr == pResult1 || nullptr == pResult2)
-	{
 		return;
-	}
+
+	if (1 != pResult1->GetRowCount())
+		return;
 
 	pResult1->GetData(0, 0, byResult);
 	if (0 != byResult)
 	{
-		// Send Error Code
-		// ...
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(byResult);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
 		return;
 	}
 
@@ -1105,15 +1120,19 @@ void CWebClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysql
 	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
 
 	if (nullptr == pResult1 || nullptr == pResult2)
-	{
 		return;
-	}
+
+	if (1 != pResult1->GetRowCount())
+		return;
 
 	pResult1->GetData(0, 0, byResult);
 	if (0 != byResult)
 	{
-		// Send Error Code
-		// ...
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(byResult);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
 		return;
 	}
 
@@ -1153,6 +1172,9 @@ void CWebClient::DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMys
 	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
 
 	if (nullptr == pResult1)
+		return;
+
+	if (1 != pResult1->GetRowCount())
 		return;
 
 	BYTE	byResult	= 0;
