@@ -649,15 +649,7 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
 
 	if (nullptr == pResult1)
-	{
 		return;
-	}
-
-	if (0 == pResult1->GetRowCount())
-	{
-		g_pFileLog->WriteLog("CWebClient::DBResopndSensorList Return Row Count 0\n", __FILE__, __LINE__);
-		return;
-	}
 
 	WEB_SERVER_NET_Protocol::S2Web_Sensor_List	tagSensorList;
 

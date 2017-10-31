@@ -466,15 +466,7 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
 
 	if (nullptr == pResult1)
-	{
 		return;
-	}
-
-	if (0 == pResult1->GetRowCount())
-	{
-		g_pFileLog->WriteLog("CAppClient::DBResopndSensorList Return Row Count 0\n", __FILE__, __LINE__);
-		return;
-	}
 
 	APP_SERVER_NET_Protocol::S2App_Sensor_List	tagSensorList;
 
