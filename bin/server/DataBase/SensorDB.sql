@@ -255,7 +255,7 @@ END;
 DROP PROCEDURE IF EXISTS `FindSensor`;
 CREATE PROCEDURE `FindSensor`(IN paramName VARCHAR(64), IN paramSlopeID INTEGER UNSIGNED, IN paramSensorID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
 BEGIN
-	set @strSql = 'select * from sensor';
+	set @strSql = 'select ID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor';
     set @nCount	= 0;
     
     if paramSlopeID > 0 then
@@ -297,7 +297,7 @@ END;
 DROP PROCEDURE IF EXISTS `FindSlope`;
 CREATE PROCEDURE `FindSlope`(IN paramName varchar(64),IN paramID INTEGER UNSIGNED)
 BEGIN
-	set @strSql = 'select * from slope';
+	set @strSql = 'select ID,Type,Name,Longitude,Latitude,State,VideoUrl from slope';
     set @nCount	= 0;
     
     if paramID > 0 then

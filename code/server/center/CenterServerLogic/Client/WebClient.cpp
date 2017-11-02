@@ -22,8 +22,8 @@ CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::
 	&CWebClient::RecvDelSensor,
 	&CWebClient::RecvUpdateSensor,
 	&CWebClient::RecvModifyPassword,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::RecvFindSlope,
+	&CWebClient::RecvFindSensor,
 
 	&CWebClient::DefaultProtocolFunc,
 	&CWebClient::DefaultProtocolFunc,
@@ -54,6 +54,8 @@ CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 
 	&CWebClient::DBResopndUpdateSensorResult,
 	&CWebClient::DBResopndModifyPasswordResult,
+	&CWebClient::DBResopndFindSlopeResult,
+	&CWebClient::DBResopndFindSensorResult,
 };
 
 CWebClient::CWebClient() : CClient()
@@ -494,6 +496,76 @@ void CWebClient::RecvModifyPassword(const void *pPack, const unsigned int uPackL
 	pMysqlQuery->CallProc();
 }
 
+void CWebClient::RecvFindSlope(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Find_Slope	tagFindSlope;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagFindSlope.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_FIND_SLOPE;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("FindSlope");
+	pMysqlQuery->AddParam(tagFindSlope.slope_id());
+	pMysqlQuery->AddParam(tagFindSlope.slope_name().c_str());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+void CWebClient::RecvFindSensor(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Find_Sensor	tagFindSensor;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagFindSensor.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_FIND_SENSOR;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("FindSensor");
+	pMysqlQuery->AddParam(tagFindSensor.slope_id());
+	pMysqlQuery->AddParam(tagFindSensor.slope_name().c_str());
+	pMysqlQuery->AddParam(tagFindSensor.sensor_id());
+	pMysqlQuery->AddParam(tagFindSensor.sensor_type());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
 void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -579,12 +651,6 @@ void CWebClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 
 	if (nullptr == pResult1)
 	{
-		return;
-	}
-
-	if (0 == pResult1->GetRowCount())
-	{
-		g_pFileLog->WriteLog("[%s][%d] Result1 Row Count 0\n", __FILE__, __LINE__);
 		return;
 	}
 
@@ -1179,6 +1245,142 @@ void CWebClient::DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMys
 
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_modify_password_result, tagModifyPassword);
+}
+
+void CWebClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	UINT	uCol				= 0;
+	WORD	wSlopeID			= 0;
+	BYTE	bySlopeType			= 0;
+	char	strSlopeName[64]	= {0};
+	double	dLongitude			= 0.0f;
+	double	dLatitude			= 0.0f;
+	BYTE	byState				= 0;
+	char	strUrl[0xffff]		= {0};
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (1 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2Web_Slope_List	tagSlopeList;
+
+	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
+	{
+		WEB_SERVER_NET_Protocol::S2Web_Slope_List::SlopeData	*pSlopeData = tagSlopeList.add_slope_list();
+		if (nullptr == pSlopeData)
+			continue;
+
+		uCol	= 0;
+
+		pResult1->GetData(uRow, uCol++, wSlopeID);
+		pResult1->GetData(uRow, uCol++, bySlopeType);
+		pResult1->GetData(uRow, uCol++, strSlopeName, sizeof(strSlopeName));
+		pResult1->GetData(uRow, uCol++, dLongitude);
+		pResult1->GetData(uRow, uCol++, dLatitude);
+		pResult1->GetData(uRow, uCol++, byState);
+		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
+
+		pSlopeData->set_id(wSlopeID);
+		pSlopeData->set_type(bySlopeType);
+		pSlopeData->set_name(strSlopeName);
+		pSlopeData->set_longitude(dLongitude);
+		pSlopeData->set_latitude(dLatitude);
+		pSlopeData->set_state(byState);
+		pSlopeData->set_url(strUrl);
+	}
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_slope_list, tagSlopeList);
+}
+
+void CWebClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	UINT	uCol			= 0;
+	UINT	uSensorID		= 0;
+	BYTE	bySensorType	= 0;
+	double	dCurValue1		= 0.0f;
+	double	dCurValue2		= 0.0f;
+	double	dCurValue3		= 0.0f;
+	double	dAvgValue1		= 0.0f;
+	double	dAvgValue2		= 0.0f;
+	double	dAvgValue3		= 0.0f;
+	double	dOffsetValue1	= 0.0f;
+	double	dOffsetValue2	= 0.0f;
+	double	dOffsetValue3	= 0.0f;
+	BYTE	byState			= 0;
+	WORD	wSlopeID		= 0;
+	double	dLongitude		= 0.0f;
+	double	dLatitude		= 0.0f;
+	char	strUrl[0xffff]	= {0};
+	char	strDesc[0xffff]	= {0};
+
+	BYTE	byResultCount = pResultSet->GetResultCount();
+	if (1 != byResultCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+		return;
+	}
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2Web_Sensor_List	tagSensorList;
+
+	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
+	{
+		WEB_SERVER_NET_Protocol::S2Web_Sensor_List::SensorData	*pSensor = tagSensorList.add_sensor_list();
+		if (nullptr == pSensor)
+			continue;
+
+		uCol	= 0;
+
+		pResult1->GetData(uRow, uCol++, uSensorID);
+		pResult1->GetData(uRow, uCol++, bySensorType);
+		pResult1->GetData(uRow, uCol++, dCurValue1);
+		pResult1->GetData(uRow, uCol++, dCurValue2);
+		pResult1->GetData(uRow, uCol++, dCurValue3);
+		pResult1->GetData(uRow, uCol++, dAvgValue1);
+		pResult1->GetData(uRow, uCol++, dAvgValue2);
+		pResult1->GetData(uRow, uCol++, dAvgValue3);
+		pResult1->GetData(uRow, uCol++, dOffsetValue1);
+		pResult1->GetData(uRow, uCol++, dOffsetValue2);
+		pResult1->GetData(uRow, uCol++, dOffsetValue3);
+		pResult1->GetData(uRow, uCol++, byState);
+		pResult1->GetData(uRow, uCol++, wSlopeID);
+		pResult1->GetData(uRow, uCol++, dLongitude);
+		pResult1->GetData(uRow, uCol++, dLatitude);
+		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
+		pResult1->GetData(uRow, uCol++, strDesc, sizeof(strDesc));
+
+		pSensor->set_id(uSensorID);
+		pSensor->set_type(bySensorType);
+		pSensor->set_cur_value1(dCurValue1);
+		pSensor->set_cur_value2(dCurValue2);
+		pSensor->set_cur_value3(dCurValue3);
+		pSensor->set_avg_value1(dAvgValue1);
+		pSensor->set_avg_value2(dAvgValue2);
+		pSensor->set_avg_value3(dAvgValue3);
+		pSensor->set_offset_value1(dOffsetValue1);
+		pSensor->set_offset_value2(dOffsetValue2);
+		pSensor->set_offset_value3(dOffsetValue3);
+		pSensor->set_state(byState);
+		pSensor->set_slope_id(wSlopeID);
+		pSensor->set_longitude(dLongitude);
+		pSensor->set_latitude(dLatitude);
+		pSensor->set_url(strUrl);
+		pSensor->set_description(strDesc);
+	}
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_sensor_list, tagSensorList);
 }
 
 void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)

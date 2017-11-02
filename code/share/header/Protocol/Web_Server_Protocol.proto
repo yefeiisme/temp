@@ -21,8 +21,8 @@ enum WEB2S
 	web2s_del_sensor				= 10;	// 删除指定ID的传感器
 	web2s_update_sensor_data		= 11;	// 修改指定ID的传感器数据
 	web2s_modify_password			= 12;	// 修改密码
-	web2s_reserve10					= 13;	// 保留用的协议
-	web2s_reserve11					= 14;	// 保留用的协议
+	web2s_find_slope				= 13;	// 查找指定的边坡
+	web2s_find_sensor				= 14;	// 查找指定的传感器
 	web2s_reserve12					= 15;	// 保留用的协议
 	web2s_reserve13					= 16;	// 保留用的协议
 	web2s_reserve14					= 17;	// 保留用的协议
@@ -132,6 +132,21 @@ message WEB2S_Modify_Password
 	required bytes	new_password	= 2;	// 新密码
 }
 
+// 查找指定的边坡
+message WEB2S_Find_Slope
+{
+	required uint32	slope_id		= 1;	// 边坡ID
+	required bytes	slope_name		= 2;	// 边坡名
+}
+
+// 查找指定的边坡
+message WEB2S_Find_Sensor
+{
+	required uint32	slope_id		= 1;	// 边坡ID
+	required bytes	slope_name		= 2;	// 边坡名
+	required uint32	sensor_id		= 3;	// 传感器ID
+	required uint32	sensor_type		= 4;	// 传感器类型
+}
 
 
 

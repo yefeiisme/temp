@@ -92,6 +92,12 @@ extern WEB2S_Del_SensorDefaultTypeInternal _WEB2S_Del_Sensor_default_instance_;
 class WEB2S_Del_Slope;
 class WEB2S_Del_SlopeDefaultTypeInternal;
 extern WEB2S_Del_SlopeDefaultTypeInternal _WEB2S_Del_Slope_default_instance_;
+class WEB2S_Find_Sensor;
+class WEB2S_Find_SensorDefaultTypeInternal;
+extern WEB2S_Find_SensorDefaultTypeInternal _WEB2S_Find_Sensor_default_instance_;
+class WEB2S_Find_Slope;
+class WEB2S_Find_SlopeDefaultTypeInternal;
+extern WEB2S_Find_SlopeDefaultTypeInternal _WEB2S_Find_Slope_default_instance_;
 class WEB2S_Modify_Password;
 class WEB2S_Modify_PasswordDefaultTypeInternal;
 extern WEB2S_Modify_PasswordDefaultTypeInternal _WEB2S_Modify_Password_default_instance_;
@@ -145,8 +151,8 @@ enum WEB2S {
   web2s_del_sensor = 10,
   web2s_update_sensor_data = 11,
   web2s_modify_password = 12,
-  web2s_reserve10 = 13,
-  web2s_reserve11 = 14,
+  web2s_find_slope = 13,
+  web2s_find_sensor = 14,
   web2s_reserve12 = 15,
   web2s_reserve13 = 16,
   web2s_reserve14 = 17,
@@ -1575,6 +1581,252 @@ class WEB2S_Modify_Password : public ::google::protobuf::Message /* @@protoc_ins
 };
 // -------------------------------------------------------------------
 
+class WEB2S_Find_Slope : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope) */ {
+ public:
+  WEB2S_Find_Slope();
+  virtual ~WEB2S_Find_Slope();
+
+  WEB2S_Find_Slope(const WEB2S_Find_Slope& from);
+
+  inline WEB2S_Find_Slope& operator=(const WEB2S_Find_Slope& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WEB2S_Find_Slope& default_instance();
+
+  static inline const WEB2S_Find_Slope* internal_default_instance() {
+    return reinterpret_cast<const WEB2S_Find_Slope*>(
+               &_WEB2S_Find_Slope_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    11;
+
+  void Swap(WEB2S_Find_Slope* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WEB2S_Find_Slope* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WEB2S_Find_Slope* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WEB2S_Find_Slope& from);
+  void MergeFrom(const WEB2S_Find_Slope& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WEB2S_Find_Slope* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes slope_name = 2;
+  bool has_slope_name() const;
+  void clear_slope_name();
+  static const int kSlopeNameFieldNumber = 2;
+  const ::std::string& slope_name() const;
+  void set_slope_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_slope_name(::std::string&& value);
+  #endif
+  void set_slope_name(const char* value);
+  void set_slope_name(const void* value, size_t size);
+  ::std::string* mutable_slope_name();
+  ::std::string* release_slope_name();
+  void set_allocated_slope_name(::std::string* slope_name);
+
+  // required uint32 slope_id = 1;
+  bool has_slope_id() const;
+  void clear_slope_id();
+  static const int kSlopeIdFieldNumber = 1;
+  ::google::protobuf::uint32 slope_id() const;
+  void set_slope_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+ private:
+  void set_has_slope_id();
+  void clear_has_slope_id();
+  void set_has_slope_name();
+  void clear_has_slope_name();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr slope_name_;
+  ::google::protobuf::uint32 slope_id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class WEB2S_Find_Sensor : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor) */ {
+ public:
+  WEB2S_Find_Sensor();
+  virtual ~WEB2S_Find_Sensor();
+
+  WEB2S_Find_Sensor(const WEB2S_Find_Sensor& from);
+
+  inline WEB2S_Find_Sensor& operator=(const WEB2S_Find_Sensor& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WEB2S_Find_Sensor& default_instance();
+
+  static inline const WEB2S_Find_Sensor* internal_default_instance() {
+    return reinterpret_cast<const WEB2S_Find_Sensor*>(
+               &_WEB2S_Find_Sensor_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    12;
+
+  void Swap(WEB2S_Find_Sensor* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WEB2S_Find_Sensor* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WEB2S_Find_Sensor* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WEB2S_Find_Sensor& from);
+  void MergeFrom(const WEB2S_Find_Sensor& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WEB2S_Find_Sensor* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes slope_name = 2;
+  bool has_slope_name() const;
+  void clear_slope_name();
+  static const int kSlopeNameFieldNumber = 2;
+  const ::std::string& slope_name() const;
+  void set_slope_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_slope_name(::std::string&& value);
+  #endif
+  void set_slope_name(const char* value);
+  void set_slope_name(const void* value, size_t size);
+  ::std::string* mutable_slope_name();
+  ::std::string* release_slope_name();
+  void set_allocated_slope_name(::std::string* slope_name);
+
+  // required uint32 slope_id = 1;
+  bool has_slope_id() const;
+  void clear_slope_id();
+  static const int kSlopeIdFieldNumber = 1;
+  ::google::protobuf::uint32 slope_id() const;
+  void set_slope_id(::google::protobuf::uint32 value);
+
+  // required uint32 sensor_id = 3;
+  bool has_sensor_id() const;
+  void clear_sensor_id();
+  static const int kSensorIdFieldNumber = 3;
+  ::google::protobuf::uint32 sensor_id() const;
+  void set_sensor_id(::google::protobuf::uint32 value);
+
+  // required uint32 sensor_type = 4;
+  bool has_sensor_type() const;
+  void clear_sensor_type();
+  static const int kSensorTypeFieldNumber = 4;
+  ::google::protobuf::uint32 sensor_type() const;
+  void set_sensor_type(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+ private:
+  void set_has_slope_id();
+  void clear_has_slope_id();
+  void set_has_slope_name();
+  void clear_has_slope_name();
+  void set_has_sensor_id();
+  void clear_has_sensor_id();
+  void set_has_sensor_type();
+  void clear_has_sensor_type();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr slope_name_;
+  ::google::protobuf::uint32 slope_id_;
+  ::google::protobuf::uint32 sensor_id_;
+  ::google::protobuf::uint32 sensor_type_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class S2Web_Login_Result_ServerData : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData) */ {
  public:
   S2Web_Login_Result_ServerData();
@@ -1603,7 +1855,7 @@ class S2Web_Login_Result_ServerData : public ::google::protobuf::Message /* @@pr
                &_S2Web_Login_Result_ServerData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    11;
+    13;
 
   void Swap(S2Web_Login_Result_ServerData* other);
 
@@ -1726,7 +1978,7 @@ class S2Web_Login_Result : public ::google::protobuf::Message /* @@protoc_insert
                &_S2Web_Login_Result_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    12;
+    14;
 
   void Swap(S2Web_Login_Result* other);
 
@@ -1833,7 +2085,7 @@ class S2Web_Slope_List_SlopeData : public ::google::protobuf::Message /* @@proto
                &_S2Web_Slope_List_SlopeData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
+    15;
 
   void Swap(S2Web_Slope_List_SlopeData* other);
 
@@ -2004,7 +2256,7 @@ class S2Web_Slope_List : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2Web_Slope_List_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    14;
+    16;
 
   void Swap(S2Web_Slope_List* other);
 
@@ -2101,7 +2353,7 @@ class S2Web_Sensor_List_SensorData : public ::google::protobuf::Message /* @@pro
                &_S2Web_Sensor_List_SensorData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    15;
+    17;
 
   void Swap(S2Web_Sensor_List_SensorData* other);
 
@@ -2372,7 +2624,7 @@ class S2Web_Sensor_List : public ::google::protobuf::Message /* @@protoc_inserti
                &_S2Web_Sensor_List_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    18;
 
   void Swap(S2Web_Sensor_List* other);
 
@@ -2469,7 +2721,7 @@ class S2Web_Sensor_History_SensorData : public ::google::protobuf::Message /* @@
                &_S2Web_Sensor_History_SensorData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    19;
 
   void Swap(S2Web_Sensor_History_SensorData* other);
 
@@ -2674,7 +2926,7 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
                &_S2Web_Sensor_History_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    20;
 
   void Swap(S2Web_Sensor_History* other);
 
@@ -2864,7 +3116,7 @@ class S2WEB_ERROR : public ::google::protobuf::Message /* @@protoc_insertion_poi
                &_S2WEB_ERROR_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    19;
+    21;
 
   void Swap(S2WEB_ERROR* other);
 
@@ -2956,7 +3208,7 @@ class S2WEB_New_Slope : public ::google::protobuf::Message /* @@protoc_insertion
                &_S2WEB_New_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    22;
 
   void Swap(S2WEB_New_Slope* other);
 
@@ -3127,7 +3379,7 @@ class S2WEB_Del_Slope : public ::google::protobuf::Message /* @@protoc_insertion
                &_S2WEB_Del_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    21;
+    23;
 
   void Swap(S2WEB_Del_Slope* other);
 
@@ -3219,7 +3471,7 @@ class S2WEB_Update_Slope : public ::google::protobuf::Message /* @@protoc_insert
                &_S2WEB_Update_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    22;
+    24;
 
   void Swap(S2WEB_Update_Slope* other);
 
@@ -3390,7 +3642,7 @@ class S2WEB_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2WEB_Add_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    23;
+    25;
 
   void Swap(S2WEB_Add_Sensor* other);
 
@@ -3571,7 +3823,7 @@ class S2WEB_Del_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2WEB_Del_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    24;
+    26;
 
   void Swap(S2WEB_Del_Sensor* other);
 
@@ -3663,7 +3915,7 @@ class S2WEB_Update_Sensor : public ::google::protobuf::Message /* @@protoc_inser
                &_S2WEB_Update_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    25;
+    27;
 
   void Swap(S2WEB_Update_Sensor* other);
 
@@ -3844,7 +4096,7 @@ class S2WEB_Modify_Password_Result : public ::google::protobuf::Message /* @@pro
                &_S2WEB_Modify_Password_Result_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    26;
+    28;
 
   void Swap(S2WEB_Modify_Password_Result* other);
 
@@ -5260,6 +5512,236 @@ inline void WEB2S_Modify_Password::set_allocated_new_password(::std::string* new
   }
   new_password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), new_password);
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.new_password)
+}
+
+// -------------------------------------------------------------------
+
+// WEB2S_Find_Slope
+
+// required uint32 slope_id = 1;
+inline bool WEB2S_Find_Slope::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WEB2S_Find_Slope::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WEB2S_Find_Slope::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WEB2S_Find_Slope::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+inline ::google::protobuf::uint32 WEB2S_Find_Slope::slope_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_id)
+  return slope_id_;
+}
+inline void WEB2S_Find_Slope::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_id)
+}
+
+// required bytes slope_name = 2;
+inline bool WEB2S_Find_Slope::has_slope_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WEB2S_Find_Slope::set_has_slope_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WEB2S_Find_Slope::clear_has_slope_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WEB2S_Find_Slope::clear_slope_name() {
+  slope_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_slope_name();
+}
+inline const ::std::string& WEB2S_Find_Slope::slope_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+  return slope_name_.GetNoArena();
+}
+inline void WEB2S_Find_Slope::set_slope_name(const ::std::string& value) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+}
+#if LANG_CXX11
+inline void WEB2S_Find_Slope::set_slope_name(::std::string&& value) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+}
+#endif
+inline void WEB2S_Find_Slope::set_slope_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+}
+inline void WEB2S_Find_Slope::set_slope_name(const void* value, size_t size) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+}
+inline ::std::string* WEB2S_Find_Slope::mutable_slope_name() {
+  set_has_slope_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+  return slope_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Find_Slope::release_slope_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+  clear_has_slope_name();
+  return slope_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Find_Slope::set_allocated_slope_name(::std::string* slope_name) {
+  if (slope_name != NULL) {
+    set_has_slope_name();
+  } else {
+    clear_has_slope_name();
+  }
+  slope_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), slope_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+}
+
+// -------------------------------------------------------------------
+
+// WEB2S_Find_Sensor
+
+// required uint32 slope_id = 1;
+inline bool WEB2S_Find_Sensor::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WEB2S_Find_Sensor::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WEB2S_Find_Sensor::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WEB2S_Find_Sensor::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+inline ::google::protobuf::uint32 WEB2S_Find_Sensor::slope_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_id)
+  return slope_id_;
+}
+inline void WEB2S_Find_Sensor::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_id)
+}
+
+// required bytes slope_name = 2;
+inline bool WEB2S_Find_Sensor::has_slope_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WEB2S_Find_Sensor::set_has_slope_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WEB2S_Find_Sensor::clear_has_slope_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WEB2S_Find_Sensor::clear_slope_name() {
+  slope_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_slope_name();
+}
+inline const ::std::string& WEB2S_Find_Sensor::slope_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+  return slope_name_.GetNoArena();
+}
+inline void WEB2S_Find_Sensor::set_slope_name(const ::std::string& value) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+}
+#if LANG_CXX11
+inline void WEB2S_Find_Sensor::set_slope_name(::std::string&& value) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+}
+#endif
+inline void WEB2S_Find_Sensor::set_slope_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+}
+inline void WEB2S_Find_Sensor::set_slope_name(const void* value, size_t size) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+}
+inline ::std::string* WEB2S_Find_Sensor::mutable_slope_name() {
+  set_has_slope_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+  return slope_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Find_Sensor::release_slope_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+  clear_has_slope_name();
+  return slope_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Find_Sensor::set_allocated_slope_name(::std::string* slope_name) {
+  if (slope_name != NULL) {
+    set_has_slope_name();
+  } else {
+    clear_has_slope_name();
+  }
+  slope_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), slope_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+}
+
+// required uint32 sensor_id = 3;
+inline bool WEB2S_Find_Sensor::has_sensor_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WEB2S_Find_Sensor::set_has_sensor_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WEB2S_Find_Sensor::clear_has_sensor_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WEB2S_Find_Sensor::clear_sensor_id() {
+  sensor_id_ = 0u;
+  clear_has_sensor_id();
+}
+inline ::google::protobuf::uint32 WEB2S_Find_Sensor::sensor_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.sensor_id)
+  return sensor_id_;
+}
+inline void WEB2S_Find_Sensor::set_sensor_id(::google::protobuf::uint32 value) {
+  set_has_sensor_id();
+  sensor_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.sensor_id)
+}
+
+// required uint32 sensor_type = 4;
+inline bool WEB2S_Find_Sensor::has_sensor_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void WEB2S_Find_Sensor::set_has_sensor_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void WEB2S_Find_Sensor::clear_has_sensor_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void WEB2S_Find_Sensor::clear_sensor_type() {
+  sensor_type_ = 0u;
+  clear_has_sensor_type();
+}
+inline ::google::protobuf::uint32 WEB2S_Find_Sensor::sensor_type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.sensor_type)
+  return sensor_type_;
+}
+inline void WEB2S_Find_Sensor::set_sensor_type(::google::protobuf::uint32 value) {
+  set_has_sensor_type();
+  sensor_type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.sensor_type)
 }
 
 // -------------------------------------------------------------------
@@ -7946,6 +8428,10 @@ inline void S2WEB_Modify_Password_Result::set_result(::google::protobuf::uint32 
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
