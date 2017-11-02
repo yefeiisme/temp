@@ -252,5 +252,71 @@ BEGIN
 	select paramSensorID,paramType,paramSlopeID,paramLongitude,paramLatitude,paramOwnerID,paramUrl,paramDesc;
 END;
 
+DROP PROCEDURE IF EXISTS `FindSensor`;
+CREATE PROCEDURE `FindSensor`(IN paramName VARCHAR(64), IN paramSlopeID INTEGER UNSIGNED, IN paramSensorID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
+BEGIN
+	set @strSql = 'select * from sensor';
+    set @nCount	= 0;
+    
+    if paramSlopeID > 0 then
+    	set @strSql = concat(@strSql, " where SlopeID=", paramSlopeID);
+    	set @nCount = @nCount + 1;
+    end if;
+    
+    if paramSensorID > 0 then
+    	if @nCount = 0 then
+    		set @strSql = concat(@strSql, " where ID=", paramSensorID);
+        else
+    		set @strSql = concat(@strSql, " and ID=", paramSensorID);
+        end if;
+    	set @nCount = @nCount + 1;
+    end if;
+    
+    if paramSensorType > 0 then
+    	if @nCount = 0 then
+    		set @strSql = concat(@strSql, " where Type=", paramSensorType);
+        else
+    		set @strSql = concat(@strSql, " and Type=", paramSensorType);
+        end if;
+    	set @nCount = @nCount + 1;
+    end if;
+    
+    if paramName <> '' then
+    	if @nCount = 0 then
+    		set @strSql = concat(@strSql, " where SlopeID IN (select ID from slope where Name like '", paramName,"')");
+        else
+    		set @strSql = concat(@strSql, " and SlopeID IN (select ID from slope where Name like '", paramName,"')");
+        end if;
+    end if;
+    
+    PREPARE stmt FROM @strSql;
+    EXECUTE stmt;
+    deallocate prepare stmt;
+END;
+
+DROP PROCEDURE IF EXISTS `FindSlope`;
+CREATE PROCEDURE `FindSlope`(IN paramName varchar(64),IN paramID INTEGER UNSIGNED)
+BEGIN
+	set @strSql = 'select * from slope';
+    set @nCount	= 0;
+    
+    if paramID > 0 then
+    	set @strSql = concat(@strSql, " where ID=", paramID);
+    	set @nCount = @nCount + 1;
+    end if;
+    
+    if paramName <> '' then
+    	if @nCount = 0 then
+    		set @strSql = concat(@strSql, " where Name like '", paramName,"'");
+        else
+    		set @strSql = concat(@strSql, " and Name like '", paramName,"'");
+        end if;
+    end if;
+    
+    PREPARE stmt FROM @strSql;
+    EXECUTE stmt;
+    deallocate prepare stmt;
+END;
+
 //
 delimiter ; //
