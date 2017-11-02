@@ -199,7 +199,7 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `UpdateSlope`;
-CREATE PROCEDURE `UpdateSlope`(IN paramType INTEGER UNSIGNED, IN paramName VARCHAR(64), IN paramLongitude DOUBLE, IN paramLatitude DOUBLE, IN paramOwnerID INTEGER UNSIGNED, IN paramUrl mediumtext, IN paramSlopeID INTEGER UNSIGNED)
+CREATE PROCEDURE `UpdateSlope`(IN paramSlopeID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED,IN paramName VARCHAR(64),IN paramLongitude DOUBLE,IN paramLatitude DOUBLE,IN paramOwnerID INTEGER UNSIGNED,IN paramUrl mediumtext)
 BEGIN
 	update slope set Type=paramType,Name=paramName,Longitude=paramLongitude,Latitude=paramLatitude,OwnerID=paramOwnerID,VideoUrl=paramUrl where ID=paramSlopeID;
 	

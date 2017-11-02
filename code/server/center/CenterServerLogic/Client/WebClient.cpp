@@ -345,6 +345,7 @@ void CWebClient::RecvUpdateSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->AddParam(tagSlopeData.name().c_str());
 	pMysqlQuery->AddParam(tagSlopeData.longitude());
 	pMysqlQuery->AddParam(tagSlopeData.latitude());
+	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagSlopeData.url().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
