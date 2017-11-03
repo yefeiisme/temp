@@ -50,14 +50,14 @@ bool CDataServerConfig::LoadConfig()
 		return false;
 	}
 
-	m_pIniFile->GetInteger("CenterServer", "DataPort", 0, &m_nDataPort);
-	m_pIniFile->GetInteger("CenterServer", "DataCount", 0, &m_nDataCount);
-	m_pIniFile->GetInteger("CenterServer", "DataRecvBuffLen", 0, &m_nDataRecvBuffLen);
-	m_pIniFile->GetInteger("CenterServer", "DataSendBuffLen", 0, &m_nDataSendBuffLen);
-	m_pIniFile->GetInteger("CenterServer", "DataMaxRecvPackLen", 0, &m_nDataMaxRecvPackLen);
-	m_pIniFile->GetInteger("CenterServer", "DataMaxSendPackLen", 0, &m_nDataMaxSendPackLen);
-	m_pIniFile->GetInteger("CenterServer", "DataSleepTime", 0, &m_nDataSleepTime);
-	m_pIniFile->GetInteger("CenterServer", "DataTimeOut", 0, &m_nDataTimeOut);
+	m_pIniFile->GetInteger("DataServer", "Port", 0, &m_nDataPort);
+	m_pIniFile->GetInteger("DataServer", "Count", 0, &m_nDataCount);
+	m_pIniFile->GetInteger("DataServer", "RecvBuffLen", 0, &m_nDataRecvBuffLen);
+	m_pIniFile->GetInteger("DataServer", "SendBuffLen", 0, &m_nDataSendBuffLen);
+	m_pIniFile->GetInteger("DataServer", "MaxRecvPackLen", 0, &m_nDataMaxRecvPackLen);
+	m_pIniFile->GetInteger("DataServer", "MaxSendPackLen", 0, &m_nDataMaxSendPackLen);
+	m_pIniFile->GetInteger("DataServer", "SleepTime", 0, &m_nDataSleepTime);
+	m_pIniFile->GetInteger("DataServer", "TimeOut", 0, &m_nDataTimeOut);
 
 	m_pIniFile->Release();
 	m_pIniFile	= nullptr;

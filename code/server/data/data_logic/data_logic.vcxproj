@@ -21,6 +21,7 @@
     <ClInclude Include="..\..\..\share\header\DataServer\IDataConnection.h" />
     <ClInclude Include="..\..\..\share\header\DataServer\IDataLogic.h" />
     <ClInclude Include="..\..\..\share\header\DataServer\IDataServer.h" />
+    <ClInclude Include="..\..\..\share\header\Protocol\DataServerProtocol.h" />
     <ClInclude Include="Client\Client.h" />
     <ClInclude Include="Client\DataClient.h" />
     <ClInclude Include="Config\DataLogicConfig.h" />

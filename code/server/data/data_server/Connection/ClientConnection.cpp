@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ClientConnection.h"
 #include "DataServer.h"
-//#include "IGameServerLogic.h"
+#include "../Config/DataServerConfig.h"
 
 CClientConnection::StateFuncArray CClientConnection::m_pfnStateFunc[CLIENT_CONN_STATE_MAX] =
 {
@@ -58,7 +58,7 @@ bool CClientConnection::PutPack(const void *pPack, unsigned int uPackLen)
 
 void CClientConnection::ResetTimeOut()
 {
-	m_nTimeOut	= g_nTimeNow + 10;
+	m_nTimeOut	= g_nTimeNow + g_pDataServerConfig.m_nDataTimeOut;
 }
 
 void CClientConnection::OnIdle()

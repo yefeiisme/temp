@@ -14,10 +14,7 @@ CSensorDBConn::CSensorDBConn()
 	}
 
 	m_ProtocolFunc[SENSOR_DB_VERIFY_ACCOUNT]	= &CSensorDBConn::RecvVerifyAccount;
-	m_ProtocolFunc[SENSOR_DB_SLOPE_LIST]		= &CSensorDBConn::RecvSlopeList;
-	m_ProtocolFunc[SENSOR_DB_SENSOR_LIST]		= &CSensorDBConn::RecvSensorList;
-	m_ProtocolFunc[SENSOR_DB_SENSOR_HISTORY]	= &CSensorDBConn::RecvSensorHistory;
-	m_ProtocolFunc[SENSOR_DB_LOAD_ALL_LIST]		= &CSensorDBConn::RecvLoadAllList;
+	m_ProtocolFunc[SENSOR_DB_ADD_SENSOR_DATA]	= &CSensorDBConn::RecvAddSensorData;
 
 	for (auto nIndex = 0; nIndex < CLIENT_TYPE_MAX; ++nIndex)
 	{
@@ -80,18 +77,6 @@ void CSensorDBConn::RecvVerifyAccount(IMysqlResultSet *pResultSet, SMysqlRequest
 {
 }
 
-void CSensorDBConn::RecvSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
-{
-}
-
-void CSensorDBConn::RecvSensorList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
-{
-}
-
-void CSensorDBConn::RecvSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
-{
-}
-
-void CSensorDBConn::RecvLoadAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+void CSensorDBConn::RecvAddSensorData(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }

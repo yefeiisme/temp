@@ -43,7 +43,7 @@ bool CDataLogicConfig::LoadConfig()
 		return false;
 	}
 
-	m_pIniFile->GetInteger("User", "DataClientCount", 0, &m_nDataClientCount);
+	m_pIniFile->GetInteger("Client", "Count", 0, &m_nDataClientCount);
 
 	m_pIniFile->Release();
 	m_pIniFile	= nullptr;

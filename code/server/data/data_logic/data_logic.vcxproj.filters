@@ -64,5 +64,8 @@
     <ClInclude Include="SensorDB\SensorDBOperation.h">
       <Filter>SensorDB</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\share\header\Protocol\DataServerProtocol.h">
+      <Filter>Client</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

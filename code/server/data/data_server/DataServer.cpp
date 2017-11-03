@@ -174,7 +174,7 @@ void CDataServer::Run()
 
 		++m_uFrame;
 
-		m_ullNextFrameTick	= m_ullBeginTick + m_uFrame * 1000 / 24;
+		m_ullNextFrameTick	= m_ullBeginTick + m_uFrame * 1000 / 20;
 
 		g_nTimeNow	= time(nullptr);
 

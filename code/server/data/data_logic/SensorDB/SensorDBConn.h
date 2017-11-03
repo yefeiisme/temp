@@ -17,10 +17,7 @@ private:
 	void						DataQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 
 	void						RecvVerifyAccount(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
-	void						RecvSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
-	void						RecvSensorList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
-	void						RecvSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
-	void						RecvLoadAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void						RecvAddSensorData(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	typedef void				(CSensorDBConn::*pfnProtocolFunc)(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	pfnProtocolFunc				m_ProtocolFunc[SENSOR_DB_OPT_MAX];
