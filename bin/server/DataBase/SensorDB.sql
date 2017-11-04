@@ -295,7 +295,7 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `FindSlope`;
-CREATE PROCEDURE `FindSlope`(IN paramName varchar(64),IN paramID INTEGER UNSIGNED)
+CREATE PROCEDURE `FindSlope`(IN paramID INTEGER UNSIGNED,IN paramName varchar(64))
 BEGIN
 	set @strSql = 'select ID,Type,Name,Longitude,Latitude,State,VideoUrl from slope';
     set @nCount	= 0;
