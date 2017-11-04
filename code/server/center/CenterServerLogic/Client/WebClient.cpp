@@ -525,7 +525,7 @@ void CWebClient::RecvFindSlope(const void *pPack, const unsigned int uPackLen)
 
 	pMysqlQuery->PrepareProc("FindSlope");
 	pMysqlQuery->AddParam(tagFindSlope.slope_id());
-	pMysqlQuery->AddParam(tagFindSlope.slope_name().c_str());
+	pMysqlQuery->AddLikeParam(tagFindSlope.slope_name().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();

@@ -93,6 +93,7 @@ public:
 	bool					AddParam(const double dParam);
 	bool					AddParam(const char *pstrParam);
 	bool					AddParam(const void *pParam);
+	bool					AddLikeParam(const char *pstrParam);
 	bool					EndPrepareProc(void *pCallbackData, const WORD wDataLen);
 	bool					CallProc();
 

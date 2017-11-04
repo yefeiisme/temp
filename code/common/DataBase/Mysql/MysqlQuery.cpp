@@ -286,6 +286,11 @@ bool CMysqlQuery::AddParam(const void *pParam)
 	return m_pProcSqlObj->AddParam(pParam);
 }
 
+bool CMysqlQuery::AddLikeParam(const char *pstrParam)
+{
+	return m_pProcSqlObj->AddLikeParam(pstrParam);
+}
+
 bool CMysqlQuery::EndPrepareProc(void *pCallbackData, const WORD wDataLen)
 {
 	return m_pProcSqlObj->EndPrepareProc(pCallbackData, wDataLen);
