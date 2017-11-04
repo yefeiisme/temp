@@ -230,34 +230,6 @@ bool CProcObj::AddParam(const void *pParam)
 	return true;
 }
 
-bool CProcObj::AddLikeParam(const char *pstrParam)
-{
-	if (nullptr == pstrParam)
-		return false;
-
-	if (m_bAddParam)
-	{
-		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",'%%");
-	}
-	else
-	{
-		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "'%%");
-	}
-
-	size_t	nParamLen = strlen(pstrParam);
-
-	if (m_uMaxSQLLen - m_uSQLLen < nParamLen * 2 + 1)
-		return false;
-
-	m_uSQLLen += mysql_real_escape_string(m_pDBHandle, m_pstrSQL + m_uSQLLen, pstrParam, nParamLen);
-
-	m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%%'");
-
-	m_bAddParam = true;
-
-	return true;
-}
-
 bool CProcObj::EndPrepareProc(void *pCallbackData, const WORD wDataLen)
 {
 	if (wDataLen > MAX_CALLBACK_DATA_LEN)

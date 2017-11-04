@@ -308,9 +308,9 @@ BEGIN
     
     if paramName <> '' then
     	if @nCount = 0 then
-    		set @strSql = concat(@strSql, ' where Name like ', paramName);
+    		set @strSql = concat(@strSql, ' where Name like \'%', paramName,'%\'', ' ESCAPE \'/\'');
         else
-    		set @strSql = concat(@strSql, ' and Name like ', paramName);
+    		set @strSql = concat(@strSql, ' and Name like \'%', paramName,'%\'', ' ESCAPE \'/\'');
         end if;
     end if;
     

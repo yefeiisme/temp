@@ -44,7 +44,6 @@ public:
 	virtual bool			AddParam(const double dParam) = 0;
 	virtual bool			AddParam(const char *pstrParam) = 0;
 	virtual bool			AddParam(const void *pParam) = 0;
-	virtual bool			AddLikeParam(const char *pstrParam) = 0;
 	virtual bool			EndPrepareProc(void *pCallbackData, const WORD wDataLen) = 0;
 	virtual bool			CallProc() = 0;
 
