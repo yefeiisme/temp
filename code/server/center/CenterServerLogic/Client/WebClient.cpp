@@ -945,44 +945,28 @@ void CWebClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 
 void CWebClient::DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	UINT	uCol		= 0;
-	BYTE	byResult	= 0;
-	WORD	wSlopeID	= 0;
-
-	BYTE	byResultCount = pResultSet->GetResultCount();
-	if (2 != byResultCount)
+	UINT	uCol			= 0;
+	BYTE	byResult		= 0;
+	BYTE	byResultCount	= pResultSet->GetResultCount();
+	if (1 != byResultCount)
 	{
 		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
 		return;
 	}
 
 	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
-	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
 
-	if (nullptr == pResult1 || nullptr == pResult2)
+	if (nullptr == pResult1)
 		return;
 
 	if (1 != pResult1->GetRowCount())
 		return;
 
 	pResult1->GetData(0, 0, byResult);
-	if (0 != byResult)
-	{
-		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
-		tagError.set_error_code(byResult);
-
-		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
-
-		return;
-	}
 
 	WEB_SERVER_NET_Protocol::S2WEB_Del_Slope	tagDelSlope;
 
-	uCol	= 0;
-
-	pResult2->GetData(0, uCol++, wSlopeID);
-
-	tagDelSlope.set_id(wSlopeID);
+	tagDelSlope.set_result(byResult);
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_del_slope, tagDelSlope);
 }
@@ -1114,44 +1098,28 @@ void CWebClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlReq
 
 void CWebClient::DBResopndDelSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
-	UINT	uCol		= 0;
-	BYTE	byResult	= 0;
-	UINT	uSensorID	= 0;
-
-	BYTE	byResultCount = pResultSet->GetResultCount();
-	if (2 != byResultCount)
+	UINT	uCol			= 0;
+	BYTE	byResult		= 0;
+	BYTE	byResultCount	= pResultSet->GetResultCount();
+	if (1 != byResultCount)
 	{
 		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
 		return;
 	}
 
 	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
-	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
 
-	if (nullptr == pResult1 || nullptr == pResult2)
+	if (nullptr == pResult1)
 		return;
 
 	if (1 != pResult1->GetRowCount())
 		return;
 
 	pResult1->GetData(0, 0, byResult);
-	if (0 != byResult)
-	{
-		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
-		tagError.set_error_code(byResult);
-
-		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
-
-		return;
-	}
 
 	WEB_SERVER_NET_Protocol::S2WEB_Del_Sensor	tagDelSensor;
 
-	uCol	= 0;
-
-	pResult2->GetData(0, uCol++, uSensorID);
-
-	tagDelSensor.set_id(uSensorID);
+	tagDelSensor.set_result(byResult);
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_del_sensor, tagDelSensor);
 }

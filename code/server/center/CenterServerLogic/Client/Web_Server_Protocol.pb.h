@@ -3423,22 +3423,22 @@ class S2WEB_Del_Slope : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // required uint32 id = 1;
-  bool has_id() const;
-  void clear_id();
-  static const int kIdFieldNumber = 1;
-  ::google::protobuf::uint32 id() const;
-  void set_id(::google::protobuf::uint32 value);
+  // required uint32 result = 1;
+  bool has_result() const;
+  void clear_result();
+  static const int kResultFieldNumber = 1;
+  ::google::protobuf::uint32 result() const;
+  void set_result(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
  private:
-  void set_has_id();
-  void clear_has_id();
+  void set_has_result();
+  void clear_has_result();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::uint32 id_;
+  ::google::protobuf::uint32 result_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -3867,22 +3867,22 @@ class S2WEB_Del_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
-  // required uint32 id = 1;
-  bool has_id() const;
-  void clear_id();
-  static const int kIdFieldNumber = 1;
-  ::google::protobuf::uint32 id() const;
-  void set_id(::google::protobuf::uint32 value);
+  // required uint32 result = 1;
+  bool has_result() const;
+  void clear_result();
+  static const int kResultFieldNumber = 1;
+  ::google::protobuf::uint32 result() const;
+  void set_result(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
  private:
-  void set_has_id();
-  void clear_has_id();
+  void set_has_result();
+  void clear_has_result();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::uint32 id_;
+  ::google::protobuf::uint32 result_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -7549,28 +7549,28 @@ inline void S2WEB_New_Slope::set_allocated_url(::std::string* url) {
 
 // S2WEB_Del_Slope
 
-// required uint32 id = 1;
-inline bool S2WEB_Del_Slope::has_id() const {
+// required uint32 result = 1;
+inline bool S2WEB_Del_Slope::has_result() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void S2WEB_Del_Slope::set_has_id() {
+inline void S2WEB_Del_Slope::set_has_result() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void S2WEB_Del_Slope::clear_has_id() {
+inline void S2WEB_Del_Slope::clear_has_result() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void S2WEB_Del_Slope::clear_id() {
-  id_ = 0u;
-  clear_has_id();
+inline void S2WEB_Del_Slope::clear_result() {
+  result_ = 0u;
+  clear_has_result();
 }
-inline ::google::protobuf::uint32 S2WEB_Del_Slope::id() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope.id)
-  return id_;
+inline ::google::protobuf::uint32 S2WEB_Del_Slope::result() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope.result)
+  return result_;
 }
-inline void S2WEB_Del_Slope::set_id(::google::protobuf::uint32 value) {
-  set_has_id();
-  id_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope.id)
+inline void S2WEB_Del_Slope::set_result(::google::protobuf::uint32 value) {
+  set_has_result();
+  result_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope.result)
 }
 
 // -------------------------------------------------------------------
@@ -8101,28 +8101,28 @@ inline void S2WEB_Add_Sensor::set_allocated_description(::std::string* descripti
 
 // S2WEB_Del_Sensor
 
-// required uint32 id = 1;
-inline bool S2WEB_Del_Sensor::has_id() const {
+// required uint32 result = 1;
+inline bool S2WEB_Del_Sensor::has_result() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void S2WEB_Del_Sensor::set_has_id() {
+inline void S2WEB_Del_Sensor::set_has_result() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void S2WEB_Del_Sensor::clear_has_id() {
+inline void S2WEB_Del_Sensor::clear_has_result() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void S2WEB_Del_Sensor::clear_id() {
-  id_ = 0u;
-  clear_has_id();
+inline void S2WEB_Del_Sensor::clear_result() {
+  result_ = 0u;
+  clear_has_result();
 }
-inline ::google::protobuf::uint32 S2WEB_Del_Sensor::id() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor.id)
-  return id_;
+inline ::google::protobuf::uint32 S2WEB_Del_Sensor::result() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor.result)
+  return result_;
 }
-inline void S2WEB_Del_Sensor::set_id(::google::protobuf::uint32 value) {
-  set_has_id();
-  id_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor.id)
+inline void S2WEB_Del_Sensor::set_result(::google::protobuf::uint32 value) {
+  set_has_result();
+  result_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor.result)
 }
 
 // -------------------------------------------------------------------

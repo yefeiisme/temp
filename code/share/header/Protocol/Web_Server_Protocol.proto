@@ -286,7 +286,7 @@ message S2WEB_New_Slope
 // 删除边坡
 message S2WEB_Del_Slope
 {
-	required uint32	id				= 1;	// ID
+	required uint32	result		= 1;	// 删除结果
 }
 
 // 更新边坡数据
@@ -304,33 +304,33 @@ message S2WEB_Update_Slope
 // 添加传感器
 message S2WEB_Add_Sensor
 {
-	required uint32	id				= 1;	// ID
-	required uint32	type			= 2;	// 类型
-	required uint32	state			= 3;	// 预警状态
-	required uint32	slope_id		= 4;	// 所属边坡ID
-	required double	longitude		= 5;	// 经度
-	required double	latitude		= 6;	// 纬度
-	required bytes	url				= 7;	// 特殊传感器类型的url
-	required bytes	description		= 8;	// 安装位置的描述
+	required uint32	id			= 1;	// ID
+	required uint32	type		= 2;	// 类型
+	required uint32	state		= 3;	// 预警状态
+	required uint32	slope_id	= 4;	// 所属边坡ID
+	required double	longitude	= 5;	// 经度
+	required double	latitude	= 6;	// 纬度
+	required bytes	url			= 7;	// 特殊传感器类型的url
+	required bytes	description	= 8;	// 安装位置的描述
 }
 
 // 删除传感器
 message S2WEB_Del_Sensor
 {
-	required uint32	id				= 1;	// ID
+	required uint32	result		= 1;	// 删除结果
 }
 
 // 更新传感器数据
 message S2WEB_Update_Sensor
 {
-	required uint32	id				= 1;	// ID
-	required uint32	type			= 2;	// 类型
-	required uint32	state			= 3;	// 预警状态
-	required uint32	slope_id		= 4;	// 所属边坡ID
-	required double	longitude		= 5;	// 经度
-	required double	latitude		= 6;	// 纬度
-	required bytes	url				= 7;	// 特殊传感器类型的url
-	required bytes	description		= 8;	// 安装位置的描述
+	required uint32	id			= 1;	// ID
+	required uint32	type		= 2;	// 类型
+	required uint32	state		= 3;	// 预警状态
+	required uint32	slope_id	= 4;	// 所属边坡ID
+	required double	longitude	= 5;	// 经度
+	required double	latitude	= 6;	// 纬度
+	required bytes	url			= 7;	// 特殊传感器类型的url
+	required bytes	description	= 8;	// 安装位置的描述
 }
 
 // 更新传感器数据
