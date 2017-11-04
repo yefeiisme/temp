@@ -237,11 +237,11 @@ bool CProcObj::AddLikeParam(const char *pstrParam)
 
 	if (m_bAddParam)
 	{
-		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",'%");
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",'%%");
 	}
 	else
 	{
-		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "'%");
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "'%%");
 	}
 
 	size_t	nParamLen = strlen(pstrParam);
@@ -251,7 +251,7 @@ bool CProcObj::AddLikeParam(const char *pstrParam)
 
 	m_uSQLLen += mysql_real_escape_string(m_pDBHandle, m_pstrSQL + m_uSQLLen, pstrParam, nParamLen);
 
-	m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%'");
+	m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%%'");
 
 	m_bAddParam = true;
 
