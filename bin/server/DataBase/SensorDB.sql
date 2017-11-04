@@ -253,7 +253,7 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `FindSensor`;
-CREATE PROCEDURE `FindSensor`(IN paramName VARCHAR(64), IN paramSlopeID INTEGER UNSIGNED, IN paramSensorID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
+CREATE PROCEDURE `FindSensor`(IN paramSlopeID INTEGER UNSIGNED, IN paramName VARCHAR(64), IN paramSensorID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
 BEGIN
 	set @strSql = 'select ID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor';
     set @nCount	= 0;
@@ -283,13 +283,12 @@ BEGIN
     
     if paramName <> '' then
     	if @nCount = 0 then
-    		set @strSql = concat(@strSql, ' where SlopeID IN (select ID from slope where Name like \'%', paramName,'%\')');
+    		set @strSql = concat(@strSql, ' where SlopeID IN (select ID from slope where Name like \'%', paramName,'%\'', ' ESCAPE \'/\')');
         else
-    		set @strSql = concat(@strSql, ' and SlopeID IN (select ID from slope where Name like \'%', paramName,'%\')');
+    		set @strSql = concat(@strSql, ' and SlopeID IN (select ID from slope where Name like \'%', paramName,'%\'', ' ESCAPE \'/\')');
         end if;
     end if;
-    
-	select @strSql;
+
     PREPARE stmt FROM @strSql;
     EXECUTE stmt;
     deallocate prepare stmt;
