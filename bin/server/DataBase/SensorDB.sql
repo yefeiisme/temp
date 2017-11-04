@@ -259,36 +259,37 @@ BEGIN
     set @nCount	= 0;
     
     if paramSlopeID > 0 then
-    	set @strSql = concat(@strSql, " where SlopeID=", paramSlopeID);
+    	set @strSql = concat(@strSql, ' where SlopeID=', paramSlopeID);
     	set @nCount = @nCount + 1;
     end if;
     
     if paramSensorID > 0 then
     	if @nCount = 0 then
-    		set @strSql = concat(@strSql, " where ID=", paramSensorID);
+    		set @strSql = concat(@strSql, ' where ID=', paramSensorID);
         else
-    		set @strSql = concat(@strSql, " and ID=", paramSensorID);
+    		set @strSql = concat(@strSql, ' and ID=', paramSensorID);
         end if;
     	set @nCount = @nCount + 1;
     end if;
     
     if paramSensorType > 0 then
     	if @nCount = 0 then
-    		set @strSql = concat(@strSql, " where Type=", paramSensorType);
+    		set @strSql = concat(@strSql, ' where Type=', paramSensorType);
         else
-    		set @strSql = concat(@strSql, " and Type=", paramSensorType);
+    		set @strSql = concat(@strSql, ' and Type=', paramSensorType);
         end if;
     	set @nCount = @nCount + 1;
     end if;
     
     if paramName <> '' then
     	if @nCount = 0 then
-    		set @strSql = concat(@strSql, " where SlopeID IN (select ID from slope where Name like '", paramName,"')");
+    		set @strSql = concat(@strSql, ' where SlopeID IN (select ID from slope where Name like \'%', paramName,'%\')');
         else
-    		set @strSql = concat(@strSql, " and SlopeID IN (select ID from slope where Name like '", paramName,"')");
+    		set @strSql = concat(@strSql, ' and SlopeID IN (select ID from slope where Name like \'%', paramName,'%\')');
         end if;
     end if;
     
+	select @strSql;
     PREPARE stmt FROM @strSql;
     EXECUTE stmt;
     deallocate prepare stmt;
@@ -301,15 +302,15 @@ BEGIN
     set @nCount	= 0;
     
     if paramID > 0 then
-    	set @strSql = concat(@strSql, " where ID=", paramID);
+    	set @strSql = concat(@strSql, ' where ID=', paramID);
     	set @nCount = @nCount + 1;
     end if;
     
     if paramName <> '' then
     	if @nCount = 0 then
-    		set @strSql = concat(@strSql, " where Name like '", paramName,"'");
+    		set @strSql = concat(@strSql, ' where Name like \'%', paramName,'%\'');
         else
-    		set @strSql = concat(@strSql, " and Name like '", paramName,"'");
+    		set @strSql = concat(@strSql, ' and Name like \'%', paramName,'%\'');
         end if;
     end if;
     
