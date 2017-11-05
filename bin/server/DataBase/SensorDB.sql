@@ -239,9 +239,9 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `UpdateSensor`;
-CREATE PROCEDURE `UpdateSensor`(IN paramSensorID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED, IN paramLongitude DOUBLE, IN paramLatitude DOUBLE, IN paramOwnerID INTEGER UNSIGNED, IN paramUrl mediumtext, IN paramDesc mediumtext)
+CREATE PROCEDURE `UpdateSensor`(IN paramSensorID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED, IN paramLongitude DOUBLE, IN paramLatitude DOUBLE, IN paramUrl mediumtext, IN paramDesc mediumtext)
 BEGIN
-	update sensor set Type=paramType,SlopeID=paramSlopeID,Longitude=paramLongitude,Latitude=paramLatitude,OwnerID=paramOwnerID,VideoUrl=paramUrl,Description=paramDesc where ID=paramSensorID;
+	update sensor set Type=paramType,SlopeID=paramSlopeID,Longitude=paramLongitude,Latitude=paramLatitude,VideoUrl=paramUrl,Description=paramDesc where ID=paramSensorID;
 	
 	if ROW_COUNT() > 0 then
 		select 0;
@@ -249,7 +249,7 @@ BEGIN
 		select 1;
 	end if;
 	
-	select paramSensorID,paramType,paramSlopeID,paramLongitude,paramLatitude,paramOwnerID,paramUrl,paramDesc;
+	select paramSensorID,paramType,paramSlopeID,paramLongitude,paramLatitude,paramUrl,paramDesc;
 END;
 
 DROP PROCEDURE IF EXISTS `FindSensor`;
