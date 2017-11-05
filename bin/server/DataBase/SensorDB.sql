@@ -213,9 +213,9 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `AddSensor`;
-CREATE PROCEDURE `AddSensor`(IN paramType INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED, IN paramLongitude DOUBLE, IN paramLatitude DOUBLE, IN paramOwnerID INTEGER UNSIGNED, IN paramUrl mediumtext, IN paramDesc mediumtext)
+CREATE PROCEDURE `AddSensor`(IN paramType INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED, IN paramLongitude DOUBLE, IN paramLatitude DOUBLE, IN paramUrl mediumtext, IN paramDesc mediumtext)
 BEGIN
-	insert into sensor(Type,SlopeID,Longitude,Latitude,OwnerID,VideoUrl,Description) value(paramType,paramSlopeID,paramLongitude,paramLatitude,paramOwnerID,paramUrl,paramDesc);
+	insert into sensor(Type,SlopeID,Longitude,Latitude,VideoUrl,Description) value(paramType,paramSlopeID,paramLongitude,paramLatitude,paramUrl,paramDesc);
 	
 	if ROW_COUNT() > 0 then
 		select 0;
@@ -223,7 +223,7 @@ BEGIN
 		select 1;
 	end if;
 	
-	select LAST_INSERT_ID(),paramType,paramSlopeID,paramLongitude,paramLatitude,paramOwnerID,paramUrl,paramDesc;
+	select LAST_INSERT_ID(),paramType,paramSlopeID,paramLongitude,paramLatitude,paramUrl,paramDesc;
 END;
 
 DROP PROCEDURE IF EXISTS `DeleteSensor`;

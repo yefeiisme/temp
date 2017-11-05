@@ -383,7 +383,6 @@ void CWebClient::RecvAddSensor(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->AddParam(tagAddSensor.slope_id());
 	pMysqlQuery->AddParam(tagAddSensor.longitude());
 	pMysqlQuery->AddParam(tagAddSensor.latitude());
-	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagAddSensor.url().c_str());
 	pMysqlQuery->AddParam(tagAddSensor.description().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
