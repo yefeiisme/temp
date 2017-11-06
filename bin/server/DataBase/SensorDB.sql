@@ -84,6 +84,13 @@ CREATE TABLE `user` (
   `Addr` varchar(40) DEFAULT NULL,
   `TelNum` varchar(32) DEFAULT NULL,
   `GroupID` int unsigned NOT NULL,
+  `CanAddUser` int unsigned NOT NULL,
+  `CanAddSlope` int unsigned NOT NULL,
+  `CanUpdateSlope` int unsigned NOT NULL,
+  `CanDeleteSlope` int unsigned NOT NULL,
+  `CanAddSensor` int unsigned NOT NULL,
+  `CanUpdateSensor` int unsigned NOT NULL,
+  `CanDeleteSensor` int unsigned NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Account` (`Account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
