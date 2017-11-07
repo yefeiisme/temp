@@ -23,14 +23,14 @@ enum WEB2S
 	web2s_modify_password			= 12;	// 修改密码
 	web2s_find_slope				= 13;	// 查找指定的边坡
 	web2s_find_sensor				= 14;	// 查找指定的传感器
-	web2s_reserve12					= 15;	// 保留用的协议
-	web2s_reserve13					= 16;	// 保留用的协议
-	web2s_reserve14					= 17;	// 保留用的协议
-	web2s_reserve15					= 18;	// 保留用的协议
-	web2s_reserve16					= 19;	// 保留用的协议
-	web2s_reserve17					= 20;	// 保留用的协议
-	web2s_reserve18					= 21;	// 保留用的协议
-	web2s_reserve19					= 22;	// 保留用的协议
+	web2s_add_user					= 15;	// 添加新用户
+	web2s_modify_user				= 16;	// 修改用户信息
+	web2s_delete_user				= 17;	// 删除用户
+	web2s_add_user_group			= 18;	// 添加新的用户组
+	web2s_add_user_to_group			= 19;	// 添加新的用户到用户组
+	web2s_remove_user_from_group	= 20;	// 从用户组中删除指定的用户
+	web2s_modify_user_group			= 21;	// 修改用户组的权限
+	web2s_delete_user_group			= 22;	// 删除用户组
 	web2s_reserve20					= 23;	// 保留用的协议
 
 	web2s_max						= 256;	// 最大协议号
