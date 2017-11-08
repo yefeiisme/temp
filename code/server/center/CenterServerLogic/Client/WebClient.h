@@ -36,6 +36,18 @@ private:
 	void					RecvModifyPassword(const void *pPack, const unsigned int uPackLen);
 	void					RecvFindSlope(const void *pPack, const unsigned int uPackLen);
 	void					RecvFindSensor(const void *pPack, const unsigned int uPackLen);
+
+	void					RecvLoadUserList(const void *pPack, const unsigned int uPackLen);
+	void					RecvCreateUser(const void *pPack, const unsigned int uPackLen);
+	void					RecvModifyUser(const void *pPack, const unsigned int uPackLen);
+	void					RecvRemoveUser(const void *pPack, const unsigned int uPackLen);
+	void					RecvLoadGroupList(const void *pPack, const unsigned int uPackLen);
+
+	void					RecvCreateGroup(const void *pPack, const unsigned int uPackLen);
+	void					RecvAddUserToGroup(const void *pPack, const unsigned int uPackLen);
+	void					RecvRemoveUserFromGroup(const void *pPack, const unsigned int uPackLen);
+	void					RecvModifyGroup(const void *pPack, const unsigned int uPackLen);
+	void					RecvRemoveGroup(const void *pPack, const unsigned int uPackLen);
 private:
 	void					DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
@@ -53,6 +65,18 @@ private:
 	void					DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndLoadUserList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+
+	void					DBResopndCreateUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndModifyUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndRemoveUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndLoadGroupList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndCreateGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+
+	void					DBResopndAddUserToGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndRemoveUserFromGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndModifyGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndRemoveGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	void					SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg);
 private:

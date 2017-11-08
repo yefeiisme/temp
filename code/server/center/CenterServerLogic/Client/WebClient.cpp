@@ -25,17 +25,17 @@ CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::
 	&CWebClient::RecvFindSlope,
 	&CWebClient::RecvFindSensor,
 
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::RecvLoadUserList,
+	&CWebClient::RecvCreateUser,
+	&CWebClient::RecvModifyUser,
+	&CWebClient::RecvRemoveUser,
+	&CWebClient::RecvLoadGroupList,
 
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
-	&CWebClient::DefaultProtocolFunc,
+	&CWebClient::RecvCreateGroup,
+	&CWebClient::RecvAddUserToGroup,
+	&CWebClient::RecvRemoveUserFromGroup,
+	&CWebClient::RecvModifyGroup,
+	&CWebClient::RecvRemoveGroup,
 };
 
 CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
@@ -56,6 +56,18 @@ CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CWebClient::DBResopndModifyPasswordResult,
 	&CWebClient::DBResopndFindSlopeResult,
 	&CWebClient::DBResopndFindSensorResult,
+	&CWebClient::DBResopndLoadUserList,
+
+	&CWebClient::DBResopndCreateUser,
+	&CWebClient::DBResopndModifyUser,
+	&CWebClient::DBResopndRemoveUser,
+	&CWebClient::DBResopndLoadGroupList,
+	&CWebClient::DBResopndCreateGroup,
+
+	&CWebClient::DBResopndAddUserToGroup,
+	&CWebClient::DBResopndRemoveUserFromGroup,
+	&CWebClient::DBResopndModifyGroup,
+	&CWebClient::DBResopndRemoveGroup,
 };
 
 CWebClient::CWebClient() : CClient()
@@ -565,6 +577,46 @@ void CWebClient::RecvFindSensor(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
+}
+
+void CWebClient::RecvLoadUserList(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvCreateUser(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvModifyUser(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvRemoveUser(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvLoadGroupList(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvCreateGroup(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvAddUserToGroup(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvRemoveUserFromGroup(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvModifyGroup(const void *pPack, const unsigned int uPackLen)
+{
+}
+
+void CWebClient::RecvRemoveGroup(const void *pPack, const unsigned int uPackLen)
+{
 }
 
 void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
@@ -1350,6 +1402,46 @@ void CWebClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 	}
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_sensor_list, tagSensorList);
+}
+
+void CWebClient::DBResopndLoadUserList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CWebClient::DBResopndCreateUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CWebClient::DBResopndModifyUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CWebClient::DBResopndRemoveUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CWebClient::DBResopndLoadGroupList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CWebClient::DBResopndCreateGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CWebClient::DBResopndAddUserToGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CWebClient::DBResopndRemoveUserFromGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CWebClient::DBResopndModifyGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CWebClient::DBResopndRemoveGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
 }
 
 void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)

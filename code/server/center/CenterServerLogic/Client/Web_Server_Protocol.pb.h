@@ -35,6 +35,15 @@ namespace WEB_SERVER_NET_Protocol {
 class S2WEB_Add_Sensor;
 class S2WEB_Add_SensorDefaultTypeInternal;
 extern S2WEB_Add_SensorDefaultTypeInternal _S2WEB_Add_Sensor_default_instance_;
+class S2WEB_Add_User_To_Group;
+class S2WEB_Add_User_To_GroupDefaultTypeInternal;
+extern S2WEB_Add_User_To_GroupDefaultTypeInternal _S2WEB_Add_User_To_Group_default_instance_;
+class S2WEB_Create_Group;
+class S2WEB_Create_GroupDefaultTypeInternal;
+extern S2WEB_Create_GroupDefaultTypeInternal _S2WEB_Create_Group_default_instance_;
+class S2WEB_Create_User;
+class S2WEB_Create_UserDefaultTypeInternal;
+extern S2WEB_Create_UserDefaultTypeInternal _S2WEB_Create_User_default_instance_;
 class S2WEB_Del_Sensor;
 class S2WEB_Del_SensorDefaultTypeInternal;
 extern S2WEB_Del_SensorDefaultTypeInternal _S2WEB_Del_Sensor_default_instance_;
@@ -44,18 +53,45 @@ extern S2WEB_Del_SlopeDefaultTypeInternal _S2WEB_Del_Slope_default_instance_;
 class S2WEB_ERROR;
 class S2WEB_ERRORDefaultTypeInternal;
 extern S2WEB_ERRORDefaultTypeInternal _S2WEB_ERROR_default_instance_;
+class S2WEB_Group_List;
+class S2WEB_Group_ListDefaultTypeInternal;
+extern S2WEB_Group_ListDefaultTypeInternal _S2WEB_Group_List_default_instance_;
+class S2WEB_Group_List_GroupData;
+class S2WEB_Group_List_GroupDataDefaultTypeInternal;
+extern S2WEB_Group_List_GroupDataDefaultTypeInternal _S2WEB_Group_List_GroupData_default_instance_;
+class S2WEB_Modify_Group;
+class S2WEB_Modify_GroupDefaultTypeInternal;
+extern S2WEB_Modify_GroupDefaultTypeInternal _S2WEB_Modify_Group_default_instance_;
 class S2WEB_Modify_Password_Result;
 class S2WEB_Modify_Password_ResultDefaultTypeInternal;
 extern S2WEB_Modify_Password_ResultDefaultTypeInternal _S2WEB_Modify_Password_Result_default_instance_;
+class S2WEB_Modify_User;
+class S2WEB_Modify_UserDefaultTypeInternal;
+extern S2WEB_Modify_UserDefaultTypeInternal _S2WEB_Modify_User_default_instance_;
 class S2WEB_New_Slope;
 class S2WEB_New_SlopeDefaultTypeInternal;
 extern S2WEB_New_SlopeDefaultTypeInternal _S2WEB_New_Slope_default_instance_;
+class S2WEB_Remove_Group;
+class S2WEB_Remove_GroupDefaultTypeInternal;
+extern S2WEB_Remove_GroupDefaultTypeInternal _S2WEB_Remove_Group_default_instance_;
+class S2WEB_Remove_User;
+class S2WEB_Remove_UserDefaultTypeInternal;
+extern S2WEB_Remove_UserDefaultTypeInternal _S2WEB_Remove_User_default_instance_;
+class S2WEB_Remove_User_From_Group;
+class S2WEB_Remove_User_From_GroupDefaultTypeInternal;
+extern S2WEB_Remove_User_From_GroupDefaultTypeInternal _S2WEB_Remove_User_From_Group_default_instance_;
 class S2WEB_Update_Sensor;
 class S2WEB_Update_SensorDefaultTypeInternal;
 extern S2WEB_Update_SensorDefaultTypeInternal _S2WEB_Update_Sensor_default_instance_;
 class S2WEB_Update_Slope;
 class S2WEB_Update_SlopeDefaultTypeInternal;
 extern S2WEB_Update_SlopeDefaultTypeInternal _S2WEB_Update_Slope_default_instance_;
+class S2WEB_User_List;
+class S2WEB_User_ListDefaultTypeInternal;
+extern S2WEB_User_ListDefaultTypeInternal _S2WEB_User_List_default_instance_;
+class S2WEB_User_List_UserData;
+class S2WEB_User_List_UserDataDefaultTypeInternal;
+extern S2WEB_User_List_UserDataDefaultTypeInternal _S2WEB_User_List_UserData_default_instance_;
 class S2Web_Login_Result;
 class S2Web_Login_ResultDefaultTypeInternal;
 extern S2Web_Login_ResultDefaultTypeInternal _S2Web_Login_Result_default_instance_;
@@ -86,6 +122,15 @@ extern WEB2S_Add_SensorDefaultTypeInternal _WEB2S_Add_Sensor_default_instance_;
 class WEB2S_Add_Slope;
 class WEB2S_Add_SlopeDefaultTypeInternal;
 extern WEB2S_Add_SlopeDefaultTypeInternal _WEB2S_Add_Slope_default_instance_;
+class WEB2S_Add_User_To_Group;
+class WEB2S_Add_User_To_GroupDefaultTypeInternal;
+extern WEB2S_Add_User_To_GroupDefaultTypeInternal _WEB2S_Add_User_To_Group_default_instance_;
+class WEB2S_Create_Group;
+class WEB2S_Create_GroupDefaultTypeInternal;
+extern WEB2S_Create_GroupDefaultTypeInternal _WEB2S_Create_Group_default_instance_;
+class WEB2S_Create_User;
+class WEB2S_Create_UserDefaultTypeInternal;
+extern WEB2S_Create_UserDefaultTypeInternal _WEB2S_Create_User_default_instance_;
 class WEB2S_Del_Sensor;
 class WEB2S_Del_SensorDefaultTypeInternal;
 extern WEB2S_Del_SensorDefaultTypeInternal _WEB2S_Del_Sensor_default_instance_;
@@ -98,9 +143,24 @@ extern WEB2S_Find_SensorDefaultTypeInternal _WEB2S_Find_Sensor_default_instance_
 class WEB2S_Find_Slope;
 class WEB2S_Find_SlopeDefaultTypeInternal;
 extern WEB2S_Find_SlopeDefaultTypeInternal _WEB2S_Find_Slope_default_instance_;
+class WEB2S_Modify_Group;
+class WEB2S_Modify_GroupDefaultTypeInternal;
+extern WEB2S_Modify_GroupDefaultTypeInternal _WEB2S_Modify_Group_default_instance_;
 class WEB2S_Modify_Password;
 class WEB2S_Modify_PasswordDefaultTypeInternal;
 extern WEB2S_Modify_PasswordDefaultTypeInternal _WEB2S_Modify_Password_default_instance_;
+class WEB2S_Modify_User;
+class WEB2S_Modify_UserDefaultTypeInternal;
+extern WEB2S_Modify_UserDefaultTypeInternal _WEB2S_Modify_User_default_instance_;
+class WEB2S_Remove_Group;
+class WEB2S_Remove_GroupDefaultTypeInternal;
+extern WEB2S_Remove_GroupDefaultTypeInternal _WEB2S_Remove_Group_default_instance_;
+class WEB2S_Remove_User;
+class WEB2S_Remove_UserDefaultTypeInternal;
+extern WEB2S_Remove_UserDefaultTypeInternal _WEB2S_Remove_User_default_instance_;
+class WEB2S_Remove_User_From_Group;
+class WEB2S_Remove_User_From_GroupDefaultTypeInternal;
+extern WEB2S_Remove_User_From_GroupDefaultTypeInternal _WEB2S_Remove_User_From_Group_default_instance_;
 class WEB2S_Request_Sensor_History;
 class WEB2S_Request_Sensor_HistoryDefaultTypeInternal;
 extern WEB2S_Request_Sensor_HistoryDefaultTypeInternal _WEB2S_Request_Sensor_History_default_instance_;
@@ -153,15 +213,17 @@ enum WEB2S {
   web2s_modify_password = 12,
   web2s_find_slope = 13,
   web2s_find_sensor = 14,
-  web2s_reserve12 = 15,
-  web2s_reserve13 = 16,
-  web2s_reserve14 = 17,
-  web2s_reserve15 = 18,
-  web2s_reserve16 = 19,
-  web2s_reserve17 = 20,
-  web2s_reserve18 = 21,
-  web2s_reserve19 = 22,
-  web2s_reserve20 = 23,
+  web2s_load_user_list = 15,
+  web2s_create_user = 16,
+  web2s_modify_user = 17,
+  web2s_remove_user = 18,
+  web2s_load_user_group_list = 19,
+  web2s_create_group = 20,
+  web2s_add_user_to_group = 21,
+  web2s_remove_user_from_group = 22,
+  web2s_modify_group = 23,
+  web2s_remove_group = 24,
+  web2s_reserve20 = 25,
   web2s_max = 256
 };
 bool WEB2S_IsValid(int value);
@@ -193,6 +255,16 @@ enum S2WEB {
   s2web_del_sensor = 10,
   s2web_update_sensor = 11,
   s2web_modify_password_result = 12,
+  s2web_user_list = 13,
+  s2web_create_user = 14,
+  s2web_modify_user = 15,
+  s2web_remove_user = 16,
+  s2web_group_list = 17,
+  s2web_create_group = 18,
+  s2web_modify_group = 19,
+  s2web_remove_group = 20,
+  s2web_add_user_to_group = 21,
+  s2web_remove_user_from_group = 22,
   s2web_max = 256
 };
 bool S2WEB_IsValid(int value);
@@ -1827,6 +1899,997 @@ class WEB2S_Find_Sensor : public ::google::protobuf::Message /* @@protoc_inserti
 };
 // -------------------------------------------------------------------
 
+class WEB2S_Create_User : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.WEB2S_Create_User) */ {
+ public:
+  WEB2S_Create_User();
+  virtual ~WEB2S_Create_User();
+
+  WEB2S_Create_User(const WEB2S_Create_User& from);
+
+  inline WEB2S_Create_User& operator=(const WEB2S_Create_User& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WEB2S_Create_User& default_instance();
+
+  static inline const WEB2S_Create_User* internal_default_instance() {
+    return reinterpret_cast<const WEB2S_Create_User*>(
+               &_WEB2S_Create_User_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    13;
+
+  void Swap(WEB2S_Create_User* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WEB2S_Create_User* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WEB2S_Create_User* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WEB2S_Create_User& from);
+  void MergeFrom(const WEB2S_Create_User& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WEB2S_Create_User* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes account = 1;
+  bool has_account() const;
+  void clear_account();
+  static const int kAccountFieldNumber = 1;
+  const ::std::string& account() const;
+  void set_account(const ::std::string& value);
+  #if LANG_CXX11
+  void set_account(::std::string&& value);
+  #endif
+  void set_account(const char* value);
+  void set_account(const void* value, size_t size);
+  ::std::string* mutable_account();
+  ::std::string* release_account();
+  void set_allocated_account(::std::string* account);
+
+  // required uint32 password = 2;
+  bool has_password() const;
+  void clear_password();
+  static const int kPasswordFieldNumber = 2;
+  ::google::protobuf::uint32 password() const;
+  void set_password(::google::protobuf::uint32 value);
+
+  // required uint32 name = 3;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 3;
+  ::google::protobuf::uint32 name() const;
+  void set_name(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+ private:
+  void set_has_account();
+  void clear_has_account();
+  void set_has_password();
+  void clear_has_password();
+  void set_has_name();
+  void clear_has_name();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr account_;
+  ::google::protobuf::uint32 password_;
+  ::google::protobuf::uint32 name_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class WEB2S_Modify_User : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.WEB2S_Modify_User) */ {
+ public:
+  WEB2S_Modify_User();
+  virtual ~WEB2S_Modify_User();
+
+  WEB2S_Modify_User(const WEB2S_Modify_User& from);
+
+  inline WEB2S_Modify_User& operator=(const WEB2S_Modify_User& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WEB2S_Modify_User& default_instance();
+
+  static inline const WEB2S_Modify_User* internal_default_instance() {
+    return reinterpret_cast<const WEB2S_Modify_User*>(
+               &_WEB2S_Modify_User_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    14;
+
+  void Swap(WEB2S_Modify_User* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WEB2S_Modify_User* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WEB2S_Modify_User* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WEB2S_Modify_User& from);
+  void MergeFrom(const WEB2S_Modify_User& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WEB2S_Modify_User* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes name = 2;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const void* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // required uint32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::uint32 id() const;
+  void set_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+ private:
+  void set_has_id();
+  void clear_has_id();
+  void set_has_name();
+  void clear_has_name();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::uint32 id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class WEB2S_Remove_User : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.WEB2S_Remove_User) */ {
+ public:
+  WEB2S_Remove_User();
+  virtual ~WEB2S_Remove_User();
+
+  WEB2S_Remove_User(const WEB2S_Remove_User& from);
+
+  inline WEB2S_Remove_User& operator=(const WEB2S_Remove_User& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WEB2S_Remove_User& default_instance();
+
+  static inline const WEB2S_Remove_User* internal_default_instance() {
+    return reinterpret_cast<const WEB2S_Remove_User*>(
+               &_WEB2S_Remove_User_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    15;
+
+  void Swap(WEB2S_Remove_User* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WEB2S_Remove_User* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WEB2S_Remove_User* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WEB2S_Remove_User& from);
+  void MergeFrom(const WEB2S_Remove_User& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WEB2S_Remove_User* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 user_id = 1;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  ::google::protobuf::uint32 user_id() const;
+  void set_user_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+ private:
+  void set_has_user_id();
+  void clear_has_user_id();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 user_id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class WEB2S_Create_Group : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.WEB2S_Create_Group) */ {
+ public:
+  WEB2S_Create_Group();
+  virtual ~WEB2S_Create_Group();
+
+  WEB2S_Create_Group(const WEB2S_Create_Group& from);
+
+  inline WEB2S_Create_Group& operator=(const WEB2S_Create_Group& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WEB2S_Create_Group& default_instance();
+
+  static inline const WEB2S_Create_Group* internal_default_instance() {
+    return reinterpret_cast<const WEB2S_Create_Group*>(
+               &_WEB2S_Create_Group_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    16;
+
+  void Swap(WEB2S_Create_Group* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WEB2S_Create_Group* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WEB2S_Create_Group* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WEB2S_Create_Group& from);
+  void MergeFrom(const WEB2S_Create_Group& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WEB2S_Create_Group* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes group_name = 1;
+  bool has_group_name() const;
+  void clear_group_name();
+  static const int kGroupNameFieldNumber = 1;
+  const ::std::string& group_name() const;
+  void set_group_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_group_name(::std::string&& value);
+  #endif
+  void set_group_name(const char* value);
+  void set_group_name(const void* value, size_t size);
+  ::std::string* mutable_group_name();
+  ::std::string* release_group_name();
+  void set_allocated_group_name(::std::string* group_name);
+
+  // optional uint32 load_user_list = 2;
+  bool has_load_user_list() const;
+  void clear_load_user_list();
+  static const int kLoadUserListFieldNumber = 2;
+  ::google::protobuf::uint32 load_user_list() const;
+  void set_load_user_list(::google::protobuf::uint32 value);
+
+  // optional uint32 load_user_group_list = 3;
+  bool has_load_user_group_list() const;
+  void clear_load_user_group_list();
+  static const int kLoadUserGroupListFieldNumber = 3;
+  ::google::protobuf::uint32 load_user_group_list() const;
+  void set_load_user_group_list(::google::protobuf::uint32 value);
+
+  // optional uint32 create_user_group = 4;
+  bool has_create_user_group() const;
+  void clear_create_user_group();
+  static const int kCreateUserGroupFieldNumber = 4;
+  ::google::protobuf::uint32 create_user_group() const;
+  void set_create_user_group(::google::protobuf::uint32 value);
+
+  // optional uint32 modify_user_group = 5;
+  bool has_modify_user_group() const;
+  void clear_modify_user_group();
+  static const int kModifyUserGroupFieldNumber = 5;
+  ::google::protobuf::uint32 modify_user_group() const;
+  void set_modify_user_group(::google::protobuf::uint32 value);
+
+  // optional uint32 remove_user_group = 6;
+  bool has_remove_user_group() const;
+  void clear_remove_user_group();
+  static const int kRemoveUserGroupFieldNumber = 6;
+  ::google::protobuf::uint32 remove_user_group() const;
+  void set_remove_user_group(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+ private:
+  void set_has_group_name();
+  void clear_has_group_name();
+  void set_has_load_user_list();
+  void clear_has_load_user_list();
+  void set_has_load_user_group_list();
+  void clear_has_load_user_group_list();
+  void set_has_create_user_group();
+  void clear_has_create_user_group();
+  void set_has_modify_user_group();
+  void clear_has_modify_user_group();
+  void set_has_remove_user_group();
+  void clear_has_remove_user_group();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr group_name_;
+  ::google::protobuf::uint32 load_user_list_;
+  ::google::protobuf::uint32 load_user_group_list_;
+  ::google::protobuf::uint32 create_user_group_;
+  ::google::protobuf::uint32 modify_user_group_;
+  ::google::protobuf::uint32 remove_user_group_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class WEB2S_Add_User_To_Group : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group) */ {
+ public:
+  WEB2S_Add_User_To_Group();
+  virtual ~WEB2S_Add_User_To_Group();
+
+  WEB2S_Add_User_To_Group(const WEB2S_Add_User_To_Group& from);
+
+  inline WEB2S_Add_User_To_Group& operator=(const WEB2S_Add_User_To_Group& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WEB2S_Add_User_To_Group& default_instance();
+
+  static inline const WEB2S_Add_User_To_Group* internal_default_instance() {
+    return reinterpret_cast<const WEB2S_Add_User_To_Group*>(
+               &_WEB2S_Add_User_To_Group_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    17;
+
+  void Swap(WEB2S_Add_User_To_Group* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WEB2S_Add_User_To_Group* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WEB2S_Add_User_To_Group* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WEB2S_Add_User_To_Group& from);
+  void MergeFrom(const WEB2S_Add_User_To_Group& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WEB2S_Add_User_To_Group* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes group_id = 1;
+  bool has_group_id() const;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 1;
+  const ::std::string& group_id() const;
+  void set_group_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_group_id(::std::string&& value);
+  #endif
+  void set_group_id(const char* value);
+  void set_group_id(const void* value, size_t size);
+  ::std::string* mutable_group_id();
+  ::std::string* release_group_id();
+  void set_allocated_group_id(::std::string* group_id);
+
+  // required bytes user_id = 2;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 2;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_id(::std::string&& value);
+  #endif
+  void set_user_id(const char* value);
+  void set_user_id(const void* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+ private:
+  void set_has_group_id();
+  void clear_has_group_id();
+  void set_has_user_id();
+  void clear_has_user_id();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr group_id_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class WEB2S_Remove_User_From_Group : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group) */ {
+ public:
+  WEB2S_Remove_User_From_Group();
+  virtual ~WEB2S_Remove_User_From_Group();
+
+  WEB2S_Remove_User_From_Group(const WEB2S_Remove_User_From_Group& from);
+
+  inline WEB2S_Remove_User_From_Group& operator=(const WEB2S_Remove_User_From_Group& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WEB2S_Remove_User_From_Group& default_instance();
+
+  static inline const WEB2S_Remove_User_From_Group* internal_default_instance() {
+    return reinterpret_cast<const WEB2S_Remove_User_From_Group*>(
+               &_WEB2S_Remove_User_From_Group_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    18;
+
+  void Swap(WEB2S_Remove_User_From_Group* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WEB2S_Remove_User_From_Group* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WEB2S_Remove_User_From_Group* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WEB2S_Remove_User_From_Group& from);
+  void MergeFrom(const WEB2S_Remove_User_From_Group& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WEB2S_Remove_User_From_Group* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes group_id = 1;
+  bool has_group_id() const;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 1;
+  const ::std::string& group_id() const;
+  void set_group_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_group_id(::std::string&& value);
+  #endif
+  void set_group_id(const char* value);
+  void set_group_id(const void* value, size_t size);
+  ::std::string* mutable_group_id();
+  ::std::string* release_group_id();
+  void set_allocated_group_id(::std::string* group_id);
+
+  // required bytes user_id = 2;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 2;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_id(::std::string&& value);
+  #endif
+  void set_user_id(const char* value);
+  void set_user_id(const void* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+ private:
+  void set_has_group_id();
+  void clear_has_group_id();
+  void set_has_user_id();
+  void clear_has_user_id();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr group_id_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class WEB2S_Modify_Group : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group) */ {
+ public:
+  WEB2S_Modify_Group();
+  virtual ~WEB2S_Modify_Group();
+
+  WEB2S_Modify_Group(const WEB2S_Modify_Group& from);
+
+  inline WEB2S_Modify_Group& operator=(const WEB2S_Modify_Group& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WEB2S_Modify_Group& default_instance();
+
+  static inline const WEB2S_Modify_Group* internal_default_instance() {
+    return reinterpret_cast<const WEB2S_Modify_Group*>(
+               &_WEB2S_Modify_Group_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    19;
+
+  void Swap(WEB2S_Modify_Group* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WEB2S_Modify_Group* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WEB2S_Modify_Group* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WEB2S_Modify_Group& from);
+  void MergeFrom(const WEB2S_Modify_Group& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WEB2S_Modify_Group* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes group_id = 1;
+  bool has_group_id() const;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 1;
+  const ::std::string& group_id() const;
+  void set_group_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_group_id(::std::string&& value);
+  #endif
+  void set_group_id(const char* value);
+  void set_group_id(const void* value, size_t size);
+  ::std::string* mutable_group_id();
+  ::std::string* release_group_id();
+  void set_allocated_group_id(::std::string* group_id);
+
+  // required bytes group_name = 2;
+  bool has_group_name() const;
+  void clear_group_name();
+  static const int kGroupNameFieldNumber = 2;
+  const ::std::string& group_name() const;
+  void set_group_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_group_name(::std::string&& value);
+  #endif
+  void set_group_name(const char* value);
+  void set_group_name(const void* value, size_t size);
+  ::std::string* mutable_group_name();
+  ::std::string* release_group_name();
+  void set_allocated_group_name(::std::string* group_name);
+
+  // optional uint32 load_user_list = 3;
+  bool has_load_user_list() const;
+  void clear_load_user_list();
+  static const int kLoadUserListFieldNumber = 3;
+  ::google::protobuf::uint32 load_user_list() const;
+  void set_load_user_list(::google::protobuf::uint32 value);
+
+  // optional uint32 load_user_group_list = 4;
+  bool has_load_user_group_list() const;
+  void clear_load_user_group_list();
+  static const int kLoadUserGroupListFieldNumber = 4;
+  ::google::protobuf::uint32 load_user_group_list() const;
+  void set_load_user_group_list(::google::protobuf::uint32 value);
+
+  // optional uint32 add_user_group = 5;
+  bool has_add_user_group() const;
+  void clear_add_user_group();
+  static const int kAddUserGroupFieldNumber = 5;
+  ::google::protobuf::uint32 add_user_group() const;
+  void set_add_user_group(::google::protobuf::uint32 value);
+
+  // optional uint32 modify_user_group = 6;
+  bool has_modify_user_group() const;
+  void clear_modify_user_group();
+  static const int kModifyUserGroupFieldNumber = 6;
+  ::google::protobuf::uint32 modify_user_group() const;
+  void set_modify_user_group(::google::protobuf::uint32 value);
+
+  // optional uint32 remove_user_group = 7;
+  bool has_remove_user_group() const;
+  void clear_remove_user_group();
+  static const int kRemoveUserGroupFieldNumber = 7;
+  ::google::protobuf::uint32 remove_user_group() const;
+  void set_remove_user_group(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+ private:
+  void set_has_group_id();
+  void clear_has_group_id();
+  void set_has_group_name();
+  void clear_has_group_name();
+  void set_has_load_user_list();
+  void clear_has_load_user_list();
+  void set_has_load_user_group_list();
+  void clear_has_load_user_group_list();
+  void set_has_add_user_group();
+  void clear_has_add_user_group();
+  void set_has_modify_user_group();
+  void clear_has_modify_user_group();
+  void set_has_remove_user_group();
+  void clear_has_remove_user_group();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr group_id_;
+  ::google::protobuf::internal::ArenaStringPtr group_name_;
+  ::google::protobuf::uint32 load_user_list_;
+  ::google::protobuf::uint32 load_user_group_list_;
+  ::google::protobuf::uint32 add_user_group_;
+  ::google::protobuf::uint32 modify_user_group_;
+  ::google::protobuf::uint32 remove_user_group_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class WEB2S_Remove_Group : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group) */ {
+ public:
+  WEB2S_Remove_Group();
+  virtual ~WEB2S_Remove_Group();
+
+  WEB2S_Remove_Group(const WEB2S_Remove_Group& from);
+
+  inline WEB2S_Remove_Group& operator=(const WEB2S_Remove_Group& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WEB2S_Remove_Group& default_instance();
+
+  static inline const WEB2S_Remove_Group* internal_default_instance() {
+    return reinterpret_cast<const WEB2S_Remove_Group*>(
+               &_WEB2S_Remove_Group_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    20;
+
+  void Swap(WEB2S_Remove_Group* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WEB2S_Remove_Group* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WEB2S_Remove_Group* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WEB2S_Remove_Group& from);
+  void MergeFrom(const WEB2S_Remove_Group& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WEB2S_Remove_Group* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes group_id = 1;
+  bool has_group_id() const;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 1;
+  const ::std::string& group_id() const;
+  void set_group_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_group_id(::std::string&& value);
+  #endif
+  void set_group_id(const char* value);
+  void set_group_id(const void* value, size_t size);
+  ::std::string* mutable_group_id();
+  ::std::string* release_group_id();
+  void set_allocated_group_id(::std::string* group_id);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+ private:
+  void set_has_group_id();
+  void clear_has_group_id();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr group_id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class S2Web_Login_Result_ServerData : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2Web_Login_Result.ServerData) */ {
  public:
   S2Web_Login_Result_ServerData();
@@ -1855,7 +2918,7 @@ class S2Web_Login_Result_ServerData : public ::google::protobuf::Message /* @@pr
                &_S2Web_Login_Result_ServerData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
+    21;
 
   void Swap(S2Web_Login_Result_ServerData* other);
 
@@ -1978,7 +3041,7 @@ class S2Web_Login_Result : public ::google::protobuf::Message /* @@protoc_insert
                &_S2Web_Login_Result_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    14;
+    22;
 
   void Swap(S2Web_Login_Result* other);
 
@@ -2085,7 +3148,7 @@ class S2Web_Slope_List_SlopeData : public ::google::protobuf::Message /* @@proto
                &_S2Web_Slope_List_SlopeData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    15;
+    23;
 
   void Swap(S2Web_Slope_List_SlopeData* other);
 
@@ -2256,7 +3319,7 @@ class S2Web_Slope_List : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2Web_Slope_List_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    24;
 
   void Swap(S2Web_Slope_List* other);
 
@@ -2353,7 +3416,7 @@ class S2Web_Sensor_List_SensorData : public ::google::protobuf::Message /* @@pro
                &_S2Web_Sensor_List_SensorData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    25;
 
   void Swap(S2Web_Sensor_List_SensorData* other);
 
@@ -2624,7 +3687,7 @@ class S2Web_Sensor_List : public ::google::protobuf::Message /* @@protoc_inserti
                &_S2Web_Sensor_List_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    26;
 
   void Swap(S2Web_Sensor_List* other);
 
@@ -2721,7 +3784,7 @@ class S2Web_Sensor_History_SensorData : public ::google::protobuf::Message /* @@
                &_S2Web_Sensor_History_SensorData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    19;
+    27;
 
   void Swap(S2Web_Sensor_History_SensorData* other);
 
@@ -2926,7 +3989,7 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
                &_S2Web_Sensor_History_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    28;
 
   void Swap(S2Web_Sensor_History* other);
 
@@ -3116,7 +4179,7 @@ class S2WEB_ERROR : public ::google::protobuf::Message /* @@protoc_insertion_poi
                &_S2WEB_ERROR_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    21;
+    29;
 
   void Swap(S2WEB_ERROR* other);
 
@@ -3208,7 +4271,7 @@ class S2WEB_New_Slope : public ::google::protobuf::Message /* @@protoc_insertion
                &_S2WEB_New_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    22;
+    30;
 
   void Swap(S2WEB_New_Slope* other);
 
@@ -3379,7 +4442,7 @@ class S2WEB_Del_Slope : public ::google::protobuf::Message /* @@protoc_insertion
                &_S2WEB_Del_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    23;
+    31;
 
   void Swap(S2WEB_Del_Slope* other);
 
@@ -3471,7 +4534,7 @@ class S2WEB_Update_Slope : public ::google::protobuf::Message /* @@protoc_insert
                &_S2WEB_Update_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    24;
+    32;
 
   void Swap(S2WEB_Update_Slope* other);
 
@@ -3642,7 +4705,7 @@ class S2WEB_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2WEB_Add_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    25;
+    33;
 
   void Swap(S2WEB_Add_Sensor* other);
 
@@ -3823,7 +4886,7 @@ class S2WEB_Del_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2WEB_Del_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    26;
+    34;
 
   void Swap(S2WEB_Del_Sensor* other);
 
@@ -3915,7 +4978,7 @@ class S2WEB_Update_Sensor : public ::google::protobuf::Message /* @@protoc_inser
                &_S2WEB_Update_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    27;
+    35;
 
   void Swap(S2WEB_Update_Sensor* other);
 
@@ -4096,7 +5159,7 @@ class S2WEB_Modify_Password_Result : public ::google::protobuf::Message /* @@pro
                &_S2WEB_Modify_Password_Result_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    28;
+    36;
 
   void Swap(S2WEB_Modify_Password_Result* other);
 
@@ -4156,6 +5219,1400 @@ class S2WEB_Modify_Password_Result : public ::google::protobuf::Message /* @@pro
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 result_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_User_List_UserData : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData) */ {
+ public:
+  S2WEB_User_List_UserData();
+  virtual ~S2WEB_User_List_UserData();
+
+  S2WEB_User_List_UserData(const S2WEB_User_List_UserData& from);
+
+  inline S2WEB_User_List_UserData& operator=(const S2WEB_User_List_UserData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_User_List_UserData& default_instance();
+
+  static inline const S2WEB_User_List_UserData* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_User_List_UserData*>(
+               &_S2WEB_User_List_UserData_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    37;
+
+  void Swap(S2WEB_User_List_UserData* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_User_List_UserData* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_User_List_UserData* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_User_List_UserData& from);
+  void MergeFrom(const S2WEB_User_List_UserData& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_User_List_UserData* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes user_name = 2;
+  bool has_user_name() const;
+  void clear_user_name();
+  static const int kUserNameFieldNumber = 2;
+  const ::std::string& user_name() const;
+  void set_user_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_name(::std::string&& value);
+  #endif
+  void set_user_name(const char* value);
+  void set_user_name(const void* value, size_t size);
+  ::std::string* mutable_user_name();
+  ::std::string* release_user_name();
+  void set_allocated_user_name(::std::string* user_name);
+
+  // required uint32 user_id = 1;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  ::google::protobuf::uint32 user_id() const;
+  void set_user_id(::google::protobuf::uint32 value);
+
+  // required uint32 group_id = 3;
+  bool has_group_id() const;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 3;
+  ::google::protobuf::uint32 group_id() const;
+  void set_group_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+ private:
+  void set_has_user_id();
+  void clear_has_user_id();
+  void set_has_user_name();
+  void clear_has_user_name();
+  void set_has_group_id();
+  void clear_has_group_id();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr user_name_;
+  ::google::protobuf::uint32 user_id_;
+  ::google::protobuf::uint32 group_id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_User_List : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_User_List) */ {
+ public:
+  S2WEB_User_List();
+  virtual ~S2WEB_User_List();
+
+  S2WEB_User_List(const S2WEB_User_List& from);
+
+  inline S2WEB_User_List& operator=(const S2WEB_User_List& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_User_List& default_instance();
+
+  static inline const S2WEB_User_List* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_User_List*>(
+               &_S2WEB_User_List_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    38;
+
+  void Swap(S2WEB_User_List* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_User_List* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_User_List* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_User_List& from);
+  void MergeFrom(const S2WEB_User_List& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_User_List* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef S2WEB_User_List_UserData UserData;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData user_list = 1;
+  int user_list_size() const;
+  void clear_user_list();
+  static const int kUserListFieldNumber = 1;
+  const ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData& user_list(int index) const;
+  ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData* mutable_user_list(int index);
+  ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData* add_user_list();
+  ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData >*
+      mutable_user_list();
+  const ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData >&
+      user_list() const;
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData > user_list_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_Create_User : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Create_User) */ {
+ public:
+  S2WEB_Create_User();
+  virtual ~S2WEB_Create_User();
+
+  S2WEB_Create_User(const S2WEB_Create_User& from);
+
+  inline S2WEB_Create_User& operator=(const S2WEB_Create_User& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_Create_User& default_instance();
+
+  static inline const S2WEB_Create_User* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_Create_User*>(
+               &_S2WEB_Create_User_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    39;
+
+  void Swap(S2WEB_Create_User* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_Create_User* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_Create_User* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_Create_User& from);
+  void MergeFrom(const S2WEB_Create_User& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_Create_User* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes account = 2;
+  bool has_account() const;
+  void clear_account();
+  static const int kAccountFieldNumber = 2;
+  const ::std::string& account() const;
+  void set_account(const ::std::string& value);
+  #if LANG_CXX11
+  void set_account(::std::string&& value);
+  #endif
+  void set_account(const char* value);
+  void set_account(const void* value, size_t size);
+  ::std::string* mutable_account();
+  ::std::string* release_account();
+  void set_allocated_account(::std::string* account);
+
+  // required bytes name = 3;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 3;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const void* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // required uint32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::uint32 id() const;
+  void set_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+ private:
+  void set_has_id();
+  void clear_has_id();
+  void set_has_account();
+  void clear_has_account();
+  void set_has_name();
+  void clear_has_name();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr account_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::uint32 id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_Modify_User : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Modify_User) */ {
+ public:
+  S2WEB_Modify_User();
+  virtual ~S2WEB_Modify_User();
+
+  S2WEB_Modify_User(const S2WEB_Modify_User& from);
+
+  inline S2WEB_Modify_User& operator=(const S2WEB_Modify_User& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_Modify_User& default_instance();
+
+  static inline const S2WEB_Modify_User* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_Modify_User*>(
+               &_S2WEB_Modify_User_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    40;
+
+  void Swap(S2WEB_Modify_User* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_Modify_User* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_Modify_User* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_Modify_User& from);
+  void MergeFrom(const S2WEB_Modify_User& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_Modify_User* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes name = 2;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const void* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // required uint32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::uint32 id() const;
+  void set_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+ private:
+  void set_has_id();
+  void clear_has_id();
+  void set_has_name();
+  void clear_has_name();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::uint32 id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_Remove_User : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Remove_User) */ {
+ public:
+  S2WEB_Remove_User();
+  virtual ~S2WEB_Remove_User();
+
+  S2WEB_Remove_User(const S2WEB_Remove_User& from);
+
+  inline S2WEB_Remove_User& operator=(const S2WEB_Remove_User& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_Remove_User& default_instance();
+
+  static inline const S2WEB_Remove_User* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_Remove_User*>(
+               &_S2WEB_Remove_User_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    41;
+
+  void Swap(S2WEB_Remove_User* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_Remove_User* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_Remove_User* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_Remove_User& from);
+  void MergeFrom(const S2WEB_Remove_User& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_Remove_User* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::uint32 id() const;
+  void set_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+ private:
+  void set_has_id();
+  void clear_has_id();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_Group_List_GroupData : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData) */ {
+ public:
+  S2WEB_Group_List_GroupData();
+  virtual ~S2WEB_Group_List_GroupData();
+
+  S2WEB_Group_List_GroupData(const S2WEB_Group_List_GroupData& from);
+
+  inline S2WEB_Group_List_GroupData& operator=(const S2WEB_Group_List_GroupData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_Group_List_GroupData& default_instance();
+
+  static inline const S2WEB_Group_List_GroupData* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_Group_List_GroupData*>(
+               &_S2WEB_Group_List_GroupData_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    42;
+
+  void Swap(S2WEB_Group_List_GroupData* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_Group_List_GroupData* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_Group_List_GroupData* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_Group_List_GroupData& from);
+  void MergeFrom(const S2WEB_Group_List_GroupData& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_Group_List_GroupData* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes name = 2;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const void* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // required uint32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::uint32 id() const;
+  void set_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+ private:
+  void set_has_id();
+  void clear_has_id();
+  void set_has_name();
+  void clear_has_name();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::uint32 id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_Group_List : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Group_List) */ {
+ public:
+  S2WEB_Group_List();
+  virtual ~S2WEB_Group_List();
+
+  S2WEB_Group_List(const S2WEB_Group_List& from);
+
+  inline S2WEB_Group_List& operator=(const S2WEB_Group_List& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_Group_List& default_instance();
+
+  static inline const S2WEB_Group_List* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_Group_List*>(
+               &_S2WEB_Group_List_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    43;
+
+  void Swap(S2WEB_Group_List* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_Group_List* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_Group_List* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_Group_List& from);
+  void MergeFrom(const S2WEB_Group_List& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_Group_List* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef S2WEB_Group_List_GroupData GroupData;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData group_list = 1;
+  int group_list_size() const;
+  void clear_group_list();
+  static const int kGroupListFieldNumber = 1;
+  const ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData& group_list(int index) const;
+  ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData* mutable_group_list(int index);
+  ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData* add_group_list();
+  ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData >*
+      mutable_group_list();
+  const ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData >&
+      group_list() const;
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData > group_list_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_Create_Group : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Create_Group) */ {
+ public:
+  S2WEB_Create_Group();
+  virtual ~S2WEB_Create_Group();
+
+  S2WEB_Create_Group(const S2WEB_Create_Group& from);
+
+  inline S2WEB_Create_Group& operator=(const S2WEB_Create_Group& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_Create_Group& default_instance();
+
+  static inline const S2WEB_Create_Group* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_Create_Group*>(
+               &_S2WEB_Create_Group_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    44;
+
+  void Swap(S2WEB_Create_Group* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_Create_Group* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_Create_Group* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_Create_Group& from);
+  void MergeFrom(const S2WEB_Create_Group& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_Create_Group* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes name = 2;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const void* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // required uint32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::uint32 id() const;
+  void set_id(::google::protobuf::uint32 value);
+
+  // optional uint32 load_user_list = 3;
+  bool has_load_user_list() const;
+  void clear_load_user_list();
+  static const int kLoadUserListFieldNumber = 3;
+  ::google::protobuf::uint32 load_user_list() const;
+  void set_load_user_list(::google::protobuf::uint32 value);
+
+  // optional uint32 load_user_group_list = 4;
+  bool has_load_user_group_list() const;
+  void clear_load_user_group_list();
+  static const int kLoadUserGroupListFieldNumber = 4;
+  ::google::protobuf::uint32 load_user_group_list() const;
+  void set_load_user_group_list(::google::protobuf::uint32 value);
+
+  // optional uint32 create_user_group = 5;
+  bool has_create_user_group() const;
+  void clear_create_user_group();
+  static const int kCreateUserGroupFieldNumber = 5;
+  ::google::protobuf::uint32 create_user_group() const;
+  void set_create_user_group(::google::protobuf::uint32 value);
+
+  // optional uint32 modify_user_group = 6;
+  bool has_modify_user_group() const;
+  void clear_modify_user_group();
+  static const int kModifyUserGroupFieldNumber = 6;
+  ::google::protobuf::uint32 modify_user_group() const;
+  void set_modify_user_group(::google::protobuf::uint32 value);
+
+  // optional uint32 remove_user_group = 7;
+  bool has_remove_user_group() const;
+  void clear_remove_user_group();
+  static const int kRemoveUserGroupFieldNumber = 7;
+  ::google::protobuf::uint32 remove_user_group() const;
+  void set_remove_user_group(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+ private:
+  void set_has_id();
+  void clear_has_id();
+  void set_has_name();
+  void clear_has_name();
+  void set_has_load_user_list();
+  void clear_has_load_user_list();
+  void set_has_load_user_group_list();
+  void clear_has_load_user_group_list();
+  void set_has_create_user_group();
+  void clear_has_create_user_group();
+  void set_has_modify_user_group();
+  void clear_has_modify_user_group();
+  void set_has_remove_user_group();
+  void clear_has_remove_user_group();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::uint32 id_;
+  ::google::protobuf::uint32 load_user_list_;
+  ::google::protobuf::uint32 load_user_group_list_;
+  ::google::protobuf::uint32 create_user_group_;
+  ::google::protobuf::uint32 modify_user_group_;
+  ::google::protobuf::uint32 remove_user_group_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_Modify_Group : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group) */ {
+ public:
+  S2WEB_Modify_Group();
+  virtual ~S2WEB_Modify_Group();
+
+  S2WEB_Modify_Group(const S2WEB_Modify_Group& from);
+
+  inline S2WEB_Modify_Group& operator=(const S2WEB_Modify_Group& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_Modify_Group& default_instance();
+
+  static inline const S2WEB_Modify_Group* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_Modify_Group*>(
+               &_S2WEB_Modify_Group_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    45;
+
+  void Swap(S2WEB_Modify_Group* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_Modify_Group* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_Modify_Group* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_Modify_Group& from);
+  void MergeFrom(const S2WEB_Modify_Group& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_Modify_Group* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes name = 2;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const void* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // required uint32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::uint32 id() const;
+  void set_id(::google::protobuf::uint32 value);
+
+  // optional uint32 load_user_list = 3;
+  bool has_load_user_list() const;
+  void clear_load_user_list();
+  static const int kLoadUserListFieldNumber = 3;
+  ::google::protobuf::uint32 load_user_list() const;
+  void set_load_user_list(::google::protobuf::uint32 value);
+
+  // optional uint32 load_user_group_list = 4;
+  bool has_load_user_group_list() const;
+  void clear_load_user_group_list();
+  static const int kLoadUserGroupListFieldNumber = 4;
+  ::google::protobuf::uint32 load_user_group_list() const;
+  void set_load_user_group_list(::google::protobuf::uint32 value);
+
+  // optional uint32 create_user_group = 5;
+  bool has_create_user_group() const;
+  void clear_create_user_group();
+  static const int kCreateUserGroupFieldNumber = 5;
+  ::google::protobuf::uint32 create_user_group() const;
+  void set_create_user_group(::google::protobuf::uint32 value);
+
+  // optional uint32 modify_user_group = 6;
+  bool has_modify_user_group() const;
+  void clear_modify_user_group();
+  static const int kModifyUserGroupFieldNumber = 6;
+  ::google::protobuf::uint32 modify_user_group() const;
+  void set_modify_user_group(::google::protobuf::uint32 value);
+
+  // optional uint32 remove_user_group = 7;
+  bool has_remove_user_group() const;
+  void clear_remove_user_group();
+  static const int kRemoveUserGroupFieldNumber = 7;
+  ::google::protobuf::uint32 remove_user_group() const;
+  void set_remove_user_group(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+ private:
+  void set_has_id();
+  void clear_has_id();
+  void set_has_name();
+  void clear_has_name();
+  void set_has_load_user_list();
+  void clear_has_load_user_list();
+  void set_has_load_user_group_list();
+  void clear_has_load_user_group_list();
+  void set_has_create_user_group();
+  void clear_has_create_user_group();
+  void set_has_modify_user_group();
+  void clear_has_modify_user_group();
+  void set_has_remove_user_group();
+  void clear_has_remove_user_group();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::uint32 id_;
+  ::google::protobuf::uint32 load_user_list_;
+  ::google::protobuf::uint32 load_user_group_list_;
+  ::google::protobuf::uint32 create_user_group_;
+  ::google::protobuf::uint32 modify_user_group_;
+  ::google::protobuf::uint32 remove_user_group_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_Remove_Group : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group) */ {
+ public:
+  S2WEB_Remove_Group();
+  virtual ~S2WEB_Remove_Group();
+
+  S2WEB_Remove_Group(const S2WEB_Remove_Group& from);
+
+  inline S2WEB_Remove_Group& operator=(const S2WEB_Remove_Group& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_Remove_Group& default_instance();
+
+  static inline const S2WEB_Remove_Group* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_Remove_Group*>(
+               &_S2WEB_Remove_Group_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    46;
+
+  void Swap(S2WEB_Remove_Group* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_Remove_Group* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_Remove_Group* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_Remove_Group& from);
+  void MergeFrom(const S2WEB_Remove_Group& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_Remove_Group* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::uint32 id() const;
+  void set_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+ private:
+  void set_has_id();
+  void clear_has_id();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_Add_User_To_Group : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group) */ {
+ public:
+  S2WEB_Add_User_To_Group();
+  virtual ~S2WEB_Add_User_To_Group();
+
+  S2WEB_Add_User_To_Group(const S2WEB_Add_User_To_Group& from);
+
+  inline S2WEB_Add_User_To_Group& operator=(const S2WEB_Add_User_To_Group& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_Add_User_To_Group& default_instance();
+
+  static inline const S2WEB_Add_User_To_Group* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_Add_User_To_Group*>(
+               &_S2WEB_Add_User_To_Group_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    47;
+
+  void Swap(S2WEB_Add_User_To_Group* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_Add_User_To_Group* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_Add_User_To_Group* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_Add_User_To_Group& from);
+  void MergeFrom(const S2WEB_Add_User_To_Group& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_Add_User_To_Group* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 user_id = 1;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  ::google::protobuf::uint32 user_id() const;
+  void set_user_id(::google::protobuf::uint32 value);
+
+  // required uint32 group_id = 2;
+  bool has_group_id() const;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 2;
+  ::google::protobuf::uint32 group_id() const;
+  void set_group_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+ private:
+  void set_has_user_id();
+  void clear_has_user_id();
+  void set_has_group_id();
+  void clear_has_group_id();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 user_id_;
+  ::google::protobuf::uint32 group_id_;
+  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2WEB_Remove_User_From_Group : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group) */ {
+ public:
+  S2WEB_Remove_User_From_Group();
+  virtual ~S2WEB_Remove_User_From_Group();
+
+  S2WEB_Remove_User_From_Group(const S2WEB_Remove_User_From_Group& from);
+
+  inline S2WEB_Remove_User_From_Group& operator=(const S2WEB_Remove_User_From_Group& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2WEB_Remove_User_From_Group& default_instance();
+
+  static inline const S2WEB_Remove_User_From_Group* internal_default_instance() {
+    return reinterpret_cast<const S2WEB_Remove_User_From_Group*>(
+               &_S2WEB_Remove_User_From_Group_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    48;
+
+  void Swap(S2WEB_Remove_User_From_Group* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2WEB_Remove_User_From_Group* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2WEB_Remove_User_From_Group* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2WEB_Remove_User_From_Group& from);
+  void MergeFrom(const S2WEB_Remove_User_From_Group& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2WEB_Remove_User_From_Group* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 user_id = 1;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  ::google::protobuf::uint32 user_id() const;
+  void set_user_id(::google::protobuf::uint32 value);
+
+  // required uint32 group_id = 2;
+  bool has_group_id() const;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 2;
+  ::google::protobuf::uint32 group_id() const;
+  void set_group_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+ private:
+  void set_has_user_id();
+  void clear_has_user_id();
+  void set_has_group_id();
+  void clear_has_group_id();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 user_id_;
+  ::google::protobuf::uint32 group_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // ===================================================================
@@ -5742,6 +8199,1004 @@ inline void WEB2S_Find_Sensor::set_sensor_type(::google::protobuf::uint32 value)
   set_has_sensor_type();
   sensor_type_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.sensor_type)
+}
+
+// -------------------------------------------------------------------
+
+// WEB2S_Create_User
+
+// required bytes account = 1;
+inline bool WEB2S_Create_User::has_account() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WEB2S_Create_User::set_has_account() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WEB2S_Create_User::clear_has_account() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WEB2S_Create_User::clear_account() {
+  account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_account();
+}
+inline const ::std::string& WEB2S_Create_User::account() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+  return account_.GetNoArena();
+}
+inline void WEB2S_Create_User::set_account(const ::std::string& value) {
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+}
+#if LANG_CXX11
+inline void WEB2S_Create_User::set_account(::std::string&& value) {
+  set_has_account();
+  account_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+}
+#endif
+inline void WEB2S_Create_User::set_account(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+}
+inline void WEB2S_Create_User::set_account(const void* value, size_t size) {
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+}
+inline ::std::string* WEB2S_Create_User::mutable_account() {
+  set_has_account();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+  return account_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Create_User::release_account() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+  clear_has_account();
+  return account_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Create_User::set_allocated_account(::std::string* account) {
+  if (account != NULL) {
+    set_has_account();
+  } else {
+    clear_has_account();
+  }
+  account_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), account);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+}
+
+// required uint32 password = 2;
+inline bool WEB2S_Create_User::has_password() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WEB2S_Create_User::set_has_password() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WEB2S_Create_User::clear_has_password() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WEB2S_Create_User::clear_password() {
+  password_ = 0u;
+  clear_has_password();
+}
+inline ::google::protobuf::uint32 WEB2S_Create_User::password() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_User.password)
+  return password_;
+}
+inline void WEB2S_Create_User::set_password(::google::protobuf::uint32 value) {
+  set_has_password();
+  password_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_User.password)
+}
+
+// required uint32 name = 3;
+inline bool WEB2S_Create_User::has_name() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WEB2S_Create_User::set_has_name() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WEB2S_Create_User::clear_has_name() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WEB2S_Create_User::clear_name() {
+  name_ = 0u;
+  clear_has_name();
+}
+inline ::google::protobuf::uint32 WEB2S_Create_User::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+  return name_;
+}
+inline void WEB2S_Create_User::set_name(::google::protobuf::uint32 value) {
+  set_has_name();
+  name_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+}
+
+// -------------------------------------------------------------------
+
+// WEB2S_Modify_User
+
+// required uint32 id = 1;
+inline bool WEB2S_Modify_User::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WEB2S_Modify_User::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WEB2S_Modify_User::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WEB2S_Modify_User::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 WEB2S_Modify_User::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.id)
+  return id_;
+}
+inline void WEB2S_Modify_User::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.id)
+}
+
+// required bytes name = 2;
+inline bool WEB2S_Modify_User::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WEB2S_Modify_User::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WEB2S_Modify_User::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WEB2S_Modify_User::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& WEB2S_Modify_User::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
+  return name_.GetNoArena();
+}
+inline void WEB2S_Modify_User::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
+}
+#if LANG_CXX11
+inline void WEB2S_Modify_User::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
+}
+#endif
+inline void WEB2S_Modify_User::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
+}
+inline void WEB2S_Modify_User::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
+}
+inline ::std::string* WEB2S_Modify_User::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Modify_User::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Modify_User::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
+}
+
+// -------------------------------------------------------------------
+
+// WEB2S_Remove_User
+
+// required uint32 user_id = 1;
+inline bool WEB2S_Remove_User::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WEB2S_Remove_User::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WEB2S_Remove_User::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WEB2S_Remove_User::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+inline ::google::protobuf::uint32 WEB2S_Remove_User::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Remove_User.user_id)
+  return user_id_;
+}
+inline void WEB2S_Remove_User::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Remove_User.user_id)
+}
+
+// -------------------------------------------------------------------
+
+// WEB2S_Create_Group
+
+// required bytes group_name = 1;
+inline bool WEB2S_Create_Group::has_group_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WEB2S_Create_Group::set_has_group_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WEB2S_Create_Group::clear_has_group_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WEB2S_Create_Group::clear_group_name() {
+  group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_group_name();
+}
+inline const ::std::string& WEB2S_Create_Group::group_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+  return group_name_.GetNoArena();
+}
+inline void WEB2S_Create_Group::set_group_name(const ::std::string& value) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+}
+#if LANG_CXX11
+inline void WEB2S_Create_Group::set_group_name(::std::string&& value) {
+  set_has_group_name();
+  group_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+}
+#endif
+inline void WEB2S_Create_Group::set_group_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+}
+inline void WEB2S_Create_Group::set_group_name(const void* value, size_t size) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+}
+inline ::std::string* WEB2S_Create_Group::mutable_group_name() {
+  set_has_group_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+  return group_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Create_Group::release_group_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+  clear_has_group_name();
+  return group_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Create_Group::set_allocated_group_name(::std::string* group_name) {
+  if (group_name != NULL) {
+    set_has_group_name();
+  } else {
+    clear_has_group_name();
+  }
+  group_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+}
+
+// optional uint32 load_user_list = 2;
+inline bool WEB2S_Create_Group::has_load_user_list() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WEB2S_Create_Group::set_has_load_user_list() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WEB2S_Create_Group::clear_has_load_user_list() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WEB2S_Create_Group::clear_load_user_list() {
+  load_user_list_ = 0u;
+  clear_has_load_user_list();
+}
+inline ::google::protobuf::uint32 WEB2S_Create_Group::load_user_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.load_user_list)
+  return load_user_list_;
+}
+inline void WEB2S_Create_Group::set_load_user_list(::google::protobuf::uint32 value) {
+  set_has_load_user_list();
+  load_user_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.load_user_list)
+}
+
+// optional uint32 load_user_group_list = 3;
+inline bool WEB2S_Create_Group::has_load_user_group_list() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WEB2S_Create_Group::set_has_load_user_group_list() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WEB2S_Create_Group::clear_has_load_user_group_list() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WEB2S_Create_Group::clear_load_user_group_list() {
+  load_user_group_list_ = 0u;
+  clear_has_load_user_group_list();
+}
+inline ::google::protobuf::uint32 WEB2S_Create_Group::load_user_group_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.load_user_group_list)
+  return load_user_group_list_;
+}
+inline void WEB2S_Create_Group::set_load_user_group_list(::google::protobuf::uint32 value) {
+  set_has_load_user_group_list();
+  load_user_group_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.load_user_group_list)
+}
+
+// optional uint32 create_user_group = 4;
+inline bool WEB2S_Create_Group::has_create_user_group() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void WEB2S_Create_Group::set_has_create_user_group() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void WEB2S_Create_Group::clear_has_create_user_group() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void WEB2S_Create_Group::clear_create_user_group() {
+  create_user_group_ = 0u;
+  clear_has_create_user_group();
+}
+inline ::google::protobuf::uint32 WEB2S_Create_Group::create_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.create_user_group)
+  return create_user_group_;
+}
+inline void WEB2S_Create_Group::set_create_user_group(::google::protobuf::uint32 value) {
+  set_has_create_user_group();
+  create_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.create_user_group)
+}
+
+// optional uint32 modify_user_group = 5;
+inline bool WEB2S_Create_Group::has_modify_user_group() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WEB2S_Create_Group::set_has_modify_user_group() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WEB2S_Create_Group::clear_has_modify_user_group() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void WEB2S_Create_Group::clear_modify_user_group() {
+  modify_user_group_ = 0u;
+  clear_has_modify_user_group();
+}
+inline ::google::protobuf::uint32 WEB2S_Create_Group::modify_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.modify_user_group)
+  return modify_user_group_;
+}
+inline void WEB2S_Create_Group::set_modify_user_group(::google::protobuf::uint32 value) {
+  set_has_modify_user_group();
+  modify_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.modify_user_group)
+}
+
+// optional uint32 remove_user_group = 6;
+inline bool WEB2S_Create_Group::has_remove_user_group() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void WEB2S_Create_Group::set_has_remove_user_group() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void WEB2S_Create_Group::clear_has_remove_user_group() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void WEB2S_Create_Group::clear_remove_user_group() {
+  remove_user_group_ = 0u;
+  clear_has_remove_user_group();
+}
+inline ::google::protobuf::uint32 WEB2S_Create_Group::remove_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.remove_user_group)
+  return remove_user_group_;
+}
+inline void WEB2S_Create_Group::set_remove_user_group(::google::protobuf::uint32 value) {
+  set_has_remove_user_group();
+  remove_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.remove_user_group)
+}
+
+// -------------------------------------------------------------------
+
+// WEB2S_Add_User_To_Group
+
+// required bytes group_id = 1;
+inline bool WEB2S_Add_User_To_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WEB2S_Add_User_To_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WEB2S_Add_User_To_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WEB2S_Add_User_To_Group::clear_group_id() {
+  group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_group_id();
+}
+inline const ::std::string& WEB2S_Add_User_To_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.group_id)
+  return group_id_.GetNoArena();
+}
+inline void WEB2S_Add_User_To_Group::set_group_id(const ::std::string& value) {
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.group_id)
+}
+#if LANG_CXX11
+inline void WEB2S_Add_User_To_Group::set_group_id(::std::string&& value) {
+  set_has_group_id();
+  group_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.group_id)
+}
+#endif
+inline void WEB2S_Add_User_To_Group::set_group_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.group_id)
+}
+inline void WEB2S_Add_User_To_Group::set_group_id(const void* value, size_t size) {
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.group_id)
+}
+inline ::std::string* WEB2S_Add_User_To_Group::mutable_group_id() {
+  set_has_group_id();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.group_id)
+  return group_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Add_User_To_Group::release_group_id() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.group_id)
+  clear_has_group_id();
+  return group_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Add_User_To_Group::set_allocated_group_id(::std::string* group_id) {
+  if (group_id != NULL) {
+    set_has_group_id();
+  } else {
+    clear_has_group_id();
+  }
+  group_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_id);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.group_id)
+}
+
+// required bytes user_id = 2;
+inline bool WEB2S_Add_User_To_Group::has_user_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WEB2S_Add_User_To_Group::set_has_user_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WEB2S_Add_User_To_Group::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WEB2S_Add_User_To_Group::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_id();
+}
+inline const ::std::string& WEB2S_Add_User_To_Group::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.user_id)
+  return user_id_.GetNoArena();
+}
+inline void WEB2S_Add_User_To_Group::set_user_id(const ::std::string& value) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.user_id)
+}
+#if LANG_CXX11
+inline void WEB2S_Add_User_To_Group::set_user_id(::std::string&& value) {
+  set_has_user_id();
+  user_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.user_id)
+}
+#endif
+inline void WEB2S_Add_User_To_Group::set_user_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.user_id)
+}
+inline void WEB2S_Add_User_To_Group::set_user_id(const void* value, size_t size) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.user_id)
+}
+inline ::std::string* WEB2S_Add_User_To_Group::mutable_user_id() {
+  set_has_user_id();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Add_User_To_Group::release_user_id() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.user_id)
+  clear_has_user_id();
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Add_User_To_Group::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    set_has_user_id();
+  } else {
+    clear_has_user_id();
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.user_id)
+}
+
+// -------------------------------------------------------------------
+
+// WEB2S_Remove_User_From_Group
+
+// required bytes group_id = 1;
+inline bool WEB2S_Remove_User_From_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WEB2S_Remove_User_From_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WEB2S_Remove_User_From_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WEB2S_Remove_User_From_Group::clear_group_id() {
+  group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_group_id();
+}
+inline const ::std::string& WEB2S_Remove_User_From_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.group_id)
+  return group_id_.GetNoArena();
+}
+inline void WEB2S_Remove_User_From_Group::set_group_id(const ::std::string& value) {
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.group_id)
+}
+#if LANG_CXX11
+inline void WEB2S_Remove_User_From_Group::set_group_id(::std::string&& value) {
+  set_has_group_id();
+  group_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.group_id)
+}
+#endif
+inline void WEB2S_Remove_User_From_Group::set_group_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.group_id)
+}
+inline void WEB2S_Remove_User_From_Group::set_group_id(const void* value, size_t size) {
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.group_id)
+}
+inline ::std::string* WEB2S_Remove_User_From_Group::mutable_group_id() {
+  set_has_group_id();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.group_id)
+  return group_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Remove_User_From_Group::release_group_id() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.group_id)
+  clear_has_group_id();
+  return group_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Remove_User_From_Group::set_allocated_group_id(::std::string* group_id) {
+  if (group_id != NULL) {
+    set_has_group_id();
+  } else {
+    clear_has_group_id();
+  }
+  group_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_id);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.group_id)
+}
+
+// required bytes user_id = 2;
+inline bool WEB2S_Remove_User_From_Group::has_user_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WEB2S_Remove_User_From_Group::set_has_user_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WEB2S_Remove_User_From_Group::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WEB2S_Remove_User_From_Group::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_id();
+}
+inline const ::std::string& WEB2S_Remove_User_From_Group::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.user_id)
+  return user_id_.GetNoArena();
+}
+inline void WEB2S_Remove_User_From_Group::set_user_id(const ::std::string& value) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.user_id)
+}
+#if LANG_CXX11
+inline void WEB2S_Remove_User_From_Group::set_user_id(::std::string&& value) {
+  set_has_user_id();
+  user_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.user_id)
+}
+#endif
+inline void WEB2S_Remove_User_From_Group::set_user_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.user_id)
+}
+inline void WEB2S_Remove_User_From_Group::set_user_id(const void* value, size_t size) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.user_id)
+}
+inline ::std::string* WEB2S_Remove_User_From_Group::mutable_user_id() {
+  set_has_user_id();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Remove_User_From_Group::release_user_id() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.user_id)
+  clear_has_user_id();
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Remove_User_From_Group::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    set_has_user_id();
+  } else {
+    clear_has_user_id();
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.user_id)
+}
+
+// -------------------------------------------------------------------
+
+// WEB2S_Modify_Group
+
+// required bytes group_id = 1;
+inline bool WEB2S_Modify_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WEB2S_Modify_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WEB2S_Modify_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WEB2S_Modify_Group::clear_group_id() {
+  group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_group_id();
+}
+inline const ::std::string& WEB2S_Modify_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_id)
+  return group_id_.GetNoArena();
+}
+inline void WEB2S_Modify_Group::set_group_id(const ::std::string& value) {
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_id)
+}
+#if LANG_CXX11
+inline void WEB2S_Modify_Group::set_group_id(::std::string&& value) {
+  set_has_group_id();
+  group_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_id)
+}
+#endif
+inline void WEB2S_Modify_Group::set_group_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_id)
+}
+inline void WEB2S_Modify_Group::set_group_id(const void* value, size_t size) {
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_id)
+}
+inline ::std::string* WEB2S_Modify_Group::mutable_group_id() {
+  set_has_group_id();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_id)
+  return group_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Modify_Group::release_group_id() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_id)
+  clear_has_group_id();
+  return group_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Modify_Group::set_allocated_group_id(::std::string* group_id) {
+  if (group_id != NULL) {
+    set_has_group_id();
+  } else {
+    clear_has_group_id();
+  }
+  group_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_id);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_id)
+}
+
+// required bytes group_name = 2;
+inline bool WEB2S_Modify_Group::has_group_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WEB2S_Modify_Group::set_has_group_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WEB2S_Modify_Group::clear_has_group_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WEB2S_Modify_Group::clear_group_name() {
+  group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_group_name();
+}
+inline const ::std::string& WEB2S_Modify_Group::group_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+  return group_name_.GetNoArena();
+}
+inline void WEB2S_Modify_Group::set_group_name(const ::std::string& value) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+}
+#if LANG_CXX11
+inline void WEB2S_Modify_Group::set_group_name(::std::string&& value) {
+  set_has_group_name();
+  group_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+}
+#endif
+inline void WEB2S_Modify_Group::set_group_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+}
+inline void WEB2S_Modify_Group::set_group_name(const void* value, size_t size) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+}
+inline ::std::string* WEB2S_Modify_Group::mutable_group_name() {
+  set_has_group_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+  return group_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Modify_Group::release_group_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+  clear_has_group_name();
+  return group_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Modify_Group::set_allocated_group_name(::std::string* group_name) {
+  if (group_name != NULL) {
+    set_has_group_name();
+  } else {
+    clear_has_group_name();
+  }
+  group_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+}
+
+// optional uint32 load_user_list = 3;
+inline bool WEB2S_Modify_Group::has_load_user_list() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WEB2S_Modify_Group::set_has_load_user_list() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WEB2S_Modify_Group::clear_has_load_user_list() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WEB2S_Modify_Group::clear_load_user_list() {
+  load_user_list_ = 0u;
+  clear_has_load_user_list();
+}
+inline ::google::protobuf::uint32 WEB2S_Modify_Group::load_user_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.load_user_list)
+  return load_user_list_;
+}
+inline void WEB2S_Modify_Group::set_load_user_list(::google::protobuf::uint32 value) {
+  set_has_load_user_list();
+  load_user_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.load_user_list)
+}
+
+// optional uint32 load_user_group_list = 4;
+inline bool WEB2S_Modify_Group::has_load_user_group_list() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void WEB2S_Modify_Group::set_has_load_user_group_list() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void WEB2S_Modify_Group::clear_has_load_user_group_list() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void WEB2S_Modify_Group::clear_load_user_group_list() {
+  load_user_group_list_ = 0u;
+  clear_has_load_user_group_list();
+}
+inline ::google::protobuf::uint32 WEB2S_Modify_Group::load_user_group_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.load_user_group_list)
+  return load_user_group_list_;
+}
+inline void WEB2S_Modify_Group::set_load_user_group_list(::google::protobuf::uint32 value) {
+  set_has_load_user_group_list();
+  load_user_group_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.load_user_group_list)
+}
+
+// optional uint32 add_user_group = 5;
+inline bool WEB2S_Modify_Group::has_add_user_group() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WEB2S_Modify_Group::set_has_add_user_group() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WEB2S_Modify_Group::clear_has_add_user_group() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void WEB2S_Modify_Group::clear_add_user_group() {
+  add_user_group_ = 0u;
+  clear_has_add_user_group();
+}
+inline ::google::protobuf::uint32 WEB2S_Modify_Group::add_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.add_user_group)
+  return add_user_group_;
+}
+inline void WEB2S_Modify_Group::set_add_user_group(::google::protobuf::uint32 value) {
+  set_has_add_user_group();
+  add_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.add_user_group)
+}
+
+// optional uint32 modify_user_group = 6;
+inline bool WEB2S_Modify_Group::has_modify_user_group() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void WEB2S_Modify_Group::set_has_modify_user_group() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void WEB2S_Modify_Group::clear_has_modify_user_group() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void WEB2S_Modify_Group::clear_modify_user_group() {
+  modify_user_group_ = 0u;
+  clear_has_modify_user_group();
+}
+inline ::google::protobuf::uint32 WEB2S_Modify_Group::modify_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.modify_user_group)
+  return modify_user_group_;
+}
+inline void WEB2S_Modify_Group::set_modify_user_group(::google::protobuf::uint32 value) {
+  set_has_modify_user_group();
+  modify_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.modify_user_group)
+}
+
+// optional uint32 remove_user_group = 7;
+inline bool WEB2S_Modify_Group::has_remove_user_group() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void WEB2S_Modify_Group::set_has_remove_user_group() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void WEB2S_Modify_Group::clear_has_remove_user_group() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void WEB2S_Modify_Group::clear_remove_user_group() {
+  remove_user_group_ = 0u;
+  clear_has_remove_user_group();
+}
+inline ::google::protobuf::uint32 WEB2S_Modify_Group::remove_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.remove_user_group)
+  return remove_user_group_;
+}
+inline void WEB2S_Modify_Group::set_remove_user_group(::google::protobuf::uint32 value) {
+  set_has_remove_user_group();
+  remove_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.remove_user_group)
+}
+
+// -------------------------------------------------------------------
+
+// WEB2S_Remove_Group
+
+// required bytes group_id = 1;
+inline bool WEB2S_Remove_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WEB2S_Remove_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WEB2S_Remove_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WEB2S_Remove_Group::clear_group_id() {
+  group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_group_id();
+}
+inline const ::std::string& WEB2S_Remove_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
+  return group_id_.GetNoArena();
+}
+inline void WEB2S_Remove_Group::set_group_id(const ::std::string& value) {
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
+}
+#if LANG_CXX11
+inline void WEB2S_Remove_Group::set_group_id(::std::string&& value) {
+  set_has_group_id();
+  group_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
+}
+#endif
+inline void WEB2S_Remove_Group::set_group_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
+}
+inline void WEB2S_Remove_Group::set_group_id(const void* value, size_t size) {
+  set_has_group_id();
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
+}
+inline ::std::string* WEB2S_Remove_Group::mutable_group_id() {
+  set_has_group_id();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
+  return group_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WEB2S_Remove_Group::release_group_id() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
+  clear_has_group_id();
+  return group_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WEB2S_Remove_Group::set_allocated_group_id(::std::string* group_id) {
+  if (group_id != NULL) {
+    set_has_group_id();
+  } else {
+    clear_has_group_id();
+  }
+  group_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_id);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
 }
 
 // -------------------------------------------------------------------
@@ -8427,7 +11882,1148 @@ inline void S2WEB_Modify_Password_Result::set_result(::google::protobuf::uint32 
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result.result)
 }
 
+// -------------------------------------------------------------------
+
+// S2WEB_User_List_UserData
+
+// required uint32 user_id = 1;
+inline bool S2WEB_User_List_UserData::has_user_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2WEB_User_List_UserData::set_has_user_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2WEB_User_List_UserData::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2WEB_User_List_UserData::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+inline ::google::protobuf::uint32 S2WEB_User_List_UserData::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_id)
+  return user_id_;
+}
+inline void S2WEB_User_List_UserData::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_id)
+}
+
+// required bytes user_name = 2;
+inline bool S2WEB_User_List_UserData::has_user_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_User_List_UserData::set_has_user_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_User_List_UserData::clear_has_user_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_User_List_UserData::clear_user_name() {
+  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_name();
+}
+inline const ::std::string& S2WEB_User_List_UserData::user_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+  return user_name_.GetNoArena();
+}
+inline void S2WEB_User_List_UserData::set_user_name(const ::std::string& value) {
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+}
+#if LANG_CXX11
+inline void S2WEB_User_List_UserData::set_user_name(::std::string&& value) {
+  set_has_user_name();
+  user_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+}
+#endif
+inline void S2WEB_User_List_UserData::set_user_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+}
+inline void S2WEB_User_List_UserData::set_user_name(const void* value, size_t size) {
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+}
+inline ::std::string* S2WEB_User_List_UserData::mutable_user_name() {
+  set_has_user_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2WEB_User_List_UserData::release_user_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+  clear_has_user_name();
+  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2WEB_User_List_UserData::set_allocated_user_name(::std::string* user_name) {
+  if (user_name != NULL) {
+    set_has_user_name();
+  } else {
+    clear_has_user_name();
+  }
+  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+}
+
+// required uint32 group_id = 3;
+inline bool S2WEB_User_List_UserData::has_group_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2WEB_User_List_UserData::set_has_group_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2WEB_User_List_UserData::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2WEB_User_List_UserData::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+inline ::google::protobuf::uint32 S2WEB_User_List_UserData::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.group_id)
+  return group_id_;
+}
+inline void S2WEB_User_List_UserData::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.group_id)
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_User_List
+
+// repeated .WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData user_list = 1;
+inline int S2WEB_User_List::user_list_size() const {
+  return user_list_.size();
+}
+inline void S2WEB_User_List::clear_user_list() {
+  user_list_.Clear();
+}
+inline const ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData& S2WEB_User_List::user_list(int index) const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_User_List.user_list)
+  return user_list_.Get(index);
+}
+inline ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData* S2WEB_User_List::mutable_user_list(int index) {
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_User_List.user_list)
+  return user_list_.Mutable(index);
+}
+inline ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData* S2WEB_User_List::add_user_list() {
+  // @@protoc_insertion_point(field_add:WEB_SERVER_NET_Protocol.S2WEB_User_List.user_list)
+  return user_list_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData >*
+S2WEB_User_List::mutable_user_list() {
+  // @@protoc_insertion_point(field_mutable_list:WEB_SERVER_NET_Protocol.S2WEB_User_List.user_list)
+  return &user_list_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData >&
+S2WEB_User_List::user_list() const {
+  // @@protoc_insertion_point(field_list:WEB_SERVER_NET_Protocol.S2WEB_User_List.user_list)
+  return user_list_;
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_Create_User
+
+// required uint32 id = 1;
+inline bool S2WEB_Create_User::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2WEB_Create_User::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2WEB_Create_User::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2WEB_Create_User::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Create_User::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.id)
+  return id_;
+}
+inline void S2WEB_Create_User::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.id)
+}
+
+// required bytes account = 2;
+inline bool S2WEB_Create_User::has_account() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_Create_User::set_has_account() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_Create_User::clear_has_account() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_Create_User::clear_account() {
+  account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_account();
+}
+inline const ::std::string& S2WEB_Create_User::account() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
+  return account_.GetNoArena();
+}
+inline void S2WEB_Create_User::set_account(const ::std::string& value) {
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
+}
+#if LANG_CXX11
+inline void S2WEB_Create_User::set_account(::std::string&& value) {
+  set_has_account();
+  account_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
+}
+#endif
+inline void S2WEB_Create_User::set_account(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
+}
+inline void S2WEB_Create_User::set_account(const void* value, size_t size) {
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
+}
+inline ::std::string* S2WEB_Create_User::mutable_account() {
+  set_has_account();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
+  return account_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2WEB_Create_User::release_account() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
+  clear_has_account();
+  return account_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2WEB_Create_User::set_allocated_account(::std::string* account) {
+  if (account != NULL) {
+    set_has_account();
+  } else {
+    clear_has_account();
+  }
+  account_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), account);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
+}
+
+// required bytes name = 3;
+inline bool S2WEB_Create_User::has_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2WEB_Create_User::set_has_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2WEB_Create_User::clear_has_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2WEB_Create_User::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& S2WEB_Create_User::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+  return name_.GetNoArena();
+}
+inline void S2WEB_Create_User::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+}
+#if LANG_CXX11
+inline void S2WEB_Create_User::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+}
+#endif
+inline void S2WEB_Create_User::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+}
+inline void S2WEB_Create_User::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+}
+inline ::std::string* S2WEB_Create_User::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2WEB_Create_User::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2WEB_Create_User::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_Modify_User
+
+// required uint32 id = 1;
+inline bool S2WEB_Modify_User::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2WEB_Modify_User::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2WEB_Modify_User::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2WEB_Modify_User::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Modify_User::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.id)
+  return id_;
+}
+inline void S2WEB_Modify_User::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.id)
+}
+
+// required bytes name = 2;
+inline bool S2WEB_Modify_User::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_Modify_User::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_Modify_User::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_Modify_User::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& S2WEB_Modify_User::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.name)
+  return name_.GetNoArena();
+}
+inline void S2WEB_Modify_User::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.name)
+}
+#if LANG_CXX11
+inline void S2WEB_Modify_User::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.name)
+}
+#endif
+inline void S2WEB_Modify_User::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.name)
+}
+inline void S2WEB_Modify_User::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.name)
+}
+inline ::std::string* S2WEB_Modify_User::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2WEB_Modify_User::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2WEB_Modify_User::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.name)
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_Remove_User
+
+// required uint32 id = 1;
+inline bool S2WEB_Remove_User::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_Remove_User::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_Remove_User::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_Remove_User::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Remove_User::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Remove_User.id)
+  return id_;
+}
+inline void S2WEB_Remove_User::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Remove_User.id)
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_Group_List_GroupData
+
+// required uint32 id = 1;
+inline bool S2WEB_Group_List_GroupData::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2WEB_Group_List_GroupData::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2WEB_Group_List_GroupData::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2WEB_Group_List_GroupData::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Group_List_GroupData::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.id)
+  return id_;
+}
+inline void S2WEB_Group_List_GroupData::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.id)
+}
+
+// required bytes name = 2;
+inline bool S2WEB_Group_List_GroupData::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_Group_List_GroupData::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_Group_List_GroupData::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_Group_List_GroupData::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& S2WEB_Group_List_GroupData::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+  return name_.GetNoArena();
+}
+inline void S2WEB_Group_List_GroupData::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+}
+#if LANG_CXX11
+inline void S2WEB_Group_List_GroupData::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+}
+#endif
+inline void S2WEB_Group_List_GroupData::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+}
+inline void S2WEB_Group_List_GroupData::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+}
+inline ::std::string* S2WEB_Group_List_GroupData::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2WEB_Group_List_GroupData::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2WEB_Group_List_GroupData::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_Group_List
+
+// repeated .WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData group_list = 1;
+inline int S2WEB_Group_List::group_list_size() const {
+  return group_list_.size();
+}
+inline void S2WEB_Group_List::clear_group_list() {
+  group_list_.Clear();
+}
+inline const ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData& S2WEB_Group_List::group_list(int index) const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Group_List.group_list)
+  return group_list_.Get(index);
+}
+inline ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData* S2WEB_Group_List::mutable_group_list(int index) {
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Group_List.group_list)
+  return group_list_.Mutable(index);
+}
+inline ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData* S2WEB_Group_List::add_group_list() {
+  // @@protoc_insertion_point(field_add:WEB_SERVER_NET_Protocol.S2WEB_Group_List.group_list)
+  return group_list_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData >*
+S2WEB_Group_List::mutable_group_list() {
+  // @@protoc_insertion_point(field_mutable_list:WEB_SERVER_NET_Protocol.S2WEB_Group_List.group_list)
+  return &group_list_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData >&
+S2WEB_Group_List::group_list() const {
+  // @@protoc_insertion_point(field_list:WEB_SERVER_NET_Protocol.S2WEB_Group_List.group_list)
+  return group_list_;
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_Create_Group
+
+// required uint32 id = 1;
+inline bool S2WEB_Create_Group::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2WEB_Create_Group::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2WEB_Create_Group::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2WEB_Create_Group::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Create_Group::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.id)
+  return id_;
+}
+inline void S2WEB_Create_Group::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.id)
+}
+
+// required bytes name = 2;
+inline bool S2WEB_Create_Group::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_Create_Group::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_Create_Group::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_Create_Group::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& S2WEB_Create_Group::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+  return name_.GetNoArena();
+}
+inline void S2WEB_Create_Group::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+}
+#if LANG_CXX11
+inline void S2WEB_Create_Group::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+}
+#endif
+inline void S2WEB_Create_Group::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+}
+inline void S2WEB_Create_Group::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+}
+inline ::std::string* S2WEB_Create_Group::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2WEB_Create_Group::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2WEB_Create_Group::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+}
+
+// optional uint32 load_user_list = 3;
+inline bool S2WEB_Create_Group::has_load_user_list() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2WEB_Create_Group::set_has_load_user_list() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2WEB_Create_Group::clear_has_load_user_list() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2WEB_Create_Group::clear_load_user_list() {
+  load_user_list_ = 0u;
+  clear_has_load_user_list();
+}
+inline ::google::protobuf::uint32 S2WEB_Create_Group::load_user_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.load_user_list)
+  return load_user_list_;
+}
+inline void S2WEB_Create_Group::set_load_user_list(::google::protobuf::uint32 value) {
+  set_has_load_user_list();
+  load_user_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.load_user_list)
+}
+
+// optional uint32 load_user_group_list = 4;
+inline bool S2WEB_Create_Group::has_load_user_group_list() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void S2WEB_Create_Group::set_has_load_user_group_list() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void S2WEB_Create_Group::clear_has_load_user_group_list() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void S2WEB_Create_Group::clear_load_user_group_list() {
+  load_user_group_list_ = 0u;
+  clear_has_load_user_group_list();
+}
+inline ::google::protobuf::uint32 S2WEB_Create_Group::load_user_group_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.load_user_group_list)
+  return load_user_group_list_;
+}
+inline void S2WEB_Create_Group::set_load_user_group_list(::google::protobuf::uint32 value) {
+  set_has_load_user_group_list();
+  load_user_group_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.load_user_group_list)
+}
+
+// optional uint32 create_user_group = 5;
+inline bool S2WEB_Create_Group::has_create_user_group() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void S2WEB_Create_Group::set_has_create_user_group() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void S2WEB_Create_Group::clear_has_create_user_group() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void S2WEB_Create_Group::clear_create_user_group() {
+  create_user_group_ = 0u;
+  clear_has_create_user_group();
+}
+inline ::google::protobuf::uint32 S2WEB_Create_Group::create_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.create_user_group)
+  return create_user_group_;
+}
+inline void S2WEB_Create_Group::set_create_user_group(::google::protobuf::uint32 value) {
+  set_has_create_user_group();
+  create_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.create_user_group)
+}
+
+// optional uint32 modify_user_group = 6;
+inline bool S2WEB_Create_Group::has_modify_user_group() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void S2WEB_Create_Group::set_has_modify_user_group() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void S2WEB_Create_Group::clear_has_modify_user_group() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void S2WEB_Create_Group::clear_modify_user_group() {
+  modify_user_group_ = 0u;
+  clear_has_modify_user_group();
+}
+inline ::google::protobuf::uint32 S2WEB_Create_Group::modify_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.modify_user_group)
+  return modify_user_group_;
+}
+inline void S2WEB_Create_Group::set_modify_user_group(::google::protobuf::uint32 value) {
+  set_has_modify_user_group();
+  modify_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.modify_user_group)
+}
+
+// optional uint32 remove_user_group = 7;
+inline bool S2WEB_Create_Group::has_remove_user_group() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void S2WEB_Create_Group::set_has_remove_user_group() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void S2WEB_Create_Group::clear_has_remove_user_group() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void S2WEB_Create_Group::clear_remove_user_group() {
+  remove_user_group_ = 0u;
+  clear_has_remove_user_group();
+}
+inline ::google::protobuf::uint32 S2WEB_Create_Group::remove_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.remove_user_group)
+  return remove_user_group_;
+}
+inline void S2WEB_Create_Group::set_remove_user_group(::google::protobuf::uint32 value) {
+  set_has_remove_user_group();
+  remove_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.remove_user_group)
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_Modify_Group
+
+// required uint32 id = 1;
+inline bool S2WEB_Modify_Group::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2WEB_Modify_Group::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2WEB_Modify_Group::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2WEB_Modify_Group::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Modify_Group::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.id)
+  return id_;
+}
+inline void S2WEB_Modify_Group::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.id)
+}
+
+// required bytes name = 2;
+inline bool S2WEB_Modify_Group::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_Modify_Group::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_Modify_Group::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_Modify_Group::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& S2WEB_Modify_Group::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+  return name_.GetNoArena();
+}
+inline void S2WEB_Modify_Group::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+}
+#if LANG_CXX11
+inline void S2WEB_Modify_Group::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+}
+#endif
+inline void S2WEB_Modify_Group::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+}
+inline void S2WEB_Modify_Group::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+}
+inline ::std::string* S2WEB_Modify_Group::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2WEB_Modify_Group::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2WEB_Modify_Group::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+}
+
+// optional uint32 load_user_list = 3;
+inline bool S2WEB_Modify_Group::has_load_user_list() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2WEB_Modify_Group::set_has_load_user_list() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2WEB_Modify_Group::clear_has_load_user_list() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2WEB_Modify_Group::clear_load_user_list() {
+  load_user_list_ = 0u;
+  clear_has_load_user_list();
+}
+inline ::google::protobuf::uint32 S2WEB_Modify_Group::load_user_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.load_user_list)
+  return load_user_list_;
+}
+inline void S2WEB_Modify_Group::set_load_user_list(::google::protobuf::uint32 value) {
+  set_has_load_user_list();
+  load_user_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.load_user_list)
+}
+
+// optional uint32 load_user_group_list = 4;
+inline bool S2WEB_Modify_Group::has_load_user_group_list() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void S2WEB_Modify_Group::set_has_load_user_group_list() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void S2WEB_Modify_Group::clear_has_load_user_group_list() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void S2WEB_Modify_Group::clear_load_user_group_list() {
+  load_user_group_list_ = 0u;
+  clear_has_load_user_group_list();
+}
+inline ::google::protobuf::uint32 S2WEB_Modify_Group::load_user_group_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.load_user_group_list)
+  return load_user_group_list_;
+}
+inline void S2WEB_Modify_Group::set_load_user_group_list(::google::protobuf::uint32 value) {
+  set_has_load_user_group_list();
+  load_user_group_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.load_user_group_list)
+}
+
+// optional uint32 create_user_group = 5;
+inline bool S2WEB_Modify_Group::has_create_user_group() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void S2WEB_Modify_Group::set_has_create_user_group() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void S2WEB_Modify_Group::clear_has_create_user_group() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void S2WEB_Modify_Group::clear_create_user_group() {
+  create_user_group_ = 0u;
+  clear_has_create_user_group();
+}
+inline ::google::protobuf::uint32 S2WEB_Modify_Group::create_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.create_user_group)
+  return create_user_group_;
+}
+inline void S2WEB_Modify_Group::set_create_user_group(::google::protobuf::uint32 value) {
+  set_has_create_user_group();
+  create_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.create_user_group)
+}
+
+// optional uint32 modify_user_group = 6;
+inline bool S2WEB_Modify_Group::has_modify_user_group() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void S2WEB_Modify_Group::set_has_modify_user_group() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void S2WEB_Modify_Group::clear_has_modify_user_group() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void S2WEB_Modify_Group::clear_modify_user_group() {
+  modify_user_group_ = 0u;
+  clear_has_modify_user_group();
+}
+inline ::google::protobuf::uint32 S2WEB_Modify_Group::modify_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.modify_user_group)
+  return modify_user_group_;
+}
+inline void S2WEB_Modify_Group::set_modify_user_group(::google::protobuf::uint32 value) {
+  set_has_modify_user_group();
+  modify_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.modify_user_group)
+}
+
+// optional uint32 remove_user_group = 7;
+inline bool S2WEB_Modify_Group::has_remove_user_group() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void S2WEB_Modify_Group::set_has_remove_user_group() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void S2WEB_Modify_Group::clear_has_remove_user_group() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void S2WEB_Modify_Group::clear_remove_user_group() {
+  remove_user_group_ = 0u;
+  clear_has_remove_user_group();
+}
+inline ::google::protobuf::uint32 S2WEB_Modify_Group::remove_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.remove_user_group)
+  return remove_user_group_;
+}
+inline void S2WEB_Modify_Group::set_remove_user_group(::google::protobuf::uint32 value) {
+  set_has_remove_user_group();
+  remove_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.remove_user_group)
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_Remove_Group
+
+// required uint32 id = 1;
+inline bool S2WEB_Remove_Group::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_Remove_Group::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_Remove_Group::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_Remove_Group::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Remove_Group::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group.id)
+  return id_;
+}
+inline void S2WEB_Remove_Group::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group.id)
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_Add_User_To_Group
+
+// required uint32 user_id = 1;
+inline bool S2WEB_Add_User_To_Group::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_Add_User_To_Group::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_Add_User_To_Group::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_Add_User_To_Group::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Add_User_To_Group::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group.user_id)
+  return user_id_;
+}
+inline void S2WEB_Add_User_To_Group::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group.user_id)
+}
+
+// required uint32 group_id = 2;
+inline bool S2WEB_Add_User_To_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2WEB_Add_User_To_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2WEB_Add_User_To_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2WEB_Add_User_To_Group::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Add_User_To_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group.group_id)
+  return group_id_;
+}
+inline void S2WEB_Add_User_To_Group::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group.group_id)
+}
+
+// -------------------------------------------------------------------
+
+// S2WEB_Remove_User_From_Group
+
+// required uint32 user_id = 1;
+inline bool S2WEB_Remove_User_From_Group::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_Remove_User_From_Group::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_Remove_User_From_Group::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_Remove_User_From_Group::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Remove_User_From_Group::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group.user_id)
+  return user_id_;
+}
+inline void S2WEB_Remove_User_From_Group::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group.user_id)
+}
+
+// required uint32 group_id = 2;
+inline bool S2WEB_Remove_User_From_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2WEB_Remove_User_From_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2WEB_Remove_User_From_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2WEB_Remove_User_From_Group::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Remove_User_From_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group.group_id)
+  return group_id_;
+}
+inline void S2WEB_Remove_User_From_Group::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group.group_id)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

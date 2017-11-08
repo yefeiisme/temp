@@ -23,15 +23,17 @@ enum WEB2S
 	web2s_modify_password			= 12;	// 修改密码
 	web2s_find_slope				= 13;	// 查找指定的边坡
 	web2s_find_sensor				= 14;	// 查找指定的传感器
-	web2s_add_user					= 15;	// 添加新用户
-	web2s_modify_user				= 16;	// 修改用户信息
-	web2s_delete_user				= 17;	// 删除用户
-	web2s_add_user_group			= 18;	// 添加新的用户组
-	web2s_add_user_to_group			= 19;	// 添加新的用户到用户组
-	web2s_remove_user_from_group	= 20;	// 从用户组中删除指定的用户
-	web2s_modify_user_group			= 21;	// 修改用户组的权限
-	web2s_delete_user_group			= 22;	// 删除用户组
-	web2s_reserve20					= 23;	// 保留用的协议
+	web2s_load_user_list			= 15;	// 读取用户列表
+	web2s_create_user				= 16;	// 创建新用户
+	web2s_modify_user				= 17;	// 修改用户信息
+	web2s_remove_user				= 18;	// 删除用户
+	web2s_load_group_list			= 19;	// 读取用户组列表
+	web2s_create_group				= 20;	// 创建新的用户组
+	web2s_add_user_to_group			= 21;	// 添加新的用户到用户组
+	web2s_remove_user_from_group	= 22;	// 从用户组中删除指定的用户
+	web2s_modify_group				= 23;	// 修改用户组的权限
+	web2s_remove_group				= 24;	// 删除用户组
+	web2s_reserve20					= 25;	// 保留用的协议
 
 	web2s_max						= 256;	// 最大协议号
 }
@@ -148,8 +150,69 @@ message WEB2S_Find_Sensor
 	required uint32	sensor_type		= 4;	// 传感器类型
 }
 
+// 添加新用户
+message WEB2S_Create_User
+{
+	required bytes	account			= 1;	// 账号
+	required uint32	password		= 2;	// 密码
+	required uint32	name			= 3;	// 用户名
+}
 
+// 修改用户信息
+message WEB2S_Modify_User
+{
+	required uint32	id				= 1;	// 用户ID
+	required bytes	name			= 2;	// 用户名
+}
 
+// 删除用户
+message WEB2S_Remove_User
+{
+	required uint32	user_id			= 1;	// 账号
+}
+
+// 创建新的用户组
+message WEB2S_Create_Group
+{
+	required bytes	group_name				= 1;	// 用户组名
+	optional uint32	load_user_list			= 2;	// 获取所有用户的权限
+	optional uint32	load_user_group_list	= 3;	// 获取所有用户组的权限
+	optional uint32	create_user_group		= 4;	// 添加新用户组的权限
+	optional uint32	modify_user_group		= 5;	// 修改用户组的权限
+	optional uint32	remove_user_group		= 6;	// 删除用户组的权限
+}
+
+// 添加新的用户到用户组
+message WEB2S_Add_User_To_Group
+{
+	required bytes	group_id		= 1;	// 用户组ID
+	required bytes	user_id			= 2;	// 用户ID
+}
+
+// 从用户组中删除指定的用户
+message WEB2S_Remove_User_From_Group
+{
+	required bytes	group_id		= 1;	// 用户组ID
+	required bytes	user_id			= 2;	// 用户ID
+}
+
+// 修改用户组的权限
+message WEB2S_Modify_Group
+{
+	required bytes	group_id				= 1;	// 用户组ID
+	required bytes	group_name				= 2;	// 用户组名
+	optional uint32	load_user_list			= 3;	// 获取所有用户的权限
+	optional uint32	load_user_group_list	= 4;	// 获取所有用户组的权限
+	optional uint32	add_user_group			= 5;	// 添加新用户组的权限
+	optional uint32	modify_user_group		= 6;	// 修改用户组的权限
+	optional uint32	remove_user_group		= 7;	// 删除用户组的权限
+}
+
+// 删除用户组
+message WEB2S_Remove_Group
+{
+	required bytes	group_id		= 1;	// 用户组ID
+}
 
 
 // Server Respond Web
@@ -169,6 +232,16 @@ enum S2WEB
 	s2web_del_sensor				= 10;	// 删除传感器
 	s2web_update_sensor				= 11;	// 更新传感器数据
 	s2web_modify_password_result	= 12;	// 修改密码结果
+	s2web_user_list					= 13;	// 用户列表
+	s2web_create_user				= 14;	// 创建用户结果
+	s2web_modify_user				= 15;	// 修改用户结果
+	s2web_remove_user				= 16;	// 删除用户结果
+	s2web_group_list				= 17;	// 用户组列表
+	s2web_create_group				= 18;	// 创建用户组结果
+	s2web_modify_group				= 19;	// 修改用户组结果
+	s2web_remove_group				= 20;	// 删除用户组
+	s2web_add_user_to_group			= 21;	// 添加用户到用户组
+	s2web_remove_user_from_group	= 22;	// 从用户组中删除指定的用户
 
 	s2web_max						= 256;	// 最大协议号
 }
@@ -337,4 +410,94 @@ message S2WEB_Update_Sensor
 message S2WEB_Modify_Password_Result
 {
 	required uint32	result			= 1;	// 修改结果
+}
+
+// 用户列表
+message S2WEB_User_List
+{
+	message UserData
+	{
+		required uint32	user_id		= 1;	// 用户ID
+		required bytes	user_name	= 2;	// 用户名
+		required uint32	group_id	= 3;	// 所在用户组ID
+	}
+
+	repeated UserData	user_list	= 1;	// 用户列表
+}
+
+// 创建用户结果
+message S2WEB_Create_User
+{
+	required uint32	id				= 1;	// 用户ID
+	required bytes	account			= 2;	// 账号
+	required bytes	name			= 3;	// 用户名
+}
+
+// 修改用户结果
+message S2WEB_Modify_User
+{
+	required uint32	id				= 1;	// 用户ID
+	required bytes	name			= 2;	// 用户名
+}
+
+// 删除用户结果
+message S2WEB_Remove_User
+{
+	required uint32	id				= 1;	// 用户ID
+}
+
+// 用户组列表
+message S2WEB_Group_List
+{
+	message GroupData
+	{
+		required uint32	id			= 1;	// 用户组ID
+		required bytes	name		= 2;	// 用户组名
+	}
+
+	repeated GroupData	group_list	= 1;	// 用户组列表
+}
+
+// 创建用户组结果
+message S2WEB_Create_Group
+{
+	required uint32	id						= 1;	// 用户组ID
+	required bytes	name					= 2;	// 用户组名
+	optional uint32	load_user_list			= 3;	// 获取所有用户的权限
+	optional uint32	load_user_group_list	= 4;	// 获取所有用户组的权限
+	optional uint32	create_user_group		= 5;	// 添加新用户组的权限
+	optional uint32	modify_user_group		= 6;	// 修改用户组的权限
+	optional uint32	remove_user_group		= 7;	// 删除用户组的权限
+}
+
+// 修改用户组结果
+message S2WEB_Modify_Group
+{
+	required uint32	id						= 1;	// 用户组ID
+	required bytes	name					= 2;	// 用户组名
+	optional uint32	load_user_list			= 3;	// 获取所有用户的权限
+	optional uint32	load_user_group_list	= 4;	// 获取所有用户组的权限
+	optional uint32	create_user_group		= 5;	// 添加新用户组的权限
+	optional uint32	modify_user_group		= 6;	// 修改用户组的权限
+	optional uint32	remove_user_group		= 7;	// 删除用户组的权限
+}
+
+// 删除用户组
+message S2WEB_Remove_Group
+{
+	required uint32	id				= 1;	// 用户组ID
+}
+
+// 添加用户到用户组
+message S2WEB_Add_User_To_Group
+{
+	required uint32	user_id			= 1;	// 用户ID
+	required uint32 group_id		= 2;	// 用户组ID
+}
+
+// 从用户组中删除指定的用户
+message S2WEB_Remove_User_From_Group
+{
+	required uint32	user_id			= 1;	// 用户ID
+	required uint32 group_id		= 2;	// 用户组ID
 }
