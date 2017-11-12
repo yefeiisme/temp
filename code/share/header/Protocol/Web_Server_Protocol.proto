@@ -177,9 +177,8 @@ message WEB2S_Create_Group
 	required bytes	group_name				= 1;	// 用户组名
 	optional uint32	load_user_list			= 2;	// 获取所有用户的权限
 	optional uint32	load_user_group_list	= 3;	// 获取所有用户组的权限
-	optional uint32	create_user_group		= 4;	// 添加新用户组的权限
+	optional uint32	modify_user				= 4;	// 修改用户信息的权限
 	optional uint32	modify_user_group		= 5;	// 修改用户组的权限
-	optional uint32	remove_user_group		= 6;	// 删除用户组的权限
 }
 
 // 添加新的用户到用户组
@@ -465,9 +464,8 @@ message S2WEB_Create_Group
 	required bytes	name					= 2;	// 用户组名
 	optional uint32	load_user_list			= 3;	// 获取所有用户的权限
 	optional uint32	load_user_group_list	= 4;	// 获取所有用户组的权限
-	optional uint32	create_user_group		= 5;	// 添加新用户组的权限
+	optional uint32	modify_user				= 5;	// 修改用户信息的权限
 	optional uint32	modify_user_group		= 6;	// 修改用户组的权限
-	optional uint32	remove_user_group		= 7;	// 删除用户组的权限
 }
 
 // 修改用户组结果
