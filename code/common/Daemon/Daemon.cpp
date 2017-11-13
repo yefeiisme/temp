@@ -41,7 +41,7 @@ bool DaemonInit(OnQuitSignal pfnQuitSignal)
 	if (pid)
 		exit(0);
 
-	for (int nIndex = 0; nIndex < 20; ++nIndex)
+	for (int nIndex = 0; nIndex < NOFILE; ++nIndex)
 		close(nIndex);
 
 	setsid();
