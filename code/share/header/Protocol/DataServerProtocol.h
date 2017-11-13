@@ -1,16 +1,9 @@
 #ifndef __DATA_SERVER_PROTOCOL_H_
 #define __DATA_SERVER_PROTOCOL_H_
 
-typedef unsigned char		BYTE;		//%hhu
-typedef unsigned short		WORD;		//%hu
-typedef unsigned int		UINT;		//%u
-#if defined(WIN32) || defined(WIN64)
-typedef unsigned __int64	uint64;		//%llu
-typedef __int64				int64;		//%lld
-#elif defined(_linux)
-typedef unsigned long long	uint64;
-typedef long long			int64;
-#endif
+typedef unsigned char		BYTE;
+typedef unsigned short		WORD;
+typedef unsigned int		UINT;
 
 struct SDefinedProtocolHead
 {
@@ -22,14 +15,14 @@ enum d2s_Protocol
 	d2s_ping,
 	d2s_login,
 
-	c2s_end,
+	d2s_end,
 };
 
 enum s2d_Protocol
 {
 	d2s_login_result,
 
-	s2c_end,
+	s2d_end,
 };
 
 struct D2S_LOGIN : public SDefinedProtocolHead

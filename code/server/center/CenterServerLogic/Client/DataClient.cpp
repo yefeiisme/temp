@@ -2,7 +2,7 @@
 #include "DataClient.h"
 #include "../SensorDB/SensorDBOperation.h"
 
-CDataClient::pfnProtocolFunc CDataClient::m_ProtocolFunc[256] =
+CDataClient::pfnProtocolFunc CDataClient::m_ProtocolFunc[d2s_end] =
 {
 	&CDataClient::RecvPing,
 };
@@ -34,9 +34,9 @@ void CDataClient::ProcessNetPack()
 	{
 		byProtocol = *((BYTE*)pPack);
 
-		if (byProtocol >= 256)
+		if (byProtocol >= d2s_end)
 		{
-			g_pFileLog->WriteLog("[%s][%d] App Client[%u] Invalid Protocol[%hhu]\n", __FILE__, __LINE__, m_uUniqueID, byProtocol);
+			g_pFileLog->WriteLog("[%s][%d] Data Client[%u] Invalid Protocol[%hhu]\n", __FILE__, __LINE__, m_uUniqueID, byProtocol);
 			return;
 		}
 

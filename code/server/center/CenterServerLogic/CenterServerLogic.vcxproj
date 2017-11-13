@@ -23,6 +23,7 @@
     <ClCompile Include="SensorDB\SensorDBConn.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\share\header\Protocol\DataServerProtocol.h" />
     <ClInclude Include="CenterServerLogic.h" />
     <ClInclude Include="Client\AppClient.h" />
     <ClInclude Include="Client\App_Server_Protocol.pb.h" />
@@ -98,7 +99,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;../../../share/header;../../../share/header/base;../../../share/header/CenterServer</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../../../share/header;../../../share/header/base;../../../share/header/CenterServer;../../../share/header/Protocol</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
@@ -116,7 +117,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;../../../share/header;../../../share/header/base;../../../share/header/CenterServer</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../../../share/header;../../../share/header/base;../../../share/header/CenterServer;../../../share/header/Protocol</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>

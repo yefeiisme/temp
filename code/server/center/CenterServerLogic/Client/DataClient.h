@@ -3,6 +3,7 @@
 
 #include "IMysqlQuery.h"
 #include "Client.h"
+#include "DataServerProtocol.h"
 #include "../SensorDB/SensorDBOperation.h"
 
 class CDataClient : public CClient
@@ -19,7 +20,7 @@ private:
 	void					RecvPing(const void *pPack, const unsigned int uPackLen);
 private:
 	typedef void			(CDataClient::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
-	static pfnProtocolFunc	m_ProtocolFunc[256];
+	static pfnProtocolFunc	m_ProtocolFunc[d2s_end];
 private:
 };
 
