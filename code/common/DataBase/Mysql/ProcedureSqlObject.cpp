@@ -19,6 +19,8 @@ CProcObj::CProcObj()
 
 	m_wMaxCallbackDataLen	= 0;
 
+	m_bAddColumn			= false;
+	m_bAddBatchValue		= false;
 	m_bAddParam				= false;
 }
 
@@ -49,6 +51,94 @@ bool CProcObj::Initialize(const UINT uQueryBufferLen)
 	m_pstrCallbackData	= m_pstrBuffer + sizeof(WORD);
 	m_pstrSQL			= m_pstrBuffer + m_wMaxCallbackDataLen;
 
+	return true;
+}
+
+bool CProcObj::BeginBatchInsert(const char *pstrTableName, void *pCallbackData, const WORD wDataLen)
+{
+	if (nullptr == pstrTableName)
+		return false;
+
+	if (nullptr == pCallbackData)
+		return false;
+
+	if (wDataLen > MAX_CALLBACK_DATA_LEN)
+		return false;
+
+	if (m_uSQLLen >= m_uMaxSQLLen)
+		return false;
+
+	Clear();
+
+	*m_pCallbackDataLen	= wDataLen;
+
+	memcpy(m_pstrCallbackData, pCallbackData, wDataLen);
+
+	m_uSQLLen += snprintf(m_pstrSQL, m_uMaxSQLLen - m_uSQLLen, "insert into %s(", pstrTableName);
+
+	return true;
+}
+
+bool CProcObj::AddColumn(const char *pstrColName)
+{
+	if (nullptr == pstrColName)
+		return false;
+
+	if (m_uMaxSQLLen == m_uSQLLen)
+		return false;
+
+	if (m_bAddColumn)
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%s", pstrColName);
+	}
+	else
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%s", pstrColName);
+	}
+
+	m_bAddColumn = true;
+
+	return true;
+}
+
+bool CProcObj::EndColumn()
+{
+	if (m_uSQLLen >= m_uMaxSQLLen)
+		return false;
+
+	m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ") value");
+
+	return true;
+}
+
+bool CProcObj::BeginAddParam()
+{
+	if (m_bAddBatchValue)
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",(");
+	}
+	else
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "(");
+	}
+
+	m_bAddBatchValue	= true;
+
+	return true;
+}
+
+bool CProcObj::EndAddParam()
+{
+	if (m_uSQLLen >= m_uMaxSQLLen)
+		return false;
+
+	m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ")");
+
+	return true;
+}
+
+bool CProcObj::BatchInsert()
+{
 	return true;
 }
 
@@ -225,8 +315,29 @@ bool CProcObj::AddParam(const char *pstrParam)
 	return true;
 }
 
-bool CProcObj::AddParam(const void *pParam)
+bool CProcObj::AddParam(const void *pParam, const unsigned int uParamLen)
 {
+	if (nullptr == pParam)
+		return false;
+
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",'");
+	}
+	else
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "'");
+	}
+
+	if (m_uMaxSQLLen - m_uSQLLen < uParamLen * 2 + 1)
+		return false;
+
+	m_uSQLLen += mysql_real_escape_string(m_pDBHandle, m_pstrSQL + m_uSQLLen, (const char*)pParam, uParamLen);
+
+	m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "'");
+
+	m_bAddParam = true;
+
 	return true;
 }
 
@@ -251,5 +362,8 @@ void CProcObj::Clear()
 {
 	*m_pCallbackDataLen	= 0;
 	m_uSQLLen			= 0;
+
+	m_bAddColumn		= false;
+	m_bAddBatchValue	= false;
 	m_bAddParam			= false;
 }

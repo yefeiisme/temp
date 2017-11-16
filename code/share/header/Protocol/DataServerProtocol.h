@@ -13,9 +13,23 @@ struct SDefinedProtocolHead
 enum d2s_Protocol
 {
 	d2s_ping,
-	d2s_login,
+	d2s_add_sensor_data,
 
 	d2s_end,
+};
+
+struct SSensorData
+{
+	double	dLongitude;
+	double	dLatitude;
+	double	dValue1;
+	double	dValue2;
+	double	dValue3;
+};
+
+struct D2S_ADD_SENSOR_DATA
+{
+	BYTE	byDataCount;
 };
 
 enum s2d_Protocol

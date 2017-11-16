@@ -83,6 +83,13 @@ public:
 	void					Release();
 	bool					Initialize(const char *pstrSettingFile, const char *pstrSection);
 
+	bool					BeginBatchInsert(const char *pstrTableName, void *pCallbackData, const WORD wDataLen);
+	bool					AddColumn(const char *pstrColName);
+	bool					EndColumn();
+	bool					BeginAddParam();
+	bool					EndAddParam();
+	bool					BatchInsert();
+
 	bool					PrepareProc(const char *pstrProcName);
 	bool					AddParam(const int nParam);
 	bool					AddParam(const unsigned int uParam);
@@ -92,7 +99,7 @@ public:
 	bool					AddParam(const float fParam);
 	bool					AddParam(const double dParam);
 	bool					AddParam(const char *pstrParam);
-	bool					AddParam(const void *pParam);
+	bool					AddParam(const void *pParam, const unsigned int uParamLen);
 	bool					EndPrepareProc(void *pCallbackData, const WORD wDataLen);
 	bool					CallProc();
 

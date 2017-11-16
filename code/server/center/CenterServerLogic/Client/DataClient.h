@@ -18,6 +18,7 @@ private:
 	void					ProcessNetPack();
 
 	void					RecvPing(const void *pPack, const unsigned int uPackLen);
+	void					RecvAddSensorData(const void *pPack, const unsigned int uPackLen);
 private:
 	typedef void			(CDataClient::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);
 	static pfnProtocolFunc	m_ProtocolFunc[d2s_end];

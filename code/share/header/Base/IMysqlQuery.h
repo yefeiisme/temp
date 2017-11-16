@@ -34,6 +34,13 @@ public:
 	virtual bool			IsExit() = 0;
 	virtual void			Release() = 0;
 
+	virtual bool			BeginBatchInsert(const char *pstrTableName, void *pCallbackData, const WORD wDataLen) = 0;
+	virtual bool			AddColumn(const char *pstrColName) = 0;
+	virtual bool			EndColumn() = 0;
+	virtual bool			BeginAddParam() = 0;
+	virtual bool			EndAddParam() = 0;
+	virtual bool			BatchInsert() = 0;
+
 	virtual bool			PrepareProc(const char *pstrProcName) = 0;
 	virtual bool			AddParam(const int nParam) = 0;
 	virtual bool			AddParam(const unsigned int uParam) = 0;
@@ -43,7 +50,7 @@ public:
 	virtual bool			AddParam(const float fParam) = 0;
 	virtual bool			AddParam(const double dParam) = 0;
 	virtual bool			AddParam(const char *pstrParam) = 0;
-	virtual bool			AddParam(const void *pParam) = 0;
+	virtual bool			AddParam(const void *pParam, const unsigned int uParamLen) = 0;
 	virtual bool			EndPrepareProc(void *pCallbackData, const WORD wDataLen) = 0;
 	virtual bool			CallProc() = 0;
 

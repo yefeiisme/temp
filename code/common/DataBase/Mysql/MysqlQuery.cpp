@@ -236,6 +236,36 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 	return true;
 }
 
+bool CMysqlQuery::BeginBatchInsert(const char *pstrTableName, void *pCallbackData, const WORD wDataLen)
+{
+	return m_pProcSqlObj->BeginBatchInsert(pstrTableName, pCallbackData, wDataLen);
+}
+
+bool CMysqlQuery::AddColumn(const char *pstrColName)
+{
+	return m_pProcSqlObj->AddColumn(pstrColName);
+}
+
+bool CMysqlQuery::EndColumn()
+{
+	return m_pProcSqlObj->EndColumn();
+}
+
+bool CMysqlQuery::BeginAddParam()
+{
+	return m_pProcSqlObj->BeginAddParam();
+}
+
+bool CMysqlQuery::EndAddParam()
+{
+	return m_pProcSqlObj->EndAddParam();
+}
+
+bool CMysqlQuery::BatchInsert()
+{
+	return m_pProcSqlObj->BatchInsert();
+}
+
 bool CMysqlQuery::PrepareProc(const char *pstrProcName)
 {
 	return m_pProcSqlObj->PrepareProc(pstrProcName);
@@ -281,9 +311,9 @@ bool CMysqlQuery::AddParam(const char *pstrParam)
 	return m_pProcSqlObj->AddParam(pstrParam);
 }
 
-bool CMysqlQuery::AddParam(const void *pParam)
+bool CMysqlQuery::AddParam(const void *pParam, const unsigned int uParamLen)
 {
-	return m_pProcSqlObj->AddParam(pParam);
+	return m_pProcSqlObj->AddParam(pParam, uParamLen);
 }
 
 bool CMysqlQuery::EndPrepareProc(void *pCallbackData, const WORD wDataLen)
