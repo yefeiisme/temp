@@ -27,5 +27,6 @@ INCLUDES += -I../../../share/header/Base/
 INCLUDES += -I../../../share/header/Server/
 INCLUDES += -I../../../share/header/CenterServer/
 INCLUDES += -I../../../share/header/curl/
+INCLUDES += -I../../../share/header/Protocol/
 llibdir=../../../share/llib/
 
