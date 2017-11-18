@@ -1489,11 +1489,8 @@ void CWebClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest 
 	WORD	wAuthorityID		= 0;
 	WORD	wParentID			= 0;
 	char	strUrl[256]			= {0};
+	char	strIconUrl[256]		= {0};
 	char	strDescption[256]	= {0};
-	BYTE	byCanView			= 0;
-	BYTE	byCanAdd			= 0;
-	BYTE	byCanDelete			= 0;
-	BYTE	byCanModify			= 0;
 	UINT	uCol				= 0;
 
 	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
@@ -1514,20 +1511,14 @@ void CWebClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest 
 		pResult1->GetData(uRow, uCol++, wAuthorityID);
 		pResult1->GetData(uRow, uCol++, wParentID);
 		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
+		pResult1->GetData(uRow, uCol++, strIconUrl, sizeof(strIconUrl));
 		pResult1->GetData(uRow, uCol++, strDescption, sizeof(strDescption));
-		pResult1->GetData(uRow, uCol++, byCanView);
-		pResult1->GetData(uRow, uCol++, byCanAdd);
-		pResult1->GetData(uRow, uCol++, byCanDelete);
-		pResult1->GetData(uRow, uCol++, byCanModify);
 
 		pSlopeData->set_authority_id(wAuthorityID);
 		pSlopeData->set_parent_id(wParentID);
 		pSlopeData->set_url(strUrl);
+		pSlopeData->set_icon_url(strIconUrl);
 		pSlopeData->set_description(strDescption);
-		pSlopeData->set_can_view(byCanView);
-		pSlopeData->set_can_add(byCanAdd);
-		pSlopeData->set_can_delete(byCanDelete);
-		pSlopeData->set_can_modify(byCanModify);
 	}
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_authority_list, tagAuthorityList);

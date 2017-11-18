@@ -516,10 +516,7 @@ message S2WEB_Authority_List
 		required uint32	parent_id		= 2;	// 父节点ID
 		required bytes	url				= 3;	// 网址url
 		required bytes	description		= 4;	// 描述
-		required uint32	can_view		= 5;	// 查看权限
-		required uint32	can_add			= 6;	// 添加权限
-		required uint32	can_delete		= 7;	// 删除权限
-		required uint32	can_modify		= 8;	// 修改权限
+		required bytes	icon_url		= 5;	// icon的url
 	}
 
 	repeated AuthorityData	authority_list	= 1;	// 用户组列表

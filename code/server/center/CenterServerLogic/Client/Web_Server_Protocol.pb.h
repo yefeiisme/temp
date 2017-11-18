@@ -6801,6 +6801,21 @@ class S2WEB_Authority_List_AuthorityData : public ::google::protobuf::Message /*
   ::std::string* release_description();
   void set_allocated_description(::std::string* description);
 
+  // required bytes icon_url = 5;
+  bool has_icon_url() const;
+  void clear_icon_url();
+  static const int kIconUrlFieldNumber = 5;
+  const ::std::string& icon_url() const;
+  void set_icon_url(const ::std::string& value);
+  #if LANG_CXX11
+  void set_icon_url(::std::string&& value);
+  #endif
+  void set_icon_url(const char* value);
+  void set_icon_url(const void* value, size_t size);
+  ::std::string* mutable_icon_url();
+  ::std::string* release_icon_url();
+  void set_allocated_icon_url(::std::string* icon_url);
+
   // required uint32 authority_id = 1;
   bool has_authority_id() const;
   void clear_authority_id();
@@ -6815,34 +6830,6 @@ class S2WEB_Authority_List_AuthorityData : public ::google::protobuf::Message /*
   ::google::protobuf::uint32 parent_id() const;
   void set_parent_id(::google::protobuf::uint32 value);
 
-  // required uint32 can_view = 5;
-  bool has_can_view() const;
-  void clear_can_view();
-  static const int kCanViewFieldNumber = 5;
-  ::google::protobuf::uint32 can_view() const;
-  void set_can_view(::google::protobuf::uint32 value);
-
-  // required uint32 can_add = 6;
-  bool has_can_add() const;
-  void clear_can_add();
-  static const int kCanAddFieldNumber = 6;
-  ::google::protobuf::uint32 can_add() const;
-  void set_can_add(::google::protobuf::uint32 value);
-
-  // required uint32 can_delete = 7;
-  bool has_can_delete() const;
-  void clear_can_delete();
-  static const int kCanDeleteFieldNumber = 7;
-  ::google::protobuf::uint32 can_delete() const;
-  void set_can_delete(::google::protobuf::uint32 value);
-
-  // required uint32 can_modify = 8;
-  bool has_can_modify() const;
-  void clear_can_modify();
-  static const int kCanModifyFieldNumber = 8;
-  ::google::protobuf::uint32 can_modify() const;
-  void set_can_modify(::google::protobuf::uint32 value);
-
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
  private:
   void set_has_authority_id();
@@ -6853,14 +6840,8 @@ class S2WEB_Authority_List_AuthorityData : public ::google::protobuf::Message /*
   void clear_has_url();
   void set_has_description();
   void clear_has_description();
-  void set_has_can_view();
-  void clear_has_can_view();
-  void set_has_can_add();
-  void clear_has_can_add();
-  void set_has_can_delete();
-  void clear_has_can_delete();
-  void set_has_can_modify();
-  void clear_has_can_modify();
+  void set_has_icon_url();
+  void clear_has_icon_url();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -6870,12 +6851,9 @@ class S2WEB_Authority_List_AuthorityData : public ::google::protobuf::Message /*
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr url_;
   ::google::protobuf::internal::ArenaStringPtr description_;
+  ::google::protobuf::internal::ArenaStringPtr icon_url_;
   ::google::protobuf::uint32 authority_id_;
   ::google::protobuf::uint32 parent_id_;
-  ::google::protobuf::uint32 can_view_;
-  ::google::protobuf::uint32 can_add_;
-  ::google::protobuf::uint32 can_delete_;
-  ::google::protobuf::uint32 can_modify_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -13329,13 +13307,13 @@ inline void S2WEB_Remove_User_From_Group::set_group_id(::google::protobuf::uint3
 
 // required uint32 authority_id = 1;
 inline bool S2WEB_Authority_List_AuthorityData::has_authority_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void S2WEB_Authority_List_AuthorityData::set_has_authority_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void S2WEB_Authority_List_AuthorityData::clear_has_authority_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void S2WEB_Authority_List_AuthorityData::clear_authority_id() {
   authority_id_ = 0u;
@@ -13353,13 +13331,13 @@ inline void S2WEB_Authority_List_AuthorityData::set_authority_id(::google::proto
 
 // required uint32 parent_id = 2;
 inline bool S2WEB_Authority_List_AuthorityData::has_parent_id() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void S2WEB_Authority_List_AuthorityData::set_has_parent_id() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void S2WEB_Authority_List_AuthorityData::clear_has_parent_id() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void S2WEB_Authority_List_AuthorityData::clear_parent_id() {
   parent_id_ = 0u;
@@ -13501,100 +13479,67 @@ inline void S2WEB_Authority_List_AuthorityData::set_allocated_description(::std:
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
 }
 
-// required uint32 can_view = 5;
-inline bool S2WEB_Authority_List_AuthorityData::has_can_view() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+// required bytes icon_url = 5;
+inline bool S2WEB_Authority_List_AuthorityData::has_icon_url() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void S2WEB_Authority_List_AuthorityData::set_has_can_view() {
-  _has_bits_[0] |= 0x00000010u;
+inline void S2WEB_Authority_List_AuthorityData::set_has_icon_url() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline void S2WEB_Authority_List_AuthorityData::clear_has_can_view() {
-  _has_bits_[0] &= ~0x00000010u;
+inline void S2WEB_Authority_List_AuthorityData::clear_has_icon_url() {
+  _has_bits_[0] &= ~0x00000004u;
 }
-inline void S2WEB_Authority_List_AuthorityData::clear_can_view() {
-  can_view_ = 0u;
-  clear_has_can_view();
+inline void S2WEB_Authority_List_AuthorityData::clear_icon_url() {
+  icon_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_icon_url();
 }
-inline ::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_view() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_view)
-  return can_view_;
+inline const ::std::string& S2WEB_Authority_List_AuthorityData::icon_url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+  return icon_url_.GetNoArena();
 }
-inline void S2WEB_Authority_List_AuthorityData::set_can_view(::google::protobuf::uint32 value) {
-  set_has_can_view();
-  can_view_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_view)
+inline void S2WEB_Authority_List_AuthorityData::set_icon_url(const ::std::string& value) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
 }
-
-// required uint32 can_add = 6;
-inline bool S2WEB_Authority_List_AuthorityData::has_can_add() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+#if LANG_CXX11
+inline void S2WEB_Authority_List_AuthorityData::set_icon_url(::std::string&& value) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
 }
-inline void S2WEB_Authority_List_AuthorityData::set_has_can_add() {
-  _has_bits_[0] |= 0x00000020u;
+#endif
+inline void S2WEB_Authority_List_AuthorityData::set_icon_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
 }
-inline void S2WEB_Authority_List_AuthorityData::clear_has_can_add() {
-  _has_bits_[0] &= ~0x00000020u;
+inline void S2WEB_Authority_List_AuthorityData::set_icon_url(const void* value, size_t size) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
 }
-inline void S2WEB_Authority_List_AuthorityData::clear_can_add() {
-  can_add_ = 0u;
-  clear_has_can_add();
+inline ::std::string* S2WEB_Authority_List_AuthorityData::mutable_icon_url() {
+  set_has_icon_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+  return icon_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_add() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_add)
-  return can_add_;
+inline ::std::string* S2WEB_Authority_List_AuthorityData::release_icon_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+  clear_has_icon_url();
+  return icon_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void S2WEB_Authority_List_AuthorityData::set_can_add(::google::protobuf::uint32 value) {
-  set_has_can_add();
-  can_add_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_add)
-}
-
-// required uint32 can_delete = 7;
-inline bool S2WEB_Authority_List_AuthorityData::has_can_delete() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void S2WEB_Authority_List_AuthorityData::set_has_can_delete() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void S2WEB_Authority_List_AuthorityData::clear_has_can_delete() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void S2WEB_Authority_List_AuthorityData::clear_can_delete() {
-  can_delete_ = 0u;
-  clear_has_can_delete();
-}
-inline ::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_delete() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_delete)
-  return can_delete_;
-}
-inline void S2WEB_Authority_List_AuthorityData::set_can_delete(::google::protobuf::uint32 value) {
-  set_has_can_delete();
-  can_delete_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_delete)
-}
-
-// required uint32 can_modify = 8;
-inline bool S2WEB_Authority_List_AuthorityData::has_can_modify() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-inline void S2WEB_Authority_List_AuthorityData::set_has_can_modify() {
-  _has_bits_[0] |= 0x00000080u;
-}
-inline void S2WEB_Authority_List_AuthorityData::clear_has_can_modify() {
-  _has_bits_[0] &= ~0x00000080u;
-}
-inline void S2WEB_Authority_List_AuthorityData::clear_can_modify() {
-  can_modify_ = 0u;
-  clear_has_can_modify();
-}
-inline ::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_modify() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_modify)
-  return can_modify_;
-}
-inline void S2WEB_Authority_List_AuthorityData::set_can_modify(::google::protobuf::uint32 value) {
-  set_has_can_modify();
-  can_modify_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_modify)
+inline void S2WEB_Authority_List_AuthorityData::set_allocated_icon_url(::std::string* icon_url) {
+  if (icon_url != NULL) {
+    set_has_icon_url();
+  } else {
+    clear_has_icon_url();
+  }
+  icon_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), icon_url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
 }
 
 // -------------------------------------------------------------------

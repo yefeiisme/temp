@@ -99,6 +99,7 @@ CREATE TABLE `authority` (
   `AuthorityID` smallint unsigned NOT NULL AUTO_INCREMENT,
   `ParentID` smallint unsigned NOT NULL DEFAULT '0',
   `Url` mediumtext,
+  `IconUrl` mediumtext,
   `Description` mediumtext,
   PRIMARY KEY (`AuthorityID`),
   KEY `ParentID` (`ParentID`)
@@ -107,10 +108,6 @@ CREATE TABLE `authority` (
 CREATE TABLE `group_authority` (
   `GroupID` smallint unsigned NOT NULL DEFAULT '0',
   `AuthorityID` smallint unsigned NOT NULL DEFAULT '0',
-  `CanView` tinyint unsigned NOT NULL DEFAULT '0',
-  `CanAdd` tinyint unsigned NOT NULL DEFAULT '0',
-  `CanDelete` tinyint unsigned NOT NULL DEFAULT '0',
-  `CanModify` tinyint unsigned NOT NULL DEFAULT '0',
   KEY `GroupID` (`GroupID`),
   KEY `AuthorityID` (`AuthorityID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -185,7 +182,7 @@ CREATE PROCEDURE `LoadAllAuthority`(IN paramAccountID INTEGER UNSIGNED)
 BEGIN
 	DECLARE nGroupID INTEGER UNSIGNED default 0;
 	select GroupID into nGroupID from user where ID=paramAccountID;
-    select authority.AuthorityID,authority.ParentID,authority.Url,authority.Description,group_authority.CanView,group_authority.CanAdd,group_authority.CanDelete,group_authority.CanModify from authority,group_authority
+    select authority.AuthorityID,authority.ParentID,authority.Url,authority.IconUrl,authority.Description from authority,group_authority
 	where group_authority.GroupID=nGroupID and authority.AuthorityID=group_authority.AuthorityID;
 END;
 
@@ -194,7 +191,7 @@ CREATE PROCEDURE `LoadAuthorityByID`(IN paramAccountID INTEGER UNSIGNED,IN param
 BEGIN
 	DECLARE nGroupID INTEGER UNSIGNED default 0;
 	select GroupID into nGroupID from user where ID=paramAccountID;
-    select authority.AuthorityID,authority.ParentID,authority.Url,authority.Description,group_authority.CanView,group_authority.CanAdd,group_authority.CanDelete,group_authority.CanModify from authority,group_authority
+    select authority.AuthorityID,authority.ParentID,authority.Url,authority.IconUrl,authority.Description from authority,group_authority
 	where group_authority.GroupID=nGroupID and authority.AuthorityID=group_authority.AuthorityID and authority.ParentID =paramAuthorityID;
 END;
 

@@ -824,18 +824,12 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, parent_id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, url_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, description_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, can_view_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, can_add_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, can_delete_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, can_modify_),
-  2,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, icon_url_),
   3,
+  4,
   0,
   1,
-  4,
-  5,
-  6,
-  7,
+  2,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -896,8 +890,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 591, 597, sizeof(S2WEB_Remove_Group)},
   { 598, 605, sizeof(S2WEB_Add_User_To_Group)},
   { 607, 614, sizeof(S2WEB_Remove_User_From_Group)},
-  { 616, 629, sizeof(S2WEB_Authority_List_AuthorityData)},
-  { 637, 643, sizeof(S2WEB_Authority_List)},
+  { 616, 626, sizeof(S2WEB_Authority_List_AuthorityData)},
+  { 631, 637, sizeof(S2WEB_Authority_List)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1269,49 +1263,48 @@ void AddDescriptorsImpl() {
       "\n\002id\030\001 \002(\r\"<\n\027S2WEB_Add_User_To_Group\022\017\n"
       "\007user_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\"A\n\034S2WE"
       "B_Remove_User_From_Group\022\017\n\007user_id\030\001 \002("
-      "\r\022\020\n\010group_id\030\002 \002(\r\"\223\002\n\024S2WEB_Authority_"
+      "\r\022\020\n\010group_id\030\002 \002(\r\"\331\001\n\024S2WEB_Authority_"
       "List\022S\n\016authority_list\030\001 \003(\0132;.WEB_SERVE"
       "R_NET_Protocol.S2WEB_Authority_List.Auth"
-      "orityData\032\245\001\n\rAuthorityData\022\024\n\014authority"
-      "_id\030\001 \002(\r\022\021\n\tparent_id\030\002 \002(\r\022\013\n\003url\030\003 \002("
-      "\014\022\023\n\013description\030\004 \002(\014\022\020\n\010can_view\030\005 \002(\r"
-      "\022\017\n\007can_add\030\006 \002(\r\022\022\n\ncan_delete\030\007 \002(\r\022\022\n"
-      "\ncan_modify\030\010 \002(\r*\247\005\n\005WEB2S\022\017\n\013web2s_log"
-      "in\020\000\022\034\n\030web2s_request_slope_list\020\001\022\035\n\031we"
-      "b2s_request_sensor_list\020\002\022 \n\034web2s_reque"
-      "st_sensor_history\020\003\022\016\n\nweb2s_ping\020\004\022\032\n\026w"
-      "eb2s_request_all_list\020\005\022\023\n\017web2s_add_slo"
-      "pe\020\006\022\023\n\017web2s_del_slope\020\007\022\033\n\027web2s_updat"
-      "e_slope_data\020\010\022\024\n\020web2s_add_sensor\020\t\022\024\n\020"
-      "web2s_del_sensor\020\n\022\034\n\030web2s_update_senso"
-      "r_data\020\013\022\031\n\025web2s_modify_password\020\014\022\024\n\020w"
-      "eb2s_find_slope\020\r\022\025\n\021web2s_find_sensor\020\016"
-      "\022\030\n\024web2s_load_user_list\020\017\022\025\n\021web2s_crea"
-      "te_user\020\020\022\025\n\021web2s_modify_user\020\021\022\025\n\021web2"
-      "s_remove_user\020\022\022\031\n\025web2s_load_group_list"
-      "\020\023\022\026\n\022web2s_create_group\020\024\022\033\n\027web2s_add_"
-      "user_to_group\020\025\022 \n\034web2s_remove_user_fro"
-      "m_group\020\026\022\026\n\022web2s_modify_group\020\027\022\026\n\022web"
-      "2s_remove_group\020\030\022\030\n\024web2s_load_authorit"
-      "y\020\031\022\016\n\tweb2s_max\020\200\002*\331\004\n\005S2WEB\022\026\n\022s2web_l"
-      "ogin_result\020\000\022\024\n\020s2web_slope_list\020\001\022\025\n\021s"
-      "2web_sensor_list\020\002\022\030\n\024s2web_sensor_histo"
-      "ry\020\003\022\026\n\022s2web_all_list_end\020\004\022\017\n\013s2web_er"
-      "ror\020\005\022\023\n\017s2web_new_slope\020\006\022\023\n\017s2web_del_"
-      "slope\020\007\022\026\n\022s2web_update_slope\020\010\022\024\n\020s2web"
-      "_add_sensor\020\t\022\024\n\020s2web_del_sensor\020\n\022\027\n\023s"
-      "2web_update_sensor\020\013\022 \n\034s2web_modify_pas"
-      "sword_result\020\014\022\023\n\017s2web_user_list\020\r\022\025\n\021s"
-      "2web_create_user\020\016\022\025\n\021s2web_modify_user\020"
-      "\017\022\025\n\021s2web_remove_user\020\020\022\024\n\020s2web_group_"
-      "list\020\021\022\026\n\022s2web_create_group\020\022\022\026\n\022s2web_"
-      "modify_group\020\023\022\026\n\022s2web_remove_group\020\024\022\033"
-      "\n\027s2web_add_user_to_group\020\025\022 \n\034s2web_rem"
-      "ove_user_from_group\020\026\022\030\n\024s2web_authority"
-      "_list\020\027\022\016\n\ts2web_max\020\200\002"
+      "orityData\032l\n\rAuthorityData\022\024\n\014authority_"
+      "id\030\001 \002(\r\022\021\n\tparent_id\030\002 \002(\r\022\013\n\003url\030\003 \002(\014"
+      "\022\023\n\013description\030\004 \002(\014\022\020\n\010icon_url\030\005 \002(\014*"
+      "\247\005\n\005WEB2S\022\017\n\013web2s_login\020\000\022\034\n\030web2s_requ"
+      "est_slope_list\020\001\022\035\n\031web2s_request_sensor"
+      "_list\020\002\022 \n\034web2s_request_sensor_history\020"
+      "\003\022\016\n\nweb2s_ping\020\004\022\032\n\026web2s_request_all_l"
+      "ist\020\005\022\023\n\017web2s_add_slope\020\006\022\023\n\017web2s_del_"
+      "slope\020\007\022\033\n\027web2s_update_slope_data\020\010\022\024\n\020"
+      "web2s_add_sensor\020\t\022\024\n\020web2s_del_sensor\020\n"
+      "\022\034\n\030web2s_update_sensor_data\020\013\022\031\n\025web2s_"
+      "modify_password\020\014\022\024\n\020web2s_find_slope\020\r\022"
+      "\025\n\021web2s_find_sensor\020\016\022\030\n\024web2s_load_use"
+      "r_list\020\017\022\025\n\021web2s_create_user\020\020\022\025\n\021web2s"
+      "_modify_user\020\021\022\025\n\021web2s_remove_user\020\022\022\031\n"
+      "\025web2s_load_group_list\020\023\022\026\n\022web2s_create"
+      "_group\020\024\022\033\n\027web2s_add_user_to_group\020\025\022 \n"
+      "\034web2s_remove_user_from_group\020\026\022\026\n\022web2s"
+      "_modify_group\020\027\022\026\n\022web2s_remove_group\020\030\022"
+      "\030\n\024web2s_load_authority\020\031\022\016\n\tweb2s_max\020\200"
+      "\002*\331\004\n\005S2WEB\022\026\n\022s2web_login_result\020\000\022\024\n\020s"
+      "2web_slope_list\020\001\022\025\n\021s2web_sensor_list\020\002"
+      "\022\030\n\024s2web_sensor_history\020\003\022\026\n\022s2web_all_"
+      "list_end\020\004\022\017\n\013s2web_error\020\005\022\023\n\017s2web_new"
+      "_slope\020\006\022\023\n\017s2web_del_slope\020\007\022\026\n\022s2web_u"
+      "pdate_slope\020\010\022\024\n\020s2web_add_sensor\020\t\022\024\n\020s"
+      "2web_del_sensor\020\n\022\027\n\023s2web_update_sensor"
+      "\020\013\022 \n\034s2web_modify_password_result\020\014\022\023\n\017"
+      "s2web_user_list\020\r\022\025\n\021s2web_create_user\020\016"
+      "\022\025\n\021s2web_modify_user\020\017\022\025\n\021s2web_remove_"
+      "user\020\020\022\024\n\020s2web_group_list\020\021\022\026\n\022s2web_cr"
+      "eate_group\020\022\022\026\n\022s2web_modify_group\020\023\022\026\n\022"
+      "s2web_remove_group\020\024\022\033\n\027s2web_add_user_t"
+      "o_group\020\025\022 \n\034s2web_remove_user_from_grou"
+      "p\020\026\022\030\n\024s2web_authority_list\020\027\022\016\n\ts2web_m"
+      "ax\020\200\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 6343);
+      descriptor, 6285);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Web_Server_Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -26120,10 +26113,7 @@ const int S2WEB_Authority_List_AuthorityData::kAuthorityIdFieldNumber;
 const int S2WEB_Authority_List_AuthorityData::kParentIdFieldNumber;
 const int S2WEB_Authority_List_AuthorityData::kUrlFieldNumber;
 const int S2WEB_Authority_List_AuthorityData::kDescriptionFieldNumber;
-const int S2WEB_Authority_List_AuthorityData::kCanViewFieldNumber;
-const int S2WEB_Authority_List_AuthorityData::kCanAddFieldNumber;
-const int S2WEB_Authority_List_AuthorityData::kCanDeleteFieldNumber;
-const int S2WEB_Authority_List_AuthorityData::kCanModifyFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kIconUrlFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 S2WEB_Authority_List_AuthorityData::S2WEB_Authority_List_AuthorityData()
@@ -26148,9 +26138,13 @@ S2WEB_Authority_List_AuthorityData::S2WEB_Authority_List_AuthorityData(const S2W
   if (from.has_description()) {
     description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
   }
+  icon_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_icon_url()) {
+    icon_url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.icon_url_);
+  }
   ::memcpy(&authority_id_, &from.authority_id_,
-    reinterpret_cast<char*>(&can_modify_) -
-    reinterpret_cast<char*>(&authority_id_) + sizeof(can_modify_));
+    reinterpret_cast<char*>(&parent_id_) -
+    reinterpret_cast<char*>(&authority_id_) + sizeof(parent_id_));
   // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
 }
 
@@ -26158,8 +26152,9 @@ void S2WEB_Authority_List_AuthorityData::SharedCtor() {
   _cached_size_ = 0;
   url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&authority_id_, 0, reinterpret_cast<char*>(&can_modify_) -
-    reinterpret_cast<char*>(&authority_id_) + sizeof(can_modify_));
+  icon_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&authority_id_, 0, reinterpret_cast<char*>(&parent_id_) -
+    reinterpret_cast<char*>(&authority_id_) + sizeof(parent_id_));
 }
 
 S2WEB_Authority_List_AuthorityData::~S2WEB_Authority_List_AuthorityData() {
@@ -26170,6 +26165,7 @@ S2WEB_Authority_List_AuthorityData::~S2WEB_Authority_List_AuthorityData() {
 void S2WEB_Authority_List_AuthorityData::SharedDtor() {
   url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  icon_url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void S2WEB_Authority_List_AuthorityData::SetCachedSize(int size) const {
@@ -26197,7 +26193,7 @@ S2WEB_Authority_List_AuthorityData* S2WEB_Authority_List_AuthorityData::New(::go
 
 void S2WEB_Authority_List_AuthorityData::Clear() {
 // @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
-  if (_has_bits_[0 / 32] & 3u) {
+  if (_has_bits_[0 / 32] & 7u) {
     if (has_url()) {
       GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
       (*url_.UnsafeRawStringPointer())->clear();
@@ -26206,10 +26202,14 @@ void S2WEB_Authority_List_AuthorityData::Clear() {
       GOOGLE_DCHECK(!description_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
       (*description_.UnsafeRawStringPointer())->clear();
     }
+    if (has_icon_url()) {
+      GOOGLE_DCHECK(!icon_url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*icon_url_.UnsafeRawStringPointer())->clear();
+    }
   }
-  if (_has_bits_[0 / 32] & 252u) {
-    ::memset(&authority_id_, 0, reinterpret_cast<char*>(&can_modify_) -
-      reinterpret_cast<char*>(&authority_id_) + sizeof(can_modify_));
+  if (_has_bits_[0 / 32] & 24u) {
+    ::memset(&authority_id_, 0, reinterpret_cast<char*>(&parent_id_) -
+      reinterpret_cast<char*>(&authority_id_) + sizeof(parent_id_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -26277,56 +26277,12 @@ bool S2WEB_Authority_List_AuthorityData::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 can_view = 5;
+      // required bytes icon_url = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u)) {
-          set_has_can_view();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &can_view_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required uint32 can_add = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u)) {
-          set_has_can_add();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &can_add_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required uint32 can_delete = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u)) {
-          set_has_can_delete();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &can_delete_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required uint32 can_modify = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(64u)) {
-          set_has_can_modify();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &can_modify_)));
+            static_cast< ::google::protobuf::uint8>(42u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_icon_url()));
         } else {
           goto handle_unusual;
         }
@@ -26363,12 +26319,12 @@ void S2WEB_Authority_List_AuthorityData::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 authority_id = 1;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->authority_id(), output);
   }
 
   // required uint32 parent_id = 2;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->parent_id(), output);
   }
 
@@ -26384,24 +26340,10 @@ void S2WEB_Authority_List_AuthorityData::SerializeWithCachedSizes(
       4, this->description(), output);
   }
 
-  // required uint32 can_view = 5;
-  if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->can_view(), output);
-  }
-
-  // required uint32 can_add = 6;
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->can_add(), output);
-  }
-
-  // required uint32 can_delete = 7;
-  if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->can_delete(), output);
-  }
-
-  // required uint32 can_modify = 8;
-  if (cached_has_bits & 0x00000080u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->can_modify(), output);
+  // required bytes icon_url = 5;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      5, this->icon_url(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -26419,12 +26361,12 @@ void S2WEB_Authority_List_AuthorityData::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 authority_id = 1;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->authority_id(), target);
   }
 
   // required uint32 parent_id = 2;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->parent_id(), target);
   }
 
@@ -26442,24 +26384,11 @@ void S2WEB_Authority_List_AuthorityData::SerializeWithCachedSizes(
         4, this->description(), target);
   }
 
-  // required uint32 can_view = 5;
-  if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->can_view(), target);
-  }
-
-  // required uint32 can_add = 6;
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->can_add(), target);
-  }
-
-  // required uint32 can_delete = 7;
-  if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->can_delete(), target);
-  }
-
-  // required uint32 can_modify = 8;
-  if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->can_modify(), target);
+  // required bytes icon_url = 5;
+  if (cached_has_bits & 0x00000004u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        5, this->icon_url(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -26488,6 +26417,13 @@ size_t S2WEB_Authority_List_AuthorityData::RequiredFieldsByteSizeFallback() cons
         this->description());
   }
 
+  if (has_icon_url()) {
+    // required bytes icon_url = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->icon_url());
+  }
+
   if (has_authority_id()) {
     // required uint32 authority_id = 1;
     total_size += 1 +
@@ -26502,34 +26438,6 @@ size_t S2WEB_Authority_List_AuthorityData::RequiredFieldsByteSizeFallback() cons
         this->parent_id());
   }
 
-  if (has_can_view()) {
-    // required uint32 can_view = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->can_view());
-  }
-
-  if (has_can_add()) {
-    // required uint32 can_add = 6;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->can_add());
-  }
-
-  if (has_can_delete()) {
-    // required uint32 can_delete = 7;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->can_delete());
-  }
-
-  if (has_can_modify()) {
-    // required uint32 can_modify = 8;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->can_modify());
-  }
-
   return total_size;
 }
 size_t S2WEB_Authority_List_AuthorityData::ByteSizeLong() const {
@@ -26541,7 +26449,7 @@ size_t S2WEB_Authority_List_AuthorityData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
-  if (((_has_bits_[0] & 0x000000ff) ^ 0x000000ff) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
     // required bytes url = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
@@ -26552,6 +26460,11 @@ size_t S2WEB_Authority_List_AuthorityData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->description());
 
+    // required bytes icon_url = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->icon_url());
+
     // required uint32 authority_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
@@ -26561,26 +26474,6 @@ size_t S2WEB_Authority_List_AuthorityData::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->parent_id());
-
-    // required uint32 can_view = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->can_view());
-
-    // required uint32 can_add = 6;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->can_add());
-
-    // required uint32 can_delete = 7;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->can_delete());
-
-    // required uint32 can_modify = 8;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->can_modify());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -26615,7 +26508,7 @@ void S2WEB_Authority_List_AuthorityData::MergeFrom(const S2WEB_Authority_List_Au
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 255u) {
+  if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
       set_has_url();
       url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
@@ -26625,22 +26518,14 @@ void S2WEB_Authority_List_AuthorityData::MergeFrom(const S2WEB_Authority_List_Au
       description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
     }
     if (cached_has_bits & 0x00000004u) {
-      authority_id_ = from.authority_id_;
+      set_has_icon_url();
+      icon_url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.icon_url_);
     }
     if (cached_has_bits & 0x00000008u) {
-      parent_id_ = from.parent_id_;
+      authority_id_ = from.authority_id_;
     }
     if (cached_has_bits & 0x00000010u) {
-      can_view_ = from.can_view_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      can_add_ = from.can_add_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      can_delete_ = from.can_delete_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      can_modify_ = from.can_modify_;
+      parent_id_ = from.parent_id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -26661,7 +26546,7 @@ void S2WEB_Authority_List_AuthorityData::CopyFrom(const S2WEB_Authority_List_Aut
 }
 
 bool S2WEB_Authority_List_AuthorityData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x000000ff) != 0x000000ff) return false;
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
   return true;
 }
 
@@ -26672,12 +26557,9 @@ void S2WEB_Authority_List_AuthorityData::Swap(S2WEB_Authority_List_AuthorityData
 void S2WEB_Authority_List_AuthorityData::InternalSwap(S2WEB_Authority_List_AuthorityData* other) {
   url_.Swap(&other->url_);
   description_.Swap(&other->description_);
+  icon_url_.Swap(&other->icon_url_);
   std::swap(authority_id_, other->authority_id_);
   std::swap(parent_id_, other->parent_id_);
-  std::swap(can_view_, other->can_view_);
-  std::swap(can_add_, other->can_add_);
-  std::swap(can_delete_, other->can_delete_);
-  std::swap(can_modify_, other->can_modify_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -26693,13 +26575,13 @@ void S2WEB_Authority_List_AuthorityData::InternalSwap(S2WEB_Authority_List_Autho
 
 // required uint32 authority_id = 1;
 bool S2WEB_Authority_List_AuthorityData::has_authority_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 void S2WEB_Authority_List_AuthorityData::set_has_authority_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 void S2WEB_Authority_List_AuthorityData::clear_has_authority_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 void S2WEB_Authority_List_AuthorityData::clear_authority_id() {
   authority_id_ = 0u;
@@ -26717,13 +26599,13 @@ void S2WEB_Authority_List_AuthorityData::set_authority_id(::google::protobuf::ui
 
 // required uint32 parent_id = 2;
 bool S2WEB_Authority_List_AuthorityData::has_parent_id() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 void S2WEB_Authority_List_AuthorityData::set_has_parent_id() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 void S2WEB_Authority_List_AuthorityData::clear_has_parent_id() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 void S2WEB_Authority_List_AuthorityData::clear_parent_id() {
   parent_id_ = 0u;
@@ -26865,100 +26747,67 @@ void S2WEB_Authority_List_AuthorityData::set_allocated_description(::std::string
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
 }
 
-// required uint32 can_view = 5;
-bool S2WEB_Authority_List_AuthorityData::has_can_view() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+// required bytes icon_url = 5;
+bool S2WEB_Authority_List_AuthorityData::has_icon_url() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-void S2WEB_Authority_List_AuthorityData::set_has_can_view() {
-  _has_bits_[0] |= 0x00000010u;
+void S2WEB_Authority_List_AuthorityData::set_has_icon_url() {
+  _has_bits_[0] |= 0x00000004u;
 }
-void S2WEB_Authority_List_AuthorityData::clear_has_can_view() {
-  _has_bits_[0] &= ~0x00000010u;
+void S2WEB_Authority_List_AuthorityData::clear_has_icon_url() {
+  _has_bits_[0] &= ~0x00000004u;
 }
-void S2WEB_Authority_List_AuthorityData::clear_can_view() {
-  can_view_ = 0u;
-  clear_has_can_view();
+void S2WEB_Authority_List_AuthorityData::clear_icon_url() {
+  icon_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_icon_url();
 }
-::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_view() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_view)
-  return can_view_;
+const ::std::string& S2WEB_Authority_List_AuthorityData::icon_url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+  return icon_url_.GetNoArena();
 }
-void S2WEB_Authority_List_AuthorityData::set_can_view(::google::protobuf::uint32 value) {
-  set_has_can_view();
-  can_view_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_view)
+void S2WEB_Authority_List_AuthorityData::set_icon_url(const ::std::string& value) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
 }
-
-// required uint32 can_add = 6;
-bool S2WEB_Authority_List_AuthorityData::has_can_add() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+#if LANG_CXX11
+void S2WEB_Authority_List_AuthorityData::set_icon_url(::std::string&& value) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
 }
-void S2WEB_Authority_List_AuthorityData::set_has_can_add() {
-  _has_bits_[0] |= 0x00000020u;
+#endif
+void S2WEB_Authority_List_AuthorityData::set_icon_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
 }
-void S2WEB_Authority_List_AuthorityData::clear_has_can_add() {
-  _has_bits_[0] &= ~0x00000020u;
+void S2WEB_Authority_List_AuthorityData::set_icon_url(const void* value, size_t size) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
 }
-void S2WEB_Authority_List_AuthorityData::clear_can_add() {
-  can_add_ = 0u;
-  clear_has_can_add();
+::std::string* S2WEB_Authority_List_AuthorityData::mutable_icon_url() {
+  set_has_icon_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+  return icon_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_add() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_add)
-  return can_add_;
+::std::string* S2WEB_Authority_List_AuthorityData::release_icon_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+  clear_has_icon_url();
+  return icon_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void S2WEB_Authority_List_AuthorityData::set_can_add(::google::protobuf::uint32 value) {
-  set_has_can_add();
-  can_add_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_add)
-}
-
-// required uint32 can_delete = 7;
-bool S2WEB_Authority_List_AuthorityData::has_can_delete() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-void S2WEB_Authority_List_AuthorityData::set_has_can_delete() {
-  _has_bits_[0] |= 0x00000040u;
-}
-void S2WEB_Authority_List_AuthorityData::clear_has_can_delete() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-void S2WEB_Authority_List_AuthorityData::clear_can_delete() {
-  can_delete_ = 0u;
-  clear_has_can_delete();
-}
-::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_delete() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_delete)
-  return can_delete_;
-}
-void S2WEB_Authority_List_AuthorityData::set_can_delete(::google::protobuf::uint32 value) {
-  set_has_can_delete();
-  can_delete_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_delete)
-}
-
-// required uint32 can_modify = 8;
-bool S2WEB_Authority_List_AuthorityData::has_can_modify() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-void S2WEB_Authority_List_AuthorityData::set_has_can_modify() {
-  _has_bits_[0] |= 0x00000080u;
-}
-void S2WEB_Authority_List_AuthorityData::clear_has_can_modify() {
-  _has_bits_[0] &= ~0x00000080u;
-}
-void S2WEB_Authority_List_AuthorityData::clear_can_modify() {
-  can_modify_ = 0u;
-  clear_has_can_modify();
-}
-::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_modify() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_modify)
-  return can_modify_;
-}
-void S2WEB_Authority_List_AuthorityData::set_can_modify(::google::protobuf::uint32 value) {
-  set_has_can_modify();
-  can_modify_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_modify)
+void S2WEB_Authority_List_AuthorityData::set_allocated_icon_url(::std::string* icon_url) {
+  if (icon_url != NULL) {
+    set_has_icon_url();
+  } else {
+    clear_has_icon_url();
+  }
+  icon_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), icon_url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
