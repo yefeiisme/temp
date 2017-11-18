@@ -48,6 +48,8 @@ private:
 	void					RecvRemoveUserFromGroup(const void *pPack, const unsigned int uPackLen);
 	void					RecvModifyGroup(const void *pPack, const unsigned int uPackLen);
 	void					RecvRemoveGroup(const void *pPack, const unsigned int uPackLen);
+
+	void					RecvLoadAuthority(const void *pPack, const unsigned int uPackLen);
 private:
 	void					DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
@@ -77,6 +79,7 @@ private:
 	void					DBResopndRemoveUserFromGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndModifyGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndRemoveGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	void					SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg);
 private:

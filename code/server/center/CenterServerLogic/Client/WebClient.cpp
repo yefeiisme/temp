@@ -36,6 +36,8 @@ CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::
 	&CWebClient::RecvRemoveUserFromGroup,
 	&CWebClient::RecvModifyGroup,
 	&CWebClient::RecvRemoveGroup,
+
+	&CWebClient::RecvLoadAuthority,
 };
 
 CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
@@ -68,6 +70,7 @@ CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CWebClient::DBResopndRemoveUserFromGroup,
 	&CWebClient::DBResopndModifyGroup,
 	&CWebClient::DBResopndRemoveGroup,
+	&CWebClient::DBResopndLoadAuthor,
 };
 
 CWebClient::CWebClient() : CClient()
@@ -619,6 +622,47 @@ void CWebClient::RecvRemoveGroup(const void *pPack, const unsigned int uPackLen)
 {
 }
 
+void CWebClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Load_Authority	tagLoadAuthority;
+	BYTE	*pRequest = (BYTE*)pPack + sizeof(BYTE);
+	tagLoadAuthority.ParseFromArray(pRequest, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest = {0};
+	tagRequest.byOpt		= SENSOR_DB_LOAD_AUTHORITY;
+	tagRequest.uClientID	= m_uUniqueID;
+	tagRequest.uClientIndex = m_uIndex;
+	tagRequest.byClientType = WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery = g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	if (tagLoadAuthority.authority_id())
+	{
+		pMysqlQuery->PrepareProc("LoadAuthorityByID");
+		pMysqlQuery->AddParam(tagLoadAuthority.authority_id());
+		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+	}
+	else
+	{
+		pMysqlQuery->PrepareProc("LoadAllAuthority");
+		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+	}
+
+	pMysqlQuery->CallProc();
+}
+
 void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -638,14 +682,10 @@ void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest
 	IMysqlResult	*pResult2 = pResultSet->GetMysqlResult(1);
 
 	if (nullptr == pResult1 || nullptr == pResult2)
-	{
 		return;
-	}
 
 	if (1 != pResult1->GetRowCount())
-	{
 		return;
-	}
 
 	uCol	= 0;
 	pResult1->GetData(0, uCol++, m_uAccountID);
@@ -1442,6 +1482,55 @@ void CWebClient::DBResopndModifyGroup(IMysqlResultSet *pResultSet, SMysqlRequest
 
 void CWebClient::DBResopndRemoveGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+}
+
+void CWebClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	WORD	wAuthorityID		= 0;
+	WORD	wParentID			= 0;
+	char	strUrl[256]			= {0};
+	char	strDescption[256]	= {0};
+	BYTE	byCanView			= 0;
+	BYTE	byCanAdd			= 0;
+	BYTE	byCanDelete			= 0;
+	BYTE	byCanModify			= 0;
+	UINT	uCol				= 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2WEB_Authority_List	tagAuthorityList;
+
+	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_Authority_List::AuthorityData	*pSlopeData = tagAuthorityList.add_authority_list();
+		if (nullptr == pSlopeData)
+			continue;
+
+		uCol = 0;
+
+		pResult1->GetData(uRow, uCol++, wAuthorityID);
+		pResult1->GetData(uRow, uCol++, wParentID);
+		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
+		pResult1->GetData(uRow, uCol++, strDescption, sizeof(strDescption));
+		pResult1->GetData(uRow, uCol++, byCanView);
+		pResult1->GetData(uRow, uCol++, byCanAdd);
+		pResult1->GetData(uRow, uCol++, byCanDelete);
+		pResult1->GetData(uRow, uCol++, byCanModify);
+
+		pSlopeData->set_authority_id(wAuthorityID);
+		pSlopeData->set_parent_id(wParentID);
+		pSlopeData->set_url(strUrl);
+		pSlopeData->set_description(strDescption);
+		pSlopeData->set_can_view(byCanView);
+		pSlopeData->set_can_add(byCanAdd);
+		pSlopeData->set_can_delete(byCanDelete);
+		pSlopeData->set_can_modify(byCanModify);
+	}
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_authority_list, tagAuthorityList);
 }
 
 void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)

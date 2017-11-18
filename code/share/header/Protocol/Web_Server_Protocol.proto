@@ -33,7 +33,7 @@ enum WEB2S
 	web2s_remove_user_from_group	= 22;	// 从用户组中删除指定的用户
 	web2s_modify_group				= 23;	// 修改用户组的权限
 	web2s_remove_group				= 24;	// 删除用户组
-	web2s_reserve20					= 25;	// 保留用的协议
+	web2s_load_authority			= 25;	// 获取用户权限
 
 	web2s_max						= 256;	// 最大协议号
 }
@@ -213,6 +213,12 @@ message WEB2S_Remove_Group
 	required bytes	group_id		= 1;	// 用户组ID
 }
 
+// 获取用户权限
+message WEB2S_Load_Authority
+{
+	required uint32	authority_id	= 1;	// 权限ID
+}
+
 
 // Server Respond Web
 // 服务器回应Web请求的协议编号
@@ -241,6 +247,7 @@ enum S2WEB
 	s2web_remove_group				= 20;	// 删除用户组
 	s2web_add_user_to_group			= 21;	// 添加用户到用户组
 	s2web_remove_user_from_group	= 22;	// 从用户组中删除指定的用户
+	s2web_authority_list			= 23;	// 权限列表
 
 	s2web_max						= 256;	// 最大协议号
 }
@@ -498,4 +505,22 @@ message S2WEB_Remove_User_From_Group
 {
 	required uint32	user_id			= 1;	// 用户ID
 	required uint32 group_id		= 2;	// 用户组ID
+}
+
+// 权限列表
+message S2WEB_Authority_List
+{
+	message AuthorityData
+	{
+		required uint32	authority_id	= 1;	// 权限ID
+		required uint32	parent_id		= 2;	// 父节点ID
+		required bytes	url				= 3;	// 网址url
+		required bytes	description		= 4;	// 描述
+		required uint32	can_view		= 5;	// 查看权限
+		required uint32	can_add			= 6;	// 添加权限
+		required uint32	can_delete		= 7;	// 删除权限
+		required uint32	can_modify		= 8;	// 修改权限
+	}
+
+	repeated AuthorityData	authority_list	= 1;	// 用户组列表
 }

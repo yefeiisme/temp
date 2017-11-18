@@ -60,6 +60,8 @@ class WEB2S_Modify_GroupDefaultTypeInternal : public ::google::protobuf::interna
 } _WEB2S_Modify_Group_default_instance_;
 class WEB2S_Remove_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Remove_Group> {
 } _WEB2S_Remove_Group_default_instance_;
+class WEB2S_Load_AuthorityDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Load_Authority> {
+} _WEB2S_Load_Authority_default_instance_;
 class S2Web_Login_Result_ServerDataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2Web_Login_Result_ServerData> {
 } _S2Web_Login_Result_ServerData_default_instance_;
 class S2Web_Login_ResultDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2Web_Login_Result> {
@@ -116,13 +118,17 @@ class S2WEB_Add_User_To_GroupDefaultTypeInternal : public ::google::protobuf::in
 } _S2WEB_Add_User_To_Group_default_instance_;
 class S2WEB_Remove_User_From_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Remove_User_From_Group> {
 } _S2WEB_Remove_User_From_Group_default_instance_;
+class S2WEB_Authority_List_AuthorityDataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Authority_List_AuthorityData> {
+} _S2WEB_Authority_List_AuthorityData_default_instance_;
+class S2WEB_Authority_ListDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Authority_List> {
+} _S2WEB_Authority_List_default_instance_;
 
 namespace protobuf_Web_5fServer_5fProtocol_2eproto {
 
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[49];
+::google::protobuf::Metadata file_level_metadata[52];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 }  // namespace
@@ -138,6 +144,9 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
@@ -372,15 +381,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, group_name_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, load_user_list_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, load_user_group_list_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, create_user_group_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, modify_user_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, modify_user_group_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, remove_user_group_),
   0,
   1,
   2,
   3,
   4,
-  5,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_User_To_Group, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_User_To_Group, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -424,6 +431,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_Group, group_id_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Load_Authority, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Load_Authority, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Load_Authority, authority_id_),
   0,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Login_Result_ServerData, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Login_Result_ServerData, _internal_metadata_),
@@ -749,16 +763,14 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, name_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, load_user_list_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, load_user_group_list_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, create_user_group_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, modify_user_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, modify_user_group_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, remove_user_group_),
   1,
   0,
   2,
   3,
   4,
   5,
-  6,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -803,6 +815,34 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_User_From_Group, group_id_),
   0,
   1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, authority_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, parent_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, url_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, description_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, can_view_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, can_add_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, can_delete_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, can_modify_),
+  2,
+  3,
+  0,
+  1,
+  4,
+  5,
+  6,
+  7,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List, authority_list_),
+  ~0u,
 };
 
 static const ::google::protobuf::internal::MigrationSchema schemas[] = {
@@ -822,39 +862,42 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 147, 155, sizeof(WEB2S_Create_User)},
   { 158, 165, sizeof(WEB2S_Modify_User)},
   { 167, 173, sizeof(WEB2S_Remove_User)},
-  { 174, 185, sizeof(WEB2S_Create_Group)},
-  { 191, 198, sizeof(WEB2S_Add_User_To_Group)},
-  { 200, 207, sizeof(WEB2S_Remove_User_From_Group)},
-  { 209, 221, sizeof(WEB2S_Modify_Group)},
-  { 228, 234, sizeof(WEB2S_Remove_Group)},
-  { 235, 243, sizeof(S2Web_Login_Result_ServerData)},
-  { 246, 253, sizeof(S2Web_Login_Result)},
-  { 255, 267, sizeof(S2Web_Slope_List_SlopeData)},
-  { 274, 280, sizeof(S2Web_Slope_List)},
-  { 281, 303, sizeof(S2Web_Sensor_List_SensorData)},
-  { 320, 326, sizeof(S2Web_Sensor_List)},
-  { 327, 344, sizeof(S2Web_Sensor_History_SensorData)},
-  { 356, 371, sizeof(S2Web_Sensor_History)},
-  { 381, 387, sizeof(S2WEB_ERROR)},
-  { 388, 400, sizeof(S2WEB_New_Slope)},
-  { 407, 413, sizeof(S2WEB_Del_Slope)},
-  { 414, 426, sizeof(S2WEB_Update_Slope)},
-  { 433, 446, sizeof(S2WEB_Add_Sensor)},
-  { 454, 460, sizeof(S2WEB_Del_Sensor)},
-  { 461, 474, sizeof(S2WEB_Update_Sensor)},
-  { 482, 488, sizeof(S2WEB_Modify_Password_Result)},
-  { 489, 497, sizeof(S2WEB_User_List_UserData)},
-  { 500, 506, sizeof(S2WEB_User_List)},
-  { 507, 515, sizeof(S2WEB_Create_User)},
-  { 518, 525, sizeof(S2WEB_Modify_User)},
-  { 527, 533, sizeof(S2WEB_Remove_User)},
-  { 534, 541, sizeof(S2WEB_Group_List_GroupData)},
-  { 543, 549, sizeof(S2WEB_Group_List)},
-  { 550, 562, sizeof(S2WEB_Create_Group)},
-  { 569, 581, sizeof(S2WEB_Modify_Group)},
-  { 588, 594, sizeof(S2WEB_Remove_Group)},
-  { 595, 602, sizeof(S2WEB_Add_User_To_Group)},
-  { 604, 611, sizeof(S2WEB_Remove_User_From_Group)},
+  { 174, 184, sizeof(WEB2S_Create_Group)},
+  { 189, 196, sizeof(WEB2S_Add_User_To_Group)},
+  { 198, 205, sizeof(WEB2S_Remove_User_From_Group)},
+  { 207, 219, sizeof(WEB2S_Modify_Group)},
+  { 226, 232, sizeof(WEB2S_Remove_Group)},
+  { 233, 239, sizeof(WEB2S_Load_Authority)},
+  { 240, 248, sizeof(S2Web_Login_Result_ServerData)},
+  { 251, 258, sizeof(S2Web_Login_Result)},
+  { 260, 272, sizeof(S2Web_Slope_List_SlopeData)},
+  { 279, 285, sizeof(S2Web_Slope_List)},
+  { 286, 308, sizeof(S2Web_Sensor_List_SensorData)},
+  { 325, 331, sizeof(S2Web_Sensor_List)},
+  { 332, 349, sizeof(S2Web_Sensor_History_SensorData)},
+  { 361, 376, sizeof(S2Web_Sensor_History)},
+  { 386, 392, sizeof(S2WEB_ERROR)},
+  { 393, 405, sizeof(S2WEB_New_Slope)},
+  { 412, 418, sizeof(S2WEB_Del_Slope)},
+  { 419, 431, sizeof(S2WEB_Update_Slope)},
+  { 438, 451, sizeof(S2WEB_Add_Sensor)},
+  { 459, 465, sizeof(S2WEB_Del_Sensor)},
+  { 466, 479, sizeof(S2WEB_Update_Sensor)},
+  { 487, 493, sizeof(S2WEB_Modify_Password_Result)},
+  { 494, 502, sizeof(S2WEB_User_List_UserData)},
+  { 505, 511, sizeof(S2WEB_User_List)},
+  { 512, 520, sizeof(S2WEB_Create_User)},
+  { 523, 530, sizeof(S2WEB_Modify_User)},
+  { 532, 538, sizeof(S2WEB_Remove_User)},
+  { 539, 546, sizeof(S2WEB_Group_List_GroupData)},
+  { 548, 554, sizeof(S2WEB_Group_List)},
+  { 555, 566, sizeof(S2WEB_Create_Group)},
+  { 572, 584, sizeof(S2WEB_Modify_Group)},
+  { 591, 597, sizeof(S2WEB_Remove_Group)},
+  { 598, 605, sizeof(S2WEB_Add_User_To_Group)},
+  { 607, 614, sizeof(S2WEB_Remove_User_From_Group)},
+  { 616, 629, sizeof(S2WEB_Authority_List_AuthorityData)},
+  { 637, 643, sizeof(S2WEB_Authority_List)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -879,6 +922,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Remove_User_From_Group_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Modify_Group_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Remove_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Load_Authority_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2Web_Login_Result_ServerData_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2Web_Login_Result_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2Web_Slope_List_SlopeData_default_instance_),
@@ -907,6 +951,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Remove_Group_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Add_User_To_Group_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Remove_User_From_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Authority_List_AuthorityData_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Authority_List_default_instance_),
 };
 
 namespace {
@@ -927,7 +973,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 49);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 52);
 }
 
 }  // namespace
@@ -975,62 +1021,68 @@ void TableStruct::Shutdown() {
   delete file_level_metadata[19].reflection;
   _WEB2S_Remove_Group_default_instance_.Shutdown();
   delete file_level_metadata[20].reflection;
-  _S2Web_Login_Result_ServerData_default_instance_.Shutdown();
+  _WEB2S_Load_Authority_default_instance_.Shutdown();
   delete file_level_metadata[21].reflection;
-  _S2Web_Login_Result_default_instance_.Shutdown();
+  _S2Web_Login_Result_ServerData_default_instance_.Shutdown();
   delete file_level_metadata[22].reflection;
-  _S2Web_Slope_List_SlopeData_default_instance_.Shutdown();
+  _S2Web_Login_Result_default_instance_.Shutdown();
   delete file_level_metadata[23].reflection;
-  _S2Web_Slope_List_default_instance_.Shutdown();
+  _S2Web_Slope_List_SlopeData_default_instance_.Shutdown();
   delete file_level_metadata[24].reflection;
-  _S2Web_Sensor_List_SensorData_default_instance_.Shutdown();
+  _S2Web_Slope_List_default_instance_.Shutdown();
   delete file_level_metadata[25].reflection;
-  _S2Web_Sensor_List_default_instance_.Shutdown();
+  _S2Web_Sensor_List_SensorData_default_instance_.Shutdown();
   delete file_level_metadata[26].reflection;
-  _S2Web_Sensor_History_SensorData_default_instance_.Shutdown();
+  _S2Web_Sensor_List_default_instance_.Shutdown();
   delete file_level_metadata[27].reflection;
-  _S2Web_Sensor_History_default_instance_.Shutdown();
+  _S2Web_Sensor_History_SensorData_default_instance_.Shutdown();
   delete file_level_metadata[28].reflection;
-  _S2WEB_ERROR_default_instance_.Shutdown();
+  _S2Web_Sensor_History_default_instance_.Shutdown();
   delete file_level_metadata[29].reflection;
-  _S2WEB_New_Slope_default_instance_.Shutdown();
+  _S2WEB_ERROR_default_instance_.Shutdown();
   delete file_level_metadata[30].reflection;
-  _S2WEB_Del_Slope_default_instance_.Shutdown();
+  _S2WEB_New_Slope_default_instance_.Shutdown();
   delete file_level_metadata[31].reflection;
-  _S2WEB_Update_Slope_default_instance_.Shutdown();
+  _S2WEB_Del_Slope_default_instance_.Shutdown();
   delete file_level_metadata[32].reflection;
-  _S2WEB_Add_Sensor_default_instance_.Shutdown();
+  _S2WEB_Update_Slope_default_instance_.Shutdown();
   delete file_level_metadata[33].reflection;
-  _S2WEB_Del_Sensor_default_instance_.Shutdown();
+  _S2WEB_Add_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[34].reflection;
-  _S2WEB_Update_Sensor_default_instance_.Shutdown();
+  _S2WEB_Del_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[35].reflection;
-  _S2WEB_Modify_Password_Result_default_instance_.Shutdown();
+  _S2WEB_Update_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[36].reflection;
-  _S2WEB_User_List_UserData_default_instance_.Shutdown();
+  _S2WEB_Modify_Password_Result_default_instance_.Shutdown();
   delete file_level_metadata[37].reflection;
-  _S2WEB_User_List_default_instance_.Shutdown();
+  _S2WEB_User_List_UserData_default_instance_.Shutdown();
   delete file_level_metadata[38].reflection;
-  _S2WEB_Create_User_default_instance_.Shutdown();
+  _S2WEB_User_List_default_instance_.Shutdown();
   delete file_level_metadata[39].reflection;
-  _S2WEB_Modify_User_default_instance_.Shutdown();
+  _S2WEB_Create_User_default_instance_.Shutdown();
   delete file_level_metadata[40].reflection;
-  _S2WEB_Remove_User_default_instance_.Shutdown();
+  _S2WEB_Modify_User_default_instance_.Shutdown();
   delete file_level_metadata[41].reflection;
-  _S2WEB_Group_List_GroupData_default_instance_.Shutdown();
+  _S2WEB_Remove_User_default_instance_.Shutdown();
   delete file_level_metadata[42].reflection;
-  _S2WEB_Group_List_default_instance_.Shutdown();
+  _S2WEB_Group_List_GroupData_default_instance_.Shutdown();
   delete file_level_metadata[43].reflection;
-  _S2WEB_Create_Group_default_instance_.Shutdown();
+  _S2WEB_Group_List_default_instance_.Shutdown();
   delete file_level_metadata[44].reflection;
-  _S2WEB_Modify_Group_default_instance_.Shutdown();
+  _S2WEB_Create_Group_default_instance_.Shutdown();
   delete file_level_metadata[45].reflection;
-  _S2WEB_Remove_Group_default_instance_.Shutdown();
+  _S2WEB_Modify_Group_default_instance_.Shutdown();
   delete file_level_metadata[46].reflection;
-  _S2WEB_Add_User_To_Group_default_instance_.Shutdown();
+  _S2WEB_Remove_Group_default_instance_.Shutdown();
   delete file_level_metadata[47].reflection;
-  _S2WEB_Remove_User_From_Group_default_instance_.Shutdown();
+  _S2WEB_Add_User_To_Group_default_instance_.Shutdown();
   delete file_level_metadata[48].reflection;
+  _S2WEB_Remove_User_From_Group_default_instance_.Shutdown();
+  delete file_level_metadata[49].reflection;
+  _S2WEB_Authority_List_AuthorityData_default_instance_.Shutdown();
+  delete file_level_metadata[50].reflection;
+  _S2WEB_Authority_List_default_instance_.Shutdown();
+  delete file_level_metadata[51].reflection;
 }
 
 void TableStruct::InitDefaultsImpl() {
@@ -1058,6 +1110,7 @@ void TableStruct::InitDefaultsImpl() {
   _WEB2S_Remove_User_From_Group_default_instance_.DefaultConstruct();
   _WEB2S_Modify_Group_default_instance_.DefaultConstruct();
   _WEB2S_Remove_Group_default_instance_.DefaultConstruct();
+  _WEB2S_Load_Authority_default_instance_.DefaultConstruct();
   _S2Web_Login_Result_ServerData_default_instance_.DefaultConstruct();
   _S2Web_Login_Result_default_instance_.DefaultConstruct();
   _S2Web_Slope_List_SlopeData_default_instance_.DefaultConstruct();
@@ -1086,6 +1139,8 @@ void TableStruct::InitDefaultsImpl() {
   _S2WEB_Remove_Group_default_instance_.DefaultConstruct();
   _S2WEB_Add_User_To_Group_default_instance_.DefaultConstruct();
   _S2WEB_Remove_User_From_Group_default_instance_.DefaultConstruct();
+  _S2WEB_Authority_List_AuthorityData_default_instance_.DefaultConstruct();
+  _S2WEB_Authority_List_default_instance_.DefaultConstruct();
 }
 
 void InitDefaults() {
@@ -1125,131 +1180,138 @@ void AddDescriptorsImpl() {
       "nt\030\001 \002(\014\022\020\n\010password\030\002 \002(\r\022\014\n\004name\030\003 \002(\r"
       "\"-\n\021WEB2S_Modify_User\022\n\n\002id\030\001 \002(\r\022\014\n\004nam"
       "e\030\002 \002(\014\"$\n\021WEB2S_Remove_User\022\017\n\007user_id\030"
-      "\001 \002(\r\"\257\001\n\022WEB2S_Create_Group\022\022\n\ngroup_na"
+      "\001 \002(\r\"\216\001\n\022WEB2S_Create_Group\022\022\n\ngroup_na"
       "me\030\001 \002(\014\022\026\n\016load_user_list\030\002 \001(\r\022\034\n\024load"
-      "_user_group_list\030\003 \001(\r\022\031\n\021create_user_gr"
-      "oup\030\004 \001(\r\022\031\n\021modify_user_group\030\005 \001(\r\022\031\n\021"
-      "remove_user_group\030\006 \001(\r\"<\n\027WEB2S_Add_Use"
-      "r_To_Group\022\020\n\010group_id\030\001 \002(\014\022\017\n\007user_id\030"
-      "\002 \002(\014\"A\n\034WEB2S_Remove_User_From_Group\022\020\n"
-      "\010group_id\030\001 \002(\014\022\017\n\007user_id\030\002 \002(\014\"\276\001\n\022WEB"
-      "2S_Modify_Group\022\020\n\010group_id\030\001 \002(\014\022\022\n\ngro"
-      "up_name\030\002 \002(\014\022\026\n\016load_user_list\030\003 \001(\r\022\034\n"
-      "\024load_user_group_list\030\004 \001(\r\022\026\n\016add_user_"
-      "group\030\005 \001(\r\022\031\n\021modify_user_group\030\006 \001(\r\022\031"
-      "\n\021remove_user_group\030\007 \001(\r\"&\n\022WEB2S_Remov"
-      "e_Group\022\020\n\010group_id\030\001 \002(\014\"\245\001\n\022S2Web_Logi"
-      "n_Result\022\016\n\006result\030\001 \002(\r\022K\n\013server_list\030"
-      "\002 \003(\01326.WEB_SERVER_NET_Protocol.S2Web_Lo"
-      "gin_Result.ServerData\0322\n\nServerData\022\n\n\002i"
-      "d\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022\014\n\004port\030\003 \002(\r\"\321\001\n\020S2"
-      "Web_Slope_List\022G\n\nslope_list\030\001 \003(\01323.WEB"
-      "_SERVER_NET_Protocol.S2Web_Slope_List.Sl"
-      "opeData\032t\n\tSlopeData\022\n\n\002id\030\001 \002(\r\022\014\n\004type"
-      "\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tl"
-      "ongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030"
-      "\007 \002(\014\"\255\003\n\021S2Web_Sensor_List\022J\n\013sensor_li"
-      "st\030\001 \003(\01325.WEB_SERVER_NET_Protocol.S2Web"
-      "_Sensor_List.SensorData\032\313\002\n\nSensorData\022\n"
-      "\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022"
-      "\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010"
-      "latitude\030\006 \002(\001\022\022\n\ncur_value1\030\007 \002(\001\022\022\n\ncu"
-      "r_value2\030\010 \002(\001\022\022\n\ncur_value3\030\t \002(\001\022\022\n\nav"
-      "g_value1\030\n \002(\001\022\022\n\navg_value2\030\013 \002(\001\022\022\n\nav"
-      "g_value3\030\014 \002(\001\022\025\n\roffset_value1\030\r \002(\001\022\025\n"
-      "\roffset_value2\030\016 \002(\001\022\025\n\roffset_value3\030\017 "
-      "\002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013description\030\021 \002(\014\"\265\004"
-      "\n\024S2Web_Sensor_History\022\n\n\002id\030\001 \002(\r\022\021\n\tlo"
-      "ngitude\030\002 \002(\001\022\020\n\010latitude\030\003 \002(\001\022\022\n\nbegin"
-      "_time\030\004 \002(\r\022\020\n\010end_time\030\005 \002(\r\022\021\n\tinvterv"
-      "al\030\006 \002(\r\022\022\n\navg_value1\030\007 \002(\001\022\022\n\navg_valu"
-      "e2\030\010 \002(\001\022\022\n\navg_value3\030\t \002(\001\022N\n\014history_"
-      "list\030\n \003(\01328.WEB_SERVER_NET_Protocol.S2W"
-      "eb_Sensor_History.SensorData\032\246\002\n\nSensorD"
-      "ata\022\022\n\nmin_value1\030\001 \002(\001\022\022\n\nmin_value2\030\002 "
-      "\002(\001\022\022\n\nmin_value3\030\003 \002(\001\022\022\n\nmax_value1\030\004 "
-      "\002(\001\022\022\n\nmax_value2\030\005 \002(\001\022\022\n\nmax_value3\030\006 "
-      "\002(\001\022\031\n\021min_offset_value1\030\007 \002(\001\022\031\n\021min_of"
-      "fset_value2\030\010 \002(\001\022\031\n\021min_offset_value3\030\t"
-      " \002(\001\022\031\n\021max_offset_value1\030\n \002(\001\022\031\n\021max_o"
-      "ffset_value2\030\013 \002(\001\022\031\n\021max_offset_value3\030"
-      "\014 \002(\001\"!\n\013S2WEB_ERROR\022\022\n\nerror_code\030\001 \002(\r"
-      "\"z\n\017S2WEB_New_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030"
-      "\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlo"
-      "ngitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007"
-      " \002(\014\"!\n\017S2WEB_Del_Slope\022\016\n\006result\030\001 \002(\r\""
-      "}\n\022S2WEB_Update_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004typ"
-      "e\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\t"
-      "longitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url"
-      "\030\007 \002(\014\"\224\001\n\020S2WEB_Add_Sensor\022\n\n\002id\030\001 \002(\r\022"
-      "\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id"
-      "\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 "
-      "\002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\"\"\n"
-      "\020S2WEB_Del_Sensor\022\016\n\006result\030\001 \002(\r\"\227\001\n\023S2"
-      "WEB_Update_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 "
-      "\002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\t"
-      "longitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url"
-      "\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\".\n\034S2WEB_Mod"
-      "ify_Password_Result\022\016\n\006result\030\001 \002(\r\"\231\001\n\017"
-      "S2WEB_User_List\022D\n\tuser_list\030\001 \003(\01321.WEB"
-      "_SERVER_NET_Protocol.S2WEB_User_List.Use"
-      "rData\032@\n\010UserData\022\017\n\007user_id\030\001 \002(\r\022\021\n\tus"
-      "er_name\030\002 \002(\014\022\020\n\010group_id\030\003 \002(\r\">\n\021S2WEB"
-      "_Create_User\022\n\n\002id\030\001 \002(\r\022\017\n\007account\030\002 \002("
-      "\014\022\014\n\004name\030\003 \002(\014\"-\n\021S2WEB_Modify_User\022\n\n\002"
-      "id\030\001 \002(\r\022\014\n\004name\030\002 \002(\014\"\037\n\021S2WEB_Remove_U"
-      "ser\022\n\n\002id\030\001 \002(\r\"\202\001\n\020S2WEB_Group_List\022G\n\n"
-      "group_list\030\001 \003(\01323.WEB_SERVER_NET_Protoc"
-      "ol.S2WEB_Group_List.GroupData\032%\n\tGroupDa"
-      "ta\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002(\014\"\265\001\n\022S2WEB_C"
-      "reate_Group\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002(\014\022\026\n"
-      "\016load_user_list\030\003 \001(\r\022\034\n\024load_user_group"
-      "_list\030\004 \001(\r\022\031\n\021create_user_group\030\005 \001(\r\022\031"
-      "\n\021modify_user_group\030\006 \001(\r\022\031\n\021remove_user"
-      "_group\030\007 \001(\r\"\265\001\n\022S2WEB_Modify_Group\022\n\n\002i"
-      "d\030\001 \002(\r\022\014\n\004name\030\002 \002(\014\022\026\n\016load_user_list\030"
-      "\003 \001(\r\022\034\n\024load_user_group_list\030\004 \001(\r\022\031\n\021c"
-      "reate_user_group\030\005 \001(\r\022\031\n\021modify_user_gr"
-      "oup\030\006 \001(\r\022\031\n\021remove_user_group\030\007 \001(\r\" \n\022"
-      "S2WEB_Remove_Group\022\n\n\002id\030\001 \002(\r\"<\n\027S2WEB_"
-      "Add_User_To_Group\022\017\n\007user_id\030\001 \002(\r\022\020\n\010gr"
-      "oup_id\030\002 \002(\r\"A\n\034S2WEB_Remove_User_From_G"
-      "roup\022\017\n\007user_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r*"
-      "\247\005\n\005WEB2S\022\017\n\013web2s_login\020\000\022\034\n\030web2s_requ"
-      "est_slope_list\020\001\022\035\n\031web2s_request_sensor"
-      "_list\020\002\022 \n\034web2s_request_sensor_history\020"
-      "\003\022\016\n\nweb2s_ping\020\004\022\032\n\026web2s_request_all_l"
-      "ist\020\005\022\023\n\017web2s_add_slope\020\006\022\023\n\017web2s_del_"
-      "slope\020\007\022\033\n\027web2s_update_slope_data\020\010\022\024\n\020"
-      "web2s_add_sensor\020\t\022\024\n\020web2s_del_sensor\020\n"
-      "\022\034\n\030web2s_update_sensor_data\020\013\022\031\n\025web2s_"
-      "modify_password\020\014\022\024\n\020web2s_find_slope\020\r\022"
-      "\025\n\021web2s_find_sensor\020\016\022\030\n\024web2s_load_use"
-      "r_list\020\017\022\025\n\021web2s_create_user\020\020\022\025\n\021web2s"
-      "_modify_user\020\021\022\025\n\021web2s_remove_user\020\022\022\036\n"
-      "\032web2s_load_user_group_list\020\023\022\026\n\022web2s_c"
-      "reate_group\020\024\022\033\n\027web2s_add_user_to_group"
-      "\020\025\022 \n\034web2s_remove_user_from_group\020\026\022\026\n\022"
-      "web2s_modify_group\020\027\022\026\n\022web2s_remove_gro"
-      "up\020\030\022\023\n\017web2s_reserve20\020\031\022\016\n\tweb2s_max\020\200"
-      "\002*\277\004\n\005S2WEB\022\026\n\022s2web_login_result\020\000\022\024\n\020s"
-      "2web_slope_list\020\001\022\025\n\021s2web_sensor_list\020\002"
-      "\022\030\n\024s2web_sensor_history\020\003\022\026\n\022s2web_all_"
-      "list_end\020\004\022\017\n\013s2web_error\020\005\022\023\n\017s2web_new"
-      "_slope\020\006\022\023\n\017s2web_del_slope\020\007\022\026\n\022s2web_u"
-      "pdate_slope\020\010\022\024\n\020s2web_add_sensor\020\t\022\024\n\020s"
-      "2web_del_sensor\020\n\022\027\n\023s2web_update_sensor"
-      "\020\013\022 \n\034s2web_modify_password_result\020\014\022\023\n\017"
-      "s2web_user_list\020\r\022\025\n\021s2web_create_user\020\016"
-      "\022\025\n\021s2web_modify_user\020\017\022\025\n\021s2web_remove_"
-      "user\020\020\022\024\n\020s2web_group_list\020\021\022\026\n\022s2web_cr"
-      "eate_group\020\022\022\026\n\022s2web_modify_group\020\023\022\026\n\022"
-      "s2web_remove_group\020\024\022\033\n\027s2web_add_user_t"
-      "o_group\020\025\022 \n\034s2web_remove_user_from_grou"
-      "p\020\026\022\016\n\ts2web_max\020\200\002"
+      "_user_group_list\030\003 \001(\r\022\023\n\013modify_user\030\004 "
+      "\001(\r\022\031\n\021modify_user_group\030\005 \001(\r\"<\n\027WEB2S_"
+      "Add_User_To_Group\022\020\n\010group_id\030\001 \002(\014\022\017\n\007u"
+      "ser_id\030\002 \002(\014\"A\n\034WEB2S_Remove_User_From_G"
+      "roup\022\020\n\010group_id\030\001 \002(\014\022\017\n\007user_id\030\002 \002(\014\""
+      "\276\001\n\022WEB2S_Modify_Group\022\020\n\010group_id\030\001 \002(\014"
+      "\022\022\n\ngroup_name\030\002 \002(\014\022\026\n\016load_user_list\030\003"
+      " \001(\r\022\034\n\024load_user_group_list\030\004 \001(\r\022\026\n\016ad"
+      "d_user_group\030\005 \001(\r\022\031\n\021modify_user_group\030"
+      "\006 \001(\r\022\031\n\021remove_user_group\030\007 \001(\r\"&\n\022WEB2"
+      "S_Remove_Group\022\020\n\010group_id\030\001 \002(\014\",\n\024WEB2"
+      "S_Load_Authority\022\024\n\014authority_id\030\001 \002(\r\"\245"
+      "\001\n\022S2Web_Login_Result\022\016\n\006result\030\001 \002(\r\022K\n"
+      "\013server_list\030\002 \003(\01326.WEB_SERVER_NET_Prot"
+      "ocol.S2Web_Login_Result.ServerData\0322\n\nSe"
+      "rverData\022\n\n\002id\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022\014\n\004port"
+      "\030\003 \002(\r\"\321\001\n\020S2Web_Slope_List\022G\n\nslope_lis"
+      "t\030\001 \003(\01323.WEB_SERVER_NET_Protocol.S2Web_"
+      "Slope_List.SlopeData\032t\n\tSlopeData\022\n\n\002id\030"
+      "\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005sta"
+      "te\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030"
+      "\006 \002(\001\022\013\n\003url\030\007 \002(\014\"\255\003\n\021S2Web_Sensor_List"
+      "\022J\n\013sensor_list\030\001 \003(\01325.WEB_SERVER_NET_P"
+      "rotocol.S2Web_Sensor_List.SensorData\032\313\002\n"
+      "\nSensorData\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n"
+      "\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongit"
+      "ude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\022\n\ncur_value"
+      "1\030\007 \002(\001\022\022\n\ncur_value2\030\010 \002(\001\022\022\n\ncur_value"
+      "3\030\t \002(\001\022\022\n\navg_value1\030\n \002(\001\022\022\n\navg_value"
+      "2\030\013 \002(\001\022\022\n\navg_value3\030\014 \002(\001\022\025\n\roffset_va"
+      "lue1\030\r \002(\001\022\025\n\roffset_value2\030\016 \002(\001\022\025\n\roff"
+      "set_value3\030\017 \002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013descrip"
+      "tion\030\021 \002(\014\"\265\004\n\024S2Web_Sensor_History\022\n\n\002i"
+      "d\030\001 \002(\r\022\021\n\tlongitude\030\002 \002(\001\022\020\n\010latitude\030\003"
+      " \002(\001\022\022\n\nbegin_time\030\004 \002(\r\022\020\n\010end_time\030\005 \002"
+      "(\r\022\021\n\tinvterval\030\006 \002(\r\022\022\n\navg_value1\030\007 \002("
+      "\001\022\022\n\navg_value2\030\010 \002(\001\022\022\n\navg_value3\030\t \002("
+      "\001\022N\n\014history_list\030\n \003(\01328.WEB_SERVER_NET"
+      "_Protocol.S2Web_Sensor_History.SensorDat"
+      "a\032\246\002\n\nSensorData\022\022\n\nmin_value1\030\001 \002(\001\022\022\n\n"
+      "min_value2\030\002 \002(\001\022\022\n\nmin_value3\030\003 \002(\001\022\022\n\n"
+      "max_value1\030\004 \002(\001\022\022\n\nmax_value2\030\005 \002(\001\022\022\n\n"
+      "max_value3\030\006 \002(\001\022\031\n\021min_offset_value1\030\007 "
+      "\002(\001\022\031\n\021min_offset_value2\030\010 \002(\001\022\031\n\021min_of"
+      "fset_value3\030\t \002(\001\022\031\n\021max_offset_value1\030\n"
+      " \002(\001\022\031\n\021max_offset_value2\030\013 \002(\001\022\031\n\021max_o"
+      "ffset_value3\030\014 \002(\001\"!\n\013S2WEB_ERROR\022\022\n\nerr"
+      "or_code\030\001 \002(\r\"z\n\017S2WEB_New_Slope\022\n\n\002id\030\001"
+      " \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005stat"
+      "e\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006"
+      " \002(\001\022\013\n\003url\030\007 \002(\014\"!\n\017S2WEB_Del_Slope\022\016\n\006"
+      "result\030\001 \002(\r\"}\n\022S2WEB_Update_Slope\022\n\n\002id"
+      "\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005st"
+      "ate\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude"
+      "\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\"\224\001\n\020S2WEB_Add_Sensor"
+      "\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002("
+      "\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020"
+      "\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013descrip"
+      "tion\030\010 \002(\014\"\"\n\020S2WEB_Del_Sensor\022\016\n\006result"
+      "\030\001 \002(\r\"\227\001\n\023S2WEB_Update_Sensor\022\n\n\002id\030\001 \002"
+      "(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope"
+      "_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude"
+      "\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014"
+      "\".\n\034S2WEB_Modify_Password_Result\022\016\n\006resu"
+      "lt\030\001 \002(\r\"\231\001\n\017S2WEB_User_List\022D\n\tuser_lis"
+      "t\030\001 \003(\01321.WEB_SERVER_NET_Protocol.S2WEB_"
+      "User_List.UserData\032@\n\010UserData\022\017\n\007user_i"
+      "d\030\001 \002(\r\022\021\n\tuser_name\030\002 \002(\014\022\020\n\010group_id\030\003"
+      " \002(\r\">\n\021S2WEB_Create_User\022\n\n\002id\030\001 \002(\r\022\017\n"
+      "\007account\030\002 \002(\014\022\014\n\004name\030\003 \002(\014\"-\n\021S2WEB_Mo"
+      "dify_User\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002(\014\"\037\n\021S"
+      "2WEB_Remove_User\022\n\n\002id\030\001 \002(\r\"\202\001\n\020S2WEB_G"
+      "roup_List\022G\n\ngroup_list\030\001 \003(\01323.WEB_SERV"
+      "ER_NET_Protocol.S2WEB_Group_List.GroupDa"
+      "ta\032%\n\tGroupData\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002("
+      "\014\"\224\001\n\022S2WEB_Create_Group\022\n\n\002id\030\001 \002(\r\022\014\n\004"
+      "name\030\002 \002(\014\022\026\n\016load_user_list\030\003 \001(\r\022\034\n\024lo"
+      "ad_user_group_list\030\004 \001(\r\022\023\n\013modify_user\030"
+      "\005 \001(\r\022\031\n\021modify_user_group\030\006 \001(\r\"\265\001\n\022S2W"
+      "EB_Modify_Group\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002("
+      "\014\022\026\n\016load_user_list\030\003 \001(\r\022\034\n\024load_user_g"
+      "roup_list\030\004 \001(\r\022\031\n\021create_user_group\030\005 \001"
+      "(\r\022\031\n\021modify_user_group\030\006 \001(\r\022\031\n\021remove_"
+      "user_group\030\007 \001(\r\" \n\022S2WEB_Remove_Group\022\n"
+      "\n\002id\030\001 \002(\r\"<\n\027S2WEB_Add_User_To_Group\022\017\n"
+      "\007user_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\"A\n\034S2WE"
+      "B_Remove_User_From_Group\022\017\n\007user_id\030\001 \002("
+      "\r\022\020\n\010group_id\030\002 \002(\r\"\223\002\n\024S2WEB_Authority_"
+      "List\022S\n\016authority_list\030\001 \003(\0132;.WEB_SERVE"
+      "R_NET_Protocol.S2WEB_Authority_List.Auth"
+      "orityData\032\245\001\n\rAuthorityData\022\024\n\014authority"
+      "_id\030\001 \002(\r\022\021\n\tparent_id\030\002 \002(\r\022\013\n\003url\030\003 \002("
+      "\014\022\023\n\013description\030\004 \002(\014\022\020\n\010can_view\030\005 \002(\r"
+      "\022\017\n\007can_add\030\006 \002(\r\022\022\n\ncan_delete\030\007 \002(\r\022\022\n"
+      "\ncan_modify\030\010 \002(\r*\247\005\n\005WEB2S\022\017\n\013web2s_log"
+      "in\020\000\022\034\n\030web2s_request_slope_list\020\001\022\035\n\031we"
+      "b2s_request_sensor_list\020\002\022 \n\034web2s_reque"
+      "st_sensor_history\020\003\022\016\n\nweb2s_ping\020\004\022\032\n\026w"
+      "eb2s_request_all_list\020\005\022\023\n\017web2s_add_slo"
+      "pe\020\006\022\023\n\017web2s_del_slope\020\007\022\033\n\027web2s_updat"
+      "e_slope_data\020\010\022\024\n\020web2s_add_sensor\020\t\022\024\n\020"
+      "web2s_del_sensor\020\n\022\034\n\030web2s_update_senso"
+      "r_data\020\013\022\031\n\025web2s_modify_password\020\014\022\024\n\020w"
+      "eb2s_find_slope\020\r\022\025\n\021web2s_find_sensor\020\016"
+      "\022\030\n\024web2s_load_user_list\020\017\022\025\n\021web2s_crea"
+      "te_user\020\020\022\025\n\021web2s_modify_user\020\021\022\025\n\021web2"
+      "s_remove_user\020\022\022\031\n\025web2s_load_group_list"
+      "\020\023\022\026\n\022web2s_create_group\020\024\022\033\n\027web2s_add_"
+      "user_to_group\020\025\022 \n\034web2s_remove_user_fro"
+      "m_group\020\026\022\026\n\022web2s_modify_group\020\027\022\026\n\022web"
+      "2s_remove_group\020\030\022\030\n\024web2s_load_authorit"
+      "y\020\031\022\016\n\tweb2s_max\020\200\002*\331\004\n\005S2WEB\022\026\n\022s2web_l"
+      "ogin_result\020\000\022\024\n\020s2web_slope_list\020\001\022\025\n\021s"
+      "2web_sensor_list\020\002\022\030\n\024s2web_sensor_histo"
+      "ry\020\003\022\026\n\022s2web_all_list_end\020\004\022\017\n\013s2web_er"
+      "ror\020\005\022\023\n\017s2web_new_slope\020\006\022\023\n\017s2web_del_"
+      "slope\020\007\022\026\n\022s2web_update_slope\020\010\022\024\n\020s2web"
+      "_add_sensor\020\t\022\024\n\020s2web_del_sensor\020\n\022\027\n\023s"
+      "2web_update_sensor\020\013\022 \n\034s2web_modify_pas"
+      "sword_result\020\014\022\023\n\017s2web_user_list\020\r\022\025\n\021s"
+      "2web_create_user\020\016\022\025\n\021s2web_modify_user\020"
+      "\017\022\025\n\021s2web_remove_user\020\020\022\024\n\020s2web_group_"
+      "list\020\021\022\026\n\022s2web_create_group\020\022\022\026\n\022s2web_"
+      "modify_group\020\023\022\026\n\022s2web_remove_group\020\024\022\033"
+      "\n\027s2web_add_user_to_group\020\025\022 \n\034s2web_rem"
+      "ove_user_from_group\020\026\022\030\n\024s2web_authority"
+      "_list\020\027\022\016\n\ts2web_max\020\200\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 6059);
+      descriptor, 6343);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Web_Server_Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -1336,6 +1398,7 @@ bool S2WEB_IsValid(int value) {
     case 20:
     case 21:
     case 22:
+    case 23:
     case 256:
       return true;
     default:
@@ -8655,9 +8718,8 @@ void WEB2S_Remove_User::set_user_id(::google::protobuf::uint32 value) {
 const int WEB2S_Create_Group::kGroupNameFieldNumber;
 const int WEB2S_Create_Group::kLoadUserListFieldNumber;
 const int WEB2S_Create_Group::kLoadUserGroupListFieldNumber;
-const int WEB2S_Create_Group::kCreateUserGroupFieldNumber;
+const int WEB2S_Create_Group::kModifyUserFieldNumber;
 const int WEB2S_Create_Group::kModifyUserGroupFieldNumber;
-const int WEB2S_Create_Group::kRemoveUserGroupFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 WEB2S_Create_Group::WEB2S_Create_Group()
@@ -8679,16 +8741,16 @@ WEB2S_Create_Group::WEB2S_Create_Group(const WEB2S_Create_Group& from)
     group_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_name_);
   }
   ::memcpy(&load_user_list_, &from.load_user_list_,
-    reinterpret_cast<char*>(&remove_user_group_) -
-    reinterpret_cast<char*>(&load_user_list_) + sizeof(remove_user_group_));
+    reinterpret_cast<char*>(&modify_user_group_) -
+    reinterpret_cast<char*>(&load_user_list_) + sizeof(modify_user_group_));
   // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
 }
 
 void WEB2S_Create_Group::SharedCtor() {
   _cached_size_ = 0;
   group_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&load_user_list_, 0, reinterpret_cast<char*>(&remove_user_group_) -
-    reinterpret_cast<char*>(&load_user_list_) + sizeof(remove_user_group_));
+  ::memset(&load_user_list_, 0, reinterpret_cast<char*>(&modify_user_group_) -
+    reinterpret_cast<char*>(&load_user_list_) + sizeof(modify_user_group_));
 }
 
 WEB2S_Create_Group::~WEB2S_Create_Group() {
@@ -8729,9 +8791,9 @@ void WEB2S_Create_Group::Clear() {
     GOOGLE_DCHECK(!group_name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
     (*group_name_.UnsafeRawStringPointer())->clear();
   }
-  if (_has_bits_[0 / 32] & 62u) {
-    ::memset(&load_user_list_, 0, reinterpret_cast<char*>(&remove_user_group_) -
-      reinterpret_cast<char*>(&load_user_list_) + sizeof(remove_user_group_));
+  if (_has_bits_[0 / 32] & 30u) {
+    ::memset(&load_user_list_, 0, reinterpret_cast<char*>(&modify_user_group_) -
+      reinterpret_cast<char*>(&load_user_list_) + sizeof(modify_user_group_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -8787,14 +8849,14 @@ bool WEB2S_Create_Group::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 create_user_group = 4;
+      // optional uint32 modify_user = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u)) {
-          set_has_create_user_group();
+          set_has_modify_user();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &create_user_group_)));
+                 input, &modify_user_)));
         } else {
           goto handle_unusual;
         }
@@ -8809,20 +8871,6 @@ bool WEB2S_Create_Group::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &modify_user_group_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional uint32 remove_user_group = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u)) {
-          set_has_remove_user_group();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &remove_user_group_)));
         } else {
           goto handle_unusual;
         }
@@ -8874,19 +8922,14 @@ void WEB2S_Create_Group::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->load_user_group_list(), output);
   }
 
-  // optional uint32 create_user_group = 4;
+  // optional uint32 modify_user = 4;
   if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->create_user_group(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->modify_user(), output);
   }
 
   // optional uint32 modify_user_group = 5;
   if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->modify_user_group(), output);
-  }
-
-  // optional uint32 remove_user_group = 6;
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->remove_user_group(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8920,19 +8963,14 @@ void WEB2S_Create_Group::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->load_user_group_list(), target);
   }
 
-  // optional uint32 create_user_group = 4;
+  // optional uint32 modify_user = 4;
   if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->create_user_group(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->modify_user(), target);
   }
 
   // optional uint32 modify_user_group = 5;
   if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->modify_user_group(), target);
-  }
-
-  // optional uint32 remove_user_group = 6;
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->remove_user_group(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8958,7 +8996,7 @@ size_t WEB2S_Create_Group::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->group_name());
   }
-  if (_has_bits_[0 / 32] & 62u) {
+  if (_has_bits_[0 / 32] & 30u) {
     // optional uint32 load_user_list = 2;
     if (has_load_user_list()) {
       total_size += 1 +
@@ -8973,11 +9011,11 @@ size_t WEB2S_Create_Group::ByteSizeLong() const {
           this->load_user_group_list());
     }
 
-    // optional uint32 create_user_group = 4;
-    if (has_create_user_group()) {
+    // optional uint32 modify_user = 4;
+    if (has_modify_user()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->create_user_group());
+          this->modify_user());
     }
 
     // optional uint32 modify_user_group = 5;
@@ -8985,13 +9023,6 @@ size_t WEB2S_Create_Group::ByteSizeLong() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->modify_user_group());
-    }
-
-    // optional uint32 remove_user_group = 6;
-    if (has_remove_user_group()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->remove_user_group());
     }
 
   }
@@ -9025,7 +9056,7 @@ void WEB2S_Create_Group::MergeFrom(const WEB2S_Create_Group& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 63u) {
+  if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
       set_has_group_name();
       group_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_name_);
@@ -9037,13 +9068,10 @@ void WEB2S_Create_Group::MergeFrom(const WEB2S_Create_Group& from) {
       load_user_group_list_ = from.load_user_group_list_;
     }
     if (cached_has_bits & 0x00000008u) {
-      create_user_group_ = from.create_user_group_;
+      modify_user_ = from.modify_user_;
     }
     if (cached_has_bits & 0x00000010u) {
       modify_user_group_ = from.modify_user_group_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      remove_user_group_ = from.remove_user_group_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -9076,9 +9104,8 @@ void WEB2S_Create_Group::InternalSwap(WEB2S_Create_Group* other) {
   group_name_.Swap(&other->group_name_);
   std::swap(load_user_list_, other->load_user_list_);
   std::swap(load_user_group_list_, other->load_user_group_list_);
-  std::swap(create_user_group_, other->create_user_group_);
+  std::swap(modify_user_, other->modify_user_);
   std::swap(modify_user_group_, other->modify_user_group_);
-  std::swap(remove_user_group_, other->remove_user_group_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -9203,28 +9230,28 @@ void WEB2S_Create_Group::set_load_user_group_list(::google::protobuf::uint32 val
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.load_user_group_list)
 }
 
-// optional uint32 create_user_group = 4;
-bool WEB2S_Create_Group::has_create_user_group() const {
+// optional uint32 modify_user = 4;
+bool WEB2S_Create_Group::has_modify_user() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-void WEB2S_Create_Group::set_has_create_user_group() {
+void WEB2S_Create_Group::set_has_modify_user() {
   _has_bits_[0] |= 0x00000008u;
 }
-void WEB2S_Create_Group::clear_has_create_user_group() {
+void WEB2S_Create_Group::clear_has_modify_user() {
   _has_bits_[0] &= ~0x00000008u;
 }
-void WEB2S_Create_Group::clear_create_user_group() {
-  create_user_group_ = 0u;
-  clear_has_create_user_group();
+void WEB2S_Create_Group::clear_modify_user() {
+  modify_user_ = 0u;
+  clear_has_modify_user();
 }
-::google::protobuf::uint32 WEB2S_Create_Group::create_user_group() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.create_user_group)
-  return create_user_group_;
+::google::protobuf::uint32 WEB2S_Create_Group::modify_user() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.modify_user)
+  return modify_user_;
 }
-void WEB2S_Create_Group::set_create_user_group(::google::protobuf::uint32 value) {
-  set_has_create_user_group();
-  create_user_group_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.create_user_group)
+void WEB2S_Create_Group::set_modify_user(::google::protobuf::uint32 value) {
+  set_has_modify_user();
+  modify_user_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.modify_user)
 }
 
 // optional uint32 modify_user_group = 5;
@@ -9249,30 +9276,6 @@ void WEB2S_Create_Group::set_modify_user_group(::google::protobuf::uint32 value)
   set_has_modify_user_group();
   modify_user_group_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.modify_user_group)
-}
-
-// optional uint32 remove_user_group = 6;
-bool WEB2S_Create_Group::has_remove_user_group() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-void WEB2S_Create_Group::set_has_remove_user_group() {
-  _has_bits_[0] |= 0x00000020u;
-}
-void WEB2S_Create_Group::clear_has_remove_user_group() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-void WEB2S_Create_Group::clear_remove_user_group() {
-  remove_user_group_ = 0u;
-  clear_has_remove_user_group();
-}
-::google::protobuf::uint32 WEB2S_Create_Group::remove_user_group() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.remove_user_group)
-  return remove_user_group_;
-}
-void WEB2S_Create_Group::set_remove_user_group(::google::protobuf::uint32 value) {
-  set_has_remove_user_group();
-  remove_user_group_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.remove_user_group)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -11248,6 +11251,271 @@ void WEB2S_Remove_Group::set_allocated_group_id(::std::string* group_id) {
   }
   group_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_id);
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Load_Authority::kAuthorityIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Load_Authority::WEB2S_Load_Authority()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+}
+WEB2S_Load_Authority::WEB2S_Load_Authority(const WEB2S_Load_Authority& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  authority_id_ = from.authority_id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+}
+
+void WEB2S_Load_Authority::SharedCtor() {
+  _cached_size_ = 0;
+  authority_id_ = 0u;
+}
+
+WEB2S_Load_Authority::~WEB2S_Load_Authority() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  SharedDtor();
+}
+
+void WEB2S_Load_Authority::SharedDtor() {
+}
+
+void WEB2S_Load_Authority::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Load_Authority::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Load_Authority& WEB2S_Load_Authority::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Load_Authority* WEB2S_Load_Authority::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Load_Authority* n = new WEB2S_Load_Authority;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Load_Authority::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  authority_id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Load_Authority::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 authority_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_authority_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &authority_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Load_Authority::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->authority_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+}
+
+::google::protobuf::uint8* WEB2S_Load_Authority::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->authority_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  return target;
+}
+
+size_t WEB2S_Load_Authority::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 authority_id = 1;
+  if (has_authority_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->authority_id());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Load_Authority::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Load_Authority* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Load_Authority>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Load_Authority::MergeFrom(const WEB2S_Load_Authority& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_authority_id()) {
+    set_authority_id(from.authority_id());
+  }
+}
+
+void WEB2S_Load_Authority::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Load_Authority::CopyFrom(const WEB2S_Load_Authority& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Load_Authority::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void WEB2S_Load_Authority::Swap(WEB2S_Load_Authority* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Load_Authority::InternalSwap(WEB2S_Load_Authority* other) {
+  std::swap(authority_id_, other->authority_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Load_Authority::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Load_Authority
+
+// required uint32 authority_id = 1;
+bool WEB2S_Load_Authority::has_authority_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Load_Authority::set_has_authority_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Load_Authority::clear_has_authority_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Load_Authority::clear_authority_id() {
+  authority_id_ = 0u;
+  clear_has_authority_id();
+}
+::google::protobuf::uint32 WEB2S_Load_Authority::authority_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority.authority_id)
+  return authority_id_;
+}
+void WEB2S_Load_Authority::set_authority_id(::google::protobuf::uint32 value) {
+  set_has_authority_id();
+  authority_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority.authority_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -23517,9 +23785,8 @@ const int S2WEB_Create_Group::kIdFieldNumber;
 const int S2WEB_Create_Group::kNameFieldNumber;
 const int S2WEB_Create_Group::kLoadUserListFieldNumber;
 const int S2WEB_Create_Group::kLoadUserGroupListFieldNumber;
-const int S2WEB_Create_Group::kCreateUserGroupFieldNumber;
+const int S2WEB_Create_Group::kModifyUserFieldNumber;
 const int S2WEB_Create_Group::kModifyUserGroupFieldNumber;
-const int S2WEB_Create_Group::kRemoveUserGroupFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 S2WEB_Create_Group::S2WEB_Create_Group()
@@ -23541,16 +23808,16 @@ S2WEB_Create_Group::S2WEB_Create_Group(const S2WEB_Create_Group& from)
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   ::memcpy(&id_, &from.id_,
-    reinterpret_cast<char*>(&remove_user_group_) -
-    reinterpret_cast<char*>(&id_) + sizeof(remove_user_group_));
+    reinterpret_cast<char*>(&modify_user_group_) -
+    reinterpret_cast<char*>(&id_) + sizeof(modify_user_group_));
   // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
 }
 
 void S2WEB_Create_Group::SharedCtor() {
   _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&id_, 0, reinterpret_cast<char*>(&remove_user_group_) -
-    reinterpret_cast<char*>(&id_) + sizeof(remove_user_group_));
+  ::memset(&id_, 0, reinterpret_cast<char*>(&modify_user_group_) -
+    reinterpret_cast<char*>(&id_) + sizeof(modify_user_group_));
 }
 
 S2WEB_Create_Group::~S2WEB_Create_Group() {
@@ -23591,9 +23858,9 @@ void S2WEB_Create_Group::Clear() {
     GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
     (*name_.UnsafeRawStringPointer())->clear();
   }
-  if (_has_bits_[0 / 32] & 126u) {
-    ::memset(&id_, 0, reinterpret_cast<char*>(&remove_user_group_) -
-      reinterpret_cast<char*>(&id_) + sizeof(remove_user_group_));
+  if (_has_bits_[0 / 32] & 62u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&modify_user_group_) -
+      reinterpret_cast<char*>(&id_) + sizeof(modify_user_group_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -23663,14 +23930,14 @@ bool S2WEB_Create_Group::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 create_user_group = 5;
+      // optional uint32 modify_user = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(40u)) {
-          set_has_create_user_group();
+          set_has_modify_user();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &create_user_group_)));
+                 input, &modify_user_)));
         } else {
           goto handle_unusual;
         }
@@ -23685,20 +23952,6 @@ bool S2WEB_Create_Group::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &modify_user_group_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional uint32 remove_user_group = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u)) {
-          set_has_remove_user_group();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &remove_user_group_)));
         } else {
           goto handle_unusual;
         }
@@ -23755,19 +24008,14 @@ void S2WEB_Create_Group::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->load_user_group_list(), output);
   }
 
-  // optional uint32 create_user_group = 5;
+  // optional uint32 modify_user = 5;
   if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->create_user_group(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->modify_user(), output);
   }
 
   // optional uint32 modify_user_group = 6;
   if (cached_has_bits & 0x00000020u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->modify_user_group(), output);
-  }
-
-  // optional uint32 remove_user_group = 7;
-  if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->remove_user_group(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -23806,19 +24054,14 @@ void S2WEB_Create_Group::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->load_user_group_list(), target);
   }
 
-  // optional uint32 create_user_group = 5;
+  // optional uint32 modify_user = 5;
   if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->create_user_group(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->modify_user(), target);
   }
 
   // optional uint32 modify_user_group = 6;
   if (cached_has_bits & 0x00000020u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->modify_user_group(), target);
-  }
-
-  // optional uint32 remove_user_group = 7;
-  if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->remove_user_group(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -23872,7 +24115,7 @@ size_t S2WEB_Create_Group::ByteSizeLong() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  if (_has_bits_[0 / 32] & 124u) {
+  if (_has_bits_[0 / 32] & 60u) {
     // optional uint32 load_user_list = 3;
     if (has_load_user_list()) {
       total_size += 1 +
@@ -23887,11 +24130,11 @@ size_t S2WEB_Create_Group::ByteSizeLong() const {
           this->load_user_group_list());
     }
 
-    // optional uint32 create_user_group = 5;
-    if (has_create_user_group()) {
+    // optional uint32 modify_user = 5;
+    if (has_modify_user()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->create_user_group());
+          this->modify_user());
     }
 
     // optional uint32 modify_user_group = 6;
@@ -23899,13 +24142,6 @@ size_t S2WEB_Create_Group::ByteSizeLong() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->modify_user_group());
-    }
-
-    // optional uint32 remove_user_group = 7;
-    if (has_remove_user_group()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->remove_user_group());
     }
 
   }
@@ -23939,7 +24175,7 @@ void S2WEB_Create_Group::MergeFrom(const S2WEB_Create_Group& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 127u) {
+  if (cached_has_bits & 63u) {
     if (cached_has_bits & 0x00000001u) {
       set_has_name();
       name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
@@ -23954,13 +24190,10 @@ void S2WEB_Create_Group::MergeFrom(const S2WEB_Create_Group& from) {
       load_user_group_list_ = from.load_user_group_list_;
     }
     if (cached_has_bits & 0x00000010u) {
-      create_user_group_ = from.create_user_group_;
+      modify_user_ = from.modify_user_;
     }
     if (cached_has_bits & 0x00000020u) {
       modify_user_group_ = from.modify_user_group_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      remove_user_group_ = from.remove_user_group_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -23994,9 +24227,8 @@ void S2WEB_Create_Group::InternalSwap(S2WEB_Create_Group* other) {
   std::swap(id_, other->id_);
   std::swap(load_user_list_, other->load_user_list_);
   std::swap(load_user_group_list_, other->load_user_group_list_);
-  std::swap(create_user_group_, other->create_user_group_);
+  std::swap(modify_user_, other->modify_user_);
   std::swap(modify_user_group_, other->modify_user_group_);
-  std::swap(remove_user_group_, other->remove_user_group_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -24145,28 +24377,28 @@ void S2WEB_Create_Group::set_load_user_group_list(::google::protobuf::uint32 val
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.load_user_group_list)
 }
 
-// optional uint32 create_user_group = 5;
-bool S2WEB_Create_Group::has_create_user_group() const {
+// optional uint32 modify_user = 5;
+bool S2WEB_Create_Group::has_modify_user() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-void S2WEB_Create_Group::set_has_create_user_group() {
+void S2WEB_Create_Group::set_has_modify_user() {
   _has_bits_[0] |= 0x00000010u;
 }
-void S2WEB_Create_Group::clear_has_create_user_group() {
+void S2WEB_Create_Group::clear_has_modify_user() {
   _has_bits_[0] &= ~0x00000010u;
 }
-void S2WEB_Create_Group::clear_create_user_group() {
-  create_user_group_ = 0u;
-  clear_has_create_user_group();
+void S2WEB_Create_Group::clear_modify_user() {
+  modify_user_ = 0u;
+  clear_has_modify_user();
 }
-::google::protobuf::uint32 S2WEB_Create_Group::create_user_group() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.create_user_group)
-  return create_user_group_;
+::google::protobuf::uint32 S2WEB_Create_Group::modify_user() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.modify_user)
+  return modify_user_;
 }
-void S2WEB_Create_Group::set_create_user_group(::google::protobuf::uint32 value) {
-  set_has_create_user_group();
-  create_user_group_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.create_user_group)
+void S2WEB_Create_Group::set_modify_user(::google::protobuf::uint32 value) {
+  set_has_modify_user();
+  modify_user_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.modify_user)
 }
 
 // optional uint32 modify_user_group = 6;
@@ -24191,30 +24423,6 @@ void S2WEB_Create_Group::set_modify_user_group(::google::protobuf::uint32 value)
   set_has_modify_user_group();
   modify_user_group_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.modify_user_group)
-}
-
-// optional uint32 remove_user_group = 7;
-bool S2WEB_Create_Group::has_remove_user_group() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-void S2WEB_Create_Group::set_has_remove_user_group() {
-  _has_bits_[0] |= 0x00000040u;
-}
-void S2WEB_Create_Group::clear_has_remove_user_group() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-void S2WEB_Create_Group::clear_remove_user_group() {
-  remove_user_group_ = 0u;
-  clear_has_remove_user_group();
-}
-::google::protobuf::uint32 S2WEB_Create_Group::remove_user_group() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.remove_user_group)
-  return remove_user_group_;
-}
-void S2WEB_Create_Group::set_remove_user_group(::google::protobuf::uint32 value) {
-  set_has_remove_user_group();
-  remove_user_group_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.remove_user_group)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -25901,6 +26109,1128 @@ void S2WEB_Remove_User_From_Group::set_group_id(::google::protobuf::uint32 value
   set_has_group_id();
   group_id_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group.group_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Authority_List_AuthorityData::kAuthorityIdFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kParentIdFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kUrlFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kDescriptionFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kCanViewFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kCanAddFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kCanDeleteFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kCanModifyFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Authority_List_AuthorityData::S2WEB_Authority_List_AuthorityData()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+}
+S2WEB_Authority_List_AuthorityData::S2WEB_Authority_List_AuthorityData(const S2WEB_Authority_List_AuthorityData& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_description()) {
+    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+  }
+  ::memcpy(&authority_id_, &from.authority_id_,
+    reinterpret_cast<char*>(&can_modify_) -
+    reinterpret_cast<char*>(&authority_id_) + sizeof(can_modify_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+}
+
+void S2WEB_Authority_List_AuthorityData::SharedCtor() {
+  _cached_size_ = 0;
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&authority_id_, 0, reinterpret_cast<char*>(&can_modify_) -
+    reinterpret_cast<char*>(&authority_id_) + sizeof(can_modify_));
+}
+
+S2WEB_Authority_List_AuthorityData::~S2WEB_Authority_List_AuthorityData() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  SharedDtor();
+}
+
+void S2WEB_Authority_List_AuthorityData::SharedDtor() {
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_Authority_List_AuthorityData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Authority_List_AuthorityData::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Authority_List_AuthorityData& S2WEB_Authority_List_AuthorityData::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Authority_List_AuthorityData* S2WEB_Authority_List_AuthorityData::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Authority_List_AuthorityData* n = new S2WEB_Authority_List_AuthorityData;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Authority_List_AuthorityData::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_description()) {
+      GOOGLE_DCHECK(!description_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*description_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 252u) {
+    ::memset(&authority_id_, 0, reinterpret_cast<char*>(&can_modify_) -
+      reinterpret_cast<char*>(&authority_id_) + sizeof(can_modify_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Authority_List_AuthorityData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 authority_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_authority_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &authority_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 parent_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_parent_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &parent_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes description = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_description()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 can_view = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u)) {
+          set_has_can_view();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &can_view_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 can_add = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u)) {
+          set_has_can_add();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &can_add_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 can_delete = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(56u)) {
+          set_has_can_delete();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &can_delete_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 can_modify = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(64u)) {
+          set_has_can_modify();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &can_modify_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Authority_List_AuthorityData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->authority_id(), output);
+  }
+
+  // required uint32 parent_id = 2;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->parent_id(), output);
+  }
+
+  // required bytes url = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->url(), output);
+  }
+
+  // required bytes description = 4;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      4, this->description(), output);
+  }
+
+  // required uint32 can_view = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->can_view(), output);
+  }
+
+  // required uint32 can_add = 6;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->can_add(), output);
+  }
+
+  // required uint32 can_delete = 7;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->can_delete(), output);
+  }
+
+  // required uint32 can_modify = 8;
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->can_modify(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+}
+
+::google::protobuf::uint8* S2WEB_Authority_List_AuthorityData::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->authority_id(), target);
+  }
+
+  // required uint32 parent_id = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->parent_id(), target);
+  }
+
+  // required bytes url = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->url(), target);
+  }
+
+  // required bytes description = 4;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        4, this->description(), target);
+  }
+
+  // required uint32 can_view = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->can_view(), target);
+  }
+
+  // required uint32 can_add = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->can_add(), target);
+  }
+
+  // required uint32 can_delete = 7;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->can_delete(), target);
+  }
+
+  // required uint32 can_modify = 8;
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->can_modify(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  return target;
+}
+
+size_t S2WEB_Authority_List_AuthorityData::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  size_t total_size = 0;
+
+  if (has_url()) {
+    // required bytes url = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_description()) {
+    // required bytes description = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+  }
+
+  if (has_authority_id()) {
+    // required uint32 authority_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->authority_id());
+  }
+
+  if (has_parent_id()) {
+    // required uint32 parent_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->parent_id());
+  }
+
+  if (has_can_view()) {
+    // required uint32 can_view = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->can_view());
+  }
+
+  if (has_can_add()) {
+    // required uint32 can_add = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->can_add());
+  }
+
+  if (has_can_delete()) {
+    // required uint32 can_delete = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->can_delete());
+  }
+
+  if (has_can_modify()) {
+    // required uint32 can_modify = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->can_modify());
+  }
+
+  return total_size;
+}
+size_t S2WEB_Authority_List_AuthorityData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x000000ff) ^ 0x000000ff) == 0) {  // All required fields are present.
+    // required bytes url = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required bytes description = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+
+    // required uint32 authority_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->authority_id());
+
+    // required uint32 parent_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->parent_id());
+
+    // required uint32 can_view = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->can_view());
+
+    // required uint32 can_add = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->can_add());
+
+    // required uint32 can_delete = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->can_delete());
+
+    // required uint32 can_modify = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->can_modify());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Authority_List_AuthorityData::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Authority_List_AuthorityData* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Authority_List_AuthorityData>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Authority_List_AuthorityData::MergeFrom(const S2WEB_Authority_List_AuthorityData& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 255u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_description();
+      description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      authority_id_ = from.authority_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      parent_id_ = from.parent_id_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      can_view_ = from.can_view_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      can_add_ = from.can_add_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      can_delete_ = from.can_delete_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      can_modify_ = from.can_modify_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Authority_List_AuthorityData::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Authority_List_AuthorityData::CopyFrom(const S2WEB_Authority_List_AuthorityData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Authority_List_AuthorityData::IsInitialized() const {
+  if ((_has_bits_[0] & 0x000000ff) != 0x000000ff) return false;
+  return true;
+}
+
+void S2WEB_Authority_List_AuthorityData::Swap(S2WEB_Authority_List_AuthorityData* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Authority_List_AuthorityData::InternalSwap(S2WEB_Authority_List_AuthorityData* other) {
+  url_.Swap(&other->url_);
+  description_.Swap(&other->description_);
+  std::swap(authority_id_, other->authority_id_);
+  std::swap(parent_id_, other->parent_id_);
+  std::swap(can_view_, other->can_view_);
+  std::swap(can_add_, other->can_add_);
+  std::swap(can_delete_, other->can_delete_);
+  std::swap(can_modify_, other->can_modify_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Authority_List_AuthorityData::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Authority_List_AuthorityData
+
+// required uint32 authority_id = 1;
+bool S2WEB_Authority_List_AuthorityData::has_authority_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_authority_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_authority_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_authority_id() {
+  authority_id_ = 0u;
+  clear_has_authority_id();
+}
+::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::authority_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.authority_id)
+  return authority_id_;
+}
+void S2WEB_Authority_List_AuthorityData::set_authority_id(::google::protobuf::uint32 value) {
+  set_has_authority_id();
+  authority_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.authority_id)
+}
+
+// required uint32 parent_id = 2;
+bool S2WEB_Authority_List_AuthorityData::has_parent_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_parent_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_parent_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_parent_id() {
+  parent_id_ = 0u;
+  clear_has_parent_id();
+}
+::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::parent_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.parent_id)
+  return parent_id_;
+}
+void S2WEB_Authority_List_AuthorityData::set_parent_id(::google::protobuf::uint32 value) {
+  set_has_parent_id();
+  parent_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.parent_id)
+}
+
+// required bytes url = 3;
+bool S2WEB_Authority_List_AuthorityData::has_url() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_url() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_url() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& S2WEB_Authority_List_AuthorityData::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+  return url_.GetNoArena();
+}
+void S2WEB_Authority_List_AuthorityData::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+}
+#if LANG_CXX11
+void S2WEB_Authority_List_AuthorityData::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+}
+#endif
+void S2WEB_Authority_List_AuthorityData::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+}
+void S2WEB_Authority_List_AuthorityData::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+}
+::std::string* S2WEB_Authority_List_AuthorityData::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Authority_List_AuthorityData::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Authority_List_AuthorityData::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+}
+
+// required bytes description = 4;
+bool S2WEB_Authority_List_AuthorityData::has_description() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_description() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_description() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_description() {
+  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_description();
+}
+const ::std::string& S2WEB_Authority_List_AuthorityData::description() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+  return description_.GetNoArena();
+}
+void S2WEB_Authority_List_AuthorityData::set_description(const ::std::string& value) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+}
+#if LANG_CXX11
+void S2WEB_Authority_List_AuthorityData::set_description(::std::string&& value) {
+  set_has_description();
+  description_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+}
+#endif
+void S2WEB_Authority_List_AuthorityData::set_description(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+}
+void S2WEB_Authority_List_AuthorityData::set_description(const void* value, size_t size) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+}
+::std::string* S2WEB_Authority_List_AuthorityData::mutable_description() {
+  set_has_description();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Authority_List_AuthorityData::release_description() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+  clear_has_description();
+  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Authority_List_AuthorityData::set_allocated_description(::std::string* description) {
+  if (description != NULL) {
+    set_has_description();
+  } else {
+    clear_has_description();
+  }
+  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+}
+
+// required uint32 can_view = 5;
+bool S2WEB_Authority_List_AuthorityData::has_can_view() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_can_view() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_can_view() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_can_view() {
+  can_view_ = 0u;
+  clear_has_can_view();
+}
+::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_view() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_view)
+  return can_view_;
+}
+void S2WEB_Authority_List_AuthorityData::set_can_view(::google::protobuf::uint32 value) {
+  set_has_can_view();
+  can_view_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_view)
+}
+
+// required uint32 can_add = 6;
+bool S2WEB_Authority_List_AuthorityData::has_can_add() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_can_add() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_can_add() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_can_add() {
+  can_add_ = 0u;
+  clear_has_can_add();
+}
+::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_add() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_add)
+  return can_add_;
+}
+void S2WEB_Authority_List_AuthorityData::set_can_add(::google::protobuf::uint32 value) {
+  set_has_can_add();
+  can_add_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_add)
+}
+
+// required uint32 can_delete = 7;
+bool S2WEB_Authority_List_AuthorityData::has_can_delete() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_can_delete() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_can_delete() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_can_delete() {
+  can_delete_ = 0u;
+  clear_has_can_delete();
+}
+::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_delete() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_delete)
+  return can_delete_;
+}
+void S2WEB_Authority_List_AuthorityData::set_can_delete(::google::protobuf::uint32 value) {
+  set_has_can_delete();
+  can_delete_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_delete)
+}
+
+// required uint32 can_modify = 8;
+bool S2WEB_Authority_List_AuthorityData::has_can_modify() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_can_modify() {
+  _has_bits_[0] |= 0x00000080u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_can_modify() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_can_modify() {
+  can_modify_ = 0u;
+  clear_has_can_modify();
+}
+::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::can_modify() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_modify)
+  return can_modify_;
+}
+void S2WEB_Authority_List_AuthorityData::set_can_modify(::google::protobuf::uint32 value) {
+  set_has_can_modify();
+  can_modify_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.can_modify)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Authority_List::kAuthorityListFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Authority_List::S2WEB_Authority_List()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+}
+S2WEB_Authority_List::S2WEB_Authority_List(const S2WEB_Authority_List& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0),
+      authority_list_(from.authority_list_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+}
+
+void S2WEB_Authority_List::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+S2WEB_Authority_List::~S2WEB_Authority_List() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  SharedDtor();
+}
+
+void S2WEB_Authority_List::SharedDtor() {
+}
+
+void S2WEB_Authority_List::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Authority_List::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Authority_List& S2WEB_Authority_List::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Authority_List* S2WEB_Authority_List::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Authority_List* n = new S2WEB_Authority_List;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Authority_List::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  authority_list_.Clear();
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Authority_List::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData authority_list = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_authority_list()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Authority_List::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData authority_list = 1;
+  for (unsigned int i = 0, n = this->authority_list_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->authority_list(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+}
+
+::google::protobuf::uint8* S2WEB_Authority_List::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData authority_list = 1;
+  for (unsigned int i = 0, n = this->authority_list_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->authority_list(i), deterministic, target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  return target;
+}
+
+size_t S2WEB_Authority_List::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData authority_list = 1;
+  {
+    unsigned int count = this->authority_list_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->authority_list(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Authority_List::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Authority_List* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Authority_List>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Authority_List::MergeFrom(const S2WEB_Authority_List& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  authority_list_.MergeFrom(from.authority_list_);
+}
+
+void S2WEB_Authority_List::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Authority_List::CopyFrom(const S2WEB_Authority_List& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Authority_List::IsInitialized() const {
+  if (!::google::protobuf::internal::AllAreInitialized(this->authority_list())) return false;
+  return true;
+}
+
+void S2WEB_Authority_List::Swap(S2WEB_Authority_List* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Authority_List::InternalSwap(S2WEB_Authority_List* other) {
+  authority_list_.InternalSwap(&other->authority_list_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Authority_List::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Authority_List
+
+// repeated .WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData authority_list = 1;
+int S2WEB_Authority_List::authority_list_size() const {
+  return authority_list_.size();
+}
+void S2WEB_Authority_List::clear_authority_list() {
+  authority_list_.Clear();
+}
+const ::WEB_SERVER_NET_Protocol::S2WEB_Authority_List_AuthorityData& S2WEB_Authority_List::authority_list(int index) const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.authority_list)
+  return authority_list_.Get(index);
+}
+::WEB_SERVER_NET_Protocol::S2WEB_Authority_List_AuthorityData* S2WEB_Authority_List::mutable_authority_list(int index) {
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.authority_list)
+  return authority_list_.Mutable(index);
+}
+::WEB_SERVER_NET_Protocol::S2WEB_Authority_List_AuthorityData* S2WEB_Authority_List::add_authority_list() {
+  // @@protoc_insertion_point(field_add:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.authority_list)
+  return authority_list_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Authority_List_AuthorityData >*
+S2WEB_Authority_List::mutable_authority_list() {
+  // @@protoc_insertion_point(field_mutable_list:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.authority_list)
+  return &authority_list_;
+}
+const ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Authority_List_AuthorityData >&
+S2WEB_Authority_List::authority_list() const {
+  // @@protoc_insertion_point(field_list:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.authority_list)
+  return authority_list_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
