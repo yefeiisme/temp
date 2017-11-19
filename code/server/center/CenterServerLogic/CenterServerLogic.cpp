@@ -126,6 +126,11 @@ void CCenterServerLogic::Run()
 	{
 		Iter_Web->second->DoAction();
 	}
+
+	for (auto Iter_Data = m_mapOnlineDataClient.begin(); Iter_Data != m_mapOnlineDataClient.end(); ++Iter_Data)
+	{
+		Iter_Data->second->DoAction();
+	}
 }
 
 bool CCenterServerLogic::AppClientLogin(IClientConnection *pClientConnection)
