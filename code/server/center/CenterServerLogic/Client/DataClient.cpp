@@ -4,7 +4,6 @@
 
 CDataClient::pfnProtocolFunc CDataClient::m_ProtocolFunc[d2s_end] =
 {
-	&CDataClient::RecvPing,
 	&CDataClient::RecvAddSensorData,
 };
 
@@ -47,12 +46,8 @@ void CDataClient::ProcessNetPack()
 	};
 }
 
-void CDataClient::RecvPing(const void *pPack, const unsigned int uPackLen)
-{
-}
-
 void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackLen)
 {
-	D2S_ADD_SENSOR_DATA	*pInfo			= (D2S_ADD_SENSOR_DATA*)pPack;
-	SSensorData			*pSensorData	= (SSensorData*)((char*)pPack+sizeof(D2S_ADD_SENSOR_DATA));
+	SProtocolHead	*pInfo			= (SProtocolHead*)pPack;
+	SSensorData		*pSensorData	= (SSensorData*)((char*)pPack + sizeof(SProtocolHead));
 }

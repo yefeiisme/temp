@@ -6,6 +6,14 @@
 #include "DataServerProtocol.h"
 #include "../SensorDB/SensorDBOperation.h"
 
+
+enum d2s_Protocol
+{
+	d2s_add_sensor_data,
+
+	d2s_end,
+};
+
 class CDataClient : public CClient
 {
 public:
@@ -17,7 +25,6 @@ public:
 private:
 	void					ProcessNetPack();
 
-	void					RecvPing(const void *pPack, const unsigned int uPackLen);
 	void					RecvAddSensorData(const void *pPack, const unsigned int uPackLen);
 private:
 	typedef void			(CDataClient::*pfnProtocolFunc)(const void *pPack, const unsigned int uPackLen);

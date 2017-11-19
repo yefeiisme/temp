@@ -5,49 +5,41 @@ typedef unsigned char		BYTE;
 typedef unsigned short		WORD;
 typedef unsigned int		UINT;
 
-struct SDefinedProtocolHead
+#pragma	pack(push, 1)
+
+// 包头：表示后续整个包体的长度
+struct SProtocolSize
 {
-	BYTE	byProtocolHead;
+	WORD	wSize;
 };
 
-enum d2s_Protocol
+// 
+struct SProtocolHead
 {
-	d2s_ping,
-	d2s_add_sensor_data,
-
-	d2s_end,
+	WORD	wProtocolHead;	// 7E81
+	BYTE	bySlopeType;	// 现场类型ID
+	WORD	wSlopeID;		// 现场ID
+	BYTE	bySensorCount;	// 本现场传感器数量
+	int		nTime;			// 时间
+	float	fLongitude;		// 现场经度
+	float	fLatitude;		// 现场纬度
 };
 
 struct SSensorData
 {
-	double	dLongitude;
-	double	dLatitude;
-	double	dValue1;
-	double	dValue2;
-	double	dValue3;
+	WORD	wLength;		// 传感器数据长度
+	BYTE	byType;			// 传感器类型
+	WORD	wID;			// 传感器ID
 };
 
-struct D2S_ADD_SENSOR_DATA
+// 传感器变长的数据，你看一下怎么定义
+
+// CRC校验
+struct SCRCSum
 {
-	BYTE	byDataCount;
+	WORD	wCRC;
 };
 
-enum s2d_Protocol
-{
-	d2s_login_result,
-
-	s2d_end,
-};
-
-struct D2S_LOGIN : public SDefinedProtocolHead
-{
-	char	strAccount[32];
-	char	strPassword[16];
-};
-
-struct D2S_LOGIN_RESULT : public SDefinedProtocolHead
-{
-	BYTE	byResult;
-};
+#pragma pack(pop)
 
 #endif
