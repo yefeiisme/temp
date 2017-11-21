@@ -154,21 +154,21 @@ message WEB2S_Find_Sensor
 message WEB2S_Create_User
 {
 	required bytes	account			= 1;	// 账号
-	required uint32	password		= 2;	// 密码
-	required uint32	name			= 3;	// 用户名
+	required bytes	password		= 2;	// 密码
+	required bytes	name			= 3;	// 用户名
 }
 
 // 修改用户信息
 message WEB2S_Modify_User
 {
-	required uint32	id				= 1;	// 用户ID
+	required uint32	user_id			= 1;	// 用户ID
 	required bytes	name			= 2;	// 用户名
 }
 
 // 删除用户
 message WEB2S_Remove_User
 {
-	required uint32	user_id			= 1;	// 账号
+	required uint32	user_id			= 1;	// 用户ID
 }
 
 // 创建新的用户组
@@ -184,21 +184,21 @@ message WEB2S_Create_Group
 // 添加新的用户到用户组
 message WEB2S_Add_User_To_Group
 {
-	required bytes	group_id		= 1;	// 用户组ID
-	required bytes	user_id			= 2;	// 用户ID
+	required uint32	group_id		= 1;	// 用户组ID
+	required uint32	user_id			= 2;	// 用户ID
 }
 
 // 从用户组中删除指定的用户
 message WEB2S_Remove_User_From_Group
 {
-	required bytes	group_id		= 1;	// 用户组ID
-	required bytes	user_id			= 2;	// 用户ID
+	required uint32	group_id		= 1;	// 用户组ID
+	required uint32	user_id			= 2;	// 用户ID
 }
 
 // 修改用户组的权限
 message WEB2S_Modify_Group
 {
-	required bytes	group_id				= 1;	// 用户组ID
+	required uint32	group_id				= 1;	// 用户组ID
 	required bytes	group_name				= 2;	// 用户组名
 	optional uint32	load_user_list			= 3;	// 获取所有用户的权限
 	optional uint32	load_user_group_list	= 4;	// 获取所有用户组的权限
@@ -210,7 +210,7 @@ message WEB2S_Modify_Group
 // 删除用户组
 message WEB2S_Remove_Group
 {
-	required bytes	group_id		= 1;	// 用户组ID
+	required uint32	group_id		= 1;	// 用户组ID
 }
 
 // 获取用户权限

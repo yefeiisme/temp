@@ -584,42 +584,328 @@ void CWebClient::RecvFindSensor(const void *pPack, const unsigned int uPackLen)
 
 void CWebClient::RecvLoadUserList(const void *pPack, const unsigned int uPackLen)
 {
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_LOAD_USER_LIST;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("LoadUserList");
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvCreateUser(const void *pPack, const unsigned int uPackLen)
 {
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Create_User	tagCreateUser;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagCreateUser.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_CREATE_USER;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("CreateUser");
+	pMysqlQuery->AddParam(tagCreateUser.account().c_str());
+	pMysqlQuery->AddParam(tagCreateUser.password().c_str());
+	pMysqlQuery->AddParam(tagCreateUser.name().c_str());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvModifyUser(const void *pPack, const unsigned int uPackLen)
 {
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Modify_User	tagModifyUser;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagModifyUser.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_MODIFY_USER;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("ModifyUser");
+	pMysqlQuery->AddParam(tagModifyUser.user_id());
+	pMysqlQuery->AddParam(tagModifyUser.name().c_str());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvRemoveUser(const void *pPack, const unsigned int uPackLen)
 {
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Remove_User	tagRemoveUser;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagRemoveUser.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_REMOVE_USER;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("RemoveUser");
+	pMysqlQuery->AddParam(tagRemoveUser.user_id());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvLoadGroupList(const void *pPack, const unsigned int uPackLen)
 {
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_LOAD_GROUP_LIST;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("LoadGroupList");
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvCreateGroup(const void *pPack, const unsigned int uPackLen)
 {
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Create_Group	tagCreateGroup;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagCreateGroup.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_CREATE_GROUP;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("CreateGroup");
+	pMysqlQuery->AddParam(tagCreateGroup.group_name().c_str());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvAddUserToGroup(const void *pPack, const unsigned int uPackLen)
 {
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Add_User_To_Group	tagAddGroupUser;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagAddGroupUser.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_ADD_USER_TO_GROUP;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("AddGroupUser");
+	pMysqlQuery->AddParam(tagAddGroupUser.group_id());
+	pMysqlQuery->AddParam(tagAddGroupUser.user_id());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvRemoveUserFromGroup(const void *pPack, const unsigned int uPackLen)
 {
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Remove_User_From_Group	tagRemoveGroupUser;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagRemoveGroupUser.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_REMOVE_USER_FROM_GROUP;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("RemoveGroupUser");
+	pMysqlQuery->AddParam(tagRemoveGroupUser.group_id());
+	pMysqlQuery->AddParam(tagRemoveGroupUser.user_id());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvModifyGroup(const void *pPack, const unsigned int uPackLen)
 {
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Modify_Group	tagModifyGroup;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagModifyGroup.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_MODIFY_GROUP;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("RemoveGroupUser");
+	pMysqlQuery->AddParam(tagModifyGroup.group_id());
+	pMysqlQuery->AddParam(tagModifyGroup.group_name().c_str());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvRemoveGroup(const void *pPack, const unsigned int uPackLen)
 {
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Remove_Group	tagRemoveGroup;
+	BYTE	*pSensorInfo = (BYTE*)pPack + sizeof(BYTE);
+	tagRemoveGroup.ParseFromArray(pSensorInfo, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest	= {0};
+	tagRequest.byOpt			= SENSOR_DB_REMOVE_GROUP;
+	tagRequest.uClientID		= m_uUniqueID;
+	tagRequest.uClientIndex		= m_uIndex;
+	tagRequest.byClientType		= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery	= g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("RemoveGroupUser");
+	pMysqlQuery->AddParam(tagRemoveGroup.group_id());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
 }
 
 void CWebClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLen)
