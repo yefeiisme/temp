@@ -1732,10 +1732,63 @@ void CWebClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 
 void CWebClient::DBResopndLoadUserList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+	UINT	uCol				= 0;
+	UINT	uUserID				= 0;
+	char	strName[64]			= {0};
+	WORD	wGroupID			= 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2WEB_User_List	tagUserList;
+
+	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_User_List::UserData	*pUserData = tagUserList.add_user_list();
+		if (nullptr == pUserData)
+			continue;
+
+		uCol	= 0;
+
+		pResult1->GetData(uRow, uCol++, uUserID);
+		pResult1->GetData(uRow, uCol++, strName, sizeof(strName));
+		pResult1->GetData(uRow, uCol++, wGroupID);
+
+		pUserData->set_user_id(uUserID);
+		pUserData->set_user_name(strName);
+		pUserData->set_group_id(wGroupID);
+	}
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_user_list, tagUserList);
 }
 
 void CWebClient::DBResopndCreateUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+	UINT	uCol				= 0;
+	UINT	uUserID				= 0;
+	char	strName[64]			= {0};
+	WORD	wGroupID			= 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2WEB_Create_User	tagNewUser;
+
+	uCol	= 0;
+
+	pResult1->GetData(0, uCol++, uUserID);
+	pResult1->GetData(0, uCol++, strName, sizeof(strName));
+	pResult1->GetData(0, uCol++, wGroupID);
+
+	tagNewUser.set_user_id(uUserID);
+	tagNewUser.set_user_name(strName);
+	tagNewUser.set_group_id(wGroupID);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_create_user, tagNewUser);
 }
 
 void CWebClient::DBResopndModifyUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)

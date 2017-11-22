@@ -434,9 +434,9 @@ message S2WEB_User_List
 // 创建用户结果
 message S2WEB_Create_User
 {
-	required uint32	id				= 1;	// 用户ID
-	required bytes	account			= 2;	// 账号
-	required bytes	name			= 3;	// 用户名
+	required uint32	user_id			= 1;	// 用户ID
+	required bytes	user_name		= 2;	// 用户名
+	required uint32	group_id		= 3;	// 所在用户组ID
 }
 
 // 修改用户结果

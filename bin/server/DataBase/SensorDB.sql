@@ -81,6 +81,7 @@ CREATE TABLE `user` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `Account` varchar(64) NOT NULL,
   `Password` varchar(64) NOT NULL,
+  `Name` varchar(64) NOT NULL,
   `Addr` varchar(40) DEFAULT NULL,
   `TelNum` varchar(32) DEFAULT NULL,
   `GroupID` int unsigned NOT NULL,
@@ -351,6 +352,12 @@ BEGIN
     PREPARE stmt FROM @strSql;
     EXECUTE stmt;
     deallocate prepare stmt;
+END;
+
+DROP PROCEDURE IF EXISTS `LoadUserList`;
+CREATE PROCEDURE `LoadUserList`()
+BEGIN
+	select ID,Name,GroupID from user;
 END;
 
 //

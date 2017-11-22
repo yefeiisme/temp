@@ -5575,51 +5575,43 @@ class S2WEB_Create_User : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
-  // required bytes account = 2;
-  bool has_account() const;
-  void clear_account();
-  static const int kAccountFieldNumber = 2;
-  const ::std::string& account() const;
-  void set_account(const ::std::string& value);
+  // required bytes user_name = 2;
+  bool has_user_name() const;
+  void clear_user_name();
+  static const int kUserNameFieldNumber = 2;
+  const ::std::string& user_name() const;
+  void set_user_name(const ::std::string& value);
   #if LANG_CXX11
-  void set_account(::std::string&& value);
+  void set_user_name(::std::string&& value);
   #endif
-  void set_account(const char* value);
-  void set_account(const void* value, size_t size);
-  ::std::string* mutable_account();
-  ::std::string* release_account();
-  void set_allocated_account(::std::string* account);
+  void set_user_name(const char* value);
+  void set_user_name(const void* value, size_t size);
+  ::std::string* mutable_user_name();
+  ::std::string* release_user_name();
+  void set_allocated_user_name(::std::string* user_name);
 
-  // required bytes name = 3;
-  bool has_name() const;
-  void clear_name();
-  static const int kNameFieldNumber = 3;
-  const ::std::string& name() const;
-  void set_name(const ::std::string& value);
-  #if LANG_CXX11
-  void set_name(::std::string&& value);
-  #endif
-  void set_name(const char* value);
-  void set_name(const void* value, size_t size);
-  ::std::string* mutable_name();
-  ::std::string* release_name();
-  void set_allocated_name(::std::string* name);
+  // required uint32 user_id = 1;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  ::google::protobuf::uint32 user_id() const;
+  void set_user_id(::google::protobuf::uint32 value);
 
-  // required uint32 id = 1;
-  bool has_id() const;
-  void clear_id();
-  static const int kIdFieldNumber = 1;
-  ::google::protobuf::uint32 id() const;
-  void set_id(::google::protobuf::uint32 value);
+  // required uint32 group_id = 3;
+  bool has_group_id() const;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 3;
+  ::google::protobuf::uint32 group_id() const;
+  void set_group_id(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
  private:
-  void set_has_id();
-  void clear_has_id();
-  void set_has_account();
-  void clear_has_account();
-  void set_has_name();
-  void clear_has_name();
+  void set_has_user_id();
+  void clear_has_user_id();
+  void set_has_user_name();
+  void clear_has_user_name();
+  void set_has_group_id();
+  void clear_has_group_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -5627,9 +5619,9 @@ class S2WEB_Create_User : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr account_;
-  ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::uint32 id_;
+  ::google::protobuf::internal::ArenaStringPtr user_name_;
+  ::google::protobuf::uint32 user_id_;
+  ::google::protobuf::uint32 group_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -12189,154 +12181,115 @@ S2WEB_User_List::user_list() const {
 
 // S2WEB_Create_User
 
-// required uint32 id = 1;
-inline bool S2WEB_Create_User::has_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void S2WEB_Create_User::set_has_id() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void S2WEB_Create_User::clear_has_id() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void S2WEB_Create_User::clear_id() {
-  id_ = 0u;
-  clear_has_id();
-}
-inline ::google::protobuf::uint32 S2WEB_Create_User::id() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.id)
-  return id_;
-}
-inline void S2WEB_Create_User::set_id(::google::protobuf::uint32 value) {
-  set_has_id();
-  id_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.id)
-}
-
-// required bytes account = 2;
-inline bool S2WEB_Create_User::has_account() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void S2WEB_Create_User::set_has_account() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void S2WEB_Create_User::clear_has_account() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void S2WEB_Create_User::clear_account() {
-  account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_account();
-}
-inline const ::std::string& S2WEB_Create_User::account() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
-  return account_.GetNoArena();
-}
-inline void S2WEB_Create_User::set_account(const ::std::string& value) {
-  set_has_account();
-  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
-}
-#if LANG_CXX11
-inline void S2WEB_Create_User::set_account(::std::string&& value) {
-  set_has_account();
-  account_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
-}
-#endif
-inline void S2WEB_Create_User::set_account(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_account();
-  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
-}
-inline void S2WEB_Create_User::set_account(const void* value, size_t size) {
-  set_has_account();
-  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
-}
-inline ::std::string* S2WEB_Create_User::mutable_account() {
-  set_has_account();
-  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
-  return account_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* S2WEB_Create_User::release_account() {
-  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
-  clear_has_account();
-  return account_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void S2WEB_Create_User::set_allocated_account(::std::string* account) {
-  if (account != NULL) {
-    set_has_account();
-  } else {
-    clear_has_account();
-  }
-  account_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), account);
-  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Create_User.account)
-}
-
-// required bytes name = 3;
-inline bool S2WEB_Create_User::has_name() const {
+// required uint32 user_id = 1;
+inline bool S2WEB_Create_User::has_user_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void S2WEB_Create_User::set_has_name() {
+inline void S2WEB_Create_User::set_has_user_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void S2WEB_Create_User::clear_has_name() {
+inline void S2WEB_Create_User::clear_has_user_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void S2WEB_Create_User::clear_name() {
-  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
+inline void S2WEB_Create_User::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
 }
-inline const ::std::string& S2WEB_Create_User::name() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
-  return name_.GetNoArena();
+inline ::google::protobuf::uint32 S2WEB_Create_User::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_id)
+  return user_id_;
 }
-inline void S2WEB_Create_User::set_name(const ::std::string& value) {
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+inline void S2WEB_Create_User::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_id)
+}
+
+// required bytes user_name = 2;
+inline bool S2WEB_Create_User::has_user_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2WEB_Create_User::set_has_user_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2WEB_Create_User::clear_has_user_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2WEB_Create_User::clear_user_name() {
+  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_name();
+}
+inline const ::std::string& S2WEB_Create_User::user_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+  return user_name_.GetNoArena();
+}
+inline void S2WEB_Create_User::set_user_name(const ::std::string& value) {
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
 }
 #if LANG_CXX11
-inline void S2WEB_Create_User::set_name(::std::string&& value) {
-  set_has_name();
-  name_.SetNoArena(
+inline void S2WEB_Create_User::set_user_name(::std::string&& value) {
+  set_has_user_name();
+  user_name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
 }
 #endif
-inline void S2WEB_Create_User::set_name(const char* value) {
+inline void S2WEB_Create_User::set_user_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
 }
-inline void S2WEB_Create_User::set_name(const void* value, size_t size) {
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void S2WEB_Create_User::set_user_name(const void* value, size_t size) {
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
 }
-inline ::std::string* S2WEB_Create_User::mutable_name() {
-  set_has_name();
-  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
-  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* S2WEB_Create_User::mutable_user_name() {
+  set_has_user_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* S2WEB_Create_User::release_name() {
-  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
-  clear_has_name();
-  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* S2WEB_Create_User::release_user_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+  clear_has_user_name();
+  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void S2WEB_Create_User::set_allocated_name(::std::string* name) {
-  if (name != NULL) {
-    set_has_name();
+inline void S2WEB_Create_User::set_allocated_user_name(::std::string* user_name) {
+  if (user_name != NULL) {
+    set_has_user_name();
   } else {
-    clear_has_name();
+    clear_has_user_name();
   }
-  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Create_User.name)
+  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+}
+
+// required uint32 group_id = 3;
+inline bool S2WEB_Create_User::has_group_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2WEB_Create_User::set_has_group_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2WEB_Create_User::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2WEB_Create_User::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Create_User::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.group_id)
+  return group_id_;
+}
+inline void S2WEB_Create_User::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.group_id)
 }
 
 // -------------------------------------------------------------------
