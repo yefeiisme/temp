@@ -163,7 +163,7 @@ message WEB2S_Create_User
 message WEB2S_Modify_User
 {
 	required uint32	user_id			= 1;	// 用户ID
-	required bytes	name			= 2;	// 用户名
+	required uint32	group_id		= 2;	// 所属用户组的ID
 }
 
 // 删除用户
@@ -444,7 +444,7 @@ message S2WEB_Create_User
 message S2WEB_Modify_User
 {
 	required uint32	user_id			= 1;	// 用户ID
-	required bytes	user_name		= 2;	// 用户名
+	required uint32	group_id		= 2;	// 所属用户组的ID
 }
 
 // 删除用户结果

@@ -365,9 +365,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_User, user_id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_User, name_),
-  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_User, group_id_),
   0,
+  1,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_User, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_User, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -730,9 +730,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_User, user_id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_User, user_name_),
-  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_User, group_id_),
   0,
+  1,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_User, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_User, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1174,140 +1174,140 @@ void AddDescriptorsImpl() {
       "name\030\002 \002(\014\022\021\n\tsensor_id\030\003 \002(\r\022\023\n\013sensor_"
       "type\030\004 \002(\r\"V\n\021WEB2S_Create_User\022\017\n\007accou"
       "nt\030\001 \002(\014\022\020\n\010password\030\002 \002(\014\022\014\n\004name\030\003 \002(\014"
-      "\022\020\n\010group_id\030\004 \002(\r\"2\n\021WEB2S_Modify_User\022"
-      "\017\n\007user_id\030\001 \002(\r\022\014\n\004name\030\002 \002(\014\"$\n\021WEB2S_"
-      "Remove_User\022\017\n\007user_id\030\001 \002(\r\"\216\001\n\022WEB2S_C"
-      "reate_Group\022\022\n\ngroup_name\030\001 \002(\014\022\026\n\016load_"
-      "user_list\030\002 \001(\r\022\034\n\024load_user_group_list\030"
-      "\003 \001(\r\022\023\n\013modify_user\030\004 \001(\r\022\031\n\021modify_use"
-      "r_group\030\005 \001(\r\"<\n\027WEB2S_Add_User_To_Group"
-      "\022\020\n\010group_id\030\001 \002(\r\022\017\n\007user_id\030\002 \002(\r\"A\n\034W"
-      "EB2S_Remove_User_From_Group\022\020\n\010group_id\030"
-      "\001 \002(\r\022\017\n\007user_id\030\002 \002(\r\"\276\001\n\022WEB2S_Modify_"
-      "Group\022\020\n\010group_id\030\001 \002(\r\022\022\n\ngroup_name\030\002 "
-      "\002(\014\022\026\n\016load_user_list\030\003 \001(\r\022\034\n\024load_user"
-      "_group_list\030\004 \001(\r\022\026\n\016add_user_group\030\005 \001("
-      "\r\022\031\n\021modify_user_group\030\006 \001(\r\022\031\n\021remove_u"
-      "ser_group\030\007 \001(\r\"&\n\022WEB2S_Remove_Group\022\020\n"
-      "\010group_id\030\001 \002(\r\",\n\024WEB2S_Load_Authority\022"
-      "\024\n\014authority_id\030\001 \002(\r\"\245\001\n\022S2Web_Login_Re"
-      "sult\022\016\n\006result\030\001 \002(\r\022K\n\013server_list\030\002 \003("
-      "\01326.WEB_SERVER_NET_Protocol.S2Web_Login_"
-      "Result.ServerData\0322\n\nServerData\022\n\n\002id\030\001 "
-      "\002(\r\022\n\n\002ip\030\002 \002(\014\022\014\n\004port\030\003 \002(\r\"\321\001\n\020S2Web_"
-      "Slope_List\022G\n\nslope_list\030\001 \003(\01323.WEB_SER"
-      "VER_NET_Protocol.S2Web_Slope_List.SlopeD"
-      "ata\032t\n\tSlopeData\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002"
-      "(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlongi"
-      "tude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002("
-      "\014\"\255\003\n\021S2Web_Sensor_List\022J\n\013sensor_list\030\001"
-      " \003(\01325.WEB_SERVER_NET_Protocol.S2Web_Sen"
-      "sor_List.SensorData\032\313\002\n\nSensorData\022\n\n\002id"
-      "\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010s"
-      "lope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010lati"
-      "tude\030\006 \002(\001\022\022\n\ncur_value1\030\007 \002(\001\022\022\n\ncur_va"
-      "lue2\030\010 \002(\001\022\022\n\ncur_value3\030\t \002(\001\022\022\n\navg_va"
-      "lue1\030\n \002(\001\022\022\n\navg_value2\030\013 \002(\001\022\022\n\navg_va"
-      "lue3\030\014 \002(\001\022\025\n\roffset_value1\030\r \002(\001\022\025\n\roff"
-      "set_value2\030\016 \002(\001\022\025\n\roffset_value3\030\017 \002(\001\022"
-      "\013\n\003url\030\020 \002(\014\022\023\n\013description\030\021 \002(\014\"\265\004\n\024S2"
-      "Web_Sensor_History\022\n\n\002id\030\001 \002(\r\022\021\n\tlongit"
-      "ude\030\002 \002(\001\022\020\n\010latitude\030\003 \002(\001\022\022\n\nbegin_tim"
-      "e\030\004 \002(\r\022\020\n\010end_time\030\005 \002(\r\022\021\n\tinvterval\030\006"
-      " \002(\r\022\022\n\navg_value1\030\007 \002(\001\022\022\n\navg_value2\030\010"
-      " \002(\001\022\022\n\navg_value3\030\t \002(\001\022N\n\014history_list"
-      "\030\n \003(\01328.WEB_SERVER_NET_Protocol.S2Web_S"
-      "ensor_History.SensorData\032\246\002\n\nSensorData\022"
-      "\022\n\nmin_value1\030\001 \002(\001\022\022\n\nmin_value2\030\002 \002(\001\022"
-      "\022\n\nmin_value3\030\003 \002(\001\022\022\n\nmax_value1\030\004 \002(\001\022"
-      "\022\n\nmax_value2\030\005 \002(\001\022\022\n\nmax_value3\030\006 \002(\001\022"
-      "\031\n\021min_offset_value1\030\007 \002(\001\022\031\n\021min_offset"
-      "_value2\030\010 \002(\001\022\031\n\021min_offset_value3\030\t \002(\001"
-      "\022\031\n\021max_offset_value1\030\n \002(\001\022\031\n\021max_offse"
-      "t_value2\030\013 \002(\001\022\031\n\021max_offset_value3\030\014 \002("
-      "\001\"!\n\013S2WEB_ERROR\022\022\n\nerror_code\030\001 \002(\r\"z\n\017"
-      "S2WEB_New_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002("
-      "\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlongit"
-      "ude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014"
-      "\"!\n\017S2WEB_Del_Slope\022\016\n\006result\030\001 \002(\r\"}\n\022S"
-      "2WEB_Update_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 "
-      "\002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlong"
-      "itude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002"
-      "(\014\"\224\001\n\020S2WEB_Add_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004t"
-      "ype\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002"
-      "(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022"
-      "\013\n\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\"\"\n\020S2W"
-      "EB_Del_Sensor\022\016\n\006result\030\001 \002(\r\"\227\001\n\023S2WEB_"
-      "Update_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022"
-      "\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlong"
-      "itude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002"
-      "(\014\022\023\n\013description\030\010 \002(\014\".\n\034S2WEB_Modify_"
-      "Password_Result\022\016\n\006result\030\001 \002(\r\"\231\001\n\017S2WE"
-      "B_User_List\022D\n\tuser_list\030\001 \003(\01321.WEB_SER"
-      "VER_NET_Protocol.S2WEB_User_List.UserDat"
-      "a\032@\n\010UserData\022\017\n\007user_id\030\001 \002(\r\022\021\n\tuser_n"
-      "ame\030\002 \002(\014\022\020\n\010group_id\030\003 \002(\r\"I\n\021S2WEB_Cre"
-      "ate_User\022\017\n\007user_id\030\001 \002(\r\022\021\n\tuser_name\030\002"
-      " \002(\014\022\020\n\010group_id\030\003 \002(\r\"7\n\021S2WEB_Modify_U"
-      "ser\022\017\n\007user_id\030\001 \002(\r\022\021\n\tuser_name\030\002 \002(\014\""
-      "\037\n\021S2WEB_Remove_User\022\n\n\002id\030\001 \002(\r\"\202\001\n\020S2W"
-      "EB_Group_List\022G\n\ngroup_list\030\001 \003(\01323.WEB_"
-      "SERVER_NET_Protocol.S2WEB_Group_List.Gro"
-      "upData\032%\n\tGroupData\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030"
-      "\002 \002(\014\"\224\001\n\022S2WEB_Create_Group\022\n\n\002id\030\001 \002(\r"
-      "\022\014\n\004name\030\002 \002(\014\022\026\n\016load_user_list\030\003 \001(\r\022\034"
-      "\n\024load_user_group_list\030\004 \001(\r\022\023\n\013modify_u"
-      "ser\030\005 \001(\r\022\031\n\021modify_user_group\030\006 \001(\r\"\265\001\n"
-      "\022S2WEB_Modify_Group\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030"
-      "\002 \002(\014\022\026\n\016load_user_list\030\003 \001(\r\022\034\n\024load_us"
-      "er_group_list\030\004 \001(\r\022\031\n\021create_user_group"
-      "\030\005 \001(\r\022\031\n\021modify_user_group\030\006 \001(\r\022\031\n\021rem"
-      "ove_user_group\030\007 \001(\r\" \n\022S2WEB_Remove_Gro"
-      "up\022\n\n\002id\030\001 \002(\r\"<\n\027S2WEB_Add_User_To_Grou"
-      "p\022\017\n\007user_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\"A\n\034"
-      "S2WEB_Remove_User_From_Group\022\017\n\007user_id\030"
-      "\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\"\331\001\n\024S2WEB_Author"
-      "ity_List\022S\n\016authority_list\030\001 \003(\0132;.WEB_S"
-      "ERVER_NET_Protocol.S2WEB_Authority_List."
-      "AuthorityData\032l\n\rAuthorityData\022\024\n\014author"
-      "ity_id\030\001 \002(\r\022\021\n\tparent_id\030\002 \002(\r\022\013\n\003url\030\003"
-      " \002(\014\022\023\n\013description\030\004 \002(\014\022\020\n\010icon_url\030\005 "
-      "\002(\014*\247\005\n\005WEB2S\022\017\n\013web2s_login\020\000\022\034\n\030web2s_"
-      "request_slope_list\020\001\022\035\n\031web2s_request_se"
-      "nsor_list\020\002\022 \n\034web2s_request_sensor_hist"
-      "ory\020\003\022\016\n\nweb2s_ping\020\004\022\032\n\026web2s_request_a"
-      "ll_list\020\005\022\023\n\017web2s_add_slope\020\006\022\023\n\017web2s_"
-      "del_slope\020\007\022\033\n\027web2s_update_slope_data\020\010"
-      "\022\024\n\020web2s_add_sensor\020\t\022\024\n\020web2s_del_sens"
-      "or\020\n\022\034\n\030web2s_update_sensor_data\020\013\022\031\n\025we"
-      "b2s_modify_password\020\014\022\024\n\020web2s_find_slop"
-      "e\020\r\022\025\n\021web2s_find_sensor\020\016\022\030\n\024web2s_load"
-      "_user_list\020\017\022\025\n\021web2s_create_user\020\020\022\025\n\021w"
-      "eb2s_modify_user\020\021\022\025\n\021web2s_remove_user\020"
-      "\022\022\031\n\025web2s_load_group_list\020\023\022\026\n\022web2s_cr"
-      "eate_group\020\024\022\033\n\027web2s_add_user_to_group\020"
-      "\025\022 \n\034web2s_remove_user_from_group\020\026\022\026\n\022w"
-      "eb2s_modify_group\020\027\022\026\n\022web2s_remove_grou"
-      "p\020\030\022\030\n\024web2s_load_authority\020\031\022\016\n\tweb2s_m"
-      "ax\020\200\002*\331\004\n\005S2WEB\022\026\n\022s2web_login_result\020\000\022"
-      "\024\n\020s2web_slope_list\020\001\022\025\n\021s2web_sensor_li"
-      "st\020\002\022\030\n\024s2web_sensor_history\020\003\022\026\n\022s2web_"
-      "all_list_end\020\004\022\017\n\013s2web_error\020\005\022\023\n\017s2web"
-      "_new_slope\020\006\022\023\n\017s2web_del_slope\020\007\022\026\n\022s2w"
-      "eb_update_slope\020\010\022\024\n\020s2web_add_sensor\020\t\022"
-      "\024\n\020s2web_del_sensor\020\n\022\027\n\023s2web_update_se"
-      "nsor\020\013\022 \n\034s2web_modify_password_result\020\014"
-      "\022\023\n\017s2web_user_list\020\r\022\025\n\021s2web_create_us"
-      "er\020\016\022\025\n\021s2web_modify_user\020\017\022\025\n\021s2web_rem"
-      "ove_user\020\020\022\024\n\020s2web_group_list\020\021\022\026\n\022s2we"
-      "b_create_group\020\022\022\026\n\022s2web_modify_group\020\023"
-      "\022\026\n\022s2web_remove_group\020\024\022\033\n\027s2web_add_us"
-      "er_to_group\020\025\022 \n\034s2web_remove_user_from_"
-      "group\020\026\022\030\n\024s2web_authority_list\020\027\022\016\n\ts2w"
-      "eb_max\020\200\002"
+      "\022\020\n\010group_id\030\004 \002(\r\"6\n\021WEB2S_Modify_User\022"
+      "\017\n\007user_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\"$\n\021WE"
+      "B2S_Remove_User\022\017\n\007user_id\030\001 \002(\r\"\216\001\n\022WEB"
+      "2S_Create_Group\022\022\n\ngroup_name\030\001 \002(\014\022\026\n\016l"
+      "oad_user_list\030\002 \001(\r\022\034\n\024load_user_group_l"
+      "ist\030\003 \001(\r\022\023\n\013modify_user\030\004 \001(\r\022\031\n\021modify"
+      "_user_group\030\005 \001(\r\"<\n\027WEB2S_Add_User_To_G"
+      "roup\022\020\n\010group_id\030\001 \002(\r\022\017\n\007user_id\030\002 \002(\r\""
+      "A\n\034WEB2S_Remove_User_From_Group\022\020\n\010group"
+      "_id\030\001 \002(\r\022\017\n\007user_id\030\002 \002(\r\"\276\001\n\022WEB2S_Mod"
+      "ify_Group\022\020\n\010group_id\030\001 \002(\r\022\022\n\ngroup_nam"
+      "e\030\002 \002(\014\022\026\n\016load_user_list\030\003 \001(\r\022\034\n\024load_"
+      "user_group_list\030\004 \001(\r\022\026\n\016add_user_group\030"
+      "\005 \001(\r\022\031\n\021modify_user_group\030\006 \001(\r\022\031\n\021remo"
+      "ve_user_group\030\007 \001(\r\"&\n\022WEB2S_Remove_Grou"
+      "p\022\020\n\010group_id\030\001 \002(\r\",\n\024WEB2S_Load_Author"
+      "ity\022\024\n\014authority_id\030\001 \002(\r\"\245\001\n\022S2Web_Logi"
+      "n_Result\022\016\n\006result\030\001 \002(\r\022K\n\013server_list\030"
+      "\002 \003(\01326.WEB_SERVER_NET_Protocol.S2Web_Lo"
+      "gin_Result.ServerData\0322\n\nServerData\022\n\n\002i"
+      "d\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022\014\n\004port\030\003 \002(\r\"\321\001\n\020S2"
+      "Web_Slope_List\022G\n\nslope_list\030\001 \003(\01323.WEB"
+      "_SERVER_NET_Protocol.S2Web_Slope_List.Sl"
+      "opeData\032t\n\tSlopeData\022\n\n\002id\030\001 \002(\r\022\014\n\004type"
+      "\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tl"
+      "ongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030"
+      "\007 \002(\014\"\255\003\n\021S2Web_Sensor_List\022J\n\013sensor_li"
+      "st\030\001 \003(\01325.WEB_SERVER_NET_Protocol.S2Web"
+      "_Sensor_List.SensorData\032\313\002\n\nSensorData\022\n"
+      "\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022"
+      "\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010"
+      "latitude\030\006 \002(\001\022\022\n\ncur_value1\030\007 \002(\001\022\022\n\ncu"
+      "r_value2\030\010 \002(\001\022\022\n\ncur_value3\030\t \002(\001\022\022\n\nav"
+      "g_value1\030\n \002(\001\022\022\n\navg_value2\030\013 \002(\001\022\022\n\nav"
+      "g_value3\030\014 \002(\001\022\025\n\roffset_value1\030\r \002(\001\022\025\n"
+      "\roffset_value2\030\016 \002(\001\022\025\n\roffset_value3\030\017 "
+      "\002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013description\030\021 \002(\014\"\265\004"
+      "\n\024S2Web_Sensor_History\022\n\n\002id\030\001 \002(\r\022\021\n\tlo"
+      "ngitude\030\002 \002(\001\022\020\n\010latitude\030\003 \002(\001\022\022\n\nbegin"
+      "_time\030\004 \002(\r\022\020\n\010end_time\030\005 \002(\r\022\021\n\tinvterv"
+      "al\030\006 \002(\r\022\022\n\navg_value1\030\007 \002(\001\022\022\n\navg_valu"
+      "e2\030\010 \002(\001\022\022\n\navg_value3\030\t \002(\001\022N\n\014history_"
+      "list\030\n \003(\01328.WEB_SERVER_NET_Protocol.S2W"
+      "eb_Sensor_History.SensorData\032\246\002\n\nSensorD"
+      "ata\022\022\n\nmin_value1\030\001 \002(\001\022\022\n\nmin_value2\030\002 "
+      "\002(\001\022\022\n\nmin_value3\030\003 \002(\001\022\022\n\nmax_value1\030\004 "
+      "\002(\001\022\022\n\nmax_value2\030\005 \002(\001\022\022\n\nmax_value3\030\006 "
+      "\002(\001\022\031\n\021min_offset_value1\030\007 \002(\001\022\031\n\021min_of"
+      "fset_value2\030\010 \002(\001\022\031\n\021min_offset_value3\030\t"
+      " \002(\001\022\031\n\021max_offset_value1\030\n \002(\001\022\031\n\021max_o"
+      "ffset_value2\030\013 \002(\001\022\031\n\021max_offset_value3\030"
+      "\014 \002(\001\"!\n\013S2WEB_ERROR\022\022\n\nerror_code\030\001 \002(\r"
+      "\"z\n\017S2WEB_New_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030"
+      "\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlo"
+      "ngitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007"
+      " \002(\014\"!\n\017S2WEB_Del_Slope\022\016\n\006result\030\001 \002(\r\""
+      "}\n\022S2WEB_Update_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004typ"
+      "e\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\t"
+      "longitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url"
+      "\030\007 \002(\014\"\224\001\n\020S2WEB_Add_Sensor\022\n\n\002id\030\001 \002(\r\022"
+      "\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id"
+      "\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 "
+      "\002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\"\"\n"
+      "\020S2WEB_Del_Sensor\022\016\n\006result\030\001 \002(\r\"\227\001\n\023S2"
+      "WEB_Update_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 "
+      "\002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\t"
+      "longitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url"
+      "\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\".\n\034S2WEB_Mod"
+      "ify_Password_Result\022\016\n\006result\030\001 \002(\r\"\231\001\n\017"
+      "S2WEB_User_List\022D\n\tuser_list\030\001 \003(\01321.WEB"
+      "_SERVER_NET_Protocol.S2WEB_User_List.Use"
+      "rData\032@\n\010UserData\022\017\n\007user_id\030\001 \002(\r\022\021\n\tus"
+      "er_name\030\002 \002(\014\022\020\n\010group_id\030\003 \002(\r\"I\n\021S2WEB"
+      "_Create_User\022\017\n\007user_id\030\001 \002(\r\022\021\n\tuser_na"
+      "me\030\002 \002(\014\022\020\n\010group_id\030\003 \002(\r\"6\n\021S2WEB_Modi"
+      "fy_User\022\017\n\007user_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002"
+      "(\r\"\037\n\021S2WEB_Remove_User\022\n\n\002id\030\001 \002(\r\"\202\001\n\020"
+      "S2WEB_Group_List\022G\n\ngroup_list\030\001 \003(\01323.W"
+      "EB_SERVER_NET_Protocol.S2WEB_Group_List."
+      "GroupData\032%\n\tGroupData\022\n\n\002id\030\001 \002(\r\022\014\n\004na"
+      "me\030\002 \002(\014\"\224\001\n\022S2WEB_Create_Group\022\n\n\002id\030\001 "
+      "\002(\r\022\014\n\004name\030\002 \002(\014\022\026\n\016load_user_list\030\003 \001("
+      "\r\022\034\n\024load_user_group_list\030\004 \001(\r\022\023\n\013modif"
+      "y_user\030\005 \001(\r\022\031\n\021modify_user_group\030\006 \001(\r\""
+      "\265\001\n\022S2WEB_Modify_Group\022\n\n\002id\030\001 \002(\r\022\014\n\004na"
+      "me\030\002 \002(\014\022\026\n\016load_user_list\030\003 \001(\r\022\034\n\024load"
+      "_user_group_list\030\004 \001(\r\022\031\n\021create_user_gr"
+      "oup\030\005 \001(\r\022\031\n\021modify_user_group\030\006 \001(\r\022\031\n\021"
+      "remove_user_group\030\007 \001(\r\" \n\022S2WEB_Remove_"
+      "Group\022\n\n\002id\030\001 \002(\r\"<\n\027S2WEB_Add_User_To_G"
+      "roup\022\017\n\007user_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\""
+      "A\n\034S2WEB_Remove_User_From_Group\022\017\n\007user_"
+      "id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\"\331\001\n\024S2WEB_Aut"
+      "hority_List\022S\n\016authority_list\030\001 \003(\0132;.WE"
+      "B_SERVER_NET_Protocol.S2WEB_Authority_Li"
+      "st.AuthorityData\032l\n\rAuthorityData\022\024\n\014aut"
+      "hority_id\030\001 \002(\r\022\021\n\tparent_id\030\002 \002(\r\022\013\n\003ur"
+      "l\030\003 \002(\014\022\023\n\013description\030\004 \002(\014\022\020\n\010icon_url"
+      "\030\005 \002(\014*\247\005\n\005WEB2S\022\017\n\013web2s_login\020\000\022\034\n\030web"
+      "2s_request_slope_list\020\001\022\035\n\031web2s_request"
+      "_sensor_list\020\002\022 \n\034web2s_request_sensor_h"
+      "istory\020\003\022\016\n\nweb2s_ping\020\004\022\032\n\026web2s_reques"
+      "t_all_list\020\005\022\023\n\017web2s_add_slope\020\006\022\023\n\017web"
+      "2s_del_slope\020\007\022\033\n\027web2s_update_slope_dat"
+      "a\020\010\022\024\n\020web2s_add_sensor\020\t\022\024\n\020web2s_del_s"
+      "ensor\020\n\022\034\n\030web2s_update_sensor_data\020\013\022\031\n"
+      "\025web2s_modify_password\020\014\022\024\n\020web2s_find_s"
+      "lope\020\r\022\025\n\021web2s_find_sensor\020\016\022\030\n\024web2s_l"
+      "oad_user_list\020\017\022\025\n\021web2s_create_user\020\020\022\025"
+      "\n\021web2s_modify_user\020\021\022\025\n\021web2s_remove_us"
+      "er\020\022\022\031\n\025web2s_load_group_list\020\023\022\026\n\022web2s"
+      "_create_group\020\024\022\033\n\027web2s_add_user_to_gro"
+      "up\020\025\022 \n\034web2s_remove_user_from_group\020\026\022\026"
+      "\n\022web2s_modify_group\020\027\022\026\n\022web2s_remove_g"
+      "roup\020\030\022\030\n\024web2s_load_authority\020\031\022\016\n\tweb2"
+      "s_max\020\200\002*\331\004\n\005S2WEB\022\026\n\022s2web_login_result"
+      "\020\000\022\024\n\020s2web_slope_list\020\001\022\025\n\021s2web_sensor"
+      "_list\020\002\022\030\n\024s2web_sensor_history\020\003\022\026\n\022s2w"
+      "eb_all_list_end\020\004\022\017\n\013s2web_error\020\005\022\023\n\017s2"
+      "web_new_slope\020\006\022\023\n\017s2web_del_slope\020\007\022\026\n\022"
+      "s2web_update_slope\020\010\022\024\n\020s2web_add_sensor"
+      "\020\t\022\024\n\020s2web_del_sensor\020\n\022\027\n\023s2web_update"
+      "_sensor\020\013\022 \n\034s2web_modify_password_resul"
+      "t\020\014\022\023\n\017s2web_user_list\020\r\022\025\n\021s2web_create"
+      "_user\020\016\022\025\n\021s2web_modify_user\020\017\022\025\n\021s2web_"
+      "remove_user\020\020\022\024\n\020s2web_group_list\020\021\022\026\n\022s"
+      "2web_create_group\020\022\022\026\n\022s2web_modify_grou"
+      "p\020\023\022\026\n\022s2web_remove_group\020\024\022\033\n\027s2web_add"
+      "_user_to_group\020\025\022 \n\034s2web_remove_user_fr"
+      "om_group\020\026\022\030\n\024s2web_authority_list\020\027\022\016\n\t"
+      "s2web_max\020\200\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 6329);
+      descriptor, 6332);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Web_Server_Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -8209,7 +8209,7 @@ void WEB2S_Create_User::set_group_id(::google::protobuf::uint32 value) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int WEB2S_Modify_User::kUserIdFieldNumber;
-const int WEB2S_Modify_User::kNameFieldNumber;
+const int WEB2S_Modify_User::kGroupIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 WEB2S_Modify_User::WEB2S_Modify_User()
@@ -8226,18 +8226,16 @@ WEB2S_Modify_User::WEB2S_Modify_User(const WEB2S_Modify_User& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_name()) {
-    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
-  }
-  user_id_ = from.user_id_;
+  ::memcpy(&user_id_, &from.user_id_,
+    reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
   // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
 }
 
 void WEB2S_Modify_User::SharedCtor() {
   _cached_size_ = 0;
-  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  user_id_ = 0u;
+  ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
 }
 
 WEB2S_Modify_User::~WEB2S_Modify_User() {
@@ -8246,7 +8244,6 @@ WEB2S_Modify_User::~WEB2S_Modify_User() {
 }
 
 void WEB2S_Modify_User::SharedDtor() {
-  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void WEB2S_Modify_User::SetCachedSize(int size) const {
@@ -8274,11 +8271,10 @@ WEB2S_Modify_User* WEB2S_Modify_User::New(::google::protobuf::Arena* arena) cons
 
 void WEB2S_Modify_User::Clear() {
 // @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
-  if (has_name()) {
-    GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-    (*name_.UnsafeRawStringPointer())->clear();
+  if (_has_bits_[0 / 32] & 3u) {
+    ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+      reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
   }
-  user_id_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -8307,12 +8303,14 @@ bool WEB2S_Modify_User::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes name = 2;
+      // required uint32 group_id = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_name()));
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
         } else {
           goto handle_unusual;
         }
@@ -8349,14 +8347,13 @@ void WEB2S_Modify_User::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 user_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
   }
 
-  // required bytes name = 2;
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      2, this->name(), output);
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->group_id(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8374,15 +8371,13 @@ void WEB2S_Modify_User::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 user_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->user_id(), target);
   }
 
-  // required bytes name = 2;
-  if (cached_has_bits & 0x00000001u) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        2, this->name(), target);
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->group_id(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8397,18 +8392,18 @@ size_t WEB2S_Modify_User::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
   size_t total_size = 0;
 
-  if (has_name()) {
-    // required bytes name = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->name());
-  }
-
   if (has_user_id()) {
     // required uint32 user_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->user_id());
+  }
+
+  if (has_group_id()) {
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
   }
 
   return total_size;
@@ -8423,15 +8418,15 @@ size_t WEB2S_Modify_User::ByteSizeLong() const {
         unknown_fields());
   }
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required bytes name = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->name());
-
     // required uint32 user_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->user_id());
+
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -8468,11 +8463,10 @@ void WEB2S_Modify_User::MergeFrom(const WEB2S_Modify_User& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 3u) {
     if (cached_has_bits & 0x00000001u) {
-      set_has_name();
-      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+      user_id_ = from.user_id_;
     }
     if (cached_has_bits & 0x00000002u) {
-      user_id_ = from.user_id_;
+      group_id_ = from.group_id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -8502,8 +8496,8 @@ void WEB2S_Modify_User::Swap(WEB2S_Modify_User* other) {
   InternalSwap(other);
 }
 void WEB2S_Modify_User::InternalSwap(WEB2S_Modify_User* other) {
-  name_.Swap(&other->name_);
   std::swap(user_id_, other->user_id_);
+  std::swap(group_id_, other->group_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -8519,13 +8513,13 @@ void WEB2S_Modify_User::InternalSwap(WEB2S_Modify_User* other) {
 
 // required uint32 user_id = 1;
 bool WEB2S_Modify_User::has_user_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 void WEB2S_Modify_User::set_has_user_id() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
 }
 void WEB2S_Modify_User::clear_has_user_id() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 void WEB2S_Modify_User::clear_user_id() {
   user_id_ = 0u;
@@ -8541,67 +8535,28 @@ void WEB2S_Modify_User::set_user_id(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.user_id)
 }
 
-// required bytes name = 2;
-bool WEB2S_Modify_User::has_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// required uint32 group_id = 2;
+bool WEB2S_Modify_User::has_group_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void WEB2S_Modify_User::set_has_name() {
-  _has_bits_[0] |= 0x00000001u;
+void WEB2S_Modify_User::set_has_group_id() {
+  _has_bits_[0] |= 0x00000002u;
 }
-void WEB2S_Modify_User::clear_has_name() {
-  _has_bits_[0] &= ~0x00000001u;
+void WEB2S_Modify_User::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000002u;
 }
-void WEB2S_Modify_User::clear_name() {
-  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
+void WEB2S_Modify_User::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
 }
-const ::std::string& WEB2S_Modify_User::name() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
-  return name_.GetNoArena();
+::google::protobuf::uint32 WEB2S_Modify_User::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.group_id)
+  return group_id_;
 }
-void WEB2S_Modify_User::set_name(const ::std::string& value) {
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
-}
-#if LANG_CXX11
-void WEB2S_Modify_User::set_name(::std::string&& value) {
-  set_has_name();
-  name_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
-}
-#endif
-void WEB2S_Modify_User::set_name(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
-}
-void WEB2S_Modify_User::set_name(const void* value, size_t size) {
-  set_has_name();
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
-}
-::std::string* WEB2S_Modify_User::mutable_name() {
-  set_has_name();
-  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
-  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* WEB2S_Modify_User::release_name() {
-  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
-  clear_has_name();
-  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void WEB2S_Modify_User::set_allocated_name(::std::string* name) {
-  if (name != NULL) {
-    set_has_name();
-  } else {
-    clear_has_name();
-  }
-  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.name)
+void WEB2S_Modify_User::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.group_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -22266,7 +22221,7 @@ void S2WEB_Create_User::set_group_id(::google::protobuf::uint32 value) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int S2WEB_Modify_User::kUserIdFieldNumber;
-const int S2WEB_Modify_User::kUserNameFieldNumber;
+const int S2WEB_Modify_User::kGroupIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 S2WEB_Modify_User::S2WEB_Modify_User()
@@ -22283,18 +22238,16 @@ S2WEB_Modify_User::S2WEB_Modify_User(const S2WEB_Modify_User& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_user_name()) {
-    user_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_name_);
-  }
-  user_id_ = from.user_id_;
+  ::memcpy(&user_id_, &from.user_id_,
+    reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
   // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
 }
 
 void S2WEB_Modify_User::SharedCtor() {
   _cached_size_ = 0;
-  user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  user_id_ = 0u;
+  ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
 }
 
 S2WEB_Modify_User::~S2WEB_Modify_User() {
@@ -22303,7 +22256,6 @@ S2WEB_Modify_User::~S2WEB_Modify_User() {
 }
 
 void S2WEB_Modify_User::SharedDtor() {
-  user_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void S2WEB_Modify_User::SetCachedSize(int size) const {
@@ -22331,11 +22283,10 @@ S2WEB_Modify_User* S2WEB_Modify_User::New(::google::protobuf::Arena* arena) cons
 
 void S2WEB_Modify_User::Clear() {
 // @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
-  if (has_user_name()) {
-    GOOGLE_DCHECK(!user_name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-    (*user_name_.UnsafeRawStringPointer())->clear();
+  if (_has_bits_[0 / 32] & 3u) {
+    ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+      reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
   }
-  user_id_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -22364,12 +22315,14 @@ bool S2WEB_Modify_User::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes user_name = 2;
+      // required uint32 group_id = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_user_name()));
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
         } else {
           goto handle_unusual;
         }
@@ -22406,14 +22359,13 @@ void S2WEB_Modify_User::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 user_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
   }
 
-  // required bytes user_name = 2;
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      2, this->user_name(), output);
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->group_id(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -22431,15 +22383,13 @@ void S2WEB_Modify_User::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 user_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->user_id(), target);
   }
 
-  // required bytes user_name = 2;
-  if (cached_has_bits & 0x00000001u) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        2, this->user_name(), target);
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->group_id(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -22454,18 +22404,18 @@ size_t S2WEB_Modify_User::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
   size_t total_size = 0;
 
-  if (has_user_name()) {
-    // required bytes user_name = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->user_name());
-  }
-
   if (has_user_id()) {
     // required uint32 user_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->user_id());
+  }
+
+  if (has_group_id()) {
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
   }
 
   return total_size;
@@ -22480,15 +22430,15 @@ size_t S2WEB_Modify_User::ByteSizeLong() const {
         unknown_fields());
   }
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required bytes user_name = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->user_name());
-
     // required uint32 user_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->user_id());
+
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -22525,11 +22475,10 @@ void S2WEB_Modify_User::MergeFrom(const S2WEB_Modify_User& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 3u) {
     if (cached_has_bits & 0x00000001u) {
-      set_has_user_name();
-      user_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_name_);
+      user_id_ = from.user_id_;
     }
     if (cached_has_bits & 0x00000002u) {
-      user_id_ = from.user_id_;
+      group_id_ = from.group_id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -22559,8 +22508,8 @@ void S2WEB_Modify_User::Swap(S2WEB_Modify_User* other) {
   InternalSwap(other);
 }
 void S2WEB_Modify_User::InternalSwap(S2WEB_Modify_User* other) {
-  user_name_.Swap(&other->user_name_);
   std::swap(user_id_, other->user_id_);
+  std::swap(group_id_, other->group_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -22576,13 +22525,13 @@ void S2WEB_Modify_User::InternalSwap(S2WEB_Modify_User* other) {
 
 // required uint32 user_id = 1;
 bool S2WEB_Modify_User::has_user_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 void S2WEB_Modify_User::set_has_user_id() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
 }
 void S2WEB_Modify_User::clear_has_user_id() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 void S2WEB_Modify_User::clear_user_id() {
   user_id_ = 0u;
@@ -22598,67 +22547,28 @@ void S2WEB_Modify_User::set_user_id(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_id)
 }
 
-// required bytes user_name = 2;
-bool S2WEB_Modify_User::has_user_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// required uint32 group_id = 2;
+bool S2WEB_Modify_User::has_group_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void S2WEB_Modify_User::set_has_user_name() {
-  _has_bits_[0] |= 0x00000001u;
+void S2WEB_Modify_User::set_has_group_id() {
+  _has_bits_[0] |= 0x00000002u;
 }
-void S2WEB_Modify_User::clear_has_user_name() {
-  _has_bits_[0] &= ~0x00000001u;
+void S2WEB_Modify_User::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000002u;
 }
-void S2WEB_Modify_User::clear_user_name() {
-  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_user_name();
+void S2WEB_Modify_User::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
 }
-const ::std::string& S2WEB_Modify_User::user_name() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_name)
-  return user_name_.GetNoArena();
+::google::protobuf::uint32 S2WEB_Modify_User::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.group_id)
+  return group_id_;
 }
-void S2WEB_Modify_User::set_user_name(const ::std::string& value) {
-  set_has_user_name();
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_name)
-}
-#if LANG_CXX11
-void S2WEB_Modify_User::set_user_name(::std::string&& value) {
-  set_has_user_name();
-  user_name_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_name)
-}
-#endif
-void S2WEB_Modify_User::set_user_name(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_user_name();
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_name)
-}
-void S2WEB_Modify_User::set_user_name(const void* value, size_t size) {
-  set_has_user_name();
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_name)
-}
-::std::string* S2WEB_Modify_User::mutable_user_name() {
-  set_has_user_name();
-  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_name)
-  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* S2WEB_Modify_User::release_user_name() {
-  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_name)
-  clear_has_user_name();
-  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void S2WEB_Modify_User::set_allocated_user_name(::std::string* user_name) {
-  if (user_name != NULL) {
-    set_has_user_name();
-  } else {
-    clear_has_user_name();
-  }
-  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
-  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_name)
+void S2WEB_Modify_User::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.group_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

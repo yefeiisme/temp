@@ -368,10 +368,10 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `ModifyUser`;
-CREATE PROCEDURE `ModifyUser`(IN paramID INTEGER UNSIGNED,IN paramName varchar(64))
+CREATE PROCEDURE `ModifyUser`(IN paramID INTEGER UNSIGNED,IN paramGroupID INTEGER UNSIGNED)
 BEGIN
-	update user set Name=paramName where ID=paramID;
-	select paramID,paramName;
+	update user set GroupID=paramGroupID where ID=paramID;
+	select paramID,paramGroupID;
 END;
 
 DROP PROCEDURE IF EXISTS `RemoveUser`;

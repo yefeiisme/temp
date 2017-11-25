@@ -674,7 +674,7 @@ void CWebClient::RecvModifyUser(const void *pPack, const unsigned int uPackLen)
 
 	pMysqlQuery->PrepareProc("ModifyUser");
 	pMysqlQuery->AddParam(tagModifyUser.user_id());
-	pMysqlQuery->AddParam(tagModifyUser.name().c_str());
+	pMysqlQuery->AddParam(tagModifyUser.group_id());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -1798,7 +1798,6 @@ void CWebClient::DBResopndModifyUser(IMysqlResultSet *pResultSet, SMysqlRequest 
 {
 	UINT	uCol		= 0;
 	UINT	uUserID		= 0;
-	char	strName[64]	= {0};
 	WORD	wGroupID	= 0;
 
 	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
@@ -1811,10 +1810,10 @@ void CWebClient::DBResopndModifyUser(IMysqlResultSet *pResultSet, SMysqlRequest 
 	uCol	= 0;
 
 	pResult1->GetData(0, uCol++, uUserID);
-	pResult1->GetData(0, uCol++, strName, sizeof(strName));
+	pResult1->GetData(0, uCol++, wGroupID);
 
 	tagModifyUser.set_user_id(uUserID);
-	tagModifyUser.set_user_name(strName);
+	tagModifyUser.set_group_id(wGroupID);
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_modify_user, tagModifyUser);
 }
