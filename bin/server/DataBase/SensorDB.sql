@@ -361,10 +361,10 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `CreateUser`;
-CREATE PROCEDURE `CreateUser`(IN paramAccount varchar(64),IN paramPasword varchar(64),IN paramName varchar(64))
+CREATE PROCEDURE `CreateUser`(IN paramAccount varchar(64),IN paramPasword varchar(64),IN paramName varchar(64),IN paramGroupID INTEGER UNSIGNED)
 BEGIN
-	insert into user(Account,Password,Name) value(paramAccount,paramPasword,paramName);
-	select ID,Name,0 from user where ID=LAST_INSERT_ID();
+	insert into user(Account,Password,Name,GroupID) value(paramAccount,paramPasword,paramName,paramGroupID);
+	select ID,Name,GroupID from user where ID=LAST_INSERT_ID();
 END;
 
 DROP PROCEDURE IF EXISTS `ModifyUser`;
@@ -384,7 +384,7 @@ END;
 DROP PROCEDURE IF EXISTS `LoadGroupList`;
 CREATE PROCEDURE `LoadGroupList`()
 BEGIN
-	select GroupID,Name,GroupID from user;
+	select GroupID,Name from user_group;
 END;
 
 //

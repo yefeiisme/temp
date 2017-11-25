@@ -156,6 +156,7 @@ message WEB2S_Create_User
 	required bytes	account			= 1;	// 账号
 	required bytes	password		= 2;	// 密码
 	required bytes	name			= 3;	// 用户名
+	required uint32	group_id		= 4;	// 用户组ID
 }
 
 // 修改用户信息

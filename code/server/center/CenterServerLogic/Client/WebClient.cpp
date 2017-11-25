@@ -640,6 +640,7 @@ void CWebClient::RecvCreateUser(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->AddParam(tagCreateUser.account().c_str());
 	pMysqlQuery->AddParam(tagCreateUser.password().c_str());
 	pMysqlQuery->AddParam(tagCreateUser.name().c_str());
+	pMysqlQuery->AddParam(tagCreateUser.group_id());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();

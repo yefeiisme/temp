@@ -2026,6 +2026,13 @@ class WEB2S_Create_User : public ::google::protobuf::Message /* @@protoc_inserti
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
+  // required uint32 group_id = 4;
+  bool has_group_id() const;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 4;
+  ::google::protobuf::uint32 group_id() const;
+  void set_group_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
  private:
   void set_has_account();
@@ -2034,6 +2041,8 @@ class WEB2S_Create_User : public ::google::protobuf::Message /* @@protoc_inserti
   void clear_has_password();
   void set_has_name();
   void clear_has_name();
+  void set_has_group_id();
+  void clear_has_group_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -2044,6 +2053,7 @@ class WEB2S_Create_User : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::internal::ArenaStringPtr account_;
   ::google::protobuf::internal::ArenaStringPtr password_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::uint32 group_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -8690,6 +8700,30 @@ inline void WEB2S_Create_User::set_allocated_name(::std::string* name) {
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+}
+
+// required uint32 group_id = 4;
+inline bool WEB2S_Create_User::has_group_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void WEB2S_Create_User::set_has_group_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void WEB2S_Create_User::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void WEB2S_Create_User::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+inline ::google::protobuf::uint32 WEB2S_Create_User::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_User.group_id)
+  return group_id_;
+}
+inline void WEB2S_Create_User::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_User.group_id)
 }
 
 // -------------------------------------------------------------------
