@@ -938,12 +938,14 @@ void CWebClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLe
 	if (tagLoadAuthority.authority_id())
 	{
 		pMysqlQuery->PrepareProc("LoadAuthorityByID");
+		pMysqlQuery->AddParam(m_uAccountID);
 		pMysqlQuery->AddParam(tagLoadAuthority.authority_id());
 		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 	}
 	else
 	{
 		pMysqlQuery->PrepareProc("LoadAllAuthority");
+		pMysqlQuery->AddParam(m_uAccountID);
 		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 	}
 
