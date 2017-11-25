@@ -364,7 +364,7 @@ DROP PROCEDURE IF EXISTS `CreateUser`;
 CREATE PROCEDURE `CreateUser`(IN paramAccount varchar(64),IN paramPasword varchar(64),IN paramName varchar(64))
 BEGIN
 	insert into user(Account,Password,Name) value(paramAccount,paramPasword,paramName);
-	select ID,Name,GroupID from user where ID=LAST_INSERT_ID();
+	select ID,Name,0 from user where ID=LAST_INSERT_ID();
 END;
 
 DROP PROCEDURE IF EXISTS `ModifyUser`;
@@ -379,6 +379,12 @@ CREATE PROCEDURE `RemoveUser`(IN paramID INTEGER UNSIGNED)
 BEGIN
 	delete from user where ID=paramID;
 	select paramID;
+END;
+
+DROP PROCEDURE IF EXISTS `LoadGroupList`;
+CREATE PROCEDURE `LoadGroupList`()
+BEGIN
+	select GroupID,Name,GroupID from user;
 END;
 
 //

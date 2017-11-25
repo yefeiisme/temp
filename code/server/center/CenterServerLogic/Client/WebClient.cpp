@@ -1867,7 +1867,7 @@ void CWebClient::DBResopndLoadGroupList(IMysqlResultSet *pResultSet, SMysqlReque
 		pGroupData->set_name(strName);
 	}
 
-	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_user_list, tagUserList);
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_group_list, tagUserList);
 }
 
 void CWebClient::DBResopndCreateGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
