@@ -1793,14 +1793,81 @@ void CWebClient::DBResopndCreateUser(IMysqlResultSet *pResultSet, SMysqlRequest 
 
 void CWebClient::DBResopndModifyUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+	UINT	uCol		= 0;
+	UINT	uUserID		= 0;
+	char	strName[64]	= {0};
+	WORD	wGroupID	= 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2WEB_Modify_User	tagModifyUser;
+
+	uCol	= 0;
+
+	pResult1->GetData(0, uCol++, uUserID);
+	pResult1->GetData(0, uCol++, strName, sizeof(strName));
+
+	tagModifyUser.set_user_id(uUserID);
+	tagModifyUser.set_user_name(strName);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_modify_user, tagModifyUser);
 }
 
 void CWebClient::DBResopndRemoveUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+	UINT	uCol		= 0;
+	UINT	uUserID		= 0;
+	char	strName[64]	= {0};
+	WORD	wGroupID	= 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2WEB_Remove_User	tagRemoveUser;
+
+	uCol	= 0;
+
+	pResult1->GetData(0, uCol++, uUserID);
+
+	tagRemoveUser.set_id(uUserID);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_remove_user, tagRemoveUser);
 }
 
 void CWebClient::DBResopndLoadGroupList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
+	UINT	uCol		= 0;
+	WORD	wGroupID	= 0;
+	char	strName[64]	= {0};
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2WEB_Group_List	tagUserList;
+
+	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_Group_List::GroupData	*pGroupData = tagUserList.add_group_list();
+		if (nullptr == pGroupData)
+			continue;
+
+		uCol	= 0;
+
+		pResult1->GetData(uRow, uCol++, wGroupID);
+		pResult1->GetData(uRow, uCol++, strName, sizeof(strName));
+
+		pGroupData->set_id(wGroupID);
+		pGroupData->set_name(strName);
+	}
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_user_list, tagUserList);
 }
 
 void CWebClient::DBResopndCreateGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)

@@ -442,8 +442,8 @@ message S2WEB_Create_User
 // 修改用户结果
 message S2WEB_Modify_User
 {
-	required uint32	id				= 1;	// 用户ID
-	required bytes	name			= 2;	// 用户名
+	required uint32	user_id			= 1;	// 用户ID
+	required bytes	user_name		= 2;	// 用户名
 }
 
 // 删除用户结果

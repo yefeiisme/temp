@@ -360,5 +360,26 @@ BEGIN
 	select ID,Name,GroupID from user;
 END;
 
+DROP PROCEDURE IF EXISTS `CreateUser`;
+CREATE PROCEDURE `CreateUser`(IN paramAccount varchar(64),IN paramPasword varchar(64),IN paramName varchar(64))
+BEGIN
+	insert into user(Account,Password,Name) value(paramAccount,paramPasword,paramName);
+	select ID,Name,GroupID from user where ID=LAST_INSERT_ID();
+END;
+
+DROP PROCEDURE IF EXISTS `ModifyUser`;
+CREATE PROCEDURE `ModifyUser`(IN paramID INTEGER UNSIGNED,IN paramName varchar(64))
+BEGIN
+	update user set Name=paramName where ID=paramID;
+	select paramID,paramName;
+END;
+
+DROP PROCEDURE IF EXISTS `RemoveUser`;
+CREATE PROCEDURE `RemoveUser`(IN paramID INTEGER UNSIGNED)
+BEGIN
+	delete from user where ID=paramID;
+	select paramID;
+END;
+
 //
 delimiter ; //
