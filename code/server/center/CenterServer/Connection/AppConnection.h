@@ -8,6 +8,8 @@ class CAppConnection : public CClientConnection
 public:
 	CAppConnection();
 	~CAppConnection();
+
+	void					Connect(ITcpConnection *pTcpConnection);
 private:
 	void					ResetTimeOut();
 	void					Disconnect();

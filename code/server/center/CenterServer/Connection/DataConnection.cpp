@@ -11,6 +11,15 @@ CDataConnection::~CDataConnection()
 {
 }
 
+void CDataConnection::Connect(ITcpConnection *pTcpConnection)
+{
+	m_pTcpConnection	= pTcpConnection;
+
+	m_nTimeOut			= g_nTimeNow + g_pCenterServerConfig.m_nDataTimeOut;
+
+	m_eState			= CLIENT_CONN_STATE_WAIT_LOGIN;
+}
+
 void CDataConnection::ResetTimeOut()
 {
 	m_nTimeOut = g_nTimeNow + g_pCenterServerConfig.m_nDataTimeOut;

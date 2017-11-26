@@ -8,6 +8,8 @@ class CDataConnection : public CClientConnection
 public:
 	CDataConnection();
 	~CDataConnection();
+
+	void					Connect(ITcpConnection *pTcpConnection);
 private:
 	void					ResetTimeOut();
 	void					Disconnect();

@@ -29,7 +29,7 @@ public:
 		return g_nTimeNow > m_nTimeOut;
 	}
 
-	inline void				Connect(ITcpConnection *pTcpConnection)
+	virtual void				Connect(ITcpConnection *pTcpConnection)
 	{
 		m_pTcpConnection	= pTcpConnection;
 

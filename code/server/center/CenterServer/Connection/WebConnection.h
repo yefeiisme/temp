@@ -8,6 +8,8 @@ class CWebConnection : public CClientConnection
 public:
 	CWebConnection();
 	~CWebConnection();
+
+	void					Connect(ITcpConnection *pTcpConnection);
 private:
 	void					ResetTimeOut();
 	void					Disconnect();

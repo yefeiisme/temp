@@ -11,6 +11,15 @@ CAppConnection::~CAppConnection()
 {
 }
 
+void CAppConnection::Connect(ITcpConnection *pTcpConnection)
+{
+	m_pTcpConnection	= pTcpConnection;
+
+	m_nTimeOut			= g_nTimeNow + g_pCenterServerConfig.m_nAppTimeOut;
+
+	m_eState			= CLIENT_CONN_STATE_WAIT_LOGIN;
+}
+
 void CAppConnection::ResetTimeOut()
 {
 	m_nTimeOut	= g_nTimeNow + g_pCenterServerConfig.m_nAppTimeOut;
