@@ -52,5 +52,17 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 	SProtocolHead	*pInfo			= (SProtocolHead*)pPack;
 	SSensorData		*pSensorData	= (SSensorData*)((char*)pPack + sizeof(SProtocolHead));
 
-	g_pFileLog->WriteLog("[%s][%d] CDataClient::RecvAddSensorData\n", __FILE__, __LINE__);
+	if (0x7E81 != pInfo->wProtocolHead)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Protocol Not 7E81\n", __FILE__, __LINE__);
+		return;
+	}
+
+	if (0 != pInfo->bySensorCount)
+	{
+		g_pFileLog->WriteLog("[%s][%d] Sensor Count Not 0\n", __FILE__, __LINE__);
+		return;
+	}
+
+	m_pClientConn->PutPack(pPack, uPackLen);
 }

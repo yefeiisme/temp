@@ -26,6 +26,42 @@ class WEB2S_Request_Sensor_ListDefaultTypeInternal : public ::google::protobuf::
 } _WEB2S_Request_Sensor_List_default_instance_;
 class WEB2S_Request_Sensor_HistoryDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Request_Sensor_History> {
 } _WEB2S_Request_Sensor_History_default_instance_;
+class WEB2S_Add_SlopeDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Add_Slope> {
+} _WEB2S_Add_Slope_default_instance_;
+class WEB2S_Del_SlopeDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Del_Slope> {
+} _WEB2S_Del_Slope_default_instance_;
+class WEB2S_Update_Slope_DataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Update_Slope_Data> {
+} _WEB2S_Update_Slope_Data_default_instance_;
+class WEB2S_Add_SensorDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Add_Sensor> {
+} _WEB2S_Add_Sensor_default_instance_;
+class WEB2S_Del_SensorDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Del_Sensor> {
+} _WEB2S_Del_Sensor_default_instance_;
+class WEB2S_Update_Sensor_DataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Update_Sensor_Data> {
+} _WEB2S_Update_Sensor_Data_default_instance_;
+class WEB2S_Modify_PasswordDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Modify_Password> {
+} _WEB2S_Modify_Password_default_instance_;
+class WEB2S_Find_SlopeDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Find_Slope> {
+} _WEB2S_Find_Slope_default_instance_;
+class WEB2S_Find_SensorDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Find_Sensor> {
+} _WEB2S_Find_Sensor_default_instance_;
+class WEB2S_Create_UserDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Create_User> {
+} _WEB2S_Create_User_default_instance_;
+class WEB2S_Modify_UserDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Modify_User> {
+} _WEB2S_Modify_User_default_instance_;
+class WEB2S_Remove_UserDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Remove_User> {
+} _WEB2S_Remove_User_default_instance_;
+class WEB2S_Create_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Create_Group> {
+} _WEB2S_Create_Group_default_instance_;
+class WEB2S_Add_User_To_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Add_User_To_Group> {
+} _WEB2S_Add_User_To_Group_default_instance_;
+class WEB2S_Remove_User_From_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Remove_User_From_Group> {
+} _WEB2S_Remove_User_From_Group_default_instance_;
+class WEB2S_Modify_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Modify_Group> {
+} _WEB2S_Modify_Group_default_instance_;
+class WEB2S_Remove_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Remove_Group> {
+} _WEB2S_Remove_Group_default_instance_;
+class WEB2S_Load_AuthorityDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WEB2S_Load_Authority> {
+} _WEB2S_Load_Authority_default_instance_;
 class S2Web_Login_Result_ServerDataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2Web_Login_Result_ServerData> {
 } _S2Web_Login_Result_ServerData_default_instance_;
 class S2Web_Login_ResultDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2Web_Login_Result> {
@@ -44,13 +80,55 @@ class S2Web_Sensor_HistoryDefaultTypeInternal : public ::google::protobuf::inter
 } _S2Web_Sensor_History_default_instance_;
 class S2WEB_ERRORDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_ERROR> {
 } _S2WEB_ERROR_default_instance_;
+class S2WEB_New_SlopeDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_New_Slope> {
+} _S2WEB_New_Slope_default_instance_;
+class S2WEB_Del_SlopeDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Del_Slope> {
+} _S2WEB_Del_Slope_default_instance_;
+class S2WEB_Update_SlopeDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Update_Slope> {
+} _S2WEB_Update_Slope_default_instance_;
+class S2WEB_Add_SensorDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Add_Sensor> {
+} _S2WEB_Add_Sensor_default_instance_;
+class S2WEB_Del_SensorDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Del_Sensor> {
+} _S2WEB_Del_Sensor_default_instance_;
+class S2WEB_Update_SensorDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Update_Sensor> {
+} _S2WEB_Update_Sensor_default_instance_;
+class S2WEB_Modify_Password_ResultDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Modify_Password_Result> {
+} _S2WEB_Modify_Password_Result_default_instance_;
+class S2WEB_User_List_UserDataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_User_List_UserData> {
+} _S2WEB_User_List_UserData_default_instance_;
+class S2WEB_User_ListDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_User_List> {
+} _S2WEB_User_List_default_instance_;
+class S2WEB_Create_UserDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Create_User> {
+} _S2WEB_Create_User_default_instance_;
+class S2WEB_Modify_UserDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Modify_User> {
+} _S2WEB_Modify_User_default_instance_;
+class S2WEB_Remove_UserDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Remove_User> {
+} _S2WEB_Remove_User_default_instance_;
+class S2WEB_Group_List_GroupDataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Group_List_GroupData> {
+} _S2WEB_Group_List_GroupData_default_instance_;
+class S2WEB_Group_ListDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Group_List> {
+} _S2WEB_Group_List_default_instance_;
+class S2WEB_Create_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Create_Group> {
+} _S2WEB_Create_Group_default_instance_;
+class S2WEB_Modify_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Modify_Group> {
+} _S2WEB_Modify_Group_default_instance_;
+class S2WEB_Remove_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Remove_Group> {
+} _S2WEB_Remove_Group_default_instance_;
+class S2WEB_Add_User_To_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Add_User_To_Group> {
+} _S2WEB_Add_User_To_Group_default_instance_;
+class S2WEB_Remove_User_From_GroupDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Remove_User_From_Group> {
+} _S2WEB_Remove_User_From_Group_default_instance_;
+class S2WEB_Authority_List_AuthorityDataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Authority_List_AuthorityData> {
+} _S2WEB_Authority_List_AuthorityData_default_instance_;
+class S2WEB_Authority_ListDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2WEB_Authority_List> {
+} _S2WEB_Authority_List_default_instance_;
 
 namespace protobuf_Web_5fServer_5fProtocol_2eproto {
 
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[13];
+::google::protobuf::Metadata file_level_metadata[52];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 }  // namespace
@@ -66,6 +144,45 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
@@ -116,6 +233,214 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   0,
   1,
   2,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Slope, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Slope, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Slope, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Slope, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Slope, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Slope, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Slope, url_),
+  4,
+  0,
+  2,
+  3,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Del_Slope, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Del_Slope, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Del_Slope, id_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Slope_Data, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Slope_Data, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Slope_Data, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Slope_Data, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Slope_Data, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Slope_Data, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Slope_Data, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Slope_Data, url_),
+  2,
+  3,
+  0,
+  4,
+  5,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Sensor, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Sensor, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Sensor, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Sensor, slope_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Sensor, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Sensor, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Sensor, url_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_Sensor, description_),
+  2,
+  3,
+  4,
+  5,
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Del_Sensor, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Del_Sensor, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Del_Sensor, id_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Sensor_Data, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Sensor_Data, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Sensor_Data, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Sensor_Data, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Sensor_Data, slope_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Sensor_Data, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Sensor_Data, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Sensor_Data, url_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Update_Sensor_Data, description_),
+  2,
+  3,
+  6,
+  4,
+  5,
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Password, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Password, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Password, account_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Password, new_password_),
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Find_Slope, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Find_Slope, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Find_Slope, slope_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Find_Slope, slope_name_),
+  1,
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Find_Sensor, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Find_Sensor, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Find_Sensor, slope_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Find_Sensor, slope_name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Find_Sensor, sensor_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Find_Sensor, sensor_type_),
+  1,
+  0,
+  2,
+  3,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_User, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_User, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_User, account_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_User, password_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_User, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_User, group_id_),
+  0,
+  1,
+  2,
+  3,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_User, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_User, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_User, user_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_User, group_id_),
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_User, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_User, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_User, user_id_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, group_name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, load_user_list_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, load_user_group_list_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, modify_user_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Create_Group, modify_user_group_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_User_To_Group, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_User_To_Group, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_User_To_Group, group_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Add_User_To_Group, user_id_),
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_User_From_Group, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_User_From_Group, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_User_From_Group, group_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_User_From_Group, user_id_),
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Group, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Group, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Group, group_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Group, group_name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Group, load_user_list_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Group, load_user_group_list_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Group, add_user_group_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Group, modify_user_group_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Modify_Group, remove_user_group_),
+  1,
+  0,
+  2,
+  3,
+  4,
+  5,
+  6,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_Group, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_Group, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Remove_Group, group_id_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Load_Authority, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Load_Authority, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WEB2S_Load_Authority, authority_id_),
+  0,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Login_Result_ServerData, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Login_Result_ServerData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -219,12 +544,24 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History_SensorData, max_value1_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History_SensorData, max_value2_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History_SensorData, max_value3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History_SensorData, min_offset_value1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History_SensorData, min_offset_value2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History_SensorData, min_offset_value3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History_SensorData, max_offset_value1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History_SensorData, max_offset_value2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History_SensorData, max_offset_value3_),
   0,
   1,
   2,
   3,
   4,
   5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -236,6 +573,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, begin_time_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, end_time_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, invterval_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, avg_value1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, avg_value2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, avg_value3_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2Web_Sensor_History, history_list_),
   1,
   0,
@@ -243,6 +583,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   2,
   4,
   5,
+  6,
+  7,
+  8,
   ~0u,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_ERROR, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_ERROR, _internal_metadata_),
@@ -251,6 +594,251 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_ERROR, error_code_),
   0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_New_Slope, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_New_Slope, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_New_Slope, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_New_Slope, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_New_Slope, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_New_Slope, state_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_New_Slope, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_New_Slope, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_New_Slope, url_),
+  2,
+  3,
+  0,
+  6,
+  4,
+  5,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Del_Slope, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Del_Slope, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Del_Slope, result_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Slope, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Slope, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Slope, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Slope, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Slope, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Slope, state_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Slope, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Slope, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Slope, url_),
+  2,
+  3,
+  0,
+  6,
+  4,
+  5,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_Sensor, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_Sensor, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_Sensor, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_Sensor, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_Sensor, state_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_Sensor, slope_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_Sensor, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_Sensor, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_Sensor, url_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_Sensor, description_),
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Del_Sensor, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Del_Sensor, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Del_Sensor, result_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Sensor, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Sensor, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Sensor, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Sensor, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Sensor, state_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Sensor, slope_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Sensor, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Sensor, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Sensor, url_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Update_Sensor, description_),
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Password_Result, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Password_Result, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Password_Result, result_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_User_List_UserData, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_User_List_UserData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_User_List_UserData, user_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_User_List_UserData, user_name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_User_List_UserData, group_id_),
+  1,
+  0,
+  2,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_User_List, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_User_List, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_User_List, user_list_),
+  ~0u,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_User, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_User, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_User, user_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_User, user_name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_User, group_id_),
+  1,
+  0,
+  2,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_User, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_User, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_User, user_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_User, group_id_),
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_User, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_User, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_User, id_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Group_List_GroupData, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Group_List_GroupData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Group_List_GroupData, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Group_List_GroupData, name_),
+  1,
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Group_List, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Group_List, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Group_List, group_list_),
+  ~0u,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, load_user_list_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, load_user_group_list_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, modify_user_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Create_Group, modify_user_group_),
+  1,
+  0,
+  2,
+  3,
+  4,
+  5,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, load_user_list_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, load_user_group_list_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, create_user_group_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, modify_user_group_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Modify_Group, remove_user_group_),
+  1,
+  0,
+  2,
+  3,
+  4,
+  5,
+  6,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_Group, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_Group, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_Group, id_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_User_To_Group, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_User_To_Group, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_User_To_Group, user_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Add_User_To_Group, group_id_),
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_User_From_Group, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_User_From_Group, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_User_From_Group, user_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Remove_User_From_Group, group_id_),
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, authority_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, parent_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, url_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, description_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List_AuthorityData, icon_url_),
+  3,
+  4,
+  0,
+  1,
+  2,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2WEB_Authority_List, authority_list_),
+  ~0u,
 };
 
 static const ::google::protobuf::internal::MigrationSchema schemas[] = {
@@ -258,15 +846,54 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 9, 15, sizeof(WEB2S_Request_Slope_List)},
   { 16, 22, sizeof(WEB2S_Request_Sensor_List)},
   { 23, 31, sizeof(WEB2S_Request_Sensor_History)},
-  { 34, 42, sizeof(S2Web_Login_Result_ServerData)},
-  { 45, 52, sizeof(S2Web_Login_Result)},
-  { 54, 66, sizeof(S2Web_Slope_List_SlopeData)},
-  { 73, 79, sizeof(S2Web_Slope_List)},
-  { 80, 102, sizeof(S2Web_Sensor_List_SensorData)},
-  { 119, 125, sizeof(S2Web_Sensor_List)},
-  { 126, 137, sizeof(S2Web_Sensor_History_SensorData)},
-  { 143, 155, sizeof(S2Web_Sensor_History)},
-  { 162, 168, sizeof(S2WEB_ERROR)},
+  { 34, 44, sizeof(WEB2S_Add_Slope)},
+  { 49, 55, sizeof(WEB2S_Del_Slope)},
+  { 56, 67, sizeof(WEB2S_Update_Slope_Data)},
+  { 73, 84, sizeof(WEB2S_Add_Sensor)},
+  { 90, 96, sizeof(WEB2S_Del_Sensor)},
+  { 97, 109, sizeof(WEB2S_Update_Sensor_Data)},
+  { 116, 123, sizeof(WEB2S_Modify_Password)},
+  { 125, 132, sizeof(WEB2S_Find_Slope)},
+  { 134, 143, sizeof(WEB2S_Find_Sensor)},
+  { 147, 156, sizeof(WEB2S_Create_User)},
+  { 160, 167, sizeof(WEB2S_Modify_User)},
+  { 169, 175, sizeof(WEB2S_Remove_User)},
+  { 176, 186, sizeof(WEB2S_Create_Group)},
+  { 191, 198, sizeof(WEB2S_Add_User_To_Group)},
+  { 200, 207, sizeof(WEB2S_Remove_User_From_Group)},
+  { 209, 221, sizeof(WEB2S_Modify_Group)},
+  { 228, 234, sizeof(WEB2S_Remove_Group)},
+  { 235, 241, sizeof(WEB2S_Load_Authority)},
+  { 242, 250, sizeof(S2Web_Login_Result_ServerData)},
+  { 253, 260, sizeof(S2Web_Login_Result)},
+  { 262, 274, sizeof(S2Web_Slope_List_SlopeData)},
+  { 281, 287, sizeof(S2Web_Slope_List)},
+  { 288, 310, sizeof(S2Web_Sensor_List_SensorData)},
+  { 327, 333, sizeof(S2Web_Sensor_List)},
+  { 334, 351, sizeof(S2Web_Sensor_History_SensorData)},
+  { 363, 378, sizeof(S2Web_Sensor_History)},
+  { 388, 394, sizeof(S2WEB_ERROR)},
+  { 395, 407, sizeof(S2WEB_New_Slope)},
+  { 414, 420, sizeof(S2WEB_Del_Slope)},
+  { 421, 433, sizeof(S2WEB_Update_Slope)},
+  { 440, 453, sizeof(S2WEB_Add_Sensor)},
+  { 461, 467, sizeof(S2WEB_Del_Sensor)},
+  { 468, 481, sizeof(S2WEB_Update_Sensor)},
+  { 489, 495, sizeof(S2WEB_Modify_Password_Result)},
+  { 496, 504, sizeof(S2WEB_User_List_UserData)},
+  { 507, 513, sizeof(S2WEB_User_List)},
+  { 514, 522, sizeof(S2WEB_Create_User)},
+  { 525, 532, sizeof(S2WEB_Modify_User)},
+  { 534, 540, sizeof(S2WEB_Remove_User)},
+  { 541, 548, sizeof(S2WEB_Group_List_GroupData)},
+  { 550, 556, sizeof(S2WEB_Group_List)},
+  { 557, 568, sizeof(S2WEB_Create_Group)},
+  { 574, 586, sizeof(S2WEB_Modify_Group)},
+  { 593, 599, sizeof(S2WEB_Remove_Group)},
+  { 600, 607, sizeof(S2WEB_Add_User_To_Group)},
+  { 609, 616, sizeof(S2WEB_Remove_User_From_Group)},
+  { 618, 628, sizeof(S2WEB_Authority_List_AuthorityData)},
+  { 633, 639, sizeof(S2WEB_Authority_List)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -274,6 +901,24 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Request_Slope_List_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Request_Sensor_List_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Request_Sensor_History_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Add_Slope_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Del_Slope_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Update_Slope_Data_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Add_Sensor_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Del_Sensor_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Update_Sensor_Data_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Modify_Password_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Find_Slope_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Find_Sensor_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Create_User_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Modify_User_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Remove_User_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Create_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Add_User_To_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Remove_User_From_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Modify_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Remove_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WEB2S_Load_Authority_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2Web_Login_Result_ServerData_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2Web_Login_Result_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2Web_Slope_List_SlopeData_default_instance_),
@@ -283,6 +928,27 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2Web_Sensor_History_SensorData_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2Web_Sensor_History_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_ERROR_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_New_Slope_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Del_Slope_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Update_Slope_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Add_Sensor_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Del_Sensor_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Update_Sensor_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Modify_Password_Result_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_User_List_UserData_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_User_List_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Create_User_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Modify_User_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Remove_User_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Group_List_GroupData_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Group_List_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Create_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Modify_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Remove_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Add_User_To_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Remove_User_From_Group_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Authority_List_AuthorityData_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2WEB_Authority_List_default_instance_),
 };
 
 namespace {
@@ -303,7 +969,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 13);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 52);
 }
 
 }  // namespace
@@ -317,24 +983,102 @@ void TableStruct::Shutdown() {
   delete file_level_metadata[2].reflection;
   _WEB2S_Request_Sensor_History_default_instance_.Shutdown();
   delete file_level_metadata[3].reflection;
-  _S2Web_Login_Result_ServerData_default_instance_.Shutdown();
+  _WEB2S_Add_Slope_default_instance_.Shutdown();
   delete file_level_metadata[4].reflection;
-  _S2Web_Login_Result_default_instance_.Shutdown();
+  _WEB2S_Del_Slope_default_instance_.Shutdown();
   delete file_level_metadata[5].reflection;
-  _S2Web_Slope_List_SlopeData_default_instance_.Shutdown();
+  _WEB2S_Update_Slope_Data_default_instance_.Shutdown();
   delete file_level_metadata[6].reflection;
-  _S2Web_Slope_List_default_instance_.Shutdown();
+  _WEB2S_Add_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[7].reflection;
-  _S2Web_Sensor_List_SensorData_default_instance_.Shutdown();
+  _WEB2S_Del_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[8].reflection;
-  _S2Web_Sensor_List_default_instance_.Shutdown();
+  _WEB2S_Update_Sensor_Data_default_instance_.Shutdown();
   delete file_level_metadata[9].reflection;
-  _S2Web_Sensor_History_SensorData_default_instance_.Shutdown();
+  _WEB2S_Modify_Password_default_instance_.Shutdown();
   delete file_level_metadata[10].reflection;
-  _S2Web_Sensor_History_default_instance_.Shutdown();
+  _WEB2S_Find_Slope_default_instance_.Shutdown();
   delete file_level_metadata[11].reflection;
-  _S2WEB_ERROR_default_instance_.Shutdown();
+  _WEB2S_Find_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[12].reflection;
+  _WEB2S_Create_User_default_instance_.Shutdown();
+  delete file_level_metadata[13].reflection;
+  _WEB2S_Modify_User_default_instance_.Shutdown();
+  delete file_level_metadata[14].reflection;
+  _WEB2S_Remove_User_default_instance_.Shutdown();
+  delete file_level_metadata[15].reflection;
+  _WEB2S_Create_Group_default_instance_.Shutdown();
+  delete file_level_metadata[16].reflection;
+  _WEB2S_Add_User_To_Group_default_instance_.Shutdown();
+  delete file_level_metadata[17].reflection;
+  _WEB2S_Remove_User_From_Group_default_instance_.Shutdown();
+  delete file_level_metadata[18].reflection;
+  _WEB2S_Modify_Group_default_instance_.Shutdown();
+  delete file_level_metadata[19].reflection;
+  _WEB2S_Remove_Group_default_instance_.Shutdown();
+  delete file_level_metadata[20].reflection;
+  _WEB2S_Load_Authority_default_instance_.Shutdown();
+  delete file_level_metadata[21].reflection;
+  _S2Web_Login_Result_ServerData_default_instance_.Shutdown();
+  delete file_level_metadata[22].reflection;
+  _S2Web_Login_Result_default_instance_.Shutdown();
+  delete file_level_metadata[23].reflection;
+  _S2Web_Slope_List_SlopeData_default_instance_.Shutdown();
+  delete file_level_metadata[24].reflection;
+  _S2Web_Slope_List_default_instance_.Shutdown();
+  delete file_level_metadata[25].reflection;
+  _S2Web_Sensor_List_SensorData_default_instance_.Shutdown();
+  delete file_level_metadata[26].reflection;
+  _S2Web_Sensor_List_default_instance_.Shutdown();
+  delete file_level_metadata[27].reflection;
+  _S2Web_Sensor_History_SensorData_default_instance_.Shutdown();
+  delete file_level_metadata[28].reflection;
+  _S2Web_Sensor_History_default_instance_.Shutdown();
+  delete file_level_metadata[29].reflection;
+  _S2WEB_ERROR_default_instance_.Shutdown();
+  delete file_level_metadata[30].reflection;
+  _S2WEB_New_Slope_default_instance_.Shutdown();
+  delete file_level_metadata[31].reflection;
+  _S2WEB_Del_Slope_default_instance_.Shutdown();
+  delete file_level_metadata[32].reflection;
+  _S2WEB_Update_Slope_default_instance_.Shutdown();
+  delete file_level_metadata[33].reflection;
+  _S2WEB_Add_Sensor_default_instance_.Shutdown();
+  delete file_level_metadata[34].reflection;
+  _S2WEB_Del_Sensor_default_instance_.Shutdown();
+  delete file_level_metadata[35].reflection;
+  _S2WEB_Update_Sensor_default_instance_.Shutdown();
+  delete file_level_metadata[36].reflection;
+  _S2WEB_Modify_Password_Result_default_instance_.Shutdown();
+  delete file_level_metadata[37].reflection;
+  _S2WEB_User_List_UserData_default_instance_.Shutdown();
+  delete file_level_metadata[38].reflection;
+  _S2WEB_User_List_default_instance_.Shutdown();
+  delete file_level_metadata[39].reflection;
+  _S2WEB_Create_User_default_instance_.Shutdown();
+  delete file_level_metadata[40].reflection;
+  _S2WEB_Modify_User_default_instance_.Shutdown();
+  delete file_level_metadata[41].reflection;
+  _S2WEB_Remove_User_default_instance_.Shutdown();
+  delete file_level_metadata[42].reflection;
+  _S2WEB_Group_List_GroupData_default_instance_.Shutdown();
+  delete file_level_metadata[43].reflection;
+  _S2WEB_Group_List_default_instance_.Shutdown();
+  delete file_level_metadata[44].reflection;
+  _S2WEB_Create_Group_default_instance_.Shutdown();
+  delete file_level_metadata[45].reflection;
+  _S2WEB_Modify_Group_default_instance_.Shutdown();
+  delete file_level_metadata[46].reflection;
+  _S2WEB_Remove_Group_default_instance_.Shutdown();
+  delete file_level_metadata[47].reflection;
+  _S2WEB_Add_User_To_Group_default_instance_.Shutdown();
+  delete file_level_metadata[48].reflection;
+  _S2WEB_Remove_User_From_Group_default_instance_.Shutdown();
+  delete file_level_metadata[49].reflection;
+  _S2WEB_Authority_List_AuthorityData_default_instance_.Shutdown();
+  delete file_level_metadata[50].reflection;
+  _S2WEB_Authority_List_default_instance_.Shutdown();
+  delete file_level_metadata[51].reflection;
 }
 
 void TableStruct::InitDefaultsImpl() {
@@ -345,6 +1089,24 @@ void TableStruct::InitDefaultsImpl() {
   _WEB2S_Request_Slope_List_default_instance_.DefaultConstruct();
   _WEB2S_Request_Sensor_List_default_instance_.DefaultConstruct();
   _WEB2S_Request_Sensor_History_default_instance_.DefaultConstruct();
+  _WEB2S_Add_Slope_default_instance_.DefaultConstruct();
+  _WEB2S_Del_Slope_default_instance_.DefaultConstruct();
+  _WEB2S_Update_Slope_Data_default_instance_.DefaultConstruct();
+  _WEB2S_Add_Sensor_default_instance_.DefaultConstruct();
+  _WEB2S_Del_Sensor_default_instance_.DefaultConstruct();
+  _WEB2S_Update_Sensor_Data_default_instance_.DefaultConstruct();
+  _WEB2S_Modify_Password_default_instance_.DefaultConstruct();
+  _WEB2S_Find_Slope_default_instance_.DefaultConstruct();
+  _WEB2S_Find_Sensor_default_instance_.DefaultConstruct();
+  _WEB2S_Create_User_default_instance_.DefaultConstruct();
+  _WEB2S_Modify_User_default_instance_.DefaultConstruct();
+  _WEB2S_Remove_User_default_instance_.DefaultConstruct();
+  _WEB2S_Create_Group_default_instance_.DefaultConstruct();
+  _WEB2S_Add_User_To_Group_default_instance_.DefaultConstruct();
+  _WEB2S_Remove_User_From_Group_default_instance_.DefaultConstruct();
+  _WEB2S_Modify_Group_default_instance_.DefaultConstruct();
+  _WEB2S_Remove_Group_default_instance_.DefaultConstruct();
+  _WEB2S_Load_Authority_default_instance_.DefaultConstruct();
   _S2Web_Login_Result_ServerData_default_instance_.DefaultConstruct();
   _S2Web_Login_Result_default_instance_.DefaultConstruct();
   _S2Web_Slope_List_SlopeData_default_instance_.DefaultConstruct();
@@ -354,6 +1116,27 @@ void TableStruct::InitDefaultsImpl() {
   _S2Web_Sensor_History_SensorData_default_instance_.DefaultConstruct();
   _S2Web_Sensor_History_default_instance_.DefaultConstruct();
   _S2WEB_ERROR_default_instance_.DefaultConstruct();
+  _S2WEB_New_Slope_default_instance_.DefaultConstruct();
+  _S2WEB_Del_Slope_default_instance_.DefaultConstruct();
+  _S2WEB_Update_Slope_default_instance_.DefaultConstruct();
+  _S2WEB_Add_Sensor_default_instance_.DefaultConstruct();
+  _S2WEB_Del_Sensor_default_instance_.DefaultConstruct();
+  _S2WEB_Update_Sensor_default_instance_.DefaultConstruct();
+  _S2WEB_Modify_Password_Result_default_instance_.DefaultConstruct();
+  _S2WEB_User_List_UserData_default_instance_.DefaultConstruct();
+  _S2WEB_User_List_default_instance_.DefaultConstruct();
+  _S2WEB_Create_User_default_instance_.DefaultConstruct();
+  _S2WEB_Modify_User_default_instance_.DefaultConstruct();
+  _S2WEB_Remove_User_default_instance_.DefaultConstruct();
+  _S2WEB_Group_List_GroupData_default_instance_.DefaultConstruct();
+  _S2WEB_Group_List_default_instance_.DefaultConstruct();
+  _S2WEB_Create_Group_default_instance_.DefaultConstruct();
+  _S2WEB_Modify_Group_default_instance_.DefaultConstruct();
+  _S2WEB_Remove_Group_default_instance_.DefaultConstruct();
+  _S2WEB_Add_User_To_Group_default_instance_.DefaultConstruct();
+  _S2WEB_Remove_User_From_Group_default_instance_.DefaultConstruct();
+  _S2WEB_Authority_List_AuthorityData_default_instance_.DefaultConstruct();
+  _S2WEB_Authority_List_default_instance_.DefaultConstruct();
 }
 
 void InitDefaults() {
@@ -370,57 +1153,161 @@ void AddDescriptorsImpl() {
       "equest_Sensor_List\022\020\n\010slope_id\030\001 \002(\r\"W\n\034"
       "WEB2S_Request_Sensor_History\022\021\n\tsensor_i"
       "d\030\001 \002(\r\022\022\n\nbegin_time\030\002 \002(\r\022\020\n\010end_time\030"
-      "\003 \002(\r\"\245\001\n\022S2Web_Login_Result\022\016\n\006result\030\001"
-      " \002(\r\022K\n\013server_list\030\002 \003(\01326.WEB_SERVER_N"
-      "ET_Protocol.S2Web_Login_Result.ServerDat"
-      "a\0322\n\nServerData\022\n\n\002id\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022"
-      "\014\n\004port\030\003 \002(\r\"\321\001\n\020S2Web_Slope_List\022G\n\nsl"
-      "ope_list\030\001 \003(\01323.WEB_SERVER_NET_Protocol"
-      ".S2Web_Slope_List.SlopeData\032t\n\tSlopeData"
+      "\003 \002(\r\"_\n\017WEB2S_Add_Slope\022\014\n\004type\030\001 \002(\r\022\014"
+      "\n\004name\030\002 \002(\014\022\021\n\tlongitude\030\003 \002(\001\022\020\n\010latit"
+      "ude\030\004 \002(\001\022\013\n\003url\030\005 \002(\014\"\035\n\017WEB2S_Del_Slop"
+      "e\022\n\n\002id\030\001 \002(\r\"s\n\027WEB2S_Update_Slope_Data"
       "\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014"
-      "\022\r\n\005state\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010la"
-      "titude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\"\255\003\n\021S2Web_Sens"
-      "or_List\022J\n\013sensor_list\030\001 \003(\01325.WEB_SERVE"
-      "R_NET_Protocol.S2Web_Sensor_List.SensorD"
-      "ata\032\313\002\n\nSensorData\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002"
-      " \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n"
-      "\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\022\n\ncu"
-      "r_value1\030\007 \002(\001\022\022\n\ncur_value2\030\010 \002(\001\022\022\n\ncu"
-      "r_value3\030\t \002(\001\022\022\n\navg_value1\030\n \002(\001\022\022\n\nav"
-      "g_value2\030\013 \002(\001\022\022\n\navg_value3\030\014 \002(\001\022\025\n\rof"
-      "fset_value1\030\r \002(\001\022\025\n\roffset_value2\030\016 \002(\001"
-      "\022\025\n\roffset_value3\030\017 \002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013"
-      "description\030\021 \002(\014\"\327\002\n\024S2Web_Sensor_Histo"
-      "ry\022\n\n\002id\030\001 \002(\r\022\021\n\tlongitude\030\002 \002(\001\022\020\n\010lat"
-      "itude\030\003 \002(\001\022\022\n\nbegin_time\030\004 \002(\r\022\020\n\010end_t"
-      "ime\030\005 \002(\r\022\021\n\tinvterval\030\006 \002(\r\022N\n\014history_"
-      "list\030\007 \003(\01328.WEB_SERVER_NET_Protocol.S2W"
-      "eb_Sensor_History.SensorData\032\204\001\n\nSensorD"
+      "\022\021\n\tlongitude\030\004 \002(\001\022\020\n\010latitude\030\005 \002(\001\022\013\n"
+      "\003url\030\006 \002(\014\"y\n\020WEB2S_Add_Sensor\022\014\n\004type\030\001"
+      " \002(\r\022\020\n\010slope_id\030\002 \002(\r\022\021\n\tlongitude\030\003 \002("
+      "\001\022\020\n\010latitude\030\004 \002(\001\022\013\n\003url\030\005 \002(\014\022\023\n\013desc"
+      "ription\030\006 \002(\014\"\036\n\020WEB2S_Del_Sensor\022\n\n\002id\030"
+      "\001 \002(\r\"\215\001\n\030WEB2S_Update_Sensor_Data\022\n\n\002id"
+      "\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\020\n\010slope_id\030\003 \002(\r\022\021"
+      "\n\tlongitude\030\004 \002(\001\022\020\n\010latitude\030\005 \002(\001\022\013\n\003u"
+      "rl\030\006 \002(\014\022\023\n\013description\030\007 \002(\014\">\n\025WEB2S_M"
+      "odify_Password\022\017\n\007account\030\001 \002(\014\022\024\n\014new_p"
+      "assword\030\002 \002(\014\"8\n\020WEB2S_Find_Slope\022\020\n\010slo"
+      "pe_id\030\001 \002(\r\022\022\n\nslope_name\030\002 \002(\014\"a\n\021WEB2S"
+      "_Find_Sensor\022\020\n\010slope_id\030\001 \002(\r\022\022\n\nslope_"
+      "name\030\002 \002(\014\022\021\n\tsensor_id\030\003 \002(\r\022\023\n\013sensor_"
+      "type\030\004 \002(\r\"V\n\021WEB2S_Create_User\022\017\n\007accou"
+      "nt\030\001 \002(\014\022\020\n\010password\030\002 \002(\014\022\014\n\004name\030\003 \002(\014"
+      "\022\020\n\010group_id\030\004 \002(\r\"6\n\021WEB2S_Modify_User\022"
+      "\017\n\007user_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\"$\n\021WE"
+      "B2S_Remove_User\022\017\n\007user_id\030\001 \002(\r\"\216\001\n\022WEB"
+      "2S_Create_Group\022\022\n\ngroup_name\030\001 \002(\014\022\026\n\016l"
+      "oad_user_list\030\002 \001(\r\022\034\n\024load_user_group_l"
+      "ist\030\003 \001(\r\022\023\n\013modify_user\030\004 \001(\r\022\031\n\021modify"
+      "_user_group\030\005 \001(\r\"<\n\027WEB2S_Add_User_To_G"
+      "roup\022\020\n\010group_id\030\001 \002(\r\022\017\n\007user_id\030\002 \002(\r\""
+      "A\n\034WEB2S_Remove_User_From_Group\022\020\n\010group"
+      "_id\030\001 \002(\r\022\017\n\007user_id\030\002 \002(\r\"\276\001\n\022WEB2S_Mod"
+      "ify_Group\022\020\n\010group_id\030\001 \002(\r\022\022\n\ngroup_nam"
+      "e\030\002 \002(\014\022\026\n\016load_user_list\030\003 \001(\r\022\034\n\024load_"
+      "user_group_list\030\004 \001(\r\022\026\n\016add_user_group\030"
+      "\005 \001(\r\022\031\n\021modify_user_group\030\006 \001(\r\022\031\n\021remo"
+      "ve_user_group\030\007 \001(\r\"&\n\022WEB2S_Remove_Grou"
+      "p\022\020\n\010group_id\030\001 \002(\r\",\n\024WEB2S_Load_Author"
+      "ity\022\024\n\014authority_id\030\001 \002(\r\"\245\001\n\022S2Web_Logi"
+      "n_Result\022\016\n\006result\030\001 \002(\r\022K\n\013server_list\030"
+      "\002 \003(\01326.WEB_SERVER_NET_Protocol.S2Web_Lo"
+      "gin_Result.ServerData\0322\n\nServerData\022\n\n\002i"
+      "d\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022\014\n\004port\030\003 \002(\r\"\321\001\n\020S2"
+      "Web_Slope_List\022G\n\nslope_list\030\001 \003(\01323.WEB"
+      "_SERVER_NET_Protocol.S2Web_Slope_List.Sl"
+      "opeData\032t\n\tSlopeData\022\n\n\002id\030\001 \002(\r\022\014\n\004type"
+      "\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tl"
+      "ongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030"
+      "\007 \002(\014\"\255\003\n\021S2Web_Sensor_List\022J\n\013sensor_li"
+      "st\030\001 \003(\01325.WEB_SERVER_NET_Protocol.S2Web"
+      "_Sensor_List.SensorData\032\313\002\n\nSensorData\022\n"
+      "\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022"
+      "\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010"
+      "latitude\030\006 \002(\001\022\022\n\ncur_value1\030\007 \002(\001\022\022\n\ncu"
+      "r_value2\030\010 \002(\001\022\022\n\ncur_value3\030\t \002(\001\022\022\n\nav"
+      "g_value1\030\n \002(\001\022\022\n\navg_value2\030\013 \002(\001\022\022\n\nav"
+      "g_value3\030\014 \002(\001\022\025\n\roffset_value1\030\r \002(\001\022\025\n"
+      "\roffset_value2\030\016 \002(\001\022\025\n\roffset_value3\030\017 "
+      "\002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013description\030\021 \002(\014\"\265\004"
+      "\n\024S2Web_Sensor_History\022\n\n\002id\030\001 \002(\r\022\021\n\tlo"
+      "ngitude\030\002 \002(\001\022\020\n\010latitude\030\003 \002(\001\022\022\n\nbegin"
+      "_time\030\004 \002(\r\022\020\n\010end_time\030\005 \002(\r\022\021\n\tinvterv"
+      "al\030\006 \002(\r\022\022\n\navg_value1\030\007 \002(\001\022\022\n\navg_valu"
+      "e2\030\010 \002(\001\022\022\n\navg_value3\030\t \002(\001\022N\n\014history_"
+      "list\030\n \003(\01328.WEB_SERVER_NET_Protocol.S2W"
+      "eb_Sensor_History.SensorData\032\246\002\n\nSensorD"
       "ata\022\022\n\nmin_value1\030\001 \002(\001\022\022\n\nmin_value2\030\002 "
       "\002(\001\022\022\n\nmin_value3\030\003 \002(\001\022\022\n\nmax_value1\030\004 "
       "\002(\001\022\022\n\nmax_value2\030\005 \002(\001\022\022\n\nmax_value3\030\006 "
-      "\002(\001\"!\n\013S2WEB_ERROR\022\022\n\nerror_code\030\001 \002(\r*\246"
-      "\004\n\005WEB2S\022\017\n\013web2s_login\020\000\022\034\n\030web2s_reque"
-      "st_slope_list\020\001\022\035\n\031web2s_request_sensor_"
-      "list\020\002\022 \n\034web2s_request_sensor_history\020\003"
-      "\022\016\n\nweb2s_ping\020\004\022\032\n\026web2s_request_all_li"
-      "st\020\005\022\022\n\016web2s_reserve3\020\006\022\022\n\016web2s_reserv"
-      "e4\020\007\022\022\n\016web2s_reserve5\020\010\022\022\n\016web2s_reserv"
-      "e6\020\t\022\022\n\016web2s_reserve7\020\n\022\022\n\016web2s_reserv"
-      "e8\020\013\022\022\n\016web2s_reserve9\020\014\022\023\n\017web2s_reserv"
-      "e10\020\r\022\023\n\017web2s_reserve11\020\016\022\023\n\017web2s_rese"
-      "rve12\020\017\022\023\n\017web2s_reserve13\020\020\022\023\n\017web2s_re"
-      "serve14\020\021\022\023\n\017web2s_reserve15\020\022\022\023\n\017web2s_"
-      "reserve16\020\023\022\023\n\017web2s_reserve17\020\024\022\023\n\017web2"
-      "s_reserve18\020\025\022\023\n\017web2s_reserve19\020\026\022\023\n\017we"
-      "b2s_reserve20\020\027\022\016\n\tweb2s_max\020\200\002*\237\001\n\005S2WE"
-      "B\022\026\n\022s2web_login_result\020\000\022\024\n\020s2web_slope"
-      "_list\020\001\022\025\n\021s2web_sensor_list\020\002\022\030\n\024s2web_"
-      "sensor_history\020\003\022\026\n\022s2web_all_list_end\020\004"
-      "\022\017\n\013s2web_error\020\005\022\016\n\ts2web_max\020\200\002"
+      "\002(\001\022\031\n\021min_offset_value1\030\007 \002(\001\022\031\n\021min_of"
+      "fset_value2\030\010 \002(\001\022\031\n\021min_offset_value3\030\t"
+      " \002(\001\022\031\n\021max_offset_value1\030\n \002(\001\022\031\n\021max_o"
+      "ffset_value2\030\013 \002(\001\022\031\n\021max_offset_value3\030"
+      "\014 \002(\001\"!\n\013S2WEB_ERROR\022\022\n\nerror_code\030\001 \002(\r"
+      "\"z\n\017S2WEB_New_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030"
+      "\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlo"
+      "ngitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007"
+      " \002(\014\"!\n\017S2WEB_Del_Slope\022\016\n\006result\030\001 \002(\r\""
+      "}\n\022S2WEB_Update_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004typ"
+      "e\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\t"
+      "longitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url"
+      "\030\007 \002(\014\"\224\001\n\020S2WEB_Add_Sensor\022\n\n\002id\030\001 \002(\r\022"
+      "\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id"
+      "\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 "
+      "\002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\"\"\n"
+      "\020S2WEB_Del_Sensor\022\016\n\006result\030\001 \002(\r\"\227\001\n\023S2"
+      "WEB_Update_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 "
+      "\002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\t"
+      "longitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url"
+      "\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\".\n\034S2WEB_Mod"
+      "ify_Password_Result\022\016\n\006result\030\001 \002(\r\"\231\001\n\017"
+      "S2WEB_User_List\022D\n\tuser_list\030\001 \003(\01321.WEB"
+      "_SERVER_NET_Protocol.S2WEB_User_List.Use"
+      "rData\032@\n\010UserData\022\017\n\007user_id\030\001 \002(\r\022\021\n\tus"
+      "er_name\030\002 \002(\014\022\020\n\010group_id\030\003 \002(\r\"I\n\021S2WEB"
+      "_Create_User\022\017\n\007user_id\030\001 \002(\r\022\021\n\tuser_na"
+      "me\030\002 \002(\014\022\020\n\010group_id\030\003 \002(\r\"6\n\021S2WEB_Modi"
+      "fy_User\022\017\n\007user_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002"
+      "(\r\"\037\n\021S2WEB_Remove_User\022\n\n\002id\030\001 \002(\r\"\202\001\n\020"
+      "S2WEB_Group_List\022G\n\ngroup_list\030\001 \003(\01323.W"
+      "EB_SERVER_NET_Protocol.S2WEB_Group_List."
+      "GroupData\032%\n\tGroupData\022\n\n\002id\030\001 \002(\r\022\014\n\004na"
+      "me\030\002 \002(\014\"\224\001\n\022S2WEB_Create_Group\022\n\n\002id\030\001 "
+      "\002(\r\022\014\n\004name\030\002 \002(\014\022\026\n\016load_user_list\030\003 \001("
+      "\r\022\034\n\024load_user_group_list\030\004 \001(\r\022\023\n\013modif"
+      "y_user\030\005 \001(\r\022\031\n\021modify_user_group\030\006 \001(\r\""
+      "\265\001\n\022S2WEB_Modify_Group\022\n\n\002id\030\001 \002(\r\022\014\n\004na"
+      "me\030\002 \002(\014\022\026\n\016load_user_list\030\003 \001(\r\022\034\n\024load"
+      "_user_group_list\030\004 \001(\r\022\031\n\021create_user_gr"
+      "oup\030\005 \001(\r\022\031\n\021modify_user_group\030\006 \001(\r\022\031\n\021"
+      "remove_user_group\030\007 \001(\r\" \n\022S2WEB_Remove_"
+      "Group\022\n\n\002id\030\001 \002(\r\"<\n\027S2WEB_Add_User_To_G"
+      "roup\022\017\n\007user_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\""
+      "A\n\034S2WEB_Remove_User_From_Group\022\017\n\007user_"
+      "id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\"\331\001\n\024S2WEB_Aut"
+      "hority_List\022S\n\016authority_list\030\001 \003(\0132;.WE"
+      "B_SERVER_NET_Protocol.S2WEB_Authority_Li"
+      "st.AuthorityData\032l\n\rAuthorityData\022\024\n\014aut"
+      "hority_id\030\001 \002(\r\022\021\n\tparent_id\030\002 \002(\r\022\013\n\003ur"
+      "l\030\003 \002(\014\022\023\n\013description\030\004 \002(\014\022\020\n\010icon_url"
+      "\030\005 \002(\014*\247\005\n\005WEB2S\022\017\n\013web2s_login\020\000\022\034\n\030web"
+      "2s_request_slope_list\020\001\022\035\n\031web2s_request"
+      "_sensor_list\020\002\022 \n\034web2s_request_sensor_h"
+      "istory\020\003\022\016\n\nweb2s_ping\020\004\022\032\n\026web2s_reques"
+      "t_all_list\020\005\022\023\n\017web2s_add_slope\020\006\022\023\n\017web"
+      "2s_del_slope\020\007\022\033\n\027web2s_update_slope_dat"
+      "a\020\010\022\024\n\020web2s_add_sensor\020\t\022\024\n\020web2s_del_s"
+      "ensor\020\n\022\034\n\030web2s_update_sensor_data\020\013\022\031\n"
+      "\025web2s_modify_password\020\014\022\024\n\020web2s_find_s"
+      "lope\020\r\022\025\n\021web2s_find_sensor\020\016\022\030\n\024web2s_l"
+      "oad_user_list\020\017\022\025\n\021web2s_create_user\020\020\022\025"
+      "\n\021web2s_modify_user\020\021\022\025\n\021web2s_remove_us"
+      "er\020\022\022\031\n\025web2s_load_group_list\020\023\022\026\n\022web2s"
+      "_create_group\020\024\022\033\n\027web2s_add_user_to_gro"
+      "up\020\025\022 \n\034web2s_remove_user_from_group\020\026\022\026"
+      "\n\022web2s_modify_group\020\027\022\026\n\022web2s_remove_g"
+      "roup\020\030\022\030\n\024web2s_load_authority\020\031\022\016\n\tweb2"
+      "s_max\020\200\002*\331\004\n\005S2WEB\022\026\n\022s2web_login_result"
+      "\020\000\022\024\n\020s2web_slope_list\020\001\022\025\n\021s2web_sensor"
+      "_list\020\002\022\030\n\024s2web_sensor_history\020\003\022\026\n\022s2w"
+      "eb_all_list_end\020\004\022\017\n\013s2web_error\020\005\022\023\n\017s2"
+      "web_new_slope\020\006\022\023\n\017s2web_del_slope\020\007\022\026\n\022"
+      "s2web_update_slope\020\010\022\024\n\020s2web_add_sensor"
+      "\020\t\022\024\n\020s2web_del_sensor\020\n\022\027\n\023s2web_update"
+      "_sensor\020\013\022 \n\034s2web_modify_password_resul"
+      "t\020\014\022\023\n\017s2web_user_list\020\r\022\025\n\021s2web_create"
+      "_user\020\016\022\025\n\021s2web_modify_user\020\017\022\025\n\021s2web_"
+      "remove_user\020\020\022\024\n\020s2web_group_list\020\021\022\026\n\022s"
+      "2web_create_group\020\022\022\026\n\022s2web_modify_grou"
+      "p\020\023\022\026\n\022s2web_remove_group\020\024\022\033\n\027s2web_add"
+      "_user_to_group\020\025\022 \n\034s2web_remove_user_fr"
+      "om_group\020\026\022\030\n\024s2web_authority_list\020\027\022\016\n\t"
+      "s2web_max\020\200\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2193);
+      descriptor, 6332);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Web_Server_Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -469,6 +1356,8 @@ bool WEB2S_IsValid(int value) {
     case 21:
     case 22:
     case 23:
+    case 24:
+    case 25:
     case 256:
       return true;
     default:
@@ -488,6 +1377,24 @@ bool S2WEB_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 21:
+    case 22:
+    case 23:
     case 256:
       return true;
     default:
@@ -1893,6 +2800,8547 @@ void WEB2S_Request_Sensor_History::set_end_time(::google::protobuf::uint32 value
   set_has_end_time();
   end_time_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Request_Sensor_History.end_time)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Add_Slope::kTypeFieldNumber;
+const int WEB2S_Add_Slope::kNameFieldNumber;
+const int WEB2S_Add_Slope::kLongitudeFieldNumber;
+const int WEB2S_Add_Slope::kLatitudeFieldNumber;
+const int WEB2S_Add_Slope::kUrlFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Add_Slope::WEB2S_Add_Slope()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+}
+WEB2S_Add_Slope::WEB2S_Add_Slope(const WEB2S_Add_Slope& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_name()) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  ::memcpy(&longitude_, &from.longitude_,
+    reinterpret_cast<char*>(&type_) -
+    reinterpret_cast<char*>(&longitude_) + sizeof(type_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+}
+
+void WEB2S_Add_Slope::SharedCtor() {
+  _cached_size_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&longitude_, 0, reinterpret_cast<char*>(&type_) -
+    reinterpret_cast<char*>(&longitude_) + sizeof(type_));
+}
+
+WEB2S_Add_Slope::~WEB2S_Add_Slope() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  SharedDtor();
+}
+
+void WEB2S_Add_Slope::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void WEB2S_Add_Slope::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Add_Slope::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Add_Slope& WEB2S_Add_Slope::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Add_Slope* WEB2S_Add_Slope::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Add_Slope* n = new WEB2S_Add_Slope;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Add_Slope::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_name()) {
+      GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*name_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 28u) {
+    ::memset(&longitude_, 0, reinterpret_cast<char*>(&type_) -
+      reinterpret_cast<char*>(&longitude_) + sizeof(type_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Add_Slope::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 type = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double longitude = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(33u)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Add_Slope::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 type = 1;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->type(), output);
+  }
+
+  // required bytes name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->name(), output);
+  }
+
+  // required double longitude = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->longitude(), output);
+  }
+
+  // required double latitude = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->latitude(), output);
+  }
+
+  // required bytes url = 5;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      5, this->url(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+}
+
+::google::protobuf::uint8* WEB2S_Add_Slope::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 type = 1;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->type(), target);
+  }
+
+  // required bytes name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->name(), target);
+  }
+
+  // required double longitude = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->longitude(), target);
+  }
+
+  // required double latitude = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->latitude(), target);
+  }
+
+  // required bytes url = 5;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        5, this->url(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  return target;
+}
+
+size_t WEB2S_Add_Slope::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  size_t total_size = 0;
+
+  if (has_name()) {
+    // required bytes name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+  }
+
+  if (has_url()) {
+    // required bytes url = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_longitude()) {
+    // required double longitude = 3;
+    total_size += 1 + 8;
+  }
+
+  if (has_latitude()) {
+    // required double latitude = 4;
+    total_size += 1 + 8;
+  }
+
+  if (has_type()) {
+    // required uint32 type = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+  }
+
+  return total_size;
+}
+size_t WEB2S_Add_Slope::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+    // required bytes name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+
+    // required bytes url = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required double longitude = 3;
+    total_size += 1 + 8;
+
+    // required double latitude = 4;
+    total_size += 1 + 8;
+
+    // required uint32 type = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Add_Slope::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Add_Slope* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Add_Slope>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Add_Slope::MergeFrom(const WEB2S_Add_Slope& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 31u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      longitude_ = from.longitude_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      latitude_ = from.latitude_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      type_ = from.type_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Add_Slope::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Add_Slope::CopyFrom(const WEB2S_Add_Slope& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Add_Slope::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+  return true;
+}
+
+void WEB2S_Add_Slope::Swap(WEB2S_Add_Slope* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Add_Slope::InternalSwap(WEB2S_Add_Slope* other) {
+  name_.Swap(&other->name_);
+  url_.Swap(&other->url_);
+  std::swap(longitude_, other->longitude_);
+  std::swap(latitude_, other->latitude_);
+  std::swap(type_, other->type_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Add_Slope::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Add_Slope
+
+// required uint32 type = 1;
+bool WEB2S_Add_Slope::has_type() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void WEB2S_Add_Slope::set_has_type() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void WEB2S_Add_Slope::clear_has_type() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void WEB2S_Add_Slope::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+::google::protobuf::uint32 WEB2S_Add_Slope::type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.type)
+  return type_;
+}
+void WEB2S_Add_Slope::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.type)
+}
+
+// required bytes name = 2;
+bool WEB2S_Add_Slope::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Add_Slope::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Add_Slope::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Add_Slope::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+const ::std::string& WEB2S_Add_Slope::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.name)
+  return name_.GetNoArena();
+}
+void WEB2S_Add_Slope::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.name)
+}
+#if LANG_CXX11
+void WEB2S_Add_Slope::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.name)
+}
+#endif
+void WEB2S_Add_Slope::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.name)
+}
+void WEB2S_Add_Slope::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.name)
+}
+::std::string* WEB2S_Add_Slope::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Add_Slope::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Add_Slope::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.name)
+}
+
+// required double longitude = 3;
+bool WEB2S_Add_Slope::has_longitude() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void WEB2S_Add_Slope::set_has_longitude() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void WEB2S_Add_Slope::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void WEB2S_Add_Slope::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+double WEB2S_Add_Slope::longitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.longitude)
+  return longitude_;
+}
+void WEB2S_Add_Slope::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.longitude)
+}
+
+// required double latitude = 4;
+bool WEB2S_Add_Slope::has_latitude() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void WEB2S_Add_Slope::set_has_latitude() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void WEB2S_Add_Slope::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void WEB2S_Add_Slope::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+double WEB2S_Add_Slope::latitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.latitude)
+  return latitude_;
+}
+void WEB2S_Add_Slope::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.latitude)
+}
+
+// required bytes url = 5;
+bool WEB2S_Add_Slope::has_url() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Add_Slope::set_has_url() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Add_Slope::clear_has_url() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Add_Slope::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& WEB2S_Add_Slope::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.url)
+  return url_.GetNoArena();
+}
+void WEB2S_Add_Slope::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.url)
+}
+#if LANG_CXX11
+void WEB2S_Add_Slope::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.url)
+}
+#endif
+void WEB2S_Add_Slope::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.url)
+}
+void WEB2S_Add_Slope::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.url)
+}
+::std::string* WEB2S_Add_Slope::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Add_Slope::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Add_Slope::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.url)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Del_Slope::kIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Del_Slope::WEB2S_Del_Slope()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+}
+WEB2S_Del_Slope::WEB2S_Del_Slope(const WEB2S_Del_Slope& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  id_ = from.id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+}
+
+void WEB2S_Del_Slope::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = 0u;
+}
+
+WEB2S_Del_Slope::~WEB2S_Del_Slope() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  SharedDtor();
+}
+
+void WEB2S_Del_Slope::SharedDtor() {
+}
+
+void WEB2S_Del_Slope::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Del_Slope::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Del_Slope& WEB2S_Del_Slope::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Del_Slope* WEB2S_Del_Slope::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Del_Slope* n = new WEB2S_Del_Slope;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Del_Slope::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Del_Slope::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Del_Slope::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+}
+
+::google::protobuf::uint8* WEB2S_Del_Slope::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  return target;
+}
+
+size_t WEB2S_Del_Slope::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 id = 1;
+  if (has_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Del_Slope::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Del_Slope* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Del_Slope>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Del_Slope::MergeFrom(const WEB2S_Del_Slope& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_id()) {
+    set_id(from.id());
+  }
+}
+
+void WEB2S_Del_Slope::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Del_Slope::CopyFrom(const WEB2S_Del_Slope& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Del_Slope::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void WEB2S_Del_Slope::Swap(WEB2S_Del_Slope* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Del_Slope::InternalSwap(WEB2S_Del_Slope* other) {
+  std::swap(id_, other->id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Del_Slope::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Del_Slope
+
+// required uint32 id = 1;
+bool WEB2S_Del_Slope::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Del_Slope::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Del_Slope::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Del_Slope::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 WEB2S_Del_Slope::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope.id)
+  return id_;
+}
+void WEB2S_Del_Slope::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Del_Slope.id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Update_Slope_Data::kIdFieldNumber;
+const int WEB2S_Update_Slope_Data::kTypeFieldNumber;
+const int WEB2S_Update_Slope_Data::kNameFieldNumber;
+const int WEB2S_Update_Slope_Data::kLongitudeFieldNumber;
+const int WEB2S_Update_Slope_Data::kLatitudeFieldNumber;
+const int WEB2S_Update_Slope_Data::kUrlFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Update_Slope_Data::WEB2S_Update_Slope_Data()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+}
+WEB2S_Update_Slope_Data::WEB2S_Update_Slope_Data(const WEB2S_Update_Slope_Data& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_name()) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  ::memcpy(&id_, &from.id_,
+    reinterpret_cast<char*>(&latitude_) -
+    reinterpret_cast<char*>(&id_) + sizeof(latitude_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+}
+
+void WEB2S_Update_Slope_Data::SharedCtor() {
+  _cached_size_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&id_, 0, reinterpret_cast<char*>(&latitude_) -
+    reinterpret_cast<char*>(&id_) + sizeof(latitude_));
+}
+
+WEB2S_Update_Slope_Data::~WEB2S_Update_Slope_Data() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  SharedDtor();
+}
+
+void WEB2S_Update_Slope_Data::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void WEB2S_Update_Slope_Data::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Update_Slope_Data::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Update_Slope_Data& WEB2S_Update_Slope_Data::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Update_Slope_Data* WEB2S_Update_Slope_Data::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Update_Slope_Data* n = new WEB2S_Update_Slope_Data;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Update_Slope_Data::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_name()) {
+      GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*name_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 60u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&latitude_) -
+      reinterpret_cast<char*>(&id_) + sizeof(latitude_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Update_Slope_Data::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 type = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes name = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double longitude = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(33u)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Update_Slope_Data::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->type(), output);
+  }
+
+  // required bytes name = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->name(), output);
+  }
+
+  // required double longitude = 4;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->longitude(), output);
+  }
+
+  // required double latitude = 5;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->latitude(), output);
+  }
+
+  // required bytes url = 6;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      6, this->url(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+}
+
+::google::protobuf::uint8* WEB2S_Update_Slope_Data::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->type(), target);
+  }
+
+  // required bytes name = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->name(), target);
+  }
+
+  // required double longitude = 4;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->longitude(), target);
+  }
+
+  // required double latitude = 5;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->latitude(), target);
+  }
+
+  // required bytes url = 6;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        6, this->url(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  return target;
+}
+
+size_t WEB2S_Update_Slope_Data::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  size_t total_size = 0;
+
+  if (has_name()) {
+    // required bytes name = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+  }
+
+  if (has_url()) {
+    // required bytes url = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_id()) {
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+
+  if (has_type()) {
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+  }
+
+  if (has_longitude()) {
+    // required double longitude = 4;
+    total_size += 1 + 8;
+  }
+
+  if (has_latitude()) {
+    // required double latitude = 5;
+    total_size += 1 + 8;
+  }
+
+  return total_size;
+}
+size_t WEB2S_Update_Slope_Data::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+    // required bytes name = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+
+    // required bytes url = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+
+    // required double longitude = 4;
+    total_size += 1 + 8;
+
+    // required double latitude = 5;
+    total_size += 1 + 8;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Update_Slope_Data::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Update_Slope_Data* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Update_Slope_Data>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Update_Slope_Data::MergeFrom(const WEB2S_Update_Slope_Data& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 63u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      id_ = from.id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      type_ = from.type_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      longitude_ = from.longitude_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      latitude_ = from.latitude_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Update_Slope_Data::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Update_Slope_Data::CopyFrom(const WEB2S_Update_Slope_Data& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Update_Slope_Data::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+  return true;
+}
+
+void WEB2S_Update_Slope_Data::Swap(WEB2S_Update_Slope_Data* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Update_Slope_Data::InternalSwap(WEB2S_Update_Slope_Data* other) {
+  name_.Swap(&other->name_);
+  url_.Swap(&other->url_);
+  std::swap(id_, other->id_);
+  std::swap(type_, other->type_);
+  std::swap(longitude_, other->longitude_);
+  std::swap(latitude_, other->latitude_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Update_Slope_Data::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Update_Slope_Data
+
+// required uint32 id = 1;
+bool WEB2S_Update_Slope_Data::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void WEB2S_Update_Slope_Data::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void WEB2S_Update_Slope_Data::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void WEB2S_Update_Slope_Data::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 WEB2S_Update_Slope_Data::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.id)
+  return id_;
+}
+void WEB2S_Update_Slope_Data::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.id)
+}
+
+// required uint32 type = 2;
+bool WEB2S_Update_Slope_Data::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void WEB2S_Update_Slope_Data::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void WEB2S_Update_Slope_Data::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void WEB2S_Update_Slope_Data::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+::google::protobuf::uint32 WEB2S_Update_Slope_Data::type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.type)
+  return type_;
+}
+void WEB2S_Update_Slope_Data::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.type)
+}
+
+// required bytes name = 3;
+bool WEB2S_Update_Slope_Data::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Update_Slope_Data::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Update_Slope_Data::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Update_Slope_Data::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+const ::std::string& WEB2S_Update_Slope_Data::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.name)
+  return name_.GetNoArena();
+}
+void WEB2S_Update_Slope_Data::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.name)
+}
+#if LANG_CXX11
+void WEB2S_Update_Slope_Data::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.name)
+}
+#endif
+void WEB2S_Update_Slope_Data::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.name)
+}
+void WEB2S_Update_Slope_Data::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.name)
+}
+::std::string* WEB2S_Update_Slope_Data::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Update_Slope_Data::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Update_Slope_Data::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.name)
+}
+
+// required double longitude = 4;
+bool WEB2S_Update_Slope_Data::has_longitude() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void WEB2S_Update_Slope_Data::set_has_longitude() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void WEB2S_Update_Slope_Data::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void WEB2S_Update_Slope_Data::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+double WEB2S_Update_Slope_Data::longitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.longitude)
+  return longitude_;
+}
+void WEB2S_Update_Slope_Data::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.longitude)
+}
+
+// required double latitude = 5;
+bool WEB2S_Update_Slope_Data::has_latitude() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void WEB2S_Update_Slope_Data::set_has_latitude() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void WEB2S_Update_Slope_Data::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void WEB2S_Update_Slope_Data::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+double WEB2S_Update_Slope_Data::latitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.latitude)
+  return latitude_;
+}
+void WEB2S_Update_Slope_Data::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.latitude)
+}
+
+// required bytes url = 6;
+bool WEB2S_Update_Slope_Data::has_url() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Update_Slope_Data::set_has_url() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Update_Slope_Data::clear_has_url() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Update_Slope_Data::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& WEB2S_Update_Slope_Data::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.url)
+  return url_.GetNoArena();
+}
+void WEB2S_Update_Slope_Data::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.url)
+}
+#if LANG_CXX11
+void WEB2S_Update_Slope_Data::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.url)
+}
+#endif
+void WEB2S_Update_Slope_Data::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.url)
+}
+void WEB2S_Update_Slope_Data::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.url)
+}
+::std::string* WEB2S_Update_Slope_Data::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Update_Slope_Data::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Update_Slope_Data::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.url)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Add_Sensor::kTypeFieldNumber;
+const int WEB2S_Add_Sensor::kSlopeIdFieldNumber;
+const int WEB2S_Add_Sensor::kLongitudeFieldNumber;
+const int WEB2S_Add_Sensor::kLatitudeFieldNumber;
+const int WEB2S_Add_Sensor::kUrlFieldNumber;
+const int WEB2S_Add_Sensor::kDescriptionFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Add_Sensor::WEB2S_Add_Sensor()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+}
+WEB2S_Add_Sensor::WEB2S_Add_Sensor(const WEB2S_Add_Sensor& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_description()) {
+    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+  }
+  ::memcpy(&type_, &from.type_,
+    reinterpret_cast<char*>(&latitude_) -
+    reinterpret_cast<char*>(&type_) + sizeof(latitude_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+}
+
+void WEB2S_Add_Sensor::SharedCtor() {
+  _cached_size_ = 0;
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&type_, 0, reinterpret_cast<char*>(&latitude_) -
+    reinterpret_cast<char*>(&type_) + sizeof(latitude_));
+}
+
+WEB2S_Add_Sensor::~WEB2S_Add_Sensor() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  SharedDtor();
+}
+
+void WEB2S_Add_Sensor::SharedDtor() {
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void WEB2S_Add_Sensor::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Add_Sensor::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Add_Sensor& WEB2S_Add_Sensor::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Add_Sensor* WEB2S_Add_Sensor::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Add_Sensor* n = new WEB2S_Add_Sensor;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Add_Sensor::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_description()) {
+      GOOGLE_DCHECK(!description_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*description_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 60u) {
+    ::memset(&type_, 0, reinterpret_cast<char*>(&latitude_) -
+      reinterpret_cast<char*>(&type_) + sizeof(latitude_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Add_Sensor::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 type = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 slope_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_slope_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slope_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double longitude = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(33u)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes description = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_description()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Add_Sensor::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 type = 1;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->type(), output);
+  }
+
+  // required uint32 slope_id = 2;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->slope_id(), output);
+  }
+
+  // required double longitude = 3;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->longitude(), output);
+  }
+
+  // required double latitude = 4;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->latitude(), output);
+  }
+
+  // required bytes url = 5;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      5, this->url(), output);
+  }
+
+  // required bytes description = 6;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      6, this->description(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+}
+
+::google::protobuf::uint8* WEB2S_Add_Sensor::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 type = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->type(), target);
+  }
+
+  // required uint32 slope_id = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->slope_id(), target);
+  }
+
+  // required double longitude = 3;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->longitude(), target);
+  }
+
+  // required double latitude = 4;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->latitude(), target);
+  }
+
+  // required bytes url = 5;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        5, this->url(), target);
+  }
+
+  // required bytes description = 6;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        6, this->description(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  return target;
+}
+
+size_t WEB2S_Add_Sensor::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  size_t total_size = 0;
+
+  if (has_url()) {
+    // required bytes url = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_description()) {
+    // required bytes description = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+  }
+
+  if (has_type()) {
+    // required uint32 type = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+  }
+
+  if (has_slope_id()) {
+    // required uint32 slope_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+  }
+
+  if (has_longitude()) {
+    // required double longitude = 3;
+    total_size += 1 + 8;
+  }
+
+  if (has_latitude()) {
+    // required double latitude = 4;
+    total_size += 1 + 8;
+  }
+
+  return total_size;
+}
+size_t WEB2S_Add_Sensor::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+    // required bytes url = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required bytes description = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+
+    // required uint32 type = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+
+    // required uint32 slope_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+
+    // required double longitude = 3;
+    total_size += 1 + 8;
+
+    // required double latitude = 4;
+    total_size += 1 + 8;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Add_Sensor::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Add_Sensor* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Add_Sensor>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Add_Sensor::MergeFrom(const WEB2S_Add_Sensor& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 63u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_description();
+      description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      type_ = from.type_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      slope_id_ = from.slope_id_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      longitude_ = from.longitude_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      latitude_ = from.latitude_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Add_Sensor::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Add_Sensor::CopyFrom(const WEB2S_Add_Sensor& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Add_Sensor::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+  return true;
+}
+
+void WEB2S_Add_Sensor::Swap(WEB2S_Add_Sensor* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Add_Sensor::InternalSwap(WEB2S_Add_Sensor* other) {
+  url_.Swap(&other->url_);
+  description_.Swap(&other->description_);
+  std::swap(type_, other->type_);
+  std::swap(slope_id_, other->slope_id_);
+  std::swap(longitude_, other->longitude_);
+  std::swap(latitude_, other->latitude_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Add_Sensor::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Add_Sensor
+
+// required uint32 type = 1;
+bool WEB2S_Add_Sensor::has_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void WEB2S_Add_Sensor::set_has_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void WEB2S_Add_Sensor::clear_has_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void WEB2S_Add_Sensor::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+::google::protobuf::uint32 WEB2S_Add_Sensor::type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.type)
+  return type_;
+}
+void WEB2S_Add_Sensor::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.type)
+}
+
+// required uint32 slope_id = 2;
+bool WEB2S_Add_Sensor::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void WEB2S_Add_Sensor::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void WEB2S_Add_Sensor::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void WEB2S_Add_Sensor::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+::google::protobuf::uint32 WEB2S_Add_Sensor::slope_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.slope_id)
+  return slope_id_;
+}
+void WEB2S_Add_Sensor::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.slope_id)
+}
+
+// required double longitude = 3;
+bool WEB2S_Add_Sensor::has_longitude() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void WEB2S_Add_Sensor::set_has_longitude() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void WEB2S_Add_Sensor::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void WEB2S_Add_Sensor::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+double WEB2S_Add_Sensor::longitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.longitude)
+  return longitude_;
+}
+void WEB2S_Add_Sensor::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.longitude)
+}
+
+// required double latitude = 4;
+bool WEB2S_Add_Sensor::has_latitude() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void WEB2S_Add_Sensor::set_has_latitude() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void WEB2S_Add_Sensor::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void WEB2S_Add_Sensor::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+double WEB2S_Add_Sensor::latitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.latitude)
+  return latitude_;
+}
+void WEB2S_Add_Sensor::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.latitude)
+}
+
+// required bytes url = 5;
+bool WEB2S_Add_Sensor::has_url() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Add_Sensor::set_has_url() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Add_Sensor::clear_has_url() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Add_Sensor::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& WEB2S_Add_Sensor::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.url)
+  return url_.GetNoArena();
+}
+void WEB2S_Add_Sensor::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.url)
+}
+#if LANG_CXX11
+void WEB2S_Add_Sensor::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.url)
+}
+#endif
+void WEB2S_Add_Sensor::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.url)
+}
+void WEB2S_Add_Sensor::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.url)
+}
+::std::string* WEB2S_Add_Sensor::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Add_Sensor::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Add_Sensor::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.url)
+}
+
+// required bytes description = 6;
+bool WEB2S_Add_Sensor::has_description() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Add_Sensor::set_has_description() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Add_Sensor::clear_has_description() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Add_Sensor::clear_description() {
+  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_description();
+}
+const ::std::string& WEB2S_Add_Sensor::description() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.description)
+  return description_.GetNoArena();
+}
+void WEB2S_Add_Sensor::set_description(const ::std::string& value) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.description)
+}
+#if LANG_CXX11
+void WEB2S_Add_Sensor::set_description(::std::string&& value) {
+  set_has_description();
+  description_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.description)
+}
+#endif
+void WEB2S_Add_Sensor::set_description(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.description)
+}
+void WEB2S_Add_Sensor::set_description(const void* value, size_t size) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.description)
+}
+::std::string* WEB2S_Add_Sensor::mutable_description() {
+  set_has_description();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.description)
+  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Add_Sensor::release_description() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.description)
+  clear_has_description();
+  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Add_Sensor::set_allocated_description(::std::string* description) {
+  if (description != NULL) {
+    set_has_description();
+  } else {
+    clear_has_description();
+  }
+  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.description)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Del_Sensor::kIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Del_Sensor::WEB2S_Del_Sensor()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+}
+WEB2S_Del_Sensor::WEB2S_Del_Sensor(const WEB2S_Del_Sensor& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  id_ = from.id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+}
+
+void WEB2S_Del_Sensor::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = 0u;
+}
+
+WEB2S_Del_Sensor::~WEB2S_Del_Sensor() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  SharedDtor();
+}
+
+void WEB2S_Del_Sensor::SharedDtor() {
+}
+
+void WEB2S_Del_Sensor::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Del_Sensor::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Del_Sensor& WEB2S_Del_Sensor::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Del_Sensor* WEB2S_Del_Sensor::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Del_Sensor* n = new WEB2S_Del_Sensor;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Del_Sensor::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Del_Sensor::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Del_Sensor::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+}
+
+::google::protobuf::uint8* WEB2S_Del_Sensor::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  return target;
+}
+
+size_t WEB2S_Del_Sensor::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 id = 1;
+  if (has_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Del_Sensor::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Del_Sensor* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Del_Sensor>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Del_Sensor::MergeFrom(const WEB2S_Del_Sensor& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_id()) {
+    set_id(from.id());
+  }
+}
+
+void WEB2S_Del_Sensor::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Del_Sensor::CopyFrom(const WEB2S_Del_Sensor& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Del_Sensor::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void WEB2S_Del_Sensor::Swap(WEB2S_Del_Sensor* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Del_Sensor::InternalSwap(WEB2S_Del_Sensor* other) {
+  std::swap(id_, other->id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Del_Sensor::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Del_Sensor
+
+// required uint32 id = 1;
+bool WEB2S_Del_Sensor::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Del_Sensor::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Del_Sensor::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Del_Sensor::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 WEB2S_Del_Sensor::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor.id)
+  return id_;
+}
+void WEB2S_Del_Sensor::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Del_Sensor.id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Update_Sensor_Data::kIdFieldNumber;
+const int WEB2S_Update_Sensor_Data::kTypeFieldNumber;
+const int WEB2S_Update_Sensor_Data::kSlopeIdFieldNumber;
+const int WEB2S_Update_Sensor_Data::kLongitudeFieldNumber;
+const int WEB2S_Update_Sensor_Data::kLatitudeFieldNumber;
+const int WEB2S_Update_Sensor_Data::kUrlFieldNumber;
+const int WEB2S_Update_Sensor_Data::kDescriptionFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Update_Sensor_Data::WEB2S_Update_Sensor_Data()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+}
+WEB2S_Update_Sensor_Data::WEB2S_Update_Sensor_Data(const WEB2S_Update_Sensor_Data& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_description()) {
+    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+  }
+  ::memcpy(&id_, &from.id_,
+    reinterpret_cast<char*>(&slope_id_) -
+    reinterpret_cast<char*>(&id_) + sizeof(slope_id_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+}
+
+void WEB2S_Update_Sensor_Data::SharedCtor() {
+  _cached_size_ = 0;
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&id_, 0, reinterpret_cast<char*>(&slope_id_) -
+    reinterpret_cast<char*>(&id_) + sizeof(slope_id_));
+}
+
+WEB2S_Update_Sensor_Data::~WEB2S_Update_Sensor_Data() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  SharedDtor();
+}
+
+void WEB2S_Update_Sensor_Data::SharedDtor() {
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void WEB2S_Update_Sensor_Data::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Update_Sensor_Data::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Update_Sensor_Data& WEB2S_Update_Sensor_Data::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Update_Sensor_Data* WEB2S_Update_Sensor_Data::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Update_Sensor_Data* n = new WEB2S_Update_Sensor_Data;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Update_Sensor_Data::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_description()) {
+      GOOGLE_DCHECK(!description_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*description_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 124u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&slope_id_) -
+      reinterpret_cast<char*>(&id_) + sizeof(slope_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Update_Sensor_Data::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 type = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 slope_id = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_slope_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slope_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double longitude = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(33u)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes description = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_description()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Update_Sensor_Data::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->type(), output);
+  }
+
+  // required uint32 slope_id = 3;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->slope_id(), output);
+  }
+
+  // required double longitude = 4;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->longitude(), output);
+  }
+
+  // required double latitude = 5;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->latitude(), output);
+  }
+
+  // required bytes url = 6;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      6, this->url(), output);
+  }
+
+  // required bytes description = 7;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      7, this->description(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+}
+
+::google::protobuf::uint8* WEB2S_Update_Sensor_Data::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->type(), target);
+  }
+
+  // required uint32 slope_id = 3;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->slope_id(), target);
+  }
+
+  // required double longitude = 4;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->longitude(), target);
+  }
+
+  // required double latitude = 5;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->latitude(), target);
+  }
+
+  // required bytes url = 6;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        6, this->url(), target);
+  }
+
+  // required bytes description = 7;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        7, this->description(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  return target;
+}
+
+size_t WEB2S_Update_Sensor_Data::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  size_t total_size = 0;
+
+  if (has_url()) {
+    // required bytes url = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_description()) {
+    // required bytes description = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+  }
+
+  if (has_id()) {
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+
+  if (has_type()) {
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+  }
+
+  if (has_longitude()) {
+    // required double longitude = 4;
+    total_size += 1 + 8;
+  }
+
+  if (has_latitude()) {
+    // required double latitude = 5;
+    total_size += 1 + 8;
+  }
+
+  if (has_slope_id()) {
+    // required uint32 slope_id = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+  }
+
+  return total_size;
+}
+size_t WEB2S_Update_Sensor_Data::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000007f) ^ 0x0000007f) == 0) {  // All required fields are present.
+    // required bytes url = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required bytes description = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+
+    // required double longitude = 4;
+    total_size += 1 + 8;
+
+    // required double latitude = 5;
+    total_size += 1 + 8;
+
+    // required uint32 slope_id = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Update_Sensor_Data::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Update_Sensor_Data* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Update_Sensor_Data>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Update_Sensor_Data::MergeFrom(const WEB2S_Update_Sensor_Data& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 127u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_description();
+      description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      id_ = from.id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      type_ = from.type_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      longitude_ = from.longitude_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      latitude_ = from.latitude_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      slope_id_ = from.slope_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Update_Sensor_Data::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Update_Sensor_Data::CopyFrom(const WEB2S_Update_Sensor_Data& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Update_Sensor_Data::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
+  return true;
+}
+
+void WEB2S_Update_Sensor_Data::Swap(WEB2S_Update_Sensor_Data* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Update_Sensor_Data::InternalSwap(WEB2S_Update_Sensor_Data* other) {
+  url_.Swap(&other->url_);
+  description_.Swap(&other->description_);
+  std::swap(id_, other->id_);
+  std::swap(type_, other->type_);
+  std::swap(longitude_, other->longitude_);
+  std::swap(latitude_, other->latitude_);
+  std::swap(slope_id_, other->slope_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Update_Sensor_Data::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Update_Sensor_Data
+
+// required uint32 id = 1;
+bool WEB2S_Update_Sensor_Data::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void WEB2S_Update_Sensor_Data::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void WEB2S_Update_Sensor_Data::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void WEB2S_Update_Sensor_Data::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 WEB2S_Update_Sensor_Data::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.id)
+  return id_;
+}
+void WEB2S_Update_Sensor_Data::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.id)
+}
+
+// required uint32 type = 2;
+bool WEB2S_Update_Sensor_Data::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void WEB2S_Update_Sensor_Data::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void WEB2S_Update_Sensor_Data::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void WEB2S_Update_Sensor_Data::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+::google::protobuf::uint32 WEB2S_Update_Sensor_Data::type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.type)
+  return type_;
+}
+void WEB2S_Update_Sensor_Data::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.type)
+}
+
+// required uint32 slope_id = 3;
+bool WEB2S_Update_Sensor_Data::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void WEB2S_Update_Sensor_Data::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void WEB2S_Update_Sensor_Data::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void WEB2S_Update_Sensor_Data::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+::google::protobuf::uint32 WEB2S_Update_Sensor_Data::slope_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.slope_id)
+  return slope_id_;
+}
+void WEB2S_Update_Sensor_Data::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.slope_id)
+}
+
+// required double longitude = 4;
+bool WEB2S_Update_Sensor_Data::has_longitude() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void WEB2S_Update_Sensor_Data::set_has_longitude() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void WEB2S_Update_Sensor_Data::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void WEB2S_Update_Sensor_Data::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+double WEB2S_Update_Sensor_Data::longitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.longitude)
+  return longitude_;
+}
+void WEB2S_Update_Sensor_Data::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.longitude)
+}
+
+// required double latitude = 5;
+bool WEB2S_Update_Sensor_Data::has_latitude() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void WEB2S_Update_Sensor_Data::set_has_latitude() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void WEB2S_Update_Sensor_Data::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void WEB2S_Update_Sensor_Data::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+double WEB2S_Update_Sensor_Data::latitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.latitude)
+  return latitude_;
+}
+void WEB2S_Update_Sensor_Data::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.latitude)
+}
+
+// required bytes url = 6;
+bool WEB2S_Update_Sensor_Data::has_url() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Update_Sensor_Data::set_has_url() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Update_Sensor_Data::clear_has_url() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Update_Sensor_Data::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& WEB2S_Update_Sensor_Data::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.url)
+  return url_.GetNoArena();
+}
+void WEB2S_Update_Sensor_Data::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.url)
+}
+#if LANG_CXX11
+void WEB2S_Update_Sensor_Data::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.url)
+}
+#endif
+void WEB2S_Update_Sensor_Data::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.url)
+}
+void WEB2S_Update_Sensor_Data::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.url)
+}
+::std::string* WEB2S_Update_Sensor_Data::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Update_Sensor_Data::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Update_Sensor_Data::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.url)
+}
+
+// required bytes description = 7;
+bool WEB2S_Update_Sensor_Data::has_description() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Update_Sensor_Data::set_has_description() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Update_Sensor_Data::clear_has_description() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Update_Sensor_Data::clear_description() {
+  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_description();
+}
+const ::std::string& WEB2S_Update_Sensor_Data::description() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.description)
+  return description_.GetNoArena();
+}
+void WEB2S_Update_Sensor_Data::set_description(const ::std::string& value) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.description)
+}
+#if LANG_CXX11
+void WEB2S_Update_Sensor_Data::set_description(::std::string&& value) {
+  set_has_description();
+  description_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.description)
+}
+#endif
+void WEB2S_Update_Sensor_Data::set_description(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.description)
+}
+void WEB2S_Update_Sensor_Data::set_description(const void* value, size_t size) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.description)
+}
+::std::string* WEB2S_Update_Sensor_Data::mutable_description() {
+  set_has_description();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.description)
+  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Update_Sensor_Data::release_description() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.description)
+  clear_has_description();
+  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Update_Sensor_Data::set_allocated_description(::std::string* description) {
+  if (description != NULL) {
+    set_has_description();
+  } else {
+    clear_has_description();
+  }
+  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.description)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Modify_Password::kAccountFieldNumber;
+const int WEB2S_Modify_Password::kNewPasswordFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Modify_Password::WEB2S_Modify_Password()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+}
+WEB2S_Modify_Password::WEB2S_Modify_Password(const WEB2S_Modify_Password& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_account()) {
+    account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
+  }
+  new_password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_new_password()) {
+    new_password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.new_password_);
+  }
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+}
+
+void WEB2S_Modify_Password::SharedCtor() {
+  _cached_size_ = 0;
+  account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  new_password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+WEB2S_Modify_Password::~WEB2S_Modify_Password() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  SharedDtor();
+}
+
+void WEB2S_Modify_Password::SharedDtor() {
+  account_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  new_password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void WEB2S_Modify_Password::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Modify_Password::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Modify_Password& WEB2S_Modify_Password::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Modify_Password* WEB2S_Modify_Password::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Modify_Password* n = new WEB2S_Modify_Password;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Modify_Password::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_account()) {
+      GOOGLE_DCHECK(!account_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*account_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_new_password()) {
+      GOOGLE_DCHECK(!new_password_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*new_password_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Modify_Password::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required bytes account = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_account()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes new_password = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_new_password()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Modify_Password::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bytes account = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->account(), output);
+  }
+
+  // required bytes new_password = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->new_password(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+}
+
+::google::protobuf::uint8* WEB2S_Modify_Password::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bytes account = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->account(), target);
+  }
+
+  // required bytes new_password = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->new_password(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  return target;
+}
+
+size_t WEB2S_Modify_Password::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  size_t total_size = 0;
+
+  if (has_account()) {
+    // required bytes account = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->account());
+  }
+
+  if (has_new_password()) {
+    // required bytes new_password = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->new_password());
+  }
+
+  return total_size;
+}
+size_t WEB2S_Modify_Password::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required bytes account = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->account());
+
+    // required bytes new_password = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->new_password());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Modify_Password::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Modify_Password* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Modify_Password>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Modify_Password::MergeFrom(const WEB2S_Modify_Password& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_account();
+      account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_new_password();
+      new_password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.new_password_);
+    }
+  }
+}
+
+void WEB2S_Modify_Password::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Modify_Password::CopyFrom(const WEB2S_Modify_Password& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Modify_Password::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void WEB2S_Modify_Password::Swap(WEB2S_Modify_Password* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Modify_Password::InternalSwap(WEB2S_Modify_Password* other) {
+  account_.Swap(&other->account_);
+  new_password_.Swap(&other->new_password_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Modify_Password::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Modify_Password
+
+// required bytes account = 1;
+bool WEB2S_Modify_Password::has_account() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Modify_Password::set_has_account() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Modify_Password::clear_has_account() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Modify_Password::clear_account() {
+  account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_account();
+}
+const ::std::string& WEB2S_Modify_Password::account() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.account)
+  return account_.GetNoArena();
+}
+void WEB2S_Modify_Password::set_account(const ::std::string& value) {
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.account)
+}
+#if LANG_CXX11
+void WEB2S_Modify_Password::set_account(::std::string&& value) {
+  set_has_account();
+  account_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.account)
+}
+#endif
+void WEB2S_Modify_Password::set_account(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.account)
+}
+void WEB2S_Modify_Password::set_account(const void* value, size_t size) {
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.account)
+}
+::std::string* WEB2S_Modify_Password::mutable_account() {
+  set_has_account();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.account)
+  return account_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Modify_Password::release_account() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.account)
+  clear_has_account();
+  return account_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Modify_Password::set_allocated_account(::std::string* account) {
+  if (account != NULL) {
+    set_has_account();
+  } else {
+    clear_has_account();
+  }
+  account_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), account);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.account)
+}
+
+// required bytes new_password = 2;
+bool WEB2S_Modify_Password::has_new_password() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Modify_Password::set_has_new_password() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Modify_Password::clear_has_new_password() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Modify_Password::clear_new_password() {
+  new_password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_new_password();
+}
+const ::std::string& WEB2S_Modify_Password::new_password() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.new_password)
+  return new_password_.GetNoArena();
+}
+void WEB2S_Modify_Password::set_new_password(const ::std::string& value) {
+  set_has_new_password();
+  new_password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.new_password)
+}
+#if LANG_CXX11
+void WEB2S_Modify_Password::set_new_password(::std::string&& value) {
+  set_has_new_password();
+  new_password_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.new_password)
+}
+#endif
+void WEB2S_Modify_Password::set_new_password(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_new_password();
+  new_password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.new_password)
+}
+void WEB2S_Modify_Password::set_new_password(const void* value, size_t size) {
+  set_has_new_password();
+  new_password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.new_password)
+}
+::std::string* WEB2S_Modify_Password::mutable_new_password() {
+  set_has_new_password();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.new_password)
+  return new_password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Modify_Password::release_new_password() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.new_password)
+  clear_has_new_password();
+  return new_password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Modify_Password::set_allocated_new_password(::std::string* new_password) {
+  if (new_password != NULL) {
+    set_has_new_password();
+  } else {
+    clear_has_new_password();
+  }
+  new_password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), new_password);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Modify_Password.new_password)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Find_Slope::kSlopeIdFieldNumber;
+const int WEB2S_Find_Slope::kSlopeNameFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Find_Slope::WEB2S_Find_Slope()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+}
+WEB2S_Find_Slope::WEB2S_Find_Slope(const WEB2S_Find_Slope& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  slope_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_slope_name()) {
+    slope_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.slope_name_);
+  }
+  slope_id_ = from.slope_id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+}
+
+void WEB2S_Find_Slope::SharedCtor() {
+  _cached_size_ = 0;
+  slope_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  slope_id_ = 0u;
+}
+
+WEB2S_Find_Slope::~WEB2S_Find_Slope() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  SharedDtor();
+}
+
+void WEB2S_Find_Slope::SharedDtor() {
+  slope_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void WEB2S_Find_Slope::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Find_Slope::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Find_Slope& WEB2S_Find_Slope::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Find_Slope* WEB2S_Find_Slope::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Find_Slope* n = new WEB2S_Find_Slope;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Find_Slope::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  if (has_slope_name()) {
+    GOOGLE_DCHECK(!slope_name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*slope_name_.UnsafeRawStringPointer())->clear();
+  }
+  slope_id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Find_Slope::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 slope_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_slope_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slope_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes slope_name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_slope_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Find_Slope::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 slope_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->slope_id(), output);
+  }
+
+  // required bytes slope_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->slope_name(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+}
+
+::google::protobuf::uint8* WEB2S_Find_Slope::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 slope_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->slope_id(), target);
+  }
+
+  // required bytes slope_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->slope_name(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  return target;
+}
+
+size_t WEB2S_Find_Slope::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  size_t total_size = 0;
+
+  if (has_slope_name()) {
+    // required bytes slope_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->slope_name());
+  }
+
+  if (has_slope_id()) {
+    // required uint32 slope_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+  }
+
+  return total_size;
+}
+size_t WEB2S_Find_Slope::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required bytes slope_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->slope_name());
+
+    // required uint32 slope_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Find_Slope::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Find_Slope* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Find_Slope>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Find_Slope::MergeFrom(const WEB2S_Find_Slope& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_slope_name();
+      slope_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.slope_name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      slope_id_ = from.slope_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Find_Slope::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Find_Slope::CopyFrom(const WEB2S_Find_Slope& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Find_Slope::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void WEB2S_Find_Slope::Swap(WEB2S_Find_Slope* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Find_Slope::InternalSwap(WEB2S_Find_Slope* other) {
+  slope_name_.Swap(&other->slope_name_);
+  std::swap(slope_id_, other->slope_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Find_Slope::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Find_Slope
+
+// required uint32 slope_id = 1;
+bool WEB2S_Find_Slope::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Find_Slope::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Find_Slope::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Find_Slope::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+::google::protobuf::uint32 WEB2S_Find_Slope::slope_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_id)
+  return slope_id_;
+}
+void WEB2S_Find_Slope::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_id)
+}
+
+// required bytes slope_name = 2;
+bool WEB2S_Find_Slope::has_slope_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Find_Slope::set_has_slope_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Find_Slope::clear_has_slope_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Find_Slope::clear_slope_name() {
+  slope_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_slope_name();
+}
+const ::std::string& WEB2S_Find_Slope::slope_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+  return slope_name_.GetNoArena();
+}
+void WEB2S_Find_Slope::set_slope_name(const ::std::string& value) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+}
+#if LANG_CXX11
+void WEB2S_Find_Slope::set_slope_name(::std::string&& value) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+}
+#endif
+void WEB2S_Find_Slope::set_slope_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+}
+void WEB2S_Find_Slope::set_slope_name(const void* value, size_t size) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+}
+::std::string* WEB2S_Find_Slope::mutable_slope_name() {
+  set_has_slope_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+  return slope_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Find_Slope::release_slope_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+  clear_has_slope_name();
+  return slope_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Find_Slope::set_allocated_slope_name(::std::string* slope_name) {
+  if (slope_name != NULL) {
+    set_has_slope_name();
+  } else {
+    clear_has_slope_name();
+  }
+  slope_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), slope_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Find_Slope.slope_name)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Find_Sensor::kSlopeIdFieldNumber;
+const int WEB2S_Find_Sensor::kSlopeNameFieldNumber;
+const int WEB2S_Find_Sensor::kSensorIdFieldNumber;
+const int WEB2S_Find_Sensor::kSensorTypeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Find_Sensor::WEB2S_Find_Sensor()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+}
+WEB2S_Find_Sensor::WEB2S_Find_Sensor(const WEB2S_Find_Sensor& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  slope_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_slope_name()) {
+    slope_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.slope_name_);
+  }
+  ::memcpy(&slope_id_, &from.slope_id_,
+    reinterpret_cast<char*>(&sensor_type_) -
+    reinterpret_cast<char*>(&slope_id_) + sizeof(sensor_type_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+}
+
+void WEB2S_Find_Sensor::SharedCtor() {
+  _cached_size_ = 0;
+  slope_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&slope_id_, 0, reinterpret_cast<char*>(&sensor_type_) -
+    reinterpret_cast<char*>(&slope_id_) + sizeof(sensor_type_));
+}
+
+WEB2S_Find_Sensor::~WEB2S_Find_Sensor() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  SharedDtor();
+}
+
+void WEB2S_Find_Sensor::SharedDtor() {
+  slope_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void WEB2S_Find_Sensor::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Find_Sensor::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Find_Sensor& WEB2S_Find_Sensor::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Find_Sensor* WEB2S_Find_Sensor::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Find_Sensor* n = new WEB2S_Find_Sensor;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Find_Sensor::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  if (has_slope_name()) {
+    GOOGLE_DCHECK(!slope_name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*slope_name_.UnsafeRawStringPointer())->clear();
+  }
+  if (_has_bits_[0 / 32] & 14u) {
+    ::memset(&slope_id_, 0, reinterpret_cast<char*>(&sensor_type_) -
+      reinterpret_cast<char*>(&slope_id_) + sizeof(sensor_type_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Find_Sensor::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 slope_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_slope_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slope_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes slope_name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_slope_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 sensor_id = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_sensor_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &sensor_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 sensor_type = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+          set_has_sensor_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &sensor_type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Find_Sensor::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 slope_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->slope_id(), output);
+  }
+
+  // required bytes slope_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->slope_name(), output);
+  }
+
+  // required uint32 sensor_id = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->sensor_id(), output);
+  }
+
+  // required uint32 sensor_type = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->sensor_type(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+}
+
+::google::protobuf::uint8* WEB2S_Find_Sensor::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 slope_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->slope_id(), target);
+  }
+
+  // required bytes slope_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->slope_name(), target);
+  }
+
+  // required uint32 sensor_id = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->sensor_id(), target);
+  }
+
+  // required uint32 sensor_type = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->sensor_type(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  return target;
+}
+
+size_t WEB2S_Find_Sensor::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  size_t total_size = 0;
+
+  if (has_slope_name()) {
+    // required bytes slope_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->slope_name());
+  }
+
+  if (has_slope_id()) {
+    // required uint32 slope_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+  }
+
+  if (has_sensor_id()) {
+    // required uint32 sensor_id = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->sensor_id());
+  }
+
+  if (has_sensor_type()) {
+    // required uint32 sensor_type = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->sensor_type());
+  }
+
+  return total_size;
+}
+size_t WEB2S_Find_Sensor::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
+    // required bytes slope_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->slope_name());
+
+    // required uint32 slope_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+
+    // required uint32 sensor_id = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->sensor_id());
+
+    // required uint32 sensor_type = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->sensor_type());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Find_Sensor::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Find_Sensor* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Find_Sensor>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Find_Sensor::MergeFrom(const WEB2S_Find_Sensor& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 15u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_slope_name();
+      slope_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.slope_name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      slope_id_ = from.slope_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      sensor_id_ = from.sensor_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      sensor_type_ = from.sensor_type_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Find_Sensor::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Find_Sensor::CopyFrom(const WEB2S_Find_Sensor& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Find_Sensor::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  return true;
+}
+
+void WEB2S_Find_Sensor::Swap(WEB2S_Find_Sensor* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Find_Sensor::InternalSwap(WEB2S_Find_Sensor* other) {
+  slope_name_.Swap(&other->slope_name_);
+  std::swap(slope_id_, other->slope_id_);
+  std::swap(sensor_id_, other->sensor_id_);
+  std::swap(sensor_type_, other->sensor_type_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Find_Sensor::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Find_Sensor
+
+// required uint32 slope_id = 1;
+bool WEB2S_Find_Sensor::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Find_Sensor::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Find_Sensor::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Find_Sensor::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+::google::protobuf::uint32 WEB2S_Find_Sensor::slope_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_id)
+  return slope_id_;
+}
+void WEB2S_Find_Sensor::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_id)
+}
+
+// required bytes slope_name = 2;
+bool WEB2S_Find_Sensor::has_slope_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Find_Sensor::set_has_slope_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Find_Sensor::clear_has_slope_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Find_Sensor::clear_slope_name() {
+  slope_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_slope_name();
+}
+const ::std::string& WEB2S_Find_Sensor::slope_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+  return slope_name_.GetNoArena();
+}
+void WEB2S_Find_Sensor::set_slope_name(const ::std::string& value) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+}
+#if LANG_CXX11
+void WEB2S_Find_Sensor::set_slope_name(::std::string&& value) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+}
+#endif
+void WEB2S_Find_Sensor::set_slope_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+}
+void WEB2S_Find_Sensor::set_slope_name(const void* value, size_t size) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+}
+::std::string* WEB2S_Find_Sensor::mutable_slope_name() {
+  set_has_slope_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+  return slope_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Find_Sensor::release_slope_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+  clear_has_slope_name();
+  return slope_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Find_Sensor::set_allocated_slope_name(::std::string* slope_name) {
+  if (slope_name != NULL) {
+    set_has_slope_name();
+  } else {
+    clear_has_slope_name();
+  }
+  slope_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), slope_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.slope_name)
+}
+
+// required uint32 sensor_id = 3;
+bool WEB2S_Find_Sensor::has_sensor_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void WEB2S_Find_Sensor::set_has_sensor_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void WEB2S_Find_Sensor::clear_has_sensor_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void WEB2S_Find_Sensor::clear_sensor_id() {
+  sensor_id_ = 0u;
+  clear_has_sensor_id();
+}
+::google::protobuf::uint32 WEB2S_Find_Sensor::sensor_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.sensor_id)
+  return sensor_id_;
+}
+void WEB2S_Find_Sensor::set_sensor_id(::google::protobuf::uint32 value) {
+  set_has_sensor_id();
+  sensor_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.sensor_id)
+}
+
+// required uint32 sensor_type = 4;
+bool WEB2S_Find_Sensor::has_sensor_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void WEB2S_Find_Sensor::set_has_sensor_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void WEB2S_Find_Sensor::clear_has_sensor_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void WEB2S_Find_Sensor::clear_sensor_type() {
+  sensor_type_ = 0u;
+  clear_has_sensor_type();
+}
+::google::protobuf::uint32 WEB2S_Find_Sensor::sensor_type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.sensor_type)
+  return sensor_type_;
+}
+void WEB2S_Find_Sensor::set_sensor_type(::google::protobuf::uint32 value) {
+  set_has_sensor_type();
+  sensor_type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Find_Sensor.sensor_type)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Create_User::kAccountFieldNumber;
+const int WEB2S_Create_User::kPasswordFieldNumber;
+const int WEB2S_Create_User::kNameFieldNumber;
+const int WEB2S_Create_User::kGroupIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Create_User::WEB2S_Create_User()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+}
+WEB2S_Create_User::WEB2S_Create_User(const WEB2S_Create_User& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_account()) {
+    account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
+  }
+  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_password()) {
+    password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
+  }
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_name()) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  group_id_ = from.group_id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+}
+
+void WEB2S_Create_User::SharedCtor() {
+  _cached_size_ = 0;
+  account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  group_id_ = 0u;
+}
+
+WEB2S_Create_User::~WEB2S_Create_User() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  SharedDtor();
+}
+
+void WEB2S_Create_User::SharedDtor() {
+  account_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void WEB2S_Create_User::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Create_User::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Create_User& WEB2S_Create_User::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Create_User* WEB2S_Create_User::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Create_User* n = new WEB2S_Create_User;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Create_User::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  if (_has_bits_[0 / 32] & 7u) {
+    if (has_account()) {
+      GOOGLE_DCHECK(!account_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*account_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_password()) {
+      GOOGLE_DCHECK(!password_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*password_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_name()) {
+      GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*name_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  group_id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Create_User::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required bytes account = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_account()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes password = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_password()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes name = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 group_id = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Create_User::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bytes account = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->account(), output);
+  }
+
+  // required bytes password = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->password(), output);
+  }
+
+  // required bytes name = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->name(), output);
+  }
+
+  // required uint32 group_id = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->group_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+}
+
+::google::protobuf::uint8* WEB2S_Create_User::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bytes account = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->account(), target);
+  }
+
+  // required bytes password = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->password(), target);
+  }
+
+  // required bytes name = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->name(), target);
+  }
+
+  // required uint32 group_id = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->group_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  return target;
+}
+
+size_t WEB2S_Create_User::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  size_t total_size = 0;
+
+  if (has_account()) {
+    // required bytes account = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->account());
+  }
+
+  if (has_password()) {
+    // required bytes password = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->password());
+  }
+
+  if (has_name()) {
+    // required bytes name = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+  }
+
+  if (has_group_id()) {
+    // required uint32 group_id = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+
+  return total_size;
+}
+size_t WEB2S_Create_User::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
+    // required bytes account = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->account());
+
+    // required bytes password = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->password());
+
+    // required bytes name = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+
+    // required uint32 group_id = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Create_User::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Create_User* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Create_User>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Create_User::MergeFrom(const WEB2S_Create_User& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 15u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_account();
+      account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_password();
+      password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (cached_has_bits & 0x00000008u) {
+      group_id_ = from.group_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Create_User::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Create_User::CopyFrom(const WEB2S_Create_User& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Create_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Create_User::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  return true;
+}
+
+void WEB2S_Create_User::Swap(WEB2S_Create_User* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Create_User::InternalSwap(WEB2S_Create_User* other) {
+  account_.Swap(&other->account_);
+  password_.Swap(&other->password_);
+  name_.Swap(&other->name_);
+  std::swap(group_id_, other->group_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Create_User::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Create_User
+
+// required bytes account = 1;
+bool WEB2S_Create_User::has_account() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Create_User::set_has_account() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Create_User::clear_has_account() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Create_User::clear_account() {
+  account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_account();
+}
+const ::std::string& WEB2S_Create_User::account() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+  return account_.GetNoArena();
+}
+void WEB2S_Create_User::set_account(const ::std::string& value) {
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+}
+#if LANG_CXX11
+void WEB2S_Create_User::set_account(::std::string&& value) {
+  set_has_account();
+  account_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+}
+#endif
+void WEB2S_Create_User::set_account(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+}
+void WEB2S_Create_User::set_account(const void* value, size_t size) {
+  set_has_account();
+  account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+}
+::std::string* WEB2S_Create_User::mutable_account() {
+  set_has_account();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+  return account_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Create_User::release_account() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+  clear_has_account();
+  return account_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Create_User::set_allocated_account(::std::string* account) {
+  if (account != NULL) {
+    set_has_account();
+  } else {
+    clear_has_account();
+  }
+  account_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), account);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Create_User.account)
+}
+
+// required bytes password = 2;
+bool WEB2S_Create_User::has_password() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Create_User::set_has_password() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Create_User::clear_has_password() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Create_User::clear_password() {
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_password();
+}
+const ::std::string& WEB2S_Create_User::password() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_User.password)
+  return password_.GetNoArena();
+}
+void WEB2S_Create_User::set_password(const ::std::string& value) {
+  set_has_password();
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_User.password)
+}
+#if LANG_CXX11
+void WEB2S_Create_User::set_password(::std::string&& value) {
+  set_has_password();
+  password_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Create_User.password)
+}
+#endif
+void WEB2S_Create_User::set_password(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_password();
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Create_User.password)
+}
+void WEB2S_Create_User::set_password(const void* value, size_t size) {
+  set_has_password();
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Create_User.password)
+}
+::std::string* WEB2S_Create_User::mutable_password() {
+  set_has_password();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Create_User.password)
+  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Create_User::release_password() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Create_User.password)
+  clear_has_password();
+  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Create_User::set_allocated_password(::std::string* password) {
+  if (password != NULL) {
+    set_has_password();
+  } else {
+    clear_has_password();
+  }
+  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Create_User.password)
+}
+
+// required bytes name = 3;
+bool WEB2S_Create_User::has_name() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void WEB2S_Create_User::set_has_name() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void WEB2S_Create_User::clear_has_name() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void WEB2S_Create_User::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+const ::std::string& WEB2S_Create_User::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+  return name_.GetNoArena();
+}
+void WEB2S_Create_User::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+}
+#if LANG_CXX11
+void WEB2S_Create_User::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+}
+#endif
+void WEB2S_Create_User::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+}
+void WEB2S_Create_User::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+}
+::std::string* WEB2S_Create_User::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Create_User::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Create_User::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Create_User.name)
+}
+
+// required uint32 group_id = 4;
+bool WEB2S_Create_User::has_group_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void WEB2S_Create_User::set_has_group_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void WEB2S_Create_User::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void WEB2S_Create_User::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 WEB2S_Create_User::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_User.group_id)
+  return group_id_;
+}
+void WEB2S_Create_User::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_User.group_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Modify_User::kUserIdFieldNumber;
+const int WEB2S_Modify_User::kGroupIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Modify_User::WEB2S_Modify_User()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+}
+WEB2S_Modify_User::WEB2S_Modify_User(const WEB2S_Modify_User& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&user_id_, &from.user_id_,
+    reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+}
+
+void WEB2S_Modify_User::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+}
+
+WEB2S_Modify_User::~WEB2S_Modify_User() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  SharedDtor();
+}
+
+void WEB2S_Modify_User::SharedDtor() {
+}
+
+void WEB2S_Modify_User::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Modify_User::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Modify_User& WEB2S_Modify_User::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Modify_User* WEB2S_Modify_User::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Modify_User* n = new WEB2S_Modify_User;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Modify_User::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  if (_has_bits_[0 / 32] & 3u) {
+    ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+      reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Modify_User::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_user_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 group_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Modify_User::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->group_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+}
+
+::google::protobuf::uint8* WEB2S_Modify_User::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->user_id(), target);
+  }
+
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->group_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  return target;
+}
+
+size_t WEB2S_Modify_User::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  size_t total_size = 0;
+
+  if (has_user_id()) {
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+  }
+
+  if (has_group_id()) {
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+
+  return total_size;
+}
+size_t WEB2S_Modify_User::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Modify_User::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Modify_User* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Modify_User>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Modify_User::MergeFrom(const WEB2S_Modify_User& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      user_id_ = from.user_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      group_id_ = from.group_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Modify_User::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Modify_User::CopyFrom(const WEB2S_Modify_User& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Modify_User::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void WEB2S_Modify_User::Swap(WEB2S_Modify_User* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Modify_User::InternalSwap(WEB2S_Modify_User* other) {
+  std::swap(user_id_, other->user_id_);
+  std::swap(group_id_, other->group_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Modify_User::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Modify_User
+
+// required uint32 user_id = 1;
+bool WEB2S_Modify_User::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Modify_User::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Modify_User::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Modify_User::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+::google::protobuf::uint32 WEB2S_Modify_User::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.user_id)
+  return user_id_;
+}
+void WEB2S_Modify_User::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.user_id)
+}
+
+// required uint32 group_id = 2;
+bool WEB2S_Modify_User::has_group_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Modify_User::set_has_group_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Modify_User::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Modify_User::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 WEB2S_Modify_User::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.group_id)
+  return group_id_;
+}
+void WEB2S_Modify_User::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_User.group_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Remove_User::kUserIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Remove_User::WEB2S_Remove_User()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+}
+WEB2S_Remove_User::WEB2S_Remove_User(const WEB2S_Remove_User& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  user_id_ = from.user_id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+}
+
+void WEB2S_Remove_User::SharedCtor() {
+  _cached_size_ = 0;
+  user_id_ = 0u;
+}
+
+WEB2S_Remove_User::~WEB2S_Remove_User() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  SharedDtor();
+}
+
+void WEB2S_Remove_User::SharedDtor() {
+}
+
+void WEB2S_Remove_User::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Remove_User::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Remove_User& WEB2S_Remove_User::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Remove_User* WEB2S_Remove_User::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Remove_User* n = new WEB2S_Remove_User;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Remove_User::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  user_id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Remove_User::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_user_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Remove_User::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+}
+
+::google::protobuf::uint8* WEB2S_Remove_User::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->user_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  return target;
+}
+
+size_t WEB2S_Remove_User::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Remove_User::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Remove_User* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Remove_User>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Remove_User::MergeFrom(const WEB2S_Remove_User& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_user_id()) {
+    set_user_id(from.user_id());
+  }
+}
+
+void WEB2S_Remove_User::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Remove_User::CopyFrom(const WEB2S_Remove_User& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Remove_User::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void WEB2S_Remove_User::Swap(WEB2S_Remove_User* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Remove_User::InternalSwap(WEB2S_Remove_User* other) {
+  std::swap(user_id_, other->user_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Remove_User::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Remove_User
+
+// required uint32 user_id = 1;
+bool WEB2S_Remove_User::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Remove_User::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Remove_User::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Remove_User::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+::google::protobuf::uint32 WEB2S_Remove_User::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Remove_User.user_id)
+  return user_id_;
+}
+void WEB2S_Remove_User::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Remove_User.user_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Create_Group::kGroupNameFieldNumber;
+const int WEB2S_Create_Group::kLoadUserListFieldNumber;
+const int WEB2S_Create_Group::kLoadUserGroupListFieldNumber;
+const int WEB2S_Create_Group::kModifyUserFieldNumber;
+const int WEB2S_Create_Group::kModifyUserGroupFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Create_Group::WEB2S_Create_Group()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+}
+WEB2S_Create_Group::WEB2S_Create_Group(const WEB2S_Create_Group& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  group_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_group_name()) {
+    group_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_name_);
+  }
+  ::memcpy(&load_user_list_, &from.load_user_list_,
+    reinterpret_cast<char*>(&modify_user_group_) -
+    reinterpret_cast<char*>(&load_user_list_) + sizeof(modify_user_group_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+}
+
+void WEB2S_Create_Group::SharedCtor() {
+  _cached_size_ = 0;
+  group_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&load_user_list_, 0, reinterpret_cast<char*>(&modify_user_group_) -
+    reinterpret_cast<char*>(&load_user_list_) + sizeof(modify_user_group_));
+}
+
+WEB2S_Create_Group::~WEB2S_Create_Group() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  SharedDtor();
+}
+
+void WEB2S_Create_Group::SharedDtor() {
+  group_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void WEB2S_Create_Group::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Create_Group::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Create_Group& WEB2S_Create_Group::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Create_Group* WEB2S_Create_Group::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Create_Group* n = new WEB2S_Create_Group;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Create_Group::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  if (has_group_name()) {
+    GOOGLE_DCHECK(!group_name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*group_name_.UnsafeRawStringPointer())->clear();
+  }
+  if (_has_bits_[0 / 32] & 30u) {
+    ::memset(&load_user_list_, 0, reinterpret_cast<char*>(&modify_user_group_) -
+      reinterpret_cast<char*>(&load_user_list_) + sizeof(modify_user_group_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Create_Group::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required bytes group_name = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_group_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 load_user_list = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_load_user_list();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &load_user_list_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 load_user_group_list = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_load_user_group_list();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &load_user_group_list_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 modify_user = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+          set_has_modify_user();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &modify_user_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 modify_user_group = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u)) {
+          set_has_modify_user_group();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &modify_user_group_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Create_Group::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bytes group_name = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->group_name(), output);
+  }
+
+  // optional uint32 load_user_list = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->load_user_list(), output);
+  }
+
+  // optional uint32 load_user_group_list = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->load_user_group_list(), output);
+  }
+
+  // optional uint32 modify_user = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->modify_user(), output);
+  }
+
+  // optional uint32 modify_user_group = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->modify_user_group(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+}
+
+::google::protobuf::uint8* WEB2S_Create_Group::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bytes group_name = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->group_name(), target);
+  }
+
+  // optional uint32 load_user_list = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->load_user_list(), target);
+  }
+
+  // optional uint32 load_user_group_list = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->load_user_group_list(), target);
+  }
+
+  // optional uint32 modify_user = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->modify_user(), target);
+  }
+
+  // optional uint32 modify_user_group = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->modify_user_group(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  return target;
+}
+
+size_t WEB2S_Create_Group::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required bytes group_name = 1;
+  if (has_group_name()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->group_name());
+  }
+  if (_has_bits_[0 / 32] & 30u) {
+    // optional uint32 load_user_list = 2;
+    if (has_load_user_list()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->load_user_list());
+    }
+
+    // optional uint32 load_user_group_list = 3;
+    if (has_load_user_group_list()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->load_user_group_list());
+    }
+
+    // optional uint32 modify_user = 4;
+    if (has_modify_user()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->modify_user());
+    }
+
+    // optional uint32 modify_user_group = 5;
+    if (has_modify_user_group()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->modify_user_group());
+    }
+
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Create_Group::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Create_Group* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Create_Group>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Create_Group::MergeFrom(const WEB2S_Create_Group& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 31u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_group_name();
+      group_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      load_user_list_ = from.load_user_list_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      load_user_group_list_ = from.load_user_group_list_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      modify_user_ = from.modify_user_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      modify_user_group_ = from.modify_user_group_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Create_Group::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Create_Group::CopyFrom(const WEB2S_Create_Group& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Create_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Create_Group::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void WEB2S_Create_Group::Swap(WEB2S_Create_Group* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Create_Group::InternalSwap(WEB2S_Create_Group* other) {
+  group_name_.Swap(&other->group_name_);
+  std::swap(load_user_list_, other->load_user_list_);
+  std::swap(load_user_group_list_, other->load_user_group_list_);
+  std::swap(modify_user_, other->modify_user_);
+  std::swap(modify_user_group_, other->modify_user_group_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Create_Group::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Create_Group
+
+// required bytes group_name = 1;
+bool WEB2S_Create_Group::has_group_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Create_Group::set_has_group_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Create_Group::clear_has_group_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Create_Group::clear_group_name() {
+  group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_group_name();
+}
+const ::std::string& WEB2S_Create_Group::group_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+  return group_name_.GetNoArena();
+}
+void WEB2S_Create_Group::set_group_name(const ::std::string& value) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+}
+#if LANG_CXX11
+void WEB2S_Create_Group::set_group_name(::std::string&& value) {
+  set_has_group_name();
+  group_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+}
+#endif
+void WEB2S_Create_Group::set_group_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+}
+void WEB2S_Create_Group::set_group_name(const void* value, size_t size) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+}
+::std::string* WEB2S_Create_Group::mutable_group_name() {
+  set_has_group_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+  return group_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Create_Group::release_group_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+  clear_has_group_name();
+  return group_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Create_Group::set_allocated_group_name(::std::string* group_name) {
+  if (group_name != NULL) {
+    set_has_group_name();
+  } else {
+    clear_has_group_name();
+  }
+  group_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.group_name)
+}
+
+// optional uint32 load_user_list = 2;
+bool WEB2S_Create_Group::has_load_user_list() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Create_Group::set_has_load_user_list() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Create_Group::clear_has_load_user_list() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Create_Group::clear_load_user_list() {
+  load_user_list_ = 0u;
+  clear_has_load_user_list();
+}
+::google::protobuf::uint32 WEB2S_Create_Group::load_user_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.load_user_list)
+  return load_user_list_;
+}
+void WEB2S_Create_Group::set_load_user_list(::google::protobuf::uint32 value) {
+  set_has_load_user_list();
+  load_user_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.load_user_list)
+}
+
+// optional uint32 load_user_group_list = 3;
+bool WEB2S_Create_Group::has_load_user_group_list() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void WEB2S_Create_Group::set_has_load_user_group_list() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void WEB2S_Create_Group::clear_has_load_user_group_list() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void WEB2S_Create_Group::clear_load_user_group_list() {
+  load_user_group_list_ = 0u;
+  clear_has_load_user_group_list();
+}
+::google::protobuf::uint32 WEB2S_Create_Group::load_user_group_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.load_user_group_list)
+  return load_user_group_list_;
+}
+void WEB2S_Create_Group::set_load_user_group_list(::google::protobuf::uint32 value) {
+  set_has_load_user_group_list();
+  load_user_group_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.load_user_group_list)
+}
+
+// optional uint32 modify_user = 4;
+bool WEB2S_Create_Group::has_modify_user() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void WEB2S_Create_Group::set_has_modify_user() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void WEB2S_Create_Group::clear_has_modify_user() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void WEB2S_Create_Group::clear_modify_user() {
+  modify_user_ = 0u;
+  clear_has_modify_user();
+}
+::google::protobuf::uint32 WEB2S_Create_Group::modify_user() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.modify_user)
+  return modify_user_;
+}
+void WEB2S_Create_Group::set_modify_user(::google::protobuf::uint32 value) {
+  set_has_modify_user();
+  modify_user_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.modify_user)
+}
+
+// optional uint32 modify_user_group = 5;
+bool WEB2S_Create_Group::has_modify_user_group() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void WEB2S_Create_Group::set_has_modify_user_group() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void WEB2S_Create_Group::clear_has_modify_user_group() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void WEB2S_Create_Group::clear_modify_user_group() {
+  modify_user_group_ = 0u;
+  clear_has_modify_user_group();
+}
+::google::protobuf::uint32 WEB2S_Create_Group::modify_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.modify_user_group)
+  return modify_user_group_;
+}
+void WEB2S_Create_Group::set_modify_user_group(::google::protobuf::uint32 value) {
+  set_has_modify_user_group();
+  modify_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Create_Group.modify_user_group)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Add_User_To_Group::kGroupIdFieldNumber;
+const int WEB2S_Add_User_To_Group::kUserIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Add_User_To_Group::WEB2S_Add_User_To_Group()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+}
+WEB2S_Add_User_To_Group::WEB2S_Add_User_To_Group(const WEB2S_Add_User_To_Group& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&group_id_, &from.group_id_,
+    reinterpret_cast<char*>(&user_id_) -
+    reinterpret_cast<char*>(&group_id_) + sizeof(user_id_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+}
+
+void WEB2S_Add_User_To_Group::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(&group_id_, 0, reinterpret_cast<char*>(&user_id_) -
+    reinterpret_cast<char*>(&group_id_) + sizeof(user_id_));
+}
+
+WEB2S_Add_User_To_Group::~WEB2S_Add_User_To_Group() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  SharedDtor();
+}
+
+void WEB2S_Add_User_To_Group::SharedDtor() {
+}
+
+void WEB2S_Add_User_To_Group::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Add_User_To_Group::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Add_User_To_Group& WEB2S_Add_User_To_Group::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Add_User_To_Group* WEB2S_Add_User_To_Group::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Add_User_To_Group* n = new WEB2S_Add_User_To_Group;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Add_User_To_Group::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  if (_has_bits_[0 / 32] & 3u) {
+    ::memset(&group_id_, 0, reinterpret_cast<char*>(&user_id_) -
+      reinterpret_cast<char*>(&group_id_) + sizeof(user_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Add_User_To_Group::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 group_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 user_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_user_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Add_User_To_Group::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 group_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->group_id(), output);
+  }
+
+  // required uint32 user_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->user_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+}
+
+::google::protobuf::uint8* WEB2S_Add_User_To_Group::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 group_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->group_id(), target);
+  }
+
+  // required uint32 user_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->user_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  return target;
+}
+
+size_t WEB2S_Add_User_To_Group::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  size_t total_size = 0;
+
+  if (has_group_id()) {
+    // required uint32 group_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+
+  if (has_user_id()) {
+    // required uint32 user_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+  }
+
+  return total_size;
+}
+size_t WEB2S_Add_User_To_Group::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required uint32 group_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+
+    // required uint32 user_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Add_User_To_Group::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Add_User_To_Group* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Add_User_To_Group>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Add_User_To_Group::MergeFrom(const WEB2S_Add_User_To_Group& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      group_id_ = from.group_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      user_id_ = from.user_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Add_User_To_Group::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Add_User_To_Group::CopyFrom(const WEB2S_Add_User_To_Group& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Add_User_To_Group::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void WEB2S_Add_User_To_Group::Swap(WEB2S_Add_User_To_Group* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Add_User_To_Group::InternalSwap(WEB2S_Add_User_To_Group* other) {
+  std::swap(group_id_, other->group_id_);
+  std::swap(user_id_, other->user_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Add_User_To_Group::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Add_User_To_Group
+
+// required uint32 group_id = 1;
+bool WEB2S_Add_User_To_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Add_User_To_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Add_User_To_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Add_User_To_Group::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 WEB2S_Add_User_To_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.group_id)
+  return group_id_;
+}
+void WEB2S_Add_User_To_Group::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.group_id)
+}
+
+// required uint32 user_id = 2;
+bool WEB2S_Add_User_To_Group::has_user_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Add_User_To_Group::set_has_user_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Add_User_To_Group::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Add_User_To_Group::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+::google::protobuf::uint32 WEB2S_Add_User_To_Group::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.user_id)
+  return user_id_;
+}
+void WEB2S_Add_User_To_Group::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_User_To_Group.user_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Remove_User_From_Group::kGroupIdFieldNumber;
+const int WEB2S_Remove_User_From_Group::kUserIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Remove_User_From_Group::WEB2S_Remove_User_From_Group()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+}
+WEB2S_Remove_User_From_Group::WEB2S_Remove_User_From_Group(const WEB2S_Remove_User_From_Group& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&group_id_, &from.group_id_,
+    reinterpret_cast<char*>(&user_id_) -
+    reinterpret_cast<char*>(&group_id_) + sizeof(user_id_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+}
+
+void WEB2S_Remove_User_From_Group::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(&group_id_, 0, reinterpret_cast<char*>(&user_id_) -
+    reinterpret_cast<char*>(&group_id_) + sizeof(user_id_));
+}
+
+WEB2S_Remove_User_From_Group::~WEB2S_Remove_User_From_Group() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  SharedDtor();
+}
+
+void WEB2S_Remove_User_From_Group::SharedDtor() {
+}
+
+void WEB2S_Remove_User_From_Group::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Remove_User_From_Group::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Remove_User_From_Group& WEB2S_Remove_User_From_Group::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Remove_User_From_Group* WEB2S_Remove_User_From_Group::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Remove_User_From_Group* n = new WEB2S_Remove_User_From_Group;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Remove_User_From_Group::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  if (_has_bits_[0 / 32] & 3u) {
+    ::memset(&group_id_, 0, reinterpret_cast<char*>(&user_id_) -
+      reinterpret_cast<char*>(&group_id_) + sizeof(user_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Remove_User_From_Group::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 group_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 user_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_user_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Remove_User_From_Group::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 group_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->group_id(), output);
+  }
+
+  // required uint32 user_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->user_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+}
+
+::google::protobuf::uint8* WEB2S_Remove_User_From_Group::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 group_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->group_id(), target);
+  }
+
+  // required uint32 user_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->user_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  return target;
+}
+
+size_t WEB2S_Remove_User_From_Group::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  size_t total_size = 0;
+
+  if (has_group_id()) {
+    // required uint32 group_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+
+  if (has_user_id()) {
+    // required uint32 user_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+  }
+
+  return total_size;
+}
+size_t WEB2S_Remove_User_From_Group::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required uint32 group_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+
+    // required uint32 user_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Remove_User_From_Group::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Remove_User_From_Group* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Remove_User_From_Group>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Remove_User_From_Group::MergeFrom(const WEB2S_Remove_User_From_Group& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      group_id_ = from.group_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      user_id_ = from.user_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Remove_User_From_Group::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Remove_User_From_Group::CopyFrom(const WEB2S_Remove_User_From_Group& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Remove_User_From_Group::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void WEB2S_Remove_User_From_Group::Swap(WEB2S_Remove_User_From_Group* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Remove_User_From_Group::InternalSwap(WEB2S_Remove_User_From_Group* other) {
+  std::swap(group_id_, other->group_id_);
+  std::swap(user_id_, other->user_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Remove_User_From_Group::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Remove_User_From_Group
+
+// required uint32 group_id = 1;
+bool WEB2S_Remove_User_From_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Remove_User_From_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Remove_User_From_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Remove_User_From_Group::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 WEB2S_Remove_User_From_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.group_id)
+  return group_id_;
+}
+void WEB2S_Remove_User_From_Group::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.group_id)
+}
+
+// required uint32 user_id = 2;
+bool WEB2S_Remove_User_From_Group::has_user_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Remove_User_From_Group::set_has_user_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Remove_User_From_Group::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Remove_User_From_Group::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+::google::protobuf::uint32 WEB2S_Remove_User_From_Group::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.user_id)
+  return user_id_;
+}
+void WEB2S_Remove_User_From_Group::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Remove_User_From_Group.user_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Modify_Group::kGroupIdFieldNumber;
+const int WEB2S_Modify_Group::kGroupNameFieldNumber;
+const int WEB2S_Modify_Group::kLoadUserListFieldNumber;
+const int WEB2S_Modify_Group::kLoadUserGroupListFieldNumber;
+const int WEB2S_Modify_Group::kAddUserGroupFieldNumber;
+const int WEB2S_Modify_Group::kModifyUserGroupFieldNumber;
+const int WEB2S_Modify_Group::kRemoveUserGroupFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Modify_Group::WEB2S_Modify_Group()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+}
+WEB2S_Modify_Group::WEB2S_Modify_Group(const WEB2S_Modify_Group& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  group_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_group_name()) {
+    group_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_name_);
+  }
+  ::memcpy(&group_id_, &from.group_id_,
+    reinterpret_cast<char*>(&remove_user_group_) -
+    reinterpret_cast<char*>(&group_id_) + sizeof(remove_user_group_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+}
+
+void WEB2S_Modify_Group::SharedCtor() {
+  _cached_size_ = 0;
+  group_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&group_id_, 0, reinterpret_cast<char*>(&remove_user_group_) -
+    reinterpret_cast<char*>(&group_id_) + sizeof(remove_user_group_));
+}
+
+WEB2S_Modify_Group::~WEB2S_Modify_Group() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  SharedDtor();
+}
+
+void WEB2S_Modify_Group::SharedDtor() {
+  group_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void WEB2S_Modify_Group::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Modify_Group::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Modify_Group& WEB2S_Modify_Group::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Modify_Group* WEB2S_Modify_Group::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Modify_Group* n = new WEB2S_Modify_Group;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Modify_Group::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  if (has_group_name()) {
+    GOOGLE_DCHECK(!group_name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*group_name_.UnsafeRawStringPointer())->clear();
+  }
+  if (_has_bits_[0 / 32] & 126u) {
+    ::memset(&group_id_, 0, reinterpret_cast<char*>(&remove_user_group_) -
+      reinterpret_cast<char*>(&group_id_) + sizeof(remove_user_group_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Modify_Group::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 group_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes group_name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_group_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 load_user_list = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_load_user_list();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &load_user_list_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 load_user_group_list = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+          set_has_load_user_group_list();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &load_user_group_list_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 add_user_group = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u)) {
+          set_has_add_user_group();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &add_user_group_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 modify_user_group = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u)) {
+          set_has_modify_user_group();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &modify_user_group_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 remove_user_group = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(56u)) {
+          set_has_remove_user_group();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &remove_user_group_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Modify_Group::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 group_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->group_id(), output);
+  }
+
+  // required bytes group_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->group_name(), output);
+  }
+
+  // optional uint32 load_user_list = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->load_user_list(), output);
+  }
+
+  // optional uint32 load_user_group_list = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->load_user_group_list(), output);
+  }
+
+  // optional uint32 add_user_group = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->add_user_group(), output);
+  }
+
+  // optional uint32 modify_user_group = 6;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->modify_user_group(), output);
+  }
+
+  // optional uint32 remove_user_group = 7;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->remove_user_group(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+}
+
+::google::protobuf::uint8* WEB2S_Modify_Group::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 group_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->group_id(), target);
+  }
+
+  // required bytes group_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->group_name(), target);
+  }
+
+  // optional uint32 load_user_list = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->load_user_list(), target);
+  }
+
+  // optional uint32 load_user_group_list = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->load_user_group_list(), target);
+  }
+
+  // optional uint32 add_user_group = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->add_user_group(), target);
+  }
+
+  // optional uint32 modify_user_group = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->modify_user_group(), target);
+  }
+
+  // optional uint32 remove_user_group = 7;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->remove_user_group(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  return target;
+}
+
+size_t WEB2S_Modify_Group::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  size_t total_size = 0;
+
+  if (has_group_name()) {
+    // required bytes group_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->group_name());
+  }
+
+  if (has_group_id()) {
+    // required uint32 group_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+
+  return total_size;
+}
+size_t WEB2S_Modify_Group::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required bytes group_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->group_name());
+
+    // required uint32 group_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[0 / 32] & 124u) {
+    // optional uint32 load_user_list = 3;
+    if (has_load_user_list()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->load_user_list());
+    }
+
+    // optional uint32 load_user_group_list = 4;
+    if (has_load_user_group_list()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->load_user_group_list());
+    }
+
+    // optional uint32 add_user_group = 5;
+    if (has_add_user_group()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->add_user_group());
+    }
+
+    // optional uint32 modify_user_group = 6;
+    if (has_modify_user_group()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->modify_user_group());
+    }
+
+    // optional uint32 remove_user_group = 7;
+    if (has_remove_user_group()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->remove_user_group());
+    }
+
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Modify_Group::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Modify_Group* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Modify_Group>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Modify_Group::MergeFrom(const WEB2S_Modify_Group& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 127u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_group_name();
+      group_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      group_id_ = from.group_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      load_user_list_ = from.load_user_list_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      load_user_group_list_ = from.load_user_group_list_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      add_user_group_ = from.add_user_group_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      modify_user_group_ = from.modify_user_group_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      remove_user_group_ = from.remove_user_group_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void WEB2S_Modify_Group::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Modify_Group::CopyFrom(const WEB2S_Modify_Group& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Modify_Group::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void WEB2S_Modify_Group::Swap(WEB2S_Modify_Group* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Modify_Group::InternalSwap(WEB2S_Modify_Group* other) {
+  group_name_.Swap(&other->group_name_);
+  std::swap(group_id_, other->group_id_);
+  std::swap(load_user_list_, other->load_user_list_);
+  std::swap(load_user_group_list_, other->load_user_group_list_);
+  std::swap(add_user_group_, other->add_user_group_);
+  std::swap(modify_user_group_, other->modify_user_group_);
+  std::swap(remove_user_group_, other->remove_user_group_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Modify_Group::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Modify_Group
+
+// required uint32 group_id = 1;
+bool WEB2S_Modify_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void WEB2S_Modify_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void WEB2S_Modify_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void WEB2S_Modify_Group::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 WEB2S_Modify_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_id)
+  return group_id_;
+}
+void WEB2S_Modify_Group::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_id)
+}
+
+// required bytes group_name = 2;
+bool WEB2S_Modify_Group::has_group_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Modify_Group::set_has_group_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Modify_Group::clear_has_group_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Modify_Group::clear_group_name() {
+  group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_group_name();
+}
+const ::std::string& WEB2S_Modify_Group::group_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+  return group_name_.GetNoArena();
+}
+void WEB2S_Modify_Group::set_group_name(const ::std::string& value) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+}
+#if LANG_CXX11
+void WEB2S_Modify_Group::set_group_name(::std::string&& value) {
+  set_has_group_name();
+  group_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+}
+#endif
+void WEB2S_Modify_Group::set_group_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+}
+void WEB2S_Modify_Group::set_group_name(const void* value, size_t size) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+}
+::std::string* WEB2S_Modify_Group::mutable_group_name() {
+  set_has_group_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+  return group_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WEB2S_Modify_Group::release_group_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+  clear_has_group_name();
+  return group_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void WEB2S_Modify_Group::set_allocated_group_name(::std::string* group_name) {
+  if (group_name != NULL) {
+    set_has_group_name();
+  } else {
+    clear_has_group_name();
+  }
+  group_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.group_name)
+}
+
+// optional uint32 load_user_list = 3;
+bool WEB2S_Modify_Group::has_load_user_list() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void WEB2S_Modify_Group::set_has_load_user_list() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void WEB2S_Modify_Group::clear_has_load_user_list() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void WEB2S_Modify_Group::clear_load_user_list() {
+  load_user_list_ = 0u;
+  clear_has_load_user_list();
+}
+::google::protobuf::uint32 WEB2S_Modify_Group::load_user_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.load_user_list)
+  return load_user_list_;
+}
+void WEB2S_Modify_Group::set_load_user_list(::google::protobuf::uint32 value) {
+  set_has_load_user_list();
+  load_user_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.load_user_list)
+}
+
+// optional uint32 load_user_group_list = 4;
+bool WEB2S_Modify_Group::has_load_user_group_list() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void WEB2S_Modify_Group::set_has_load_user_group_list() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void WEB2S_Modify_Group::clear_has_load_user_group_list() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void WEB2S_Modify_Group::clear_load_user_group_list() {
+  load_user_group_list_ = 0u;
+  clear_has_load_user_group_list();
+}
+::google::protobuf::uint32 WEB2S_Modify_Group::load_user_group_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.load_user_group_list)
+  return load_user_group_list_;
+}
+void WEB2S_Modify_Group::set_load_user_group_list(::google::protobuf::uint32 value) {
+  set_has_load_user_group_list();
+  load_user_group_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.load_user_group_list)
+}
+
+// optional uint32 add_user_group = 5;
+bool WEB2S_Modify_Group::has_add_user_group() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void WEB2S_Modify_Group::set_has_add_user_group() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void WEB2S_Modify_Group::clear_has_add_user_group() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void WEB2S_Modify_Group::clear_add_user_group() {
+  add_user_group_ = 0u;
+  clear_has_add_user_group();
+}
+::google::protobuf::uint32 WEB2S_Modify_Group::add_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.add_user_group)
+  return add_user_group_;
+}
+void WEB2S_Modify_Group::set_add_user_group(::google::protobuf::uint32 value) {
+  set_has_add_user_group();
+  add_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.add_user_group)
+}
+
+// optional uint32 modify_user_group = 6;
+bool WEB2S_Modify_Group::has_modify_user_group() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void WEB2S_Modify_Group::set_has_modify_user_group() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void WEB2S_Modify_Group::clear_has_modify_user_group() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void WEB2S_Modify_Group::clear_modify_user_group() {
+  modify_user_group_ = 0u;
+  clear_has_modify_user_group();
+}
+::google::protobuf::uint32 WEB2S_Modify_Group::modify_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.modify_user_group)
+  return modify_user_group_;
+}
+void WEB2S_Modify_Group::set_modify_user_group(::google::protobuf::uint32 value) {
+  set_has_modify_user_group();
+  modify_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.modify_user_group)
+}
+
+// optional uint32 remove_user_group = 7;
+bool WEB2S_Modify_Group::has_remove_user_group() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void WEB2S_Modify_Group::set_has_remove_user_group() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void WEB2S_Modify_Group::clear_has_remove_user_group() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void WEB2S_Modify_Group::clear_remove_user_group() {
+  remove_user_group_ = 0u;
+  clear_has_remove_user_group();
+}
+::google::protobuf::uint32 WEB2S_Modify_Group::remove_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.remove_user_group)
+  return remove_user_group_;
+}
+void WEB2S_Modify_Group::set_remove_user_group(::google::protobuf::uint32 value) {
+  set_has_remove_user_group();
+  remove_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Modify_Group.remove_user_group)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Remove_Group::kGroupIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Remove_Group::WEB2S_Remove_Group()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+}
+WEB2S_Remove_Group::WEB2S_Remove_Group(const WEB2S_Remove_Group& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  group_id_ = from.group_id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+}
+
+void WEB2S_Remove_Group::SharedCtor() {
+  _cached_size_ = 0;
+  group_id_ = 0u;
+}
+
+WEB2S_Remove_Group::~WEB2S_Remove_Group() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  SharedDtor();
+}
+
+void WEB2S_Remove_Group::SharedDtor() {
+}
+
+void WEB2S_Remove_Group::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Remove_Group::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Remove_Group& WEB2S_Remove_Group::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Remove_Group* WEB2S_Remove_Group::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Remove_Group* n = new WEB2S_Remove_Group;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Remove_Group::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  group_id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Remove_Group::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 group_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Remove_Group::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 group_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->group_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+}
+
+::google::protobuf::uint8* WEB2S_Remove_Group::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 group_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->group_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  return target;
+}
+
+size_t WEB2S_Remove_Group::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 group_id = 1;
+  if (has_group_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Remove_Group::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Remove_Group* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Remove_Group>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Remove_Group::MergeFrom(const WEB2S_Remove_Group& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_group_id()) {
+    set_group_id(from.group_id());
+  }
+}
+
+void WEB2S_Remove_Group::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Remove_Group::CopyFrom(const WEB2S_Remove_Group& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Remove_Group::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void WEB2S_Remove_Group::Swap(WEB2S_Remove_Group* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Remove_Group::InternalSwap(WEB2S_Remove_Group* other) {
+  std::swap(group_id_, other->group_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Remove_Group::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Remove_Group
+
+// required uint32 group_id = 1;
+bool WEB2S_Remove_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Remove_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Remove_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Remove_Group::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 WEB2S_Remove_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
+  return group_id_;
+}
+void WEB2S_Remove_Group::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Remove_Group.group_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WEB2S_Load_Authority::kAuthorityIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WEB2S_Load_Authority::WEB2S_Load_Authority()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+}
+WEB2S_Load_Authority::WEB2S_Load_Authority(const WEB2S_Load_Authority& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  authority_id_ = from.authority_id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+}
+
+void WEB2S_Load_Authority::SharedCtor() {
+  _cached_size_ = 0;
+  authority_id_ = 0u;
+}
+
+WEB2S_Load_Authority::~WEB2S_Load_Authority() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  SharedDtor();
+}
+
+void WEB2S_Load_Authority::SharedDtor() {
+}
+
+void WEB2S_Load_Authority::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WEB2S_Load_Authority::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WEB2S_Load_Authority& WEB2S_Load_Authority::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WEB2S_Load_Authority* WEB2S_Load_Authority::New(::google::protobuf::Arena* arena) const {
+  WEB2S_Load_Authority* n = new WEB2S_Load_Authority;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WEB2S_Load_Authority::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  authority_id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WEB2S_Load_Authority::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 authority_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_authority_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &authority_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  return false;
+#undef DO_
+}
+
+void WEB2S_Load_Authority::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->authority_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+}
+
+::google::protobuf::uint8* WEB2S_Load_Authority::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->authority_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  return target;
+}
+
+size_t WEB2S_Load_Authority::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 authority_id = 1;
+  if (has_authority_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->authority_id());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WEB2S_Load_Authority::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WEB2S_Load_Authority* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WEB2S_Load_Authority>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+    MergeFrom(*source);
+  }
+}
+
+void WEB2S_Load_Authority::MergeFrom(const WEB2S_Load_Authority& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_authority_id()) {
+    set_authority_id(from.authority_id());
+  }
+}
+
+void WEB2S_Load_Authority::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WEB2S_Load_Authority::CopyFrom(const WEB2S_Load_Authority& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WEB2S_Load_Authority::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void WEB2S_Load_Authority::Swap(WEB2S_Load_Authority* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WEB2S_Load_Authority::InternalSwap(WEB2S_Load_Authority* other) {
+  std::swap(authority_id_, other->authority_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WEB2S_Load_Authority::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WEB2S_Load_Authority
+
+// required uint32 authority_id = 1;
+bool WEB2S_Load_Authority::has_authority_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void WEB2S_Load_Authority::set_has_authority_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void WEB2S_Load_Authority::clear_has_authority_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void WEB2S_Load_Authority::clear_authority_id() {
+  authority_id_ = 0u;
+  clear_has_authority_id();
+}
+::google::protobuf::uint32 WEB2S_Load_Authority::authority_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority.authority_id)
+  return authority_id_;
+}
+void WEB2S_Load_Authority::set_authority_id(::google::protobuf::uint32 value) {
+  set_has_authority_id();
+  authority_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Load_Authority.authority_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -5435,6 +14883,12 @@ const int S2Web_Sensor_History_SensorData::kMinValue3FieldNumber;
 const int S2Web_Sensor_History_SensorData::kMaxValue1FieldNumber;
 const int S2Web_Sensor_History_SensorData::kMaxValue2FieldNumber;
 const int S2Web_Sensor_History_SensorData::kMaxValue3FieldNumber;
+const int S2Web_Sensor_History_SensorData::kMinOffsetValue1FieldNumber;
+const int S2Web_Sensor_History_SensorData::kMinOffsetValue2FieldNumber;
+const int S2Web_Sensor_History_SensorData::kMinOffsetValue3FieldNumber;
+const int S2Web_Sensor_History_SensorData::kMaxOffsetValue1FieldNumber;
+const int S2Web_Sensor_History_SensorData::kMaxOffsetValue2FieldNumber;
+const int S2Web_Sensor_History_SensorData::kMaxOffsetValue3FieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 S2Web_Sensor_History_SensorData::S2Web_Sensor_History_SensorData()
@@ -5452,15 +14906,15 @@ S2Web_Sensor_History_SensorData::S2Web_Sensor_History_SensorData(const S2Web_Sen
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&min_value1_, &from.min_value1_,
-    reinterpret_cast<char*>(&max_value3_) -
-    reinterpret_cast<char*>(&min_value1_) + sizeof(max_value3_));
+    reinterpret_cast<char*>(&max_offset_value3_) -
+    reinterpret_cast<char*>(&min_value1_) + sizeof(max_offset_value3_));
   // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData)
 }
 
 void S2Web_Sensor_History_SensorData::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&min_value1_, 0, reinterpret_cast<char*>(&max_value3_) -
-    reinterpret_cast<char*>(&min_value1_) + sizeof(max_value3_));
+  ::memset(&min_value1_, 0, reinterpret_cast<char*>(&max_offset_value3_) -
+    reinterpret_cast<char*>(&min_value1_) + sizeof(max_offset_value3_));
 }
 
 S2Web_Sensor_History_SensorData::~S2Web_Sensor_History_SensorData() {
@@ -5496,9 +14950,13 @@ S2Web_Sensor_History_SensorData* S2Web_Sensor_History_SensorData::New(::google::
 
 void S2Web_Sensor_History_SensorData::Clear() {
 // @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData)
-  if (_has_bits_[0 / 32] & 63u) {
-    ::memset(&min_value1_, 0, reinterpret_cast<char*>(&max_value3_) -
-      reinterpret_cast<char*>(&min_value1_) + sizeof(max_value3_));
+  if (_has_bits_[0 / 32] & 255u) {
+    ::memset(&min_value1_, 0, reinterpret_cast<char*>(&min_offset_value2_) -
+      reinterpret_cast<char*>(&min_value1_) + sizeof(min_offset_value2_));
+  }
+  if (_has_bits_[8 / 32] & 3840u) {
+    ::memset(&min_offset_value3_, 0, reinterpret_cast<char*>(&max_offset_value3_) -
+      reinterpret_cast<char*>(&min_offset_value3_) + sizeof(max_offset_value3_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -5598,6 +15056,90 @@ bool S2Web_Sensor_History_SensorData::MergePartialFromCodedStream(
         break;
       }
 
+      // required double min_offset_value1 = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(57u)) {
+          set_has_min_offset_value1();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &min_offset_value1_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double min_offset_value2 = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(65u)) {
+          set_has_min_offset_value2();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &min_offset_value2_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double min_offset_value3 = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(73u)) {
+          set_has_min_offset_value3();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &min_offset_value3_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double max_offset_value1 = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(81u)) {
+          set_has_max_offset_value1();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &max_offset_value1_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double max_offset_value2 = 11;
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(89u)) {
+          set_has_max_offset_value2();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &max_offset_value2_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double max_offset_value3 = 12;
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(97u)) {
+          set_has_max_offset_value3();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &max_offset_value3_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0 ||
@@ -5657,6 +15199,36 @@ void S2Web_Sensor_History_SensorData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->max_value3(), output);
   }
 
+  // required double min_offset_value1 = 7;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->min_offset_value1(), output);
+  }
+
+  // required double min_offset_value2 = 8;
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(8, this->min_offset_value2(), output);
+  }
+
+  // required double min_offset_value3 = 9;
+  if (cached_has_bits & 0x00000100u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(9, this->min_offset_value3(), output);
+  }
+
+  // required double max_offset_value1 = 10;
+  if (cached_has_bits & 0x00000200u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(10, this->max_offset_value1(), output);
+  }
+
+  // required double max_offset_value2 = 11;
+  if (cached_has_bits & 0x00000400u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(11, this->max_offset_value2(), output);
+  }
+
+  // required double max_offset_value3 = 12;
+  if (cached_has_bits & 0x00000800u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(12, this->max_offset_value3(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -5701,6 +15273,36 @@ void S2Web_Sensor_History_SensorData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->max_value3(), target);
   }
 
+  // required double min_offset_value1 = 7;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->min_offset_value1(), target);
+  }
+
+  // required double min_offset_value2 = 8;
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(8, this->min_offset_value2(), target);
+  }
+
+  // required double min_offset_value3 = 9;
+  if (cached_has_bits & 0x00000100u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(9, this->min_offset_value3(), target);
+  }
+
+  // required double max_offset_value1 = 10;
+  if (cached_has_bits & 0x00000200u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(10, this->max_offset_value1(), target);
+  }
+
+  // required double max_offset_value2 = 11;
+  if (cached_has_bits & 0x00000400u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(11, this->max_offset_value2(), target);
+  }
+
+  // required double max_offset_value3 = 12;
+  if (cached_has_bits & 0x00000800u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(12, this->max_offset_value3(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -5743,6 +15345,36 @@ size_t S2Web_Sensor_History_SensorData::RequiredFieldsByteSizeFallback() const {
     total_size += 1 + 8;
   }
 
+  if (has_min_offset_value1()) {
+    // required double min_offset_value1 = 7;
+    total_size += 1 + 8;
+  }
+
+  if (has_min_offset_value2()) {
+    // required double min_offset_value2 = 8;
+    total_size += 1 + 8;
+  }
+
+  if (has_min_offset_value3()) {
+    // required double min_offset_value3 = 9;
+    total_size += 1 + 8;
+  }
+
+  if (has_max_offset_value1()) {
+    // required double max_offset_value1 = 10;
+    total_size += 1 + 8;
+  }
+
+  if (has_max_offset_value2()) {
+    // required double max_offset_value2 = 11;
+    total_size += 1 + 8;
+  }
+
+  if (has_max_offset_value3()) {
+    // required double max_offset_value3 = 12;
+    total_size += 1 + 8;
+  }
+
   return total_size;
 }
 size_t S2Web_Sensor_History_SensorData::ByteSizeLong() const {
@@ -5754,7 +15386,7 @@ size_t S2Web_Sensor_History_SensorData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x00000fff) ^ 0x00000fff) == 0) {  // All required fields are present.
     // required double min_value1 = 1;
     total_size += 1 + 8;
 
@@ -5771,6 +15403,24 @@ size_t S2Web_Sensor_History_SensorData::ByteSizeLong() const {
     total_size += 1 + 8;
 
     // required double max_value3 = 6;
+    total_size += 1 + 8;
+
+    // required double min_offset_value1 = 7;
+    total_size += 1 + 8;
+
+    // required double min_offset_value2 = 8;
+    total_size += 1 + 8;
+
+    // required double min_offset_value3 = 9;
+    total_size += 1 + 8;
+
+    // required double max_offset_value1 = 10;
+    total_size += 1 + 8;
+
+    // required double max_offset_value2 = 11;
+    total_size += 1 + 8;
+
+    // required double max_offset_value3 = 12;
     total_size += 1 + 8;
 
   } else {
@@ -5806,7 +15456,7 @@ void S2Web_Sensor_History_SensorData::MergeFrom(const S2Web_Sensor_History_Senso
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 63u) {
+  if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
       min_value1_ = from.min_value1_;
     }
@@ -5824,6 +15474,27 @@ void S2Web_Sensor_History_SensorData::MergeFrom(const S2Web_Sensor_History_Senso
     }
     if (cached_has_bits & 0x00000020u) {
       max_value3_ = from.max_value3_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      min_offset_value1_ = from.min_offset_value1_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      min_offset_value2_ = from.min_offset_value2_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 3840u) {
+    if (cached_has_bits & 0x00000100u) {
+      min_offset_value3_ = from.min_offset_value3_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      max_offset_value1_ = from.max_offset_value1_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      max_offset_value2_ = from.max_offset_value2_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      max_offset_value3_ = from.max_offset_value3_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -5844,7 +15515,7 @@ void S2Web_Sensor_History_SensorData::CopyFrom(const S2Web_Sensor_History_Sensor
 }
 
 bool S2Web_Sensor_History_SensorData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+  if ((_has_bits_[0] & 0x00000fff) != 0x00000fff) return false;
   return true;
 }
 
@@ -5859,6 +15530,12 @@ void S2Web_Sensor_History_SensorData::InternalSwap(S2Web_Sensor_History_SensorDa
   std::swap(max_value1_, other->max_value1_);
   std::swap(max_value2_, other->max_value2_);
   std::swap(max_value3_, other->max_value3_);
+  std::swap(min_offset_value1_, other->min_offset_value1_);
+  std::swap(min_offset_value2_, other->min_offset_value2_);
+  std::swap(min_offset_value3_, other->min_offset_value3_);
+  std::swap(max_offset_value1_, other->max_offset_value1_);
+  std::swap(max_offset_value2_, other->max_offset_value2_);
+  std::swap(max_offset_value3_, other->max_offset_value3_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -6016,6 +15693,150 @@ void S2Web_Sensor_History_SensorData::set_max_value3(double value) {
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_value3)
 }
 
+// required double min_offset_value1 = 7;
+bool S2Web_Sensor_History_SensorData::has_min_offset_value1() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void S2Web_Sensor_History_SensorData::set_has_min_offset_value1() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void S2Web_Sensor_History_SensorData::clear_has_min_offset_value1() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void S2Web_Sensor_History_SensorData::clear_min_offset_value1() {
+  min_offset_value1_ = 0;
+  clear_has_min_offset_value1();
+}
+double S2Web_Sensor_History_SensorData::min_offset_value1() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value1)
+  return min_offset_value1_;
+}
+void S2Web_Sensor_History_SensorData::set_min_offset_value1(double value) {
+  set_has_min_offset_value1();
+  min_offset_value1_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value1)
+}
+
+// required double min_offset_value2 = 8;
+bool S2Web_Sensor_History_SensorData::has_min_offset_value2() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+void S2Web_Sensor_History_SensorData::set_has_min_offset_value2() {
+  _has_bits_[0] |= 0x00000080u;
+}
+void S2Web_Sensor_History_SensorData::clear_has_min_offset_value2() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+void S2Web_Sensor_History_SensorData::clear_min_offset_value2() {
+  min_offset_value2_ = 0;
+  clear_has_min_offset_value2();
+}
+double S2Web_Sensor_History_SensorData::min_offset_value2() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value2)
+  return min_offset_value2_;
+}
+void S2Web_Sensor_History_SensorData::set_min_offset_value2(double value) {
+  set_has_min_offset_value2();
+  min_offset_value2_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value2)
+}
+
+// required double min_offset_value3 = 9;
+bool S2Web_Sensor_History_SensorData::has_min_offset_value3() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+void S2Web_Sensor_History_SensorData::set_has_min_offset_value3() {
+  _has_bits_[0] |= 0x00000100u;
+}
+void S2Web_Sensor_History_SensorData::clear_has_min_offset_value3() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+void S2Web_Sensor_History_SensorData::clear_min_offset_value3() {
+  min_offset_value3_ = 0;
+  clear_has_min_offset_value3();
+}
+double S2Web_Sensor_History_SensorData::min_offset_value3() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value3)
+  return min_offset_value3_;
+}
+void S2Web_Sensor_History_SensorData::set_min_offset_value3(double value) {
+  set_has_min_offset_value3();
+  min_offset_value3_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.min_offset_value3)
+}
+
+// required double max_offset_value1 = 10;
+bool S2Web_Sensor_History_SensorData::has_max_offset_value1() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+void S2Web_Sensor_History_SensorData::set_has_max_offset_value1() {
+  _has_bits_[0] |= 0x00000200u;
+}
+void S2Web_Sensor_History_SensorData::clear_has_max_offset_value1() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+void S2Web_Sensor_History_SensorData::clear_max_offset_value1() {
+  max_offset_value1_ = 0;
+  clear_has_max_offset_value1();
+}
+double S2Web_Sensor_History_SensorData::max_offset_value1() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value1)
+  return max_offset_value1_;
+}
+void S2Web_Sensor_History_SensorData::set_max_offset_value1(double value) {
+  set_has_max_offset_value1();
+  max_offset_value1_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value1)
+}
+
+// required double max_offset_value2 = 11;
+bool S2Web_Sensor_History_SensorData::has_max_offset_value2() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+void S2Web_Sensor_History_SensorData::set_has_max_offset_value2() {
+  _has_bits_[0] |= 0x00000400u;
+}
+void S2Web_Sensor_History_SensorData::clear_has_max_offset_value2() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+void S2Web_Sensor_History_SensorData::clear_max_offset_value2() {
+  max_offset_value2_ = 0;
+  clear_has_max_offset_value2();
+}
+double S2Web_Sensor_History_SensorData::max_offset_value2() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value2)
+  return max_offset_value2_;
+}
+void S2Web_Sensor_History_SensorData::set_max_offset_value2(double value) {
+  set_has_max_offset_value2();
+  max_offset_value2_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value2)
+}
+
+// required double max_offset_value3 = 12;
+bool S2Web_Sensor_History_SensorData::has_max_offset_value3() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+void S2Web_Sensor_History_SensorData::set_has_max_offset_value3() {
+  _has_bits_[0] |= 0x00000800u;
+}
+void S2Web_Sensor_History_SensorData::clear_has_max_offset_value3() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+void S2Web_Sensor_History_SensorData::clear_max_offset_value3() {
+  max_offset_value3_ = 0;
+  clear_has_max_offset_value3();
+}
+double S2Web_Sensor_History_SensorData::max_offset_value3() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value3)
+  return max_offset_value3_;
+}
+void S2Web_Sensor_History_SensorData::set_max_offset_value3(double value) {
+  set_has_max_offset_value3();
+  max_offset_value3_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData.max_offset_value3)
+}
+
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -6027,6 +15848,9 @@ const int S2Web_Sensor_History::kLatitudeFieldNumber;
 const int S2Web_Sensor_History::kBeginTimeFieldNumber;
 const int S2Web_Sensor_History::kEndTimeFieldNumber;
 const int S2Web_Sensor_History::kInvtervalFieldNumber;
+const int S2Web_Sensor_History::kAvgValue1FieldNumber;
+const int S2Web_Sensor_History::kAvgValue2FieldNumber;
+const int S2Web_Sensor_History::kAvgValue3FieldNumber;
 const int S2Web_Sensor_History::kHistoryListFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -6046,15 +15870,15 @@ S2Web_Sensor_History::S2Web_Sensor_History(const S2Web_Sensor_History& from)
       history_list_(from.history_list_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&longitude_, &from.longitude_,
-    reinterpret_cast<char*>(&invterval_) -
-    reinterpret_cast<char*>(&longitude_) + sizeof(invterval_));
+    reinterpret_cast<char*>(&avg_value3_) -
+    reinterpret_cast<char*>(&longitude_) + sizeof(avg_value3_));
   // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2Web_Sensor_History)
 }
 
 void S2Web_Sensor_History::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&longitude_, 0, reinterpret_cast<char*>(&invterval_) -
-    reinterpret_cast<char*>(&longitude_) + sizeof(invterval_));
+  ::memset(&longitude_, 0, reinterpret_cast<char*>(&avg_value3_) -
+    reinterpret_cast<char*>(&longitude_) + sizeof(avg_value3_));
 }
 
 S2Web_Sensor_History::~S2Web_Sensor_History() {
@@ -6091,10 +15915,11 @@ S2Web_Sensor_History* S2Web_Sensor_History::New(::google::protobuf::Arena* arena
 void S2Web_Sensor_History::Clear() {
 // @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2Web_Sensor_History)
   history_list_.Clear();
-  if (_has_bits_[0 / 32] & 63u) {
-    ::memset(&longitude_, 0, reinterpret_cast<char*>(&invterval_) -
-      reinterpret_cast<char*>(&longitude_) + sizeof(invterval_));
+  if (_has_bits_[0 / 32] & 255u) {
+    ::memset(&longitude_, 0, reinterpret_cast<char*>(&avg_value2_) -
+      reinterpret_cast<char*>(&longitude_) + sizeof(avg_value2_));
   }
+  avg_value3_ = 0;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -6193,10 +16018,52 @@ bool S2Web_Sensor_History::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 7;
+      // required double avg_value1 = 7;
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(58u)) {
+            static_cast< ::google::protobuf::uint8>(57u)) {
+          set_has_avg_value1();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &avg_value1_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double avg_value2 = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(65u)) {
+          set_has_avg_value2();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &avg_value2_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double avg_value3 = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(73u)) {
+          set_has_avg_value3();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &avg_value3_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(82u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_history_list()));
         } else {
@@ -6264,10 +16131,25 @@ void S2Web_Sensor_History::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->invterval(), output);
   }
 
-  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 7;
+  // required double avg_value1 = 7;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->avg_value1(), output);
+  }
+
+  // required double avg_value2 = 8;
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(8, this->avg_value2(), output);
+  }
+
+  // required double avg_value3 = 9;
+  if (cached_has_bits & 0x00000100u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(9, this->avg_value3(), output);
+  }
+
+  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 10;
   for (unsigned int i = 0, n = this->history_list_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, this->history_list(i), output);
+      10, this->history_list(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6314,11 +16196,26 @@ void S2Web_Sensor_History::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->invterval(), target);
   }
 
-  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 7;
+  // required double avg_value1 = 7;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->avg_value1(), target);
+  }
+
+  // required double avg_value2 = 8;
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(8, this->avg_value2(), target);
+  }
+
+  // required double avg_value3 = 9;
+  if (cached_has_bits & 0x00000100u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(9, this->avg_value3(), target);
+  }
+
+  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 10;
   for (unsigned int i = 0, n = this->history_list_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        7, this->history_list(i), deterministic, target);
+        10, this->history_list(i), deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6371,6 +16268,21 @@ size_t S2Web_Sensor_History::RequiredFieldsByteSizeFallback() const {
         this->invterval());
   }
 
+  if (has_avg_value1()) {
+    // required double avg_value1 = 7;
+    total_size += 1 + 8;
+  }
+
+  if (has_avg_value2()) {
+    // required double avg_value2 = 8;
+    total_size += 1 + 8;
+  }
+
+  if (has_avg_value3()) {
+    // required double avg_value3 = 9;
+    total_size += 1 + 8;
+  }
+
   return total_size;
 }
 size_t S2Web_Sensor_History::ByteSizeLong() const {
@@ -6382,7 +16294,7 @@ size_t S2Web_Sensor_History::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x000001ff) ^ 0x000001ff) == 0) {  // All required fields are present.
     // required double longitude = 2;
     total_size += 1 + 8;
 
@@ -6409,10 +16321,19 @@ size_t S2Web_Sensor_History::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->invterval());
 
+    // required double avg_value1 = 7;
+    total_size += 1 + 8;
+
+    // required double avg_value2 = 8;
+    total_size += 1 + 8;
+
+    // required double avg_value3 = 9;
+    total_size += 1 + 8;
+
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 7;
+  // repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 10;
   {
     unsigned int count = this->history_list_size();
     total_size += 1UL * count;
@@ -6454,7 +16375,7 @@ void S2Web_Sensor_History::MergeFrom(const S2Web_Sensor_History& from) {
 
   history_list_.MergeFrom(from.history_list_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 63u) {
+  if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
       longitude_ = from.longitude_;
     }
@@ -6473,7 +16394,16 @@ void S2Web_Sensor_History::MergeFrom(const S2Web_Sensor_History& from) {
     if (cached_has_bits & 0x00000020u) {
       invterval_ = from.invterval_;
     }
+    if (cached_has_bits & 0x00000040u) {
+      avg_value1_ = from.avg_value1_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      avg_value2_ = from.avg_value2_;
+    }
     _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000100u) {
+    set_avg_value3(from.avg_value3());
   }
 }
 
@@ -6492,7 +16422,7 @@ void S2Web_Sensor_History::CopyFrom(const S2Web_Sensor_History& from) {
 }
 
 bool S2Web_Sensor_History::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+  if ((_has_bits_[0] & 0x000001ff) != 0x000001ff) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->history_list())) return false;
   return true;
 }
@@ -6509,6 +16439,9 @@ void S2Web_Sensor_History::InternalSwap(S2Web_Sensor_History* other) {
   std::swap(latitude_, other->latitude_);
   std::swap(end_time_, other->end_time_);
   std::swap(invterval_, other->invterval_);
+  std::swap(avg_value1_, other->avg_value1_);
+  std::swap(avg_value2_, other->avg_value2_);
+  std::swap(avg_value3_, other->avg_value3_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -6666,7 +16599,79 @@ void S2Web_Sensor_History::set_invterval(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.invterval)
 }
 
-// repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 7;
+// required double avg_value1 = 7;
+bool S2Web_Sensor_History::has_avg_value1() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void S2Web_Sensor_History::set_has_avg_value1() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void S2Web_Sensor_History::clear_has_avg_value1() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void S2Web_Sensor_History::clear_avg_value1() {
+  avg_value1_ = 0;
+  clear_has_avg_value1();
+}
+double S2Web_Sensor_History::avg_value1() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value1)
+  return avg_value1_;
+}
+void S2Web_Sensor_History::set_avg_value1(double value) {
+  set_has_avg_value1();
+  avg_value1_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value1)
+}
+
+// required double avg_value2 = 8;
+bool S2Web_Sensor_History::has_avg_value2() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+void S2Web_Sensor_History::set_has_avg_value2() {
+  _has_bits_[0] |= 0x00000080u;
+}
+void S2Web_Sensor_History::clear_has_avg_value2() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+void S2Web_Sensor_History::clear_avg_value2() {
+  avg_value2_ = 0;
+  clear_has_avg_value2();
+}
+double S2Web_Sensor_History::avg_value2() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value2)
+  return avg_value2_;
+}
+void S2Web_Sensor_History::set_avg_value2(double value) {
+  set_has_avg_value2();
+  avg_value2_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value2)
+}
+
+// required double avg_value3 = 9;
+bool S2Web_Sensor_History::has_avg_value3() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+void S2Web_Sensor_History::set_has_avg_value3() {
+  _has_bits_[0] |= 0x00000100u;
+}
+void S2Web_Sensor_History::clear_has_avg_value3() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+void S2Web_Sensor_History::clear_avg_value3() {
+  avg_value3_ = 0;
+  clear_has_avg_value3();
+}
+double S2Web_Sensor_History::avg_value3() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value3)
+  return avg_value3_;
+}
+void S2Web_Sensor_History::set_avg_value3(double value) {
+  set_has_avg_value3();
+  avg_value3_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.avg_value3)
+}
+
+// repeated .WEB_SERVER_NET_Protocol.S2Web_Sensor_History.SensorData history_list = 10;
 int S2Web_Sensor_History::history_list_size() const {
   return history_list_.size();
 }
@@ -6959,6 +16964,9862 @@ void S2WEB_ERROR::set_error_code(::google::protobuf::uint32 value) {
   set_has_error_code();
   error_code_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_ERROR.error_code)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_New_Slope::kIdFieldNumber;
+const int S2WEB_New_Slope::kTypeFieldNumber;
+const int S2WEB_New_Slope::kNameFieldNumber;
+const int S2WEB_New_Slope::kStateFieldNumber;
+const int S2WEB_New_Slope::kLongitudeFieldNumber;
+const int S2WEB_New_Slope::kLatitudeFieldNumber;
+const int S2WEB_New_Slope::kUrlFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_New_Slope::S2WEB_New_Slope()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+}
+S2WEB_New_Slope::S2WEB_New_Slope(const S2WEB_New_Slope& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_name()) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  ::memcpy(&id_, &from.id_,
+    reinterpret_cast<char*>(&state_) -
+    reinterpret_cast<char*>(&id_) + sizeof(state_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+}
+
+void S2WEB_New_Slope::SharedCtor() {
+  _cached_size_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&id_, 0, reinterpret_cast<char*>(&state_) -
+    reinterpret_cast<char*>(&id_) + sizeof(state_));
+}
+
+S2WEB_New_Slope::~S2WEB_New_Slope() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  SharedDtor();
+}
+
+void S2WEB_New_Slope::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_New_Slope::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_New_Slope::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_New_Slope& S2WEB_New_Slope::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_New_Slope* S2WEB_New_Slope::New(::google::protobuf::Arena* arena) const {
+  S2WEB_New_Slope* n = new S2WEB_New_Slope;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_New_Slope::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_name()) {
+      GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*name_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 124u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&state_) -
+      reinterpret_cast<char*>(&id_) + sizeof(state_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_New_Slope::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 type = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes name = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 state = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+          set_has_state();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &state_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double longitude = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(49u)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  return false;
+#undef DO_
+}
+
+void S2WEB_New_Slope::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->type(), output);
+  }
+
+  // required bytes name = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->name(), output);
+  }
+
+  // required uint32 state = 4;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->state(), output);
+  }
+
+  // required double longitude = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude(), output);
+  }
+
+  // required double latitude = 6;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->latitude(), output);
+  }
+
+  // required bytes url = 7;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      7, this->url(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+}
+
+::google::protobuf::uint8* S2WEB_New_Slope::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->type(), target);
+  }
+
+  // required bytes name = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->name(), target);
+  }
+
+  // required uint32 state = 4;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->state(), target);
+  }
+
+  // required double longitude = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude(), target);
+  }
+
+  // required double latitude = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->latitude(), target);
+  }
+
+  // required bytes url = 7;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        7, this->url(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  return target;
+}
+
+size_t S2WEB_New_Slope::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  size_t total_size = 0;
+
+  if (has_name()) {
+    // required bytes name = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+  }
+
+  if (has_url()) {
+    // required bytes url = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_id()) {
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+
+  if (has_type()) {
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+  }
+
+  if (has_longitude()) {
+    // required double longitude = 5;
+    total_size += 1 + 8;
+  }
+
+  if (has_latitude()) {
+    // required double latitude = 6;
+    total_size += 1 + 8;
+  }
+
+  if (has_state()) {
+    // required uint32 state = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->state());
+  }
+
+  return total_size;
+}
+size_t S2WEB_New_Slope::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000007f) ^ 0x0000007f) == 0) {  // All required fields are present.
+    // required bytes name = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+
+    // required bytes url = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+
+    // required double longitude = 5;
+    total_size += 1 + 8;
+
+    // required double latitude = 6;
+    total_size += 1 + 8;
+
+    // required uint32 state = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->state());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_New_Slope::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_New_Slope* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_New_Slope>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_New_Slope::MergeFrom(const S2WEB_New_Slope& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 127u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      id_ = from.id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      type_ = from.type_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      longitude_ = from.longitude_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      latitude_ = from.latitude_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      state_ = from.state_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_New_Slope::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_New_Slope::CopyFrom(const S2WEB_New_Slope& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_New_Slope::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
+  return true;
+}
+
+void S2WEB_New_Slope::Swap(S2WEB_New_Slope* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_New_Slope::InternalSwap(S2WEB_New_Slope* other) {
+  name_.Swap(&other->name_);
+  url_.Swap(&other->url_);
+  std::swap(id_, other->id_);
+  std::swap(type_, other->type_);
+  std::swap(longitude_, other->longitude_);
+  std::swap(latitude_, other->latitude_);
+  std::swap(state_, other->state_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_New_Slope::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_New_Slope
+
+// required uint32 id = 1;
+bool S2WEB_New_Slope::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2WEB_New_Slope::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2WEB_New_Slope::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2WEB_New_Slope::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 S2WEB_New_Slope::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.id)
+  return id_;
+}
+void S2WEB_New_Slope::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.id)
+}
+
+// required uint32 type = 2;
+bool S2WEB_New_Slope::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void S2WEB_New_Slope::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void S2WEB_New_Slope::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void S2WEB_New_Slope::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+::google::protobuf::uint32 S2WEB_New_Slope::type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.type)
+  return type_;
+}
+void S2WEB_New_Slope::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.type)
+}
+
+// required bytes name = 3;
+bool S2WEB_New_Slope::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_New_Slope::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_New_Slope::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_New_Slope::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+const ::std::string& S2WEB_New_Slope::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.name)
+  return name_.GetNoArena();
+}
+void S2WEB_New_Slope::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.name)
+}
+#if LANG_CXX11
+void S2WEB_New_Slope::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.name)
+}
+#endif
+void S2WEB_New_Slope::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.name)
+}
+void S2WEB_New_Slope::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.name)
+}
+::std::string* S2WEB_New_Slope::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_New_Slope::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_New_Slope::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.name)
+}
+
+// required uint32 state = 4;
+bool S2WEB_New_Slope::has_state() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void S2WEB_New_Slope::set_has_state() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void S2WEB_New_Slope::clear_has_state() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void S2WEB_New_Slope::clear_state() {
+  state_ = 0u;
+  clear_has_state();
+}
+::google::protobuf::uint32 S2WEB_New_Slope::state() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.state)
+  return state_;
+}
+void S2WEB_New_Slope::set_state(::google::protobuf::uint32 value) {
+  set_has_state();
+  state_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.state)
+}
+
+// required double longitude = 5;
+bool S2WEB_New_Slope::has_longitude() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void S2WEB_New_Slope::set_has_longitude() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void S2WEB_New_Slope::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void S2WEB_New_Slope::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+double S2WEB_New_Slope::longitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.longitude)
+  return longitude_;
+}
+void S2WEB_New_Slope::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.longitude)
+}
+
+// required double latitude = 6;
+bool S2WEB_New_Slope::has_latitude() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void S2WEB_New_Slope::set_has_latitude() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void S2WEB_New_Slope::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void S2WEB_New_Slope::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+double S2WEB_New_Slope::latitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.latitude)
+  return latitude_;
+}
+void S2WEB_New_Slope::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.latitude)
+}
+
+// required bytes url = 7;
+bool S2WEB_New_Slope::has_url() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_New_Slope::set_has_url() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_New_Slope::clear_has_url() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_New_Slope::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& S2WEB_New_Slope::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.url)
+  return url_.GetNoArena();
+}
+void S2WEB_New_Slope::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.url)
+}
+#if LANG_CXX11
+void S2WEB_New_Slope::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.url)
+}
+#endif
+void S2WEB_New_Slope::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.url)
+}
+void S2WEB_New_Slope::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.url)
+}
+::std::string* S2WEB_New_Slope::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_New_Slope::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_New_Slope::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.url)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Del_Slope::kResultFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Del_Slope::S2WEB_Del_Slope()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+}
+S2WEB_Del_Slope::S2WEB_Del_Slope(const S2WEB_Del_Slope& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  result_ = from.result_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+}
+
+void S2WEB_Del_Slope::SharedCtor() {
+  _cached_size_ = 0;
+  result_ = 0u;
+}
+
+S2WEB_Del_Slope::~S2WEB_Del_Slope() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  SharedDtor();
+}
+
+void S2WEB_Del_Slope::SharedDtor() {
+}
+
+void S2WEB_Del_Slope::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Del_Slope::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Del_Slope& S2WEB_Del_Slope::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Del_Slope* S2WEB_Del_Slope::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Del_Slope* n = new S2WEB_Del_Slope;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Del_Slope::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  result_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Del_Slope::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 result = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_result();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Del_Slope::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 result = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->result(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+}
+
+::google::protobuf::uint8* S2WEB_Del_Slope::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 result = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->result(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  return target;
+}
+
+size_t S2WEB_Del_Slope::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 result = 1;
+  if (has_result()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->result());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Del_Slope::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Del_Slope* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Del_Slope>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Del_Slope::MergeFrom(const S2WEB_Del_Slope& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_result()) {
+    set_result(from.result());
+  }
+}
+
+void S2WEB_Del_Slope::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Del_Slope::CopyFrom(const S2WEB_Del_Slope& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Del_Slope::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void S2WEB_Del_Slope::Swap(S2WEB_Del_Slope* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Del_Slope::InternalSwap(S2WEB_Del_Slope* other) {
+  std::swap(result_, other->result_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Del_Slope::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Del_Slope
+
+// required uint32 result = 1;
+bool S2WEB_Del_Slope::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Del_Slope::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Del_Slope::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Del_Slope::clear_result() {
+  result_ = 0u;
+  clear_has_result();
+}
+::google::protobuf::uint32 S2WEB_Del_Slope::result() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope.result)
+  return result_;
+}
+void S2WEB_Del_Slope::set_result(::google::protobuf::uint32 value) {
+  set_has_result();
+  result_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Del_Slope.result)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Update_Slope::kIdFieldNumber;
+const int S2WEB_Update_Slope::kTypeFieldNumber;
+const int S2WEB_Update_Slope::kNameFieldNumber;
+const int S2WEB_Update_Slope::kStateFieldNumber;
+const int S2WEB_Update_Slope::kLongitudeFieldNumber;
+const int S2WEB_Update_Slope::kLatitudeFieldNumber;
+const int S2WEB_Update_Slope::kUrlFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Update_Slope::S2WEB_Update_Slope()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+}
+S2WEB_Update_Slope::S2WEB_Update_Slope(const S2WEB_Update_Slope& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_name()) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  ::memcpy(&id_, &from.id_,
+    reinterpret_cast<char*>(&state_) -
+    reinterpret_cast<char*>(&id_) + sizeof(state_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+}
+
+void S2WEB_Update_Slope::SharedCtor() {
+  _cached_size_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&id_, 0, reinterpret_cast<char*>(&state_) -
+    reinterpret_cast<char*>(&id_) + sizeof(state_));
+}
+
+S2WEB_Update_Slope::~S2WEB_Update_Slope() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  SharedDtor();
+}
+
+void S2WEB_Update_Slope::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_Update_Slope::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Update_Slope::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Update_Slope& S2WEB_Update_Slope::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Update_Slope* S2WEB_Update_Slope::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Update_Slope* n = new S2WEB_Update_Slope;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Update_Slope::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_name()) {
+      GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*name_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 124u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&state_) -
+      reinterpret_cast<char*>(&id_) + sizeof(state_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Update_Slope::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 type = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes name = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 state = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+          set_has_state();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &state_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double longitude = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(49u)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Update_Slope::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->type(), output);
+  }
+
+  // required bytes name = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->name(), output);
+  }
+
+  // required uint32 state = 4;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->state(), output);
+  }
+
+  // required double longitude = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude(), output);
+  }
+
+  // required double latitude = 6;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->latitude(), output);
+  }
+
+  // required bytes url = 7;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      7, this->url(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+}
+
+::google::protobuf::uint8* S2WEB_Update_Slope::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->type(), target);
+  }
+
+  // required bytes name = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->name(), target);
+  }
+
+  // required uint32 state = 4;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->state(), target);
+  }
+
+  // required double longitude = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude(), target);
+  }
+
+  // required double latitude = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->latitude(), target);
+  }
+
+  // required bytes url = 7;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        7, this->url(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  return target;
+}
+
+size_t S2WEB_Update_Slope::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  size_t total_size = 0;
+
+  if (has_name()) {
+    // required bytes name = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+  }
+
+  if (has_url()) {
+    // required bytes url = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_id()) {
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+
+  if (has_type()) {
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+  }
+
+  if (has_longitude()) {
+    // required double longitude = 5;
+    total_size += 1 + 8;
+  }
+
+  if (has_latitude()) {
+    // required double latitude = 6;
+    total_size += 1 + 8;
+  }
+
+  if (has_state()) {
+    // required uint32 state = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->state());
+  }
+
+  return total_size;
+}
+size_t S2WEB_Update_Slope::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000007f) ^ 0x0000007f) == 0) {  // All required fields are present.
+    // required bytes name = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+
+    // required bytes url = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+
+    // required double longitude = 5;
+    total_size += 1 + 8;
+
+    // required double latitude = 6;
+    total_size += 1 + 8;
+
+    // required uint32 state = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->state());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Update_Slope::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Update_Slope* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Update_Slope>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Update_Slope::MergeFrom(const S2WEB_Update_Slope& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 127u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      id_ = from.id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      type_ = from.type_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      longitude_ = from.longitude_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      latitude_ = from.latitude_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      state_ = from.state_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Update_Slope::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Update_Slope::CopyFrom(const S2WEB_Update_Slope& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Update_Slope::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
+  return true;
+}
+
+void S2WEB_Update_Slope::Swap(S2WEB_Update_Slope* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Update_Slope::InternalSwap(S2WEB_Update_Slope* other) {
+  name_.Swap(&other->name_);
+  url_.Swap(&other->url_);
+  std::swap(id_, other->id_);
+  std::swap(type_, other->type_);
+  std::swap(longitude_, other->longitude_);
+  std::swap(latitude_, other->latitude_);
+  std::swap(state_, other->state_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Update_Slope::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Update_Slope
+
+// required uint32 id = 1;
+bool S2WEB_Update_Slope::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2WEB_Update_Slope::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2WEB_Update_Slope::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2WEB_Update_Slope::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 S2WEB_Update_Slope::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.id)
+  return id_;
+}
+void S2WEB_Update_Slope::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.id)
+}
+
+// required uint32 type = 2;
+bool S2WEB_Update_Slope::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void S2WEB_Update_Slope::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void S2WEB_Update_Slope::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void S2WEB_Update_Slope::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+::google::protobuf::uint32 S2WEB_Update_Slope::type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.type)
+  return type_;
+}
+void S2WEB_Update_Slope::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.type)
+}
+
+// required bytes name = 3;
+bool S2WEB_Update_Slope::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Update_Slope::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Update_Slope::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Update_Slope::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+const ::std::string& S2WEB_Update_Slope::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.name)
+  return name_.GetNoArena();
+}
+void S2WEB_Update_Slope::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.name)
+}
+#if LANG_CXX11
+void S2WEB_Update_Slope::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.name)
+}
+#endif
+void S2WEB_Update_Slope::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.name)
+}
+void S2WEB_Update_Slope::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.name)
+}
+::std::string* S2WEB_Update_Slope::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Update_Slope::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Update_Slope::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.name)
+}
+
+// required uint32 state = 4;
+bool S2WEB_Update_Slope::has_state() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void S2WEB_Update_Slope::set_has_state() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void S2WEB_Update_Slope::clear_has_state() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void S2WEB_Update_Slope::clear_state() {
+  state_ = 0u;
+  clear_has_state();
+}
+::google::protobuf::uint32 S2WEB_Update_Slope::state() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.state)
+  return state_;
+}
+void S2WEB_Update_Slope::set_state(::google::protobuf::uint32 value) {
+  set_has_state();
+  state_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.state)
+}
+
+// required double longitude = 5;
+bool S2WEB_Update_Slope::has_longitude() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void S2WEB_Update_Slope::set_has_longitude() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void S2WEB_Update_Slope::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void S2WEB_Update_Slope::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+double S2WEB_Update_Slope::longitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.longitude)
+  return longitude_;
+}
+void S2WEB_Update_Slope::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.longitude)
+}
+
+// required double latitude = 6;
+bool S2WEB_Update_Slope::has_latitude() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void S2WEB_Update_Slope::set_has_latitude() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void S2WEB_Update_Slope::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void S2WEB_Update_Slope::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+double S2WEB_Update_Slope::latitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.latitude)
+  return latitude_;
+}
+void S2WEB_Update_Slope::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.latitude)
+}
+
+// required bytes url = 7;
+bool S2WEB_Update_Slope::has_url() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Update_Slope::set_has_url() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Update_Slope::clear_has_url() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Update_Slope::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& S2WEB_Update_Slope::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.url)
+  return url_.GetNoArena();
+}
+void S2WEB_Update_Slope::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.url)
+}
+#if LANG_CXX11
+void S2WEB_Update_Slope::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.url)
+}
+#endif
+void S2WEB_Update_Slope::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.url)
+}
+void S2WEB_Update_Slope::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.url)
+}
+::std::string* S2WEB_Update_Slope::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Update_Slope::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Update_Slope::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.url)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Add_Sensor::kIdFieldNumber;
+const int S2WEB_Add_Sensor::kTypeFieldNumber;
+const int S2WEB_Add_Sensor::kStateFieldNumber;
+const int S2WEB_Add_Sensor::kSlopeIdFieldNumber;
+const int S2WEB_Add_Sensor::kLongitudeFieldNumber;
+const int S2WEB_Add_Sensor::kLatitudeFieldNumber;
+const int S2WEB_Add_Sensor::kUrlFieldNumber;
+const int S2WEB_Add_Sensor::kDescriptionFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Add_Sensor::S2WEB_Add_Sensor()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+}
+S2WEB_Add_Sensor::S2WEB_Add_Sensor(const S2WEB_Add_Sensor& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_description()) {
+    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+  }
+  ::memcpy(&id_, &from.id_,
+    reinterpret_cast<char*>(&latitude_) -
+    reinterpret_cast<char*>(&id_) + sizeof(latitude_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+}
+
+void S2WEB_Add_Sensor::SharedCtor() {
+  _cached_size_ = 0;
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&id_, 0, reinterpret_cast<char*>(&latitude_) -
+    reinterpret_cast<char*>(&id_) + sizeof(latitude_));
+}
+
+S2WEB_Add_Sensor::~S2WEB_Add_Sensor() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  SharedDtor();
+}
+
+void S2WEB_Add_Sensor::SharedDtor() {
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_Add_Sensor::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Add_Sensor::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Add_Sensor& S2WEB_Add_Sensor::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Add_Sensor* S2WEB_Add_Sensor::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Add_Sensor* n = new S2WEB_Add_Sensor;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Add_Sensor::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_description()) {
+      GOOGLE_DCHECK(!description_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*description_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 252u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&latitude_) -
+      reinterpret_cast<char*>(&id_) + sizeof(latitude_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Add_Sensor::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 type = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 state = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_state();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &state_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 slope_id = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+          set_has_slope_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slope_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double longitude = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(49u)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes description = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(66u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_description()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Add_Sensor::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->type(), output);
+  }
+
+  // required uint32 state = 3;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->state(), output);
+  }
+
+  // required uint32 slope_id = 4;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->slope_id(), output);
+  }
+
+  // required double longitude = 5;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude(), output);
+  }
+
+  // required double latitude = 6;
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->latitude(), output);
+  }
+
+  // required bytes url = 7;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      7, this->url(), output);
+  }
+
+  // required bytes description = 8;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      8, this->description(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+}
+
+::google::protobuf::uint8* S2WEB_Add_Sensor::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->type(), target);
+  }
+
+  // required uint32 state = 3;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->state(), target);
+  }
+
+  // required uint32 slope_id = 4;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->slope_id(), target);
+  }
+
+  // required double longitude = 5;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude(), target);
+  }
+
+  // required double latitude = 6;
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->latitude(), target);
+  }
+
+  // required bytes url = 7;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        7, this->url(), target);
+  }
+
+  // required bytes description = 8;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        8, this->description(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  return target;
+}
+
+size_t S2WEB_Add_Sensor::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  size_t total_size = 0;
+
+  if (has_url()) {
+    // required bytes url = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_description()) {
+    // required bytes description = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+  }
+
+  if (has_id()) {
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+
+  if (has_type()) {
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+  }
+
+  if (has_state()) {
+    // required uint32 state = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->state());
+  }
+
+  if (has_slope_id()) {
+    // required uint32 slope_id = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+  }
+
+  if (has_longitude()) {
+    // required double longitude = 5;
+    total_size += 1 + 8;
+  }
+
+  if (has_latitude()) {
+    // required double latitude = 6;
+    total_size += 1 + 8;
+  }
+
+  return total_size;
+}
+size_t S2WEB_Add_Sensor::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x000000ff) ^ 0x000000ff) == 0) {  // All required fields are present.
+    // required bytes url = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required bytes description = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+
+    // required uint32 state = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->state());
+
+    // required uint32 slope_id = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+
+    // required double longitude = 5;
+    total_size += 1 + 8;
+
+    // required double latitude = 6;
+    total_size += 1 + 8;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Add_Sensor::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Add_Sensor* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Add_Sensor>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Add_Sensor::MergeFrom(const S2WEB_Add_Sensor& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 255u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_description();
+      description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      id_ = from.id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      type_ = from.type_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      state_ = from.state_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      slope_id_ = from.slope_id_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      longitude_ = from.longitude_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      latitude_ = from.latitude_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Add_Sensor::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Add_Sensor::CopyFrom(const S2WEB_Add_Sensor& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Add_Sensor::IsInitialized() const {
+  if ((_has_bits_[0] & 0x000000ff) != 0x000000ff) return false;
+  return true;
+}
+
+void S2WEB_Add_Sensor::Swap(S2WEB_Add_Sensor* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Add_Sensor::InternalSwap(S2WEB_Add_Sensor* other) {
+  url_.Swap(&other->url_);
+  description_.Swap(&other->description_);
+  std::swap(id_, other->id_);
+  std::swap(type_, other->type_);
+  std::swap(state_, other->state_);
+  std::swap(slope_id_, other->slope_id_);
+  std::swap(longitude_, other->longitude_);
+  std::swap(latitude_, other->latitude_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Add_Sensor::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Add_Sensor
+
+// required uint32 id = 1;
+bool S2WEB_Add_Sensor::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2WEB_Add_Sensor::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2WEB_Add_Sensor::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2WEB_Add_Sensor::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 S2WEB_Add_Sensor::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.id)
+  return id_;
+}
+void S2WEB_Add_Sensor::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.id)
+}
+
+// required uint32 type = 2;
+bool S2WEB_Add_Sensor::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void S2WEB_Add_Sensor::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void S2WEB_Add_Sensor::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void S2WEB_Add_Sensor::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+::google::protobuf::uint32 S2WEB_Add_Sensor::type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.type)
+  return type_;
+}
+void S2WEB_Add_Sensor::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.type)
+}
+
+// required uint32 state = 3;
+bool S2WEB_Add_Sensor::has_state() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void S2WEB_Add_Sensor::set_has_state() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void S2WEB_Add_Sensor::clear_has_state() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void S2WEB_Add_Sensor::clear_state() {
+  state_ = 0u;
+  clear_has_state();
+}
+::google::protobuf::uint32 S2WEB_Add_Sensor::state() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.state)
+  return state_;
+}
+void S2WEB_Add_Sensor::set_state(::google::protobuf::uint32 value) {
+  set_has_state();
+  state_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.state)
+}
+
+// required uint32 slope_id = 4;
+bool S2WEB_Add_Sensor::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void S2WEB_Add_Sensor::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void S2WEB_Add_Sensor::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void S2WEB_Add_Sensor::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+::google::protobuf::uint32 S2WEB_Add_Sensor::slope_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.slope_id)
+  return slope_id_;
+}
+void S2WEB_Add_Sensor::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.slope_id)
+}
+
+// required double longitude = 5;
+bool S2WEB_Add_Sensor::has_longitude() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void S2WEB_Add_Sensor::set_has_longitude() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void S2WEB_Add_Sensor::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void S2WEB_Add_Sensor::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+double S2WEB_Add_Sensor::longitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.longitude)
+  return longitude_;
+}
+void S2WEB_Add_Sensor::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.longitude)
+}
+
+// required double latitude = 6;
+bool S2WEB_Add_Sensor::has_latitude() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+void S2WEB_Add_Sensor::set_has_latitude() {
+  _has_bits_[0] |= 0x00000080u;
+}
+void S2WEB_Add_Sensor::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+void S2WEB_Add_Sensor::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+double S2WEB_Add_Sensor::latitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.latitude)
+  return latitude_;
+}
+void S2WEB_Add_Sensor::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.latitude)
+}
+
+// required bytes url = 7;
+bool S2WEB_Add_Sensor::has_url() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Add_Sensor::set_has_url() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Add_Sensor::clear_has_url() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Add_Sensor::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& S2WEB_Add_Sensor::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.url)
+  return url_.GetNoArena();
+}
+void S2WEB_Add_Sensor::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.url)
+}
+#if LANG_CXX11
+void S2WEB_Add_Sensor::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.url)
+}
+#endif
+void S2WEB_Add_Sensor::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.url)
+}
+void S2WEB_Add_Sensor::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.url)
+}
+::std::string* S2WEB_Add_Sensor::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Add_Sensor::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Add_Sensor::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.url)
+}
+
+// required bytes description = 8;
+bool S2WEB_Add_Sensor::has_description() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Add_Sensor::set_has_description() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Add_Sensor::clear_has_description() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Add_Sensor::clear_description() {
+  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_description();
+}
+const ::std::string& S2WEB_Add_Sensor::description() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.description)
+  return description_.GetNoArena();
+}
+void S2WEB_Add_Sensor::set_description(const ::std::string& value) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.description)
+}
+#if LANG_CXX11
+void S2WEB_Add_Sensor::set_description(::std::string&& value) {
+  set_has_description();
+  description_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.description)
+}
+#endif
+void S2WEB_Add_Sensor::set_description(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.description)
+}
+void S2WEB_Add_Sensor::set_description(const void* value, size_t size) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.description)
+}
+::std::string* S2WEB_Add_Sensor::mutable_description() {
+  set_has_description();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.description)
+  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Add_Sensor::release_description() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.description)
+  clear_has_description();
+  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Add_Sensor::set_allocated_description(::std::string* description) {
+  if (description != NULL) {
+    set_has_description();
+  } else {
+    clear_has_description();
+  }
+  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.description)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Del_Sensor::kResultFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Del_Sensor::S2WEB_Del_Sensor()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+}
+S2WEB_Del_Sensor::S2WEB_Del_Sensor(const S2WEB_Del_Sensor& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  result_ = from.result_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+}
+
+void S2WEB_Del_Sensor::SharedCtor() {
+  _cached_size_ = 0;
+  result_ = 0u;
+}
+
+S2WEB_Del_Sensor::~S2WEB_Del_Sensor() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  SharedDtor();
+}
+
+void S2WEB_Del_Sensor::SharedDtor() {
+}
+
+void S2WEB_Del_Sensor::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Del_Sensor::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Del_Sensor& S2WEB_Del_Sensor::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Del_Sensor* S2WEB_Del_Sensor::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Del_Sensor* n = new S2WEB_Del_Sensor;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Del_Sensor::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  result_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Del_Sensor::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 result = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_result();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Del_Sensor::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 result = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->result(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+}
+
+::google::protobuf::uint8* S2WEB_Del_Sensor::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 result = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->result(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  return target;
+}
+
+size_t S2WEB_Del_Sensor::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 result = 1;
+  if (has_result()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->result());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Del_Sensor::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Del_Sensor* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Del_Sensor>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Del_Sensor::MergeFrom(const S2WEB_Del_Sensor& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_result()) {
+    set_result(from.result());
+  }
+}
+
+void S2WEB_Del_Sensor::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Del_Sensor::CopyFrom(const S2WEB_Del_Sensor& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Del_Sensor::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void S2WEB_Del_Sensor::Swap(S2WEB_Del_Sensor* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Del_Sensor::InternalSwap(S2WEB_Del_Sensor* other) {
+  std::swap(result_, other->result_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Del_Sensor::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Del_Sensor
+
+// required uint32 result = 1;
+bool S2WEB_Del_Sensor::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Del_Sensor::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Del_Sensor::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Del_Sensor::clear_result() {
+  result_ = 0u;
+  clear_has_result();
+}
+::google::protobuf::uint32 S2WEB_Del_Sensor::result() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor.result)
+  return result_;
+}
+void S2WEB_Del_Sensor::set_result(::google::protobuf::uint32 value) {
+  set_has_result();
+  result_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Del_Sensor.result)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Update_Sensor::kIdFieldNumber;
+const int S2WEB_Update_Sensor::kTypeFieldNumber;
+const int S2WEB_Update_Sensor::kStateFieldNumber;
+const int S2WEB_Update_Sensor::kSlopeIdFieldNumber;
+const int S2WEB_Update_Sensor::kLongitudeFieldNumber;
+const int S2WEB_Update_Sensor::kLatitudeFieldNumber;
+const int S2WEB_Update_Sensor::kUrlFieldNumber;
+const int S2WEB_Update_Sensor::kDescriptionFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Update_Sensor::S2WEB_Update_Sensor()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+}
+S2WEB_Update_Sensor::S2WEB_Update_Sensor(const S2WEB_Update_Sensor& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_description()) {
+    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+  }
+  ::memcpy(&id_, &from.id_,
+    reinterpret_cast<char*>(&latitude_) -
+    reinterpret_cast<char*>(&id_) + sizeof(latitude_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+}
+
+void S2WEB_Update_Sensor::SharedCtor() {
+  _cached_size_ = 0;
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&id_, 0, reinterpret_cast<char*>(&latitude_) -
+    reinterpret_cast<char*>(&id_) + sizeof(latitude_));
+}
+
+S2WEB_Update_Sensor::~S2WEB_Update_Sensor() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  SharedDtor();
+}
+
+void S2WEB_Update_Sensor::SharedDtor() {
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_Update_Sensor::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Update_Sensor::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Update_Sensor& S2WEB_Update_Sensor::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Update_Sensor* S2WEB_Update_Sensor::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Update_Sensor* n = new S2WEB_Update_Sensor;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Update_Sensor::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  if (_has_bits_[0 / 32] & 3u) {
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_description()) {
+      GOOGLE_DCHECK(!description_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*description_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 252u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&latitude_) -
+      reinterpret_cast<char*>(&id_) + sizeof(latitude_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Update_Sensor::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 type = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 state = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_state();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &state_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 slope_id = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+          set_has_slope_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slope_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double longitude = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(49u)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes description = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(66u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_description()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Update_Sensor::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->type(), output);
+  }
+
+  // required uint32 state = 3;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->state(), output);
+  }
+
+  // required uint32 slope_id = 4;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->slope_id(), output);
+  }
+
+  // required double longitude = 5;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude(), output);
+  }
+
+  // required double latitude = 6;
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->latitude(), output);
+  }
+
+  // required bytes url = 7;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      7, this->url(), output);
+  }
+
+  // required bytes description = 8;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      8, this->description(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+}
+
+::google::protobuf::uint8* S2WEB_Update_Sensor::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  // required uint32 type = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->type(), target);
+  }
+
+  // required uint32 state = 3;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->state(), target);
+  }
+
+  // required uint32 slope_id = 4;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->slope_id(), target);
+  }
+
+  // required double longitude = 5;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude(), target);
+  }
+
+  // required double latitude = 6;
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->latitude(), target);
+  }
+
+  // required bytes url = 7;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        7, this->url(), target);
+  }
+
+  // required bytes description = 8;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        8, this->description(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  return target;
+}
+
+size_t S2WEB_Update_Sensor::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  size_t total_size = 0;
+
+  if (has_url()) {
+    // required bytes url = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_description()) {
+    // required bytes description = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+  }
+
+  if (has_id()) {
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+
+  if (has_type()) {
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+  }
+
+  if (has_state()) {
+    // required uint32 state = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->state());
+  }
+
+  if (has_slope_id()) {
+    // required uint32 slope_id = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+  }
+
+  if (has_longitude()) {
+    // required double longitude = 5;
+    total_size += 1 + 8;
+  }
+
+  if (has_latitude()) {
+    // required double latitude = 6;
+    total_size += 1 + 8;
+  }
+
+  return total_size;
+}
+size_t S2WEB_Update_Sensor::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x000000ff) ^ 0x000000ff) == 0) {  // All required fields are present.
+    // required bytes url = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required bytes description = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+
+    // required uint32 type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->type());
+
+    // required uint32 state = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->state());
+
+    // required uint32 slope_id = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+
+    // required double longitude = 5;
+    total_size += 1 + 8;
+
+    // required double latitude = 6;
+    total_size += 1 + 8;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Update_Sensor::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Update_Sensor* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Update_Sensor>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Update_Sensor::MergeFrom(const S2WEB_Update_Sensor& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 255u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_description();
+      description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      id_ = from.id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      type_ = from.type_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      state_ = from.state_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      slope_id_ = from.slope_id_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      longitude_ = from.longitude_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      latitude_ = from.latitude_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Update_Sensor::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Update_Sensor::CopyFrom(const S2WEB_Update_Sensor& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Update_Sensor::IsInitialized() const {
+  if ((_has_bits_[0] & 0x000000ff) != 0x000000ff) return false;
+  return true;
+}
+
+void S2WEB_Update_Sensor::Swap(S2WEB_Update_Sensor* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Update_Sensor::InternalSwap(S2WEB_Update_Sensor* other) {
+  url_.Swap(&other->url_);
+  description_.Swap(&other->description_);
+  std::swap(id_, other->id_);
+  std::swap(type_, other->type_);
+  std::swap(state_, other->state_);
+  std::swap(slope_id_, other->slope_id_);
+  std::swap(longitude_, other->longitude_);
+  std::swap(latitude_, other->latitude_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Update_Sensor::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Update_Sensor
+
+// required uint32 id = 1;
+bool S2WEB_Update_Sensor::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2WEB_Update_Sensor::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2WEB_Update_Sensor::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2WEB_Update_Sensor::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 S2WEB_Update_Sensor::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.id)
+  return id_;
+}
+void S2WEB_Update_Sensor::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.id)
+}
+
+// required uint32 type = 2;
+bool S2WEB_Update_Sensor::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void S2WEB_Update_Sensor::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void S2WEB_Update_Sensor::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void S2WEB_Update_Sensor::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+::google::protobuf::uint32 S2WEB_Update_Sensor::type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.type)
+  return type_;
+}
+void S2WEB_Update_Sensor::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.type)
+}
+
+// required uint32 state = 3;
+bool S2WEB_Update_Sensor::has_state() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void S2WEB_Update_Sensor::set_has_state() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void S2WEB_Update_Sensor::clear_has_state() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void S2WEB_Update_Sensor::clear_state() {
+  state_ = 0u;
+  clear_has_state();
+}
+::google::protobuf::uint32 S2WEB_Update_Sensor::state() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.state)
+  return state_;
+}
+void S2WEB_Update_Sensor::set_state(::google::protobuf::uint32 value) {
+  set_has_state();
+  state_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.state)
+}
+
+// required uint32 slope_id = 4;
+bool S2WEB_Update_Sensor::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void S2WEB_Update_Sensor::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void S2WEB_Update_Sensor::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void S2WEB_Update_Sensor::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+::google::protobuf::uint32 S2WEB_Update_Sensor::slope_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.slope_id)
+  return slope_id_;
+}
+void S2WEB_Update_Sensor::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.slope_id)
+}
+
+// required double longitude = 5;
+bool S2WEB_Update_Sensor::has_longitude() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void S2WEB_Update_Sensor::set_has_longitude() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void S2WEB_Update_Sensor::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void S2WEB_Update_Sensor::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+double S2WEB_Update_Sensor::longitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.longitude)
+  return longitude_;
+}
+void S2WEB_Update_Sensor::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.longitude)
+}
+
+// required double latitude = 6;
+bool S2WEB_Update_Sensor::has_latitude() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+void S2WEB_Update_Sensor::set_has_latitude() {
+  _has_bits_[0] |= 0x00000080u;
+}
+void S2WEB_Update_Sensor::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+void S2WEB_Update_Sensor::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+double S2WEB_Update_Sensor::latitude() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.latitude)
+  return latitude_;
+}
+void S2WEB_Update_Sensor::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.latitude)
+}
+
+// required bytes url = 7;
+bool S2WEB_Update_Sensor::has_url() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Update_Sensor::set_has_url() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Update_Sensor::clear_has_url() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Update_Sensor::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& S2WEB_Update_Sensor::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.url)
+  return url_.GetNoArena();
+}
+void S2WEB_Update_Sensor::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.url)
+}
+#if LANG_CXX11
+void S2WEB_Update_Sensor::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.url)
+}
+#endif
+void S2WEB_Update_Sensor::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.url)
+}
+void S2WEB_Update_Sensor::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.url)
+}
+::std::string* S2WEB_Update_Sensor::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Update_Sensor::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Update_Sensor::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.url)
+}
+
+// required bytes description = 8;
+bool S2WEB_Update_Sensor::has_description() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Update_Sensor::set_has_description() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Update_Sensor::clear_has_description() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Update_Sensor::clear_description() {
+  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_description();
+}
+const ::std::string& S2WEB_Update_Sensor::description() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.description)
+  return description_.GetNoArena();
+}
+void S2WEB_Update_Sensor::set_description(const ::std::string& value) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.description)
+}
+#if LANG_CXX11
+void S2WEB_Update_Sensor::set_description(::std::string&& value) {
+  set_has_description();
+  description_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.description)
+}
+#endif
+void S2WEB_Update_Sensor::set_description(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.description)
+}
+void S2WEB_Update_Sensor::set_description(const void* value, size_t size) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.description)
+}
+::std::string* S2WEB_Update_Sensor::mutable_description() {
+  set_has_description();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.description)
+  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Update_Sensor::release_description() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.description)
+  clear_has_description();
+  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Update_Sensor::set_allocated_description(::std::string* description) {
+  if (description != NULL) {
+    set_has_description();
+  } else {
+    clear_has_description();
+  }
+  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.description)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Modify_Password_Result::kResultFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Modify_Password_Result::S2WEB_Modify_Password_Result()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+}
+S2WEB_Modify_Password_Result::S2WEB_Modify_Password_Result(const S2WEB_Modify_Password_Result& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  result_ = from.result_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+}
+
+void S2WEB_Modify_Password_Result::SharedCtor() {
+  _cached_size_ = 0;
+  result_ = 0u;
+}
+
+S2WEB_Modify_Password_Result::~S2WEB_Modify_Password_Result() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  SharedDtor();
+}
+
+void S2WEB_Modify_Password_Result::SharedDtor() {
+}
+
+void S2WEB_Modify_Password_Result::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Modify_Password_Result::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Modify_Password_Result& S2WEB_Modify_Password_Result::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Modify_Password_Result* S2WEB_Modify_Password_Result::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Modify_Password_Result* n = new S2WEB_Modify_Password_Result;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Modify_Password_Result::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  result_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Modify_Password_Result::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 result = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_result();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Modify_Password_Result::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 result = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->result(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+}
+
+::google::protobuf::uint8* S2WEB_Modify_Password_Result::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 result = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->result(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  return target;
+}
+
+size_t S2WEB_Modify_Password_Result::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 result = 1;
+  if (has_result()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->result());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Modify_Password_Result::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Modify_Password_Result* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Modify_Password_Result>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Modify_Password_Result::MergeFrom(const S2WEB_Modify_Password_Result& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_result()) {
+    set_result(from.result());
+  }
+}
+
+void S2WEB_Modify_Password_Result::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Modify_Password_Result::CopyFrom(const S2WEB_Modify_Password_Result& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Modify_Password_Result::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void S2WEB_Modify_Password_Result::Swap(S2WEB_Modify_Password_Result* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Modify_Password_Result::InternalSwap(S2WEB_Modify_Password_Result* other) {
+  std::swap(result_, other->result_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Modify_Password_Result::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Modify_Password_Result
+
+// required uint32 result = 1;
+bool S2WEB_Modify_Password_Result::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Modify_Password_Result::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Modify_Password_Result::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Modify_Password_Result::clear_result() {
+  result_ = 0u;
+  clear_has_result();
+}
+::google::protobuf::uint32 S2WEB_Modify_Password_Result::result() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result.result)
+  return result_;
+}
+void S2WEB_Modify_Password_Result::set_result(::google::protobuf::uint32 value) {
+  set_has_result();
+  result_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Password_Result.result)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_User_List_UserData::kUserIdFieldNumber;
+const int S2WEB_User_List_UserData::kUserNameFieldNumber;
+const int S2WEB_User_List_UserData::kGroupIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_User_List_UserData::S2WEB_User_List_UserData()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+}
+S2WEB_User_List_UserData::S2WEB_User_List_UserData(const S2WEB_User_List_UserData& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_user_name()) {
+    user_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_name_);
+  }
+  ::memcpy(&user_id_, &from.user_id_,
+    reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+}
+
+void S2WEB_User_List_UserData::SharedCtor() {
+  _cached_size_ = 0;
+  user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+}
+
+S2WEB_User_List_UserData::~S2WEB_User_List_UserData() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  SharedDtor();
+}
+
+void S2WEB_User_List_UserData::SharedDtor() {
+  user_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_User_List_UserData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_User_List_UserData::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_User_List_UserData& S2WEB_User_List_UserData::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_User_List_UserData* S2WEB_User_List_UserData::New(::google::protobuf::Arena* arena) const {
+  S2WEB_User_List_UserData* n = new S2WEB_User_List_UserData;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_User_List_UserData::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  if (has_user_name()) {
+    GOOGLE_DCHECK(!user_name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*user_name_.UnsafeRawStringPointer())->clear();
+  }
+  if (_has_bits_[0 / 32] & 6u) {
+    ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+      reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_User_List_UserData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_user_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes user_name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_user_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 group_id = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  return false;
+#undef DO_
+}
+
+void S2WEB_User_List_UserData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required bytes user_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->user_name(), output);
+  }
+
+  // required uint32 group_id = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->group_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+}
+
+::google::protobuf::uint8* S2WEB_User_List_UserData::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->user_id(), target);
+  }
+
+  // required bytes user_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->user_name(), target);
+  }
+
+  // required uint32 group_id = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->group_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  return target;
+}
+
+size_t S2WEB_User_List_UserData::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  size_t total_size = 0;
+
+  if (has_user_name()) {
+    // required bytes user_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->user_name());
+  }
+
+  if (has_user_id()) {
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+  }
+
+  if (has_group_id()) {
+    // required uint32 group_id = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+
+  return total_size;
+}
+size_t S2WEB_User_List_UserData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required bytes user_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->user_name());
+
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+
+    // required uint32 group_id = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_User_List_UserData::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_User_List_UserData* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_User_List_UserData>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_User_List_UserData::MergeFrom(const S2WEB_User_List_UserData& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 7u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_user_name();
+      user_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      user_id_ = from.user_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      group_id_ = from.group_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_User_List_UserData::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_User_List_UserData::CopyFrom(const S2WEB_User_List_UserData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_User_List_UserData::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  return true;
+}
+
+void S2WEB_User_List_UserData::Swap(S2WEB_User_List_UserData* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_User_List_UserData::InternalSwap(S2WEB_User_List_UserData* other) {
+  user_name_.Swap(&other->user_name_);
+  std::swap(user_id_, other->user_id_);
+  std::swap(group_id_, other->group_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_User_List_UserData::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_User_List_UserData
+
+// required uint32 user_id = 1;
+bool S2WEB_User_List_UserData::has_user_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_User_List_UserData::set_has_user_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_User_List_UserData::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_User_List_UserData::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+::google::protobuf::uint32 S2WEB_User_List_UserData::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_id)
+  return user_id_;
+}
+void S2WEB_User_List_UserData::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_id)
+}
+
+// required bytes user_name = 2;
+bool S2WEB_User_List_UserData::has_user_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_User_List_UserData::set_has_user_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_User_List_UserData::clear_has_user_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_User_List_UserData::clear_user_name() {
+  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_name();
+}
+const ::std::string& S2WEB_User_List_UserData::user_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+  return user_name_.GetNoArena();
+}
+void S2WEB_User_List_UserData::set_user_name(const ::std::string& value) {
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+}
+#if LANG_CXX11
+void S2WEB_User_List_UserData::set_user_name(::std::string&& value) {
+  set_has_user_name();
+  user_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+}
+#endif
+void S2WEB_User_List_UserData::set_user_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+}
+void S2WEB_User_List_UserData::set_user_name(const void* value, size_t size) {
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+}
+::std::string* S2WEB_User_List_UserData::mutable_user_name() {
+  set_has_user_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_User_List_UserData::release_user_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+  clear_has_user_name();
+  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_User_List_UserData::set_allocated_user_name(::std::string* user_name) {
+  if (user_name != NULL) {
+    set_has_user_name();
+  } else {
+    clear_has_user_name();
+  }
+  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.user_name)
+}
+
+// required uint32 group_id = 3;
+bool S2WEB_User_List_UserData::has_group_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2WEB_User_List_UserData::set_has_group_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2WEB_User_List_UserData::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2WEB_User_List_UserData::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 S2WEB_User_List_UserData::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.group_id)
+  return group_id_;
+}
+void S2WEB_User_List_UserData::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData.group_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_User_List::kUserListFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_User_List::S2WEB_User_List()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+}
+S2WEB_User_List::S2WEB_User_List(const S2WEB_User_List& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0),
+      user_list_(from.user_list_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+}
+
+void S2WEB_User_List::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+S2WEB_User_List::~S2WEB_User_List() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  SharedDtor();
+}
+
+void S2WEB_User_List::SharedDtor() {
+}
+
+void S2WEB_User_List::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_User_List::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_User_List& S2WEB_User_List::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_User_List* S2WEB_User_List::New(::google::protobuf::Arena* arena) const {
+  S2WEB_User_List* n = new S2WEB_User_List;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_User_List::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  user_list_.Clear();
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_User_List::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData user_list = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_user_list()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  return false;
+#undef DO_
+}
+
+void S2WEB_User_List::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData user_list = 1;
+  for (unsigned int i = 0, n = this->user_list_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->user_list(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+}
+
+::google::protobuf::uint8* S2WEB_User_List::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData user_list = 1;
+  for (unsigned int i = 0, n = this->user_list_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->user_list(i), deterministic, target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  return target;
+}
+
+size_t S2WEB_User_List::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData user_list = 1;
+  {
+    unsigned int count = this->user_list_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->user_list(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_User_List::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_User_List* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_User_List>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_User_List::MergeFrom(const S2WEB_User_List& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  user_list_.MergeFrom(from.user_list_);
+}
+
+void S2WEB_User_List::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_User_List::CopyFrom(const S2WEB_User_List& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_User_List)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_User_List::IsInitialized() const {
+  if (!::google::protobuf::internal::AllAreInitialized(this->user_list())) return false;
+  return true;
+}
+
+void S2WEB_User_List::Swap(S2WEB_User_List* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_User_List::InternalSwap(S2WEB_User_List* other) {
+  user_list_.InternalSwap(&other->user_list_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_User_List::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_User_List
+
+// repeated .WEB_SERVER_NET_Protocol.S2WEB_User_List.UserData user_list = 1;
+int S2WEB_User_List::user_list_size() const {
+  return user_list_.size();
+}
+void S2WEB_User_List::clear_user_list() {
+  user_list_.Clear();
+}
+const ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData& S2WEB_User_List::user_list(int index) const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_User_List.user_list)
+  return user_list_.Get(index);
+}
+::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData* S2WEB_User_List::mutable_user_list(int index) {
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_User_List.user_list)
+  return user_list_.Mutable(index);
+}
+::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData* S2WEB_User_List::add_user_list() {
+  // @@protoc_insertion_point(field_add:WEB_SERVER_NET_Protocol.S2WEB_User_List.user_list)
+  return user_list_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData >*
+S2WEB_User_List::mutable_user_list() {
+  // @@protoc_insertion_point(field_mutable_list:WEB_SERVER_NET_Protocol.S2WEB_User_List.user_list)
+  return &user_list_;
+}
+const ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_User_List_UserData >&
+S2WEB_User_List::user_list() const {
+  // @@protoc_insertion_point(field_list:WEB_SERVER_NET_Protocol.S2WEB_User_List.user_list)
+  return user_list_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Create_User::kUserIdFieldNumber;
+const int S2WEB_Create_User::kUserNameFieldNumber;
+const int S2WEB_Create_User::kGroupIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Create_User::S2WEB_Create_User()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+}
+S2WEB_Create_User::S2WEB_Create_User(const S2WEB_Create_User& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_user_name()) {
+    user_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_name_);
+  }
+  ::memcpy(&user_id_, &from.user_id_,
+    reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+}
+
+void S2WEB_Create_User::SharedCtor() {
+  _cached_size_ = 0;
+  user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+}
+
+S2WEB_Create_User::~S2WEB_Create_User() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  SharedDtor();
+}
+
+void S2WEB_Create_User::SharedDtor() {
+  user_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_Create_User::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Create_User::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Create_User& S2WEB_Create_User::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Create_User* S2WEB_Create_User::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Create_User* n = new S2WEB_Create_User;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Create_User::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  if (has_user_name()) {
+    GOOGLE_DCHECK(!user_name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*user_name_.UnsafeRawStringPointer())->clear();
+  }
+  if (_has_bits_[0 / 32] & 6u) {
+    ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+      reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Create_User::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_user_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes user_name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_user_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 group_id = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Create_User::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required bytes user_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->user_name(), output);
+  }
+
+  // required uint32 group_id = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->group_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+}
+
+::google::protobuf::uint8* S2WEB_Create_User::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->user_id(), target);
+  }
+
+  // required bytes user_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->user_name(), target);
+  }
+
+  // required uint32 group_id = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->group_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  return target;
+}
+
+size_t S2WEB_Create_User::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  size_t total_size = 0;
+
+  if (has_user_name()) {
+    // required bytes user_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->user_name());
+  }
+
+  if (has_user_id()) {
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+  }
+
+  if (has_group_id()) {
+    // required uint32 group_id = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+
+  return total_size;
+}
+size_t S2WEB_Create_User::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required bytes user_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->user_name());
+
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+
+    // required uint32 group_id = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Create_User::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Create_User* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Create_User>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Create_User::MergeFrom(const S2WEB_Create_User& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 7u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_user_name();
+      user_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      user_id_ = from.user_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      group_id_ = from.group_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Create_User::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Create_User::CopyFrom(const S2WEB_Create_User& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Create_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Create_User::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  return true;
+}
+
+void S2WEB_Create_User::Swap(S2WEB_Create_User* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Create_User::InternalSwap(S2WEB_Create_User* other) {
+  user_name_.Swap(&other->user_name_);
+  std::swap(user_id_, other->user_id_);
+  std::swap(group_id_, other->group_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Create_User::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Create_User
+
+// required uint32 user_id = 1;
+bool S2WEB_Create_User::has_user_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Create_User::set_has_user_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Create_User::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Create_User::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+::google::protobuf::uint32 S2WEB_Create_User::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_id)
+  return user_id_;
+}
+void S2WEB_Create_User::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_id)
+}
+
+// required bytes user_name = 2;
+bool S2WEB_Create_User::has_user_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Create_User::set_has_user_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Create_User::clear_has_user_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Create_User::clear_user_name() {
+  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_name();
+}
+const ::std::string& S2WEB_Create_User::user_name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+  return user_name_.GetNoArena();
+}
+void S2WEB_Create_User::set_user_name(const ::std::string& value) {
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+}
+#if LANG_CXX11
+void S2WEB_Create_User::set_user_name(::std::string&& value) {
+  set_has_user_name();
+  user_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+}
+#endif
+void S2WEB_Create_User::set_user_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+}
+void S2WEB_Create_User::set_user_name(const void* value, size_t size) {
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+}
+::std::string* S2WEB_Create_User::mutable_user_name() {
+  set_has_user_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Create_User::release_user_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+  clear_has_user_name();
+  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Create_User::set_allocated_user_name(::std::string* user_name) {
+  if (user_name != NULL) {
+    set_has_user_name();
+  } else {
+    clear_has_user_name();
+  }
+  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Create_User.user_name)
+}
+
+// required uint32 group_id = 3;
+bool S2WEB_Create_User::has_group_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2WEB_Create_User::set_has_group_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2WEB_Create_User::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2WEB_Create_User::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 S2WEB_Create_User::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_User.group_id)
+  return group_id_;
+}
+void S2WEB_Create_User::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_User.group_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Modify_User::kUserIdFieldNumber;
+const int S2WEB_Modify_User::kGroupIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Modify_User::S2WEB_Modify_User()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+}
+S2WEB_Modify_User::S2WEB_Modify_User(const S2WEB_Modify_User& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&user_id_, &from.user_id_,
+    reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+}
+
+void S2WEB_Modify_User::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+}
+
+S2WEB_Modify_User::~S2WEB_Modify_User() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  SharedDtor();
+}
+
+void S2WEB_Modify_User::SharedDtor() {
+}
+
+void S2WEB_Modify_User::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Modify_User::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Modify_User& S2WEB_Modify_User::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Modify_User* S2WEB_Modify_User::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Modify_User* n = new S2WEB_Modify_User;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Modify_User::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  if (_has_bits_[0 / 32] & 3u) {
+    ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+      reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Modify_User::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_user_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 group_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Modify_User::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->group_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+}
+
+::google::protobuf::uint8* S2WEB_Modify_User::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->user_id(), target);
+  }
+
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->group_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  return target;
+}
+
+size_t S2WEB_Modify_User::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  size_t total_size = 0;
+
+  if (has_user_id()) {
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+  }
+
+  if (has_group_id()) {
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+
+  return total_size;
+}
+size_t S2WEB_Modify_User::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Modify_User::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Modify_User* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Modify_User>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Modify_User::MergeFrom(const S2WEB_Modify_User& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      user_id_ = from.user_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      group_id_ = from.group_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Modify_User::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Modify_User::CopyFrom(const S2WEB_Modify_User& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Modify_User::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void S2WEB_Modify_User::Swap(S2WEB_Modify_User* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Modify_User::InternalSwap(S2WEB_Modify_User* other) {
+  std::swap(user_id_, other->user_id_);
+  std::swap(group_id_, other->group_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Modify_User::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Modify_User
+
+// required uint32 user_id = 1;
+bool S2WEB_Modify_User::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Modify_User::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Modify_User::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Modify_User::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+::google::protobuf::uint32 S2WEB_Modify_User::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_id)
+  return user_id_;
+}
+void S2WEB_Modify_User::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.user_id)
+}
+
+// required uint32 group_id = 2;
+bool S2WEB_Modify_User::has_group_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Modify_User::set_has_group_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Modify_User::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Modify_User::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 S2WEB_Modify_User::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.group_id)
+  return group_id_;
+}
+void S2WEB_Modify_User::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_User.group_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Remove_User::kIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Remove_User::S2WEB_Remove_User()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+}
+S2WEB_Remove_User::S2WEB_Remove_User(const S2WEB_Remove_User& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  id_ = from.id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+}
+
+void S2WEB_Remove_User::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = 0u;
+}
+
+S2WEB_Remove_User::~S2WEB_Remove_User() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  SharedDtor();
+}
+
+void S2WEB_Remove_User::SharedDtor() {
+}
+
+void S2WEB_Remove_User::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Remove_User::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Remove_User& S2WEB_Remove_User::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Remove_User* S2WEB_Remove_User::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Remove_User* n = new S2WEB_Remove_User;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Remove_User::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Remove_User::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Remove_User::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+}
+
+::google::protobuf::uint8* S2WEB_Remove_User::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  return target;
+}
+
+size_t S2WEB_Remove_User::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 id = 1;
+  if (has_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Remove_User::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Remove_User* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Remove_User>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Remove_User::MergeFrom(const S2WEB_Remove_User& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_id()) {
+    set_id(from.id());
+  }
+}
+
+void S2WEB_Remove_User::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Remove_User::CopyFrom(const S2WEB_Remove_User& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Remove_User::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void S2WEB_Remove_User::Swap(S2WEB_Remove_User* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Remove_User::InternalSwap(S2WEB_Remove_User* other) {
+  std::swap(id_, other->id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Remove_User::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Remove_User
+
+// required uint32 id = 1;
+bool S2WEB_Remove_User::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Remove_User::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Remove_User::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Remove_User::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 S2WEB_Remove_User::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Remove_User.id)
+  return id_;
+}
+void S2WEB_Remove_User::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Remove_User.id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Group_List_GroupData::kIdFieldNumber;
+const int S2WEB_Group_List_GroupData::kNameFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Group_List_GroupData::S2WEB_Group_List_GroupData()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+}
+S2WEB_Group_List_GroupData::S2WEB_Group_List_GroupData(const S2WEB_Group_List_GroupData& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_name()) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  id_ = from.id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+}
+
+void S2WEB_Group_List_GroupData::SharedCtor() {
+  _cached_size_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  id_ = 0u;
+}
+
+S2WEB_Group_List_GroupData::~S2WEB_Group_List_GroupData() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  SharedDtor();
+}
+
+void S2WEB_Group_List_GroupData::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_Group_List_GroupData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Group_List_GroupData::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Group_List_GroupData& S2WEB_Group_List_GroupData::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Group_List_GroupData* S2WEB_Group_List_GroupData::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Group_List_GroupData* n = new S2WEB_Group_List_GroupData;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Group_List_GroupData::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  if (has_name()) {
+    GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*name_.UnsafeRawStringPointer())->clear();
+  }
+  id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Group_List_GroupData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Group_List_GroupData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // required bytes name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->name(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+}
+
+::google::protobuf::uint8* S2WEB_Group_List_GroupData::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  // required bytes name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->name(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  return target;
+}
+
+size_t S2WEB_Group_List_GroupData::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  size_t total_size = 0;
+
+  if (has_name()) {
+    // required bytes name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+  }
+
+  if (has_id()) {
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+
+  return total_size;
+}
+size_t S2WEB_Group_List_GroupData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required bytes name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Group_List_GroupData::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Group_List_GroupData* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Group_List_GroupData>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Group_List_GroupData::MergeFrom(const S2WEB_Group_List_GroupData& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      id_ = from.id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Group_List_GroupData::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Group_List_GroupData::CopyFrom(const S2WEB_Group_List_GroupData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Group_List_GroupData::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void S2WEB_Group_List_GroupData::Swap(S2WEB_Group_List_GroupData* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Group_List_GroupData::InternalSwap(S2WEB_Group_List_GroupData* other) {
+  name_.Swap(&other->name_);
+  std::swap(id_, other->id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Group_List_GroupData::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Group_List_GroupData
+
+// required uint32 id = 1;
+bool S2WEB_Group_List_GroupData::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Group_List_GroupData::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Group_List_GroupData::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Group_List_GroupData::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 S2WEB_Group_List_GroupData::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.id)
+  return id_;
+}
+void S2WEB_Group_List_GroupData::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.id)
+}
+
+// required bytes name = 2;
+bool S2WEB_Group_List_GroupData::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Group_List_GroupData::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Group_List_GroupData::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Group_List_GroupData::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+const ::std::string& S2WEB_Group_List_GroupData::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+  return name_.GetNoArena();
+}
+void S2WEB_Group_List_GroupData::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+}
+#if LANG_CXX11
+void S2WEB_Group_List_GroupData::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+}
+#endif
+void S2WEB_Group_List_GroupData::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+}
+void S2WEB_Group_List_GroupData::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+}
+::std::string* S2WEB_Group_List_GroupData::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Group_List_GroupData::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Group_List_GroupData::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData.name)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Group_List::kGroupListFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Group_List::S2WEB_Group_List()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+}
+S2WEB_Group_List::S2WEB_Group_List(const S2WEB_Group_List& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0),
+      group_list_(from.group_list_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+}
+
+void S2WEB_Group_List::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+S2WEB_Group_List::~S2WEB_Group_List() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  SharedDtor();
+}
+
+void S2WEB_Group_List::SharedDtor() {
+}
+
+void S2WEB_Group_List::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Group_List::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Group_List& S2WEB_Group_List::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Group_List* S2WEB_Group_List::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Group_List* n = new S2WEB_Group_List;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Group_List::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  group_list_.Clear();
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Group_List::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData group_list = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_group_list()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Group_List::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData group_list = 1;
+  for (unsigned int i = 0, n = this->group_list_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->group_list(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+}
+
+::google::protobuf::uint8* S2WEB_Group_List::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData group_list = 1;
+  for (unsigned int i = 0, n = this->group_list_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->group_list(i), deterministic, target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  return target;
+}
+
+size_t S2WEB_Group_List::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData group_list = 1;
+  {
+    unsigned int count = this->group_list_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->group_list(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Group_List::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Group_List* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Group_List>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Group_List::MergeFrom(const S2WEB_Group_List& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  group_list_.MergeFrom(from.group_list_);
+}
+
+void S2WEB_Group_List::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Group_List::CopyFrom(const S2WEB_Group_List& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Group_List)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Group_List::IsInitialized() const {
+  if (!::google::protobuf::internal::AllAreInitialized(this->group_list())) return false;
+  return true;
+}
+
+void S2WEB_Group_List::Swap(S2WEB_Group_List* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Group_List::InternalSwap(S2WEB_Group_List* other) {
+  group_list_.InternalSwap(&other->group_list_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Group_List::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Group_List
+
+// repeated .WEB_SERVER_NET_Protocol.S2WEB_Group_List.GroupData group_list = 1;
+int S2WEB_Group_List::group_list_size() const {
+  return group_list_.size();
+}
+void S2WEB_Group_List::clear_group_list() {
+  group_list_.Clear();
+}
+const ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData& S2WEB_Group_List::group_list(int index) const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Group_List.group_list)
+  return group_list_.Get(index);
+}
+::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData* S2WEB_Group_List::mutable_group_list(int index) {
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Group_List.group_list)
+  return group_list_.Mutable(index);
+}
+::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData* S2WEB_Group_List::add_group_list() {
+  // @@protoc_insertion_point(field_add:WEB_SERVER_NET_Protocol.S2WEB_Group_List.group_list)
+  return group_list_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData >*
+S2WEB_Group_List::mutable_group_list() {
+  // @@protoc_insertion_point(field_mutable_list:WEB_SERVER_NET_Protocol.S2WEB_Group_List.group_list)
+  return &group_list_;
+}
+const ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Group_List_GroupData >&
+S2WEB_Group_List::group_list() const {
+  // @@protoc_insertion_point(field_list:WEB_SERVER_NET_Protocol.S2WEB_Group_List.group_list)
+  return group_list_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Create_Group::kIdFieldNumber;
+const int S2WEB_Create_Group::kNameFieldNumber;
+const int S2WEB_Create_Group::kLoadUserListFieldNumber;
+const int S2WEB_Create_Group::kLoadUserGroupListFieldNumber;
+const int S2WEB_Create_Group::kModifyUserFieldNumber;
+const int S2WEB_Create_Group::kModifyUserGroupFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Create_Group::S2WEB_Create_Group()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+}
+S2WEB_Create_Group::S2WEB_Create_Group(const S2WEB_Create_Group& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_name()) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  ::memcpy(&id_, &from.id_,
+    reinterpret_cast<char*>(&modify_user_group_) -
+    reinterpret_cast<char*>(&id_) + sizeof(modify_user_group_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+}
+
+void S2WEB_Create_Group::SharedCtor() {
+  _cached_size_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&id_, 0, reinterpret_cast<char*>(&modify_user_group_) -
+    reinterpret_cast<char*>(&id_) + sizeof(modify_user_group_));
+}
+
+S2WEB_Create_Group::~S2WEB_Create_Group() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  SharedDtor();
+}
+
+void S2WEB_Create_Group::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_Create_Group::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Create_Group::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Create_Group& S2WEB_Create_Group::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Create_Group* S2WEB_Create_Group::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Create_Group* n = new S2WEB_Create_Group;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Create_Group::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  if (has_name()) {
+    GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*name_.UnsafeRawStringPointer())->clear();
+  }
+  if (_has_bits_[0 / 32] & 62u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&modify_user_group_) -
+      reinterpret_cast<char*>(&id_) + sizeof(modify_user_group_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Create_Group::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 load_user_list = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_load_user_list();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &load_user_list_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 load_user_group_list = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+          set_has_load_user_group_list();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &load_user_group_list_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 modify_user = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u)) {
+          set_has_modify_user();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &modify_user_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 modify_user_group = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u)) {
+          set_has_modify_user_group();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &modify_user_group_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Create_Group::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // required bytes name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->name(), output);
+  }
+
+  // optional uint32 load_user_list = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->load_user_list(), output);
+  }
+
+  // optional uint32 load_user_group_list = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->load_user_group_list(), output);
+  }
+
+  // optional uint32 modify_user = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->modify_user(), output);
+  }
+
+  // optional uint32 modify_user_group = 6;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->modify_user_group(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+}
+
+::google::protobuf::uint8* S2WEB_Create_Group::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  // required bytes name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->name(), target);
+  }
+
+  // optional uint32 load_user_list = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->load_user_list(), target);
+  }
+
+  // optional uint32 load_user_group_list = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->load_user_group_list(), target);
+  }
+
+  // optional uint32 modify_user = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->modify_user(), target);
+  }
+
+  // optional uint32 modify_user_group = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->modify_user_group(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  return target;
+}
+
+size_t S2WEB_Create_Group::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  size_t total_size = 0;
+
+  if (has_name()) {
+    // required bytes name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+  }
+
+  if (has_id()) {
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+
+  return total_size;
+}
+size_t S2WEB_Create_Group::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required bytes name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[0 / 32] & 60u) {
+    // optional uint32 load_user_list = 3;
+    if (has_load_user_list()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->load_user_list());
+    }
+
+    // optional uint32 load_user_group_list = 4;
+    if (has_load_user_group_list()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->load_user_group_list());
+    }
+
+    // optional uint32 modify_user = 5;
+    if (has_modify_user()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->modify_user());
+    }
+
+    // optional uint32 modify_user_group = 6;
+    if (has_modify_user_group()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->modify_user_group());
+    }
+
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Create_Group::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Create_Group* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Create_Group>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Create_Group::MergeFrom(const S2WEB_Create_Group& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 63u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      id_ = from.id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      load_user_list_ = from.load_user_list_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      load_user_group_list_ = from.load_user_group_list_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      modify_user_ = from.modify_user_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      modify_user_group_ = from.modify_user_group_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Create_Group::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Create_Group::CopyFrom(const S2WEB_Create_Group& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Create_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Create_Group::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void S2WEB_Create_Group::Swap(S2WEB_Create_Group* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Create_Group::InternalSwap(S2WEB_Create_Group* other) {
+  name_.Swap(&other->name_);
+  std::swap(id_, other->id_);
+  std::swap(load_user_list_, other->load_user_list_);
+  std::swap(load_user_group_list_, other->load_user_group_list_);
+  std::swap(modify_user_, other->modify_user_);
+  std::swap(modify_user_group_, other->modify_user_group_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Create_Group::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Create_Group
+
+// required uint32 id = 1;
+bool S2WEB_Create_Group::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Create_Group::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Create_Group::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Create_Group::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 S2WEB_Create_Group::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.id)
+  return id_;
+}
+void S2WEB_Create_Group::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.id)
+}
+
+// required bytes name = 2;
+bool S2WEB_Create_Group::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Create_Group::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Create_Group::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Create_Group::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+const ::std::string& S2WEB_Create_Group::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+  return name_.GetNoArena();
+}
+void S2WEB_Create_Group::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+}
+#if LANG_CXX11
+void S2WEB_Create_Group::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+}
+#endif
+void S2WEB_Create_Group::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+}
+void S2WEB_Create_Group::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+}
+::std::string* S2WEB_Create_Group::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Create_Group::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Create_Group::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.name)
+}
+
+// optional uint32 load_user_list = 3;
+bool S2WEB_Create_Group::has_load_user_list() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2WEB_Create_Group::set_has_load_user_list() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2WEB_Create_Group::clear_has_load_user_list() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2WEB_Create_Group::clear_load_user_list() {
+  load_user_list_ = 0u;
+  clear_has_load_user_list();
+}
+::google::protobuf::uint32 S2WEB_Create_Group::load_user_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.load_user_list)
+  return load_user_list_;
+}
+void S2WEB_Create_Group::set_load_user_list(::google::protobuf::uint32 value) {
+  set_has_load_user_list();
+  load_user_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.load_user_list)
+}
+
+// optional uint32 load_user_group_list = 4;
+bool S2WEB_Create_Group::has_load_user_group_list() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void S2WEB_Create_Group::set_has_load_user_group_list() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void S2WEB_Create_Group::clear_has_load_user_group_list() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void S2WEB_Create_Group::clear_load_user_group_list() {
+  load_user_group_list_ = 0u;
+  clear_has_load_user_group_list();
+}
+::google::protobuf::uint32 S2WEB_Create_Group::load_user_group_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.load_user_group_list)
+  return load_user_group_list_;
+}
+void S2WEB_Create_Group::set_load_user_group_list(::google::protobuf::uint32 value) {
+  set_has_load_user_group_list();
+  load_user_group_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.load_user_group_list)
+}
+
+// optional uint32 modify_user = 5;
+bool S2WEB_Create_Group::has_modify_user() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void S2WEB_Create_Group::set_has_modify_user() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void S2WEB_Create_Group::clear_has_modify_user() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void S2WEB_Create_Group::clear_modify_user() {
+  modify_user_ = 0u;
+  clear_has_modify_user();
+}
+::google::protobuf::uint32 S2WEB_Create_Group::modify_user() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.modify_user)
+  return modify_user_;
+}
+void S2WEB_Create_Group::set_modify_user(::google::protobuf::uint32 value) {
+  set_has_modify_user();
+  modify_user_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.modify_user)
+}
+
+// optional uint32 modify_user_group = 6;
+bool S2WEB_Create_Group::has_modify_user_group() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void S2WEB_Create_Group::set_has_modify_user_group() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void S2WEB_Create_Group::clear_has_modify_user_group() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void S2WEB_Create_Group::clear_modify_user_group() {
+  modify_user_group_ = 0u;
+  clear_has_modify_user_group();
+}
+::google::protobuf::uint32 S2WEB_Create_Group::modify_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.modify_user_group)
+  return modify_user_group_;
+}
+void S2WEB_Create_Group::set_modify_user_group(::google::protobuf::uint32 value) {
+  set_has_modify_user_group();
+  modify_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Create_Group.modify_user_group)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Modify_Group::kIdFieldNumber;
+const int S2WEB_Modify_Group::kNameFieldNumber;
+const int S2WEB_Modify_Group::kLoadUserListFieldNumber;
+const int S2WEB_Modify_Group::kLoadUserGroupListFieldNumber;
+const int S2WEB_Modify_Group::kCreateUserGroupFieldNumber;
+const int S2WEB_Modify_Group::kModifyUserGroupFieldNumber;
+const int S2WEB_Modify_Group::kRemoveUserGroupFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Modify_Group::S2WEB_Modify_Group()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+}
+S2WEB_Modify_Group::S2WEB_Modify_Group(const S2WEB_Modify_Group& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_name()) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  ::memcpy(&id_, &from.id_,
+    reinterpret_cast<char*>(&remove_user_group_) -
+    reinterpret_cast<char*>(&id_) + sizeof(remove_user_group_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+}
+
+void S2WEB_Modify_Group::SharedCtor() {
+  _cached_size_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&id_, 0, reinterpret_cast<char*>(&remove_user_group_) -
+    reinterpret_cast<char*>(&id_) + sizeof(remove_user_group_));
+}
+
+S2WEB_Modify_Group::~S2WEB_Modify_Group() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  SharedDtor();
+}
+
+void S2WEB_Modify_Group::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_Modify_Group::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Modify_Group::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Modify_Group& S2WEB_Modify_Group::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Modify_Group* S2WEB_Modify_Group::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Modify_Group* n = new S2WEB_Modify_Group;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Modify_Group::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  if (has_name()) {
+    GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*name_.UnsafeRawStringPointer())->clear();
+  }
+  if (_has_bits_[0 / 32] & 126u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&remove_user_group_) -
+      reinterpret_cast<char*>(&id_) + sizeof(remove_user_group_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Modify_Group::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_name()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 load_user_list = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          set_has_load_user_list();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &load_user_list_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 load_user_group_list = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+          set_has_load_user_group_list();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &load_user_group_list_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 create_user_group = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u)) {
+          set_has_create_user_group();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &create_user_group_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 modify_user_group = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u)) {
+          set_has_modify_user_group();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &modify_user_group_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 remove_user_group = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(56u)) {
+          set_has_remove_user_group();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &remove_user_group_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Modify_Group::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // required bytes name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->name(), output);
+  }
+
+  // optional uint32 load_user_list = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->load_user_list(), output);
+  }
+
+  // optional uint32 load_user_group_list = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->load_user_group_list(), output);
+  }
+
+  // optional uint32 create_user_group = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->create_user_group(), output);
+  }
+
+  // optional uint32 modify_user_group = 6;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->modify_user_group(), output);
+  }
+
+  // optional uint32 remove_user_group = 7;
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->remove_user_group(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+}
+
+::google::protobuf::uint8* S2WEB_Modify_Group::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  // required bytes name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->name(), target);
+  }
+
+  // optional uint32 load_user_list = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->load_user_list(), target);
+  }
+
+  // optional uint32 load_user_group_list = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->load_user_group_list(), target);
+  }
+
+  // optional uint32 create_user_group = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->create_user_group(), target);
+  }
+
+  // optional uint32 modify_user_group = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->modify_user_group(), target);
+  }
+
+  // optional uint32 remove_user_group = 7;
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->remove_user_group(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  return target;
+}
+
+size_t S2WEB_Modify_Group::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  size_t total_size = 0;
+
+  if (has_name()) {
+    // required bytes name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+  }
+
+  if (has_id()) {
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+
+  return total_size;
+}
+size_t S2WEB_Modify_Group::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required bytes name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->name());
+
+    // required uint32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[0 / 32] & 124u) {
+    // optional uint32 load_user_list = 3;
+    if (has_load_user_list()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->load_user_list());
+    }
+
+    // optional uint32 load_user_group_list = 4;
+    if (has_load_user_group_list()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->load_user_group_list());
+    }
+
+    // optional uint32 create_user_group = 5;
+    if (has_create_user_group()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->create_user_group());
+    }
+
+    // optional uint32 modify_user_group = 6;
+    if (has_modify_user_group()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->modify_user_group());
+    }
+
+    // optional uint32 remove_user_group = 7;
+    if (has_remove_user_group()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->remove_user_group());
+    }
+
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Modify_Group::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Modify_Group* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Modify_Group>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Modify_Group::MergeFrom(const S2WEB_Modify_Group& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 127u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      id_ = from.id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      load_user_list_ = from.load_user_list_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      load_user_group_list_ = from.load_user_group_list_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      create_user_group_ = from.create_user_group_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      modify_user_group_ = from.modify_user_group_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      remove_user_group_ = from.remove_user_group_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Modify_Group::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Modify_Group::CopyFrom(const S2WEB_Modify_Group& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Modify_Group::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void S2WEB_Modify_Group::Swap(S2WEB_Modify_Group* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Modify_Group::InternalSwap(S2WEB_Modify_Group* other) {
+  name_.Swap(&other->name_);
+  std::swap(id_, other->id_);
+  std::swap(load_user_list_, other->load_user_list_);
+  std::swap(load_user_group_list_, other->load_user_group_list_);
+  std::swap(create_user_group_, other->create_user_group_);
+  std::swap(modify_user_group_, other->modify_user_group_);
+  std::swap(remove_user_group_, other->remove_user_group_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Modify_Group::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Modify_Group
+
+// required uint32 id = 1;
+bool S2WEB_Modify_Group::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Modify_Group::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Modify_Group::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Modify_Group::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 S2WEB_Modify_Group::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.id)
+  return id_;
+}
+void S2WEB_Modify_Group::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.id)
+}
+
+// required bytes name = 2;
+bool S2WEB_Modify_Group::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Modify_Group::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Modify_Group::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Modify_Group::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+const ::std::string& S2WEB_Modify_Group::name() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+  return name_.GetNoArena();
+}
+void S2WEB_Modify_Group::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+}
+#if LANG_CXX11
+void S2WEB_Modify_Group::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+}
+#endif
+void S2WEB_Modify_Group::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+}
+void S2WEB_Modify_Group::set_name(const void* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+}
+::std::string* S2WEB_Modify_Group::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Modify_Group::release_name() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Modify_Group::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.name)
+}
+
+// optional uint32 load_user_list = 3;
+bool S2WEB_Modify_Group::has_load_user_list() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2WEB_Modify_Group::set_has_load_user_list() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2WEB_Modify_Group::clear_has_load_user_list() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2WEB_Modify_Group::clear_load_user_list() {
+  load_user_list_ = 0u;
+  clear_has_load_user_list();
+}
+::google::protobuf::uint32 S2WEB_Modify_Group::load_user_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.load_user_list)
+  return load_user_list_;
+}
+void S2WEB_Modify_Group::set_load_user_list(::google::protobuf::uint32 value) {
+  set_has_load_user_list();
+  load_user_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.load_user_list)
+}
+
+// optional uint32 load_user_group_list = 4;
+bool S2WEB_Modify_Group::has_load_user_group_list() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void S2WEB_Modify_Group::set_has_load_user_group_list() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void S2WEB_Modify_Group::clear_has_load_user_group_list() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void S2WEB_Modify_Group::clear_load_user_group_list() {
+  load_user_group_list_ = 0u;
+  clear_has_load_user_group_list();
+}
+::google::protobuf::uint32 S2WEB_Modify_Group::load_user_group_list() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.load_user_group_list)
+  return load_user_group_list_;
+}
+void S2WEB_Modify_Group::set_load_user_group_list(::google::protobuf::uint32 value) {
+  set_has_load_user_group_list();
+  load_user_group_list_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.load_user_group_list)
+}
+
+// optional uint32 create_user_group = 5;
+bool S2WEB_Modify_Group::has_create_user_group() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void S2WEB_Modify_Group::set_has_create_user_group() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void S2WEB_Modify_Group::clear_has_create_user_group() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void S2WEB_Modify_Group::clear_create_user_group() {
+  create_user_group_ = 0u;
+  clear_has_create_user_group();
+}
+::google::protobuf::uint32 S2WEB_Modify_Group::create_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.create_user_group)
+  return create_user_group_;
+}
+void S2WEB_Modify_Group::set_create_user_group(::google::protobuf::uint32 value) {
+  set_has_create_user_group();
+  create_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.create_user_group)
+}
+
+// optional uint32 modify_user_group = 6;
+bool S2WEB_Modify_Group::has_modify_user_group() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void S2WEB_Modify_Group::set_has_modify_user_group() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void S2WEB_Modify_Group::clear_has_modify_user_group() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void S2WEB_Modify_Group::clear_modify_user_group() {
+  modify_user_group_ = 0u;
+  clear_has_modify_user_group();
+}
+::google::protobuf::uint32 S2WEB_Modify_Group::modify_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.modify_user_group)
+  return modify_user_group_;
+}
+void S2WEB_Modify_Group::set_modify_user_group(::google::protobuf::uint32 value) {
+  set_has_modify_user_group();
+  modify_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.modify_user_group)
+}
+
+// optional uint32 remove_user_group = 7;
+bool S2WEB_Modify_Group::has_remove_user_group() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void S2WEB_Modify_Group::set_has_remove_user_group() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void S2WEB_Modify_Group::clear_has_remove_user_group() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void S2WEB_Modify_Group::clear_remove_user_group() {
+  remove_user_group_ = 0u;
+  clear_has_remove_user_group();
+}
+::google::protobuf::uint32 S2WEB_Modify_Group::remove_user_group() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.remove_user_group)
+  return remove_user_group_;
+}
+void S2WEB_Modify_Group::set_remove_user_group(::google::protobuf::uint32 value) {
+  set_has_remove_user_group();
+  remove_user_group_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Modify_Group.remove_user_group)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Remove_Group::kIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Remove_Group::S2WEB_Remove_Group()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+}
+S2WEB_Remove_Group::S2WEB_Remove_Group(const S2WEB_Remove_Group& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  id_ = from.id_;
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+}
+
+void S2WEB_Remove_Group::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = 0u;
+}
+
+S2WEB_Remove_Group::~S2WEB_Remove_Group() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  SharedDtor();
+}
+
+void S2WEB_Remove_Group::SharedDtor() {
+}
+
+void S2WEB_Remove_Group::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Remove_Group::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Remove_Group& S2WEB_Remove_Group::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Remove_Group* S2WEB_Remove_Group::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Remove_Group* n = new S2WEB_Remove_Group;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Remove_Group::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Remove_Group::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Remove_Group::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+}
+
+::google::protobuf::uint8* S2WEB_Remove_Group::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  return target;
+}
+
+size_t S2WEB_Remove_Group::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 id = 1;
+  if (has_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Remove_Group::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Remove_Group* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Remove_Group>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Remove_Group::MergeFrom(const S2WEB_Remove_Group& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_id()) {
+    set_id(from.id());
+  }
+}
+
+void S2WEB_Remove_Group::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Remove_Group::CopyFrom(const S2WEB_Remove_Group& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Remove_Group::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void S2WEB_Remove_Group::Swap(S2WEB_Remove_Group* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Remove_Group::InternalSwap(S2WEB_Remove_Group* other) {
+  std::swap(id_, other->id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Remove_Group::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Remove_Group
+
+// required uint32 id = 1;
+bool S2WEB_Remove_Group::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Remove_Group::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Remove_Group::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Remove_Group::clear_id() {
+  id_ = 0u;
+  clear_has_id();
+}
+::google::protobuf::uint32 S2WEB_Remove_Group::id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group.id)
+  return id_;
+}
+void S2WEB_Remove_Group::set_id(::google::protobuf::uint32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Remove_Group.id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Add_User_To_Group::kUserIdFieldNumber;
+const int S2WEB_Add_User_To_Group::kGroupIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Add_User_To_Group::S2WEB_Add_User_To_Group()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+}
+S2WEB_Add_User_To_Group::S2WEB_Add_User_To_Group(const S2WEB_Add_User_To_Group& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&user_id_, &from.user_id_,
+    reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+}
+
+void S2WEB_Add_User_To_Group::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+}
+
+S2WEB_Add_User_To_Group::~S2WEB_Add_User_To_Group() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  SharedDtor();
+}
+
+void S2WEB_Add_User_To_Group::SharedDtor() {
+}
+
+void S2WEB_Add_User_To_Group::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Add_User_To_Group::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Add_User_To_Group& S2WEB_Add_User_To_Group::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Add_User_To_Group* S2WEB_Add_User_To_Group::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Add_User_To_Group* n = new S2WEB_Add_User_To_Group;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Add_User_To_Group::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  if (_has_bits_[0 / 32] & 3u) {
+    ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+      reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Add_User_To_Group::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_user_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 group_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Add_User_To_Group::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->group_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+}
+
+::google::protobuf::uint8* S2WEB_Add_User_To_Group::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->user_id(), target);
+  }
+
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->group_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  return target;
+}
+
+size_t S2WEB_Add_User_To_Group::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  size_t total_size = 0;
+
+  if (has_user_id()) {
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+  }
+
+  if (has_group_id()) {
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+
+  return total_size;
+}
+size_t S2WEB_Add_User_To_Group::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Add_User_To_Group::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Add_User_To_Group* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Add_User_To_Group>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Add_User_To_Group::MergeFrom(const S2WEB_Add_User_To_Group& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      user_id_ = from.user_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      group_id_ = from.group_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Add_User_To_Group::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Add_User_To_Group::CopyFrom(const S2WEB_Add_User_To_Group& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Add_User_To_Group::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void S2WEB_Add_User_To_Group::Swap(S2WEB_Add_User_To_Group* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Add_User_To_Group::InternalSwap(S2WEB_Add_User_To_Group* other) {
+  std::swap(user_id_, other->user_id_);
+  std::swap(group_id_, other->group_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Add_User_To_Group::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Add_User_To_Group
+
+// required uint32 user_id = 1;
+bool S2WEB_Add_User_To_Group::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Add_User_To_Group::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Add_User_To_Group::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Add_User_To_Group::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+::google::protobuf::uint32 S2WEB_Add_User_To_Group::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group.user_id)
+  return user_id_;
+}
+void S2WEB_Add_User_To_Group::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group.user_id)
+}
+
+// required uint32 group_id = 2;
+bool S2WEB_Add_User_To_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Add_User_To_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Add_User_To_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Add_User_To_Group::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 S2WEB_Add_User_To_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group.group_id)
+  return group_id_;
+}
+void S2WEB_Add_User_To_Group::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_User_To_Group.group_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Remove_User_From_Group::kUserIdFieldNumber;
+const int S2WEB_Remove_User_From_Group::kGroupIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Remove_User_From_Group::S2WEB_Remove_User_From_Group()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+}
+S2WEB_Remove_User_From_Group::S2WEB_Remove_User_From_Group(const S2WEB_Remove_User_From_Group& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&user_id_, &from.user_id_,
+    reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+}
+
+void S2WEB_Remove_User_From_Group::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+    reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+}
+
+S2WEB_Remove_User_From_Group::~S2WEB_Remove_User_From_Group() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  SharedDtor();
+}
+
+void S2WEB_Remove_User_From_Group::SharedDtor() {
+}
+
+void S2WEB_Remove_User_From_Group::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Remove_User_From_Group::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Remove_User_From_Group& S2WEB_Remove_User_From_Group::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Remove_User_From_Group* S2WEB_Remove_User_From_Group::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Remove_User_From_Group* n = new S2WEB_Remove_User_From_Group;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Remove_User_From_Group::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  if (_has_bits_[0 / 32] & 3u) {
+    ::memset(&user_id_, 0, reinterpret_cast<char*>(&group_id_) -
+      reinterpret_cast<char*>(&user_id_) + sizeof(group_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Remove_User_From_Group::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_user_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 group_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Remove_User_From_Group::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->group_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+}
+
+::google::protobuf::uint8* S2WEB_Remove_User_From_Group::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->user_id(), target);
+  }
+
+  // required uint32 group_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->group_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  return target;
+}
+
+size_t S2WEB_Remove_User_From_Group::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  size_t total_size = 0;
+
+  if (has_user_id()) {
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+  }
+
+  if (has_group_id()) {
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+  }
+
+  return total_size;
+}
+size_t S2WEB_Remove_User_From_Group::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+
+    // required uint32 group_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->group_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Remove_User_From_Group::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Remove_User_From_Group* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Remove_User_From_Group>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Remove_User_From_Group::MergeFrom(const S2WEB_Remove_User_From_Group& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      user_id_ = from.user_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      group_id_ = from.group_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Remove_User_From_Group::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Remove_User_From_Group::CopyFrom(const S2WEB_Remove_User_From_Group& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Remove_User_From_Group::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void S2WEB_Remove_User_From_Group::Swap(S2WEB_Remove_User_From_Group* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Remove_User_From_Group::InternalSwap(S2WEB_Remove_User_From_Group* other) {
+  std::swap(user_id_, other->user_id_);
+  std::swap(group_id_, other->group_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Remove_User_From_Group::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Remove_User_From_Group
+
+// required uint32 user_id = 1;
+bool S2WEB_Remove_User_From_Group::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Remove_User_From_Group::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Remove_User_From_Group::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Remove_User_From_Group::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+::google::protobuf::uint32 S2WEB_Remove_User_From_Group::user_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group.user_id)
+  return user_id_;
+}
+void S2WEB_Remove_User_From_Group::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group.user_id)
+}
+
+// required uint32 group_id = 2;
+bool S2WEB_Remove_User_From_Group::has_group_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Remove_User_From_Group::set_has_group_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Remove_User_From_Group::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Remove_User_From_Group::clear_group_id() {
+  group_id_ = 0u;
+  clear_has_group_id();
+}
+::google::protobuf::uint32 S2WEB_Remove_User_From_Group::group_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group.group_id)
+  return group_id_;
+}
+void S2WEB_Remove_User_From_Group::set_group_id(::google::protobuf::uint32 value) {
+  set_has_group_id();
+  group_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Remove_User_From_Group.group_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Authority_List_AuthorityData::kAuthorityIdFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kParentIdFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kUrlFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kDescriptionFieldNumber;
+const int S2WEB_Authority_List_AuthorityData::kIconUrlFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Authority_List_AuthorityData::S2WEB_Authority_List_AuthorityData()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+}
+S2WEB_Authority_List_AuthorityData::S2WEB_Authority_List_AuthorityData(const S2WEB_Authority_List_AuthorityData& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_description()) {
+    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+  }
+  icon_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_icon_url()) {
+    icon_url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.icon_url_);
+  }
+  ::memcpy(&authority_id_, &from.authority_id_,
+    reinterpret_cast<char*>(&parent_id_) -
+    reinterpret_cast<char*>(&authority_id_) + sizeof(parent_id_));
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+}
+
+void S2WEB_Authority_List_AuthorityData::SharedCtor() {
+  _cached_size_ = 0;
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  icon_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&authority_id_, 0, reinterpret_cast<char*>(&parent_id_) -
+    reinterpret_cast<char*>(&authority_id_) + sizeof(parent_id_));
+}
+
+S2WEB_Authority_List_AuthorityData::~S2WEB_Authority_List_AuthorityData() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  SharedDtor();
+}
+
+void S2WEB_Authority_List_AuthorityData::SharedDtor() {
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  icon_url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2WEB_Authority_List_AuthorityData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Authority_List_AuthorityData::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Authority_List_AuthorityData& S2WEB_Authority_List_AuthorityData::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Authority_List_AuthorityData* S2WEB_Authority_List_AuthorityData::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Authority_List_AuthorityData* n = new S2WEB_Authority_List_AuthorityData;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Authority_List_AuthorityData::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  if (_has_bits_[0 / 32] & 7u) {
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_description()) {
+      GOOGLE_DCHECK(!description_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*description_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_icon_url()) {
+      GOOGLE_DCHECK(!icon_url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*icon_url_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 24u) {
+    ::memset(&authority_id_, 0, reinterpret_cast<char*>(&parent_id_) -
+      reinterpret_cast<char*>(&authority_id_) + sizeof(parent_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Authority_List_AuthorityData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 authority_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_authority_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &authority_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 parent_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_parent_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &parent_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes url = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes description = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_description()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bytes icon_url = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_icon_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Authority_List_AuthorityData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->authority_id(), output);
+  }
+
+  // required uint32 parent_id = 2;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->parent_id(), output);
+  }
+
+  // required bytes url = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->url(), output);
+  }
+
+  // required bytes description = 4;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      4, this->description(), output);
+  }
+
+  // required bytes icon_url = 5;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      5, this->icon_url(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+}
+
+::google::protobuf::uint8* S2WEB_Authority_List_AuthorityData::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->authority_id(), target);
+  }
+
+  // required uint32 parent_id = 2;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->parent_id(), target);
+  }
+
+  // required bytes url = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->url(), target);
+  }
+
+  // required bytes description = 4;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        4, this->description(), target);
+  }
+
+  // required bytes icon_url = 5;
+  if (cached_has_bits & 0x00000004u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        5, this->icon_url(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  return target;
+}
+
+size_t S2WEB_Authority_List_AuthorityData::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  size_t total_size = 0;
+
+  if (has_url()) {
+    // required bytes url = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+  }
+
+  if (has_description()) {
+    // required bytes description = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+  }
+
+  if (has_icon_url()) {
+    // required bytes icon_url = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->icon_url());
+  }
+
+  if (has_authority_id()) {
+    // required uint32 authority_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->authority_id());
+  }
+
+  if (has_parent_id()) {
+    // required uint32 parent_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->parent_id());
+  }
+
+  return total_size;
+}
+size_t S2WEB_Authority_List_AuthorityData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+    // required bytes url = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->url());
+
+    // required bytes description = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->description());
+
+    // required bytes icon_url = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->icon_url());
+
+    // required uint32 authority_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->authority_id());
+
+    // required uint32 parent_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->parent_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Authority_List_AuthorityData::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Authority_List_AuthorityData* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Authority_List_AuthorityData>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Authority_List_AuthorityData::MergeFrom(const S2WEB_Authority_List_AuthorityData& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 31u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_description();
+      description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      set_has_icon_url();
+      icon_url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.icon_url_);
+    }
+    if (cached_has_bits & 0x00000008u) {
+      authority_id_ = from.authority_id_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      parent_id_ = from.parent_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2WEB_Authority_List_AuthorityData::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Authority_List_AuthorityData::CopyFrom(const S2WEB_Authority_List_AuthorityData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Authority_List_AuthorityData::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+  return true;
+}
+
+void S2WEB_Authority_List_AuthorityData::Swap(S2WEB_Authority_List_AuthorityData* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Authority_List_AuthorityData::InternalSwap(S2WEB_Authority_List_AuthorityData* other) {
+  url_.Swap(&other->url_);
+  description_.Swap(&other->description_);
+  icon_url_.Swap(&other->icon_url_);
+  std::swap(authority_id_, other->authority_id_);
+  std::swap(parent_id_, other->parent_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Authority_List_AuthorityData::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Authority_List_AuthorityData
+
+// required uint32 authority_id = 1;
+bool S2WEB_Authority_List_AuthorityData::has_authority_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_authority_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_authority_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_authority_id() {
+  authority_id_ = 0u;
+  clear_has_authority_id();
+}
+::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::authority_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.authority_id)
+  return authority_id_;
+}
+void S2WEB_Authority_List_AuthorityData::set_authority_id(::google::protobuf::uint32 value) {
+  set_has_authority_id();
+  authority_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.authority_id)
+}
+
+// required uint32 parent_id = 2;
+bool S2WEB_Authority_List_AuthorityData::has_parent_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_parent_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_parent_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_parent_id() {
+  parent_id_ = 0u;
+  clear_has_parent_id();
+}
+::google::protobuf::uint32 S2WEB_Authority_List_AuthorityData::parent_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.parent_id)
+  return parent_id_;
+}
+void S2WEB_Authority_List_AuthorityData::set_parent_id(::google::protobuf::uint32 value) {
+  set_has_parent_id();
+  parent_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.parent_id)
+}
+
+// required bytes url = 3;
+bool S2WEB_Authority_List_AuthorityData::has_url() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_url() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_url() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& S2WEB_Authority_List_AuthorityData::url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+  return url_.GetNoArena();
+}
+void S2WEB_Authority_List_AuthorityData::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+}
+#if LANG_CXX11
+void S2WEB_Authority_List_AuthorityData::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+}
+#endif
+void S2WEB_Authority_List_AuthorityData::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+}
+void S2WEB_Authority_List_AuthorityData::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+}
+::std::string* S2WEB_Authority_List_AuthorityData::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Authority_List_AuthorityData::release_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Authority_List_AuthorityData::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.url)
+}
+
+// required bytes description = 4;
+bool S2WEB_Authority_List_AuthorityData::has_description() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_description() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_description() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_description() {
+  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_description();
+}
+const ::std::string& S2WEB_Authority_List_AuthorityData::description() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+  return description_.GetNoArena();
+}
+void S2WEB_Authority_List_AuthorityData::set_description(const ::std::string& value) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+}
+#if LANG_CXX11
+void S2WEB_Authority_List_AuthorityData::set_description(::std::string&& value) {
+  set_has_description();
+  description_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+}
+#endif
+void S2WEB_Authority_List_AuthorityData::set_description(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+}
+void S2WEB_Authority_List_AuthorityData::set_description(const void* value, size_t size) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+}
+::std::string* S2WEB_Authority_List_AuthorityData::mutable_description() {
+  set_has_description();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Authority_List_AuthorityData::release_description() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+  clear_has_description();
+  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Authority_List_AuthorityData::set_allocated_description(::std::string* description) {
+  if (description != NULL) {
+    set_has_description();
+  } else {
+    clear_has_description();
+  }
+  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.description)
+}
+
+// required bytes icon_url = 5;
+bool S2WEB_Authority_List_AuthorityData::has_icon_url() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2WEB_Authority_List_AuthorityData::set_has_icon_url() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_has_icon_url() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2WEB_Authority_List_AuthorityData::clear_icon_url() {
+  icon_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_icon_url();
+}
+const ::std::string& S2WEB_Authority_List_AuthorityData::icon_url() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+  return icon_url_.GetNoArena();
+}
+void S2WEB_Authority_List_AuthorityData::set_icon_url(const ::std::string& value) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+}
+#if LANG_CXX11
+void S2WEB_Authority_List_AuthorityData::set_icon_url(::std::string&& value) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+}
+#endif
+void S2WEB_Authority_List_AuthorityData::set_icon_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+}
+void S2WEB_Authority_List_AuthorityData::set_icon_url(const void* value, size_t size) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+}
+::std::string* S2WEB_Authority_List_AuthorityData::mutable_icon_url() {
+  set_has_icon_url();
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+  return icon_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2WEB_Authority_List_AuthorityData::release_icon_url() {
+  // @@protoc_insertion_point(field_release:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+  clear_has_icon_url();
+  return icon_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2WEB_Authority_List_AuthorityData::set_allocated_icon_url(::std::string* icon_url) {
+  if (icon_url != NULL) {
+    set_has_icon_url();
+  } else {
+    clear_has_icon_url();
+  }
+  icon_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), icon_url);
+  // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData.icon_url)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2WEB_Authority_List::kAuthorityListFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2WEB_Authority_List::S2WEB_Authority_List()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+}
+S2WEB_Authority_List::S2WEB_Authority_List(const S2WEB_Authority_List& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0),
+      authority_list_(from.authority_list_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+}
+
+void S2WEB_Authority_List::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+S2WEB_Authority_List::~S2WEB_Authority_List() {
+  // @@protoc_insertion_point(destructor:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  SharedDtor();
+}
+
+void S2WEB_Authority_List::SharedDtor() {
+}
+
+void S2WEB_Authority_List::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2WEB_Authority_List::descriptor() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2WEB_Authority_List& S2WEB_Authority_List::default_instance() {
+  protobuf_Web_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2WEB_Authority_List* S2WEB_Authority_List::New(::google::protobuf::Arena* arena) const {
+  S2WEB_Authority_List* n = new S2WEB_Authority_List;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2WEB_Authority_List::Clear() {
+// @@protoc_insertion_point(message_clear_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  authority_list_.Clear();
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2WEB_Authority_List::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData authority_list = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_authority_list()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  return false;
+#undef DO_
+}
+
+void S2WEB_Authority_List::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData authority_list = 1;
+  for (unsigned int i = 0, n = this->authority_list_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->authority_list(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+}
+
+::google::protobuf::uint8* S2WEB_Authority_List::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData authority_list = 1;
+  for (unsigned int i = 0, n = this->authority_list_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->authority_list(i), deterministic, target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  return target;
+}
+
+size_t S2WEB_Authority_List::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData authority_list = 1;
+  {
+    unsigned int count = this->authority_list_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->authority_list(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2WEB_Authority_List::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2WEB_Authority_List* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2WEB_Authority_List>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+    MergeFrom(*source);
+  }
+}
+
+void S2WEB_Authority_List::MergeFrom(const S2WEB_Authority_List& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  authority_list_.MergeFrom(from.authority_list_);
+}
+
+void S2WEB_Authority_List::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2WEB_Authority_List::CopyFrom(const S2WEB_Authority_List& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:WEB_SERVER_NET_Protocol.S2WEB_Authority_List)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2WEB_Authority_List::IsInitialized() const {
+  if (!::google::protobuf::internal::AllAreInitialized(this->authority_list())) return false;
+  return true;
+}
+
+void S2WEB_Authority_List::Swap(S2WEB_Authority_List* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2WEB_Authority_List::InternalSwap(S2WEB_Authority_List* other) {
+  authority_list_.InternalSwap(&other->authority_list_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2WEB_Authority_List::GetMetadata() const {
+  protobuf_Web_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Web_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2WEB_Authority_List
+
+// repeated .WEB_SERVER_NET_Protocol.S2WEB_Authority_List.AuthorityData authority_list = 1;
+int S2WEB_Authority_List::authority_list_size() const {
+  return authority_list_.size();
+}
+void S2WEB_Authority_List::clear_authority_list() {
+  authority_list_.Clear();
+}
+const ::WEB_SERVER_NET_Protocol::S2WEB_Authority_List_AuthorityData& S2WEB_Authority_List::authority_list(int index) const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.authority_list)
+  return authority_list_.Get(index);
+}
+::WEB_SERVER_NET_Protocol::S2WEB_Authority_List_AuthorityData* S2WEB_Authority_List::mutable_authority_list(int index) {
+  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.authority_list)
+  return authority_list_.Mutable(index);
+}
+::WEB_SERVER_NET_Protocol::S2WEB_Authority_List_AuthorityData* S2WEB_Authority_List::add_authority_list() {
+  // @@protoc_insertion_point(field_add:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.authority_list)
+  return authority_list_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Authority_List_AuthorityData >*
+S2WEB_Authority_List::mutable_authority_list() {
+  // @@protoc_insertion_point(field_mutable_list:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.authority_list)
+  return &authority_list_;
+}
+const ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Authority_List_AuthorityData >&
+S2WEB_Authority_List::authority_list() const {
+  // @@protoc_insertion_point(field_list:WEB_SERVER_NET_Protocol.S2WEB_Authority_List.authority_list)
+  return authority_list_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
