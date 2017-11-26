@@ -58,7 +58,7 @@ bool CClientConnection::PutPack(const void *pPack, unsigned int uPackLen)
 
 void CClientConnection::ResetTimeOut()
 {
-	m_nTimeOut	= g_nTimeNow + 10;
+	m_nTimeOut	= g_nTimeNow + 60;
 }
 
 void CClientConnection::OnIdle()
