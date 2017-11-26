@@ -40,5 +40,5 @@ void CDataConnection::OnWaitLogin()
 		return;
 	}
 
-	m_eState = CLIENT_CONN_STATE_RUNNING;
+	ChangeState(CLIENT_CONN_STATE_RUNNING, g_pCenterServerConfig.m_nDataTimeOut);
 }

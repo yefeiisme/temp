@@ -33,9 +33,15 @@ public:
 	{
 		m_pTcpConnection	= pTcpConnection;
 
-		m_nTimeOut			= g_nTimeNow + 10;
+		m_nTimeOut			= g_nTimeNow + 60;
 
 		m_eState			= CLIENT_CONN_STATE_WAIT_LOGIN;
+	}
+
+	inline void				ChangeState(const E_CLIENT_CONN_STATE eState, const int nTimeOut)
+	{
+		m_eState	= eState;
+		m_nTimeOut	= g_nTimeNow + nTimeOut;
 	}
 
 	void					DoAction();
