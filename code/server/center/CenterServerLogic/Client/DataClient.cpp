@@ -34,13 +34,14 @@ void CDataClient::ProcessNetPack()
 	{
 		byProtocol = *((BYTE*)pPack);
 
-		if (byProtocol >= d2s_end)
-		{
-			g_pFileLog->WriteLog("[%s][%d] Data Client[%u] Invalid Protocol[%hhu]\n", __FILE__, __LINE__, m_uUniqueID, byProtocol);
-			return;
-		}
+		//if (byProtocol >= d2s_end)
+		//{
+		//	g_pFileLog->WriteLog("[%s][%d] Data Client[%u] Invalid Protocol[%hhu]\n", __FILE__, __LINE__, m_uUniqueID, byProtocol);
+		//	return;
+		//}
 
-		(this->*m_ProtocolFunc[byProtocol])(pPack, uPackLen);
+		RecvAddSensorData(pPack, uPackLen);
+		//(this->*m_ProtocolFunc[byProtocol])(pPack, uPackLen);
 
 		m_pClientConn->ResetTimeOut();
 	};
@@ -50,4 +51,6 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 {
 	SProtocolHead	*pInfo			= (SProtocolHead*)pPack;
 	SSensorData		*pSensorData	= (SSensorData*)((char*)pPack + sizeof(SProtocolHead));
+
+	g_pFileLog->WriteLog("[%s][%d] CDataClient::RecvAddSensorData\n", __FILE__, __LINE__);
 }
