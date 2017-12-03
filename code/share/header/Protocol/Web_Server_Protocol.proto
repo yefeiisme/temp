@@ -141,7 +141,7 @@ message WEB2S_Find_Slope
 	required bytes	slope_name		= 2;	// 边坡名
 }
 
-// 查找指定的边坡
+// 查找指定的传感器
 message WEB2S_Find_Sensor
 {
 	required uint32	slope_id		= 1;	// 边坡ID

@@ -34,6 +34,8 @@ private:
 	void					RecvDelSensor(const void *pPack, const unsigned int uPackLen);
 	void					RecvUpdateSensor(const void *pPack, const unsigned int uPackLen);
 	void					RecvModifyPassword(const void *pPack, const unsigned int uPackLen);
+	void					RecvFindSlope(const void *pPack, const unsigned int uPackLen);
+	void					RecvFindSensor(const void *pPack, const unsigned int uPackLen);
 private:
 	void					DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
@@ -49,6 +51,8 @@ private:
 
 	void					DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	void					SendAppMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg);
 private:
