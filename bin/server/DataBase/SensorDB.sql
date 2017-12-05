@@ -361,9 +361,9 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `CreateUser`;
-CREATE PROCEDURE `CreateUser`(IN paramAccount varchar(64),IN paramPasword varchar(64),IN paramName varchar(64),IN paramGroupID INTEGER UNSIGNED)
+CREATE PROCEDURE `CreateUser`(IN paramAccount varchar(64),IN paramPassword varchar(64),IN paramName varchar(64),IN paramGroupID INTEGER UNSIGNED)
 BEGIN
-	insert into user(Account,Password,Name,GroupID) value(paramAccount,paramPasword,paramName,paramGroupID);
+	insert into user(Account,Password,Name,GroupID) value(paramAccount,md5(paramPassword),paramName,paramGroupID);
 	select ID,Name,GroupID from user where ID=LAST_INSERT_ID();
 END;
 
