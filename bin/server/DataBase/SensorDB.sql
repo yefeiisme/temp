@@ -29,7 +29,7 @@ CREATE TABLE `sensor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `sensor_data` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL,
   `Type` tinyint unsigned NOT NULL,
   `Value1` double NOT NULL DEFAULT '0',
   `Value2` double NOT NULL DEFAULT '0',
