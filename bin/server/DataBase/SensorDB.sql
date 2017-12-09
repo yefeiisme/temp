@@ -41,10 +41,7 @@ CREATE TABLE `sensor_data` (
   `OffsetValue2` double NOT NULL DEFAULT '0',
   `OffsetValue3` double NOT NULL DEFAULT '0',
   `AlarmState` int NOT NULL DEFAULT '0',
-  `SlopeID` int unsigned NOT NULL,
   `DataTime` datetime NOT NULL,
-  `Longitude` double NOT NULL,
-  `Latitude` double NOT NULL,
   KEY `ID` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -385,6 +382,12 @@ DROP PROCEDURE IF EXISTS `LoadGroupList`;
 CREATE PROCEDURE `LoadGroupList`()
 BEGIN
 	select GroupID,Name from user_group;
+END;
+
+DROP PROCEDURE IF EXISTS `AddSensorData`;
+CREATE PROCEDURE `AddSensorData`(IN paramSensorID INTEGER UNSIGNED,IN paramSensorType INTEGER UNSIGNED,IN paramTime INTEGER,IN paramValue1 double,IN paramValue2 double,IN paramValue3 double)
+BEGIN
+	insert into sensor_data(ID,Type,Value1,Value2,Value3,SlopeID,DataTime) value(paramSensorID,paramSensorType,paramValue1,paramValue2,paramValue3,paramTime);
 END;
 
 //
