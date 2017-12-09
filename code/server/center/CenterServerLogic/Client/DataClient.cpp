@@ -68,7 +68,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 
 	if (0 == pInfo->bySensorCount)
 	{
-		g_pFileLog->WriteLog("[%s][%d] Sensor Count Not 0\n", __FILE__, __LINE__);
+		g_pFileLog->WriteLog("[%s][%d] Sensor Count Is 0\n", __FILE__, __LINE__);
 		return;
 	}
 
