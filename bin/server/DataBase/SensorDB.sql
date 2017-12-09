@@ -199,7 +199,7 @@ END;
 DROP PROCEDURE IF EXISTS `ModifyPassword`;
 CREATE PROCEDURE `ModifyPassword`(IN paramAccount VARCHAR(64), IN paramPasword VARCHAR(64))
 BEGIN
-	update user set Password=md5(paramPasword);
+	update user set Password=md5(paramPasword) where Account=paramAccount;
 	
 	if ROW_COUNT() > 0 then
 		select 0;
