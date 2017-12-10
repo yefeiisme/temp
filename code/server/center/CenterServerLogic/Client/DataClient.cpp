@@ -84,7 +84,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		if (1 == pSensorHead->byType)
 		{
 			SSensorData1	*pSensorData = (SSensorData1*)((char*)pSensorHead + sizeof(SSensorHead));
-			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu SensorType=%hhu SensorData1=%f SensorData2=%f SensorDat3=%f\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType, pSensorData->dValue1, pSensorData->dValue2, pSensorData->dValue3);
+			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu SensorType=%hhu SensorData1=%f SensorData2=%f SensorData3=%f SensorData4=%hhu\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType, pSensorData->dValue1, pSensorData->dValue2, pSensorData->fValue3, pSensorData->byValue4);
 		}
 		else if (2 == pSensorHead->byType)
 		{

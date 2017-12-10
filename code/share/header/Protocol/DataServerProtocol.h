@@ -36,7 +36,9 @@ struct SSensorData1
 {
 	double	dValue1;
 	double	dValue2;
-	double	dValue3;
+	float	fValue3;
+	BYTE	byValue4;
+	BYTE	byValue5[3];
 };
 
 struct SSensorData2
