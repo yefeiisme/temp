@@ -76,7 +76,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 	time_t	nTimeNow	= pInfo->uTime;
 	tm		*pTimeNow	= localtime(&nTimeNow);
 
-	g_pFileLog->WriteLog("SlopeType=%hhu SlopeID=%hu SensorCount=%hhu Year=%d-%d-%d-%d-%d-%d DayLongitude=%f Latitude=%f\n",
+	g_pFileLog->WriteLog("SlopeType=%hhu SlopeID=%hu SensorCount=%hhu Time=%d-%d-%d-%d-%d-%d DayLongitude=%f Latitude=%f\n",
 		pInfo->bySlopeType, pInfo->wSlopeID, pInfo->bySensorCount, pTimeNow->tm_year+1900, pTimeNow->tm_mon+1, pTimeNow->tm_mday, pTimeNow->tm_hour, pTimeNow->tm_min, pTimeNow->tm_sec, pInfo->fLongitude, pInfo->fLatitude);
 
 	for (auto nIndex = 0; nIndex < pInfo->bySensorCount; ++nIndex)
@@ -98,7 +98,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		}
 		else
 		{
-			g_pFileLog->WriteLog("Invalid Sensor Type %hhu\n", pSensorHead->byType);
+			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu Invalid SensorType=%hhu\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType);
 		}
 
 		pSensorHead = (SSensorHead*)((char*)pSensorHead + sizeof(SSensorHead) + pSensorHead->wLength);
