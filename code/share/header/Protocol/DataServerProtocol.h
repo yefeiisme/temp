@@ -34,9 +34,9 @@ struct SSensorHead
 
 struct SSensorData1
 {
-	short	sData1;
-	short	sData2;
-	BYTE	byData[4];
+	double	dValue1;
+	double	dValue2;
+	double	dValue3;
 };
 
 struct SSensorData2
@@ -48,9 +48,9 @@ struct SSensorData2
 
 struct SSensorData3
 {
-	double	dValue1;
-	double	dValue2;
-	double	dValue3;
+	short	sData1;
+	short	sData2;
+	BYTE	byData[4];
 };
 // 传感器变长的数据，你看一下怎么定义
 

@@ -76,7 +76,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 	time_t	nTimeNow	= pInfo->uTime;
 	tm		*pTimeNow	= localtime(&nTimeNow);
 
-	g_pFileLog->WriteLog("SlopeType=%hhu SlopeID=%hu SensorCount=%hhu Time=%d-%d-%d-%d-%d-%d DayLongitude=%f Latitude=%f\n",
+	g_pFileLog->WriteLog("SlopeType=%hhu SlopeID=%hu SensorCount=%hhu Time=%d-%d-%d-%d-%d-%d Longitude=%f Latitude=%f\n",
 		pInfo->bySlopeType, pInfo->wSlopeID, pInfo->bySensorCount, pTimeNow->tm_year+1900, pTimeNow->tm_mon+1, pTimeNow->tm_mday, pTimeNow->tm_hour, pTimeNow->tm_min, pTimeNow->tm_sec, pInfo->fLongitude, pInfo->fLatitude);
 
 	for (auto nIndex = 0; nIndex < pInfo->bySensorCount; ++nIndex)
@@ -84,7 +84,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		if (1 == pSensorHead->byType)
 		{
 			SSensorData1	*pSensorData = (SSensorData1*)((char*)pSensorHead + sizeof(SSensorHead));
-			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu SensorType=%hhu SensorData1=%hd SensorData2=%hd\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType, pSensorData->sData1, pSensorData->sData2);
+			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu SensorType=%hhu SensorData1=%f SensorData2=%f SensorDat3=%f\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType, pSensorData->dValue1, pSensorData->dValue2, pSensorData->dValue3);
 		}
 		else if (2 == pSensorHead->byType)
 		{
@@ -94,7 +94,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		else if (3 == pSensorHead->byType)
 		{
 			SSensorData3	*pSensorData = (SSensorData3*)((char*)pSensorHead + sizeof(SSensorHead));
-			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu SensorType=%hhu SensorData1=%f SensorData2=%f SensorDat3=%f\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType,  pSensorData->dValue1, pSensorData->dValue2, pSensorData->dValue3);
+			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu SensorType=%hhu SensorData1=%hd SensorData2=%hd\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType, pSensorData->sData1, pSensorData->sData2);
 		}
 		else
 		{
