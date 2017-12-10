@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include <time.h>
 #include "DataClient.h"
 #include "ICenterServer.h"
 #include "../SensorDB/SensorDBOperation.h"
@@ -72,8 +73,11 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		return;
 	}
 
-	g_pFileLog->WriteLog("SlopeType=%hhu SlopeID=%hu SensorCount=%hhu Time=%u Longitude=%f Latitude=%f\n",
-		pInfo->bySlopeType, pInfo->wSlopeID, pInfo->bySensorCount, pInfo->uTime, pInfo->fLongitude, pInfo->fLatitude);
+	time_t	nTimeNow	= pInfo->uTime;
+	tm		*pTimeNow	= localtime(&nTimeNow);
+
+	g_pFileLog->WriteLog("SlopeType=%hhu SlopeID=%hu SensorCount=%hhu Year=%d-%d-%d-%d-%d-%d DayLongitude=%f Latitude=%f\n",
+		pInfo->bySlopeType, pInfo->wSlopeID, pInfo->bySensorCount, pTimeNow->tm_year+1900, pTimeNow->tm_mon+1, pTimeNow->tm_mday, pTimeNow->tm_hour, pTimeNow->tm_min, pTimeNow->tm_sec, pInfo->fLongitude, pInfo->fLatitude);
 
 	for (auto nIndex = 0; nIndex < pInfo->bySensorCount; ++nIndex)
 	{

@@ -21,8 +21,8 @@ struct SProtocolHead
 	WORD	wSlopeID;		// 现场ID
 	BYTE	bySensorCount;	// 本现场传感器数量
 	UINT	uTime;			// 时间
-	float	fLongitude;		// 现场经度
 	float	fLatitude;		// 现场纬度
+	float	fLongitude;		// 现场经度
 };
 
 struct SSensorHead
