@@ -20,7 +20,7 @@ struct SProtocolHead
 	BYTE	bySlopeType;	// 现场类型ID
 	WORD	wSlopeID;		// 现场ID
 	BYTE	bySensorCount;	// 本现场传感器数量
-	time_t	nTime;			// 时间
+	int		nTime;			// 时间
 	float	fLongitude;		// 现场经度
 	float	fLatitude;		// 现场纬度
 };
