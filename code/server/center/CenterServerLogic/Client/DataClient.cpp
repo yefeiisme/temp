@@ -77,20 +77,21 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 
 	for (auto nIndex = 0; nIndex < pInfo->bySensorCount; ++nIndex)
 	{
+		g_pFileLog->WriteLog("Sensor Data Length=%hhu SensorID=%hu SensorType\n", pSensorHead->wLength, pSensorHead->wID, pSensorHead->byType);
 		if (1 == pSensorHead->byType)
 		{
 			SSensorData1	*pSensorData = (SSensorData1*)((char*)pSensorHead + sizeof(SSensorHead));
-			g_pFileLog->WriteLog("SensorType=%hhu SensorID=%hu SensorData1=%hd SensorData2=%hd\n", pSensorHead->byType, pSensorHead->wID, pSensorData->sData1, pSensorData->sData2);
+			g_pFileLog->WriteLog("SensorData1=%hd SensorData2=%hd\n", pSensorData->sData1, pSensorData->sData2);
 		}
 		else if (2 == pSensorHead->byType)
 		{
 			SSensorData2	*pSensorData = (SSensorData2*)((char*)pSensorHead + sizeof(SSensorHead));
-			g_pFileLog->WriteLog("SensorType=%hhu SensorID=%hu SensorData1=%hd SensorData2=%hd\n", pSensorHead->byType, pSensorHead->wID, pSensorData->sData1, pSensorData->sData2);
+			g_pFileLog->WriteLog("SensorData1=%hd SensorData2=%hd\n", pSensorData->sData1, pSensorData->sData2);
 		}
 		else if (3 == pSensorHead->byType)
 		{
 			SSensorData3	*pSensorData = (SSensorData3*)((char*)pSensorHead + sizeof(SSensorHead));
-			g_pFileLog->WriteLog("SensorType=%hhu SensorID=%hu SensorData1=%f SensorData2=%f SensorDat3=%f\n", pSensorHead->byType, pSensorHead->wID, pSensorData->dValue1, pSensorData->dValue2, pSensorData->dValue3);
+			g_pFileLog->WriteLog("SensorData1=%f SensorData2=%f SensorDat3=%f\n", pSensorData->dValue1, pSensorData->dValue2, pSensorData->dValue3);
 		}
 		else
 		{
