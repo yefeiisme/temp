@@ -72,12 +72,12 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		return;
 	}
 
-	g_pFileLog->WriteLog("SlopeType=%hhu SlopeID=%hu SensorCount=%hhu Time=%d Longitude=%f Latitude=%f\n",
-		pInfo->bySlopeType, pInfo->wSlopeID, pInfo->bySensorCount, pInfo->nTime, pInfo->fLongitude, pInfo->fLatitude);
+	g_pFileLog->WriteLog("SlopeType=%hhu SlopeID=%hu SensorCount=%hhu Time=%u Longitude=%f Latitude=%f\n",
+		pInfo->bySlopeType, pInfo->wSlopeID, pInfo->bySensorCount, pInfo->uTime, pInfo->fLongitude, pInfo->fLatitude);
 
 	for (auto nIndex = 0; nIndex < pInfo->bySensorCount; ++nIndex)
 	{
-		g_pFileLog->WriteLog("Sensor Data Length=%hhu SensorID=%hu SensorType\n", pSensorHead->wLength, pSensorHead->wID, pSensorHead->byType);
+		g_pFileLog->WriteLog("Sensor Data Length=%hhu SensorID=%hhu SensorType\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType);
 		if (1 == pSensorHead->byType)
 		{
 			SSensorData1	*pSensorData = (SSensorData1*)((char*)pSensorHead + sizeof(SSensorHead));

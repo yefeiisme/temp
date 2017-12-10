@@ -20,7 +20,7 @@ struct SProtocolHead
 	BYTE	bySlopeType;	// 现场类型ID
 	WORD	wSlopeID;		// 现场ID
 	BYTE	bySensorCount;	// 本现场传感器数量
-	UINT	nTime;			// 时间
+	UINT	uTime;			// 时间
 	float	fLongitude;		// 现场经度
 	float	fLatitude;		// 现场纬度
 };
@@ -29,7 +29,7 @@ struct SSensorHead
 {
 	WORD	wLength;		// 传感器数据长度
 	BYTE	byType;			// 传感器类型
-	WORD	wID;			// 传感器ID
+	BYTE	byID;			// 传感器ID
 };
 
 struct SSensorData1
