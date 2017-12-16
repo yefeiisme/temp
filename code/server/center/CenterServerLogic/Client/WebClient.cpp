@@ -1074,6 +1074,7 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 {
 	UINT	uCol			= 0;
 	UINT	uSensorID		= 0;
+	WORD	wSceneID		= 0;
 	BYTE	bySensorType	= 0;
 	double	dCurValue1		= 0.0f;
 	double	dCurValue2		= 0.0f;
@@ -1114,6 +1115,7 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		uCol	= 0;
 
 		pResult1->GetData(uRow, uCol++, uSensorID);
+		pResult1->GetData(uRow, uCol++, wSceneID);
 		pResult1->GetData(uRow, uCol++, bySensorType);
 		pResult1->GetData(uRow, uCol++, dCurValue1);
 		pResult1->GetData(uRow, uCol++, dCurValue2);
@@ -1132,6 +1134,7 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		pResult1->GetData(uRow, uCol++, strDesc, sizeof(strDesc));
 
 		pSensor->set_id(uSensorID);
+		pSensor->set_scene_id(wSceneID);
 		pSensor->set_type(bySensorType);
 		pSensor->set_cur_value1(dCurValue1);
 		pSensor->set_cur_value2(dCurValue2);

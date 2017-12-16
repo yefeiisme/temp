@@ -128,7 +128,7 @@ END;
 DROP PROCEDURE IF EXISTS `LoadAllList`;
 CREATE PROCEDURE `LoadAllList`(IN paramAccount INTEGER UNSIGNED)
 BEGIN
-	select ID,Type,Name,Longitude,Latitude,State from slope where OwnerID=paramAccount;
+	select ID,SceneID,Type,Name,Longitude,Latitude,State from slope where OwnerID=paramAccount;
 	select ID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where 
 	SlopeID in (select ID from slope where OwnerID=paramAccount);
 END;
@@ -159,7 +159,7 @@ END;
 DROP PROCEDURE IF EXISTS `LoadSensorList`;
 CREATE PROCEDURE `LoadSensorList`(IN paramSlopeID INTEGER UNSIGNED)
 BEGIN
-	select ID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where SlopeID=paramSlopeID order by Type;
+	select ID,SceneID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where SlopeID=paramSlopeID order by Type;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorListByType`;
@@ -171,7 +171,7 @@ END;
 DROP PROCEDURE IF EXISTS `LoadSlopeList`;
 CREATE PROCEDURE `LoadSlopeList`(IN paramAccount INTEGER UNSIGNED, IN paramServerID INTEGER UNSIGNED)
 BEGIN
-	select ID,Type,Name,Longitude,Latitude,State,VideoUrl from slope where OwnerID=paramAccount;
+	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl from slope where OwnerID=paramAccount;
 END;
 
 DROP PROCEDURE IF EXISTS `WebLogin`;
