@@ -73,32 +73,62 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		return;
 	}
 
-	time_t	nTimeNow	= pInfo->uTime;
-	tm		*pTimeNow	= localtime(&nTimeNow);
-
-	g_pFileLog->WriteLog("SlopeType=%hhu SlopeID=%hu SensorCount=%hhu Time=%d-%d-%d-%d-%d-%d Longitude=%f Latitude=%f\n",
-		pInfo->bySlopeType, pInfo->wSlopeID, pInfo->bySensorCount, pTimeNow->tm_year+1900, pTimeNow->tm_mon+1, pTimeNow->tm_mday, pTimeNow->tm_hour, pTimeNow->tm_min, pTimeNow->tm_sec, pInfo->fLongitude, pInfo->fLatitude);
+	time_t	nTimeNow		= pInfo->uTime;
+	double	dValue1			= 0.0;
+	double	dValue2			= 0.0;
+	double	dValue3			= 0.0;
+	double	dValue4			= 0.0;
+	UINT	uSlopeIndex		= 0;
+	UINT	uSensorIndex	= 0;
 
 	for (auto nIndex = 0; nIndex < pInfo->bySensorCount; ++nIndex)
 	{
-		if (1 == pSensorHead->byType)
+		switch (pSensorHead->byType)
 		{
-			SSensorData1	*pSensorData = (SSensorData1*)((char*)pSensorHead + sizeof(SSensorHead));
-			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu SensorType=%hhu SensorData1=%f SensorData2=%f SensorData3=%f SensorData4=%hhu\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType, pSensorData->dValue1, pSensorData->dValue2, pSensorData->fValue3, pSensorData->byValue4);
-		}
-		else if (2 == pSensorHead->byType)
-		{
-			SSensorData2	*pSensorData = (SSensorData2*)((char*)pSensorHead + sizeof(SSensorHead));
-			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu SensorType=%hhu SensorData1=%hd SensorData2=%hd\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType,  pSensorData->sData1, pSensorData->sData2);
-		}
-		else if (3 == pSensorHead->byType)
-		{
-			SSensorData3	*pSensorData = (SSensorData3*)((char*)pSensorHead + sizeof(SSensorHead));
-			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu SensorType=%hhu SensorData1=%hd SensorData2=%hd\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType, pSensorData->sData1, pSensorData->sData2);
-		}
-		else
-		{
+		case 1:
+			{
+				SSensorData1	*pSensorData = (SSensorData1*)((char*)pSensorHead + sizeof(SSensorHead));
+				dValue1	= pSensorData->dValue1;
+				dValue2	= pSensorData->dValue2;
+				dValue3	= pSensorData->fValue3;
+				dValue4	= pSensorData->byValue4;
+
+				// 存数据库
+				// ...
+			}
+			break;
+		case 2:
+			{
+				SSensorData2	*pSensorData = (SSensorData2*)((char*)pSensorHead + sizeof(SSensorHead));
+				dValue1	= ((double)pSensorData->sData1/10000-0.95)/0.95*30;
+				dValue2	= ((double)pSensorData->sData2/10000-0.95)/0.95*30;
+				dValue3	= 0.0;
+				dValue4	= 0.0;
+
+				// 存数据库
+				// ...
+			}
+			break;
+		case 3:
+			{
+				SSensorData3	*pSensorData = (SSensorData3*)((char*)pSensorHead + sizeof(SSensorHead));
+				double	dFi	= (double)pSensorData->sData1 / 10;
+				double	dFo	= 1289;
+				double	dK	= 2.476 / 10000000;
+				dValue1		= dK*(dFi*dFi - dFo*dFo);
+				dValue2		= 0.0;
+				dValue3		= 0.0;
+				dValue4		= 0.0;
+
+				// 存数据库
+				// ...
+			}
+			break;
+		case 4:
+			break;
+		default:
 			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu Invalid SensorType=%hhu\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType);
+			break;
 		}
 
 		pSensorHead = (SSensorHead*)((char*)pSensorHead + sizeof(SSensorHead) + pSensorHead->wLength);

@@ -823,19 +823,26 @@ class WEB2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   double longitude() const;
   void set_longitude(double value);
 
-  // required double latitude = 4;
-  bool has_latitude() const;
-  void clear_latitude();
-  static const int kLatitudeFieldNumber = 4;
-  double latitude() const;
-  void set_latitude(double value);
-
   // required uint32 type = 1;
   bool has_type() const;
   void clear_type();
   static const int kTypeFieldNumber = 1;
   ::google::protobuf::uint32 type() const;
   void set_type(::google::protobuf::uint32 value);
+
+  // required uint32 scene_id = 6;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 6;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
+  // required double latitude = 4;
+  bool has_latitude() const;
+  void clear_latitude();
+  static const int kLatitudeFieldNumber = 4;
+  double latitude() const;
+  void set_latitude(double value);
 
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
  private:
@@ -849,6 +856,8 @@ class WEB2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   void clear_has_latitude();
   void set_has_url();
   void clear_has_url();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -859,8 +868,9 @@ class WEB2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr url_;
   double longitude_;
-  double latitude_;
   ::google::protobuf::uint32 type_;
+  ::google::protobuf::uint32 scene_id_;
+  double latitude_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -1087,6 +1097,13 @@ class WEB2S_Update_Slope_Data : public ::google::protobuf::Message /* @@protoc_i
   double latitude() const;
   void set_latitude(double value);
 
+  // required uint32 scene_id = 7;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 7;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data)
  private:
   void set_has_id();
@@ -1101,6 +1118,8 @@ class WEB2S_Update_Slope_Data : public ::google::protobuf::Message /* @@protoc_i
   void clear_has_latitude();
   void set_has_url();
   void clear_has_url();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -1114,6 +1133,7 @@ class WEB2S_Update_Slope_Data : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::uint32 type_;
   double longitude_;
   double latitude_;
+  ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -1248,6 +1268,13 @@ class WEB2S_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
   double latitude() const;
   void set_latitude(double value);
 
+  // required uint32 scene_id = 7;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 7;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor)
  private:
   void set_has_type();
@@ -1262,6 +1289,8 @@ class WEB2S_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
   void clear_has_url();
   void set_has_description();
   void clear_has_description();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -1275,6 +1304,7 @@ class WEB2S_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::uint32 slope_id_;
   double longitude_;
   double latitude_;
+  ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -1508,6 +1538,13 @@ class WEB2S_Update_Sensor_Data : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::uint32 slope_id() const;
   void set_slope_id(::google::protobuf::uint32 value);
 
+  // required uint32 scene_id = 8;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 8;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data)
  private:
   void set_has_id();
@@ -1524,6 +1561,8 @@ class WEB2S_Update_Sensor_Data : public ::google::protobuf::Message /* @@protoc_
   void clear_has_url();
   void set_has_description();
   void clear_has_description();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -1538,6 +1577,7 @@ class WEB2S_Update_Sensor_Data : public ::google::protobuf::Message /* @@protoc_
   double longitude_;
   double latitude_;
   ::google::protobuf::uint32 slope_id_;
+  ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -3319,6 +3359,13 @@ class S2Web_Slope_List_SlopeData : public ::google::protobuf::Message /* @@proto
   ::google::protobuf::uint32 state() const;
   void set_state(::google::protobuf::uint32 value);
 
+  // required uint32 scene_id = 8;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 8;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData)
  private:
   void set_has_id();
@@ -3335,6 +3382,8 @@ class S2Web_Slope_List_SlopeData : public ::google::protobuf::Message /* @@proto
   void clear_has_latitude();
   void set_has_url();
   void clear_has_url();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -3349,6 +3398,7 @@ class S2Web_Slope_List_SlopeData : public ::google::protobuf::Message /* @@proto
   double longitude_;
   double latitude_;
   ::google::protobuf::uint32 state_;
+  ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -3657,6 +3707,13 @@ class S2Web_Sensor_List_SensorData : public ::google::protobuf::Message /* @@pro
   double offset_value3() const;
   void set_offset_value3(double value);
 
+  // required uint32 scene_id = 18;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 18;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData)
  private:
   void set_has_id();
@@ -3693,6 +3750,8 @@ class S2Web_Sensor_List_SensorData : public ::google::protobuf::Message /* @@pro
   void clear_has_url();
   void set_has_description();
   void clear_has_description();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -3717,6 +3776,7 @@ class S2Web_Sensor_List_SensorData : public ::google::protobuf::Message /* @@pro
   double offset_value1_;
   double offset_value2_;
   double offset_value3_;
+  ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -4172,6 +4232,13 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
   double avg_value3() const;
   void set_avg_value3(double value);
 
+  // required uint32 scene_id = 11;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 11;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2Web_Sensor_History)
  private:
   void set_has_id();
@@ -4192,6 +4259,8 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
   void clear_has_avg_value2();
   void set_has_avg_value3();
   void clear_has_avg_value3();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -4209,6 +4278,7 @@ class S2Web_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
   double avg_value1_;
   double avg_value2_;
   double avg_value3_;
+  ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -4442,6 +4512,13 @@ class S2WEB_New_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::uint32 state() const;
   void set_state(::google::protobuf::uint32 value);
 
+  // required uint32 scene_id = 8;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 8;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_New_Slope)
  private:
   void set_has_id();
@@ -4458,6 +4535,8 @@ class S2WEB_New_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   void clear_has_latitude();
   void set_has_url();
   void clear_has_url();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -4472,6 +4551,7 @@ class S2WEB_New_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   double longitude_;
   double latitude_;
   ::google::protobuf::uint32 state_;
+  ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -4705,6 +4785,13 @@ class S2WEB_Update_Slope : public ::google::protobuf::Message /* @@protoc_insert
   ::google::protobuf::uint32 state() const;
   void set_state(::google::protobuf::uint32 value);
 
+  // required uint32 scene_id = 8;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 8;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope)
  private:
   void set_has_id();
@@ -4721,6 +4808,8 @@ class S2WEB_Update_Slope : public ::google::protobuf::Message /* @@protoc_insert
   void clear_has_latitude();
   void set_has_url();
   void clear_has_url();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -4735,6 +4824,7 @@ class S2WEB_Update_Slope : public ::google::protobuf::Message /* @@protoc_insert
   double longitude_;
   double latitude_;
   ::google::protobuf::uint32 state_;
+  ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -4883,6 +4973,13 @@ class S2WEB_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
   double latitude() const;
   void set_latitude(double value);
 
+  // required uint32 scene_id = 9;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 9;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor)
  private:
   void set_has_id();
@@ -4901,6 +4998,8 @@ class S2WEB_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
   void clear_has_url();
   void set_has_description();
   void clear_has_description();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -4916,6 +5015,7 @@ class S2WEB_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::uint32 slope_id_;
   double longitude_;
   double latitude_;
+  ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -5156,6 +5256,13 @@ class S2WEB_Update_Sensor : public ::google::protobuf::Message /* @@protoc_inser
   double latitude() const;
   void set_latitude(double value);
 
+  // required uint32 scene_id = 9;
+  bool has_scene_id() const;
+  void clear_scene_id();
+  static const int kSceneIdFieldNumber = 9;
+  ::google::protobuf::uint32 scene_id() const;
+  void set_scene_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor)
  private:
   void set_has_id();
@@ -5174,6 +5281,8 @@ class S2WEB_Update_Sensor : public ::google::protobuf::Message /* @@protoc_inser
   void clear_has_url();
   void set_has_description();
   void clear_has_description();
+  void set_has_scene_id();
+  void clear_has_scene_id();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -5189,6 +5298,7 @@ class S2WEB_Update_Sensor : public ::google::protobuf::Message /* @@protoc_inser
   ::google::protobuf::uint32 slope_id_;
   double longitude_;
   double latitude_;
+  ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -7179,13 +7289,13 @@ inline void WEB2S_Request_Sensor_History::set_end_time(::google::protobuf::uint3
 
 // required uint32 type = 1;
 inline bool WEB2S_Add_Slope::has_type() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void WEB2S_Add_Slope::set_has_type() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void WEB2S_Add_Slope::clear_has_type() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void WEB2S_Add_Slope::clear_type() {
   type_ = 0u;
@@ -7290,13 +7400,13 @@ inline void WEB2S_Add_Slope::set_longitude(double value) {
 
 // required double latitude = 4;
 inline bool WEB2S_Add_Slope::has_latitude() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void WEB2S_Add_Slope::set_has_latitude() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void WEB2S_Add_Slope::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void WEB2S_Add_Slope::clear_latitude() {
   latitude_ = 0;
@@ -7373,6 +7483,30 @@ inline void WEB2S_Add_Slope::set_allocated_url(::std::string* url) {
   }
   url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.url)
+}
+
+// required uint32 scene_id = 6;
+inline bool WEB2S_Add_Slope::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WEB2S_Add_Slope::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WEB2S_Add_Slope::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void WEB2S_Add_Slope::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 WEB2S_Add_Slope::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.scene_id)
+  return scene_id_;
+}
+inline void WEB2S_Add_Slope::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.scene_id)
 }
 
 // -------------------------------------------------------------------
@@ -7629,6 +7763,30 @@ inline void WEB2S_Update_Slope_Data::set_allocated_url(::std::string* url) {
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.url)
 }
 
+// required uint32 scene_id = 7;
+inline bool WEB2S_Update_Slope_Data::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void WEB2S_Update_Slope_Data::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void WEB2S_Update_Slope_Data::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void WEB2S_Update_Slope_Data::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 WEB2S_Update_Slope_Data::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.scene_id)
+  return scene_id_;
+}
+inline void WEB2S_Update_Slope_Data::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Slope_Data.scene_id)
+}
+
 // -------------------------------------------------------------------
 
 // WEB2S_Add_Sensor
@@ -7853,6 +8011,30 @@ inline void WEB2S_Add_Sensor::set_allocated_description(::std::string* descripti
   }
   description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.description)
+}
+
+// required uint32 scene_id = 7;
+inline bool WEB2S_Add_Sensor::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void WEB2S_Add_Sensor::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void WEB2S_Add_Sensor::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void WEB2S_Add_Sensor::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 WEB2S_Add_Sensor::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.scene_id)
+  return scene_id_;
+}
+inline void WEB2S_Add_Sensor::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Sensor.scene_id)
 }
 
 // -------------------------------------------------------------------
@@ -8131,6 +8313,30 @@ inline void WEB2S_Update_Sensor_Data::set_allocated_description(::std::string* d
   }
   description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.description)
+}
+
+// required uint32 scene_id = 8;
+inline bool WEB2S_Update_Sensor_Data::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void WEB2S_Update_Sensor_Data::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void WEB2S_Update_Sensor_Data::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void WEB2S_Update_Sensor_Data::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 WEB2S_Update_Sensor_Data::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.scene_id)
+  return scene_id_;
+}
+inline void WEB2S_Update_Sensor_Data::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Update_Sensor_Data.scene_id)
 }
 
 // -------------------------------------------------------------------
@@ -9747,6 +9953,30 @@ inline void S2Web_Slope_List_SlopeData::set_allocated_url(::std::string* url) {
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.url)
 }
 
+// required uint32 scene_id = 8;
+inline bool S2Web_Slope_List_SlopeData::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void S2Web_Slope_List_SlopeData::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void S2Web_Slope_List_SlopeData::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void S2Web_Slope_List_SlopeData::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 S2Web_Slope_List_SlopeData::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.scene_id)
+  return scene_id_;
+}
+inline void S2Web_Slope_List_SlopeData::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Slope_List.SlopeData.scene_id)
+}
+
 // -------------------------------------------------------------------
 
 // S2Web_Slope_List
@@ -10269,6 +10499,30 @@ inline void S2Web_Sensor_List_SensorData::set_allocated_description(::std::strin
   }
   description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.description)
+}
+
+// required uint32 scene_id = 18;
+inline bool S2Web_Sensor_List_SensorData::has_scene_id() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void S2Web_Sensor_List_SensorData::set_has_scene_id() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void S2Web_Sensor_List_SensorData::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void S2Web_Sensor_List_SensorData::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 S2Web_Sensor_List_SensorData::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.scene_id)
+  return scene_id_;
+}
+inline void S2Web_Sensor_List_SensorData::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.scene_id)
 }
 
 // -------------------------------------------------------------------
@@ -10847,6 +11101,30 @@ S2Web_Sensor_History::history_list() const {
   return history_list_;
 }
 
+// required uint32 scene_id = 11;
+inline bool S2Web_Sensor_History::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void S2Web_Sensor_History::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void S2Web_Sensor_History::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void S2Web_Sensor_History::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 S2Web_Sensor_History::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.scene_id)
+  return scene_id_;
+}
+inline void S2Web_Sensor_History::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_History.scene_id)
+}
+
 // -------------------------------------------------------------------
 
 // S2WEB_ERROR
@@ -11123,6 +11401,30 @@ inline void S2WEB_New_Slope::set_allocated_url(::std::string* url) {
   }
   url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.url)
+}
+
+// required uint32 scene_id = 8;
+inline bool S2WEB_New_Slope::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void S2WEB_New_Slope::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void S2WEB_New_Slope::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void S2WEB_New_Slope::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 S2WEB_New_Slope::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.scene_id)
+  return scene_id_;
+}
+inline void S2WEB_New_Slope::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_New_Slope.scene_id)
 }
 
 // -------------------------------------------------------------------
@@ -11403,6 +11705,30 @@ inline void S2WEB_Update_Slope::set_allocated_url(::std::string* url) {
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.url)
 }
 
+// required uint32 scene_id = 8;
+inline bool S2WEB_Update_Slope::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void S2WEB_Update_Slope::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void S2WEB_Update_Slope::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void S2WEB_Update_Slope::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Update_Slope::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.scene_id)
+  return scene_id_;
+}
+inline void S2WEB_Update_Slope::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Slope.scene_id)
+}
+
 // -------------------------------------------------------------------
 
 // S2WEB_Add_Sensor
@@ -11675,6 +12001,30 @@ inline void S2WEB_Add_Sensor::set_allocated_description(::std::string* descripti
   }
   description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.description)
+}
+
+// required uint32 scene_id = 9;
+inline bool S2WEB_Add_Sensor::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void S2WEB_Add_Sensor::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void S2WEB_Add_Sensor::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void S2WEB_Add_Sensor::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Add_Sensor::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.scene_id)
+  return scene_id_;
+}
+inline void S2WEB_Add_Sensor::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Add_Sensor.scene_id)
 }
 
 // -------------------------------------------------------------------
@@ -11977,6 +12327,30 @@ inline void S2WEB_Update_Sensor::set_allocated_description(::std::string* descri
   }
   description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.description)
+}
+
+// required uint32 scene_id = 9;
+inline bool S2WEB_Update_Sensor::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void S2WEB_Update_Sensor::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void S2WEB_Update_Sensor::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void S2WEB_Update_Sensor::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 S2WEB_Update_Sensor::scene_id() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.scene_id)
+  return scene_id_;
+}
+inline void S2WEB_Update_Sensor::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Update_Sensor.scene_id)
 }
 
 // -------------------------------------------------------------------

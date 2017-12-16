@@ -79,6 +79,7 @@ message WEB2S_Add_Slope
 	required double	longitude		= 3;	// 经度
 	required double	latitude		= 4;	// 纬度
 	required bytes	url				= 5;	// 边坡视频的url
+	required uint32	scene_id		= 6;	// 现场ID
 }
 
 // web向服务器请求删除指定ID的边坡
@@ -96,6 +97,7 @@ message WEB2S_Update_Slope_Data
 	required double	longitude		= 4;	// 经度
 	required double	latitude		= 5;	// 纬度
 	required bytes	url				= 6;	// 边坡视频的url
+	required uint32	scene_id		= 7;	// 现场ID
 }
 
 // web向服务器请求增加一个新的传感器
@@ -107,6 +109,7 @@ message WEB2S_Add_Sensor
 	required double	latitude		= 4;	// 纬度
 	required bytes	url				= 5;	// 特殊传感器类型的url
 	required bytes	description		= 6;	// 安装位置的描述
+	required uint32	scene_id		= 7;	// 现场ID
 }
 
 // web向服务器请求删除指定ID的传感器
@@ -125,6 +128,7 @@ message WEB2S_Update_Sensor_Data
 	required double	latitude		= 5;	// 纬度
 	required bytes	url				= 6;	// 特殊传感器类型的url
 	required bytes	description		= 7;	// 安装位置的描述
+	required uint32	scene_id		= 8;	// 现场ID
 }
 
 // 修改密码
@@ -282,6 +286,7 @@ message S2Web_Slope_List
 		required double	longitude	= 5;	// 经度
 		required double	latitude	= 6;	// 纬度
 		required bytes	url			= 7;	// 边坡视频的url
+		required uint32	scene_id	= 8;	// 现场ID
 	}
 
 	repeated SlopeData	slope_list	= 1;
@@ -309,6 +314,7 @@ message S2Web_Sensor_List
 		required double	offset_value3	= 15;	// 平均物理量3
 		required bytes	url				= 16;	// 特殊传感器类型的url
 		required bytes	description		= 17;	// 安装位置的描述
+		required uint32	scene_id		= 18;	// 现场ID
 	}
 
 	repeated SensorData	sensor_list	= 1;
@@ -343,6 +349,7 @@ message S2Web_Sensor_History
 	required double	avg_value2			= 8;	// 平均物理量2
 	required double	avg_value3			= 9;	// 平均物理量2
 	repeated SensorData	history_list	= 10;	// 起始时间到结束时间内的传感器数据
+	required uint32	scene_id			= 11;	// 现场ID
 }
 
 // 有错误时返回对应的值
@@ -361,6 +368,7 @@ message S2WEB_New_Slope
 	required double	longitude	= 5;	// 经度
 	required double	latitude	= 6;	// 纬度
 	required bytes	url			= 7;	// 边坡视频的url
+	required uint32	scene_id	= 8;	// 现场ID
 }
 
 // 删除边坡
@@ -379,6 +387,7 @@ message S2WEB_Update_Slope
 	required double	longitude	= 5;	// 经度
 	required double	latitude	= 6;	// 纬度
 	required bytes	url			= 7;	// 边坡视频的url
+	required uint32	scene_id	= 8;	// 现场ID
 }
 
 // 添加传感器
@@ -392,6 +401,7 @@ message S2WEB_Add_Sensor
 	required double	latitude	= 6;	// 纬度
 	required bytes	url			= 7;	// 特殊传感器类型的url
 	required bytes	description	= 8;	// 安装位置的描述
+	required uint32	scene_id	= 9;	// 现场ID
 }
 
 // 删除传感器
@@ -411,9 +421,10 @@ message S2WEB_Update_Sensor
 	required double	latitude	= 6;	// 纬度
 	required bytes	url			= 7;	// 特殊传感器类型的url
 	required bytes	description	= 8;	// 安装位置的描述
+	required uint32	scene_id	= 9;	// 现场ID
 }
 
-// 更新传感器数据
+// 修改密码结果
 message S2WEB_Modify_Password_Result
 {
 	required uint32	result			= 1;	// 修改结果
