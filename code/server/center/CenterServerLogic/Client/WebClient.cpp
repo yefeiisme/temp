@@ -1160,6 +1160,7 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 {
 	UINT	uCol				= 0;
 	UINT	uSensorID			= 0;
+	WORD	wSceneID			= 0;
 	double	dLongitude			= 0.0f;
 	double	dLatitude			= 0.0f;
 	int		nBeginTime			= 0;
@@ -1227,6 +1228,7 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	tagSensorHistory.set_avg_value1(dAvgValue1);
 	tagSensorHistory.set_avg_value2(dAvgValue2);
 	tagSensorHistory.set_avg_value3(dAvgValue3);
+	tagSensorHistory.set_scene_id(wSceneID);
 
 	for (auto uRow = 0; uRow < pResult2->GetRowCount(); ++uRow)
 	{
