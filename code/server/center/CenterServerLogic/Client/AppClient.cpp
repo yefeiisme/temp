@@ -269,6 +269,7 @@ void CAppClient::RecvAddSlope(const void *pPack, const unsigned int uPackLen)
 		return;
 
 	pMysqlQuery->PrepareProc("AddSlope");
+	pMysqlQuery->AddParam(tagAddSlope.scene_id());
 	pMysqlQuery->AddParam(tagAddSlope.type());
 	pMysqlQuery->AddParam(tagAddSlope.name().c_str());
 	pMysqlQuery->AddParam(tagAddSlope.longitude());
@@ -341,6 +342,7 @@ void CAppClient::RecvUpdateSlope(const void *pPack, const unsigned int uPackLen)
 
 	pMysqlQuery->PrepareProc("UpdateSlope");
 	pMysqlQuery->AddParam(tagSlopeData.id());
+	pMysqlQuery->AddParam(tagSlopeData.scene_id());
 	pMysqlQuery->AddParam(tagSlopeData.type());
 	pMysqlQuery->AddParam(tagSlopeData.name().c_str());
 	pMysqlQuery->AddParam(tagSlopeData.longitude());
@@ -379,6 +381,7 @@ void CAppClient::RecvAddSensor(const void *pPack, const unsigned int uPackLen)
 		return;
 
 	pMysqlQuery->PrepareProc("AddSensor");
+	pMysqlQuery->AddParam(tagAddSensor.scene_id());
 	pMysqlQuery->AddParam(tagAddSensor.type());
 	pMysqlQuery->AddParam(tagAddSensor.slope_id());
 	pMysqlQuery->AddParam(tagAddSensor.longitude());
@@ -451,6 +454,7 @@ void CAppClient::RecvUpdateSensor(const void *pPack, const unsigned int uPackLen
 
 	pMysqlQuery->PrepareProc("UpdateSensor");
 	pMysqlQuery->AddParam(tagSensorData.id());
+	pMysqlQuery->AddParam(tagSensorData.scene_id());
 	pMysqlQuery->AddParam(tagSensorData.type());
 	pMysqlQuery->AddParam(tagSensorData.slope_id());
 	pMysqlQuery->AddParam(tagSensorData.longitude());
@@ -633,6 +637,7 @@ void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 {
 	UINT	uCol				= 0;
 	WORD	wSlopeID			= 0;
+	WORD	wSceneID			= 0;
 	BYTE	bySlopeType			= 0;
 	char	strSlopeName[64]	= {0};
 	double	dLongitude			= 0.0f;
@@ -650,9 +655,7 @@ void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
 
 	if (nullptr == pResult1)
-	{
 		return;
-	}
 
 	if (0 == pResult1->GetRowCount())
 	{
@@ -671,6 +674,7 @@ void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 		uCol	= 0;
 
 		pResult1->GetData(uRow, uCol++, wSlopeID);
+		pResult1->GetData(uRow, uCol++, wSceneID);
 		pResult1->GetData(uRow, uCol++, bySlopeType);
 		pResult1->GetData(uRow, uCol++, strSlopeName, sizeof(strSlopeName));
 		pResult1->GetData(uRow, uCol++, dLongitude);
@@ -679,6 +683,7 @@ void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
 
 		pSlopeData->set_id(wSlopeID);
+		pSlopeData->set_scene_id(wSlopeID);
 		pSlopeData->set_type(bySlopeType);
 		pSlopeData->set_name(strSlopeName);
 		pSlopeData->set_longitude(dLongitude);
@@ -693,6 +698,7 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 {
 	UINT	uCol			= 0;
 	UINT	uSensorID		= 0;
+	WORD	wSceneID		= 0;
 	BYTE	bySensorType	= 0;
 	double	dCurValue1		= 0.0f;
 	double	dCurValue2		= 0.0f;
@@ -733,6 +739,7 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		uCol	= 0;
 
 		pResult1->GetData(uRow, uCol++, uSensorID);
+		pResult1->GetData(uRow, uCol++, wSceneID);
 		pResult1->GetData(uRow, uCol++, bySensorType);
 		pResult1->GetData(uRow, uCol++, dCurValue1);
 		pResult1->GetData(uRow, uCol++, dCurValue2);
@@ -751,6 +758,7 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		pResult1->GetData(uRow, uCol++, strDesc, sizeof(strDesc));
 
 		pSensor->set_id(uSensorID);
+		pSensor->set_scene_id(wSceneID);
 		pSensor->set_type(bySensorType);
 		pSensor->set_cur_value1(dCurValue1);
 		pSensor->set_cur_value2(dCurValue2);
@@ -776,6 +784,7 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 {
 	UINT	uCol				= 0;
 	UINT	uSensorID			= 0;
+	WORD	wSceneID			= 0;
 	double	dLongitude			= 0.0f;
 	double	dLatitude			= 0.0f;
 	int		nBeginTime			= 0;
@@ -843,6 +852,7 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	tagSensorHistory.set_avg_value1(dAvgValue1);
 	tagSensorHistory.set_avg_value2(dAvgValue2);
 	tagSensorHistory.set_avg_value3(dAvgValue3);
+	tagSensorHistory.set_scene_id(wSceneID);
 
 	for (auto uRow = 0; uRow < pResult2->GetRowCount(); ++uRow)
 	{
@@ -959,6 +969,7 @@ void CAppClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	UINT	uCol			= 0;
 	BYTE	byResult		= 0;
 	WORD	wSlopeID		= 0;
+	WORD	wSceneID		= 0;
 	BYTE	byType			= 0;
 	char	strName[256]	= {0};
 	BYTE	byState			= 0;
@@ -998,6 +1009,7 @@ void CAppClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	uCol	= 0;
 
 	pResult2->GetData(0, uCol++, wSlopeID);
+	pResult2->GetData(0, uCol++, wSceneID);
 	pResult2->GetData(0, uCol++, byType);
 	pResult2->GetData(0, uCol++, strName, sizeof(strName));
 	pResult2->GetData(0, uCol++, dLongitude);
@@ -1005,6 +1017,7 @@ void CAppClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
 
 	tagNewSlope.set_id(wSlopeID);
+	tagNewSlope.set_scene_id(wSceneID);
 	tagNewSlope.set_type(byType);
 	tagNewSlope.set_name(strName);
 	tagNewSlope.set_state(0);
@@ -1048,6 +1061,7 @@ void CAppClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	UINT	uCol			= 0;
 	BYTE	byResult		= 0;
 	WORD	wSlopeID		= 0;
+	WORD	wSceneID		= 0;
 	BYTE	byType			= 0;
 	char	strName[256]	= {0};
 	BYTE	byState			= 0;
@@ -1087,6 +1101,7 @@ void CAppClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	uCol	= 0;
 
 	pResult2->GetData(0, uCol++, wSlopeID);
+	pResult2->GetData(0, uCol++, wSceneID);
 	pResult2->GetData(0, uCol++, byType);
 	pResult2->GetData(0, uCol++, strName, sizeof(strName));
 	pResult2->GetData(0, uCol++, dLongitude);
@@ -1094,6 +1109,7 @@ void CAppClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
 
 	tagUpdateSlope.set_id(wSlopeID);
+	tagUpdateSlope.set_scene_id(wSceneID);
 	tagUpdateSlope.set_type(byType);
 	tagUpdateSlope.set_name(strName);
 	tagUpdateSlope.set_state(0);
@@ -1109,6 +1125,7 @@ void CAppClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlReq
 	UINT	uCol					= 0;
 	BYTE	byResult				= 0;
 	UINT	uSensorID				= 0;
+	WORD	wSceneID				= 0;
 	BYTE	byType					= 0;
 	BYTE	byState					= 0;
 	WORD	wSlopeID				= 0;
@@ -1149,6 +1166,7 @@ void CAppClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlReq
 	uCol	= 0;
 
 	pResult2->GetData(0, uCol++, uSensorID);
+	pResult2->GetData(0, uCol++, wSceneID);
 	pResult2->GetData(0, uCol++, byType);
 	pResult2->GetData(0, uCol++, wSlopeID);
 	pResult2->GetData(0, uCol++, dLongitude);
@@ -1157,6 +1175,7 @@ void CAppClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlReq
 	pResult2->GetData(0, uCol++, strDescription, sizeof(strDescription));
 
 	tagNewSensor.set_id(uSensorID);
+	tagNewSensor.set_scene_id(wSceneID);
 	tagNewSensor.set_type(byType);
 	tagNewSensor.set_slope_id(wSlopeID);
 	tagNewSensor.set_state(0);
@@ -1201,6 +1220,7 @@ void CAppClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysql
 	UINT	uCol					= 0;
 	BYTE	byResult				= 0;
 	UINT	uSensorID				= 0;
+	WORD	wSceneID				= 0;
 	BYTE	byType					= 0;
 	BYTE	byState					= 0;
 	WORD	wSlopeID				= 0;
@@ -1241,6 +1261,7 @@ void CAppClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysql
 	uCol	= 0;
 
 	pResult2->GetData(0, uCol++, uSensorID);
+	pResult2->GetData(0, uCol++, wSceneID);
 	pResult2->GetData(0, uCol++, byType);
 	pResult2->GetData(0, uCol++, wSlopeID);
 	pResult2->GetData(0, uCol++, dLongitude);
@@ -1249,6 +1270,7 @@ void CAppClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysql
 	pResult2->GetData(0, uCol++, strDescription, sizeof(strDescription));
 
 	tagUpdateSensor.set_id(uSensorID);
+	tagUpdateSensor.set_scene_id(wSceneID);
 	tagUpdateSensor.set_type(byType);
 	tagUpdateSensor.set_slope_id(wSlopeID);
 	tagUpdateSensor.set_state(0);
@@ -1289,6 +1311,7 @@ void CAppClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlReq
 {
 	UINT	uCol				= 0;
 	WORD	wSlopeID			= 0;
+	WORD	wSceneID			= 0;
 	BYTE	bySlopeType			= 0;
 	char	strSlopeName[64]	= {0};
 	double	dLongitude			= 0.0f;
@@ -1319,6 +1342,7 @@ void CAppClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlReq
 		uCol	= 0;
 
 		pResult1->GetData(uRow, uCol++, wSlopeID);
+		pResult1->GetData(uRow, uCol++, wSceneID);
 		pResult1->GetData(uRow, uCol++, bySlopeType);
 		pResult1->GetData(uRow, uCol++, strSlopeName, sizeof(strSlopeName));
 		pResult1->GetData(uRow, uCol++, dLongitude);
@@ -1327,6 +1351,7 @@ void CAppClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlReq
 		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
 
 		pSlopeData->set_id(wSlopeID);
+		pSlopeData->set_scene_id(wSceneID);
 		pSlopeData->set_type(bySlopeType);
 		pSlopeData->set_name(strSlopeName);
 		pSlopeData->set_longitude(dLongitude);
@@ -1342,6 +1367,7 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 {
 	UINT	uCol			= 0;
 	UINT	uSensorID		= 0;
+	WORD	wSceneID		= 0;
 	BYTE	bySensorType	= 0;
 	double	dCurValue1		= 0.0f;
 	double	dCurValue2		= 0.0f;
@@ -1382,6 +1408,7 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 		uCol	= 0;
 
 		pResult1->GetData(uRow, uCol++, uSensorID);
+		pResult1->GetData(uRow, uCol++, wSceneID);
 		pResult1->GetData(uRow, uCol++, bySensorType);
 		pResult1->GetData(uRow, uCol++, dCurValue1);
 		pResult1->GetData(uRow, uCol++, dCurValue2);
@@ -1400,6 +1427,7 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 		pResult1->GetData(uRow, uCol++, strDesc, sizeof(strDesc));
 
 		pSensor->set_id(uSensorID);
+		pSensor->set_scene_id(wSceneID);
 		pSensor->set_type(bySensorType);
 		pSensor->set_cur_value1(dCurValue1);
 		pSensor->set_cur_value2(dCurValue2);
