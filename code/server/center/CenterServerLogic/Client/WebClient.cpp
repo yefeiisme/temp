@@ -1018,6 +1018,7 @@ void CWebClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 {
 	UINT	uCol				= 0;
 	WORD	wSlopeID			= 0;
+	WORD	wSceneID			= 0;
 	BYTE	bySlopeType			= 0;
 	char	strSlopeName[64]	= {0};
 	double	dLongitude			= 0.0f;
@@ -1035,9 +1036,7 @@ void CWebClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
 
 	if (nullptr == pResult1)
-	{
 		return;
-	}
 
 	WEB_SERVER_NET_Protocol::S2Web_Slope_List	tagSlopeList;
 
@@ -1050,6 +1049,7 @@ void CWebClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 		uCol	= 0;
 
 		pResult1->GetData(uRow, uCol++, wSlopeID);
+		pResult1->GetData(uRow, uCol++, wSceneID);
 		pResult1->GetData(uRow, uCol++, bySlopeType);
 		pResult1->GetData(uRow, uCol++, strSlopeName, sizeof(strSlopeName));
 		pResult1->GetData(uRow, uCol++, dLongitude);
@@ -1058,6 +1058,7 @@ void CWebClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
 
 		pSlopeData->set_id(wSlopeID);
+		pSlopeData->set_scene_id(wSlopeID);
 		pSlopeData->set_type(bySlopeType);
 		pSlopeData->set_name(strSlopeName);
 		pSlopeData->set_longitude(dLongitude);
