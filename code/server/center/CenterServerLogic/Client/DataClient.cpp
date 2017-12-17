@@ -97,6 +97,9 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				dValue3	= pSensorData->fValue3;
 				dValue4	= pSensorData->byValue4;
 
+				// 临时为了统一做的调整
+				++pSensorHead->byType;
+
 				SMysqlRequest	tagRequest = {0};
 				tagRequest.byOpt		= SENSOR_DB_ADD_SENSOR_DATA;
 				tagRequest.uClientID	= m_uUniqueID;
@@ -129,7 +132,10 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				dValue3	= 0.0;
 				dValue4	= 0.0;
 
-				SMysqlRequest	tagRequest = {0};
+				// 临时为了统一做的调整
+				++pSensorHead->byType;
+
+				SMysqlRequest	tagRequest = { 0 };
 				tagRequest.byOpt		= SENSOR_DB_ADD_SENSOR_DATA;
 				tagRequest.uClientID	= m_uUniqueID;
 				tagRequest.uClientIndex	= m_uIndex;
@@ -163,6 +169,9 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				dValue2		= 0.0;
 				dValue3		= 0.0;
 				dValue4		= 0.0;
+
+				// 临时为了统一做的调整
+				++pSensorHead->byType;
 
 				SMysqlRequest	tagRequest = { 0 };
 				tagRequest.byOpt = SENSOR_DB_ADD_SENSOR_DATA;
