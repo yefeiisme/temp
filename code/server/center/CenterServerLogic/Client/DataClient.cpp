@@ -118,7 +118,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 				pMysqlQuery->CallProc();
-				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
+				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
 			}
 			break;
 		case 2:
@@ -150,7 +150,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 				pMysqlQuery->CallProc();
-				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
+				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
 			}
 			break;
 		case 3:
@@ -185,7 +185,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 				pMysqlQuery->CallProc();
-				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
+				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
 			}
 			break;
 		case 4:
