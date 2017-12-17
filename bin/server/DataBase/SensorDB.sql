@@ -129,7 +129,7 @@ DROP PROCEDURE IF EXISTS `LoadAllList`;
 CREATE PROCEDURE `LoadAllList`(IN paramAccount INTEGER UNSIGNED)
 BEGIN
 	select ID,SceneID,Type,Name,Longitude,Latitude,State from slope where OwnerID=paramAccount;
-	select ID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where 
+	select ID,Type,Value1,Value2,Value3,Value4,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where 
 	SlopeID in (select ID from slope where OwnerID=paramAccount);
 END;
 
@@ -159,13 +159,13 @@ END;
 DROP PROCEDURE IF EXISTS `LoadSensorList`;
 CREATE PROCEDURE `LoadSensorList`(IN paramSlopeID INTEGER UNSIGNED)
 BEGIN
-	select ID,SceneID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where SlopeID=paramSlopeID order by Type;
+	select ID,SceneID,Type,Value1,Value2,Value3,Value4,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where SlopeID=paramSlopeID order by Type;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorListByType`;
 CREATE PROCEDURE `LoadSensorListByType`(IN paramSlopeID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
 BEGIN
-	select ID,SceneID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where SlopeID=paramSlopeID and Type=paramSensorType order by Type;
+	select ID,SceneID,Type,Value1,Value2,Value3,Value4,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where SlopeID=paramSlopeID and Type=paramSensorType order by Type;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSlopeList`;
@@ -222,7 +222,7 @@ BEGIN
 		select 1;
 	end if;
 	
-	select LAST_INSERT_ID(),paramSceneID,paramType,paramName,paramLongitude,paramLatitude,paramOwnerID,paramUrl;
+	select LAST_INSERT_ID(),paramSceneID,paramType,paramName,0,0,paramOwnerID,paramUrl;
 END;
 
 DROP PROCEDURE IF EXISTS `DeleteSlope`;
@@ -294,7 +294,7 @@ END;
 DROP PROCEDURE IF EXISTS `FindSensor`;
 CREATE PROCEDURE `FindSensor`(IN paramSlopeID INTEGER UNSIGNED, IN paramName VARCHAR(64), IN paramSensorID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
 BEGIN
-	set @strSql = 'select ID,SceneID,Type,Value1,Value2,Value3,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor';
+	set @strSql = 'select ID,SceneID,Type,Value1,Value2,Value3,Value4,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor';
     set @nCount	= 0;
     
     if paramSlopeID > 0 then

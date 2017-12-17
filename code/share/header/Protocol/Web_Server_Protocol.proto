@@ -313,6 +313,7 @@ message S2Web_Sensor_List
 		required bytes	url				= 16;	// 特殊传感器类型的url
 		required bytes	description		= 17;	// 安装位置的描述
 		required uint32	scene_id		= 18;	// 现场ID
+		required double	cur_value4		= 19;	// 当前物理量4
 	}
 
 	repeated SensorData	sensor_list	= 1;

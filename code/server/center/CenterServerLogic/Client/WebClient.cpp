@@ -1074,19 +1074,20 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 	UINT	uSensorID		= 0;
 	WORD	wSceneID		= 0;
 	BYTE	bySensorType	= 0;
-	double	dCurValue1		= 0.0f;
-	double	dCurValue2		= 0.0f;
-	double	dCurValue3		= 0.0f;
-	double	dAvgValue1		= 0.0f;
-	double	dAvgValue2		= 0.0f;
-	double	dAvgValue3		= 0.0f;
-	double	dOffsetValue1	= 0.0f;
-	double	dOffsetValue2	= 0.0f;
-	double	dOffsetValue3	= 0.0f;
+	double	dCurValue1		= 0.0;
+	double	dCurValue2		= 0.0;
+	double	dCurValue3		= 0.0;
+	double	dCurValue4		= 0.0;
+	double	dAvgValue1		= 0.0;
+	double	dAvgValue2		= 0.0;
+	double	dAvgValue3		= 0.0;
+	double	dOffsetValue1	= 0.0;
+	double	dOffsetValue2	= 0.0;
+	double	dOffsetValue3	= 0.0;
 	BYTE	byState			= 0;
 	WORD	wSlopeID		= 0;
-	double	dLongitude		= 0.0f;
-	double	dLatitude		= 0.0f;
+	double	dLongitude		= 0.0;
+	double	dLatitude		= 0.0;
 	char	strUrl[0xffff]	= {0};
 	char	strDesc[0xffff]	= {0};
 
@@ -1118,6 +1119,7 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		pResult1->GetData(uRow, uCol++, dCurValue1);
 		pResult1->GetData(uRow, uCol++, dCurValue2);
 		pResult1->GetData(uRow, uCol++, dCurValue3);
+		pResult1->GetData(uRow, uCol++, dCurValue4);
 		pResult1->GetData(uRow, uCol++, dAvgValue1);
 		pResult1->GetData(uRow, uCol++, dAvgValue2);
 		pResult1->GetData(uRow, uCol++, dAvgValue3);
@@ -1137,6 +1139,7 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 		pSensor->set_cur_value1(dCurValue1);
 		pSensor->set_cur_value2(dCurValue2);
 		pSensor->set_cur_value3(dCurValue3);
+		pSensor->set_cur_value4(dCurValue4);
 		pSensor->set_avg_value1(dAvgValue1);
 		pSensor->set_avg_value2(dAvgValue2);
 		pSensor->set_avg_value3(dAvgValue3);
@@ -1283,44 +1286,21 @@ void CWebClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	double	dLatitude		= 0.0f;
 	char	strUrl[1024]	= {0};
 
-	BYTE	byResultCount = pResultSet->GetResultCount();
-	if (2 != byResultCount)
-	{
-		g_pFileLog->WriteLog("[%s][%d] Result Count[%hhu] Error\n", __FILE__, __LINE__, byResultCount);
+	IMysqlResult	*pResult	= pResultSet->GetMysqlResult(0);
+	if (nullptr == pResult)
 		return;
-	}
-
-	IMysqlResult	*pResult1	= pResultSet->GetMysqlResult(0);
-	IMysqlResult	*pResult2	= pResultSet->GetMysqlResult(1);
-
-	if (nullptr == pResult1 || nullptr == pResult2)
-		return;
-
-	if (1 != pResult1->GetRowCount())
-		return;
-
-	pResult1->GetData(0, 0, byResult);
-	if (0 != byResult)
-	{
-		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
-		tagError.set_error_code(byResult);
-
-		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
-
-		return;
-	}
 
 	WEB_SERVER_NET_Protocol::S2WEB_New_Slope	tagNewSlope;
 
 	uCol	= 0;
 
-	pResult2->GetData(0, uCol++, wSlopeID);
-	pResult2->GetData(0, uCol++, wSceneID);
-	pResult2->GetData(0, uCol++, byType);
-	pResult2->GetData(0, uCol++, strName, sizeof(strName));
-	pResult2->GetData(0, uCol++, dLongitude);
-	pResult2->GetData(0, uCol++, dLatitude);
-	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
+	pResult->GetData(0, uCol++, wSlopeID);
+	pResult->GetData(0, uCol++, wSceneID);
+	pResult->GetData(0, uCol++, byType);
+	pResult->GetData(0, uCol++, strName, sizeof(strName));
+	pResult->GetData(0, uCol++, dLongitude);
+	pResult->GetData(0, uCol++, dLatitude);
+	pResult->GetData(0, uCol++, strUrl, sizeof(strUrl));
 
 	tagNewSlope.set_id(wSlopeID);
 	tagNewSlope.set_scene_id(wSceneID);
@@ -1678,19 +1658,20 @@ void CWebClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 	UINT	uSensorID		= 0;
 	WORD	wSceneID		= 0;
 	BYTE	bySensorType	= 0;
-	double	dCurValue1		= 0.0f;
-	double	dCurValue2		= 0.0f;
-	double	dCurValue3		= 0.0f;
-	double	dAvgValue1		= 0.0f;
-	double	dAvgValue2		= 0.0f;
-	double	dAvgValue3		= 0.0f;
-	double	dOffsetValue1	= 0.0f;
-	double	dOffsetValue2	= 0.0f;
-	double	dOffsetValue3	= 0.0f;
+	double	dCurValue1		= 0.0;
+	double	dCurValue2		= 0.0;
+	double	dCurValue3		= 0.0;
+	double	dCurValue4		= 0.0;
+	double	dAvgValue1		= 0.0;
+	double	dAvgValue2		= 0.0;
+	double	dAvgValue3		= 0.0;
+	double	dOffsetValue1	= 0.0;
+	double	dOffsetValue2	= 0.0;
+	double	dOffsetValue3	= 0.0;
 	BYTE	byState			= 0;
 	WORD	wSlopeID		= 0;
-	double	dLongitude		= 0.0f;
-	double	dLatitude		= 0.0f;
+	double	dLongitude		= 0.0;
+	double	dLatitude		= 0.0;
 	char	strUrl[0xffff]	= {0};
 	char	strDesc[0xffff]	= {0};
 
@@ -1722,6 +1703,7 @@ void CWebClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 		pResult1->GetData(uRow, uCol++, dCurValue1);
 		pResult1->GetData(uRow, uCol++, dCurValue2);
 		pResult1->GetData(uRow, uCol++, dCurValue3);
+		pResult1->GetData(uRow, uCol++, dCurValue4);
 		pResult1->GetData(uRow, uCol++, dAvgValue1);
 		pResult1->GetData(uRow, uCol++, dAvgValue2);
 		pResult1->GetData(uRow, uCol++, dAvgValue3);
@@ -1741,6 +1723,7 @@ void CWebClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 		pSensor->set_cur_value1(dCurValue1);
 		pSensor->set_cur_value2(dCurValue2);
 		pSensor->set_cur_value3(dCurValue3);
+		pSensor->set_cur_value4(dCurValue4);
 		pSensor->set_avg_value1(dAvgValue1);
 		pSensor->set_avg_value2(dAvgValue2);
 		pSensor->set_avg_value3(dAvgValue3);

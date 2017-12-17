@@ -3687,6 +3687,13 @@ class S2Web_Sensor_List_SensorData : public ::google::protobuf::Message /* @@pro
   double offset_value3() const;
   void set_offset_value3(double value);
 
+  // required double cur_value4 = 19;
+  bool has_cur_value4() const;
+  void clear_cur_value4();
+  static const int kCurValue4FieldNumber = 19;
+  double cur_value4() const;
+  void set_cur_value4(double value);
+
   // required uint32 scene_id = 18;
   bool has_scene_id() const;
   void clear_scene_id();
@@ -3732,6 +3739,8 @@ class S2Web_Sensor_List_SensorData : public ::google::protobuf::Message /* @@pro
   void clear_has_description();
   void set_has_scene_id();
   void clear_has_scene_id();
+  void set_has_cur_value4();
+  void clear_has_cur_value4();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -3756,6 +3765,7 @@ class S2Web_Sensor_List_SensorData : public ::google::protobuf::Message /* @@pro
   double offset_value1_;
   double offset_value2_;
   double offset_value3_;
+  double cur_value4_;
   ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
@@ -10435,13 +10445,13 @@ inline void S2Web_Sensor_List_SensorData::set_allocated_description(::std::strin
 
 // required uint32 scene_id = 18;
 inline bool S2Web_Sensor_List_SensorData::has_scene_id() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 inline void S2Web_Sensor_List_SensorData::set_has_scene_id() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
 }
 inline void S2Web_Sensor_List_SensorData::clear_has_scene_id() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline void S2Web_Sensor_List_SensorData::clear_scene_id() {
   scene_id_ = 0u;
@@ -10455,6 +10465,30 @@ inline void S2Web_Sensor_List_SensorData::set_scene_id(::google::protobuf::uint3
   set_has_scene_id();
   scene_id_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.scene_id)
+}
+
+// required double cur_value4 = 19;
+inline bool S2Web_Sensor_List_SensorData::has_cur_value4() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void S2Web_Sensor_List_SensorData::set_has_cur_value4() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void S2Web_Sensor_List_SensorData::clear_has_cur_value4() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void S2Web_Sensor_List_SensorData::clear_cur_value4() {
+  cur_value4_ = 0;
+  clear_has_cur_value4();
+}
+inline double S2Web_Sensor_List_SensorData::cur_value4() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.cur_value4)
+  return cur_value4_;
+}
+inline void S2Web_Sensor_List_SensorData::set_cur_value4(double value) {
+  set_has_cur_value4();
+  cur_value4_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2Web_Sensor_List.SensorData.cur_value4)
 }
 
 // -------------------------------------------------------------------
