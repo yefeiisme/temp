@@ -18,7 +18,7 @@ struct SProtocolHead
 {
 	WORD	wProtocolHead;	// 7E81
 	BYTE	bySlopeType;	// 现场类型ID
-	WORD	wSlopeID;		// 现场ID
+	WORD	wSceneID;		// 现场ID
 	BYTE	bySensorCount;	// 本现场传感器数量
 	UINT	uTime;			// 时间
 	float	fLatitude;		// 现场纬度

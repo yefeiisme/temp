@@ -73,7 +73,11 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		return;
 	}
 
-	time_t	nTimeNow		= pInfo->uTime;
+	IMysqlQuery	*pMysqlQuery = g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	time_t	nTimeNow = pInfo->uTime;
 	double	dValue1			= 0.0;
 	double	dValue2			= 0.0;
 	double	dValue3			= 0.0;
@@ -93,9 +97,28 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				dValue3	= pSensorData->fValue3;
 				dValue4	= pSensorData->byValue4;
 
-				// 存数据库
-				// ...
-			}
+				SMysqlRequest	tagRequest = {0};
+				tagRequest.byOpt		= SENSOR_DB_ADD_SENSOR_DATA;
+				tagRequest.uClientID	= m_uUniqueID;
+				tagRequest.uClientIndex	= m_uIndex;
+				tagRequest.byClientType	= DATA_CLIENT;
+
+				pMysqlQuery->PrepareProc("AddSensorData");
+				pMysqlQuery->AddParam(pInfo->wSceneID);
+				pMysqlQuery->AddParam(pInfo->bySlopeType);
+				pMysqlQuery->AddParam(pInfo->uTime);
+				pMysqlQuery->AddParam((double)pInfo->fLongitude);
+				pMysqlQuery->AddParam((double)pInfo->fLatitude);
+				pMysqlQuery->AddParam(pSensorHead->byID);
+				pMysqlQuery->AddParam(pSensorHead->byType);
+				pMysqlQuery->AddParam(dValue1);
+				pMysqlQuery->AddParam(dValue2);
+				pMysqlQuery->AddParam(dValue3);
+				pMysqlQuery->AddParam(dValue4);
+				pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+				pMysqlQuery->CallProc();
+		}
 			break;
 		case 2:
 			{
@@ -105,8 +128,27 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				dValue3	= 0.0;
 				dValue4	= 0.0;
 
-				// 存数据库
-				// ...
+				SMysqlRequest	tagRequest = {0};
+				tagRequest.byOpt		= SENSOR_DB_ADD_SENSOR_DATA;
+				tagRequest.uClientID	= m_uUniqueID;
+				tagRequest.uClientIndex	= m_uIndex;
+				tagRequest.byClientType	= DATA_CLIENT;
+
+				pMysqlQuery->PrepareProc("AddSensorData");
+				pMysqlQuery->AddParam(pInfo->wSceneID);
+				pMysqlQuery->AddParam(pInfo->bySlopeType);
+				pMysqlQuery->AddParam(pInfo->uTime);
+				pMysqlQuery->AddParam((double)pInfo->fLongitude);
+				pMysqlQuery->AddParam((double)pInfo->fLatitude);
+				pMysqlQuery->AddParam(pSensorHead->byID);
+				pMysqlQuery->AddParam(pSensorHead->byType);
+				pMysqlQuery->AddParam(dValue1);
+				pMysqlQuery->AddParam(dValue2);
+				pMysqlQuery->AddParam(dValue3);
+				pMysqlQuery->AddParam(dValue4);
+				pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+				pMysqlQuery->CallProc();
 			}
 			break;
 		case 3:
@@ -120,11 +162,32 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				dValue3		= 0.0;
 				dValue4		= 0.0;
 
-				// 存数据库
-				// ...
-			}
+				SMysqlRequest	tagRequest = { 0 };
+				tagRequest.byOpt = SENSOR_DB_ADD_SENSOR_DATA;
+				tagRequest.uClientID = m_uUniqueID;
+				tagRequest.uClientIndex = m_uIndex;
+				tagRequest.byClientType = DATA_CLIENT;
+
+				pMysqlQuery->PrepareProc("AddSensorData");
+				pMysqlQuery->AddParam(pInfo->wSceneID);
+				pMysqlQuery->AddParam(pInfo->bySlopeType);
+				pMysqlQuery->AddParam(pInfo->uTime);
+				pMysqlQuery->AddParam((double)pInfo->fLongitude);
+				pMysqlQuery->AddParam((double)pInfo->fLatitude);
+				pMysqlQuery->AddParam(pSensorHead->byID);
+				pMysqlQuery->AddParam(pSensorHead->byType);
+				pMysqlQuery->AddParam(dValue1);
+				pMysqlQuery->AddParam(dValue2);
+				pMysqlQuery->AddParam(dValue3);
+				pMysqlQuery->AddParam(dValue4);
+				pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+				pMysqlQuery->CallProc();
+		}
 			break;
 		case 4:
+			{
+			}
 			break;
 		default:
 			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu Invalid SensorType=%hhu\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType);

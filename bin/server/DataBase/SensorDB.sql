@@ -171,7 +171,7 @@ END;
 DROP PROCEDURE IF EXISTS `LoadSlopeList`;
 CREATE PROCEDURE `LoadSlopeList`(IN paramAccount INTEGER UNSIGNED, IN paramServerID INTEGER UNSIGNED)
 BEGIN
-	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl from slope where OwnerID=paramAccount;
+	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl from slope;
 END;
 
 DROP PROCEDURE IF EXISTS `WebLogin`;
@@ -278,7 +278,7 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `UpdateSensor`;
-CREATE PROCEDURE `UpdateSensor`(IN paramSensorID INTEGER UNSIGNED,IN paramSceneID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED, IN paramLongitude DOUBLE, IN paramLatitude DOUBLE, IN paramUrl mediumtext, IN paramDesc mediumtext)
+CREATE PROCEDURE `UpdateSensor`(IN paramSensorID INTEGER UNSIGNED,IN paramSceneID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED,IN paramSlopeID INTEGER UNSIGNED,IN paramLongitude DOUBLE,IN paramLatitude DOUBLE,IN paramUrl mediumtext,IN paramDesc mediumtext)
 BEGIN
 	update sensor set SceneID=paramSceneID,Type=paramType,SlopeID=paramSlopeID,Longitude=paramLongitude,Latitude=paramLatitude,VideoUrl=paramUrl,Description=paramDesc where ID=paramSensorID;
 	
@@ -391,9 +391,24 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `AddSensorData`;
-CREATE PROCEDURE `AddSensorData`(IN paramSensorID INTEGER UNSIGNED,IN paramSensorType INTEGER UNSIGNED,IN paramTime INTEGER,IN paramValue1 double,IN paramValue2 double,IN paramValue3 double)
+CREATE PROCEDURE `AddSensorData`(
+	IN paramSlopeSceneID INTEGER UNSIGNED,
+	IN paramSlopeType INTEGER UNSIGNED,
+	IN paramTime INTEGER,
+	IN paramLongitude double,
+	IN paramLatitude double,
+	IN paramSensorSceneID INTEGER UNSIGNED,
+	IN paramSensorType INTEGER UNSIGNED,
+	IN paramValue1 double,
+	IN paramValue2 double,
+	IN paramValue3 double,
+	IN paramValue4 double)
 BEGIN
-	insert into sensor_data(ID,Type,Value1,Value2,Value3,SlopeID,DataTime) value(paramSensorID,paramSensorType,paramValue1,paramValue2,paramValue3,paramTime);
+	DECLARE _SlopeID smallint UNSIGNED default 0;
+	DECLARE _SensorID int UNSIGNED default 0;
+	select ID into _SlopeID from slope where SceneID=paramSlopeSceneID and Type=paramSensorType;
+	select ID into _SensorID from sensor where SceneID=paramSensorSceneID and Type=paramSensorType and SlopeID=_SlopeID;
+	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,paramTime);
 END;
 
 //
