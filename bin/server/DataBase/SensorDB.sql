@@ -406,9 +406,9 @@ CREATE PROCEDURE `AddSensorData`(
 BEGIN
 	DECLARE _SlopeID smallint UNSIGNED default 0;
 	DECLARE _SensorID int UNSIGNED default 0;
-	select ID into _SlopeID from slope where SceneID=paramSlopeSceneID and Type=paramSensorType;
+	select ID into _SlopeID from slope where SceneID=paramSlopeSceneID and Type=paramSlopeType;
 	select ID into _SensorID from sensor where SceneID=paramSensorSceneID and Type=paramSensorType and SlopeID=_SlopeID;
-	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,paramTime);
+	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime,DataTime1) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,FROM_UNIXTIME(paramTime),paramTime);
 END;
 
 //

@@ -29,7 +29,7 @@ struct SSensorHead
 {
 	WORD	wLength;		// 传感器数据长度
 	BYTE	byType;			// 传感器类型
-	BYTE	byID;			// 传感器ID
+	BYTE	byID;			// 传感器现场ID
 };
 
 struct SSensorData1

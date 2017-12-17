@@ -91,6 +91,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		{
 		case 1:
 			{
+				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu SensorSceneID=%hhu SensorType=%hhu\n", pInfo->wSceneID, pInfo->bySlopeType, pSensorHead->byID, pSensorHead->byType);
 				SSensorData1	*pSensorData = (SSensorData1*)((char*)pSensorHead + sizeof(SSensorHead));
 				dValue1	= pSensorData->dValue1;
 				dValue2	= pSensorData->dValue2;
@@ -122,6 +123,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 			break;
 		case 2:
 			{
+				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu SensorSceneID=%hhu SensorType=%hhu\n", pInfo->wSceneID, pInfo->bySlopeType, pSensorHead->byID, pSensorHead->byType);
 				SSensorData2	*pSensorData = (SSensorData2*)((char*)pSensorHead + sizeof(SSensorHead));
 				dValue1	= ((double)pSensorData->sData1/10000-0.95)/0.95*30;
 				dValue2	= ((double)pSensorData->sData2/10000-0.95)/0.95*30;
@@ -153,6 +155,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 			break;
 		case 3:
 			{
+				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu SensorSceneID=%hhu SensorType=%hhu\n", pInfo->wSceneID, pInfo->bySlopeType, pSensorHead->byID, pSensorHead->byType);
 				SSensorData3	*pSensorData = (SSensorData3*)((char*)pSensorHead + sizeof(SSensorHead));
 				double	dFi	= (double)pSensorData->sData1 / 10;
 				double	dFo	= 1289;
