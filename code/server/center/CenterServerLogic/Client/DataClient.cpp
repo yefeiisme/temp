@@ -99,7 +99,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				dValue4	= pSensorData->byValue4;
 
 				// 临时为了统一做的调整
-				++pSensorHead->byType;
+				BYTE	byType = pSensorHead->byType + 1;
 
 				SMysqlRequest	tagRequest = {0};
 				tagRequest.byOpt		= SENSOR_DB_ADD_SENSOR_DATA;
@@ -114,7 +114,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				pMysqlQuery->AddParam((double)pInfo->fLongitude);
 				pMysqlQuery->AddParam((double)pInfo->fLatitude);
 				pMysqlQuery->AddParam(pSensorHead->byID);
-				pMysqlQuery->AddParam(pSensorHead->byType);
+				pMysqlQuery->AddParam(byType);
 				pMysqlQuery->AddParam(dValue1);
 				pMysqlQuery->AddParam(dValue2);
 				pMysqlQuery->AddParam(dValue3);
@@ -122,7 +122,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 				pMysqlQuery->CallProc();
-				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
+				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, byType, dValue1, dValue2, dValue3, dValue4);
 			}
 			break;
 		case 2:
@@ -136,7 +136,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 					dValue4	= 0.0;
 
 					// 临时为了统一做的调整
-					++pSensorHead->byType;
+					BYTE	byType = pSensorHead->byType + 1;
 
 					SMysqlRequest	tagRequest = { 0 };
 					tagRequest.byOpt = SENSOR_DB_ADD_SENSOR_DATA;
@@ -151,7 +151,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 					pMysqlQuery->AddParam((double)pInfo->fLongitude);
 					pMysqlQuery->AddParam((double)pInfo->fLatitude);
 					pMysqlQuery->AddParam(pSensorHead->byID);
-					pMysqlQuery->AddParam(pSensorHead->byType);
+					pMysqlQuery->AddParam(byType);
 					pMysqlQuery->AddParam(dValue1);
 					pMysqlQuery->AddParam(dValue2);
 					pMysqlQuery->AddParam(dValue3);
@@ -159,7 +159,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 					pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 					pMysqlQuery->CallProc();
-					g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
+					g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, byType, dValue1, dValue2, dValue3, dValue4);
 				}
 			}
 			break;
@@ -177,9 +177,9 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 					dValue4		= 0.0;
 
 					// 临时为了统一做的调整
-					++pSensorHead->byType;
+					BYTE	byType = pSensorHead->byType + 1;
 
-					SMysqlRequest	tagRequest = { 0 };
+					SMysqlRequest	tagRequest = {0};
 					tagRequest.byOpt = SENSOR_DB_ADD_SENSOR_DATA;
 					tagRequest.uClientID = m_uUniqueID;
 					tagRequest.uClientIndex = m_uIndex;
@@ -192,7 +192,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 					pMysqlQuery->AddParam((double)pInfo->fLongitude);
 					pMysqlQuery->AddParam((double)pInfo->fLatitude);
 					pMysqlQuery->AddParam(pSensorHead->byID);
-					pMysqlQuery->AddParam(pSensorHead->byType);
+					pMysqlQuery->AddParam(byType);
 					pMysqlQuery->AddParam(dValue1);
 					pMysqlQuery->AddParam(dValue2);
 					pMysqlQuery->AddParam(dValue3);
@@ -200,7 +200,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 					pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 					pMysqlQuery->CallProc();
-					g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
+					g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, byType, dValue1, dValue2, dValue3, dValue4);
 				}
 			}
 			break;
@@ -209,43 +209,12 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 			}
 			break;
 		default:
-			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu Invalid SensorType=%hhu\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType);
+			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu Invalid SensorType=%hhu\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType+1);
 			break;
 		}
 
 		pSensorHead = (SSensorHead*)((char*)pSensorHead + sizeof(SSensorHead) + pSensorHead->wLength);
 	}
-	/*
-	if (sizeof(SProtocolHead)+sizeof(SSensorData)*pInfo->bySensorCount != uPackLen)
-	{
-		g_pFileLog->WriteLog("[%s][%d] Pack Real Length[%u], Content Calc Length[%d]\n", __FILE__, __LINE__, uPackLen, sizeof(SProtocolHead)+sizeof(SSensorData)*pInfo->bySensorCount);
-		return;
-	}
-
-	IMysqlQuery	*pMysqlQuery = g_ICenterServer.GetMysqlQuery();
-	if (nullptr == pMysqlQuery)
-		return;
-
-	for (auto nIndex = 0; nIndex < pInfo->bySensorCount; ++nIndex)
-	{
-		SMysqlRequest	tagRequest	= {0};
-		tagRequest.byOpt			= SENSOR_DB_ADD_SENSOR_DATA;
-		tagRequest.uClientID		= m_uUniqueID;
-		tagRequest.uClientIndex		= m_uIndex;
-		tagRequest.byClientType		= DATA_CLIENT;
-
-		pMysqlQuery->PrepareProc("AddSensorData");
-		pMysqlQuery->AddParam(pInfo->nTime);
-		pMysqlQuery->AddParam(pSensorData->wID);
-		pMysqlQuery->AddParam(pSensorData->byType);
-		pMysqlQuery->AddParam(pSensorData->dValue1);
-		pMysqlQuery->AddParam(pSensorData->dValue2);
-		pMysqlQuery->AddParam(pSensorData->dValue3);
-		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
-
-		pMysqlQuery->CallProc();
-	}
-	*/
 
 	// 正式能插入数据后，将此处删除
 	// ...
