@@ -27,7 +27,7 @@ CREATE TABLE `sensor` (
   `Latitude` double NOT NULL,
   `VideoUrl` mediumtext,
   `Description` mediumtext,
-  KEY `ID` (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `sensor_data` (
@@ -409,6 +409,7 @@ BEGIN
 	select ID into _SlopeID from slope where SceneID=paramSlopeSceneID and Type=paramSlopeType;
 	select ID into _SensorID from sensor where SceneID=paramSensorSceneID and Type=paramSensorType and SlopeID=_SlopeID;
 	update slope set Longitude=paramLongitude,Latitude=paramLatitude where ID=_SlopeID;
+	update sensor set Value1=paramValue1,Value2=paramValue2,Value3=paramValue3,Value4=paramValue4 where ID=_SensorID;
 	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime,DataTime1) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,FROM_UNIXTIME(paramTime),paramTime);
 END;
 
