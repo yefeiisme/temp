@@ -132,6 +132,9 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				dValue3	= 0.0;
 				dValue4	= 0.0;
 
+				if (-1 == pSensorData->sData1 || -1 == pSensorData->sData2)
+					break;
+
 				// 临时为了统一做的调整
 				++pSensorHead->byType;
 
@@ -169,6 +172,9 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				dValue2		= 0.0;
 				dValue3		= 0.0;
 				dValue4		= 0.0;
+
+				if (-1 == pSensorData->sData1 || -1 == pSensorData->sData2)
+					break;
 
 				// 临时为了统一做的调整
 				++pSensorHead->byType;
