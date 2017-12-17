@@ -71,8 +71,8 @@ CREATE TABLE `slope` (
   `SceneID` smallint unsigned NOT NULL DEFAULT '0',
   `Type` tinyint unsigned NOT NULL,
   `Name` varchar(64) DEFAULT NULL,
-  `Longitude` double NOT NULL,
-  `Latitude` double NOT NULL,
+  `Longitude` double NOT NULL DEFAULT '0',
+  `Latitude` double NOT NULL DEFAULT '0',
   `OwnerID` int unsigned NOT NULL,
   `State` int unsigned NOT NULL DEFAULT '0',
   `VideoUrl` mediumtext,
@@ -212,9 +212,9 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `AddSlope`;
-CREATE PROCEDURE `AddSlope`(IN paramSceneID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED,IN paramName VARCHAR(64),IN paramLongitude DOUBLE,IN paramLatitude DOUBLE,IN paramOwnerID INTEGER UNSIGNED,IN paramUrl mediumtext)
+CREATE PROCEDURE `AddSlope`(IN paramSceneID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED,IN paramName VARCHAR(64),IN paramOwnerID INTEGER UNSIGNED,IN paramUrl mediumtext)
 BEGIN
-	insert into slope(SceneID,Type,Name,Longitude,Latitude,OwnerID,VideoUrl) value(paramSceneID,paramType,paramName,paramLongitude,paramLatitude,paramOwnerID,paramUrl);
+	insert into slope(SceneID,Type,Name,OwnerID,VideoUrl) value(paramSceneID,paramType,paramName,paramOwnerID,paramUrl);
 	
 	if ROW_COUNT() > 0 then
 		select 0;
@@ -408,6 +408,7 @@ BEGIN
 	DECLARE _SensorID int UNSIGNED default 0;
 	select ID into _SlopeID from slope where SceneID=paramSlopeSceneID and Type=paramSlopeType;
 	select ID into _SensorID from sensor where SceneID=paramSensorSceneID and Type=paramSensorType and SlopeID=_SlopeID;
+	update slope set Longitude=paramLongitude,Latitude=paramLatitude where ID=_SlopeID;
 	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime,DataTime1) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,FROM_UNIXTIME(paramTime),paramTime);
 END;
 

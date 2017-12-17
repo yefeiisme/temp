@@ -272,8 +272,6 @@ void CAppClient::RecvAddSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->AddParam(tagAddSlope.scene_id());
 	pMysqlQuery->AddParam(tagAddSlope.type());
 	pMysqlQuery->AddParam(tagAddSlope.name().c_str());
-	pMysqlQuery->AddParam(tagAddSlope.longitude());
-	pMysqlQuery->AddParam(tagAddSlope.latitude());
 	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagAddSlope.url().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));

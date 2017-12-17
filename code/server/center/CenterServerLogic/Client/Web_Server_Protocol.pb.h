@@ -801,10 +801,10 @@ class WEB2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required bytes url = 5;
+  // required bytes url = 3;
   bool has_url() const;
   void clear_url();
-  static const int kUrlFieldNumber = 5;
+  static const int kUrlFieldNumber = 3;
   const ::std::string& url() const;
   void set_url(const ::std::string& value);
   #if LANG_CXX11
@@ -816,13 +816,6 @@ class WEB2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   ::std::string* release_url();
   void set_allocated_url(::std::string* url);
 
-  // required double longitude = 3;
-  bool has_longitude() const;
-  void clear_longitude();
-  static const int kLongitudeFieldNumber = 3;
-  double longitude() const;
-  void set_longitude(double value);
-
   // required uint32 type = 1;
   bool has_type() const;
   void clear_type();
@@ -830,19 +823,12 @@ class WEB2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::uint32 type() const;
   void set_type(::google::protobuf::uint32 value);
 
-  // required uint32 scene_id = 6;
+  // required uint32 scene_id = 4;
   bool has_scene_id() const;
   void clear_scene_id();
-  static const int kSceneIdFieldNumber = 6;
+  static const int kSceneIdFieldNumber = 4;
   ::google::protobuf::uint32 scene_id() const;
   void set_scene_id(::google::protobuf::uint32 value);
-
-  // required double latitude = 4;
-  bool has_latitude() const;
-  void clear_latitude();
-  static const int kLatitudeFieldNumber = 4;
-  double latitude() const;
-  void set_latitude(double value);
 
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope)
  private:
@@ -850,10 +836,6 @@ class WEB2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   void clear_has_type();
   void set_has_name();
   void clear_has_name();
-  void set_has_longitude();
-  void clear_has_longitude();
-  void set_has_latitude();
-  void clear_has_latitude();
   void set_has_url();
   void clear_has_url();
   void set_has_scene_id();
@@ -867,10 +849,8 @@ class WEB2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr url_;
-  double longitude_;
   ::google::protobuf::uint32 type_;
   ::google::protobuf::uint32 scene_id_;
-  double latitude_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -7289,13 +7269,13 @@ inline void WEB2S_Request_Sensor_History::set_end_time(::google::protobuf::uint3
 
 // required uint32 type = 1;
 inline bool WEB2S_Add_Slope::has_type() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void WEB2S_Add_Slope::set_has_type() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void WEB2S_Add_Slope::clear_has_type() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void WEB2S_Add_Slope::clear_type() {
   type_ = 0u;
@@ -7374,55 +7354,7 @@ inline void WEB2S_Add_Slope::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.name)
 }
 
-// required double longitude = 3;
-inline bool WEB2S_Add_Slope::has_longitude() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void WEB2S_Add_Slope::set_has_longitude() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void WEB2S_Add_Slope::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void WEB2S_Add_Slope::clear_longitude() {
-  longitude_ = 0;
-  clear_has_longitude();
-}
-inline double WEB2S_Add_Slope::longitude() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.longitude)
-  return longitude_;
-}
-inline void WEB2S_Add_Slope::set_longitude(double value) {
-  set_has_longitude();
-  longitude_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.longitude)
-}
-
-// required double latitude = 4;
-inline bool WEB2S_Add_Slope::has_latitude() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void WEB2S_Add_Slope::set_has_latitude() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void WEB2S_Add_Slope::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void WEB2S_Add_Slope::clear_latitude() {
-  latitude_ = 0;
-  clear_has_latitude();
-}
-inline double WEB2S_Add_Slope::latitude() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.latitude)
-  return latitude_;
-}
-inline void WEB2S_Add_Slope::set_latitude(double value) {
-  set_has_latitude();
-  latitude_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.latitude)
-}
-
-// required bytes url = 5;
+// required bytes url = 3;
 inline bool WEB2S_Add_Slope::has_url() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7485,15 +7417,15 @@ inline void WEB2S_Add_Slope::set_allocated_url(::std::string* url) {
   // @@protoc_insertion_point(field_set_allocated:WEB_SERVER_NET_Protocol.WEB2S_Add_Slope.url)
 }
 
-// required uint32 scene_id = 6;
+// required uint32 scene_id = 4;
 inline bool WEB2S_Add_Slope::has_scene_id() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void WEB2S_Add_Slope::set_has_scene_id() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void WEB2S_Add_Slope::clear_has_scene_id() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void WEB2S_Add_Slope::clear_scene_id() {
   scene_id_ = 0u;

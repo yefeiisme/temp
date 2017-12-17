@@ -76,10 +76,8 @@ message WEB2S_Add_Slope
 {
 	required uint32	type			= 1;	// 类型
 	required bytes	name			= 2;	// 名称
-	required double	longitude		= 3;	// 经度
-	required double	latitude		= 4;	// 纬度
-	required bytes	url				= 5;	// 边坡视频的url
-	required uint32	scene_id		= 6;	// 现场ID
+	required bytes	url				= 3;	// 边坡视频的url
+	required uint32	scene_id		= 4;	// 现场ID
 }
 
 // web向服务器请求删除指定ID的边坡
