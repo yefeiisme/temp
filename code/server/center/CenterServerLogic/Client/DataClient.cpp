@@ -69,6 +69,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 
 	if (0 == pInfo->bySensorCount)
 	{
+		m_pClientConn->PutPack(pPack, uPackLen);
 		g_pFileLog->WriteLog("[%s][%d] Sensor Count Is 0\n", __FILE__, __LINE__);
 		return;
 	}
@@ -127,80 +128,80 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		case 2:
 			{
 				SSensorData2	*pSensorData = (SSensorData2*)((char*)pSensorHead + sizeof(SSensorHead));
-				dValue1	= ((double)pSensorData->sData1/10000-0.95)/0.95*30;
-				dValue2	= ((double)pSensorData->sData2/10000-0.95)/0.95*30;
-				dValue3	= 0.0;
-				dValue4	= 0.0;
+				if (-1 != pSensorData->sData1 && -1 != pSensorData->sData2)
+				{
+					dValue1	= ((double)pSensorData->sData1 / 10000 - 0.95) / 0.95 * 30;
+					dValue2	= ((double)pSensorData->sData2 / 10000 - 0.95) / 0.95 * 30;
+					dValue3	= 0.0;
+					dValue4	= 0.0;
 
-				if (-1 == pSensorData->sData1 || -1 == pSensorData->sData2)
-					break;
+					// 临时为了统一做的调整
+					++pSensorHead->byType;
 
-				// 临时为了统一做的调整
-				++pSensorHead->byType;
+					SMysqlRequest	tagRequest = { 0 };
+					tagRequest.byOpt = SENSOR_DB_ADD_SENSOR_DATA;
+					tagRequest.uClientID = m_uUniqueID;
+					tagRequest.uClientIndex = m_uIndex;
+					tagRequest.byClientType = DATA_CLIENT;
 
-				SMysqlRequest	tagRequest = { 0 };
-				tagRequest.byOpt		= SENSOR_DB_ADD_SENSOR_DATA;
-				tagRequest.uClientID	= m_uUniqueID;
-				tagRequest.uClientIndex	= m_uIndex;
-				tagRequest.byClientType	= DATA_CLIENT;
+					pMysqlQuery->PrepareProc("AddSensorData");
+					pMysqlQuery->AddParam(pInfo->wSceneID);
+					pMysqlQuery->AddParam(pInfo->bySlopeType);
+					pMysqlQuery->AddParam(pInfo->uTime);
+					pMysqlQuery->AddParam((double)pInfo->fLongitude);
+					pMysqlQuery->AddParam((double)pInfo->fLatitude);
+					pMysqlQuery->AddParam(pSensorHead->byID);
+					pMysqlQuery->AddParam(pSensorHead->byType);
+					pMysqlQuery->AddParam(dValue1);
+					pMysqlQuery->AddParam(dValue2);
+					pMysqlQuery->AddParam(dValue3);
+					pMysqlQuery->AddParam(dValue4);
+					pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
-				pMysqlQuery->PrepareProc("AddSensorData");
-				pMysqlQuery->AddParam(pInfo->wSceneID);
-				pMysqlQuery->AddParam(pInfo->bySlopeType);
-				pMysqlQuery->AddParam(pInfo->uTime);
-				pMysqlQuery->AddParam((double)pInfo->fLongitude);
-				pMysqlQuery->AddParam((double)pInfo->fLatitude);
-				pMysqlQuery->AddParam(pSensorHead->byID);
-				pMysqlQuery->AddParam(pSensorHead->byType);
-				pMysqlQuery->AddParam(dValue1);
-				pMysqlQuery->AddParam(dValue2);
-				pMysqlQuery->AddParam(dValue3);
-				pMysqlQuery->AddParam(dValue4);
-				pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
-
-				pMysqlQuery->CallProc();
-				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
+					pMysqlQuery->CallProc();
+					g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
+				}
 			}
 			break;
 		case 3:
 			{
 				SSensorData3	*pSensorData = (SSensorData3*)((char*)pSensorHead + sizeof(SSensorHead));
-				double	dFi	= (double)pSensorData->sData1 / 10;
-				double	dFo	= 1289;
-				double	dK	= 2.476 / 10000000;
-				dValue1		= dK*(dFi*dFi - dFo*dFo);
-				dValue2		= 0.0;
-				dValue3		= 0.0;
-				dValue4		= 0.0;
+				if (-1 != pSensorData->sData1 && -1 != pSensorData->sData2)
+				{
+					double	dFi	= (double)pSensorData->sData1 / 10;
+					double	dFo	= 1289;
+					double	dK	= 2.476 / 10000000;
+					dValue1		= dK*(dFi*dFi - dFo*dFo);
+					dValue2		= 0.0;
+					dValue3		= 0.0;
+					dValue4		= 0.0;
 
-				if (-1 == pSensorData->sData1 || -1 == pSensorData->sData2)
-					break;
+					// 临时为了统一做的调整
+					++pSensorHead->byType;
 
-				// 临时为了统一做的调整
-				++pSensorHead->byType;
+					SMysqlRequest	tagRequest = { 0 };
+					tagRequest.byOpt = SENSOR_DB_ADD_SENSOR_DATA;
+					tagRequest.uClientID = m_uUniqueID;
+					tagRequest.uClientIndex = m_uIndex;
+					tagRequest.byClientType = DATA_CLIENT;
 
-				SMysqlRequest	tagRequest = { 0 };
-				tagRequest.byOpt = SENSOR_DB_ADD_SENSOR_DATA;
-				tagRequest.uClientID = m_uUniqueID;
-				tagRequest.uClientIndex = m_uIndex;
-				tagRequest.byClientType = DATA_CLIENT;
+					pMysqlQuery->PrepareProc("AddSensorData");
+					pMysqlQuery->AddParam(pInfo->wSceneID);
+					pMysqlQuery->AddParam(pInfo->bySlopeType);
+					pMysqlQuery->AddParam(pInfo->uTime);
+					pMysqlQuery->AddParam((double)pInfo->fLongitude);
+					pMysqlQuery->AddParam((double)pInfo->fLatitude);
+					pMysqlQuery->AddParam(pSensorHead->byID);
+					pMysqlQuery->AddParam(pSensorHead->byType);
+					pMysqlQuery->AddParam(dValue1);
+					pMysqlQuery->AddParam(dValue2);
+					pMysqlQuery->AddParam(dValue3);
+					pMysqlQuery->AddParam(dValue4);
+					pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
-				pMysqlQuery->PrepareProc("AddSensorData");
-				pMysqlQuery->AddParam(pInfo->wSceneID);
-				pMysqlQuery->AddParam(pInfo->bySlopeType);
-				pMysqlQuery->AddParam(pInfo->uTime);
-				pMysqlQuery->AddParam((double)pInfo->fLongitude);
-				pMysqlQuery->AddParam((double)pInfo->fLatitude);
-				pMysqlQuery->AddParam(pSensorHead->byID);
-				pMysqlQuery->AddParam(pSensorHead->byType);
-				pMysqlQuery->AddParam(dValue1);
-				pMysqlQuery->AddParam(dValue2);
-				pMysqlQuery->AddParam(dValue3);
-				pMysqlQuery->AddParam(dValue4);
-				pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
-
-				pMysqlQuery->CallProc();
-				g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
+					pMysqlQuery->CallProc();
+					g_pFileLog->WriteLog("SlopeSceneID=%hu SlopeType=%hhu Longitude=%f Latitude=%f SensorSceneID=%hhu SensorType=%hhu Value1=%f Value2=%f Value3=%f Value4=%f\n", pInfo->wSceneID, pInfo->bySlopeType, pInfo->fLongitude, pInfo->fLatitude, pSensorHead->byID, pSensorHead->byType, dValue1, dValue2, dValue3, dValue4);
+				}
 			}
 			break;
 		case 4:
