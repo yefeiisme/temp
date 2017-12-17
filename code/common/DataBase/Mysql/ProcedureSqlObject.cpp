@@ -275,11 +275,11 @@ bool CProcObj::AddParam(const double dParam)
 
 	if (m_bAddParam)
 	{
-		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%lf", dParam);
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%0.8f", dParam);
 	}
 	else
 	{
-		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%lf", dParam);
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%0.8f", dParam);
 	}
 
 	m_bAddParam = true;
