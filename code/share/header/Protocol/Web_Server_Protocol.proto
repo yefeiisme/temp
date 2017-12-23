@@ -283,8 +283,9 @@ message S2Web_Slope_List
 		required uint32	state		= 4;	// 预警状态
 		required double	longitude	= 5;	// 经度
 		required double	latitude	= 6;	// 纬度
-		required bytes	url			= 7;	// 边坡视频的url
-		required uint32	scene_id	= 8;	// 现场ID
+		optional bytes	url			= 7;	// 边坡视频的url
+		optional uint32	scene_id	= 8;	// 现场ID
+		optional bytes	desc		= 9;	// 边坡描述
 	}
 
 	repeated SlopeData	slope_list	= 1;

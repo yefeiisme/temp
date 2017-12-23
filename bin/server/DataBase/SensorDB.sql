@@ -76,6 +76,7 @@ CREATE TABLE `slope` (
   `OwnerID` int unsigned NOT NULL,
   `State` int unsigned NOT NULL DEFAULT '0',
   `VideoUrl` mediumtext,
+  `Description` mediumtext,
   PRIMARY KEY (`ID`),
   KEY `SlopeIndex` (`SlopeIndex`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -128,7 +129,7 @@ END;
 DROP PROCEDURE IF EXISTS `LoadAllList`;
 CREATE PROCEDURE `LoadAllList`(IN paramAccount INTEGER UNSIGNED)
 BEGIN
-	select ID,SceneID,Type,Name,Longitude,Latitude,State from slope where OwnerID=paramAccount;
+	select ID,SceneID,Type,Name,Longitude,Latitude,State,Description from slope where OwnerID=paramAccount;
 	select ID,Type,Value1,Value2,Value3,Value4,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where 
 	SlopeID in (select ID from slope where OwnerID=paramAccount);
 END;
@@ -171,7 +172,7 @@ END;
 DROP PROCEDURE IF EXISTS `LoadSlopeList`;
 CREATE PROCEDURE `LoadSlopeList`(IN paramAccount INTEGER UNSIGNED, IN paramServerID INTEGER UNSIGNED)
 BEGIN
-	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl from slope;
+	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description from slope;
 END;
 
 DROP PROCEDURE IF EXISTS `WebLogin`;
@@ -336,7 +337,7 @@ END;
 DROP PROCEDURE IF EXISTS `FindSlope`;
 CREATE PROCEDURE `FindSlope`(IN paramID INTEGER UNSIGNED,IN paramName varchar(64))
 BEGIN
-	set @strSql = 'select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl from slope';
+	set @strSql = 'select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description from slope';
     set @nCount	= 0;
     
     if paramID > 0 then

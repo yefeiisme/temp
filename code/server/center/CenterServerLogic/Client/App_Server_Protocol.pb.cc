@@ -316,14 +316,16 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Slope_List_SlopeData, latitude_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Slope_List_SlopeData, url_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Slope_List_SlopeData, scene_id_),
-  2,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Slope_List_SlopeData, desc_),
   3,
-  0,
-  6,
   4,
-  5,
-  1,
+  0,
   7,
+  5,
+  6,
+  1,
+  8,
+  2,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Slope_List, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Slope_List, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -571,20 +573,20 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 140, 149, sizeof(APP2S_Find_Sensor)},
   { 153, 161, sizeof(S2App_Login_Result_ServerData)},
   { 164, 171, sizeof(S2App_Login_Result)},
-  { 173, 186, sizeof(S2App_Slope_List_SlopeData)},
-  { 194, 200, sizeof(S2App_Slope_List)},
-  { 201, 225, sizeof(S2App_Sensor_List_SensorData)},
-  { 244, 250, sizeof(S2App_Sensor_List)},
-  { 251, 268, sizeof(S2App_Sensor_History_SensorData)},
-  { 280, 296, sizeof(S2App_Sensor_History)},
-  { 307, 313, sizeof(S2APP_ERROR)},
-  { 314, 327, sizeof(S2APP_New_Slope)},
-  { 335, 341, sizeof(S2APP_Del_Slope)},
-  { 342, 355, sizeof(S2APP_Update_Slope)},
-  { 363, 377, sizeof(S2APP_Add_Sensor)},
-  { 386, 392, sizeof(S2APP_Del_Sensor)},
-  { 393, 407, sizeof(S2APP_Update_Sensor)},
-  { 416, 422, sizeof(S2APP_Modify_Password_Result)},
+  { 173, 187, sizeof(S2App_Slope_List_SlopeData)},
+  { 196, 202, sizeof(S2App_Slope_List)},
+  { 203, 227, sizeof(S2App_Sensor_List_SensorData)},
+  { 246, 252, sizeof(S2App_Sensor_List)},
+  { 253, 270, sizeof(S2App_Sensor_History_SensorData)},
+  { 282, 298, sizeof(S2App_Sensor_History)},
+  { 309, 315, sizeof(S2APP_ERROR)},
+  { 316, 329, sizeof(S2APP_New_Slope)},
+  { 337, 343, sizeof(S2APP_Del_Slope)},
+  { 344, 357, sizeof(S2APP_Update_Slope)},
+  { 365, 379, sizeof(S2APP_Add_Sensor)},
+  { 388, 394, sizeof(S2APP_Del_Sensor)},
+  { 395, 409, sizeof(S2APP_Update_Sensor)},
+  { 418, 424, sizeof(S2APP_Modify_Password_Result)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -776,80 +778,81 @@ void AddDescriptorsImpl() {
       "ogin_Result\022\016\n\006result\030\001 \002(\r\022K\n\013server_li"
       "st\030\002 \003(\01326.APP_SERVER_NET_Protocol.S2App"
       "_Login_Result.ServerData\0322\n\nServerData\022\n"
-      "\n\002id\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022\014\n\004port\030\003 \002(\r\"\344\001\n"
+      "\n\002id\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022\014\n\004port\030\003 \002(\r\"\362\001\n"
       "\020S2App_Slope_List\022G\n\nslope_list\030\001 \003(\01323."
       "APP_SERVER_NET_Protocol.S2App_Slope_List"
-      ".SlopeData\032\206\001\n\tSlopeData\022\n\n\002id\030\001 \002(\r\022\014\n\004"
+      ".SlopeData\032\224\001\n\tSlopeData\022\n\n\002id\030\001 \002(\r\022\014\n\004"
       "type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022"
       "\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003"
-      "url\030\007 \001(\014\022\020\n\010scene_id\030\010 \001(\r\"\323\003\n\021S2App_Se"
-      "nsor_List\022J\n\013sensor_list\030\001 \003(\01325.APP_SER"
-      "VER_NET_Protocol.S2App_Sensor_List.Senso"
-      "rData\032\361\002\n\nSensorData\022\n\n\002id\030\001 \002(\r\022\014\n\004type"
-      "\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022"
-      "\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\022\n\n"
-      "cur_value1\030\007 \002(\001\022\022\n\ncur_value2\030\010 \002(\001\022\022\n\n"
-      "cur_value3\030\t \002(\001\022\022\n\navg_value1\030\n \002(\001\022\022\n\n"
-      "avg_value2\030\013 \002(\001\022\022\n\navg_value3\030\014 \002(\001\022\025\n\r"
-      "offset_value1\030\r \002(\001\022\025\n\roffset_value2\030\016 \002"
-      "(\001\022\025\n\roffset_value3\030\017 \002(\001\022\013\n\003url\030\020 \002(\014\022\023"
-      "\n\013description\030\021 \002(\014\022\020\n\010scene_id\030\022 \002(\r\022\022\n"
-      "\ncur_value4\030\023 \002(\001\"\307\004\n\024S2App_Sensor_Histo"
-      "ry\022\n\n\002id\030\001 \002(\r\022\021\n\tlongitude\030\002 \002(\001\022\020\n\010lat"
-      "itude\030\003 \002(\001\022\022\n\nbegin_time\030\004 \002(\r\022\020\n\010end_t"
-      "ime\030\005 \002(\r\022\021\n\tinvterval\030\006 \002(\r\022\022\n\navg_valu"
-      "e1\030\007 \002(\001\022\022\n\navg_value2\030\010 \002(\001\022\022\n\navg_valu"
-      "e3\030\t \002(\001\022N\n\014history_list\030\n \003(\01328.APP_SER"
-      "VER_NET_Protocol.S2App_Sensor_History.Se"
-      "nsorData\022\020\n\010scene_id\030\013 \002(\r\032\246\002\n\nSensorDat"
-      "a\022\022\n\nmin_value1\030\001 \002(\001\022\022\n\nmin_value2\030\002 \002("
-      "\001\022\022\n\nmin_value3\030\003 \002(\001\022\022\n\nmax_value1\030\004 \002("
-      "\001\022\022\n\nmax_value2\030\005 \002(\001\022\022\n\nmax_value3\030\006 \002("
-      "\001\022\031\n\021min_offset_value1\030\007 \002(\001\022\031\n\021min_offs"
-      "et_value2\030\010 \002(\001\022\031\n\021min_offset_value3\030\t \002"
-      "(\001\022\031\n\021max_offset_value1\030\n \002(\001\022\031\n\021max_off"
-      "set_value2\030\013 \002(\001\022\031\n\021max_offset_value3\030\014 "
-      "\002(\001\"!\n\013S2APP_ERROR\022\022\n\nerror_code\030\001 \002(\r\"\214"
-      "\001\n\017S2APP_New_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002"
-      " \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlon"
-      "gitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 "
-      "\002(\014\022\020\n\010scene_id\030\010 \002(\r\"!\n\017S2APP_Del_Slope"
-      "\022\016\n\006result\030\001 \002(\r\"\217\001\n\022S2APP_Update_Slope\022"
-      "\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022"
-      "\r\n\005state\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010lat"
-      "itude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\020\n\010scene_id\030\010 \002"
-      "(\r\"\246\001\n\020S2APP_Add_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004t"
-      "ype\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002"
-      "(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022"
-      "\013\n\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\022\020\n\010sce"
-      "ne_id\030\t \002(\r\"\"\n\020S2APP_Del_Sensor\022\016\n\006resul"
-      "t\030\001 \002(\r\"\251\001\n\023S2APP_Update_Sensor\022\n\n\002id\030\001 "
-      "\002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slop"
-      "e_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitud"
-      "e\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013description\030\010 \002("
-      "\014\022\020\n\010scene_id\030\t \002(\r\".\n\034S2APP_Modify_Pass"
-      "word_Result\022\016\n\006result\030\001 \002(\r*\214\003\n\005APP2S\022\017\n"
-      "\013app2s_login\020\000\022\034\n\030app2s_request_slope_li"
-      "st\020\001\022\035\n\031app2s_request_sensor_list\020\002\022 \n\034a"
-      "pp2s_request_sensor_history\020\003\022\016\n\napp2s_p"
-      "ing\020\004\022\032\n\026app2s_request_all_list\020\005\022\023\n\017app"
-      "2s_add_slope\020\006\022\023\n\017app2s_del_slope\020\007\022\033\n\027a"
-      "pp2s_update_slope_data\020\010\022\024\n\020app2s_add_se"
-      "nsor\020\t\022\024\n\020app2s_del_sensor\020\n\022\034\n\030app2s_up"
-      "date_sensor_data\020\013\022\031\n\025app2s_modify_passw"
-      "ord\020\014\022\024\n\020app2s_find_slope\020\r\022\025\n\021app2s_fin"
-      "d_sensor\020\016\022\016\n\tapp2s_max\020\200\002*\310\002\n\005S2APP\022\026\n\022"
-      "s2app_login_result\020\000\022\024\n\020s2app_slope_list"
-      "\020\001\022\025\n\021s2app_sensor_list\020\002\022\030\n\024s2app_senso"
-      "r_history\020\003\022\026\n\022s2app_all_list_end\020\004\022\017\n\013s"
-      "2app_error\020\005\022\023\n\017s2app_new_slope\020\006\022\023\n\017s2a"
-      "pp_del_slope\020\007\022\026\n\022s2app_update_slope\020\010\022\024"
-      "\n\020s2app_add_sensor\020\t\022\024\n\020s2app_del_sensor"
-      "\020\n\022\027\n\023s2app_update_sensor\020\013\022 \n\034s2app_mod"
-      "ify_password_result\020\014\022\016\n\ts2app_max\020\200\002"
+      "url\030\007 \001(\014\022\020\n\010scene_id\030\010 \001(\r\022\014\n\004desc\030\t \001("
+      "\014\"\323\003\n\021S2App_Sensor_List\022J\n\013sensor_list\030\001"
+      " \003(\01325.APP_SERVER_NET_Protocol.S2App_Sen"
+      "sor_List.SensorData\032\361\002\n\nSensorData\022\n\n\002id"
+      "\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010s"
+      "lope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010lati"
+      "tude\030\006 \002(\001\022\022\n\ncur_value1\030\007 \002(\001\022\022\n\ncur_va"
+      "lue2\030\010 \002(\001\022\022\n\ncur_value3\030\t \002(\001\022\022\n\navg_va"
+      "lue1\030\n \002(\001\022\022\n\navg_value2\030\013 \002(\001\022\022\n\navg_va"
+      "lue3\030\014 \002(\001\022\025\n\roffset_value1\030\r \002(\001\022\025\n\roff"
+      "set_value2\030\016 \002(\001\022\025\n\roffset_value3\030\017 \002(\001\022"
+      "\013\n\003url\030\020 \002(\014\022\023\n\013description\030\021 \002(\014\022\020\n\010sce"
+      "ne_id\030\022 \002(\r\022\022\n\ncur_value4\030\023 \002(\001\"\307\004\n\024S2Ap"
+      "p_Sensor_History\022\n\n\002id\030\001 \002(\r\022\021\n\tlongitud"
+      "e\030\002 \002(\001\022\020\n\010latitude\030\003 \002(\001\022\022\n\nbegin_time\030"
+      "\004 \002(\r\022\020\n\010end_time\030\005 \002(\r\022\021\n\tinvterval\030\006 \002"
+      "(\r\022\022\n\navg_value1\030\007 \002(\001\022\022\n\navg_value2\030\010 \002"
+      "(\001\022\022\n\navg_value3\030\t \002(\001\022N\n\014history_list\030\n"
+      " \003(\01328.APP_SERVER_NET_Protocol.S2App_Sen"
+      "sor_History.SensorData\022\020\n\010scene_id\030\013 \002(\r"
+      "\032\246\002\n\nSensorData\022\022\n\nmin_value1\030\001 \002(\001\022\022\n\nm"
+      "in_value2\030\002 \002(\001\022\022\n\nmin_value3\030\003 \002(\001\022\022\n\nm"
+      "ax_value1\030\004 \002(\001\022\022\n\nmax_value2\030\005 \002(\001\022\022\n\nm"
+      "ax_value3\030\006 \002(\001\022\031\n\021min_offset_value1\030\007 \002"
+      "(\001\022\031\n\021min_offset_value2\030\010 \002(\001\022\031\n\021min_off"
+      "set_value3\030\t \002(\001\022\031\n\021max_offset_value1\030\n "
+      "\002(\001\022\031\n\021max_offset_value2\030\013 \002(\001\022\031\n\021max_of"
+      "fset_value3\030\014 \002(\001\"!\n\013S2APP_ERROR\022\022\n\nerro"
+      "r_code\030\001 \002(\r\"\214\001\n\017S2APP_New_Slope\022\n\n\002id\030\001"
+      " \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005stat"
+      "e\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006"
+      " \002(\001\022\013\n\003url\030\007 \002(\014\022\020\n\010scene_id\030\010 \002(\r\"!\n\017S"
+      "2APP_Del_Slope\022\016\n\006result\030\001 \002(\r\"\217\001\n\022S2APP"
+      "_Update_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022"
+      "\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlongitud"
+      "e\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\020"
+      "\n\010scene_id\030\010 \002(\r\"\246\001\n\020S2APP_Add_Sensor\022\n\n"
+      "\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020"
+      "\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010l"
+      "atitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013descriptio"
+      "n\030\010 \002(\014\022\020\n\010scene_id\030\t \002(\r\"\"\n\020S2APP_Del_S"
+      "ensor\022\016\n\006result\030\001 \002(\r\"\251\001\n\023S2APP_Update_S"
+      "ensor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state"
+      "\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 "
+      "\002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013de"
+      "scription\030\010 \002(\014\022\020\n\010scene_id\030\t \002(\r\".\n\034S2A"
+      "PP_Modify_Password_Result\022\016\n\006result\030\001 \002("
+      "\r*\214\003\n\005APP2S\022\017\n\013app2s_login\020\000\022\034\n\030app2s_re"
+      "quest_slope_list\020\001\022\035\n\031app2s_request_sens"
+      "or_list\020\002\022 \n\034app2s_request_sensor_histor"
+      "y\020\003\022\016\n\napp2s_ping\020\004\022\032\n\026app2s_request_all"
+      "_list\020\005\022\023\n\017app2s_add_slope\020\006\022\023\n\017app2s_de"
+      "l_slope\020\007\022\033\n\027app2s_update_slope_data\020\010\022\024"
+      "\n\020app2s_add_sensor\020\t\022\024\n\020app2s_del_sensor"
+      "\020\n\022\034\n\030app2s_update_sensor_data\020\013\022\031\n\025app2"
+      "s_modify_password\020\014\022\024\n\020app2s_find_slope\020"
+      "\r\022\025\n\021app2s_find_sensor\020\016\022\016\n\tapp2s_max\020\200\002"
+      "*\310\002\n\005S2APP\022\026\n\022s2app_login_result\020\000\022\024\n\020s2"
+      "app_slope_list\020\001\022\025\n\021s2app_sensor_list\020\002\022"
+      "\030\n\024s2app_sensor_history\020\003\022\026\n\022s2app_all_l"
+      "ist_end\020\004\022\017\n\013s2app_error\020\005\022\023\n\017s2app_new_"
+      "slope\020\006\022\023\n\017s2app_del_slope\020\007\022\026\n\022s2app_up"
+      "date_slope\020\010\022\024\n\020s2app_add_sensor\020\t\022\024\n\020s2"
+      "app_del_sensor\020\n\022\027\n\023s2app_update_sensor\020"
+      "\013\022 \n\034s2app_modify_password_result\020\014\022\016\n\ts"
+      "2app_max\020\200\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 4077);
+      descriptor, 4091);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "App_Server_Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -8139,6 +8142,7 @@ const int S2App_Slope_List_SlopeData::kLongitudeFieldNumber;
 const int S2App_Slope_List_SlopeData::kLatitudeFieldNumber;
 const int S2App_Slope_List_SlopeData::kUrlFieldNumber;
 const int S2App_Slope_List_SlopeData::kSceneIdFieldNumber;
+const int S2App_Slope_List_SlopeData::kDescFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 S2App_Slope_List_SlopeData::S2App_Slope_List_SlopeData()
@@ -8163,6 +8167,10 @@ S2App_Slope_List_SlopeData::S2App_Slope_List_SlopeData(const S2App_Slope_List_Sl
   if (from.has_url()) {
     url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
   }
+  desc_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_desc()) {
+    desc_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.desc_);
+  }
   ::memcpy(&id_, &from.id_,
     reinterpret_cast<char*>(&scene_id_) -
     reinterpret_cast<char*>(&id_) + sizeof(scene_id_));
@@ -8173,6 +8181,7 @@ void S2App_Slope_List_SlopeData::SharedCtor() {
   _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  desc_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, reinterpret_cast<char*>(&scene_id_) -
     reinterpret_cast<char*>(&id_) + sizeof(scene_id_));
 }
@@ -8185,6 +8194,7 @@ S2App_Slope_List_SlopeData::~S2App_Slope_List_SlopeData() {
 void S2App_Slope_List_SlopeData::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  desc_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void S2App_Slope_List_SlopeData::SetCachedSize(int size) const {
@@ -8212,7 +8222,7 @@ S2App_Slope_List_SlopeData* S2App_Slope_List_SlopeData::New(::google::protobuf::
 
 void S2App_Slope_List_SlopeData::Clear() {
 // @@protoc_insertion_point(message_clear_start:APP_SERVER_NET_Protocol.S2App_Slope_List.SlopeData)
-  if (_has_bits_[0 / 32] & 3u) {
+  if (_has_bits_[0 / 32] & 7u) {
     if (has_name()) {
       GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
       (*name_.UnsafeRawStringPointer())->clear();
@@ -8221,11 +8231,16 @@ void S2App_Slope_List_SlopeData::Clear() {
       GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
       (*url_.UnsafeRawStringPointer())->clear();
     }
+    if (has_desc()) {
+      GOOGLE_DCHECK(!desc_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*desc_.UnsafeRawStringPointer())->clear();
+    }
   }
-  if (_has_bits_[0 / 32] & 252u) {
-    ::memset(&id_, 0, reinterpret_cast<char*>(&scene_id_) -
-      reinterpret_cast<char*>(&id_) + sizeof(scene_id_));
+  if (_has_bits_[0 / 32] & 248u) {
+    ::memset(&id_, 0, reinterpret_cast<char*>(&state_) -
+      reinterpret_cast<char*>(&id_) + sizeof(state_));
   }
+  scene_id_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -8348,6 +8363,18 @@ bool S2App_Slope_List_SlopeData::MergePartialFromCodedStream(
         break;
       }
 
+      // optional bytes desc = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(74u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_desc()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0 ||
@@ -8378,12 +8405,12 @@ void S2App_Slope_List_SlopeData::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 id = 1;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
   }
 
   // required uint32 type = 2;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->type(), output);
   }
 
@@ -8394,17 +8421,17 @@ void S2App_Slope_List_SlopeData::SerializeWithCachedSizes(
   }
 
   // required uint32 state = 4;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->state(), output);
   }
 
   // required double longitude = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude(), output);
   }
 
   // required double latitude = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->latitude(), output);
   }
 
@@ -8415,8 +8442,14 @@ void S2App_Slope_List_SlopeData::SerializeWithCachedSizes(
   }
 
   // optional uint32 scene_id = 8;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000100u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->scene_id(), output);
+  }
+
+  // optional bytes desc = 9;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      9, this->desc(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8434,12 +8467,12 @@ void S2App_Slope_List_SlopeData::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 id = 1;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
   }
 
   // required uint32 type = 2;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->type(), target);
   }
 
@@ -8451,17 +8484,17 @@ void S2App_Slope_List_SlopeData::SerializeWithCachedSizes(
   }
 
   // required uint32 state = 4;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->state(), target);
   }
 
   // required double longitude = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude(), target);
   }
 
   // required double latitude = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->latitude(), target);
   }
 
@@ -8473,8 +8506,15 @@ void S2App_Slope_List_SlopeData::SerializeWithCachedSizes(
   }
 
   // optional uint32 scene_id = 8;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000100u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->scene_id(), target);
+  }
+
+  // optional bytes desc = 9;
+  if (cached_has_bits & 0x00000004u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        9, this->desc(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8538,7 +8578,7 @@ size_t S2App_Slope_List_SlopeData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000007d) ^ 0x0000007d) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x000000f9) ^ 0x000000f9) == 0) {  // All required fields are present.
     // required bytes name = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
@@ -8568,13 +8608,22 @@ size_t S2App_Slope_List_SlopeData::ByteSizeLong() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // optional bytes url = 7;
-  if (has_url()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->url());
-  }
+  if (_has_bits_[0 / 32] & 6u) {
+    // optional bytes url = 7;
+    if (has_url()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->url());
+    }
 
+    // optional bytes desc = 9;
+    if (has_desc()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->desc());
+    }
+
+  }
   // optional uint32 scene_id = 8;
   if (has_scene_id()) {
     total_size += 1 +
@@ -8622,24 +8671,28 @@ void S2App_Slope_List_SlopeData::MergeFrom(const S2App_Slope_List_SlopeData& fro
       url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
     }
     if (cached_has_bits & 0x00000004u) {
-      id_ = from.id_;
+      set_has_desc();
+      desc_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.desc_);
     }
     if (cached_has_bits & 0x00000008u) {
-      type_ = from.type_;
+      id_ = from.id_;
     }
     if (cached_has_bits & 0x00000010u) {
-      longitude_ = from.longitude_;
+      type_ = from.type_;
     }
     if (cached_has_bits & 0x00000020u) {
-      latitude_ = from.latitude_;
+      longitude_ = from.longitude_;
     }
     if (cached_has_bits & 0x00000040u) {
-      state_ = from.state_;
+      latitude_ = from.latitude_;
     }
     if (cached_has_bits & 0x00000080u) {
-      scene_id_ = from.scene_id_;
+      state_ = from.state_;
     }
     _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000100u) {
+    set_scene_id(from.scene_id());
   }
 }
 
@@ -8658,7 +8711,7 @@ void S2App_Slope_List_SlopeData::CopyFrom(const S2App_Slope_List_SlopeData& from
 }
 
 bool S2App_Slope_List_SlopeData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000007d) != 0x0000007d) return false;
+  if ((_has_bits_[0] & 0x000000f9) != 0x000000f9) return false;
   return true;
 }
 
@@ -8669,6 +8722,7 @@ void S2App_Slope_List_SlopeData::Swap(S2App_Slope_List_SlopeData* other) {
 void S2App_Slope_List_SlopeData::InternalSwap(S2App_Slope_List_SlopeData* other) {
   name_.Swap(&other->name_);
   url_.Swap(&other->url_);
+  desc_.Swap(&other->desc_);
   std::swap(id_, other->id_);
   std::swap(type_, other->type_);
   std::swap(longitude_, other->longitude_);
@@ -8690,13 +8744,13 @@ void S2App_Slope_List_SlopeData::InternalSwap(S2App_Slope_List_SlopeData* other)
 
 // required uint32 id = 1;
 bool S2App_Slope_List_SlopeData::has_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 void S2App_Slope_List_SlopeData::set_has_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 void S2App_Slope_List_SlopeData::clear_has_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 void S2App_Slope_List_SlopeData::clear_id() {
   id_ = 0u;
@@ -8714,13 +8768,13 @@ void S2App_Slope_List_SlopeData::set_id(::google::protobuf::uint32 value) {
 
 // required uint32 type = 2;
 bool S2App_Slope_List_SlopeData::has_type() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 void S2App_Slope_List_SlopeData::set_has_type() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 void S2App_Slope_List_SlopeData::clear_has_type() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 void S2App_Slope_List_SlopeData::clear_type() {
   type_ = 0u;
@@ -8801,13 +8855,13 @@ void S2App_Slope_List_SlopeData::set_allocated_name(::std::string* name) {
 
 // required uint32 state = 4;
 bool S2App_Slope_List_SlopeData::has_state() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 void S2App_Slope_List_SlopeData::set_has_state() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 void S2App_Slope_List_SlopeData::clear_has_state() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 void S2App_Slope_List_SlopeData::clear_state() {
   state_ = 0u;
@@ -8825,13 +8879,13 @@ void S2App_Slope_List_SlopeData::set_state(::google::protobuf::uint32 value) {
 
 // required double longitude = 5;
 bool S2App_Slope_List_SlopeData::has_longitude() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 void S2App_Slope_List_SlopeData::set_has_longitude() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 void S2App_Slope_List_SlopeData::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 void S2App_Slope_List_SlopeData::clear_longitude() {
   longitude_ = 0;
@@ -8849,13 +8903,13 @@ void S2App_Slope_List_SlopeData::set_longitude(double value) {
 
 // required double latitude = 6;
 bool S2App_Slope_List_SlopeData::has_latitude() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 void S2App_Slope_List_SlopeData::set_has_latitude() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 void S2App_Slope_List_SlopeData::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 void S2App_Slope_List_SlopeData::clear_latitude() {
   latitude_ = 0;
@@ -8936,13 +8990,13 @@ void S2App_Slope_List_SlopeData::set_allocated_url(::std::string* url) {
 
 // optional uint32 scene_id = 8;
 bool S2App_Slope_List_SlopeData::has_scene_id() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 void S2App_Slope_List_SlopeData::set_has_scene_id() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 void S2App_Slope_List_SlopeData::clear_has_scene_id() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 void S2App_Slope_List_SlopeData::clear_scene_id() {
   scene_id_ = 0u;
@@ -8956,6 +9010,69 @@ void S2App_Slope_List_SlopeData::set_scene_id(::google::protobuf::uint32 value) 
   set_has_scene_id();
   scene_id_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2App_Slope_List.SlopeData.scene_id)
+}
+
+// optional bytes desc = 9;
+bool S2App_Slope_List_SlopeData::has_desc() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2App_Slope_List_SlopeData::set_has_desc() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2App_Slope_List_SlopeData::clear_has_desc() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2App_Slope_List_SlopeData::clear_desc() {
+  desc_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_desc();
+}
+const ::std::string& S2App_Slope_List_SlopeData::desc() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2App_Slope_List.SlopeData.desc)
+  return desc_.GetNoArena();
+}
+void S2App_Slope_List_SlopeData::set_desc(const ::std::string& value) {
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2App_Slope_List.SlopeData.desc)
+}
+#if LANG_CXX11
+void S2App_Slope_List_SlopeData::set_desc(::std::string&& value) {
+  set_has_desc();
+  desc_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:APP_SERVER_NET_Protocol.S2App_Slope_List.SlopeData.desc)
+}
+#endif
+void S2App_Slope_List_SlopeData::set_desc(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:APP_SERVER_NET_Protocol.S2App_Slope_List.SlopeData.desc)
+}
+void S2App_Slope_List_SlopeData::set_desc(const void* value, size_t size) {
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:APP_SERVER_NET_Protocol.S2App_Slope_List.SlopeData.desc)
+}
+::std::string* S2App_Slope_List_SlopeData::mutable_desc() {
+  set_has_desc();
+  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.S2App_Slope_List.SlopeData.desc)
+  return desc_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2App_Slope_List_SlopeData::release_desc() {
+  // @@protoc_insertion_point(field_release:APP_SERVER_NET_Protocol.S2App_Slope_List.SlopeData.desc)
+  clear_has_desc();
+  return desc_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2App_Slope_List_SlopeData::set_allocated_desc(::std::string* desc) {
+  if (desc != NULL) {
+    set_has_desc();
+  } else {
+    clear_has_desc();
+  }
+  desc_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), desc);
+  // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.S2App_Slope_List.SlopeData.desc)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

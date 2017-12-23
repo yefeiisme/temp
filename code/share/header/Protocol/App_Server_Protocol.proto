@@ -198,6 +198,7 @@ message S2App_Slope_List
 		required double	latitude	= 6;	// 纬度
 		optional bytes	url			= 7;	// 边坡视频的url
 		optional uint32	scene_id	= 8;	// 现场ID
+		optional bytes	desc		= 9;	// 边坡描述
 	}
 
 	repeated SlopeData	slope_list	= 1;
