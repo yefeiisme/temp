@@ -406,11 +406,30 @@ CREATE PROCEDURE `AddSensorData`(
 BEGIN
 	DECLARE _SlopeID smallint UNSIGNED default 0;
 	DECLARE _SensorID int UNSIGNED default 0;
+	DECLARE _AvgValue1 double default 0;
+	DECLARE _AvgValue2 double default 0;
+	DECLARE _AvgValue3 double default 0;
+	DECLARE _OffsetValue1 double default 0;
+	DECLARE _OffsetValue2 double default 0;
+	DECLARE _OffsetValue3 double default 0;
+
 	select ID into _SlopeID from slope where SceneID=paramSlopeSceneID and Type=paramSlopeType;
 	select ID into _SensorID from sensor where SceneID=paramSensorSceneID and Type=paramSensorType and SlopeID=_SlopeID;
+	select AvgValue1,AvgValue2,AvgValue3 into _AvgValue1,_AvgValue2,_AvgValue3 from sensor where ID=_SensorID;
+
+	if paramSensorType = 2 then
+		set _OffsetValue1 =(_AvgValue1-paramValue1)*100000000;
+		set _OffsetValue2 =(_AvgValue2-paramValue2)*100000000;
+		set _OffsetValue3 =(_AvgValue3-paramValue3)*1000;
+	else
+		set _OffsetValue1 =_AvgValue1-paramValue1;
+		set _OffsetValue2 =_AvgValue2-paramValue2;
+		set _OffsetValue3 =_AvgValue3-paramValue3;
+	end if;
+
 	update slope set Longitude=paramLongitude,Latitude=paramLatitude where ID=_SlopeID;
-	update sensor set Value1=paramValue1,Value2=paramValue2,Value3=paramValue3,Value4=paramValue4 where ID=_SensorID;
-	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime,DataTime1) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,FROM_UNIXTIME(paramTime),paramTime);
+	update sensor set Value1=paramValue1,Value2=paramValue2,Value3=paramValue3,Value4=paramValue4,OffsetValue1=_OffsetValue1,OffsetValue2=_OffsetValue2,OffsetValue3=_OffsetValue3 where ID=_SensorID;
+	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime,DataTime1,OffsetValue1,OffsetValue2,OffsetValue3) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,FROM_UNIXTIME(paramTime),paramTime,_OffsetValue1,_OffsetValue2,_OffsetValue3);
 END;
 
 //
