@@ -178,7 +178,7 @@ END;
 DROP PROCEDURE IF EXISTS `LoadSlopeByID`;
 CREATE PROCEDURE `LoadSlopeByID`(IN paramAccount INTEGER UNSIGNED, IN paramServerID INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED)
 BEGIN
-	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description from slope;
+	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description from slope where ID=paramSlopeID;
 END;
 
 DROP PROCEDURE IF EXISTS `WebLogin`;
