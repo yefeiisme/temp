@@ -24,6 +24,8 @@ CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[APP_SERVER_NET_Protocol::
 	&CAppClient::RecvModifyPassword,
 	&CAppClient::RecvFindSlope,
 	&CAppClient::RecvFindSensor,
+
+	&CAppClient::RecvLoadAuthority,
 };
 
 CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
@@ -42,6 +44,9 @@ CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 
 	&CAppClient::DBResopndUpdateSensorResult,
 	&CAppClient::DBResopndModifyPasswordResult,
+	&CAppClient::DBResopndFindSlopeResult,
+	&CAppClient::DBResopndFindSensorResult,
+	&CAppClient::DBResopndLoadAuthor,
 };
 
 CAppClient::CAppClient() : CClient()
@@ -564,6 +569,49 @@ void CAppClient::RecvFindSensor(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->AddParam(tagFindSensor.sensor_id());
 	pMysqlQuery->AddParam(tagFindSensor.sensor_type());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+void CAppClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		APP_SERVER_NET_Protocol::S2APP_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_error, tagError);
+
+		return;
+	}
+
+	APP_SERVER_NET_Protocol::APP2S_Load_Authority	tagLoadAuthority;
+	BYTE	*pRequest = (BYTE*)pPack + sizeof(BYTE);
+	tagLoadAuthority.ParseFromArray(pRequest, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest = {0};
+	tagRequest.byOpt		= SENSOR_DB_LOAD_AUTHORITY;
+	tagRequest.uClientID	= m_uUniqueID;
+	tagRequest.uClientIndex = m_uIndex;
+	tagRequest.byClientType = APP_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery = g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	if (tagLoadAuthority.authority_id())
+	{
+		pMysqlQuery->PrepareProc("LoadAuthorityByID");
+		pMysqlQuery->AddParam(m_uAccountID);
+		pMysqlQuery->AddParam(tagLoadAuthority.authority_id());
+		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+	}
+	else
+	{
+		pMysqlQuery->PrepareProc("LoadAllAuthority");
+		pMysqlQuery->AddParam(m_uAccountID);
+		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+	}
 
 	pMysqlQuery->CallProc();
 }
@@ -1454,6 +1502,46 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 	}
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_sensor_list, tagSensorList);
+}
+
+void CAppClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	WORD	wAuthorityID		= 0;
+	WORD	wParentID			= 0;
+	char	strUrl[256]			= {0};
+	char	strIconUrl[256]		= {0};
+	char	strDescption[256]	= {0};
+	UINT	uCol				= 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	APP_SERVER_NET_Protocol::S2APP_Authority_List	tagAuthorityList;
+
+	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
+	{
+		APP_SERVER_NET_Protocol::S2APP_Authority_List::AuthorityData	*pAuthorData = tagAuthorityList.add_authority_list();
+		if (nullptr == pAuthorData)
+			continue;
+
+		uCol = 0;
+
+		pResult1->GetData(uRow, uCol++, wAuthorityID);
+		pResult1->GetData(uRow, uCol++, wParentID);
+		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
+		pResult1->GetData(uRow, uCol++, strIconUrl, sizeof(strIconUrl));
+		pResult1->GetData(uRow, uCol++, strDescption, sizeof(strDescption));
+
+		pAuthorData->set_authority_id(wAuthorityID);
+		pAuthorData->set_parent_id(wParentID);
+		pAuthorData->set_url(strUrl);
+		pAuthorData->set_icon_url(strIconUrl);
+		pAuthorData->set_description(strDescption);
+	}
+
+	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_authority_list, tagAuthorityList);
 }
 
 void CAppClient::SendAppMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)

@@ -23,6 +23,7 @@ enum APP2S
 	app2s_modify_password			= 12;	// 修改密码
 	app2s_find_slope				= 13;	// 查找指定的边坡
 	app2s_find_sensor				= 14;	// 查找指定的传感器
+	app2s_load_authority			= 15;	// 获取用户权限
 
 	app2s_max						= 256;	// 最大协议号
 }
@@ -141,6 +142,11 @@ message APP2S_Find_Sensor
 	required uint32	sensor_type		= 4;	// 传感器类型
 }
 
+// 获取用户权限
+message APP2S_Load_Authority
+{
+	required uint32	authority_id	= 1;	// 权限ID
+}
 
 
 
@@ -164,6 +170,7 @@ enum S2APP
 	s2app_del_sensor				= 10;	// 删除传感器
 	s2app_update_sensor				= 11;	// 更新传感器数据
 	s2app_modify_password_result	= 12;	// 修改密码结果
+	s2app_authority_list			= 13;	// 权限列表
 
 	s2app_max						= 256;	// 最大协议号
 }
@@ -341,4 +348,19 @@ message S2APP_Update_Sensor
 message S2APP_Modify_Password_Result
 {
 	required uint32	result			= 1;	// 修改结果
+}
+
+// 权限列表
+message S2APP_Authority_List
+{
+	message AuthorityData
+	{
+		required uint32	authority_id	= 1;	// 权限ID
+		required uint32	parent_id		= 2;	// 父节点ID
+		optional bytes	url				= 3;	// 网址url
+		optional bytes	description		= 4;	// 描述
+		optional bytes	icon_url		= 5;	// icon的url
+	}
+
+	repeated AuthorityData	authority_list	= 1;	// 用户组列表
 }

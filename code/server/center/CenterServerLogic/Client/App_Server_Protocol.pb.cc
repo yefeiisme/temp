@@ -44,6 +44,8 @@ class APP2S_Find_SlopeDefaultTypeInternal : public ::google::protobuf::internal:
 } _APP2S_Find_Slope_default_instance_;
 class APP2S_Find_SensorDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<APP2S_Find_Sensor> {
 } _APP2S_Find_Sensor_default_instance_;
+class APP2S_Load_AuthorityDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<APP2S_Load_Authority> {
+} _APP2S_Load_Authority_default_instance_;
 class S2App_Login_Result_ServerDataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2App_Login_Result_ServerData> {
 } _S2App_Login_Result_ServerData_default_instance_;
 class S2App_Login_ResultDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2App_Login_Result> {
@@ -76,13 +78,17 @@ class S2APP_Update_SensorDefaultTypeInternal : public ::google::protobuf::intern
 } _S2APP_Update_Sensor_default_instance_;
 class S2APP_Modify_Password_ResultDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2APP_Modify_Password_Result> {
 } _S2APP_Modify_Password_Result_default_instance_;
+class S2APP_Authority_List_AuthorityDataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2APP_Authority_List_AuthorityData> {
+} _S2APP_Authority_List_AuthorityData_default_instance_;
+class S2APP_Authority_ListDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2APP_Authority_List> {
+} _S2APP_Authority_List_default_instance_;
 
 namespace protobuf_App_5fServer_5fProtocol_2eproto {
 
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[29];
+::google::protobuf::Metadata file_level_metadata[32];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 }  // namespace
@@ -98,6 +104,9 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
@@ -283,6 +292,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   0,
   2,
   3,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Load_Authority, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Load_Authority, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Load_Authority, authority_id_),
+  0,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Login_Result_ServerData, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Login_Result_ServerData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -555,6 +571,28 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Modify_Password_Result, result_),
   0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List_AuthorityData, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List_AuthorityData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List_AuthorityData, authority_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List_AuthorityData, parent_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List_AuthorityData, url_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List_AuthorityData, description_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List_AuthorityData, icon_url_),
+  3,
+  4,
+  0,
+  1,
+  2,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List, authority_list_),
+  ~0u,
 };
 
 static const ::google::protobuf::internal::MigrationSchema schemas[] = {
@@ -571,22 +609,25 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 122, 129, sizeof(APP2S_Modify_Password)},
   { 131, 138, sizeof(APP2S_Find_Slope)},
   { 140, 149, sizeof(APP2S_Find_Sensor)},
-  { 153, 161, sizeof(S2App_Login_Result_ServerData)},
-  { 164, 171, sizeof(S2App_Login_Result)},
-  { 173, 187, sizeof(S2App_Slope_List_SlopeData)},
-  { 196, 202, sizeof(S2App_Slope_List)},
-  { 203, 227, sizeof(S2App_Sensor_List_SensorData)},
-  { 246, 252, sizeof(S2App_Sensor_List)},
-  { 253, 270, sizeof(S2App_Sensor_History_SensorData)},
-  { 282, 298, sizeof(S2App_Sensor_History)},
-  { 309, 315, sizeof(S2APP_ERROR)},
-  { 316, 329, sizeof(S2APP_New_Slope)},
-  { 337, 343, sizeof(S2APP_Del_Slope)},
-  { 344, 357, sizeof(S2APP_Update_Slope)},
-  { 365, 379, sizeof(S2APP_Add_Sensor)},
-  { 388, 394, sizeof(S2APP_Del_Sensor)},
-  { 395, 409, sizeof(S2APP_Update_Sensor)},
-  { 418, 424, sizeof(S2APP_Modify_Password_Result)},
+  { 153, 159, sizeof(APP2S_Load_Authority)},
+  { 160, 168, sizeof(S2App_Login_Result_ServerData)},
+  { 171, 178, sizeof(S2App_Login_Result)},
+  { 180, 194, sizeof(S2App_Slope_List_SlopeData)},
+  { 203, 209, sizeof(S2App_Slope_List)},
+  { 210, 234, sizeof(S2App_Sensor_List_SensorData)},
+  { 253, 259, sizeof(S2App_Sensor_List)},
+  { 260, 277, sizeof(S2App_Sensor_History_SensorData)},
+  { 289, 305, sizeof(S2App_Sensor_History)},
+  { 316, 322, sizeof(S2APP_ERROR)},
+  { 323, 336, sizeof(S2APP_New_Slope)},
+  { 344, 350, sizeof(S2APP_Del_Slope)},
+  { 351, 364, sizeof(S2APP_Update_Slope)},
+  { 372, 386, sizeof(S2APP_Add_Sensor)},
+  { 395, 401, sizeof(S2APP_Del_Sensor)},
+  { 402, 416, sizeof(S2APP_Update_Sensor)},
+  { 425, 431, sizeof(S2APP_Modify_Password_Result)},
+  { 432, 442, sizeof(S2APP_Authority_List_AuthorityData)},
+  { 447, 453, sizeof(S2APP_Authority_List)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -603,6 +644,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_APP2S_Modify_Password_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_APP2S_Find_Slope_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_APP2S_Find_Sensor_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_APP2S_Load_Authority_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2App_Login_Result_ServerData_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2App_Login_Result_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2App_Slope_List_SlopeData_default_instance_),
@@ -619,6 +661,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2APP_Del_Sensor_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2APP_Update_Sensor_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2APP_Modify_Password_Result_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2APP_Authority_List_AuthorityData_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2APP_Authority_List_default_instance_),
 };
 
 namespace {
@@ -639,7 +683,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 29);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 32);
 }
 
 }  // namespace
@@ -671,38 +715,44 @@ void TableStruct::Shutdown() {
   delete file_level_metadata[11].reflection;
   _APP2S_Find_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[12].reflection;
-  _S2App_Login_Result_ServerData_default_instance_.Shutdown();
+  _APP2S_Load_Authority_default_instance_.Shutdown();
   delete file_level_metadata[13].reflection;
-  _S2App_Login_Result_default_instance_.Shutdown();
+  _S2App_Login_Result_ServerData_default_instance_.Shutdown();
   delete file_level_metadata[14].reflection;
-  _S2App_Slope_List_SlopeData_default_instance_.Shutdown();
+  _S2App_Login_Result_default_instance_.Shutdown();
   delete file_level_metadata[15].reflection;
-  _S2App_Slope_List_default_instance_.Shutdown();
+  _S2App_Slope_List_SlopeData_default_instance_.Shutdown();
   delete file_level_metadata[16].reflection;
-  _S2App_Sensor_List_SensorData_default_instance_.Shutdown();
+  _S2App_Slope_List_default_instance_.Shutdown();
   delete file_level_metadata[17].reflection;
-  _S2App_Sensor_List_default_instance_.Shutdown();
+  _S2App_Sensor_List_SensorData_default_instance_.Shutdown();
   delete file_level_metadata[18].reflection;
-  _S2App_Sensor_History_SensorData_default_instance_.Shutdown();
+  _S2App_Sensor_List_default_instance_.Shutdown();
   delete file_level_metadata[19].reflection;
-  _S2App_Sensor_History_default_instance_.Shutdown();
+  _S2App_Sensor_History_SensorData_default_instance_.Shutdown();
   delete file_level_metadata[20].reflection;
-  _S2APP_ERROR_default_instance_.Shutdown();
+  _S2App_Sensor_History_default_instance_.Shutdown();
   delete file_level_metadata[21].reflection;
-  _S2APP_New_Slope_default_instance_.Shutdown();
+  _S2APP_ERROR_default_instance_.Shutdown();
   delete file_level_metadata[22].reflection;
-  _S2APP_Del_Slope_default_instance_.Shutdown();
+  _S2APP_New_Slope_default_instance_.Shutdown();
   delete file_level_metadata[23].reflection;
-  _S2APP_Update_Slope_default_instance_.Shutdown();
+  _S2APP_Del_Slope_default_instance_.Shutdown();
   delete file_level_metadata[24].reflection;
-  _S2APP_Add_Sensor_default_instance_.Shutdown();
+  _S2APP_Update_Slope_default_instance_.Shutdown();
   delete file_level_metadata[25].reflection;
-  _S2APP_Del_Sensor_default_instance_.Shutdown();
+  _S2APP_Add_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[26].reflection;
-  _S2APP_Update_Sensor_default_instance_.Shutdown();
+  _S2APP_Del_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[27].reflection;
-  _S2APP_Modify_Password_Result_default_instance_.Shutdown();
+  _S2APP_Update_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[28].reflection;
+  _S2APP_Modify_Password_Result_default_instance_.Shutdown();
+  delete file_level_metadata[29].reflection;
+  _S2APP_Authority_List_AuthorityData_default_instance_.Shutdown();
+  delete file_level_metadata[30].reflection;
+  _S2APP_Authority_List_default_instance_.Shutdown();
+  delete file_level_metadata[31].reflection;
 }
 
 void TableStruct::InitDefaultsImpl() {
@@ -722,6 +772,7 @@ void TableStruct::InitDefaultsImpl() {
   _APP2S_Modify_Password_default_instance_.DefaultConstruct();
   _APP2S_Find_Slope_default_instance_.DefaultConstruct();
   _APP2S_Find_Sensor_default_instance_.DefaultConstruct();
+  _APP2S_Load_Authority_default_instance_.DefaultConstruct();
   _S2App_Login_Result_ServerData_default_instance_.DefaultConstruct();
   _S2App_Login_Result_default_instance_.DefaultConstruct();
   _S2App_Slope_List_SlopeData_default_instance_.DefaultConstruct();
@@ -738,6 +789,8 @@ void TableStruct::InitDefaultsImpl() {
   _S2APP_Del_Sensor_default_instance_.DefaultConstruct();
   _S2APP_Update_Sensor_default_instance_.DefaultConstruct();
   _S2APP_Modify_Password_Result_default_instance_.DefaultConstruct();
+  _S2APP_Authority_List_AuthorityData_default_instance_.DefaultConstruct();
+  _S2APP_Authority_List_default_instance_.DefaultConstruct();
 }
 
 void InitDefaults() {
@@ -774,85 +827,93 @@ void AddDescriptorsImpl() {
       "_Find_Slope\022\020\n\010slope_id\030\001 \002(\r\022\022\n\nslope_n"
       "ame\030\002 \002(\014\"a\n\021APP2S_Find_Sensor\022\020\n\010slope_"
       "id\030\001 \002(\r\022\022\n\nslope_name\030\002 \002(\014\022\021\n\tsensor_i"
-      "d\030\003 \002(\r\022\023\n\013sensor_type\030\004 \002(\r\"\245\001\n\022S2App_L"
-      "ogin_Result\022\016\n\006result\030\001 \002(\r\022K\n\013server_li"
-      "st\030\002 \003(\01326.APP_SERVER_NET_Protocol.S2App"
-      "_Login_Result.ServerData\0322\n\nServerData\022\n"
-      "\n\002id\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022\014\n\004port\030\003 \002(\r\"\362\001\n"
-      "\020S2App_Slope_List\022G\n\nslope_list\030\001 \003(\01323."
-      "APP_SERVER_NET_Protocol.S2App_Slope_List"
-      ".SlopeData\032\224\001\n\tSlopeData\022\n\n\002id\030\001 \002(\r\022\014\n\004"
-      "type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022"
-      "\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003"
-      "url\030\007 \001(\014\022\020\n\010scene_id\030\010 \001(\r\022\014\n\004desc\030\t \001("
-      "\014\"\323\003\n\021S2App_Sensor_List\022J\n\013sensor_list\030\001"
-      " \003(\01325.APP_SERVER_NET_Protocol.S2App_Sen"
-      "sor_List.SensorData\032\361\002\n\nSensorData\022\n\n\002id"
-      "\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010s"
-      "lope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010lati"
-      "tude\030\006 \002(\001\022\022\n\ncur_value1\030\007 \002(\001\022\022\n\ncur_va"
-      "lue2\030\010 \002(\001\022\022\n\ncur_value3\030\t \002(\001\022\022\n\navg_va"
-      "lue1\030\n \002(\001\022\022\n\navg_value2\030\013 \002(\001\022\022\n\navg_va"
-      "lue3\030\014 \002(\001\022\025\n\roffset_value1\030\r \002(\001\022\025\n\roff"
-      "set_value2\030\016 \002(\001\022\025\n\roffset_value3\030\017 \002(\001\022"
-      "\013\n\003url\030\020 \002(\014\022\023\n\013description\030\021 \002(\014\022\020\n\010sce"
-      "ne_id\030\022 \002(\r\022\022\n\ncur_value4\030\023 \002(\001\"\307\004\n\024S2Ap"
-      "p_Sensor_History\022\n\n\002id\030\001 \002(\r\022\021\n\tlongitud"
-      "e\030\002 \002(\001\022\020\n\010latitude\030\003 \002(\001\022\022\n\nbegin_time\030"
-      "\004 \002(\r\022\020\n\010end_time\030\005 \002(\r\022\021\n\tinvterval\030\006 \002"
-      "(\r\022\022\n\navg_value1\030\007 \002(\001\022\022\n\navg_value2\030\010 \002"
-      "(\001\022\022\n\navg_value3\030\t \002(\001\022N\n\014history_list\030\n"
-      " \003(\01328.APP_SERVER_NET_Protocol.S2App_Sen"
-      "sor_History.SensorData\022\020\n\010scene_id\030\013 \002(\r"
-      "\032\246\002\n\nSensorData\022\022\n\nmin_value1\030\001 \002(\001\022\022\n\nm"
-      "in_value2\030\002 \002(\001\022\022\n\nmin_value3\030\003 \002(\001\022\022\n\nm"
-      "ax_value1\030\004 \002(\001\022\022\n\nmax_value2\030\005 \002(\001\022\022\n\nm"
-      "ax_value3\030\006 \002(\001\022\031\n\021min_offset_value1\030\007 \002"
-      "(\001\022\031\n\021min_offset_value2\030\010 \002(\001\022\031\n\021min_off"
-      "set_value3\030\t \002(\001\022\031\n\021max_offset_value1\030\n "
-      "\002(\001\022\031\n\021max_offset_value2\030\013 \002(\001\022\031\n\021max_of"
-      "fset_value3\030\014 \002(\001\"!\n\013S2APP_ERROR\022\022\n\nerro"
-      "r_code\030\001 \002(\r\"\214\001\n\017S2APP_New_Slope\022\n\n\002id\030\001"
-      " \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005stat"
-      "e\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006"
-      " \002(\001\022\013\n\003url\030\007 \002(\014\022\020\n\010scene_id\030\010 \002(\r\"!\n\017S"
-      "2APP_Del_Slope\022\016\n\006result\030\001 \002(\r\"\217\001\n\022S2APP"
-      "_Update_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022"
-      "\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlongitud"
-      "e\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\020"
-      "\n\010scene_id\030\010 \002(\r\"\246\001\n\020S2APP_Add_Sensor\022\n\n"
-      "\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020"
-      "\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010l"
-      "atitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013descriptio"
-      "n\030\010 \002(\014\022\020\n\010scene_id\030\t \002(\r\"\"\n\020S2APP_Del_S"
-      "ensor\022\016\n\006result\030\001 \002(\r\"\251\001\n\023S2APP_Update_S"
-      "ensor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state"
-      "\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 "
-      "\002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013de"
-      "scription\030\010 \002(\014\022\020\n\010scene_id\030\t \002(\r\".\n\034S2A"
-      "PP_Modify_Password_Result\022\016\n\006result\030\001 \002("
-      "\r*\214\003\n\005APP2S\022\017\n\013app2s_login\020\000\022\034\n\030app2s_re"
-      "quest_slope_list\020\001\022\035\n\031app2s_request_sens"
-      "or_list\020\002\022 \n\034app2s_request_sensor_histor"
-      "y\020\003\022\016\n\napp2s_ping\020\004\022\032\n\026app2s_request_all"
-      "_list\020\005\022\023\n\017app2s_add_slope\020\006\022\023\n\017app2s_de"
-      "l_slope\020\007\022\033\n\027app2s_update_slope_data\020\010\022\024"
-      "\n\020app2s_add_sensor\020\t\022\024\n\020app2s_del_sensor"
-      "\020\n\022\034\n\030app2s_update_sensor_data\020\013\022\031\n\025app2"
-      "s_modify_password\020\014\022\024\n\020app2s_find_slope\020"
-      "\r\022\025\n\021app2s_find_sensor\020\016\022\016\n\tapp2s_max\020\200\002"
-      "*\310\002\n\005S2APP\022\026\n\022s2app_login_result\020\000\022\024\n\020s2"
-      "app_slope_list\020\001\022\025\n\021s2app_sensor_list\020\002\022"
-      "\030\n\024s2app_sensor_history\020\003\022\026\n\022s2app_all_l"
-      "ist_end\020\004\022\017\n\013s2app_error\020\005\022\023\n\017s2app_new_"
-      "slope\020\006\022\023\n\017s2app_del_slope\020\007\022\026\n\022s2app_up"
-      "date_slope\020\010\022\024\n\020s2app_add_sensor\020\t\022\024\n\020s2"
-      "app_del_sensor\020\n\022\027\n\023s2app_update_sensor\020"
-      "\013\022 \n\034s2app_modify_password_result\020\014\022\016\n\ts"
-      "2app_max\020\200\002"
+      "d\030\003 \002(\r\022\023\n\013sensor_type\030\004 \002(\r\",\n\024APP2S_Lo"
+      "ad_Authority\022\024\n\014authority_id\030\001 \002(\r\"\245\001\n\022S"
+      "2App_Login_Result\022\016\n\006result\030\001 \002(\r\022K\n\013ser"
+      "ver_list\030\002 \003(\01326.APP_SERVER_NET_Protocol"
+      ".S2App_Login_Result.ServerData\0322\n\nServer"
+      "Data\022\n\n\002id\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022\014\n\004port\030\003 \002"
+      "(\r\"\362\001\n\020S2App_Slope_List\022G\n\nslope_list\030\001 "
+      "\003(\01323.APP_SERVER_NET_Protocol.S2App_Slop"
+      "e_List.SlopeData\032\224\001\n\tSlopeData\022\n\n\002id\030\001 \002"
+      "(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030"
+      "\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002"
+      "(\001\022\013\n\003url\030\007 \001(\014\022\020\n\010scene_id\030\010 \001(\r\022\014\n\004des"
+      "c\030\t \001(\014\"\323\003\n\021S2App_Sensor_List\022J\n\013sensor_"
+      "list\030\001 \003(\01325.APP_SERVER_NET_Protocol.S2A"
+      "pp_Sensor_List.SensorData\032\361\002\n\nSensorData"
+      "\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002("
+      "\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020"
+      "\n\010latitude\030\006 \002(\001\022\022\n\ncur_value1\030\007 \002(\001\022\022\n\n"
+      "cur_value2\030\010 \002(\001\022\022\n\ncur_value3\030\t \002(\001\022\022\n\n"
+      "avg_value1\030\n \002(\001\022\022\n\navg_value2\030\013 \002(\001\022\022\n\n"
+      "avg_value3\030\014 \002(\001\022\025\n\roffset_value1\030\r \002(\001\022"
+      "\025\n\roffset_value2\030\016 \002(\001\022\025\n\roffset_value3\030"
+      "\017 \002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013description\030\021 \002(\014\022"
+      "\020\n\010scene_id\030\022 \002(\r\022\022\n\ncur_value4\030\023 \002(\001\"\307\004"
+      "\n\024S2App_Sensor_History\022\n\n\002id\030\001 \002(\r\022\021\n\tlo"
+      "ngitude\030\002 \002(\001\022\020\n\010latitude\030\003 \002(\001\022\022\n\nbegin"
+      "_time\030\004 \002(\r\022\020\n\010end_time\030\005 \002(\r\022\021\n\tinvterv"
+      "al\030\006 \002(\r\022\022\n\navg_value1\030\007 \002(\001\022\022\n\navg_valu"
+      "e2\030\010 \002(\001\022\022\n\navg_value3\030\t \002(\001\022N\n\014history_"
+      "list\030\n \003(\01328.APP_SERVER_NET_Protocol.S2A"
+      "pp_Sensor_History.SensorData\022\020\n\010scene_id"
+      "\030\013 \002(\r\032\246\002\n\nSensorData\022\022\n\nmin_value1\030\001 \002("
+      "\001\022\022\n\nmin_value2\030\002 \002(\001\022\022\n\nmin_value3\030\003 \002("
+      "\001\022\022\n\nmax_value1\030\004 \002(\001\022\022\n\nmax_value2\030\005 \002("
+      "\001\022\022\n\nmax_value3\030\006 \002(\001\022\031\n\021min_offset_valu"
+      "e1\030\007 \002(\001\022\031\n\021min_offset_value2\030\010 \002(\001\022\031\n\021m"
+      "in_offset_value3\030\t \002(\001\022\031\n\021max_offset_val"
+      "ue1\030\n \002(\001\022\031\n\021max_offset_value2\030\013 \002(\001\022\031\n\021"
+      "max_offset_value3\030\014 \002(\001\"!\n\013S2APP_ERROR\022\022"
+      "\n\nerror_code\030\001 \002(\r\"\214\001\n\017S2APP_New_Slope\022\n"
+      "\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r"
+      "\n\005state\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010lati"
+      "tude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\020\n\010scene_id\030\010 \002("
+      "\r\"!\n\017S2APP_Del_Slope\022\016\n\006result\030\001 \002(\r\"\217\001\n"
+      "\022S2APP_Update_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030"
+      "\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlo"
+      "ngitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007"
+      " \002(\014\022\020\n\010scene_id\030\010 \002(\r\"\246\001\n\020S2APP_Add_Sen"
+      "sor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003"
+      " \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002("
+      "\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013desc"
+      "ription\030\010 \002(\014\022\020\n\010scene_id\030\t \002(\r\"\"\n\020S2APP"
+      "_Del_Sensor\022\016\n\006result\030\001 \002(\r\"\251\001\n\023S2APP_Up"
+      "date_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n"
+      "\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongit"
+      "ude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014"
+      "\022\023\n\013description\030\010 \002(\014\022\020\n\010scene_id\030\t \002(\r\""
+      ".\n\034S2APP_Modify_Password_Result\022\016\n\006resul"
+      "t\030\001 \002(\r\"\331\001\n\024S2APP_Authority_List\022S\n\016auth"
+      "ority_list\030\001 \003(\0132;.APP_SERVER_NET_Protoc"
+      "ol.S2APP_Authority_List.AuthorityData\032l\n"
+      "\rAuthorityData\022\024\n\014authority_id\030\001 \002(\r\022\021\n\t"
+      "parent_id\030\002 \002(\r\022\013\n\003url\030\003 \001(\014\022\023\n\013descript"
+      "ion\030\004 \001(\014\022\020\n\010icon_url\030\005 \001(\014*\246\003\n\005APP2S\022\017\n"
+      "\013app2s_login\020\000\022\034\n\030app2s_request_slope_li"
+      "st\020\001\022\035\n\031app2s_request_sensor_list\020\002\022 \n\034a"
+      "pp2s_request_sensor_history\020\003\022\016\n\napp2s_p"
+      "ing\020\004\022\032\n\026app2s_request_all_list\020\005\022\023\n\017app"
+      "2s_add_slope\020\006\022\023\n\017app2s_del_slope\020\007\022\033\n\027a"
+      "pp2s_update_slope_data\020\010\022\024\n\020app2s_add_se"
+      "nsor\020\t\022\024\n\020app2s_del_sensor\020\n\022\034\n\030app2s_up"
+      "date_sensor_data\020\013\022\031\n\025app2s_modify_passw"
+      "ord\020\014\022\024\n\020app2s_find_slope\020\r\022\025\n\021app2s_fin"
+      "d_sensor\020\016\022\030\n\024app2s_load_authority\020\017\022\016\n\t"
+      "app2s_max\020\200\002*\342\002\n\005S2APP\022\026\n\022s2app_login_re"
+      "sult\020\000\022\024\n\020s2app_slope_list\020\001\022\025\n\021s2app_se"
+      "nsor_list\020\002\022\030\n\024s2app_sensor_history\020\003\022\026\n"
+      "\022s2app_all_list_end\020\004\022\017\n\013s2app_error\020\005\022\023"
+      "\n\017s2app_new_slope\020\006\022\023\n\017s2app_del_slope\020\007"
+      "\022\026\n\022s2app_update_slope\020\010\022\024\n\020s2app_add_se"
+      "nsor\020\t\022\024\n\020s2app_del_sensor\020\n\022\027\n\023s2app_up"
+      "date_sensor\020\013\022 \n\034s2app_modify_password_r"
+      "esult\020\014\022\030\n\024s2app_authority_list\020\r\022\016\n\ts2a"
+      "pp_max\020\200\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 4091);
+      descriptor, 4409);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "App_Server_Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -892,6 +953,7 @@ bool APP2S_IsValid(int value) {
     case 12:
     case 13:
     case 14:
+    case 15:
     case 256:
       return true;
     default:
@@ -918,6 +980,7 @@ bool S2APP_IsValid(int value) {
     case 10:
     case 11:
     case 12:
+    case 13:
     case 256:
       return true;
     default:
@@ -7318,6 +7381,271 @@ void APP2S_Find_Sensor::set_sensor_type(::google::protobuf::uint32 value) {
   set_has_sensor_type();
   sensor_type_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Find_Sensor.sensor_type)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int APP2S_Load_Authority::kAuthorityIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+APP2S_Load_Authority::APP2S_Load_Authority()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_App_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+}
+APP2S_Load_Authority::APP2S_Load_Authority(const APP2S_Load_Authority& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  authority_id_ = from.authority_id_;
+  // @@protoc_insertion_point(copy_constructor:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+}
+
+void APP2S_Load_Authority::SharedCtor() {
+  _cached_size_ = 0;
+  authority_id_ = 0u;
+}
+
+APP2S_Load_Authority::~APP2S_Load_Authority() {
+  // @@protoc_insertion_point(destructor:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  SharedDtor();
+}
+
+void APP2S_Load_Authority::SharedDtor() {
+}
+
+void APP2S_Load_Authority::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* APP2S_Load_Authority::descriptor() {
+  protobuf_App_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_App_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const APP2S_Load_Authority& APP2S_Load_Authority::default_instance() {
+  protobuf_App_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+APP2S_Load_Authority* APP2S_Load_Authority::New(::google::protobuf::Arena* arena) const {
+  APP2S_Load_Authority* n = new APP2S_Load_Authority;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void APP2S_Load_Authority::Clear() {
+// @@protoc_insertion_point(message_clear_start:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  authority_id_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool APP2S_Load_Authority::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 authority_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_authority_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &authority_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  return false;
+#undef DO_
+}
+
+void APP2S_Load_Authority::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->authority_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+}
+
+::google::protobuf::uint8* APP2S_Load_Authority::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->authority_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  return target;
+}
+
+size_t APP2S_Load_Authority::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required uint32 authority_id = 1;
+  if (has_authority_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->authority_id());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void APP2S_Load_Authority::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  GOOGLE_DCHECK_NE(&from, this);
+  const APP2S_Load_Authority* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const APP2S_Load_Authority>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+    MergeFrom(*source);
+  }
+}
+
+void APP2S_Load_Authority::MergeFrom(const APP2S_Load_Authority& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_authority_id()) {
+    set_authority_id(from.authority_id());
+  }
+}
+
+void APP2S_Load_Authority::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void APP2S_Load_Authority::CopyFrom(const APP2S_Load_Authority& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:APP_SERVER_NET_Protocol.APP2S_Load_Authority)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool APP2S_Load_Authority::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void APP2S_Load_Authority::Swap(APP2S_Load_Authority* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void APP2S_Load_Authority::InternalSwap(APP2S_Load_Authority* other) {
+  std::swap(authority_id_, other->authority_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata APP2S_Load_Authority::GetMetadata() const {
+  protobuf_App_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_App_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// APP2S_Load_Authority
+
+// required uint32 authority_id = 1;
+bool APP2S_Load_Authority::has_authority_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void APP2S_Load_Authority::set_has_authority_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void APP2S_Load_Authority::clear_has_authority_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void APP2S_Load_Authority::clear_authority_id() {
+  authority_id_ = 0u;
+  clear_has_authority_id();
+}
+::google::protobuf::uint32 APP2S_Load_Authority::authority_id() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Load_Authority.authority_id)
+  return authority_id_;
+}
+void APP2S_Load_Authority::set_authority_id(::google::protobuf::uint32 value) {
+  set_has_authority_id();
+  authority_id_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Load_Authority.authority_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -17608,6 +17936,971 @@ void S2APP_Modify_Password_Result::set_result(::google::protobuf::uint32 value) 
   set_has_result();
   result_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Modify_Password_Result.result)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2APP_Authority_List_AuthorityData::kAuthorityIdFieldNumber;
+const int S2APP_Authority_List_AuthorityData::kParentIdFieldNumber;
+const int S2APP_Authority_List_AuthorityData::kUrlFieldNumber;
+const int S2APP_Authority_List_AuthorityData::kDescriptionFieldNumber;
+const int S2APP_Authority_List_AuthorityData::kIconUrlFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2APP_Authority_List_AuthorityData::S2APP_Authority_List_AuthorityData()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_App_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+}
+S2APP_Authority_List_AuthorityData::S2APP_Authority_List_AuthorityData(const S2APP_Authority_List_AuthorityData& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_url()) {
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+  }
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_description()) {
+    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+  }
+  icon_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_icon_url()) {
+    icon_url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.icon_url_);
+  }
+  ::memcpy(&authority_id_, &from.authority_id_,
+    reinterpret_cast<char*>(&parent_id_) -
+    reinterpret_cast<char*>(&authority_id_) + sizeof(parent_id_));
+  // @@protoc_insertion_point(copy_constructor:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+}
+
+void S2APP_Authority_List_AuthorityData::SharedCtor() {
+  _cached_size_ = 0;
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  icon_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&authority_id_, 0, reinterpret_cast<char*>(&parent_id_) -
+    reinterpret_cast<char*>(&authority_id_) + sizeof(parent_id_));
+}
+
+S2APP_Authority_List_AuthorityData::~S2APP_Authority_List_AuthorityData() {
+  // @@protoc_insertion_point(destructor:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  SharedDtor();
+}
+
+void S2APP_Authority_List_AuthorityData::SharedDtor() {
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  icon_url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void S2APP_Authority_List_AuthorityData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2APP_Authority_List_AuthorityData::descriptor() {
+  protobuf_App_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_App_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2APP_Authority_List_AuthorityData& S2APP_Authority_List_AuthorityData::default_instance() {
+  protobuf_App_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2APP_Authority_List_AuthorityData* S2APP_Authority_List_AuthorityData::New(::google::protobuf::Arena* arena) const {
+  S2APP_Authority_List_AuthorityData* n = new S2APP_Authority_List_AuthorityData;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2APP_Authority_List_AuthorityData::Clear() {
+// @@protoc_insertion_point(message_clear_start:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  if (_has_bits_[0 / 32] & 7u) {
+    if (has_url()) {
+      GOOGLE_DCHECK(!url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*url_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_description()) {
+      GOOGLE_DCHECK(!description_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*description_.UnsafeRawStringPointer())->clear();
+    }
+    if (has_icon_url()) {
+      GOOGLE_DCHECK(!icon_url_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*icon_url_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  if (_has_bits_[0 / 32] & 24u) {
+    ::memset(&authority_id_, 0, reinterpret_cast<char*>(&parent_id_) -
+      reinterpret_cast<char*>(&authority_id_) + sizeof(parent_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2APP_Authority_List_AuthorityData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 authority_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_authority_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &authority_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 parent_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_parent_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &parent_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional bytes url = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional bytes description = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_description()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional bytes icon_url = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_icon_url()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  return false;
+#undef DO_
+}
+
+void S2APP_Authority_List_AuthorityData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->authority_id(), output);
+  }
+
+  // required uint32 parent_id = 2;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->parent_id(), output);
+  }
+
+  // optional bytes url = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->url(), output);
+  }
+
+  // optional bytes description = 4;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      4, this->description(), output);
+  }
+
+  // optional bytes icon_url = 5;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      5, this->icon_url(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+}
+
+::google::protobuf::uint8* S2APP_Authority_List_AuthorityData::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 authority_id = 1;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->authority_id(), target);
+  }
+
+  // required uint32 parent_id = 2;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->parent_id(), target);
+  }
+
+  // optional bytes url = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->url(), target);
+  }
+
+  // optional bytes description = 4;
+  if (cached_has_bits & 0x00000002u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        4, this->description(), target);
+  }
+
+  // optional bytes icon_url = 5;
+  if (cached_has_bits & 0x00000004u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        5, this->icon_url(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  return target;
+}
+
+size_t S2APP_Authority_List_AuthorityData::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  size_t total_size = 0;
+
+  if (has_authority_id()) {
+    // required uint32 authority_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->authority_id());
+  }
+
+  if (has_parent_id()) {
+    // required uint32 parent_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->parent_id());
+  }
+
+  return total_size;
+}
+size_t S2APP_Authority_List_AuthorityData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000018) ^ 0x00000018) == 0) {  // All required fields are present.
+    // required uint32 authority_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->authority_id());
+
+    // required uint32 parent_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->parent_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[0 / 32] & 7u) {
+    // optional bytes url = 3;
+    if (has_url()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->url());
+    }
+
+    // optional bytes description = 4;
+    if (has_description()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->description());
+    }
+
+    // optional bytes icon_url = 5;
+    if (has_icon_url()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->icon_url());
+    }
+
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2APP_Authority_List_AuthorityData::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2APP_Authority_List_AuthorityData* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2APP_Authority_List_AuthorityData>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+    MergeFrom(*source);
+  }
+}
+
+void S2APP_Authority_List_AuthorityData::MergeFrom(const S2APP_Authority_List_AuthorityData& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 31u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_url();
+      url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_description();
+      description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      set_has_icon_url();
+      icon_url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.icon_url_);
+    }
+    if (cached_has_bits & 0x00000008u) {
+      authority_id_ = from.authority_id_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      parent_id_ = from.parent_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2APP_Authority_List_AuthorityData::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2APP_Authority_List_AuthorityData::CopyFrom(const S2APP_Authority_List_AuthorityData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2APP_Authority_List_AuthorityData::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000018) != 0x00000018) return false;
+  return true;
+}
+
+void S2APP_Authority_List_AuthorityData::Swap(S2APP_Authority_List_AuthorityData* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2APP_Authority_List_AuthorityData::InternalSwap(S2APP_Authority_List_AuthorityData* other) {
+  url_.Swap(&other->url_);
+  description_.Swap(&other->description_);
+  icon_url_.Swap(&other->icon_url_);
+  std::swap(authority_id_, other->authority_id_);
+  std::swap(parent_id_, other->parent_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2APP_Authority_List_AuthorityData::GetMetadata() const {
+  protobuf_App_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_App_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2APP_Authority_List_AuthorityData
+
+// required uint32 authority_id = 1;
+bool S2APP_Authority_List_AuthorityData::has_authority_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void S2APP_Authority_List_AuthorityData::set_has_authority_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void S2APP_Authority_List_AuthorityData::clear_has_authority_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void S2APP_Authority_List_AuthorityData::clear_authority_id() {
+  authority_id_ = 0u;
+  clear_has_authority_id();
+}
+::google::protobuf::uint32 S2APP_Authority_List_AuthorityData::authority_id() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.authority_id)
+  return authority_id_;
+}
+void S2APP_Authority_List_AuthorityData::set_authority_id(::google::protobuf::uint32 value) {
+  set_has_authority_id();
+  authority_id_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.authority_id)
+}
+
+// required uint32 parent_id = 2;
+bool S2APP_Authority_List_AuthorityData::has_parent_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void S2APP_Authority_List_AuthorityData::set_has_parent_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void S2APP_Authority_List_AuthorityData::clear_has_parent_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void S2APP_Authority_List_AuthorityData::clear_parent_id() {
+  parent_id_ = 0u;
+  clear_has_parent_id();
+}
+::google::protobuf::uint32 S2APP_Authority_List_AuthorityData::parent_id() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.parent_id)
+  return parent_id_;
+}
+void S2APP_Authority_List_AuthorityData::set_parent_id(::google::protobuf::uint32 value) {
+  set_has_parent_id();
+  parent_id_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.parent_id)
+}
+
+// optional bytes url = 3;
+bool S2APP_Authority_List_AuthorityData::has_url() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2APP_Authority_List_AuthorityData::set_has_url() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2APP_Authority_List_AuthorityData::clear_has_url() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2APP_Authority_List_AuthorityData::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_url();
+}
+const ::std::string& S2APP_Authority_List_AuthorityData::url() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.url)
+  return url_.GetNoArena();
+}
+void S2APP_Authority_List_AuthorityData::set_url(const ::std::string& value) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.url)
+}
+#if LANG_CXX11
+void S2APP_Authority_List_AuthorityData::set_url(::std::string&& value) {
+  set_has_url();
+  url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.url)
+}
+#endif
+void S2APP_Authority_List_AuthorityData::set_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.url)
+}
+void S2APP_Authority_List_AuthorityData::set_url(const void* value, size_t size) {
+  set_has_url();
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.url)
+}
+::std::string* S2APP_Authority_List_AuthorityData::mutable_url() {
+  set_has_url();
+  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2APP_Authority_List_AuthorityData::release_url() {
+  // @@protoc_insertion_point(field_release:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.url)
+  clear_has_url();
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2APP_Authority_List_AuthorityData::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
+    set_has_url();
+  } else {
+    clear_has_url();
+  }
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.url)
+}
+
+// optional bytes description = 4;
+bool S2APP_Authority_List_AuthorityData::has_description() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2APP_Authority_List_AuthorityData::set_has_description() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2APP_Authority_List_AuthorityData::clear_has_description() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2APP_Authority_List_AuthorityData::clear_description() {
+  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_description();
+}
+const ::std::string& S2APP_Authority_List_AuthorityData::description() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.description)
+  return description_.GetNoArena();
+}
+void S2APP_Authority_List_AuthorityData::set_description(const ::std::string& value) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.description)
+}
+#if LANG_CXX11
+void S2APP_Authority_List_AuthorityData::set_description(::std::string&& value) {
+  set_has_description();
+  description_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.description)
+}
+#endif
+void S2APP_Authority_List_AuthorityData::set_description(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.description)
+}
+void S2APP_Authority_List_AuthorityData::set_description(const void* value, size_t size) {
+  set_has_description();
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.description)
+}
+::std::string* S2APP_Authority_List_AuthorityData::mutable_description() {
+  set_has_description();
+  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.description)
+  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2APP_Authority_List_AuthorityData::release_description() {
+  // @@protoc_insertion_point(field_release:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.description)
+  clear_has_description();
+  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2APP_Authority_List_AuthorityData::set_allocated_description(::std::string* description) {
+  if (description != NULL) {
+    set_has_description();
+  } else {
+    clear_has_description();
+  }
+  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.description)
+}
+
+// optional bytes icon_url = 5;
+bool S2APP_Authority_List_AuthorityData::has_icon_url() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2APP_Authority_List_AuthorityData::set_has_icon_url() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2APP_Authority_List_AuthorityData::clear_has_icon_url() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2APP_Authority_List_AuthorityData::clear_icon_url() {
+  icon_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_icon_url();
+}
+const ::std::string& S2APP_Authority_List_AuthorityData::icon_url() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.icon_url)
+  return icon_url_.GetNoArena();
+}
+void S2APP_Authority_List_AuthorityData::set_icon_url(const ::std::string& value) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.icon_url)
+}
+#if LANG_CXX11
+void S2APP_Authority_List_AuthorityData::set_icon_url(::std::string&& value) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.icon_url)
+}
+#endif
+void S2APP_Authority_List_AuthorityData::set_icon_url(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.icon_url)
+}
+void S2APP_Authority_List_AuthorityData::set_icon_url(const void* value, size_t size) {
+  set_has_icon_url();
+  icon_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.icon_url)
+}
+::std::string* S2APP_Authority_List_AuthorityData::mutable_icon_url() {
+  set_has_icon_url();
+  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.icon_url)
+  return icon_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* S2APP_Authority_List_AuthorityData::release_icon_url() {
+  // @@protoc_insertion_point(field_release:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.icon_url)
+  clear_has_icon_url();
+  return icon_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void S2APP_Authority_List_AuthorityData::set_allocated_icon_url(::std::string* icon_url) {
+  if (icon_url != NULL) {
+    set_has_icon_url();
+  } else {
+    clear_has_icon_url();
+  }
+  icon_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), icon_url);
+  // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData.icon_url)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2APP_Authority_List::kAuthorityListFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2APP_Authority_List::S2APP_Authority_List()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_App_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+}
+S2APP_Authority_List::S2APP_Authority_List(const S2APP_Authority_List& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0),
+      authority_list_(from.authority_list_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+}
+
+void S2APP_Authority_List::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+S2APP_Authority_List::~S2APP_Authority_List() {
+  // @@protoc_insertion_point(destructor:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  SharedDtor();
+}
+
+void S2APP_Authority_List::SharedDtor() {
+}
+
+void S2APP_Authority_List::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2APP_Authority_List::descriptor() {
+  protobuf_App_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_App_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2APP_Authority_List& S2APP_Authority_List::default_instance() {
+  protobuf_App_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2APP_Authority_List* S2APP_Authority_List::New(::google::protobuf::Arena* arena) const {
+  S2APP_Authority_List* n = new S2APP_Authority_List;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2APP_Authority_List::Clear() {
+// @@protoc_insertion_point(message_clear_start:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  authority_list_.Clear();
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2APP_Authority_List::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData authority_list = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_authority_list()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  return false;
+#undef DO_
+}
+
+void S2APP_Authority_List::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData authority_list = 1;
+  for (unsigned int i = 0, n = this->authority_list_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->authority_list(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+}
+
+::google::protobuf::uint8* S2APP_Authority_List::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData authority_list = 1;
+  for (unsigned int i = 0, n = this->authority_list_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->authority_list(i), deterministic, target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  return target;
+}
+
+size_t S2APP_Authority_List::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // repeated .APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData authority_list = 1;
+  {
+    unsigned int count = this->authority_list_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->authority_list(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2APP_Authority_List::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2APP_Authority_List* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2APP_Authority_List>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+    MergeFrom(*source);
+  }
+}
+
+void S2APP_Authority_List::MergeFrom(const S2APP_Authority_List& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  authority_list_.MergeFrom(from.authority_list_);
+}
+
+void S2APP_Authority_List::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2APP_Authority_List::CopyFrom(const S2APP_Authority_List& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:APP_SERVER_NET_Protocol.S2APP_Authority_List)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2APP_Authority_List::IsInitialized() const {
+  if (!::google::protobuf::internal::AllAreInitialized(this->authority_list())) return false;
+  return true;
+}
+
+void S2APP_Authority_List::Swap(S2APP_Authority_List* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2APP_Authority_List::InternalSwap(S2APP_Authority_List* other) {
+  authority_list_.InternalSwap(&other->authority_list_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2APP_Authority_List::GetMetadata() const {
+  protobuf_App_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_App_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2APP_Authority_List
+
+// repeated .APP_SERVER_NET_Protocol.S2APP_Authority_List.AuthorityData authority_list = 1;
+int S2APP_Authority_List::authority_list_size() const {
+  return authority_list_.size();
+}
+void S2APP_Authority_List::clear_authority_list() {
+  authority_list_.Clear();
+}
+const ::APP_SERVER_NET_Protocol::S2APP_Authority_List_AuthorityData& S2APP_Authority_List::authority_list(int index) const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Authority_List.authority_list)
+  return authority_list_.Get(index);
+}
+::APP_SERVER_NET_Protocol::S2APP_Authority_List_AuthorityData* S2APP_Authority_List::mutable_authority_list(int index) {
+  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.S2APP_Authority_List.authority_list)
+  return authority_list_.Mutable(index);
+}
+::APP_SERVER_NET_Protocol::S2APP_Authority_List_AuthorityData* S2APP_Authority_List::add_authority_list() {
+  // @@protoc_insertion_point(field_add:APP_SERVER_NET_Protocol.S2APP_Authority_List.authority_list)
+  return authority_list_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::APP_SERVER_NET_Protocol::S2APP_Authority_List_AuthorityData >*
+S2APP_Authority_List::mutable_authority_list() {
+  // @@protoc_insertion_point(field_mutable_list:APP_SERVER_NET_Protocol.S2APP_Authority_List.authority_list)
+  return &authority_list_;
+}
+const ::google::protobuf::RepeatedPtrField< ::APP_SERVER_NET_Protocol::S2APP_Authority_List_AuthorityData >&
+S2APP_Authority_List::authority_list() const {
+  // @@protoc_insertion_point(field_list:APP_SERVER_NET_Protocol.S2APP_Authority_List.authority_list)
+  return authority_list_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

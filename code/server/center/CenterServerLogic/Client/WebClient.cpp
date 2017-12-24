@@ -1944,8 +1944,8 @@ void CWebClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest 
 
 	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
 	{
-		WEB_SERVER_NET_Protocol::S2WEB_Authority_List::AuthorityData	*pSlopeData = tagAuthorityList.add_authority_list();
-		if (nullptr == pSlopeData)
+		WEB_SERVER_NET_Protocol::S2WEB_Authority_List::AuthorityData	*pAuthorData = tagAuthorityList.add_authority_list();
+		if (nullptr == pAuthorData)
 			continue;
 
 		uCol = 0;
@@ -1956,11 +1956,11 @@ void CWebClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest 
 		pResult1->GetData(uRow, uCol++, strIconUrl, sizeof(strIconUrl));
 		pResult1->GetData(uRow, uCol++, strDescption, sizeof(strDescption));
 
-		pSlopeData->set_authority_id(wAuthorityID);
-		pSlopeData->set_parent_id(wParentID);
-		pSlopeData->set_url(strUrl);
-		pSlopeData->set_icon_url(strIconUrl);
-		pSlopeData->set_description(strDescption);
+		pAuthorData->set_authority_id(wAuthorityID);
+		pAuthorData->set_parent_id(wParentID);
+		pAuthorData->set_url(strUrl);
+		pAuthorData->set_icon_url(strIconUrl);
+		pAuthorData->set_description(strDescption);
 	}
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_authority_list, tagAuthorityList);
