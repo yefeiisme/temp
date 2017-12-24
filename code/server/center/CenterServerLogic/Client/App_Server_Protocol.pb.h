@@ -414,15 +414,28 @@ class APP2S_Request_Slope_List : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::uint32 server_id() const;
   void set_server_id(::google::protobuf::uint32 value);
 
+  // required uint32 slope_id = 2;
+  bool has_slope_id() const;
+  void clear_slope_id();
+  static const int kSlopeIdFieldNumber = 2;
+  ::google::protobuf::uint32 slope_id() const;
+  void set_slope_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List)
  private:
   void set_has_server_id();
   void clear_has_server_id();
+  void set_has_slope_id();
+  void clear_has_slope_id();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 server_id_;
+  ::google::protobuf::uint32 slope_id_;
   friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -4799,6 +4812,30 @@ inline void APP2S_Request_Slope_List::set_server_id(::google::protobuf::uint32 v
   set_has_server_id();
   server_id_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List.server_id)
+}
+
+// required uint32 slope_id = 2;
+inline bool APP2S_Request_Slope_List::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void APP2S_Request_Slope_List::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void APP2S_Request_Slope_List::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void APP2S_Request_Slope_List::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+inline ::google::protobuf::uint32 APP2S_Request_Slope_List::slope_id() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List.slope_id)
+  return slope_id_;
+}
+inline void APP2S_Request_Slope_List::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List.slope_id)
 }
 
 // -------------------------------------------------------------------

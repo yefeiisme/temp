@@ -44,6 +44,7 @@ message App2S_Login
 message APP2S_Request_Slope_List
 {
 	required uint32 server_id		= 1;	// 服务器ID
+	required uint32 slope_id		= 2;	// 边坡ID
 }
 
 // app向服务器请求传感器列表

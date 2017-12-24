@@ -173,12 +173,25 @@ void CWebClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPac
 	if (nullptr == pMysqlQuery)
 		return;
 
-	pMysqlQuery->PrepareProc("LoadSlopeList");
-	pMysqlQuery->AddParam(m_uAccountID);
-	pMysqlQuery->AddParam(tagRequestSlope.server_id());
-	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+	if (tagRequestSlope.slope_id())
+	{
+		pMysqlQuery->PrepareProc("LoadSlopeByID");
+		pMysqlQuery->AddParam(m_uAccountID);
+		pMysqlQuery->AddParam(tagRequestSlope.server_id());
+		pMysqlQuery->AddParam(tagRequestSlope.slope_id());
+		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
-	pMysqlQuery->CallProc();
+		pMysqlQuery->CallProc();
+	}
+	else
+	{
+		pMysqlQuery->PrepareProc("LoadSlopeList");
+		pMysqlQuery->AddParam(m_uAccountID);
+		pMysqlQuery->AddParam(tagRequestSlope.server_id());
+		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+		pMysqlQuery->CallProc();
+	}
 }
 
 void CWebClient::RecvRequestSensorList(const void *pPack, const unsigned int uPackLen)

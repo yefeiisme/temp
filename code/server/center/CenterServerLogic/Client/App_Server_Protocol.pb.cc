@@ -154,7 +154,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Request_Slope_List, server_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Request_Slope_List, slope_id_),
   0,
+  1,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Request_Sensor_List, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Request_Sensor_List, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -597,37 +599,37 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
 
 static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 0, 7, sizeof(App2S_Login)},
-  { 9, 15, sizeof(APP2S_Request_Slope_List)},
-  { 16, 23, sizeof(APP2S_Request_Sensor_List)},
-  { 25, 33, sizeof(APP2S_Request_Sensor_History)},
-  { 36, 45, sizeof(APP2S_Add_Slope)},
-  { 49, 55, sizeof(APP2S_Del_Slope)},
-  { 56, 68, sizeof(APP2S_Update_Slope_Data)},
-  { 75, 87, sizeof(APP2S_Add_Sensor)},
-  { 94, 100, sizeof(APP2S_Del_Sensor)},
-  { 101, 114, sizeof(APP2S_Update_Sensor_Data)},
-  { 122, 129, sizeof(APP2S_Modify_Password)},
-  { 131, 138, sizeof(APP2S_Find_Slope)},
-  { 140, 149, sizeof(APP2S_Find_Sensor)},
-  { 153, 159, sizeof(APP2S_Load_Authority)},
-  { 160, 168, sizeof(S2App_Login_Result_ServerData)},
-  { 171, 178, sizeof(S2App_Login_Result)},
-  { 180, 194, sizeof(S2App_Slope_List_SlopeData)},
-  { 203, 209, sizeof(S2App_Slope_List)},
-  { 210, 234, sizeof(S2App_Sensor_List_SensorData)},
-  { 253, 259, sizeof(S2App_Sensor_List)},
-  { 260, 277, sizeof(S2App_Sensor_History_SensorData)},
-  { 289, 305, sizeof(S2App_Sensor_History)},
-  { 316, 322, sizeof(S2APP_ERROR)},
-  { 323, 336, sizeof(S2APP_New_Slope)},
-  { 344, 350, sizeof(S2APP_Del_Slope)},
-  { 351, 364, sizeof(S2APP_Update_Slope)},
-  { 372, 386, sizeof(S2APP_Add_Sensor)},
-  { 395, 401, sizeof(S2APP_Del_Sensor)},
-  { 402, 416, sizeof(S2APP_Update_Sensor)},
-  { 425, 431, sizeof(S2APP_Modify_Password_Result)},
-  { 432, 442, sizeof(S2APP_Authority_List_AuthorityData)},
-  { 447, 453, sizeof(S2APP_Authority_List)},
+  { 9, 16, sizeof(APP2S_Request_Slope_List)},
+  { 18, 25, sizeof(APP2S_Request_Sensor_List)},
+  { 27, 35, sizeof(APP2S_Request_Sensor_History)},
+  { 38, 47, sizeof(APP2S_Add_Slope)},
+  { 51, 57, sizeof(APP2S_Del_Slope)},
+  { 58, 70, sizeof(APP2S_Update_Slope_Data)},
+  { 77, 89, sizeof(APP2S_Add_Sensor)},
+  { 96, 102, sizeof(APP2S_Del_Sensor)},
+  { 103, 116, sizeof(APP2S_Update_Sensor_Data)},
+  { 124, 131, sizeof(APP2S_Modify_Password)},
+  { 133, 140, sizeof(APP2S_Find_Slope)},
+  { 142, 151, sizeof(APP2S_Find_Sensor)},
+  { 155, 161, sizeof(APP2S_Load_Authority)},
+  { 162, 170, sizeof(S2App_Login_Result_ServerData)},
+  { 173, 180, sizeof(S2App_Login_Result)},
+  { 182, 196, sizeof(S2App_Slope_List_SlopeData)},
+  { 205, 211, sizeof(S2App_Slope_List)},
+  { 212, 236, sizeof(S2App_Sensor_List_SensorData)},
+  { 255, 261, sizeof(S2App_Sensor_List)},
+  { 262, 279, sizeof(S2App_Sensor_History_SensorData)},
+  { 291, 307, sizeof(S2App_Sensor_History)},
+  { 318, 324, sizeof(S2APP_ERROR)},
+  { 325, 338, sizeof(S2APP_New_Slope)},
+  { 346, 352, sizeof(S2APP_Del_Slope)},
+  { 353, 366, sizeof(S2APP_Update_Slope)},
+  { 374, 388, sizeof(S2APP_Add_Sensor)},
+  { 397, 403, sizeof(S2APP_Del_Sensor)},
+  { 404, 418, sizeof(S2APP_Update_Sensor)},
+  { 427, 433, sizeof(S2APP_Modify_Password_Result)},
+  { 434, 444, sizeof(S2APP_Authority_List_AuthorityData)},
+  { 449, 455, sizeof(S2APP_Authority_List)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -802,118 +804,118 @@ void AddDescriptorsImpl() {
   static const char descriptor[] = {
       "\n\031App_Server_Protocol.proto\022\027APP_SERVER_"
       "NET_Protocol\"0\n\013App2S_Login\022\017\n\007account\030\001"
-      " \002(\014\022\020\n\010password\030\002 \002(\014\"-\n\030APP2S_Request_"
-      "Slope_List\022\021\n\tserver_id\030\001 \002(\r\"B\n\031APP2S_R"
-      "equest_Sensor_List\022\020\n\010slope_id\030\001 \002(\r\022\023\n\013"
-      "sensor_type\030\002 \002(\r\"W\n\034APP2S_Request_Senso"
-      "r_History\022\021\n\tsensor_id\030\001 \002(\r\022\022\n\nbegin_ti"
-      "me\030\002 \002(\r\022\020\n\010end_time\030\003 \002(\r\"L\n\017APP2S_Add_"
-      "Slope\022\014\n\004type\030\001 \002(\r\022\014\n\004name\030\002 \002(\014\022\013\n\003url"
-      "\030\003 \002(\014\022\020\n\010scene_id\030\004 \002(\r\"\035\n\017APP2S_Del_Sl"
-      "ope\022\n\n\002id\030\001 \002(\r\"\205\001\n\027APP2S_Update_Slope_D"
-      "ata\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 "
-      "\002(\014\022\021\n\tlongitude\030\004 \002(\001\022\020\n\010latitude\030\005 \002(\001"
-      "\022\013\n\003url\030\006 \002(\014\022\020\n\010scene_id\030\007 \002(\r\"\213\001\n\020APP2"
-      "S_Add_Sensor\022\014\n\004type\030\001 \002(\r\022\020\n\010slope_id\030\002"
-      " \002(\r\022\021\n\tlongitude\030\003 \002(\001\022\020\n\010latitude\030\004 \002("
-      "\001\022\013\n\003url\030\005 \002(\014\022\023\n\013description\030\006 \002(\014\022\020\n\010s"
-      "cene_id\030\007 \002(\r\"\036\n\020APP2S_Del_Sensor\022\n\n\002id\030"
-      "\001 \002(\r\"\237\001\n\030APP2S_Update_Sensor_Data\022\n\n\002id"
-      "\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\020\n\010slope_id\030\003 \002(\r\022\021"
-      "\n\tlongitude\030\004 \002(\001\022\020\n\010latitude\030\005 \002(\001\022\013\n\003u"
-      "rl\030\006 \002(\014\022\023\n\013description\030\007 \002(\014\022\020\n\010scene_i"
-      "d\030\010 \002(\r\">\n\025APP2S_Modify_Password\022\017\n\007acco"
-      "unt\030\001 \002(\014\022\024\n\014new_password\030\002 \002(\014\"8\n\020APP2S"
-      "_Find_Slope\022\020\n\010slope_id\030\001 \002(\r\022\022\n\nslope_n"
-      "ame\030\002 \002(\014\"a\n\021APP2S_Find_Sensor\022\020\n\010slope_"
-      "id\030\001 \002(\r\022\022\n\nslope_name\030\002 \002(\014\022\021\n\tsensor_i"
-      "d\030\003 \002(\r\022\023\n\013sensor_type\030\004 \002(\r\",\n\024APP2S_Lo"
-      "ad_Authority\022\024\n\014authority_id\030\001 \002(\r\"\245\001\n\022S"
-      "2App_Login_Result\022\016\n\006result\030\001 \002(\r\022K\n\013ser"
-      "ver_list\030\002 \003(\01326.APP_SERVER_NET_Protocol"
-      ".S2App_Login_Result.ServerData\0322\n\nServer"
-      "Data\022\n\n\002id\030\001 \002(\r\022\n\n\002ip\030\002 \002(\014\022\014\n\004port\030\003 \002"
-      "(\r\"\362\001\n\020S2App_Slope_List\022G\n\nslope_list\030\001 "
-      "\003(\01323.APP_SERVER_NET_Protocol.S2App_Slop"
-      "e_List.SlopeData\032\224\001\n\tSlopeData\022\n\n\002id\030\001 \002"
-      "(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030"
-      "\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002"
-      "(\001\022\013\n\003url\030\007 \001(\014\022\020\n\010scene_id\030\010 \001(\r\022\014\n\004des"
-      "c\030\t \001(\014\"\323\003\n\021S2App_Sensor_List\022J\n\013sensor_"
-      "list\030\001 \003(\01325.APP_SERVER_NET_Protocol.S2A"
-      "pp_Sensor_List.SensorData\032\361\002\n\nSensorData"
-      "\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002("
-      "\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020"
-      "\n\010latitude\030\006 \002(\001\022\022\n\ncur_value1\030\007 \002(\001\022\022\n\n"
-      "cur_value2\030\010 \002(\001\022\022\n\ncur_value3\030\t \002(\001\022\022\n\n"
-      "avg_value1\030\n \002(\001\022\022\n\navg_value2\030\013 \002(\001\022\022\n\n"
-      "avg_value3\030\014 \002(\001\022\025\n\roffset_value1\030\r \002(\001\022"
-      "\025\n\roffset_value2\030\016 \002(\001\022\025\n\roffset_value3\030"
-      "\017 \002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013description\030\021 \002(\014\022"
-      "\020\n\010scene_id\030\022 \002(\r\022\022\n\ncur_value4\030\023 \002(\001\"\307\004"
-      "\n\024S2App_Sensor_History\022\n\n\002id\030\001 \002(\r\022\021\n\tlo"
-      "ngitude\030\002 \002(\001\022\020\n\010latitude\030\003 \002(\001\022\022\n\nbegin"
-      "_time\030\004 \002(\r\022\020\n\010end_time\030\005 \002(\r\022\021\n\tinvterv"
-      "al\030\006 \002(\r\022\022\n\navg_value1\030\007 \002(\001\022\022\n\navg_valu"
-      "e2\030\010 \002(\001\022\022\n\navg_value3\030\t \002(\001\022N\n\014history_"
-      "list\030\n \003(\01328.APP_SERVER_NET_Protocol.S2A"
-      "pp_Sensor_History.SensorData\022\020\n\010scene_id"
-      "\030\013 \002(\r\032\246\002\n\nSensorData\022\022\n\nmin_value1\030\001 \002("
-      "\001\022\022\n\nmin_value2\030\002 \002(\001\022\022\n\nmin_value3\030\003 \002("
-      "\001\022\022\n\nmax_value1\030\004 \002(\001\022\022\n\nmax_value2\030\005 \002("
-      "\001\022\022\n\nmax_value3\030\006 \002(\001\022\031\n\021min_offset_valu"
-      "e1\030\007 \002(\001\022\031\n\021min_offset_value2\030\010 \002(\001\022\031\n\021m"
-      "in_offset_value3\030\t \002(\001\022\031\n\021max_offset_val"
-      "ue1\030\n \002(\001\022\031\n\021max_offset_value2\030\013 \002(\001\022\031\n\021"
-      "max_offset_value3\030\014 \002(\001\"!\n\013S2APP_ERROR\022\022"
-      "\n\nerror_code\030\001 \002(\r\"\214\001\n\017S2APP_New_Slope\022\n"
-      "\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r"
-      "\n\005state\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010lati"
-      "tude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\020\n\010scene_id\030\010 \002("
-      "\r\"!\n\017S2APP_Del_Slope\022\016\n\006result\030\001 \002(\r\"\217\001\n"
-      "\022S2APP_Update_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030"
-      "\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlo"
-      "ngitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007"
-      " \002(\014\022\020\n\010scene_id\030\010 \002(\r\"\246\001\n\020S2APP_Add_Sen"
-      "sor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003"
-      " \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002("
-      "\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013desc"
-      "ription\030\010 \002(\014\022\020\n\010scene_id\030\t \002(\r\"\"\n\020S2APP"
-      "_Del_Sensor\022\016\n\006result\030\001 \002(\r\"\251\001\n\023S2APP_Up"
-      "date_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\r\n"
-      "\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlongit"
-      "ude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014"
-      "\022\023\n\013description\030\010 \002(\014\022\020\n\010scene_id\030\t \002(\r\""
-      ".\n\034S2APP_Modify_Password_Result\022\016\n\006resul"
-      "t\030\001 \002(\r\"\331\001\n\024S2APP_Authority_List\022S\n\016auth"
-      "ority_list\030\001 \003(\0132;.APP_SERVER_NET_Protoc"
-      "ol.S2APP_Authority_List.AuthorityData\032l\n"
-      "\rAuthorityData\022\024\n\014authority_id\030\001 \002(\r\022\021\n\t"
-      "parent_id\030\002 \002(\r\022\013\n\003url\030\003 \001(\014\022\023\n\013descript"
-      "ion\030\004 \001(\014\022\020\n\010icon_url\030\005 \001(\014*\246\003\n\005APP2S\022\017\n"
-      "\013app2s_login\020\000\022\034\n\030app2s_request_slope_li"
-      "st\020\001\022\035\n\031app2s_request_sensor_list\020\002\022 \n\034a"
-      "pp2s_request_sensor_history\020\003\022\016\n\napp2s_p"
-      "ing\020\004\022\032\n\026app2s_request_all_list\020\005\022\023\n\017app"
-      "2s_add_slope\020\006\022\023\n\017app2s_del_slope\020\007\022\033\n\027a"
-      "pp2s_update_slope_data\020\010\022\024\n\020app2s_add_se"
-      "nsor\020\t\022\024\n\020app2s_del_sensor\020\n\022\034\n\030app2s_up"
-      "date_sensor_data\020\013\022\031\n\025app2s_modify_passw"
-      "ord\020\014\022\024\n\020app2s_find_slope\020\r\022\025\n\021app2s_fin"
-      "d_sensor\020\016\022\030\n\024app2s_load_authority\020\017\022\016\n\t"
-      "app2s_max\020\200\002*\342\002\n\005S2APP\022\026\n\022s2app_login_re"
-      "sult\020\000\022\024\n\020s2app_slope_list\020\001\022\025\n\021s2app_se"
-      "nsor_list\020\002\022\030\n\024s2app_sensor_history\020\003\022\026\n"
-      "\022s2app_all_list_end\020\004\022\017\n\013s2app_error\020\005\022\023"
-      "\n\017s2app_new_slope\020\006\022\023\n\017s2app_del_slope\020\007"
-      "\022\026\n\022s2app_update_slope\020\010\022\024\n\020s2app_add_se"
-      "nsor\020\t\022\024\n\020s2app_del_sensor\020\n\022\027\n\023s2app_up"
-      "date_sensor\020\013\022 \n\034s2app_modify_password_r"
-      "esult\020\014\022\030\n\024s2app_authority_list\020\r\022\016\n\ts2a"
-      "pp_max\020\200\002"
+      " \002(\014\022\020\n\010password\030\002 \002(\014\"\?\n\030APP2S_Request_"
+      "Slope_List\022\021\n\tserver_id\030\001 \002(\r\022\020\n\010slope_i"
+      "d\030\002 \002(\r\"B\n\031APP2S_Request_Sensor_List\022\020\n\010"
+      "slope_id\030\001 \002(\r\022\023\n\013sensor_type\030\002 \002(\r\"W\n\034A"
+      "PP2S_Request_Sensor_History\022\021\n\tsensor_id"
+      "\030\001 \002(\r\022\022\n\nbegin_time\030\002 \002(\r\022\020\n\010end_time\030\003"
+      " \002(\r\"L\n\017APP2S_Add_Slope\022\014\n\004type\030\001 \002(\r\022\014\n"
+      "\004name\030\002 \002(\014\022\013\n\003url\030\003 \002(\014\022\020\n\010scene_id\030\004 \002"
+      "(\r\"\035\n\017APP2S_Del_Slope\022\n\n\002id\030\001 \002(\r\"\205\001\n\027AP"
+      "P2S_Update_Slope_Data\022\n\n\002id\030\001 \002(\r\022\014\n\004typ"
+      "e\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\021\n\tlongitude\030\004 \002(\001"
+      "\022\020\n\010latitude\030\005 \002(\001\022\013\n\003url\030\006 \002(\014\022\020\n\010scene"
+      "_id\030\007 \002(\r\"\213\001\n\020APP2S_Add_Sensor\022\014\n\004type\030\001"
+      " \002(\r\022\020\n\010slope_id\030\002 \002(\r\022\021\n\tlongitude\030\003 \002("
+      "\001\022\020\n\010latitude\030\004 \002(\001\022\013\n\003url\030\005 \002(\014\022\023\n\013desc"
+      "ription\030\006 \002(\014\022\020\n\010scene_id\030\007 \002(\r\"\036\n\020APP2S"
+      "_Del_Sensor\022\n\n\002id\030\001 \002(\r\"\237\001\n\030APP2S_Update"
+      "_Sensor_Data\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\020"
+      "\n\010slope_id\030\003 \002(\r\022\021\n\tlongitude\030\004 \002(\001\022\020\n\010l"
+      "atitude\030\005 \002(\001\022\013\n\003url\030\006 \002(\014\022\023\n\013descriptio"
+      "n\030\007 \002(\014\022\020\n\010scene_id\030\010 \002(\r\">\n\025APP2S_Modif"
+      "y_Password\022\017\n\007account\030\001 \002(\014\022\024\n\014new_passw"
+      "ord\030\002 \002(\014\"8\n\020APP2S_Find_Slope\022\020\n\010slope_i"
+      "d\030\001 \002(\r\022\022\n\nslope_name\030\002 \002(\014\"a\n\021APP2S_Fin"
+      "d_Sensor\022\020\n\010slope_id\030\001 \002(\r\022\022\n\nslope_name"
+      "\030\002 \002(\014\022\021\n\tsensor_id\030\003 \002(\r\022\023\n\013sensor_type"
+      "\030\004 \002(\r\",\n\024APP2S_Load_Authority\022\024\n\014author"
+      "ity_id\030\001 \002(\r\"\245\001\n\022S2App_Login_Result\022\016\n\006r"
+      "esult\030\001 \002(\r\022K\n\013server_list\030\002 \003(\01326.APP_S"
+      "ERVER_NET_Protocol.S2App_Login_Result.Se"
+      "rverData\0322\n\nServerData\022\n\n\002id\030\001 \002(\r\022\n\n\002ip"
+      "\030\002 \002(\014\022\014\n\004port\030\003 \002(\r\"\362\001\n\020S2App_Slope_Lis"
+      "t\022G\n\nslope_list\030\001 \003(\01323.APP_SERVER_NET_P"
+      "rotocol.S2App_Slope_List.SlopeData\032\224\001\n\tS"
+      "lopeData\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004na"
+      "me\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlongitude\030\005 \002"
+      "(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \001(\014\022\020\n\010sce"
+      "ne_id\030\010 \001(\r\022\014\n\004desc\030\t \001(\014\"\323\003\n\021S2App_Sens"
+      "or_List\022J\n\013sensor_list\030\001 \003(\01325.APP_SERVE"
+      "R_NET_Protocol.S2App_Sensor_List.SensorD"
+      "ata\032\361\002\n\nSensorData\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002"
+      " \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n"
+      "\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\022\n\ncu"
+      "r_value1\030\007 \002(\001\022\022\n\ncur_value2\030\010 \002(\001\022\022\n\ncu"
+      "r_value3\030\t \002(\001\022\022\n\navg_value1\030\n \002(\001\022\022\n\nav"
+      "g_value2\030\013 \002(\001\022\022\n\navg_value3\030\014 \002(\001\022\025\n\rof"
+      "fset_value1\030\r \002(\001\022\025\n\roffset_value2\030\016 \002(\001"
+      "\022\025\n\roffset_value3\030\017 \002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013"
+      "description\030\021 \002(\014\022\020\n\010scene_id\030\022 \002(\r\022\022\n\nc"
+      "ur_value4\030\023 \002(\001\"\307\004\n\024S2App_Sensor_History"
+      "\022\n\n\002id\030\001 \002(\r\022\021\n\tlongitude\030\002 \002(\001\022\020\n\010latit"
+      "ude\030\003 \002(\001\022\022\n\nbegin_time\030\004 \002(\r\022\020\n\010end_tim"
+      "e\030\005 \002(\r\022\021\n\tinvterval\030\006 \002(\r\022\022\n\navg_value1"
+      "\030\007 \002(\001\022\022\n\navg_value2\030\010 \002(\001\022\022\n\navg_value3"
+      "\030\t \002(\001\022N\n\014history_list\030\n \003(\01328.APP_SERVE"
+      "R_NET_Protocol.S2App_Sensor_History.Sens"
+      "orData\022\020\n\010scene_id\030\013 \002(\r\032\246\002\n\nSensorData\022"
+      "\022\n\nmin_value1\030\001 \002(\001\022\022\n\nmin_value2\030\002 \002(\001\022"
+      "\022\n\nmin_value3\030\003 \002(\001\022\022\n\nmax_value1\030\004 \002(\001\022"
+      "\022\n\nmax_value2\030\005 \002(\001\022\022\n\nmax_value3\030\006 \002(\001\022"
+      "\031\n\021min_offset_value1\030\007 \002(\001\022\031\n\021min_offset"
+      "_value2\030\010 \002(\001\022\031\n\021min_offset_value3\030\t \002(\001"
+      "\022\031\n\021max_offset_value1\030\n \002(\001\022\031\n\021max_offse"
+      "t_value2\030\013 \002(\001\022\031\n\021max_offset_value3\030\014 \002("
+      "\001\"!\n\013S2APP_ERROR\022\022\n\nerror_code\030\001 \002(\r\"\214\001\n"
+      "\017S2APP_New_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002"
+      "(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlongi"
+      "tude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002("
+      "\014\022\020\n\010scene_id\030\010 \002(\r\"!\n\017S2APP_Del_Slope\022\016"
+      "\n\006result\030\001 \002(\r\"\217\001\n\022S2APP_Update_Slope\022\n\n"
+      "\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n"
+      "\005state\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latit"
+      "ude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\020\n\010scene_id\030\010 \002(\r"
+      "\"\246\001\n\020S2APP_Add_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004typ"
+      "e\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r"
+      "\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n"
+      "\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\022\020\n\010scene"
+      "_id\030\t \002(\r\"\"\n\020S2APP_Del_Sensor\022\016\n\006result\030"
+      "\001 \002(\r\"\251\001\n\023S2APP_Update_Sensor\022\n\n\002id\030\001 \002("
+      "\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_"
+      "id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030"
+      "\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\022"
+      "\020\n\010scene_id\030\t \002(\r\".\n\034S2APP_Modify_Passwo"
+      "rd_Result\022\016\n\006result\030\001 \002(\r\"\331\001\n\024S2APP_Auth"
+      "ority_List\022S\n\016authority_list\030\001 \003(\0132;.APP"
+      "_SERVER_NET_Protocol.S2APP_Authority_Lis"
+      "t.AuthorityData\032l\n\rAuthorityData\022\024\n\014auth"
+      "ority_id\030\001 \002(\r\022\021\n\tparent_id\030\002 \002(\r\022\013\n\003url"
+      "\030\003 \001(\014\022\023\n\013description\030\004 \001(\014\022\020\n\010icon_url\030"
+      "\005 \001(\014*\246\003\n\005APP2S\022\017\n\013app2s_login\020\000\022\034\n\030app2"
+      "s_request_slope_list\020\001\022\035\n\031app2s_request_"
+      "sensor_list\020\002\022 \n\034app2s_request_sensor_hi"
+      "story\020\003\022\016\n\napp2s_ping\020\004\022\032\n\026app2s_request"
+      "_all_list\020\005\022\023\n\017app2s_add_slope\020\006\022\023\n\017app2"
+      "s_del_slope\020\007\022\033\n\027app2s_update_slope_data"
+      "\020\010\022\024\n\020app2s_add_sensor\020\t\022\024\n\020app2s_del_se"
+      "nsor\020\n\022\034\n\030app2s_update_sensor_data\020\013\022\031\n\025"
+      "app2s_modify_password\020\014\022\024\n\020app2s_find_sl"
+      "ope\020\r\022\025\n\021app2s_find_sensor\020\016\022\030\n\024app2s_lo"
+      "ad_authority\020\017\022\016\n\tapp2s_max\020\200\002*\342\002\n\005S2APP"
+      "\022\026\n\022s2app_login_result\020\000\022\024\n\020s2app_slope_"
+      "list\020\001\022\025\n\021s2app_sensor_list\020\002\022\030\n\024s2app_s"
+      "ensor_history\020\003\022\026\n\022s2app_all_list_end\020\004\022"
+      "\017\n\013s2app_error\020\005\022\023\n\017s2app_new_slope\020\006\022\023\n"
+      "\017s2app_del_slope\020\007\022\026\n\022s2app_update_slope"
+      "\020\010\022\024\n\020s2app_add_sensor\020\t\022\024\n\020s2app_del_se"
+      "nsor\020\n\022\027\n\023s2app_update_sensor\020\013\022 \n\034s2app"
+      "_modify_password_result\020\014\022\030\n\024s2app_autho"
+      "rity_list\020\r\022\016\n\ts2app_max\020\200\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 4409);
+      descriptor, 4427);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "App_Server_Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -1443,6 +1445,7 @@ void App2S_Login::set_allocated_password(::std::string* password) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int APP2S_Request_Slope_List::kServerIdFieldNumber;
+const int APP2S_Request_Slope_List::kSlopeIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 APP2S_Request_Slope_List::APP2S_Request_Slope_List()
@@ -1459,13 +1462,16 @@ APP2S_Request_Slope_List::APP2S_Request_Slope_List(const APP2S_Request_Slope_Lis
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  server_id_ = from.server_id_;
+  ::memcpy(&server_id_, &from.server_id_,
+    reinterpret_cast<char*>(&slope_id_) -
+    reinterpret_cast<char*>(&server_id_) + sizeof(slope_id_));
   // @@protoc_insertion_point(copy_constructor:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List)
 }
 
 void APP2S_Request_Slope_List::SharedCtor() {
   _cached_size_ = 0;
-  server_id_ = 0u;
+  ::memset(&server_id_, 0, reinterpret_cast<char*>(&slope_id_) -
+    reinterpret_cast<char*>(&server_id_) + sizeof(slope_id_));
 }
 
 APP2S_Request_Slope_List::~APP2S_Request_Slope_List() {
@@ -1501,7 +1507,10 @@ APP2S_Request_Slope_List* APP2S_Request_Slope_List::New(::google::protobuf::Aren
 
 void APP2S_Request_Slope_List::Clear() {
 // @@protoc_insertion_point(message_clear_start:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List)
-  server_id_ = 0u;
+  if (_has_bits_[0 / 32] & 3u) {
+    ::memset(&server_id_, 0, reinterpret_cast<char*>(&slope_id_) -
+      reinterpret_cast<char*>(&server_id_) + sizeof(slope_id_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -1524,6 +1533,20 @@ bool APP2S_Request_Slope_List::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &server_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 slope_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_slope_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slope_id_)));
         } else {
           goto handle_unusual;
         }
@@ -1564,6 +1587,11 @@ void APP2S_Request_Slope_List::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->server_id(), output);
   }
 
+  // required uint32 slope_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->slope_id(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1583,6 +1611,11 @@ void APP2S_Request_Slope_List::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->server_id(), target);
   }
 
+  // required uint32 slope_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->slope_id(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1591,6 +1624,26 @@ void APP2S_Request_Slope_List::SerializeWithCachedSizes(
   return target;
 }
 
+size_t APP2S_Request_Slope_List::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List)
+  size_t total_size = 0;
+
+  if (has_server_id()) {
+    // required uint32 server_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->server_id());
+  }
+
+  if (has_slope_id()) {
+    // required uint32 slope_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+  }
+
+  return total_size;
+}
 size_t APP2S_Request_Slope_List::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List)
   size_t total_size = 0;
@@ -1600,11 +1653,19 @@ size_t APP2S_Request_Slope_List::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
-  // required uint32 server_id = 1;
-  if (has_server_id()) {
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required uint32 server_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->server_id());
+
+    // required uint32 slope_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1635,8 +1696,15 @@ void APP2S_Request_Slope_List::MergeFrom(const APP2S_Request_Slope_List& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_server_id()) {
-    set_server_id(from.server_id());
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      server_id_ = from.server_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      slope_id_ = from.slope_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -1655,7 +1723,7 @@ void APP2S_Request_Slope_List::CopyFrom(const APP2S_Request_Slope_List& from) {
 }
 
 bool APP2S_Request_Slope_List::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   return true;
 }
 
@@ -1665,6 +1733,7 @@ void APP2S_Request_Slope_List::Swap(APP2S_Request_Slope_List* other) {
 }
 void APP2S_Request_Slope_List::InternalSwap(APP2S_Request_Slope_List* other) {
   std::swap(server_id_, other->server_id_);
+  std::swap(slope_id_, other->slope_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1700,6 +1769,30 @@ void APP2S_Request_Slope_List::set_server_id(::google::protobuf::uint32 value) {
   set_has_server_id();
   server_id_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List.server_id)
+}
+
+// required uint32 slope_id = 2;
+bool APP2S_Request_Slope_List::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void APP2S_Request_Slope_List::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void APP2S_Request_Slope_List::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void APP2S_Request_Slope_List::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+::google::protobuf::uint32 APP2S_Request_Slope_List::slope_id() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List.slope_id)
+  return slope_id_;
+}
+void APP2S_Request_Slope_List::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Request_Slope_List.slope_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

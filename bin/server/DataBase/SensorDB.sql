@@ -175,6 +175,12 @@ BEGIN
 	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description from slope;
 END;
 
+DROP PROCEDURE IF EXISTS `LoadSlopeByID`;
+CREATE PROCEDURE `LoadSlopeByID`(IN paramAccount INTEGER UNSIGNED, IN paramServerID INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED)
+BEGIN
+	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description from slope;
+END;
+
 DROP PROCEDURE IF EXISTS `WebLogin`;
 CREATE PROCEDURE `WebLogin`(IN paramAccount VARCHAR(64), IN paramPasword VARCHAR(64))
 BEGIN

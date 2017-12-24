@@ -54,6 +54,7 @@ message Web2S_Login
 message WEB2S_Request_Slope_List
 {
 	required uint32 server_id		= 1;	// 服务器ID
+	required uint32 slope_id		= 2;	// 边坡ID
 }
 
 // web向服务器请求传感器列表
