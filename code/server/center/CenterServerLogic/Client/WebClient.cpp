@@ -38,6 +38,7 @@ CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::
 	&CWebClient::RecvRemoveGroup,
 
 	&CWebClient::RecvLoadAuthority,
+	&CWebClient::RecvModifyAlarmValue,
 };
 
 CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
@@ -71,6 +72,8 @@ CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CWebClient::DBResopndModifyGroup,
 	&CWebClient::DBResopndRemoveGroup,
 	&CWebClient::DBResopndLoadAuthor,
+
+	&CWebClient::DBResopndModifyAlarmValue,
 };
 
 CWebClient::CWebClient() : CClient()
@@ -942,8 +945,8 @@ void CWebClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLe
 	SMysqlRequest	tagRequest = {0};
 	tagRequest.byOpt		= SENSOR_DB_LOAD_AUTHORITY;
 	tagRequest.uClientID	= m_uUniqueID;
-	tagRequest.uClientIndex = m_uIndex;
-	tagRequest.byClientType = WEB_CLIENT;
+	tagRequest.uClientIndex	= m_uIndex;
+	tagRequest.byClientType	= WEB_CLIENT;
 
 	IMysqlQuery	*pMysqlQuery = g_ICenterServer.GetMysqlQuery();
 	if (nullptr == pMysqlQuery)
@@ -962,6 +965,44 @@ void CWebClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLe
 		pMysqlQuery->AddParam(m_uAccountID);
 		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 	}
+
+	pMysqlQuery->CallProc();
+}
+
+void CWebClient::RecvModifyAlarmValue(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Modify_Alarm_Value	tagModifyAlarmValue;
+	BYTE	*pRequest = (BYTE*)pPack + sizeof(BYTE);
+	tagModifyAlarmValue.ParseFromArray(pRequest, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest = {0};
+	tagRequest.byOpt		= SENSOR_DB_MODIFY_ALARM_VALUE;
+	tagRequest.uClientID	= m_uUniqueID;
+	tagRequest.uClientIndex	= m_uIndex;
+	tagRequest.byClientType	= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery = g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("ModifyAlarmValue");
+	pMysqlQuery->AddParam(tagModifyAlarmValue.sensor_type());
+	pMysqlQuery->AddParam(tagModifyAlarmValue.slope_id());
+	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value1());
+	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value2());
+	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value3());
+	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value4());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
@@ -1977,6 +2018,40 @@ void CWebClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest 
 	}
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_authority_list, tagAuthorityList);
+}
+
+void CWebClient::DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	BYTE	bySensorType		= 0;
+	WORD	wSlopeID			= 0;
+	double	dAlarmValue1		= 0;
+	double	dAlarmValue2		= 0;
+	double	dAlarmValue3		= 0;
+	double	dAlarmValue4		= 0;
+	UINT	uCol				= 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2WEB_Alarm_Value	tagAlarmValue;
+
+	pResult1->GetData(0, uCol++, bySensorType);
+	pResult1->GetData(0, uCol++, wSlopeID);
+	pResult1->GetData(0, uCol++, dAlarmValue1);
+	pResult1->GetData(0, uCol++, dAlarmValue2);
+	pResult1->GetData(0, uCol++, dAlarmValue3);
+	pResult1->GetData(0, uCol++, dAlarmValue4);
+
+	tagAlarmValue.set_sensor_type(bySensorType);
+	tagAlarmValue.set_slope_id(wSlopeID);
+	tagAlarmValue.set_alarm_value1(dAlarmValue1);
+	tagAlarmValue.set_alarm_value2(dAlarmValue2);
+	tagAlarmValue.set_alarm_value3(dAlarmValue3);
+	tagAlarmValue.set_alarm_value4(dAlarmValue4);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_alarm_value, tagAlarmValue);
 }
 
 void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)

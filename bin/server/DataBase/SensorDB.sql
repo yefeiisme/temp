@@ -21,7 +21,7 @@ CREATE TABLE `sensor` (
   `OffsetValue2` double DEFAULT NULL,
   `OffsetValue3` double DEFAULT NULL,
   `AlarmState` int NOT NULL DEFAULT '0',
-  `SlopeID` int unsigned NOT NULL,
+  `SlopeID` smallint unsigned NOT NULL,
   `DataTime` datetime NOT NULL,
   `Longitude` double NOT NULL,
   `Latitude` double NOT NULL,
@@ -50,12 +50,18 @@ CREATE TABLE `sensor_data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `sensor_type` (
-  `ID` tinyint unsigned NOT NULL AUTO_INCREMENT,
+  `Type` tinyint unsigned NOT NULL,
+  `SlopeID` smallint unsigned NOT NULL,
   `Name` varchar(64) DEFAULT NULL,
   `Value1` double DEFAULT NULL,
   `Value2` double DEFAULT NULL,
   `Value3` double DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `AlarmValue1` double DEFAULT NULL,
+  `AlarmValue2` double DEFAULT NULL,
+  `AlarmValue3` double DEFAULT NULL,
+  `AlarmValue4` double DEFAULT NULL,
+  KEY `Type`(`Type`),
+  KEY `SlopeID`(`SlopeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `server` (
@@ -419,10 +425,15 @@ BEGIN
 	DECLARE _OffsetValue1 double default 0;
 	DECLARE _OffsetValue2 double default 0;
 	DECLARE _OffsetValue3 double default 0;
+	DECLARE _AlarmValue1 double default 0;
+	DECLARE _AlarmValue2 double default 0;
+	DECLARE _AlarmValue3 double default 0;
+	DECLARE _AlarmValue4 double default 0;
 
 	select ID into _SlopeID from slope where SceneID=paramSlopeSceneID and Type=paramSlopeType;
 	select ID into _SensorID from sensor where SceneID=paramSensorSceneID and Type=paramSensorType and SlopeID=_SlopeID;
 	select AvgValue1,AvgValue2,AvgValue3 into _AvgValue1,_AvgValue2,_AvgValue3 from sensor where ID=_SensorID;
+	select AlarmValue1,AlarmValue2,AlarmValue3,AlarmValue4 into _AlarmValue1,_AlarmValue2,_AlarmValue3,_AlarmValue4 from sensor_type where Type=paramSensorType and SlopeID=_SlopeID;
 
 	if paramSensorType = 2 then
 		set _OffsetValue1 =(_AvgValue1-paramValue1)*100000000;
@@ -437,6 +448,13 @@ BEGIN
 	update slope set Longitude=paramLongitude,Latitude=paramLatitude where ID=_SlopeID;
 	update sensor set Value1=paramValue1,Value2=paramValue2,Value3=paramValue3,Value4=paramValue4,OffsetValue1=_OffsetValue1,OffsetValue2=_OffsetValue2,OffsetValue3=_OffsetValue3 where ID=_SensorID;
 	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime,DataTime1,OffsetValue1,OffsetValue2,OffsetValue3) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,FROM_UNIXTIME(paramTime),paramTime,_OffsetValue1,_OffsetValue2,_OffsetValue3);
+END;
+
+DROP PROCEDURE IF EXISTS `ModifyAlarmValue`;
+CREATE PROCEDURE `ModifyAlarmValue`(IN paramSensorType tinyint UNSIGNED,IN paramSlopeID smallint UNSIGNED,IN paramValue1 double,IN paramValue2 double,IN paramValue3 double,IN paramValue4 double)
+BEGIN
+	update sensor_type set AlarmValue1=paramValue1,AlarmValue2=paramValue2,AlarmValue3=paramValue3,AlarmValue4=paramValue4 where Type=paramSensorType and SlopeID=paramSlopeID;
+	select paramSensorType,paramSlopeID,paramValue1,paramValue2,paramValue3,paramValue4;
 END;
 
 //
