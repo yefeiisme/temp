@@ -38,12 +38,6 @@ extern S2WEB_Add_SensorDefaultTypeInternal _S2WEB_Add_Sensor_default_instance_;
 class S2WEB_Add_User_To_Group;
 class S2WEB_Add_User_To_GroupDefaultTypeInternal;
 extern S2WEB_Add_User_To_GroupDefaultTypeInternal _S2WEB_Add_User_To_Group_default_instance_;
-class S2WEB_Alarm_List;
-class S2WEB_Alarm_ListDefaultTypeInternal;
-extern S2WEB_Alarm_ListDefaultTypeInternal _S2WEB_Alarm_List_default_instance_;
-class S2WEB_Alarm_List_AlarmValue;
-class S2WEB_Alarm_List_AlarmValueDefaultTypeInternal;
-extern S2WEB_Alarm_List_AlarmValueDefaultTypeInternal _S2WEB_Alarm_List_AlarmValue_default_instance_;
 class S2WEB_Alarm_Value;
 class S2WEB_Alarm_ValueDefaultTypeInternal;
 extern S2WEB_Alarm_ValueDefaultTypeInternal _S2WEB_Alarm_Value_default_instance_;
@@ -293,7 +287,6 @@ enum S2WEB {
   s2web_remove_user_from_group = 22,
   s2web_authority_list = 23,
   s2web_alarm_value = 24,
-  s2web_alarm_list = 25,
   s2web_max = 256
 };
 bool S2WEB_IsValid(int value);
@@ -3228,15 +3221,28 @@ class WEB2S_Load_Alarm_List : public ::google::protobuf::Message /* @@protoc_ins
   ::google::protobuf::uint32 slope_id() const;
   void set_slope_id(::google::protobuf::uint32 value);
 
+  // required uint32 sensor_type = 2;
+  bool has_sensor_type() const;
+  void clear_sensor_type();
+  static const int kSensorTypeFieldNumber = 2;
+  ::google::protobuf::uint32 sensor_type() const;
+  void set_sensor_type(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.WEB2S_Load_Alarm_List)
  private:
   void set_has_slope_id();
   void clear_has_slope_id();
+  void set_has_sensor_type();
+  void clear_has_sensor_type();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 slope_id_;
+  ::google::protobuf::uint32 sensor_type_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -7439,248 +7445,6 @@ class S2WEB_Alarm_Value : public ::google::protobuf::Message /* @@protoc_inserti
   double alarm_value4_;
   friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
 };
-// -------------------------------------------------------------------
-
-class S2WEB_Alarm_List_AlarmValue : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue) */ {
- public:
-  S2WEB_Alarm_List_AlarmValue();
-  virtual ~S2WEB_Alarm_List_AlarmValue();
-
-  S2WEB_Alarm_List_AlarmValue(const S2WEB_Alarm_List_AlarmValue& from);
-
-  inline S2WEB_Alarm_List_AlarmValue& operator=(const S2WEB_Alarm_List_AlarmValue& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const S2WEB_Alarm_List_AlarmValue& default_instance();
-
-  static inline const S2WEB_Alarm_List_AlarmValue* internal_default_instance() {
-    return reinterpret_cast<const S2WEB_Alarm_List_AlarmValue*>(
-               &_S2WEB_Alarm_List_AlarmValue_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    55;
-
-  void Swap(S2WEB_Alarm_List_AlarmValue* other);
-
-  // implements Message ----------------------------------------------
-
-  inline S2WEB_Alarm_List_AlarmValue* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  S2WEB_Alarm_List_AlarmValue* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const S2WEB_Alarm_List_AlarmValue& from);
-  void MergeFrom(const S2WEB_Alarm_List_AlarmValue& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(S2WEB_Alarm_List_AlarmValue* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required uint32 sensor_type = 1;
-  bool has_sensor_type() const;
-  void clear_sensor_type();
-  static const int kSensorTypeFieldNumber = 1;
-  ::google::protobuf::uint32 sensor_type() const;
-  void set_sensor_type(::google::protobuf::uint32 value);
-
-  // required uint32 slope_id = 2;
-  bool has_slope_id() const;
-  void clear_slope_id();
-  static const int kSlopeIdFieldNumber = 2;
-  ::google::protobuf::uint32 slope_id() const;
-  void set_slope_id(::google::protobuf::uint32 value);
-
-  // required double alarm_value1 = 3;
-  bool has_alarm_value1() const;
-  void clear_alarm_value1();
-  static const int kAlarmValue1FieldNumber = 3;
-  double alarm_value1() const;
-  void set_alarm_value1(double value);
-
-  // required double alarm_value2 = 4;
-  bool has_alarm_value2() const;
-  void clear_alarm_value2();
-  static const int kAlarmValue2FieldNumber = 4;
-  double alarm_value2() const;
-  void set_alarm_value2(double value);
-
-  // required double alarm_value3 = 5;
-  bool has_alarm_value3() const;
-  void clear_alarm_value3();
-  static const int kAlarmValue3FieldNumber = 5;
-  double alarm_value3() const;
-  void set_alarm_value3(double value);
-
-  // required double alarm_value4 = 6;
-  bool has_alarm_value4() const;
-  void clear_alarm_value4();
-  static const int kAlarmValue4FieldNumber = 6;
-  double alarm_value4() const;
-  void set_alarm_value4(double value);
-
-  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue)
- private:
-  void set_has_sensor_type();
-  void clear_has_sensor_type();
-  void set_has_slope_id();
-  void clear_has_slope_id();
-  void set_has_alarm_value1();
-  void clear_has_alarm_value1();
-  void set_has_alarm_value2();
-  void clear_has_alarm_value2();
-  void set_has_alarm_value3();
-  void clear_has_alarm_value3();
-  void set_has_alarm_value4();
-  void clear_has_alarm_value4();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::HasBits<1> _has_bits_;
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 sensor_type_;
-  ::google::protobuf::uint32 slope_id_;
-  double alarm_value1_;
-  double alarm_value2_;
-  double alarm_value3_;
-  double alarm_value4_;
-  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class S2WEB_Alarm_List : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List) */ {
- public:
-  S2WEB_Alarm_List();
-  virtual ~S2WEB_Alarm_List();
-
-  S2WEB_Alarm_List(const S2WEB_Alarm_List& from);
-
-  inline S2WEB_Alarm_List& operator=(const S2WEB_Alarm_List& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const S2WEB_Alarm_List& default_instance();
-
-  static inline const S2WEB_Alarm_List* internal_default_instance() {
-    return reinterpret_cast<const S2WEB_Alarm_List*>(
-               &_S2WEB_Alarm_List_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    56;
-
-  void Swap(S2WEB_Alarm_List* other);
-
-  // implements Message ----------------------------------------------
-
-  inline S2WEB_Alarm_List* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  S2WEB_Alarm_List* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const S2WEB_Alarm_List& from);
-  void MergeFrom(const S2WEB_Alarm_List& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(S2WEB_Alarm_List* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  typedef S2WEB_Alarm_List_AlarmValue AlarmValue;
-
-  // accessors -------------------------------------------------------
-
-  // repeated .WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue alarm_list = 1;
-  int alarm_list_size() const;
-  void clear_alarm_list();
-  static const int kAlarmListFieldNumber = 1;
-  const ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue& alarm_list(int index) const;
-  ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue* mutable_alarm_list(int index);
-  ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue* add_alarm_list();
-  ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue >*
-      mutable_alarm_list();
-  const ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue >&
-      alarm_list() const;
-
-  // @@protoc_insertion_point(class_scope:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::HasBits<1> _has_bits_;
-  mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue > alarm_list_;
-  friend struct protobuf_Web_5fServer_5fProtocol_2eproto::TableStruct;
-};
 // ===================================================================
 
 
@@ -10344,6 +10108,30 @@ inline void WEB2S_Load_Alarm_List::set_slope_id(::google::protobuf::uint32 value
   set_has_slope_id();
   slope_id_ = value;
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Load_Alarm_List.slope_id)
+}
+
+// required uint32 sensor_type = 2;
+inline bool WEB2S_Load_Alarm_List::has_sensor_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WEB2S_Load_Alarm_List::set_has_sensor_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WEB2S_Load_Alarm_List::clear_has_sensor_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WEB2S_Load_Alarm_List::clear_sensor_type() {
+  sensor_type_ = 0u;
+  clear_has_sensor_type();
+}
+inline ::google::protobuf::uint32 WEB2S_Load_Alarm_List::sensor_type() const {
+  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.WEB2S_Load_Alarm_List.sensor_type)
+  return sensor_type_;
+}
+inline void WEB2S_Load_Alarm_List::set_sensor_type(::google::protobuf::uint32 value) {
+  set_has_sensor_type();
+  sensor_type_ = value;
+  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.WEB2S_Load_Alarm_List.sensor_type)
 }
 
 // -------------------------------------------------------------------
@@ -14706,193 +14494,7 @@ inline void S2WEB_Alarm_Value::set_alarm_value4(double value) {
   // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Alarm_Value.alarm_value4)
 }
 
-// -------------------------------------------------------------------
-
-// S2WEB_Alarm_List_AlarmValue
-
-// required uint32 sensor_type = 1;
-inline bool S2WEB_Alarm_List_AlarmValue::has_sensor_type() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_has_sensor_type() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_has_sensor_type() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_sensor_type() {
-  sensor_type_ = 0u;
-  clear_has_sensor_type();
-}
-inline ::google::protobuf::uint32 S2WEB_Alarm_List_AlarmValue::sensor_type() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.sensor_type)
-  return sensor_type_;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_sensor_type(::google::protobuf::uint32 value) {
-  set_has_sensor_type();
-  sensor_type_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.sensor_type)
-}
-
-// required uint32 slope_id = 2;
-inline bool S2WEB_Alarm_List_AlarmValue::has_slope_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_has_slope_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_has_slope_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_slope_id() {
-  slope_id_ = 0u;
-  clear_has_slope_id();
-}
-inline ::google::protobuf::uint32 S2WEB_Alarm_List_AlarmValue::slope_id() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.slope_id)
-  return slope_id_;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_slope_id(::google::protobuf::uint32 value) {
-  set_has_slope_id();
-  slope_id_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.slope_id)
-}
-
-// required double alarm_value1 = 3;
-inline bool S2WEB_Alarm_List_AlarmValue::has_alarm_value1() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_has_alarm_value1() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_has_alarm_value1() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_alarm_value1() {
-  alarm_value1_ = 0;
-  clear_has_alarm_value1();
-}
-inline double S2WEB_Alarm_List_AlarmValue::alarm_value1() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.alarm_value1)
-  return alarm_value1_;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_alarm_value1(double value) {
-  set_has_alarm_value1();
-  alarm_value1_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.alarm_value1)
-}
-
-// required double alarm_value2 = 4;
-inline bool S2WEB_Alarm_List_AlarmValue::has_alarm_value2() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_has_alarm_value2() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_has_alarm_value2() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_alarm_value2() {
-  alarm_value2_ = 0;
-  clear_has_alarm_value2();
-}
-inline double S2WEB_Alarm_List_AlarmValue::alarm_value2() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.alarm_value2)
-  return alarm_value2_;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_alarm_value2(double value) {
-  set_has_alarm_value2();
-  alarm_value2_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.alarm_value2)
-}
-
-// required double alarm_value3 = 5;
-inline bool S2WEB_Alarm_List_AlarmValue::has_alarm_value3() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_has_alarm_value3() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_has_alarm_value3() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_alarm_value3() {
-  alarm_value3_ = 0;
-  clear_has_alarm_value3();
-}
-inline double S2WEB_Alarm_List_AlarmValue::alarm_value3() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.alarm_value3)
-  return alarm_value3_;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_alarm_value3(double value) {
-  set_has_alarm_value3();
-  alarm_value3_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.alarm_value3)
-}
-
-// required double alarm_value4 = 6;
-inline bool S2WEB_Alarm_List_AlarmValue::has_alarm_value4() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_has_alarm_value4() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_has_alarm_value4() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void S2WEB_Alarm_List_AlarmValue::clear_alarm_value4() {
-  alarm_value4_ = 0;
-  clear_has_alarm_value4();
-}
-inline double S2WEB_Alarm_List_AlarmValue::alarm_value4() const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.alarm_value4)
-  return alarm_value4_;
-}
-inline void S2WEB_Alarm_List_AlarmValue::set_alarm_value4(double value) {
-  set_has_alarm_value4();
-  alarm_value4_ = value;
-  // @@protoc_insertion_point(field_set:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue.alarm_value4)
-}
-
-// -------------------------------------------------------------------
-
-// S2WEB_Alarm_List
-
-// repeated .WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.AlarmValue alarm_list = 1;
-inline int S2WEB_Alarm_List::alarm_list_size() const {
-  return alarm_list_.size();
-}
-inline void S2WEB_Alarm_List::clear_alarm_list() {
-  alarm_list_.Clear();
-}
-inline const ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue& S2WEB_Alarm_List::alarm_list(int index) const {
-  // @@protoc_insertion_point(field_get:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.alarm_list)
-  return alarm_list_.Get(index);
-}
-inline ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue* S2WEB_Alarm_List::mutable_alarm_list(int index) {
-  // @@protoc_insertion_point(field_mutable:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.alarm_list)
-  return alarm_list_.Mutable(index);
-}
-inline ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue* S2WEB_Alarm_List::add_alarm_list() {
-  // @@protoc_insertion_point(field_add:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.alarm_list)
-  return alarm_list_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue >*
-S2WEB_Alarm_List::mutable_alarm_list() {
-  // @@protoc_insertion_point(field_mutable_list:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.alarm_list)
-  return &alarm_list_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::WEB_SERVER_NET_Protocol::S2WEB_Alarm_List_AlarmValue >&
-S2WEB_Alarm_List::alarm_list() const {
-  // @@protoc_insertion_point(field_list:WEB_SERVER_NET_Protocol.S2WEB_Alarm_List.alarm_list)
-  return alarm_list_;
-}
-
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -84,7 +84,7 @@ private:
 	void					DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 
 	void					DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
-	void					DBResopndLoadAlarmList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndLoadAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	void					SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg);
 private:

@@ -75,7 +75,7 @@ CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CWebClient::DBResopndLoadAuthor,
 
 	&CWebClient::DBResopndModifyAlarmValue,
-	&CWebClient::DBResopndLoadAlarmList,
+	&CWebClient::DBResopndLoadAlarmValue,
 };
 
 CWebClient::CWebClient() : CClient()
@@ -1025,8 +1025,8 @@ void CWebClient::RecvLoadAlarmList(const void *pPack, const unsigned int uPackLe
 	BYTE	*pRequest = (BYTE*)pPack + sizeof(BYTE);
 	tagLoadAlarmList.ParseFromArray(pRequest, uPackLen - sizeof(BYTE));
 
-	SMysqlRequest	tagRequest = { 0 };
-	tagRequest.byOpt = SENSOR_DB_LOAD_ALARM_LIST;
+	SMysqlRequest	tagRequest = {0};
+	tagRequest.byOpt		= SENSOR_DB_LOAD_ALARM_VALUE;
 	tagRequest.uClientID	= m_uUniqueID;
 	tagRequest.uClientIndex	= m_uIndex;
 	tagRequest.byClientType	= WEB_CLIENT;
@@ -1035,8 +1035,9 @@ void CWebClient::RecvLoadAlarmList(const void *pPack, const unsigned int uPackLe
 	if (nullptr == pMysqlQuery)
 		return;
 
-	pMysqlQuery->PrepareProc("LoadAlarmList");
+	pMysqlQuery->PrepareProc("LoadAlarmValue");
 	pMysqlQuery->AddParam(tagLoadAlarmList.slope_id());
+	pMysqlQuery->AddParam(tagLoadAlarmList.sensor_type());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -2089,7 +2090,7 @@ void CWebClient::DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRe
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_alarm_value, tagAlarmValue);
 }
 
-void CWebClient::DBResopndLoadAlarmList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+void CWebClient::DBResopndLoadAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	BYTE	bySensorType		= 0;
 	WORD	wSlopeID			= 0;
@@ -2104,32 +2105,23 @@ void CWebClient::DBResopndLoadAlarmList(IMysqlResultSet *pResultSet, SMysqlReque
 	if (nullptr == pResult1)
 		return;
 
-	WEB_SERVER_NET_Protocol::S2WEB_Alarm_List	tagAlarmList;
+	WEB_SERVER_NET_Protocol::S2WEB_Alarm_Value	tagAlarmValue;
 
-	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
-	{
-		WEB_SERVER_NET_Protocol::S2WEB_Alarm_List::AlarmValue	*pAuthorData = tagAlarmList.add_alarm_list();
-		if (nullptr == pAuthorData)
-			continue;
+	pResult1->GetData(0, uCol++, bySensorType);
+	pResult1->GetData(0, uCol++, wSlopeID);
+	pResult1->GetData(0, uCol++, dAlarmValue1);
+	pResult1->GetData(0, uCol++, dAlarmValue2);
+	pResult1->GetData(0, uCol++, dAlarmValue3);
+	pResult1->GetData(0, uCol++, dAlarmValue4);
 
-		uCol = 0;
+	tagAlarmValue.set_sensor_type(bySensorType);
+	tagAlarmValue.set_slope_id(wSlopeID);
+	tagAlarmValue.set_alarm_value1(dAlarmValue1);
+	tagAlarmValue.set_alarm_value2(dAlarmValue2);
+	tagAlarmValue.set_alarm_value3(dAlarmValue3);
+	tagAlarmValue.set_alarm_value4(dAlarmValue4);
 
-		pResult1->GetData(uRow, uCol++, bySensorType);
-		pResult1->GetData(uRow, uCol++, wSlopeID);
-		pResult1->GetData(uRow, uCol++, dAlarmValue1);
-		pResult1->GetData(uRow, uCol++, dAlarmValue2);
-		pResult1->GetData(uRow, uCol++, dAlarmValue3);
-		pResult1->GetData(uRow, uCol++, dAlarmValue4);
-
-		pAuthorData->set_sensor_type(bySensorType);
-		pAuthorData->set_slope_id(wSlopeID);
-		pAuthorData->set_alarm_value1(dAlarmValue1);
-		pAuthorData->set_alarm_value2(dAlarmValue2);
-		pAuthorData->set_alarm_value3(dAlarmValue3);
-		pAuthorData->set_alarm_value4(dAlarmValue4);
-	}
-
-	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_alarm_list, tagAlarmList);
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_alarm_value, tagAlarmValue);
 }
 
 void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)
