@@ -46,6 +46,8 @@ class APP2S_Find_SensorDefaultTypeInternal : public ::google::protobuf::internal
 } _APP2S_Find_Sensor_default_instance_;
 class APP2S_Load_AuthorityDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<APP2S_Load_Authority> {
 } _APP2S_Load_Authority_default_instance_;
+class APP2S_Modify_Alarm_ValueDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<APP2S_Modify_Alarm_Value> {
+} _APP2S_Modify_Alarm_Value_default_instance_;
 class S2App_Login_Result_ServerDataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2App_Login_Result_ServerData> {
 } _S2App_Login_Result_ServerData_default_instance_;
 class S2App_Login_ResultDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2App_Login_Result> {
@@ -82,13 +84,15 @@ class S2APP_Authority_List_AuthorityDataDefaultTypeInternal : public ::google::p
 } _S2APP_Authority_List_AuthorityData_default_instance_;
 class S2APP_Authority_ListDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2APP_Authority_List> {
 } _S2APP_Authority_List_default_instance_;
+class S2APP_Alarm_ValueDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<S2APP_Alarm_Value> {
+} _S2APP_Alarm_Value_default_instance_;
 
 namespace protobuf_App_5fServer_5fProtocol_2eproto {
 
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[32];
+::google::protobuf::Metadata file_level_metadata[34];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 }  // namespace
@@ -104,6 +108,8 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
@@ -301,6 +307,23 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Load_Authority, authority_id_),
   0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Modify_Alarm_Value, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Modify_Alarm_Value, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Modify_Alarm_Value, sensor_type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Modify_Alarm_Value, slope_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Modify_Alarm_Value, alarm_value1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Modify_Alarm_Value, alarm_value2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Modify_Alarm_Value, alarm_value3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(APP2S_Modify_Alarm_Value, alarm_value4_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Login_Result_ServerData, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2App_Login_Result_ServerData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -595,6 +618,23 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Authority_List, authority_list_),
   ~0u,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Alarm_Value, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Alarm_Value, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Alarm_Value, sensor_type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Alarm_Value, slope_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Alarm_Value, alarm_value1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Alarm_Value, alarm_value2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Alarm_Value, alarm_value3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2APP_Alarm_Value, alarm_value4_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
 };
 
 static const ::google::protobuf::internal::MigrationSchema schemas[] = {
@@ -612,24 +652,26 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 133, 140, sizeof(APP2S_Find_Slope)},
   { 142, 151, sizeof(APP2S_Find_Sensor)},
   { 155, 161, sizeof(APP2S_Load_Authority)},
-  { 162, 170, sizeof(S2App_Login_Result_ServerData)},
-  { 173, 180, sizeof(S2App_Login_Result)},
-  { 182, 196, sizeof(S2App_Slope_List_SlopeData)},
-  { 205, 211, sizeof(S2App_Slope_List)},
-  { 212, 236, sizeof(S2App_Sensor_List_SensorData)},
-  { 255, 261, sizeof(S2App_Sensor_List)},
-  { 262, 279, sizeof(S2App_Sensor_History_SensorData)},
-  { 291, 307, sizeof(S2App_Sensor_History)},
-  { 318, 324, sizeof(S2APP_ERROR)},
-  { 325, 338, sizeof(S2APP_New_Slope)},
-  { 346, 352, sizeof(S2APP_Del_Slope)},
-  { 353, 366, sizeof(S2APP_Update_Slope)},
-  { 374, 388, sizeof(S2APP_Add_Sensor)},
-  { 397, 403, sizeof(S2APP_Del_Sensor)},
-  { 404, 418, sizeof(S2APP_Update_Sensor)},
-  { 427, 433, sizeof(S2APP_Modify_Password_Result)},
-  { 434, 444, sizeof(S2APP_Authority_List_AuthorityData)},
-  { 449, 455, sizeof(S2APP_Authority_List)},
+  { 162, 173, sizeof(APP2S_Modify_Alarm_Value)},
+  { 179, 187, sizeof(S2App_Login_Result_ServerData)},
+  { 190, 197, sizeof(S2App_Login_Result)},
+  { 199, 213, sizeof(S2App_Slope_List_SlopeData)},
+  { 222, 228, sizeof(S2App_Slope_List)},
+  { 229, 253, sizeof(S2App_Sensor_List_SensorData)},
+  { 272, 278, sizeof(S2App_Sensor_List)},
+  { 279, 296, sizeof(S2App_Sensor_History_SensorData)},
+  { 308, 324, sizeof(S2App_Sensor_History)},
+  { 335, 341, sizeof(S2APP_ERROR)},
+  { 342, 355, sizeof(S2APP_New_Slope)},
+  { 363, 369, sizeof(S2APP_Del_Slope)},
+  { 370, 383, sizeof(S2APP_Update_Slope)},
+  { 391, 405, sizeof(S2APP_Add_Sensor)},
+  { 414, 420, sizeof(S2APP_Del_Sensor)},
+  { 421, 435, sizeof(S2APP_Update_Sensor)},
+  { 444, 450, sizeof(S2APP_Modify_Password_Result)},
+  { 451, 461, sizeof(S2APP_Authority_List_AuthorityData)},
+  { 466, 472, sizeof(S2APP_Authority_List)},
+  { 473, 484, sizeof(S2APP_Alarm_Value)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -647,6 +689,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_APP2S_Find_Slope_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_APP2S_Find_Sensor_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_APP2S_Load_Authority_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_APP2S_Modify_Alarm_Value_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2App_Login_Result_ServerData_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2App_Login_Result_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2App_Slope_List_SlopeData_default_instance_),
@@ -665,6 +708,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2APP_Modify_Password_Result_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2APP_Authority_List_AuthorityData_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_S2APP_Authority_List_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_S2APP_Alarm_Value_default_instance_),
 };
 
 namespace {
@@ -685,7 +729,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 32);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 34);
 }
 
 }  // namespace
@@ -719,42 +763,46 @@ void TableStruct::Shutdown() {
   delete file_level_metadata[12].reflection;
   _APP2S_Load_Authority_default_instance_.Shutdown();
   delete file_level_metadata[13].reflection;
-  _S2App_Login_Result_ServerData_default_instance_.Shutdown();
+  _APP2S_Modify_Alarm_Value_default_instance_.Shutdown();
   delete file_level_metadata[14].reflection;
-  _S2App_Login_Result_default_instance_.Shutdown();
+  _S2App_Login_Result_ServerData_default_instance_.Shutdown();
   delete file_level_metadata[15].reflection;
-  _S2App_Slope_List_SlopeData_default_instance_.Shutdown();
+  _S2App_Login_Result_default_instance_.Shutdown();
   delete file_level_metadata[16].reflection;
-  _S2App_Slope_List_default_instance_.Shutdown();
+  _S2App_Slope_List_SlopeData_default_instance_.Shutdown();
   delete file_level_metadata[17].reflection;
-  _S2App_Sensor_List_SensorData_default_instance_.Shutdown();
+  _S2App_Slope_List_default_instance_.Shutdown();
   delete file_level_metadata[18].reflection;
-  _S2App_Sensor_List_default_instance_.Shutdown();
+  _S2App_Sensor_List_SensorData_default_instance_.Shutdown();
   delete file_level_metadata[19].reflection;
-  _S2App_Sensor_History_SensorData_default_instance_.Shutdown();
+  _S2App_Sensor_List_default_instance_.Shutdown();
   delete file_level_metadata[20].reflection;
-  _S2App_Sensor_History_default_instance_.Shutdown();
+  _S2App_Sensor_History_SensorData_default_instance_.Shutdown();
   delete file_level_metadata[21].reflection;
-  _S2APP_ERROR_default_instance_.Shutdown();
+  _S2App_Sensor_History_default_instance_.Shutdown();
   delete file_level_metadata[22].reflection;
-  _S2APP_New_Slope_default_instance_.Shutdown();
+  _S2APP_ERROR_default_instance_.Shutdown();
   delete file_level_metadata[23].reflection;
-  _S2APP_Del_Slope_default_instance_.Shutdown();
+  _S2APP_New_Slope_default_instance_.Shutdown();
   delete file_level_metadata[24].reflection;
-  _S2APP_Update_Slope_default_instance_.Shutdown();
+  _S2APP_Del_Slope_default_instance_.Shutdown();
   delete file_level_metadata[25].reflection;
-  _S2APP_Add_Sensor_default_instance_.Shutdown();
+  _S2APP_Update_Slope_default_instance_.Shutdown();
   delete file_level_metadata[26].reflection;
-  _S2APP_Del_Sensor_default_instance_.Shutdown();
+  _S2APP_Add_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[27].reflection;
-  _S2APP_Update_Sensor_default_instance_.Shutdown();
+  _S2APP_Del_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[28].reflection;
-  _S2APP_Modify_Password_Result_default_instance_.Shutdown();
+  _S2APP_Update_Sensor_default_instance_.Shutdown();
   delete file_level_metadata[29].reflection;
-  _S2APP_Authority_List_AuthorityData_default_instance_.Shutdown();
+  _S2APP_Modify_Password_Result_default_instance_.Shutdown();
   delete file_level_metadata[30].reflection;
-  _S2APP_Authority_List_default_instance_.Shutdown();
+  _S2APP_Authority_List_AuthorityData_default_instance_.Shutdown();
   delete file_level_metadata[31].reflection;
+  _S2APP_Authority_List_default_instance_.Shutdown();
+  delete file_level_metadata[32].reflection;
+  _S2APP_Alarm_Value_default_instance_.Shutdown();
+  delete file_level_metadata[33].reflection;
 }
 
 void TableStruct::InitDefaultsImpl() {
@@ -775,6 +823,7 @@ void TableStruct::InitDefaultsImpl() {
   _APP2S_Find_Slope_default_instance_.DefaultConstruct();
   _APP2S_Find_Sensor_default_instance_.DefaultConstruct();
   _APP2S_Load_Authority_default_instance_.DefaultConstruct();
+  _APP2S_Modify_Alarm_Value_default_instance_.DefaultConstruct();
   _S2App_Login_Result_ServerData_default_instance_.DefaultConstruct();
   _S2App_Login_Result_default_instance_.DefaultConstruct();
   _S2App_Slope_List_SlopeData_default_instance_.DefaultConstruct();
@@ -793,6 +842,7 @@ void TableStruct::InitDefaultsImpl() {
   _S2APP_Modify_Password_Result_default_instance_.DefaultConstruct();
   _S2APP_Authority_List_AuthorityData_default_instance_.DefaultConstruct();
   _S2APP_Authority_List_default_instance_.DefaultConstruct();
+  _S2APP_Alarm_Value_default_instance_.DefaultConstruct();
 }
 
 void InitDefaults() {
@@ -831,91 +881,100 @@ void AddDescriptorsImpl() {
       "d_Sensor\022\020\n\010slope_id\030\001 \002(\r\022\022\n\nslope_name"
       "\030\002 \002(\014\022\021\n\tsensor_id\030\003 \002(\r\022\023\n\013sensor_type"
       "\030\004 \002(\r\",\n\024APP2S_Load_Authority\022\024\n\014author"
-      "ity_id\030\001 \002(\r\"\245\001\n\022S2App_Login_Result\022\016\n\006r"
-      "esult\030\001 \002(\r\022K\n\013server_list\030\002 \003(\01326.APP_S"
-      "ERVER_NET_Protocol.S2App_Login_Result.Se"
-      "rverData\0322\n\nServerData\022\n\n\002id\030\001 \002(\r\022\n\n\002ip"
-      "\030\002 \002(\014\022\014\n\004port\030\003 \002(\r\"\362\001\n\020S2App_Slope_Lis"
-      "t\022G\n\nslope_list\030\001 \003(\01323.APP_SERVER_NET_P"
-      "rotocol.S2App_Slope_List.SlopeData\032\224\001\n\tS"
-      "lopeData\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004na"
-      "me\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlongitude\030\005 \002"
-      "(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \001(\014\022\020\n\010sce"
-      "ne_id\030\010 \001(\r\022\014\n\004desc\030\t \001(\014\"\323\003\n\021S2App_Sens"
-      "or_List\022J\n\013sensor_list\030\001 \003(\01325.APP_SERVE"
-      "R_NET_Protocol.S2App_Sensor_List.SensorD"
-      "ata\032\361\002\n\nSensorData\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002"
-      " \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n"
-      "\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\022\n\ncu"
-      "r_value1\030\007 \002(\001\022\022\n\ncur_value2\030\010 \002(\001\022\022\n\ncu"
-      "r_value3\030\t \002(\001\022\022\n\navg_value1\030\n \002(\001\022\022\n\nav"
-      "g_value2\030\013 \002(\001\022\022\n\navg_value3\030\014 \002(\001\022\025\n\rof"
-      "fset_value1\030\r \002(\001\022\025\n\roffset_value2\030\016 \002(\001"
-      "\022\025\n\roffset_value3\030\017 \002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013"
-      "description\030\021 \002(\014\022\020\n\010scene_id\030\022 \002(\r\022\022\n\nc"
-      "ur_value4\030\023 \002(\001\"\307\004\n\024S2App_Sensor_History"
-      "\022\n\n\002id\030\001 \002(\r\022\021\n\tlongitude\030\002 \002(\001\022\020\n\010latit"
-      "ude\030\003 \002(\001\022\022\n\nbegin_time\030\004 \002(\r\022\020\n\010end_tim"
-      "e\030\005 \002(\r\022\021\n\tinvterval\030\006 \002(\r\022\022\n\navg_value1"
-      "\030\007 \002(\001\022\022\n\navg_value2\030\010 \002(\001\022\022\n\navg_value3"
-      "\030\t \002(\001\022N\n\014history_list\030\n \003(\01328.APP_SERVE"
-      "R_NET_Protocol.S2App_Sensor_History.Sens"
-      "orData\022\020\n\010scene_id\030\013 \002(\r\032\246\002\n\nSensorData\022"
-      "\022\n\nmin_value1\030\001 \002(\001\022\022\n\nmin_value2\030\002 \002(\001\022"
-      "\022\n\nmin_value3\030\003 \002(\001\022\022\n\nmax_value1\030\004 \002(\001\022"
-      "\022\n\nmax_value2\030\005 \002(\001\022\022\n\nmax_value3\030\006 \002(\001\022"
-      "\031\n\021min_offset_value1\030\007 \002(\001\022\031\n\021min_offset"
-      "_value2\030\010 \002(\001\022\031\n\021min_offset_value3\030\t \002(\001"
-      "\022\031\n\021max_offset_value1\030\n \002(\001\022\031\n\021max_offse"
-      "t_value2\030\013 \002(\001\022\031\n\021max_offset_value3\030\014 \002("
-      "\001\"!\n\013S2APP_ERROR\022\022\n\nerror_code\030\001 \002(\r\"\214\001\n"
-      "\017S2APP_New_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002"
-      "(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlongi"
-      "tude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002("
-      "\014\022\020\n\010scene_id\030\010 \002(\r\"!\n\017S2APP_Del_Slope\022\016"
-      "\n\006result\030\001 \002(\r\"\217\001\n\022S2APP_Update_Slope\022\n\n"
-      "\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n"
-      "\005state\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latit"
-      "ude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\020\n\010scene_id\030\010 \002(\r"
-      "\"\246\001\n\020S2APP_Add_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004typ"
-      "e\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r"
-      "\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n"
-      "\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\022\020\n\010scene"
-      "_id\030\t \002(\r\"\"\n\020S2APP_Del_Sensor\022\016\n\006result\030"
-      "\001 \002(\r\"\251\001\n\023S2APP_Update_Sensor\022\n\n\002id\030\001 \002("
-      "\r\022\014\n\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_"
-      "id\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030"
-      "\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\022"
-      "\020\n\010scene_id\030\t \002(\r\".\n\034S2APP_Modify_Passwo"
-      "rd_Result\022\016\n\006result\030\001 \002(\r\"\331\001\n\024S2APP_Auth"
-      "ority_List\022S\n\016authority_list\030\001 \003(\0132;.APP"
-      "_SERVER_NET_Protocol.S2APP_Authority_Lis"
-      "t.AuthorityData\032l\n\rAuthorityData\022\024\n\014auth"
-      "ority_id\030\001 \002(\r\022\021\n\tparent_id\030\002 \002(\r\022\013\n\003url"
-      "\030\003 \001(\014\022\023\n\013description\030\004 \001(\014\022\020\n\010icon_url\030"
-      "\005 \001(\014*\246\003\n\005APP2S\022\017\n\013app2s_login\020\000\022\034\n\030app2"
-      "s_request_slope_list\020\001\022\035\n\031app2s_request_"
-      "sensor_list\020\002\022 \n\034app2s_request_sensor_hi"
-      "story\020\003\022\016\n\napp2s_ping\020\004\022\032\n\026app2s_request"
-      "_all_list\020\005\022\023\n\017app2s_add_slope\020\006\022\023\n\017app2"
-      "s_del_slope\020\007\022\033\n\027app2s_update_slope_data"
-      "\020\010\022\024\n\020app2s_add_sensor\020\t\022\024\n\020app2s_del_se"
-      "nsor\020\n\022\034\n\030app2s_update_sensor_data\020\013\022\031\n\025"
-      "app2s_modify_password\020\014\022\024\n\020app2s_find_sl"
-      "ope\020\r\022\025\n\021app2s_find_sensor\020\016\022\030\n\024app2s_lo"
-      "ad_authority\020\017\022\016\n\tapp2s_max\020\200\002*\342\002\n\005S2APP"
-      "\022\026\n\022s2app_login_result\020\000\022\024\n\020s2app_slope_"
-      "list\020\001\022\025\n\021s2app_sensor_list\020\002\022\030\n\024s2app_s"
-      "ensor_history\020\003\022\026\n\022s2app_all_list_end\020\004\022"
-      "\017\n\013s2app_error\020\005\022\023\n\017s2app_new_slope\020\006\022\023\n"
-      "\017s2app_del_slope\020\007\022\026\n\022s2app_update_slope"
-      "\020\010\022\024\n\020s2app_add_sensor\020\t\022\024\n\020s2app_del_se"
-      "nsor\020\n\022\027\n\023s2app_update_sensor\020\013\022 \n\034s2app"
-      "_modify_password_result\020\014\022\030\n\024s2app_autho"
-      "rity_list\020\r\022\016\n\ts2app_max\020\200\002"
+      "ity_id\030\001 \002(\r\"\231\001\n\030APP2S_Modify_Alarm_Valu"
+      "e\022\023\n\013sensor_type\030\001 \002(\r\022\020\n\010slope_id\030\002 \002(\r"
+      "\022\024\n\014alarm_value1\030\003 \002(\001\022\024\n\014alarm_value2\030\004"
+      " \002(\001\022\024\n\014alarm_value3\030\005 \002(\001\022\024\n\014alarm_valu"
+      "e4\030\006 \002(\001\"\245\001\n\022S2App_Login_Result\022\016\n\006resul"
+      "t\030\001 \002(\r\022K\n\013server_list\030\002 \003(\01326.APP_SERVE"
+      "R_NET_Protocol.S2App_Login_Result.Server"
+      "Data\0322\n\nServerData\022\n\n\002id\030\001 \002(\r\022\n\n\002ip\030\002 \002"
+      "(\014\022\014\n\004port\030\003 \002(\r\"\362\001\n\020S2App_Slope_List\022G\n"
+      "\nslope_list\030\001 \003(\01323.APP_SERVER_NET_Proto"
+      "col.S2App_Slope_List.SlopeData\032\224\001\n\tSlope"
+      "Data\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003"
+      " \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020"
+      "\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \001(\014\022\020\n\010scene_i"
+      "d\030\010 \001(\r\022\014\n\004desc\030\t \001(\014\"\323\003\n\021S2App_Sensor_L"
+      "ist\022J\n\013sensor_list\030\001 \003(\01325.APP_SERVER_NE"
+      "T_Protocol.S2App_Sensor_List.SensorData\032"
+      "\361\002\n\nSensorData\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r"
+      "\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\tlon"
+      "gitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\022\n\ncur_va"
+      "lue1\030\007 \002(\001\022\022\n\ncur_value2\030\010 \002(\001\022\022\n\ncur_va"
+      "lue3\030\t \002(\001\022\022\n\navg_value1\030\n \002(\001\022\022\n\navg_va"
+      "lue2\030\013 \002(\001\022\022\n\navg_value3\030\014 \002(\001\022\025\n\roffset"
+      "_value1\030\r \002(\001\022\025\n\roffset_value2\030\016 \002(\001\022\025\n\r"
+      "offset_value3\030\017 \002(\001\022\013\n\003url\030\020 \002(\014\022\023\n\013desc"
+      "ription\030\021 \002(\014\022\020\n\010scene_id\030\022 \002(\r\022\022\n\ncur_v"
+      "alue4\030\023 \002(\001\"\307\004\n\024S2App_Sensor_History\022\n\n\002"
+      "id\030\001 \002(\r\022\021\n\tlongitude\030\002 \002(\001\022\020\n\010latitude\030"
+      "\003 \002(\001\022\022\n\nbegin_time\030\004 \002(\r\022\020\n\010end_time\030\005 "
+      "\002(\r\022\021\n\tinvterval\030\006 \002(\r\022\022\n\navg_value1\030\007 \002"
+      "(\001\022\022\n\navg_value2\030\010 \002(\001\022\022\n\navg_value3\030\t \002"
+      "(\001\022N\n\014history_list\030\n \003(\01328.APP_SERVER_NE"
+      "T_Protocol.S2App_Sensor_History.SensorDa"
+      "ta\022\020\n\010scene_id\030\013 \002(\r\032\246\002\n\nSensorData\022\022\n\nm"
+      "in_value1\030\001 \002(\001\022\022\n\nmin_value2\030\002 \002(\001\022\022\n\nm"
+      "in_value3\030\003 \002(\001\022\022\n\nmax_value1\030\004 \002(\001\022\022\n\nm"
+      "ax_value2\030\005 \002(\001\022\022\n\nmax_value3\030\006 \002(\001\022\031\n\021m"
+      "in_offset_value1\030\007 \002(\001\022\031\n\021min_offset_val"
+      "ue2\030\010 \002(\001\022\031\n\021min_offset_value3\030\t \002(\001\022\031\n\021"
+      "max_offset_value1\030\n \002(\001\022\031\n\021max_offset_va"
+      "lue2\030\013 \002(\001\022\031\n\021max_offset_value3\030\014 \002(\001\"!\n"
+      "\013S2APP_ERROR\022\022\n\nerror_code\030\001 \002(\r\"\214\001\n\017S2A"
+      "PP_New_Slope\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014"
+      "\n\004name\030\003 \002(\014\022\r\n\005state\030\004 \002(\r\022\021\n\tlongitude"
+      "\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\020\n"
+      "\010scene_id\030\010 \002(\r\"!\n\017S2APP_Del_Slope\022\016\n\006re"
+      "sult\030\001 \002(\r\"\217\001\n\022S2APP_Update_Slope\022\n\n\002id\030"
+      "\001 \002(\r\022\014\n\004type\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\r\n\005sta"
+      "te\030\004 \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030"
+      "\006 \002(\001\022\013\n\003url\030\007 \002(\014\022\020\n\010scene_id\030\010 \002(\r\"\246\001\n"
+      "\020S2APP_Add_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n\004type\030\002 "
+      "\002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004 \002(\r\022\021\n\t"
+      "longitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002(\001\022\013\n\003url"
+      "\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\022\020\n\010scene_id\030"
+      "\t \002(\r\"\"\n\020S2APP_Del_Sensor\022\016\n\006result\030\001 \002("
+      "\r\"\251\001\n\023S2APP_Update_Sensor\022\n\n\002id\030\001 \002(\r\022\014\n"
+      "\004type\030\002 \002(\r\022\r\n\005state\030\003 \002(\r\022\020\n\010slope_id\030\004"
+      " \002(\r\022\021\n\tlongitude\030\005 \002(\001\022\020\n\010latitude\030\006 \002("
+      "\001\022\013\n\003url\030\007 \002(\014\022\023\n\013description\030\010 \002(\014\022\020\n\010s"
+      "cene_id\030\t \002(\r\".\n\034S2APP_Modify_Password_R"
+      "esult\022\016\n\006result\030\001 \002(\r\"\331\001\n\024S2APP_Authorit"
+      "y_List\022S\n\016authority_list\030\001 \003(\0132;.APP_SER"
+      "VER_NET_Protocol.S2APP_Authority_List.Au"
+      "thorityData\032l\n\rAuthorityData\022\024\n\014authorit"
+      "y_id\030\001 \002(\r\022\021\n\tparent_id\030\002 \002(\r\022\013\n\003url\030\003 \001"
+      "(\014\022\023\n\013description\030\004 \001(\014\022\020\n\010icon_url\030\005 \001("
+      "\014\"\222\001\n\021S2APP_Alarm_Value\022\023\n\013sensor_type\030\001"
+      " \002(\r\022\020\n\010slope_id\030\002 \002(\r\022\024\n\014alarm_value1\030\003"
+      " \002(\001\022\024\n\014alarm_value2\030\004 \002(\001\022\024\n\014alarm_valu"
+      "e3\030\005 \002(\001\022\024\n\014alarm_value4\030\006 \002(\001*\304\003\n\005APP2S"
+      "\022\017\n\013app2s_login\020\000\022\034\n\030app2s_request_slope"
+      "_list\020\001\022\035\n\031app2s_request_sensor_list\020\002\022 "
+      "\n\034app2s_request_sensor_history\020\003\022\016\n\napp2"
+      "s_ping\020\004\022\032\n\026app2s_request_all_list\020\005\022\023\n\017"
+      "app2s_add_slope\020\006\022\023\n\017app2s_del_slope\020\007\022\033"
+      "\n\027app2s_update_slope_data\020\010\022\024\n\020app2s_add"
+      "_sensor\020\t\022\024\n\020app2s_del_sensor\020\n\022\034\n\030app2s"
+      "_update_sensor_data\020\013\022\031\n\025app2s_modify_pa"
+      "ssword\020\014\022\024\n\020app2s_find_slope\020\r\022\025\n\021app2s_"
+      "find_sensor\020\016\022\030\n\024app2s_load_authority\020\017\022"
+      "\034\n\030app2s_modify_alarm_value\020\020\022\016\n\tapp2s_m"
+      "ax\020\200\002*\371\002\n\005S2APP\022\026\n\022s2app_login_result\020\000\022"
+      "\024\n\020s2app_slope_list\020\001\022\025\n\021s2app_sensor_li"
+      "st\020\002\022\030\n\024s2app_sensor_history\020\003\022\026\n\022s2app_"
+      "all_list_end\020\004\022\017\n\013s2app_error\020\005\022\023\n\017s2app"
+      "_new_slope\020\006\022\023\n\017s2app_del_slope\020\007\022\026\n\022s2a"
+      "pp_update_slope\020\010\022\024\n\020s2app_add_sensor\020\t\022"
+      "\024\n\020s2app_del_sensor\020\n\022\027\n\023s2app_update_se"
+      "nsor\020\013\022 \n\034s2app_modify_password_result\020\014"
+      "\022\030\n\024s2app_authority_list\020\r\022\025\n\021s2app_alar"
+      "m_value\020\016\022\016\n\ts2app_max\020\200\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 4427);
+      descriptor, 4785);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "App_Server_Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -956,6 +1015,7 @@ bool APP2S_IsValid(int value) {
     case 13:
     case 14:
     case 15:
+    case 16:
     case 256:
       return true;
     default:
@@ -983,6 +1043,7 @@ bool S2APP_IsValid(int value) {
     case 11:
     case 12:
     case 13:
+    case 14:
     case 256:
       return true;
     default:
@@ -7739,6 +7800,606 @@ void APP2S_Load_Authority::set_authority_id(::google::protobuf::uint32 value) {
   set_has_authority_id();
   authority_id_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Load_Authority.authority_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int APP2S_Modify_Alarm_Value::kSensorTypeFieldNumber;
+const int APP2S_Modify_Alarm_Value::kSlopeIdFieldNumber;
+const int APP2S_Modify_Alarm_Value::kAlarmValue1FieldNumber;
+const int APP2S_Modify_Alarm_Value::kAlarmValue2FieldNumber;
+const int APP2S_Modify_Alarm_Value::kAlarmValue3FieldNumber;
+const int APP2S_Modify_Alarm_Value::kAlarmValue4FieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+APP2S_Modify_Alarm_Value::APP2S_Modify_Alarm_Value()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_App_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+}
+APP2S_Modify_Alarm_Value::APP2S_Modify_Alarm_Value(const APP2S_Modify_Alarm_Value& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&sensor_type_, &from.sensor_type_,
+    reinterpret_cast<char*>(&alarm_value4_) -
+    reinterpret_cast<char*>(&sensor_type_) + sizeof(alarm_value4_));
+  // @@protoc_insertion_point(copy_constructor:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+}
+
+void APP2S_Modify_Alarm_Value::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(&sensor_type_, 0, reinterpret_cast<char*>(&alarm_value4_) -
+    reinterpret_cast<char*>(&sensor_type_) + sizeof(alarm_value4_));
+}
+
+APP2S_Modify_Alarm_Value::~APP2S_Modify_Alarm_Value() {
+  // @@protoc_insertion_point(destructor:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  SharedDtor();
+}
+
+void APP2S_Modify_Alarm_Value::SharedDtor() {
+}
+
+void APP2S_Modify_Alarm_Value::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* APP2S_Modify_Alarm_Value::descriptor() {
+  protobuf_App_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_App_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const APP2S_Modify_Alarm_Value& APP2S_Modify_Alarm_Value::default_instance() {
+  protobuf_App_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+APP2S_Modify_Alarm_Value* APP2S_Modify_Alarm_Value::New(::google::protobuf::Arena* arena) const {
+  APP2S_Modify_Alarm_Value* n = new APP2S_Modify_Alarm_Value;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void APP2S_Modify_Alarm_Value::Clear() {
+// @@protoc_insertion_point(message_clear_start:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  if (_has_bits_[0 / 32] & 63u) {
+    ::memset(&sensor_type_, 0, reinterpret_cast<char*>(&alarm_value4_) -
+      reinterpret_cast<char*>(&sensor_type_) + sizeof(alarm_value4_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool APP2S_Modify_Alarm_Value::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 sensor_type = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_sensor_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &sensor_type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 slope_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_slope_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slope_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double alarm_value1 = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u)) {
+          set_has_alarm_value1();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &alarm_value1_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double alarm_value2 = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(33u)) {
+          set_has_alarm_value2();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &alarm_value2_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double alarm_value3 = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u)) {
+          set_has_alarm_value3();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &alarm_value3_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double alarm_value4 = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(49u)) {
+          set_has_alarm_value4();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &alarm_value4_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  return false;
+#undef DO_
+}
+
+void APP2S_Modify_Alarm_Value::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 sensor_type = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->sensor_type(), output);
+  }
+
+  // required uint32 slope_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->slope_id(), output);
+  }
+
+  // required double alarm_value1 = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->alarm_value1(), output);
+  }
+
+  // required double alarm_value2 = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->alarm_value2(), output);
+  }
+
+  // required double alarm_value3 = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->alarm_value3(), output);
+  }
+
+  // required double alarm_value4 = 6;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->alarm_value4(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+}
+
+::google::protobuf::uint8* APP2S_Modify_Alarm_Value::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 sensor_type = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->sensor_type(), target);
+  }
+
+  // required uint32 slope_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->slope_id(), target);
+  }
+
+  // required double alarm_value1 = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->alarm_value1(), target);
+  }
+
+  // required double alarm_value2 = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->alarm_value2(), target);
+  }
+
+  // required double alarm_value3 = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->alarm_value3(), target);
+  }
+
+  // required double alarm_value4 = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->alarm_value4(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  return target;
+}
+
+size_t APP2S_Modify_Alarm_Value::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  size_t total_size = 0;
+
+  if (has_sensor_type()) {
+    // required uint32 sensor_type = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->sensor_type());
+  }
+
+  if (has_slope_id()) {
+    // required uint32 slope_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+  }
+
+  if (has_alarm_value1()) {
+    // required double alarm_value1 = 3;
+    total_size += 1 + 8;
+  }
+
+  if (has_alarm_value2()) {
+    // required double alarm_value2 = 4;
+    total_size += 1 + 8;
+  }
+
+  if (has_alarm_value3()) {
+    // required double alarm_value3 = 5;
+    total_size += 1 + 8;
+  }
+
+  if (has_alarm_value4()) {
+    // required double alarm_value4 = 6;
+    total_size += 1 + 8;
+  }
+
+  return total_size;
+}
+size_t APP2S_Modify_Alarm_Value::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+    // required uint32 sensor_type = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->sensor_type());
+
+    // required uint32 slope_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+
+    // required double alarm_value1 = 3;
+    total_size += 1 + 8;
+
+    // required double alarm_value2 = 4;
+    total_size += 1 + 8;
+
+    // required double alarm_value3 = 5;
+    total_size += 1 + 8;
+
+    // required double alarm_value4 = 6;
+    total_size += 1 + 8;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void APP2S_Modify_Alarm_Value::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  GOOGLE_DCHECK_NE(&from, this);
+  const APP2S_Modify_Alarm_Value* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const APP2S_Modify_Alarm_Value>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+    MergeFrom(*source);
+  }
+}
+
+void APP2S_Modify_Alarm_Value::MergeFrom(const APP2S_Modify_Alarm_Value& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 63u) {
+    if (cached_has_bits & 0x00000001u) {
+      sensor_type_ = from.sensor_type_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      slope_id_ = from.slope_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      alarm_value1_ = from.alarm_value1_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      alarm_value2_ = from.alarm_value2_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      alarm_value3_ = from.alarm_value3_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      alarm_value4_ = from.alarm_value4_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void APP2S_Modify_Alarm_Value::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void APP2S_Modify_Alarm_Value::CopyFrom(const APP2S_Modify_Alarm_Value& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool APP2S_Modify_Alarm_Value::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+  return true;
+}
+
+void APP2S_Modify_Alarm_Value::Swap(APP2S_Modify_Alarm_Value* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void APP2S_Modify_Alarm_Value::InternalSwap(APP2S_Modify_Alarm_Value* other) {
+  std::swap(sensor_type_, other->sensor_type_);
+  std::swap(slope_id_, other->slope_id_);
+  std::swap(alarm_value1_, other->alarm_value1_);
+  std::swap(alarm_value2_, other->alarm_value2_);
+  std::swap(alarm_value3_, other->alarm_value3_);
+  std::swap(alarm_value4_, other->alarm_value4_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata APP2S_Modify_Alarm_Value::GetMetadata() const {
+  protobuf_App_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_App_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// APP2S_Modify_Alarm_Value
+
+// required uint32 sensor_type = 1;
+bool APP2S_Modify_Alarm_Value::has_sensor_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void APP2S_Modify_Alarm_Value::set_has_sensor_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void APP2S_Modify_Alarm_Value::clear_has_sensor_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void APP2S_Modify_Alarm_Value::clear_sensor_type() {
+  sensor_type_ = 0u;
+  clear_has_sensor_type();
+}
+::google::protobuf::uint32 APP2S_Modify_Alarm_Value::sensor_type() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.sensor_type)
+  return sensor_type_;
+}
+void APP2S_Modify_Alarm_Value::set_sensor_type(::google::protobuf::uint32 value) {
+  set_has_sensor_type();
+  sensor_type_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.sensor_type)
+}
+
+// required uint32 slope_id = 2;
+bool APP2S_Modify_Alarm_Value::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void APP2S_Modify_Alarm_Value::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void APP2S_Modify_Alarm_Value::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void APP2S_Modify_Alarm_Value::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+::google::protobuf::uint32 APP2S_Modify_Alarm_Value::slope_id() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.slope_id)
+  return slope_id_;
+}
+void APP2S_Modify_Alarm_Value::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.slope_id)
+}
+
+// required double alarm_value1 = 3;
+bool APP2S_Modify_Alarm_Value::has_alarm_value1() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void APP2S_Modify_Alarm_Value::set_has_alarm_value1() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void APP2S_Modify_Alarm_Value::clear_has_alarm_value1() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void APP2S_Modify_Alarm_Value::clear_alarm_value1() {
+  alarm_value1_ = 0;
+  clear_has_alarm_value1();
+}
+double APP2S_Modify_Alarm_Value::alarm_value1() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.alarm_value1)
+  return alarm_value1_;
+}
+void APP2S_Modify_Alarm_Value::set_alarm_value1(double value) {
+  set_has_alarm_value1();
+  alarm_value1_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.alarm_value1)
+}
+
+// required double alarm_value2 = 4;
+bool APP2S_Modify_Alarm_Value::has_alarm_value2() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void APP2S_Modify_Alarm_Value::set_has_alarm_value2() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void APP2S_Modify_Alarm_Value::clear_has_alarm_value2() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void APP2S_Modify_Alarm_Value::clear_alarm_value2() {
+  alarm_value2_ = 0;
+  clear_has_alarm_value2();
+}
+double APP2S_Modify_Alarm_Value::alarm_value2() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.alarm_value2)
+  return alarm_value2_;
+}
+void APP2S_Modify_Alarm_Value::set_alarm_value2(double value) {
+  set_has_alarm_value2();
+  alarm_value2_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.alarm_value2)
+}
+
+// required double alarm_value3 = 5;
+bool APP2S_Modify_Alarm_Value::has_alarm_value3() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void APP2S_Modify_Alarm_Value::set_has_alarm_value3() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void APP2S_Modify_Alarm_Value::clear_has_alarm_value3() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void APP2S_Modify_Alarm_Value::clear_alarm_value3() {
+  alarm_value3_ = 0;
+  clear_has_alarm_value3();
+}
+double APP2S_Modify_Alarm_Value::alarm_value3() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.alarm_value3)
+  return alarm_value3_;
+}
+void APP2S_Modify_Alarm_Value::set_alarm_value3(double value) {
+  set_has_alarm_value3();
+  alarm_value3_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.alarm_value3)
+}
+
+// required double alarm_value4 = 6;
+bool APP2S_Modify_Alarm_Value::has_alarm_value4() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void APP2S_Modify_Alarm_Value::set_has_alarm_value4() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void APP2S_Modify_Alarm_Value::clear_has_alarm_value4() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void APP2S_Modify_Alarm_Value::clear_alarm_value4() {
+  alarm_value4_ = 0;
+  clear_has_alarm_value4();
+}
+double APP2S_Modify_Alarm_Value::alarm_value4() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.alarm_value4)
+  return alarm_value4_;
+}
+void APP2S_Modify_Alarm_Value::set_alarm_value4(double value) {
+  set_has_alarm_value4();
+  alarm_value4_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.alarm_value4)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -18994,6 +19655,606 @@ const ::google::protobuf::RepeatedPtrField< ::APP_SERVER_NET_Protocol::S2APP_Aut
 S2APP_Authority_List::authority_list() const {
   // @@protoc_insertion_point(field_list:APP_SERVER_NET_Protocol.S2APP_Authority_List.authority_list)
   return authority_list_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int S2APP_Alarm_Value::kSensorTypeFieldNumber;
+const int S2APP_Alarm_Value::kSlopeIdFieldNumber;
+const int S2APP_Alarm_Value::kAlarmValue1FieldNumber;
+const int S2APP_Alarm_Value::kAlarmValue2FieldNumber;
+const int S2APP_Alarm_Value::kAlarmValue3FieldNumber;
+const int S2APP_Alarm_Value::kAlarmValue4FieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+S2APP_Alarm_Value::S2APP_Alarm_Value()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_App_5fServer_5fProtocol_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+}
+S2APP_Alarm_Value::S2APP_Alarm_Value(const S2APP_Alarm_Value& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&sensor_type_, &from.sensor_type_,
+    reinterpret_cast<char*>(&alarm_value4_) -
+    reinterpret_cast<char*>(&sensor_type_) + sizeof(alarm_value4_));
+  // @@protoc_insertion_point(copy_constructor:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+}
+
+void S2APP_Alarm_Value::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(&sensor_type_, 0, reinterpret_cast<char*>(&alarm_value4_) -
+    reinterpret_cast<char*>(&sensor_type_) + sizeof(alarm_value4_));
+}
+
+S2APP_Alarm_Value::~S2APP_Alarm_Value() {
+  // @@protoc_insertion_point(destructor:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  SharedDtor();
+}
+
+void S2APP_Alarm_Value::SharedDtor() {
+}
+
+void S2APP_Alarm_Value::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* S2APP_Alarm_Value::descriptor() {
+  protobuf_App_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_App_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const S2APP_Alarm_Value& S2APP_Alarm_Value::default_instance() {
+  protobuf_App_5fServer_5fProtocol_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+S2APP_Alarm_Value* S2APP_Alarm_Value::New(::google::protobuf::Arena* arena) const {
+  S2APP_Alarm_Value* n = new S2APP_Alarm_Value;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void S2APP_Alarm_Value::Clear() {
+// @@protoc_insertion_point(message_clear_start:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  if (_has_bits_[0 / 32] & 63u) {
+    ::memset(&sensor_type_, 0, reinterpret_cast<char*>(&alarm_value4_) -
+      reinterpret_cast<char*>(&sensor_type_) + sizeof(alarm_value4_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool S2APP_Alarm_Value::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 sensor_type = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_sensor_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &sensor_type_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 slope_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_slope_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slope_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double alarm_value1 = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u)) {
+          set_has_alarm_value1();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &alarm_value1_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double alarm_value2 = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(33u)) {
+          set_has_alarm_value2();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &alarm_value2_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double alarm_value3 = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u)) {
+          set_has_alarm_value3();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &alarm_value3_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double alarm_value4 = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(49u)) {
+          set_has_alarm_value4();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &alarm_value4_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  return false;
+#undef DO_
+}
+
+void S2APP_Alarm_Value::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 sensor_type = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->sensor_type(), output);
+  }
+
+  // required uint32 slope_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->slope_id(), output);
+  }
+
+  // required double alarm_value1 = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->alarm_value1(), output);
+  }
+
+  // required double alarm_value2 = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->alarm_value2(), output);
+  }
+
+  // required double alarm_value3 = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->alarm_value3(), output);
+  }
+
+  // required double alarm_value4 = 6;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->alarm_value4(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+}
+
+::google::protobuf::uint8* S2APP_Alarm_Value::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint32 sensor_type = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->sensor_type(), target);
+  }
+
+  // required uint32 slope_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->slope_id(), target);
+  }
+
+  // required double alarm_value1 = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->alarm_value1(), target);
+  }
+
+  // required double alarm_value2 = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->alarm_value2(), target);
+  }
+
+  // required double alarm_value3 = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->alarm_value3(), target);
+  }
+
+  // required double alarm_value4 = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->alarm_value4(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  return target;
+}
+
+size_t S2APP_Alarm_Value::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  size_t total_size = 0;
+
+  if (has_sensor_type()) {
+    // required uint32 sensor_type = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->sensor_type());
+  }
+
+  if (has_slope_id()) {
+    // required uint32 slope_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+  }
+
+  if (has_alarm_value1()) {
+    // required double alarm_value1 = 3;
+    total_size += 1 + 8;
+  }
+
+  if (has_alarm_value2()) {
+    // required double alarm_value2 = 4;
+    total_size += 1 + 8;
+  }
+
+  if (has_alarm_value3()) {
+    // required double alarm_value3 = 5;
+    total_size += 1 + 8;
+  }
+
+  if (has_alarm_value4()) {
+    // required double alarm_value4 = 6;
+    total_size += 1 + 8;
+  }
+
+  return total_size;
+}
+size_t S2APP_Alarm_Value::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+    // required uint32 sensor_type = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->sensor_type());
+
+    // required uint32 slope_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->slope_id());
+
+    // required double alarm_value1 = 3;
+    total_size += 1 + 8;
+
+    // required double alarm_value2 = 4;
+    total_size += 1 + 8;
+
+    // required double alarm_value3 = 5;
+    total_size += 1 + 8;
+
+    // required double alarm_value4 = 6;
+    total_size += 1 + 8;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void S2APP_Alarm_Value::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  GOOGLE_DCHECK_NE(&from, this);
+  const S2APP_Alarm_Value* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const S2APP_Alarm_Value>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+    MergeFrom(*source);
+  }
+}
+
+void S2APP_Alarm_Value::MergeFrom(const S2APP_Alarm_Value& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 63u) {
+    if (cached_has_bits & 0x00000001u) {
+      sensor_type_ = from.sensor_type_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      slope_id_ = from.slope_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      alarm_value1_ = from.alarm_value1_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      alarm_value2_ = from.alarm_value2_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      alarm_value3_ = from.alarm_value3_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      alarm_value4_ = from.alarm_value4_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void S2APP_Alarm_Value::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void S2APP_Alarm_Value::CopyFrom(const S2APP_Alarm_Value& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:APP_SERVER_NET_Protocol.S2APP_Alarm_Value)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool S2APP_Alarm_Value::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+  return true;
+}
+
+void S2APP_Alarm_Value::Swap(S2APP_Alarm_Value* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void S2APP_Alarm_Value::InternalSwap(S2APP_Alarm_Value* other) {
+  std::swap(sensor_type_, other->sensor_type_);
+  std::swap(slope_id_, other->slope_id_);
+  std::swap(alarm_value1_, other->alarm_value1_);
+  std::swap(alarm_value2_, other->alarm_value2_);
+  std::swap(alarm_value3_, other->alarm_value3_);
+  std::swap(alarm_value4_, other->alarm_value4_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata S2APP_Alarm_Value::GetMetadata() const {
+  protobuf_App_5fServer_5fProtocol_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_App_5fServer_5fProtocol_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// S2APP_Alarm_Value
+
+// required uint32 sensor_type = 1;
+bool S2APP_Alarm_Value::has_sensor_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void S2APP_Alarm_Value::set_has_sensor_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void S2APP_Alarm_Value::clear_has_sensor_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void S2APP_Alarm_Value::clear_sensor_type() {
+  sensor_type_ = 0u;
+  clear_has_sensor_type();
+}
+::google::protobuf::uint32 S2APP_Alarm_Value::sensor_type() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.sensor_type)
+  return sensor_type_;
+}
+void S2APP_Alarm_Value::set_sensor_type(::google::protobuf::uint32 value) {
+  set_has_sensor_type();
+  sensor_type_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.sensor_type)
+}
+
+// required uint32 slope_id = 2;
+bool S2APP_Alarm_Value::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void S2APP_Alarm_Value::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void S2APP_Alarm_Value::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void S2APP_Alarm_Value::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+::google::protobuf::uint32 S2APP_Alarm_Value::slope_id() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.slope_id)
+  return slope_id_;
+}
+void S2APP_Alarm_Value::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.slope_id)
+}
+
+// required double alarm_value1 = 3;
+bool S2APP_Alarm_Value::has_alarm_value1() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void S2APP_Alarm_Value::set_has_alarm_value1() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void S2APP_Alarm_Value::clear_has_alarm_value1() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void S2APP_Alarm_Value::clear_alarm_value1() {
+  alarm_value1_ = 0;
+  clear_has_alarm_value1();
+}
+double S2APP_Alarm_Value::alarm_value1() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.alarm_value1)
+  return alarm_value1_;
+}
+void S2APP_Alarm_Value::set_alarm_value1(double value) {
+  set_has_alarm_value1();
+  alarm_value1_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.alarm_value1)
+}
+
+// required double alarm_value2 = 4;
+bool S2APP_Alarm_Value::has_alarm_value2() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void S2APP_Alarm_Value::set_has_alarm_value2() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void S2APP_Alarm_Value::clear_has_alarm_value2() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void S2APP_Alarm_Value::clear_alarm_value2() {
+  alarm_value2_ = 0;
+  clear_has_alarm_value2();
+}
+double S2APP_Alarm_Value::alarm_value2() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.alarm_value2)
+  return alarm_value2_;
+}
+void S2APP_Alarm_Value::set_alarm_value2(double value) {
+  set_has_alarm_value2();
+  alarm_value2_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.alarm_value2)
+}
+
+// required double alarm_value3 = 5;
+bool S2APP_Alarm_Value::has_alarm_value3() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void S2APP_Alarm_Value::set_has_alarm_value3() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void S2APP_Alarm_Value::clear_has_alarm_value3() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void S2APP_Alarm_Value::clear_alarm_value3() {
+  alarm_value3_ = 0;
+  clear_has_alarm_value3();
+}
+double S2APP_Alarm_Value::alarm_value3() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.alarm_value3)
+  return alarm_value3_;
+}
+void S2APP_Alarm_Value::set_alarm_value3(double value) {
+  set_has_alarm_value3();
+  alarm_value3_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.alarm_value3)
+}
+
+// required double alarm_value4 = 6;
+bool S2APP_Alarm_Value::has_alarm_value4() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void S2APP_Alarm_Value::set_has_alarm_value4() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void S2APP_Alarm_Value::clear_has_alarm_value4() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void S2APP_Alarm_Value::clear_alarm_value4() {
+  alarm_value4_ = 0;
+  clear_has_alarm_value4();
+}
+double S2APP_Alarm_Value::alarm_value4() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.alarm_value4)
+  return alarm_value4_;
+}
+void S2APP_Alarm_Value::set_alarm_value4(double value) {
+  set_has_alarm_value4();
+  alarm_value4_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.alarm_value4)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

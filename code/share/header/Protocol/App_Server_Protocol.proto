@@ -24,6 +24,7 @@ enum APP2S
 	app2s_find_slope				= 13;	// 查找指定的边坡
 	app2s_find_sensor				= 14;	// 查找指定的传感器
 	app2s_load_authority			= 15;	// 获取用户权限
+	app2s_modify_alarm_value		= 16;	// 修改报警值
 
 	app2s_max						= 256;	// 最大协议号
 }
@@ -149,6 +150,16 @@ message APP2S_Load_Authority
 	required uint32	authority_id	= 1;	// 权限ID
 }
 
+// 修改报警值
+message APP2S_Modify_Alarm_Value
+{
+	required uint32	sensor_type				= 1;	// 传感器类型
+	required uint32	slope_id				= 2;	// 边坡ID
+	required double	alarm_value1			= 3;	// 报警值Value1
+	required double	alarm_value2			= 4;	// 报警值Value2
+	required double	alarm_value3			= 5;	// 报警值Value3
+	required double	alarm_value4			= 6;	// 报警值Value4
+}
 
 
 
@@ -172,6 +183,7 @@ enum S2APP
 	s2app_update_sensor				= 11;	// 更新传感器数据
 	s2app_modify_password_result	= 12;	// 修改密码结果
 	s2app_authority_list			= 13;	// 权限列表
+	s2app_alarm_value				= 14;	// 报警值
 
 	s2app_max						= 256;	// 最大协议号
 }
@@ -364,4 +376,15 @@ message S2APP_Authority_List
 	}
 
 	repeated AuthorityData	authority_list	= 1;	// 用户组列表
+}
+
+// 报警值
+message S2APP_Alarm_Value
+{
+	required uint32	sensor_type			= 1;	// 传感器类型
+	required uint32 slope_id			= 2;	// 边坡ID
+	required double alarm_value1		= 3;	// 报警Value1
+	required double alarm_value2		= 4;	// 报警Value2
+	required double alarm_value3		= 5;	// 报警Value3
+	required double alarm_value4		= 6;	// 报警Value4
 }

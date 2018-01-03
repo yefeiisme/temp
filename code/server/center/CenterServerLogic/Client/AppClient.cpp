@@ -26,6 +26,7 @@ CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[APP_SERVER_NET_Protocol::
 	&CAppClient::RecvFindSensor,
 
 	&CAppClient::RecvLoadAuthority,
+	&CAppClient::RecvModifyAlarmValue,
 };
 
 CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
@@ -47,6 +48,8 @@ CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CAppClient::DBResopndFindSlopeResult,
 	&CAppClient::DBResopndFindSensorResult,
 	&CAppClient::DBResopndLoadAuthor,
+
+	&CAppClient::DBResopndModifyAlarmValue,
 };
 
 CAppClient::CAppClient() : CClient()
@@ -625,6 +628,44 @@ void CAppClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLe
 		pMysqlQuery->AddParam(m_uAccountID);
 		pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 	}
+
+	pMysqlQuery->CallProc();
+}
+
+void CAppClient::RecvModifyAlarmValue(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		APP_SERVER_NET_Protocol::S2APP_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_error, tagError);
+
+		return;
+	}
+
+	APP_SERVER_NET_Protocol::APP2S_Modify_Alarm_Value	tagModifyAlarmValue;
+	BYTE	*pRequest = (BYTE*)pPack + sizeof(BYTE);
+	tagModifyAlarmValue.ParseFromArray(pRequest, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest = {0};
+	tagRequest.byOpt		= SENSOR_DB_MODIFY_ALARM_VALUE;
+	tagRequest.uClientID	= m_uUniqueID;
+	tagRequest.uClientIndex	= m_uIndex;
+	tagRequest.byClientType	= APP_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery = g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("ModifyAlarmValue");
+	pMysqlQuery->AddParam(tagModifyAlarmValue.sensor_type());
+	pMysqlQuery->AddParam(tagModifyAlarmValue.slope_id());
+	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value1());
+	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value2());
+	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value3());
+	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value4());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
 }
@@ -1555,6 +1596,40 @@ void CAppClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest 
 	}
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_authority_list, tagAuthorityList);
+}
+
+void CAppClient::DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	BYTE	bySensorType = 0;
+	WORD	wSlopeID = 0;
+	double	dAlarmValue1 = 0;
+	double	dAlarmValue2 = 0;
+	double	dAlarmValue3 = 0;
+	double	dAlarmValue4 = 0;
+	UINT	uCol = 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	APP_SERVER_NET_Protocol::S2APP_Alarm_Value	tagAlarmValue;
+
+	pResult1->GetData(0, uCol++, bySensorType);
+	pResult1->GetData(0, uCol++, wSlopeID);
+	pResult1->GetData(0, uCol++, dAlarmValue1);
+	pResult1->GetData(0, uCol++, dAlarmValue2);
+	pResult1->GetData(0, uCol++, dAlarmValue3);
+	pResult1->GetData(0, uCol++, dAlarmValue4);
+
+	tagAlarmValue.set_sensor_type(bySensorType);
+	tagAlarmValue.set_slope_id(wSlopeID);
+	tagAlarmValue.set_alarm_value1(dAlarmValue1);
+	tagAlarmValue.set_alarm_value2(dAlarmValue2);
+	tagAlarmValue.set_alarm_value3(dAlarmValue3);
+	tagAlarmValue.set_alarm_value4(dAlarmValue4);
+
+	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_alarm_value, tagAlarmValue);
 }
 
 void CAppClient::SendAppMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)
