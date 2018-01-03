@@ -51,6 +51,7 @@ private:
 
 	void					RecvLoadAuthority(const void *pPack, const unsigned int uPackLen);
 	void					RecvModifyAlarmValue(const void *pPack, const unsigned int uPackLen);
+	void					RecvLoadAlarmList(const void *pPack, const unsigned int uPackLen);
 private:
 	void					DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
@@ -83,6 +84,7 @@ private:
 	void					DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 
 	void					DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndLoadAlarmList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
 	void					SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg);
 private:

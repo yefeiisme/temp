@@ -457,5 +457,11 @@ BEGIN
 	select paramSensorType,paramSlopeID,paramValue1,paramValue2,paramValue3,paramValue4;
 END;
 
+DROP PROCEDURE IF EXISTS `LoadAlarmList`;
+CREATE PROCEDURE `LoadAlarmList`(IN paramSlopeID smallint UNSIGNED)
+BEGIN
+	select Type,SlopeID,AlarmValue1,AlarmValue2,AlarmValue3,AlarmValue4 from sensor_type where SlopeID=paramSlopeID;
+END;
+
 //
 delimiter ; //

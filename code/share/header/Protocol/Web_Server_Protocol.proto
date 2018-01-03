@@ -35,6 +35,7 @@ enum WEB2S
 	web2s_remove_group				= 24;	// 删除用户组
 	web2s_load_authority			= 25;	// 获取用户权限
 	web2s_modify_alarm_value		= 26;	// 修改报警值
+	web2s_load_alarm_list			= 27;	// 获取报警值列表
 
 	web2s_max						= 256;	// 最大协议号
 }
@@ -235,6 +236,12 @@ message WEB2S_Modify_Alarm_Value
 	required double	alarm_value4			= 6;	// 报警值Value4
 }
 
+// 修改报警值
+message WEB2S_Load_Alarm_List
+{
+	required uint32	slope_id				= 1;	// 边坡ID
+}
+
 
 // Server Respond Web
 // 服务器回应Web请求的协议编号
@@ -265,6 +272,7 @@ enum S2WEB
 	s2web_remove_user_from_group	= 22;	// 从用户组中删除指定的用户
 	s2web_authority_list			= 23;	// 权限列表
 	s2web_alarm_value				= 24;	// 报警值
+	s2web_alarm_list				= 25;	// 报警值列表
 
 	s2web_max						= 256;	// 最大协议号
 }
@@ -557,4 +565,20 @@ message S2WEB_Alarm_Value
 	required double alarm_value2		= 4;	// 报警Value2
 	required double alarm_value3		= 5;	// 报警Value3
 	required double alarm_value4		= 6;	// 报警Value4
+}
+
+// 报警值列表
+message S2WEB_Alarm_List
+{
+	message AlarmValue
+	{
+		required uint32	sensor_type		= 1;	// 传感器类型
+		required uint32 slope_id		= 2;	// 边坡ID
+		required double alarm_value1	= 3;	// 报警Value1
+		required double alarm_value2	= 4;	// 报警Value2
+		required double alarm_value3	= 5;	// 报警Value3
+		required double alarm_value4	= 6;	// 报警Value4
+	}
+
+	repeated AlarmValue	alarm_list		= 1;	// 报警值列表
 }

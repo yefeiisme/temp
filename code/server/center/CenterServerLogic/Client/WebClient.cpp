@@ -39,6 +39,7 @@ CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::
 
 	&CWebClient::RecvLoadAuthority,
 	&CWebClient::RecvModifyAlarmValue,
+	&CWebClient::RecvLoadAlarmList,
 };
 
 CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
@@ -74,6 +75,7 @@ CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CWebClient::DBResopndLoadAuthor,
 
 	&CWebClient::DBResopndModifyAlarmValue,
+	&CWebClient::DBResopndLoadAlarmList,
 };
 
 CWebClient::CWebClient() : CClient()
@@ -1002,6 +1004,39 @@ void CWebClient::RecvModifyAlarmValue(const void *pPack, const unsigned int uPac
 	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value2());
 	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value3());
 	pMysqlQuery->AddParam(tagModifyAlarmValue.alarm_value4());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+void CWebClient::RecvLoadAlarmList(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Load_Alarm_List	tagLoadAlarmList;
+	BYTE	*pRequest = (BYTE*)pPack + sizeof(BYTE);
+	tagLoadAlarmList.ParseFromArray(pRequest, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest = { 0 };
+	tagRequest.byOpt = SENSOR_DB_LOAD_ALARM_LIST;
+	tagRequest.uClientID	= m_uUniqueID;
+	tagRequest.uClientIndex	= m_uIndex;
+	tagRequest.byClientType	= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery = g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("LoadAlarmList");
+	pMysqlQuery->AddParam(tagLoadAlarmList.slope_id());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -2052,6 +2087,49 @@ void CWebClient::DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRe
 	tagAlarmValue.set_alarm_value4(dAlarmValue4);
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_alarm_value, tagAlarmValue);
+}
+
+void CWebClient::DBResopndLoadAlarmList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	BYTE	bySensorType		= 0;
+	WORD	wSlopeID			= 0;
+	double	dAlarmValue1		= 0;
+	double	dAlarmValue2		= 0;
+	double	dAlarmValue3		= 0;
+	double	dAlarmValue4		= 0;
+	UINT	uCol				= 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2WEB_Alarm_List	tagAlarmList;
+
+	for (auto uRow = 0; uRow < pResult1->GetRowCount(); ++uRow)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_Alarm_List::AlarmValue	*pAuthorData = tagAlarmList.add_alarm_list();
+		if (nullptr == pAuthorData)
+			continue;
+
+		uCol = 0;
+
+		pResult1->GetData(uRow, uCol++, bySensorType);
+		pResult1->GetData(uRow, uCol++, wSlopeID);
+		pResult1->GetData(uRow, uCol++, dAlarmValue1);
+		pResult1->GetData(uRow, uCol++, dAlarmValue2);
+		pResult1->GetData(uRow, uCol++, dAlarmValue3);
+		pResult1->GetData(uRow, uCol++, dAlarmValue4);
+
+		pAuthorData->set_sensor_type(bySensorType);
+		pAuthorData->set_slope_id(wSlopeID);
+		pAuthorData->set_alarm_value1(dAlarmValue1);
+		pAuthorData->set_alarm_value2(dAlarmValue2);
+		pAuthorData->set_alarm_value3(dAlarmValue3);
+		pAuthorData->set_alarm_value4(dAlarmValue4);
+	}
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_alarm_list, tagAlarmList);
 }
 
 void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)
