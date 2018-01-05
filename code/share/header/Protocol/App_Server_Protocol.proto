@@ -25,6 +25,7 @@ enum APP2S
 	app2s_find_sensor				= 14;	// 查找指定的传感器
 	app2s_load_authority			= 15;	// 获取用户权限
 	app2s_modify_alarm_value		= 16;	// 修改报警值
+	app2s_load_alarm_list			= 17;	// 获取报警值
 
 	app2s_max						= 256;	// 最大协议号
 }
@@ -161,6 +162,12 @@ message APP2S_Modify_Alarm_Value
 	required double	alarm_value4			= 6;	// 报警值Value4
 }
 
+// 修改报警值
+message APP2S_Load_Alarm_List
+{
+	required uint32	slope_id				= 1;	// 边坡ID
+	required uint32	sensor_type				= 2;	// 传感器类型
+}
 
 
 

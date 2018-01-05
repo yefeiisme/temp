@@ -50,6 +50,9 @@ extern APP2S_Find_SensorDefaultTypeInternal _APP2S_Find_Sensor_default_instance_
 class APP2S_Find_Slope;
 class APP2S_Find_SlopeDefaultTypeInternal;
 extern APP2S_Find_SlopeDefaultTypeInternal _APP2S_Find_Slope_default_instance_;
+class APP2S_Load_Alarm_List;
+class APP2S_Load_Alarm_ListDefaultTypeInternal;
+extern APP2S_Load_Alarm_ListDefaultTypeInternal _APP2S_Load_Alarm_List_default_instance_;
 class APP2S_Load_Authority;
 class APP2S_Load_AuthorityDefaultTypeInternal;
 extern APP2S_Load_AuthorityDefaultTypeInternal _APP2S_Load_Authority_default_instance_;
@@ -170,6 +173,7 @@ enum APP2S {
   app2s_find_sensor = 14,
   app2s_load_authority = 15,
   app2s_modify_alarm_value = 16,
+  app2s_load_alarm_list = 17,
   app2s_max = 256
 };
 bool APP2S_IsValid(int value);
@@ -2120,6 +2124,111 @@ class APP2S_Modify_Alarm_Value : public ::google::protobuf::Message /* @@protoc_
 };
 // -------------------------------------------------------------------
 
+class APP2S_Load_Alarm_List : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:APP_SERVER_NET_Protocol.APP2S_Load_Alarm_List) */ {
+ public:
+  APP2S_Load_Alarm_List();
+  virtual ~APP2S_Load_Alarm_List();
+
+  APP2S_Load_Alarm_List(const APP2S_Load_Alarm_List& from);
+
+  inline APP2S_Load_Alarm_List& operator=(const APP2S_Load_Alarm_List& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const APP2S_Load_Alarm_List& default_instance();
+
+  static inline const APP2S_Load_Alarm_List* internal_default_instance() {
+    return reinterpret_cast<const APP2S_Load_Alarm_List*>(
+               &_APP2S_Load_Alarm_List_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    15;
+
+  void Swap(APP2S_Load_Alarm_List* other);
+
+  // implements Message ----------------------------------------------
+
+  inline APP2S_Load_Alarm_List* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  APP2S_Load_Alarm_List* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const APP2S_Load_Alarm_List& from);
+  void MergeFrom(const APP2S_Load_Alarm_List& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(APP2S_Load_Alarm_List* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 slope_id = 1;
+  bool has_slope_id() const;
+  void clear_slope_id();
+  static const int kSlopeIdFieldNumber = 1;
+  ::google::protobuf::uint32 slope_id() const;
+  void set_slope_id(::google::protobuf::uint32 value);
+
+  // required uint32 sensor_type = 2;
+  bool has_sensor_type() const;
+  void clear_sensor_type();
+  static const int kSensorTypeFieldNumber = 2;
+  ::google::protobuf::uint32 sensor_type() const;
+  void set_sensor_type(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:APP_SERVER_NET_Protocol.APP2S_Load_Alarm_List)
+ private:
+  void set_has_slope_id();
+  void clear_has_slope_id();
+  void set_has_sensor_type();
+  void clear_has_sensor_type();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 slope_id_;
+  ::google::protobuf::uint32 sensor_type_;
+  friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class S2App_Login_Result_ServerData : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData) */ {
  public:
   S2App_Login_Result_ServerData();
@@ -2148,7 +2257,7 @@ class S2App_Login_Result_ServerData : public ::google::protobuf::Message /* @@pr
                &_S2App_Login_Result_ServerData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    15;
+    16;
 
   void Swap(S2App_Login_Result_ServerData* other);
 
@@ -2271,7 +2380,7 @@ class S2App_Login_Result : public ::google::protobuf::Message /* @@protoc_insert
                &_S2App_Login_Result_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    17;
 
   void Swap(S2App_Login_Result* other);
 
@@ -2378,7 +2487,7 @@ class S2App_Slope_List_SlopeData : public ::google::protobuf::Message /* @@proto
                &_S2App_Slope_List_SlopeData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    18;
 
   void Swap(S2App_Slope_List_SlopeData* other);
 
@@ -2577,7 +2686,7 @@ class S2App_Slope_List : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2App_Slope_List_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    19;
 
   void Swap(S2App_Slope_List* other);
 
@@ -2674,7 +2783,7 @@ class S2App_Sensor_List_SensorData : public ::google::protobuf::Message /* @@pro
                &_S2App_Sensor_List_SensorData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    19;
+    20;
 
   void Swap(S2App_Sensor_List_SensorData* other);
 
@@ -2965,7 +3074,7 @@ class S2App_Sensor_List : public ::google::protobuf::Message /* @@protoc_inserti
                &_S2App_Sensor_List_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    21;
 
   void Swap(S2App_Sensor_List* other);
 
@@ -3062,7 +3171,7 @@ class S2App_Sensor_History_SensorData : public ::google::protobuf::Message /* @@
                &_S2App_Sensor_History_SensorData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    21;
+    22;
 
   void Swap(S2App_Sensor_History_SensorData* other);
 
@@ -3267,7 +3376,7 @@ class S2App_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
                &_S2App_Sensor_History_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    22;
+    23;
 
   void Swap(S2App_Sensor_History* other);
 
@@ -3467,7 +3576,7 @@ class S2APP_ERROR : public ::google::protobuf::Message /* @@protoc_insertion_poi
                &_S2APP_ERROR_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    23;
+    24;
 
   void Swap(S2APP_ERROR* other);
 
@@ -3559,7 +3668,7 @@ class S2APP_New_Slope : public ::google::protobuf::Message /* @@protoc_insertion
                &_S2APP_New_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    24;
+    25;
 
   void Swap(S2APP_New_Slope* other);
 
@@ -3740,7 +3849,7 @@ class S2APP_Del_Slope : public ::google::protobuf::Message /* @@protoc_insertion
                &_S2APP_Del_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    25;
+    26;
 
   void Swap(S2APP_Del_Slope* other);
 
@@ -3832,7 +3941,7 @@ class S2APP_Update_Slope : public ::google::protobuf::Message /* @@protoc_insert
                &_S2APP_Update_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    26;
+    27;
 
   void Swap(S2APP_Update_Slope* other);
 
@@ -4013,7 +4122,7 @@ class S2APP_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2APP_Add_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    27;
+    28;
 
   void Swap(S2APP_Add_Sensor* other);
 
@@ -4204,7 +4313,7 @@ class S2APP_Del_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2APP_Del_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    28;
+    29;
 
   void Swap(S2APP_Del_Sensor* other);
 
@@ -4296,7 +4405,7 @@ class S2APP_Update_Sensor : public ::google::protobuf::Message /* @@protoc_inser
                &_S2APP_Update_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    29;
+    30;
 
   void Swap(S2APP_Update_Sensor* other);
 
@@ -4487,7 +4596,7 @@ class S2APP_Modify_Password_Result : public ::google::protobuf::Message /* @@pro
                &_S2APP_Modify_Password_Result_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    30;
+    31;
 
   void Swap(S2APP_Modify_Password_Result* other);
 
@@ -4579,7 +4688,7 @@ class S2APP_Authority_List_AuthorityData : public ::google::protobuf::Message /*
                &_S2APP_Authority_List_AuthorityData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    31;
+    32;
 
   void Swap(S2APP_Authority_List_AuthorityData* other);
 
@@ -4738,7 +4847,7 @@ class S2APP_Authority_List : public ::google::protobuf::Message /* @@protoc_inse
                &_S2APP_Authority_List_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    32;
+    33;
 
   void Swap(S2APP_Authority_List* other);
 
@@ -4835,7 +4944,7 @@ class S2APP_Alarm_Value : public ::google::protobuf::Message /* @@protoc_inserti
                &_S2APP_Alarm_Value_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    33;
+    34;
 
   void Swap(S2APP_Alarm_Value* other);
 
@@ -6806,6 +6915,58 @@ inline void APP2S_Modify_Alarm_Value::set_alarm_value4(double value) {
   set_has_alarm_value4();
   alarm_value4_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Modify_Alarm_Value.alarm_value4)
+}
+
+// -------------------------------------------------------------------
+
+// APP2S_Load_Alarm_List
+
+// required uint32 slope_id = 1;
+inline bool APP2S_Load_Alarm_List::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void APP2S_Load_Alarm_List::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void APP2S_Load_Alarm_List::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void APP2S_Load_Alarm_List::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+inline ::google::protobuf::uint32 APP2S_Load_Alarm_List::slope_id() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Load_Alarm_List.slope_id)
+  return slope_id_;
+}
+inline void APP2S_Load_Alarm_List::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Load_Alarm_List.slope_id)
+}
+
+// required uint32 sensor_type = 2;
+inline bool APP2S_Load_Alarm_List::has_sensor_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void APP2S_Load_Alarm_List::set_has_sensor_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void APP2S_Load_Alarm_List::clear_has_sensor_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void APP2S_Load_Alarm_List::clear_sensor_type() {
+  sensor_type_ = 0u;
+  clear_has_sensor_type();
+}
+inline ::google::protobuf::uint32 APP2S_Load_Alarm_List::sensor_type() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Load_Alarm_List.sensor_type)
+  return sensor_type_;
+}
+inline void APP2S_Load_Alarm_List::set_sensor_type(::google::protobuf::uint32 value) {
+  set_has_sensor_type();
+  sensor_type_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Load_Alarm_List.sensor_type)
 }
 
 // -------------------------------------------------------------------
@@ -10170,6 +10331,8 @@ inline void S2APP_Alarm_Value::set_alarm_value4(double value) {
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
