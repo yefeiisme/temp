@@ -569,6 +569,7 @@ void CMysqlQuery::ClearResult()
 	if (m_pQueryRes)
 	{
 		mysql_free_result(m_pQueryRes);
+		m_pQueryRes = nullptr;
 
 		while (0 == mysql_next_result(m_pDBHandle))
 		{
@@ -603,6 +604,7 @@ bool CMysqlQuery::HandleResult(const void *pCallbackData, const WORD wDataLen)
 	++m_pResultSetHead->byResultCount;
 
 	mysql_free_result(m_pQueryRes);
+	m_pQueryRes = nullptr;
 
 	while (0 == mysql_next_result(m_pDBHandle))
 	{
@@ -623,6 +625,7 @@ bool CMysqlQuery::HandleResult(const void *pCallbackData, const WORD wDataLen)
 		}
 
 		mysql_free_result(m_pQueryRes);
+		m_pQueryRes = nullptr;
 
 		++m_pResultSetHead->byResultCount;
 	}
