@@ -74,6 +74,7 @@ CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CWebClient::DBResopndRemoveGroup,
 	&CWebClient::DBResopndLoadAuthor,
 
+	&CWebClient::DBResopndAddSensorData,
 	&CWebClient::DBResopndModifyAlarmValue,
 	&CWebClient::DBResopndLoadAlarmValue,
 };
@@ -2054,6 +2055,10 @@ void CWebClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest 
 	}
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_authority_list, tagAuthorityList);
+}
+
+void CWebClient::DBResopndAddSensorData(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
 }
 
 void CWebClient::DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)

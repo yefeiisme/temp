@@ -50,6 +50,7 @@ CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CAppClient::DBResopndFindSensorResult,
 	&CAppClient::DBResopndLoadAuthor,
 
+	&CAppClient::DBResopndAddSensorData,
 	&CAppClient::DBResopndModifyAlarmValue,
 	&CAppClient::DBResopndLoadAlarmValue,
 };
@@ -1632,6 +1633,10 @@ void CAppClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest 
 	}
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_authority_list, tagAuthorityList);
+}
+
+void CAppClient::DBResopndAddSensorData(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
 }
 
 void CAppClient::DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)

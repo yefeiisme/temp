@@ -83,6 +83,7 @@ private:
 	void					DBResopndRemoveGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 
+	void					DBResopndAddSensorData(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndLoadAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 private:
