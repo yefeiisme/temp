@@ -235,7 +235,7 @@ BEGIN
 		select 1;
 	end if;
 	
-	select LAST_INSERT_ID(),paramSceneID,paramType,paramName,0,0,paramOwnerID,paramUrl,SceneID,paramDesc;
+	select LAST_INSERT_ID(),paramSceneID,paramType,paramName,0,0,paramOwnerID,paramUrl,paramDesc;
 END;
 
 DROP PROCEDURE IF EXISTS `DeleteSlope`;
@@ -261,7 +261,7 @@ BEGIN
 		select 1;
 	end if;
 	
-	select paramSlopeID,paramSceneID,paramType,paramName,paramLongitude,paramLatitude,paramOwnerID,paramUrl,SceneID,paramDesc;
+	select paramSlopeID,paramSceneID,paramType,paramName,paramLongitude,paramLatitude,paramOwnerID,paramUrl,paramDesc;
 END;
 
 DROP PROCEDURE IF EXISTS `AddSensor`;

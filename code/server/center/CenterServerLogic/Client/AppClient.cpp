@@ -1148,6 +1148,7 @@ void CAppClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pC
 void CAppClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
+	UINT	uOwnerID		= 0;
 	BYTE	byResult		= 0;
 	WORD	wSlopeID		= 0;
 	WORD	wSceneID		= 0;
@@ -1196,6 +1197,7 @@ void CAppClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	pResult2->GetData(0, uCol++, strName, sizeof(strName));
 	pResult2->GetData(0, uCol++, dLongitude);
 	pResult2->GetData(0, uCol++, dLatitude);
+	pResult2->GetData(0, uCol++, uOwnerID);
 	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
 	pResult2->GetData(0, uCol++, strDesc, sizeof(strDesc));
 
@@ -1243,6 +1245,7 @@ void CAppClient::DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 void CAppClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
+	UINT	uOwnerID		= 0;
 	BYTE	byResult		= 0;
 	WORD	wSlopeID		= 0;
 	WORD	wSceneID		= 0;
@@ -1291,6 +1294,7 @@ void CAppClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	pResult2->GetData(0, uCol++, strName, sizeof(strName));
 	pResult2->GetData(0, uCol++, dLongitude);
 	pResult2->GetData(0, uCol++, dLatitude);
+	pResult2->GetData(0, uCol++, uOwnerID);
 	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
 	pResult2->GetData(0, uCol++, strDesc, sizeof(strDesc));
 

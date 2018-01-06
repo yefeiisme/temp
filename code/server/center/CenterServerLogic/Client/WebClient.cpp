@@ -1408,6 +1408,7 @@ void CWebClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pC
 void CWebClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
+	UINT	uOwnerID		= 0;
 	BYTE	byResult		= 0;
 	WORD	wSlopeID		= 0;
 	WORD	wSceneID		= 0;
@@ -1456,6 +1457,7 @@ void CWebClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	pResult2->GetData(0, uCol++, strName, sizeof(strName));
 	pResult2->GetData(0, uCol++, dLongitude);
 	pResult2->GetData(0, uCol++, dLatitude);
+	pResult2->GetData(0, uCol++, uOwnerID);
 	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
 	pResult2->GetData(0, uCol++, strDesc, sizeof(strDesc));
 
@@ -1503,6 +1505,7 @@ void CWebClient::DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 void CWebClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
+	UINT	uOwnerID		= 0;
 	BYTE	byResult		= 0;
 	WORD	wSlopeID		= 0;
 	WORD	wSceneID		= 0;
@@ -1551,6 +1554,7 @@ void CWebClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	pResult2->GetData(0, uCol++, strName, sizeof(strName));
 	pResult2->GetData(0, uCol++, dLongitude);
 	pResult2->GetData(0, uCol++, dLatitude);
+	pResult2->GetData(0, uCol++, uOwnerID);
 	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
 	pResult2->GetData(0, uCol++, strDesc, sizeof(strDesc));
 
@@ -1768,6 +1772,7 @@ void CWebClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlReq
 	double	dLatitude			= 0.0f;
 	BYTE	byState				= 0;
 	char	strUrl[0xffff]		= {0};
+	char	strDesc[0xffff]		= {0};
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (1 != byResultCount)
@@ -1799,6 +1804,7 @@ void CWebClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlReq
 		pResult1->GetData(uRow, uCol++, dLatitude);
 		pResult1->GetData(uRow, uCol++, byState);
 		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
+		pResult1->GetData(uRow, uCol++, strDesc, sizeof(strDesc));
 
 		pSlopeData->set_id(wSlopeID);
 		pSlopeData->set_scene_id(wSceneID);
@@ -1808,6 +1814,7 @@ void CWebClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlReq
 		pSlopeData->set_latitude(dLatitude);
 		pSlopeData->set_state(byState);
 		pSlopeData->set_url(strUrl);
+		pSlopeData->set_desc(strDesc);
 	}
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_slope_list, tagSlopeList);
