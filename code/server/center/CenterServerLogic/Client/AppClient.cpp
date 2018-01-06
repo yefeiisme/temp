@@ -28,6 +28,7 @@ CAppClient::pfnProtocolFunc CAppClient::m_ProtocolFunc[APP_SERVER_NET_Protocol::
 	&CAppClient::RecvLoadAuthority,
 	&CAppClient::RecvModifyAlarmValue,
 	&CAppClient::RecvLoadAlarmList,
+	&CAppClient::RecvStartSlope,
 };
 
 CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
@@ -53,6 +54,7 @@ CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CAppClient::DBResopndAddSensorData,
 	&CAppClient::DBResopndModifyAlarmValue,
 	&CAppClient::DBResopndLoadAlarmValue,
+	&CAppClient::DBResopndStartSlopeResult,
 };
 
 CAppClient::CAppClient() : CClient()
@@ -298,6 +300,7 @@ void CAppClient::RecvAddSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->AddParam(tagAddSlope.name().c_str());
 	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagAddSlope.url().c_str());
+	pMysqlQuery->AddParam(tagAddSlope.desc().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -371,6 +374,7 @@ void CAppClient::RecvUpdateSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->AddParam(tagSlopeData.latitude());
 	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagSlopeData.url().c_str());
+	pMysqlQuery->AddParam(tagSlopeData.desc().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -702,6 +706,40 @@ void CAppClient::RecvLoadAlarmList(const void *pPack, const unsigned int uPackLe
 	pMysqlQuery->PrepareProc("LoadAlarmValue");
 	pMysqlQuery->AddParam(tagLoadAlarmList.slope_id());
 	pMysqlQuery->AddParam(tagLoadAlarmList.sensor_type());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
+void CAppClient::RecvStartSlope(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		APP_SERVER_NET_Protocol::S2APP_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_error, tagError);
+
+		return;
+	}
+
+	APP_SERVER_NET_Protocol::APP2S_Start_Slope	tagStartSlope;
+	BYTE	*pRequest = (BYTE*)pPack + sizeof(BYTE);
+	tagStartSlope.ParseFromArray(pRequest, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest = {0};
+	tagRequest.byOpt		= SENSOR_DB_START_SLOPE;
+	tagRequest.uClientID	= m_uUniqueID;
+	tagRequest.uClientIndex	= m_uIndex;
+	tagRequest.byClientType	= APP_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery = g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("StartSlope");
+	pMysqlQuery->AddParam(tagStartSlope.slope_id());
+	pMysqlQuery->AddParam(tagStartSlope.start_type());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -1119,6 +1157,7 @@ void CAppClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	double	dLongitude		= 0.0f;
 	double	dLatitude		= 0.0f;
 	char	strUrl[1024]	= {0};
+	char	strDesc[1024]	= {0};
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (2 != byResultCount)
@@ -1158,15 +1197,17 @@ void CAppClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	pResult2->GetData(0, uCol++, dLongitude);
 	pResult2->GetData(0, uCol++, dLatitude);
 	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
+	pResult2->GetData(0, uCol++, strDesc, sizeof(strDesc));
 
 	tagNewSlope.set_id(wSlopeID);
-	tagNewSlope.set_scene_id(wSceneID);
 	tagNewSlope.set_type(byType);
 	tagNewSlope.set_name(strName);
 	tagNewSlope.set_state(0);
 	tagNewSlope.set_longitude(dLongitude);
 	tagNewSlope.set_latitude(dLatitude);
 	tagNewSlope.set_url(strUrl);
+	tagNewSlope.set_scene_id(wSceneID);
+	tagNewSlope.set_desc(strDesc);
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_new_slope, tagNewSlope);
 }
@@ -1211,6 +1252,7 @@ void CAppClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	double	dLongitude		= 0.0f;
 	double	dLatitude		= 0.0f;
 	char	strUrl[1024]	= {0};
+	char	strDesc[1024]	= {0};
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (2 != byResultCount)
@@ -1250,15 +1292,17 @@ void CAppClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	pResult2->GetData(0, uCol++, dLongitude);
 	pResult2->GetData(0, uCol++, dLatitude);
 	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
+	pResult2->GetData(0, uCol++, strDesc, sizeof(strDesc));
 
 	tagUpdateSlope.set_id(wSlopeID);
-	tagUpdateSlope.set_scene_id(wSceneID);
 	tagUpdateSlope.set_type(byType);
 	tagUpdateSlope.set_name(strName);
 	tagUpdateSlope.set_state(0);
 	tagUpdateSlope.set_longitude(dLongitude);
 	tagUpdateSlope.set_latitude(dLatitude);
 	tagUpdateSlope.set_url(strUrl);
+	tagUpdateSlope.set_scene_id(wSceneID);
+	tagUpdateSlope.set_desc(strDesc);
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_update_slope, tagUpdateSlope);
 }
@@ -1705,6 +1749,28 @@ void CAppClient::DBResopndLoadAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequ
 	tagAlarmValue.set_alarm_value4(dAlarmValue4);
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_alarm_value, tagAlarmValue);
+}
+
+void CAppClient::DBResopndStartSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	WORD	wSlopeID	= 0;
+	BYTE	byResult	= 0;
+	UINT	uCol		= 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	APP_SERVER_NET_Protocol::S2APP_Start_Slope_Result	tagStartResult;
+
+	pResult1->GetData(0, uCol++, wSlopeID);
+	pResult1->GetData(0, uCol++, byResult);
+
+	tagStartResult.set_slope_id(wSlopeID);
+	tagStartResult.set_result(byResult);
+
+	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_start_slope_result, tagStartResult);
 }
 
 void CAppClient::SendAppMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)

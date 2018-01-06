@@ -71,6 +71,9 @@ extern APP2S_Request_Sensor_ListDefaultTypeInternal _APP2S_Request_Sensor_List_d
 class APP2S_Request_Slope_List;
 class APP2S_Request_Slope_ListDefaultTypeInternal;
 extern APP2S_Request_Slope_ListDefaultTypeInternal _APP2S_Request_Slope_List_default_instance_;
+class APP2S_Start_Slope;
+class APP2S_Start_SlopeDefaultTypeInternal;
+extern APP2S_Start_SlopeDefaultTypeInternal _APP2S_Start_Slope_default_instance_;
 class APP2S_Update_Sensor_Data;
 class APP2S_Update_Sensor_DataDefaultTypeInternal;
 extern APP2S_Update_Sensor_DataDefaultTypeInternal _APP2S_Update_Sensor_Data_default_instance_;
@@ -107,6 +110,9 @@ extern S2APP_Modify_Password_ResultDefaultTypeInternal _S2APP_Modify_Password_Re
 class S2APP_New_Slope;
 class S2APP_New_SlopeDefaultTypeInternal;
 extern S2APP_New_SlopeDefaultTypeInternal _S2APP_New_Slope_default_instance_;
+class S2APP_Start_Slope_Result;
+class S2APP_Start_Slope_ResultDefaultTypeInternal;
+extern S2APP_Start_Slope_ResultDefaultTypeInternal _S2APP_Start_Slope_Result_default_instance_;
 class S2APP_Update_Sensor;
 class S2APP_Update_SensorDefaultTypeInternal;
 extern S2APP_Update_SensorDefaultTypeInternal _S2APP_Update_Sensor_default_instance_;
@@ -174,6 +180,7 @@ enum APP2S {
   app2s_load_authority = 15,
   app2s_modify_alarm_value = 16,
   app2s_load_alarm_list = 17,
+  app2s_start_slope = 18,
   app2s_max = 256
 };
 bool APP2S_IsValid(int value);
@@ -207,6 +214,7 @@ enum S2APP {
   s2app_modify_password_result = 12,
   s2app_authority_list = 13,
   s2app_alarm_value = 14,
+  s2app_start_slope_result = 15,
   s2app_max = 256
 };
 bool S2APP_IsValid(int value);
@@ -774,6 +782,21 @@ class APP2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   ::std::string* release_url();
   void set_allocated_url(::std::string* url);
 
+  // optional bytes desc = 5;
+  bool has_desc() const;
+  void clear_desc();
+  static const int kDescFieldNumber = 5;
+  const ::std::string& desc() const;
+  void set_desc(const ::std::string& value);
+  #if LANG_CXX11
+  void set_desc(::std::string&& value);
+  #endif
+  void set_desc(const char* value);
+  void set_desc(const void* value, size_t size);
+  ::std::string* mutable_desc();
+  ::std::string* release_desc();
+  void set_allocated_desc(::std::string* desc);
+
   // required uint32 type = 1;
   bool has_type() const;
   void clear_type();
@@ -798,6 +821,8 @@ class APP2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   void clear_has_url();
   void set_has_scene_id();
   void clear_has_scene_id();
+  void set_has_desc();
+  void clear_has_desc();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -807,6 +832,7 @@ class APP2S_Add_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr url_;
+  ::google::protobuf::internal::ArenaStringPtr desc_;
   ::google::protobuf::uint32 type_;
   ::google::protobuf::uint32 scene_id_;
   friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
@@ -1007,6 +1033,21 @@ class APP2S_Update_Slope_Data : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_url();
   void set_allocated_url(::std::string* url);
 
+  // optional bytes desc = 8;
+  bool has_desc() const;
+  void clear_desc();
+  static const int kDescFieldNumber = 8;
+  const ::std::string& desc() const;
+  void set_desc(const ::std::string& value);
+  #if LANG_CXX11
+  void set_desc(::std::string&& value);
+  #endif
+  void set_desc(const char* value);
+  void set_desc(const void* value, size_t size);
+  ::std::string* mutable_desc();
+  ::std::string* release_desc();
+  void set_allocated_desc(::std::string* desc);
+
   // required uint32 id = 1;
   bool has_id() const;
   void clear_id();
@@ -1058,6 +1099,8 @@ class APP2S_Update_Slope_Data : public ::google::protobuf::Message /* @@protoc_i
   void clear_has_url();
   void set_has_scene_id();
   void clear_has_scene_id();
+  void set_has_desc();
+  void clear_has_desc();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -1067,6 +1110,7 @@ class APP2S_Update_Slope_Data : public ::google::protobuf::Message /* @@protoc_i
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr url_;
+  ::google::protobuf::internal::ArenaStringPtr desc_;
   ::google::protobuf::uint32 id_;
   ::google::protobuf::uint32 type_;
   double longitude_;
@@ -2229,6 +2273,111 @@ class APP2S_Load_Alarm_List : public ::google::protobuf::Message /* @@protoc_ins
 };
 // -------------------------------------------------------------------
 
+class APP2S_Start_Slope : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:APP_SERVER_NET_Protocol.APP2S_Start_Slope) */ {
+ public:
+  APP2S_Start_Slope();
+  virtual ~APP2S_Start_Slope();
+
+  APP2S_Start_Slope(const APP2S_Start_Slope& from);
+
+  inline APP2S_Start_Slope& operator=(const APP2S_Start_Slope& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const APP2S_Start_Slope& default_instance();
+
+  static inline const APP2S_Start_Slope* internal_default_instance() {
+    return reinterpret_cast<const APP2S_Start_Slope*>(
+               &_APP2S_Start_Slope_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    16;
+
+  void Swap(APP2S_Start_Slope* other);
+
+  // implements Message ----------------------------------------------
+
+  inline APP2S_Start_Slope* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  APP2S_Start_Slope* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const APP2S_Start_Slope& from);
+  void MergeFrom(const APP2S_Start_Slope& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(APP2S_Start_Slope* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 slope_id = 1;
+  bool has_slope_id() const;
+  void clear_slope_id();
+  static const int kSlopeIdFieldNumber = 1;
+  ::google::protobuf::uint32 slope_id() const;
+  void set_slope_id(::google::protobuf::uint32 value);
+
+  // required uint32 start_type = 2;
+  bool has_start_type() const;
+  void clear_start_type();
+  static const int kStartTypeFieldNumber = 2;
+  ::google::protobuf::uint32 start_type() const;
+  void set_start_type(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:APP_SERVER_NET_Protocol.APP2S_Start_Slope)
+ private:
+  void set_has_slope_id();
+  void clear_has_slope_id();
+  void set_has_start_type();
+  void clear_has_start_type();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 slope_id_;
+  ::google::protobuf::uint32 start_type_;
+  friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class S2App_Login_Result_ServerData : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:APP_SERVER_NET_Protocol.S2App_Login_Result.ServerData) */ {
  public:
   S2App_Login_Result_ServerData();
@@ -2257,7 +2406,7 @@ class S2App_Login_Result_ServerData : public ::google::protobuf::Message /* @@pr
                &_S2App_Login_Result_ServerData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    17;
 
   void Swap(S2App_Login_Result_ServerData* other);
 
@@ -2380,7 +2529,7 @@ class S2App_Login_Result : public ::google::protobuf::Message /* @@protoc_insert
                &_S2App_Login_Result_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    18;
 
   void Swap(S2App_Login_Result* other);
 
@@ -2487,7 +2636,7 @@ class S2App_Slope_List_SlopeData : public ::google::protobuf::Message /* @@proto
                &_S2App_Slope_List_SlopeData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    19;
 
   void Swap(S2App_Slope_List_SlopeData* other);
 
@@ -2686,7 +2835,7 @@ class S2App_Slope_List : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2App_Slope_List_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    19;
+    20;
 
   void Swap(S2App_Slope_List* other);
 
@@ -2783,7 +2932,7 @@ class S2App_Sensor_List_SensorData : public ::google::protobuf::Message /* @@pro
                &_S2App_Sensor_List_SensorData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    21;
 
   void Swap(S2App_Sensor_List_SensorData* other);
 
@@ -3074,7 +3223,7 @@ class S2App_Sensor_List : public ::google::protobuf::Message /* @@protoc_inserti
                &_S2App_Sensor_List_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    21;
+    22;
 
   void Swap(S2App_Sensor_List* other);
 
@@ -3171,7 +3320,7 @@ class S2App_Sensor_History_SensorData : public ::google::protobuf::Message /* @@
                &_S2App_Sensor_History_SensorData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    22;
+    23;
 
   void Swap(S2App_Sensor_History_SensorData* other);
 
@@ -3376,7 +3525,7 @@ class S2App_Sensor_History : public ::google::protobuf::Message /* @@protoc_inse
                &_S2App_Sensor_History_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    23;
+    24;
 
   void Swap(S2App_Sensor_History* other);
 
@@ -3576,7 +3725,7 @@ class S2APP_ERROR : public ::google::protobuf::Message /* @@protoc_insertion_poi
                &_S2APP_ERROR_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    24;
+    25;
 
   void Swap(S2APP_ERROR* other);
 
@@ -3668,7 +3817,7 @@ class S2APP_New_Slope : public ::google::protobuf::Message /* @@protoc_insertion
                &_S2APP_New_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    25;
+    26;
 
   void Swap(S2APP_New_Slope* other);
 
@@ -3742,6 +3891,21 @@ class S2APP_New_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   ::std::string* release_url();
   void set_allocated_url(::std::string* url);
 
+  // optional bytes desc = 9;
+  bool has_desc() const;
+  void clear_desc();
+  static const int kDescFieldNumber = 9;
+  const ::std::string& desc() const;
+  void set_desc(const ::std::string& value);
+  #if LANG_CXX11
+  void set_desc(::std::string&& value);
+  #endif
+  void set_desc(const char* value);
+  void set_desc(const void* value, size_t size);
+  ::std::string* mutable_desc();
+  ::std::string* release_desc();
+  void set_allocated_desc(::std::string* desc);
+
   // required uint32 id = 1;
   bool has_id() const;
   void clear_id();
@@ -3802,6 +3966,8 @@ class S2APP_New_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   void clear_has_url();
   void set_has_scene_id();
   void clear_has_scene_id();
+  void set_has_desc();
+  void clear_has_desc();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -3811,6 +3977,7 @@ class S2APP_New_Slope : public ::google::protobuf::Message /* @@protoc_insertion
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr url_;
+  ::google::protobuf::internal::ArenaStringPtr desc_;
   ::google::protobuf::uint32 id_;
   ::google::protobuf::uint32 type_;
   double longitude_;
@@ -3849,7 +4016,7 @@ class S2APP_Del_Slope : public ::google::protobuf::Message /* @@protoc_insertion
                &_S2APP_Del_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    26;
+    27;
 
   void Swap(S2APP_Del_Slope* other);
 
@@ -3941,7 +4108,7 @@ class S2APP_Update_Slope : public ::google::protobuf::Message /* @@protoc_insert
                &_S2APP_Update_Slope_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    27;
+    28;
 
   void Swap(S2APP_Update_Slope* other);
 
@@ -4015,6 +4182,21 @@ class S2APP_Update_Slope : public ::google::protobuf::Message /* @@protoc_insert
   ::std::string* release_url();
   void set_allocated_url(::std::string* url);
 
+  // optional bytes desc = 9;
+  bool has_desc() const;
+  void clear_desc();
+  static const int kDescFieldNumber = 9;
+  const ::std::string& desc() const;
+  void set_desc(const ::std::string& value);
+  #if LANG_CXX11
+  void set_desc(::std::string&& value);
+  #endif
+  void set_desc(const char* value);
+  void set_desc(const void* value, size_t size);
+  ::std::string* mutable_desc();
+  ::std::string* release_desc();
+  void set_allocated_desc(::std::string* desc);
+
   // required uint32 id = 1;
   bool has_id() const;
   void clear_id();
@@ -4075,6 +4257,8 @@ class S2APP_Update_Slope : public ::google::protobuf::Message /* @@protoc_insert
   void clear_has_url();
   void set_has_scene_id();
   void clear_has_scene_id();
+  void set_has_desc();
+  void clear_has_desc();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -4084,6 +4268,7 @@ class S2APP_Update_Slope : public ::google::protobuf::Message /* @@protoc_insert
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr url_;
+  ::google::protobuf::internal::ArenaStringPtr desc_;
   ::google::protobuf::uint32 id_;
   ::google::protobuf::uint32 type_;
   double longitude_;
@@ -4122,7 +4307,7 @@ class S2APP_Add_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2APP_Add_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    28;
+    29;
 
   void Swap(S2APP_Add_Sensor* other);
 
@@ -4313,7 +4498,7 @@ class S2APP_Del_Sensor : public ::google::protobuf::Message /* @@protoc_insertio
                &_S2APP_Del_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    29;
+    30;
 
   void Swap(S2APP_Del_Sensor* other);
 
@@ -4405,7 +4590,7 @@ class S2APP_Update_Sensor : public ::google::protobuf::Message /* @@protoc_inser
                &_S2APP_Update_Sensor_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    30;
+    31;
 
   void Swap(S2APP_Update_Sensor* other);
 
@@ -4596,7 +4781,7 @@ class S2APP_Modify_Password_Result : public ::google::protobuf::Message /* @@pro
                &_S2APP_Modify_Password_Result_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    31;
+    32;
 
   void Swap(S2APP_Modify_Password_Result* other);
 
@@ -4688,7 +4873,7 @@ class S2APP_Authority_List_AuthorityData : public ::google::protobuf::Message /*
                &_S2APP_Authority_List_AuthorityData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    32;
+    33;
 
   void Swap(S2APP_Authority_List_AuthorityData* other);
 
@@ -4847,7 +5032,7 @@ class S2APP_Authority_List : public ::google::protobuf::Message /* @@protoc_inse
                &_S2APP_Authority_List_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    33;
+    34;
 
   void Swap(S2APP_Authority_List* other);
 
@@ -4944,7 +5129,7 @@ class S2APP_Alarm_Value : public ::google::protobuf::Message /* @@protoc_inserti
                &_S2APP_Alarm_Value_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    34;
+    35;
 
   void Swap(S2APP_Alarm_Value* other);
 
@@ -5057,6 +5242,111 @@ class S2APP_Alarm_Value : public ::google::protobuf::Message /* @@protoc_inserti
   double alarm_value2_;
   double alarm_value3_;
   double alarm_value4_;
+  friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class S2APP_Start_Slope_Result : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:APP_SERVER_NET_Protocol.S2APP_Start_Slope_Result) */ {
+ public:
+  S2APP_Start_Slope_Result();
+  virtual ~S2APP_Start_Slope_Result();
+
+  S2APP_Start_Slope_Result(const S2APP_Start_Slope_Result& from);
+
+  inline S2APP_Start_Slope_Result& operator=(const S2APP_Start_Slope_Result& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2APP_Start_Slope_Result& default_instance();
+
+  static inline const S2APP_Start_Slope_Result* internal_default_instance() {
+    return reinterpret_cast<const S2APP_Start_Slope_Result*>(
+               &_S2APP_Start_Slope_Result_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    36;
+
+  void Swap(S2APP_Start_Slope_Result* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2APP_Start_Slope_Result* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  S2APP_Start_Slope_Result* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const S2APP_Start_Slope_Result& from);
+  void MergeFrom(const S2APP_Start_Slope_Result& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(S2APP_Start_Slope_Result* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 slope_id = 1;
+  bool has_slope_id() const;
+  void clear_slope_id();
+  static const int kSlopeIdFieldNumber = 1;
+  ::google::protobuf::uint32 slope_id() const;
+  void set_slope_id(::google::protobuf::uint32 value);
+
+  // required uint32 result = 2;
+  bool has_result() const;
+  void clear_result();
+  static const int kResultFieldNumber = 2;
+  ::google::protobuf::uint32 result() const;
+  void set_result(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:APP_SERVER_NET_Protocol.S2APP_Start_Slope_Result)
+ private:
+  void set_has_slope_id();
+  void clear_has_slope_id();
+  void set_has_result();
+  void clear_has_result();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 slope_id_;
+  ::google::protobuf::uint32 result_;
   friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // ===================================================================
@@ -5379,13 +5669,13 @@ inline void APP2S_Request_Sensor_History::set_end_time(::google::protobuf::uint3
 
 // required uint32 type = 1;
 inline bool APP2S_Add_Slope::has_type() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void APP2S_Add_Slope::set_has_type() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void APP2S_Add_Slope::clear_has_type() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void APP2S_Add_Slope::clear_type() {
   type_ = 0u;
@@ -5529,13 +5819,13 @@ inline void APP2S_Add_Slope::set_allocated_url(::std::string* url) {
 
 // required uint32 scene_id = 4;
 inline bool APP2S_Add_Slope::has_scene_id() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void APP2S_Add_Slope::set_has_scene_id() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void APP2S_Add_Slope::clear_has_scene_id() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void APP2S_Add_Slope::clear_scene_id() {
   scene_id_ = 0u;
@@ -5549,6 +5839,69 @@ inline void APP2S_Add_Slope::set_scene_id(::google::protobuf::uint32 value) {
   set_has_scene_id();
   scene_id_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Add_Slope.scene_id)
+}
+
+// optional bytes desc = 5;
+inline bool APP2S_Add_Slope::has_desc() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void APP2S_Add_Slope::set_has_desc() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void APP2S_Add_Slope::clear_has_desc() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void APP2S_Add_Slope::clear_desc() {
+  desc_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_desc();
+}
+inline const ::std::string& APP2S_Add_Slope::desc() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Add_Slope.desc)
+  return desc_.GetNoArena();
+}
+inline void APP2S_Add_Slope::set_desc(const ::std::string& value) {
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Add_Slope.desc)
+}
+#if LANG_CXX11
+inline void APP2S_Add_Slope::set_desc(::std::string&& value) {
+  set_has_desc();
+  desc_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:APP_SERVER_NET_Protocol.APP2S_Add_Slope.desc)
+}
+#endif
+inline void APP2S_Add_Slope::set_desc(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:APP_SERVER_NET_Protocol.APP2S_Add_Slope.desc)
+}
+inline void APP2S_Add_Slope::set_desc(const void* value, size_t size) {
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:APP_SERVER_NET_Protocol.APP2S_Add_Slope.desc)
+}
+inline ::std::string* APP2S_Add_Slope::mutable_desc() {
+  set_has_desc();
+  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.APP2S_Add_Slope.desc)
+  return desc_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* APP2S_Add_Slope::release_desc() {
+  // @@protoc_insertion_point(field_release:APP_SERVER_NET_Protocol.APP2S_Add_Slope.desc)
+  clear_has_desc();
+  return desc_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APP2S_Add_Slope::set_allocated_desc(::std::string* desc) {
+  if (desc != NULL) {
+    set_has_desc();
+  } else {
+    clear_has_desc();
+  }
+  desc_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), desc);
+  // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.APP2S_Add_Slope.desc)
 }
 
 // -------------------------------------------------------------------
@@ -5585,13 +5938,13 @@ inline void APP2S_Del_Slope::set_id(::google::protobuf::uint32 value) {
 
 // required uint32 id = 1;
 inline bool APP2S_Update_Slope_Data::has_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void APP2S_Update_Slope_Data::set_has_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void APP2S_Update_Slope_Data::clear_has_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void APP2S_Update_Slope_Data::clear_id() {
   id_ = 0u;
@@ -5609,13 +5962,13 @@ inline void APP2S_Update_Slope_Data::set_id(::google::protobuf::uint32 value) {
 
 // required uint32 type = 2;
 inline bool APP2S_Update_Slope_Data::has_type() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void APP2S_Update_Slope_Data::set_has_type() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void APP2S_Update_Slope_Data::clear_has_type() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void APP2S_Update_Slope_Data::clear_type() {
   type_ = 0u;
@@ -5696,13 +6049,13 @@ inline void APP2S_Update_Slope_Data::set_allocated_name(::std::string* name) {
 
 // required double longitude = 4;
 inline bool APP2S_Update_Slope_Data::has_longitude() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void APP2S_Update_Slope_Data::set_has_longitude() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void APP2S_Update_Slope_Data::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void APP2S_Update_Slope_Data::clear_longitude() {
   longitude_ = 0;
@@ -5720,13 +6073,13 @@ inline void APP2S_Update_Slope_Data::set_longitude(double value) {
 
 // required double latitude = 5;
 inline bool APP2S_Update_Slope_Data::has_latitude() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void APP2S_Update_Slope_Data::set_has_latitude() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void APP2S_Update_Slope_Data::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void APP2S_Update_Slope_Data::clear_latitude() {
   latitude_ = 0;
@@ -5807,13 +6160,13 @@ inline void APP2S_Update_Slope_Data::set_allocated_url(::std::string* url) {
 
 // required uint32 scene_id = 7;
 inline bool APP2S_Update_Slope_Data::has_scene_id() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void APP2S_Update_Slope_Data::set_has_scene_id() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void APP2S_Update_Slope_Data::clear_has_scene_id() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void APP2S_Update_Slope_Data::clear_scene_id() {
   scene_id_ = 0u;
@@ -5827,6 +6180,69 @@ inline void APP2S_Update_Slope_Data::set_scene_id(::google::protobuf::uint32 val
   set_has_scene_id();
   scene_id_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Update_Slope_Data.scene_id)
+}
+
+// optional bytes desc = 8;
+inline bool APP2S_Update_Slope_Data::has_desc() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void APP2S_Update_Slope_Data::set_has_desc() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void APP2S_Update_Slope_Data::clear_has_desc() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void APP2S_Update_Slope_Data::clear_desc() {
+  desc_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_desc();
+}
+inline const ::std::string& APP2S_Update_Slope_Data::desc() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Update_Slope_Data.desc)
+  return desc_.GetNoArena();
+}
+inline void APP2S_Update_Slope_Data::set_desc(const ::std::string& value) {
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Update_Slope_Data.desc)
+}
+#if LANG_CXX11
+inline void APP2S_Update_Slope_Data::set_desc(::std::string&& value) {
+  set_has_desc();
+  desc_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:APP_SERVER_NET_Protocol.APP2S_Update_Slope_Data.desc)
+}
+#endif
+inline void APP2S_Update_Slope_Data::set_desc(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:APP_SERVER_NET_Protocol.APP2S_Update_Slope_Data.desc)
+}
+inline void APP2S_Update_Slope_Data::set_desc(const void* value, size_t size) {
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:APP_SERVER_NET_Protocol.APP2S_Update_Slope_Data.desc)
+}
+inline ::std::string* APP2S_Update_Slope_Data::mutable_desc() {
+  set_has_desc();
+  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.APP2S_Update_Slope_Data.desc)
+  return desc_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* APP2S_Update_Slope_Data::release_desc() {
+  // @@protoc_insertion_point(field_release:APP_SERVER_NET_Protocol.APP2S_Update_Slope_Data.desc)
+  clear_has_desc();
+  return desc_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void APP2S_Update_Slope_Data::set_allocated_desc(::std::string* desc) {
+  if (desc != NULL) {
+    set_has_desc();
+  } else {
+    clear_has_desc();
+  }
+  desc_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), desc);
+  // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.APP2S_Update_Slope_Data.desc)
 }
 
 // -------------------------------------------------------------------
@@ -6967,6 +7383,58 @@ inline void APP2S_Load_Alarm_List::set_sensor_type(::google::protobuf::uint32 va
   set_has_sensor_type();
   sensor_type_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Load_Alarm_List.sensor_type)
+}
+
+// -------------------------------------------------------------------
+
+// APP2S_Start_Slope
+
+// required uint32 slope_id = 1;
+inline bool APP2S_Start_Slope::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void APP2S_Start_Slope::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void APP2S_Start_Slope::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void APP2S_Start_Slope::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+inline ::google::protobuf::uint32 APP2S_Start_Slope::slope_id() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Start_Slope.slope_id)
+  return slope_id_;
+}
+inline void APP2S_Start_Slope::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Start_Slope.slope_id)
+}
+
+// required uint32 start_type = 2;
+inline bool APP2S_Start_Slope::has_start_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void APP2S_Start_Slope::set_has_start_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void APP2S_Start_Slope::clear_has_start_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void APP2S_Start_Slope::clear_start_type() {
+  start_type_ = 0u;
+  clear_has_start_type();
+}
+inline ::google::protobuf::uint32 APP2S_Start_Slope::start_type() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Start_Slope.start_type)
+  return start_type_;
+}
+inline void APP2S_Start_Slope::set_start_type(::google::protobuf::uint32 value) {
+  set_has_start_type();
+  start_type_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Start_Slope.start_type)
 }
 
 // -------------------------------------------------------------------
@@ -8685,13 +9153,13 @@ inline void S2APP_ERROR::set_error_code(::google::protobuf::uint32 value) {
 
 // required uint32 id = 1;
 inline bool S2APP_New_Slope::has_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void S2APP_New_Slope::set_has_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void S2APP_New_Slope::clear_has_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void S2APP_New_Slope::clear_id() {
   id_ = 0u;
@@ -8709,13 +9177,13 @@ inline void S2APP_New_Slope::set_id(::google::protobuf::uint32 value) {
 
 // required uint32 type = 2;
 inline bool S2APP_New_Slope::has_type() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void S2APP_New_Slope::set_has_type() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void S2APP_New_Slope::clear_has_type() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void S2APP_New_Slope::clear_type() {
   type_ = 0u;
@@ -8796,13 +9264,13 @@ inline void S2APP_New_Slope::set_allocated_name(::std::string* name) {
 
 // required uint32 state = 4;
 inline bool S2APP_New_Slope::has_state() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void S2APP_New_Slope::set_has_state() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void S2APP_New_Slope::clear_has_state() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void S2APP_New_Slope::clear_state() {
   state_ = 0u;
@@ -8820,13 +9288,13 @@ inline void S2APP_New_Slope::set_state(::google::protobuf::uint32 value) {
 
 // required double longitude = 5;
 inline bool S2APP_New_Slope::has_longitude() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void S2APP_New_Slope::set_has_longitude() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void S2APP_New_Slope::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void S2APP_New_Slope::clear_longitude() {
   longitude_ = 0;
@@ -8844,13 +9312,13 @@ inline void S2APP_New_Slope::set_longitude(double value) {
 
 // required double latitude = 6;
 inline bool S2APP_New_Slope::has_latitude() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void S2APP_New_Slope::set_has_latitude() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void S2APP_New_Slope::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void S2APP_New_Slope::clear_latitude() {
   latitude_ = 0;
@@ -8931,13 +9399,13 @@ inline void S2APP_New_Slope::set_allocated_url(::std::string* url) {
 
 // required uint32 scene_id = 8;
 inline bool S2APP_New_Slope::has_scene_id() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void S2APP_New_Slope::set_has_scene_id() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void S2APP_New_Slope::clear_has_scene_id() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void S2APP_New_Slope::clear_scene_id() {
   scene_id_ = 0u;
@@ -8951,6 +9419,69 @@ inline void S2APP_New_Slope::set_scene_id(::google::protobuf::uint32 value) {
   set_has_scene_id();
   scene_id_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_New_Slope.scene_id)
+}
+
+// optional bytes desc = 9;
+inline bool S2APP_New_Slope::has_desc() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2APP_New_Slope::set_has_desc() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2APP_New_Slope::clear_has_desc() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2APP_New_Slope::clear_desc() {
+  desc_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_desc();
+}
+inline const ::std::string& S2APP_New_Slope::desc() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_New_Slope.desc)
+  return desc_.GetNoArena();
+}
+inline void S2APP_New_Slope::set_desc(const ::std::string& value) {
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_New_Slope.desc)
+}
+#if LANG_CXX11
+inline void S2APP_New_Slope::set_desc(::std::string&& value) {
+  set_has_desc();
+  desc_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:APP_SERVER_NET_Protocol.S2APP_New_Slope.desc)
+}
+#endif
+inline void S2APP_New_Slope::set_desc(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:APP_SERVER_NET_Protocol.S2APP_New_Slope.desc)
+}
+inline void S2APP_New_Slope::set_desc(const void* value, size_t size) {
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:APP_SERVER_NET_Protocol.S2APP_New_Slope.desc)
+}
+inline ::std::string* S2APP_New_Slope::mutable_desc() {
+  set_has_desc();
+  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.S2APP_New_Slope.desc)
+  return desc_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2APP_New_Slope::release_desc() {
+  // @@protoc_insertion_point(field_release:APP_SERVER_NET_Protocol.S2APP_New_Slope.desc)
+  clear_has_desc();
+  return desc_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2APP_New_Slope::set_allocated_desc(::std::string* desc) {
+  if (desc != NULL) {
+    set_has_desc();
+  } else {
+    clear_has_desc();
+  }
+  desc_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), desc);
+  // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.S2APP_New_Slope.desc)
 }
 
 // -------------------------------------------------------------------
@@ -8987,13 +9518,13 @@ inline void S2APP_Del_Slope::set_result(::google::protobuf::uint32 value) {
 
 // required uint32 id = 1;
 inline bool S2APP_Update_Slope::has_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void S2APP_Update_Slope::set_has_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void S2APP_Update_Slope::clear_has_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void S2APP_Update_Slope::clear_id() {
   id_ = 0u;
@@ -9011,13 +9542,13 @@ inline void S2APP_Update_Slope::set_id(::google::protobuf::uint32 value) {
 
 // required uint32 type = 2;
 inline bool S2APP_Update_Slope::has_type() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void S2APP_Update_Slope::set_has_type() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void S2APP_Update_Slope::clear_has_type() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void S2APP_Update_Slope::clear_type() {
   type_ = 0u;
@@ -9098,13 +9629,13 @@ inline void S2APP_Update_Slope::set_allocated_name(::std::string* name) {
 
 // required uint32 state = 4;
 inline bool S2APP_Update_Slope::has_state() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void S2APP_Update_Slope::set_has_state() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void S2APP_Update_Slope::clear_has_state() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void S2APP_Update_Slope::clear_state() {
   state_ = 0u;
@@ -9122,13 +9653,13 @@ inline void S2APP_Update_Slope::set_state(::google::protobuf::uint32 value) {
 
 // required double longitude = 5;
 inline bool S2APP_Update_Slope::has_longitude() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void S2APP_Update_Slope::set_has_longitude() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void S2APP_Update_Slope::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void S2APP_Update_Slope::clear_longitude() {
   longitude_ = 0;
@@ -9146,13 +9677,13 @@ inline void S2APP_Update_Slope::set_longitude(double value) {
 
 // required double latitude = 6;
 inline bool S2APP_Update_Slope::has_latitude() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void S2APP_Update_Slope::set_has_latitude() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void S2APP_Update_Slope::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void S2APP_Update_Slope::clear_latitude() {
   latitude_ = 0;
@@ -9233,13 +9764,13 @@ inline void S2APP_Update_Slope::set_allocated_url(::std::string* url) {
 
 // required uint32 scene_id = 8;
 inline bool S2APP_Update_Slope::has_scene_id() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void S2APP_Update_Slope::set_has_scene_id() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void S2APP_Update_Slope::clear_has_scene_id() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void S2APP_Update_Slope::clear_scene_id() {
   scene_id_ = 0u;
@@ -9253,6 +9784,69 @@ inline void S2APP_Update_Slope::set_scene_id(::google::protobuf::uint32 value) {
   set_has_scene_id();
   scene_id_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Update_Slope.scene_id)
+}
+
+// optional bytes desc = 9;
+inline bool S2APP_Update_Slope::has_desc() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2APP_Update_Slope::set_has_desc() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2APP_Update_Slope::clear_has_desc() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2APP_Update_Slope::clear_desc() {
+  desc_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_desc();
+}
+inline const ::std::string& S2APP_Update_Slope::desc() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Update_Slope.desc)
+  return desc_.GetNoArena();
+}
+inline void S2APP_Update_Slope::set_desc(const ::std::string& value) {
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Update_Slope.desc)
+}
+#if LANG_CXX11
+inline void S2APP_Update_Slope::set_desc(::std::string&& value) {
+  set_has_desc();
+  desc_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:APP_SERVER_NET_Protocol.S2APP_Update_Slope.desc)
+}
+#endif
+inline void S2APP_Update_Slope::set_desc(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:APP_SERVER_NET_Protocol.S2APP_Update_Slope.desc)
+}
+inline void S2APP_Update_Slope::set_desc(const void* value, size_t size) {
+  set_has_desc();
+  desc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:APP_SERVER_NET_Protocol.S2APP_Update_Slope.desc)
+}
+inline ::std::string* S2APP_Update_Slope::mutable_desc() {
+  set_has_desc();
+  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.S2APP_Update_Slope.desc)
+  return desc_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2APP_Update_Slope::release_desc() {
+  // @@protoc_insertion_point(field_release:APP_SERVER_NET_Protocol.S2APP_Update_Slope.desc)
+  clear_has_desc();
+  return desc_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2APP_Update_Slope::set_allocated_desc(::std::string* desc) {
+  if (desc != NULL) {
+    set_has_desc();
+  } else {
+    clear_has_desc();
+  }
+  desc_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), desc);
+  // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.S2APP_Update_Slope.desc)
 }
 
 // -------------------------------------------------------------------
@@ -10330,7 +10924,63 @@ inline void S2APP_Alarm_Value::set_alarm_value4(double value) {
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Alarm_Value.alarm_value4)
 }
 
+// -------------------------------------------------------------------
+
+// S2APP_Start_Slope_Result
+
+// required uint32 slope_id = 1;
+inline bool S2APP_Start_Slope_Result::has_slope_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2APP_Start_Slope_Result::set_has_slope_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2APP_Start_Slope_Result::clear_has_slope_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2APP_Start_Slope_Result::clear_slope_id() {
+  slope_id_ = 0u;
+  clear_has_slope_id();
+}
+inline ::google::protobuf::uint32 S2APP_Start_Slope_Result::slope_id() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Start_Slope_Result.slope_id)
+  return slope_id_;
+}
+inline void S2APP_Start_Slope_Result::set_slope_id(::google::protobuf::uint32 value) {
+  set_has_slope_id();
+  slope_id_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Start_Slope_Result.slope_id)
+}
+
+// required uint32 result = 2;
+inline bool S2APP_Start_Slope_Result::has_result() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2APP_Start_Slope_Result::set_has_result() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2APP_Start_Slope_Result::clear_has_result() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2APP_Start_Slope_Result::clear_result() {
+  result_ = 0u;
+  clear_has_result();
+}
+inline ::google::protobuf::uint32 S2APP_Start_Slope_Result::result() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2APP_Start_Slope_Result.result)
+  return result_;
+}
+inline void S2APP_Start_Slope_Result::set_result(::google::protobuf::uint32 value) {
+  set_has_result();
+  result_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2APP_Start_Slope_Result.result)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

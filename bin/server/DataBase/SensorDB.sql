@@ -225,9 +225,9 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `AddSlope`;
-CREATE PROCEDURE `AddSlope`(IN paramSceneID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED,IN paramName VARCHAR(64),IN paramOwnerID INTEGER UNSIGNED,IN paramUrl mediumtext)
+CREATE PROCEDURE `AddSlope`(IN paramSceneID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED,IN paramName VARCHAR(64),IN paramOwnerID INTEGER UNSIGNED,IN paramUrl mediumtext,IN paramDesc mediumtext)
 BEGIN
-	insert into slope(SceneID,Type,Name,OwnerID,VideoUrl) value(paramSceneID,paramType,paramName,paramOwnerID,paramUrl);
+	insert into slope(SceneID,Type,Name,OwnerID,VideoUrl,Description) value(paramSceneID,paramType,paramName,paramOwnerID,paramUrl,paramDesc);
 	
 	if ROW_COUNT() > 0 then
 		select 0;
@@ -235,7 +235,7 @@ BEGIN
 		select 1;
 	end if;
 	
-	select LAST_INSERT_ID(),paramSceneID,paramType,paramName,0,0,paramOwnerID,paramUrl;
+	select LAST_INSERT_ID(),paramSceneID,paramType,paramName,0,0,paramOwnerID,paramUrl,SceneID,paramDesc;
 END;
 
 DROP PROCEDURE IF EXISTS `DeleteSlope`;
@@ -251,9 +251,9 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `UpdateSlope`;
-CREATE PROCEDURE `UpdateSlope`(IN paramSlopeID INTEGER UNSIGNED,IN paramSceneID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED,IN paramName VARCHAR(64),IN paramLongitude DOUBLE,IN paramLatitude DOUBLE,IN paramOwnerID INTEGER UNSIGNED,IN paramUrl mediumtext)
+CREATE PROCEDURE `UpdateSlope`(IN paramSlopeID INTEGER UNSIGNED,IN paramSceneID INTEGER UNSIGNED,IN paramType INTEGER UNSIGNED,IN paramName VARCHAR(64),IN paramLongitude DOUBLE,IN paramLatitude DOUBLE,IN paramOwnerID INTEGER UNSIGNED,IN paramUrl mediumtext,IN paramDesc mediumtext)
 BEGIN
-	update slope set SceneID=paramSceneID,Type=paramType,Name=paramName,Longitude=paramLongitude,Latitude=paramLatitude,OwnerID=paramOwnerID,VideoUrl=paramUrl where ID=paramSlopeID;
+	update slope set SceneID=paramSceneID,Type=paramType,Name=paramName,Longitude=paramLongitude,Latitude=paramLatitude,OwnerID=paramOwnerID,VideoUrl=paramUrl,Description=paramDesc where ID=paramSlopeID;
 	
 	if ROW_COUNT() > 0 then
 		select 0;
@@ -261,7 +261,7 @@ BEGIN
 		select 1;
 	end if;
 	
-	select paramSlopeID,paramSceneID,paramType,paramName,paramLongitude,paramLatitude,paramOwnerID,paramUrl;
+	select paramSlopeID,paramSceneID,paramType,paramName,paramLongitude,paramLatitude,paramOwnerID,paramUrl,SceneID,paramDesc;
 END;
 
 DROP PROCEDURE IF EXISTS `AddSensor`;
@@ -461,6 +461,13 @@ DROP PROCEDURE IF EXISTS `LoadAlarmValue`;
 CREATE PROCEDURE `LoadAlarmValue`(IN paramSlopeID smallint UNSIGNED,IN paramSensorType tinyint UNSIGNED)
 BEGIN
 	select Type,SlopeID,AlarmValue1,AlarmValue2,AlarmValue3,AlarmValue4 from sensor_type where SlopeID=paramSlopeID and Type=paramSensorType;
+END;
+
+DROP PROCEDURE IF EXISTS `StartSlope`;
+CREATE PROCEDURE `StartSlope`(IN paramSlopeID smallint UNSIGNED,IN paramStartType tinyint UNSIGNED)
+BEGIN
+	DECLARE _StartResult int UNSIGNED default 0;
+	select paramSlopeID,_StartResult;
 END;
 
 //

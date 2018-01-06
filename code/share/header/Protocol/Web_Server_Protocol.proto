@@ -36,6 +36,7 @@ enum WEB2S
 	web2s_load_authority			= 25;	// 获取用户权限
 	web2s_modify_alarm_value		= 26;	// 修改报警值
 	web2s_load_alarm_list			= 27;	// 获取报警值
+	web2s_start_slope				= 28;	// 启用边坡
 
 	web2s_max						= 256;	// 最大协议号
 }
@@ -81,6 +82,7 @@ message WEB2S_Add_Slope
 	required bytes	name			= 2;	// 名称
 	required bytes	url				= 3;	// 边坡视频的url
 	required uint32	scene_id		= 4;	// 现场ID
+	optional bytes	desc			= 5;	// 边坡描述
 }
 
 // web向服务器请求删除指定ID的边坡
@@ -99,6 +101,7 @@ message WEB2S_Update_Slope_Data
 	required double	latitude		= 5;	// 纬度
 	required bytes	url				= 6;	// 边坡视频的url
 	required uint32	scene_id		= 7;	// 现场ID
+	optional bytes	desc			= 8;	// 边坡描述
 }
 
 // web向服务器请求增加一个新的传感器
@@ -228,19 +231,26 @@ message WEB2S_Load_Authority
 // 修改报警值
 message WEB2S_Modify_Alarm_Value
 {
-	required uint32	sensor_type				= 1;	// 传感器类型
-	required uint32	slope_id				= 2;	// 边坡ID
-	required double	alarm_value1			= 3;	// 报警值Value1
-	required double	alarm_value2			= 4;	// 报警值Value2
-	required double	alarm_value3			= 5;	// 报警值Value3
-	required double	alarm_value4			= 6;	// 报警值Value4
+	required uint32	sensor_type		= 1;	// 传感器类型
+	required uint32	slope_id		= 2;	// 边坡ID
+	required double	alarm_value1	= 3;	// 报警值Value1
+	required double	alarm_value2	= 4;	// 报警值Value2
+	required double	alarm_value3	= 5;	// 报警值Value3
+	required double	alarm_value4	= 6;	// 报警值Value4
 }
 
 // 修改报警值
 message WEB2S_Load_Alarm_List
 {
-	required uint32	slope_id				= 1;	// 边坡ID
-	required uint32	sensor_type				= 2;	// 传感器类型
+	required uint32	slope_id		= 1;	// 边坡ID
+	required uint32	sensor_type		= 2;	// 传感器类型
+}
+
+// 启用边坡
+message WEB2S_Start_Slope
+{
+	required uint32	slope_id		= 1;	// 边坡ID
+	required uint32	start_type		= 2;	// 启用方式（0：“当前值”做为“平均值”；1：计算迄今为止的平均值，作为“平均值”）
 }
 
 
@@ -273,6 +283,7 @@ enum S2WEB
 	s2web_remove_user_from_group	= 22;	// 从用户组中删除指定的用户
 	s2web_authority_list			= 23;	// 权限列表
 	s2web_alarm_value				= 24;	// 报警值
+	s2web_start_slope_result		= 25;	// 启动边坡返回
 
 	s2web_max						= 256;	// 最大协议号
 }
@@ -391,6 +402,7 @@ message S2WEB_New_Slope
 	required double	latitude	= 6;	// 纬度
 	required bytes	url			= 7;	// 边坡视频的url
 	required uint32	scene_id	= 8;	// 现场ID
+	optional bytes	desc		= 9;	// 边坡的描述
 }
 
 // 删除边坡
@@ -410,6 +422,7 @@ message S2WEB_Update_Slope
 	required double	latitude	= 6;	// 纬度
 	required bytes	url			= 7;	// 边坡视频的url
 	required uint32	scene_id	= 8;	// 现场ID
+	optional bytes	desc		= 9;	// 边坡的描述
 }
 
 // 添加传感器
@@ -565,4 +578,11 @@ message S2WEB_Alarm_Value
 	required double alarm_value2		= 4;	// 报警Value2
 	required double alarm_value3		= 5;	// 报警Value3
 	required double alarm_value4		= 6;	// 报警Value4
+}
+
+// 报警值
+message S2WEB_Start_Slope_Result
+{
+	required uint32 slope_id			= 1;	// 边坡ID
+	required uint32 result				= 2;	// 启动结果
 }

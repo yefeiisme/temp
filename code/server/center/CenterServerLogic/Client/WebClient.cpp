@@ -40,6 +40,7 @@ CWebClient::pfnProtocolFunc CWebClient::m_ProtocolFunc[WEB_SERVER_NET_Protocol::
 	&CWebClient::RecvLoadAuthority,
 	&CWebClient::RecvModifyAlarmValue,
 	&CWebClient::RecvLoadAlarmList,
+	&CWebClient::RecvStartSlope,
 };
 
 CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
@@ -77,6 +78,7 @@ CWebClient::pfnDBRespondFunc CWebClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CWebClient::DBResopndAddSensorData,
 	&CWebClient::DBResopndModifyAlarmValue,
 	&CWebClient::DBResopndLoadAlarmValue,
+	&CWebClient::DBResopndStartSlopeResult,
 };
 
 CWebClient::CWebClient() : CClient()
@@ -308,6 +310,7 @@ void CWebClient::RecvAddSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->AddParam(tagAddSlope.name().c_str());
 	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagAddSlope.url().c_str());
+	pMysqlQuery->AddParam(tagAddSlope.desc().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -381,6 +384,7 @@ void CWebClient::RecvUpdateSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->AddParam(tagSlopeData.latitude());
 	pMysqlQuery->AddParam(m_uAccountID);
 	pMysqlQuery->AddParam(tagSlopeData.url().c_str());
+	pMysqlQuery->AddParam(tagSlopeData.desc().c_str());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -1044,6 +1048,40 @@ void CWebClient::RecvLoadAlarmList(const void *pPack, const unsigned int uPackLe
 	pMysqlQuery->CallProc();
 }
 
+void CWebClient::RecvStartSlope(const void *pPack, const unsigned int uPackLen)
+{
+	if (0 == m_uAccountID)
+	{
+		WEB_SERVER_NET_Protocol::S2WEB_ERROR	tagError;
+		tagError.set_error_code(CommonDefine::ERROR_CODE::ec_please_login);
+
+		SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_error, tagError);
+
+		return;
+	}
+
+	WEB_SERVER_NET_Protocol::WEB2S_Start_Slope	tagStartSlope;
+	BYTE	*pRequest = (BYTE*)pPack + sizeof(BYTE);
+	tagStartSlope.ParseFromArray(pRequest, uPackLen - sizeof(BYTE));
+
+	SMysqlRequest	tagRequest = {0};
+	tagRequest.byOpt		= SENSOR_DB_START_SLOPE;
+	tagRequest.uClientID	= m_uUniqueID;
+	tagRequest.uClientIndex	= m_uIndex;
+	tagRequest.byClientType	= WEB_CLIENT;
+
+	IMysqlQuery	*pMysqlQuery = g_ICenterServer.GetMysqlQuery();
+	if (nullptr == pMysqlQuery)
+		return;
+
+	pMysqlQuery->PrepareProc("StartSlope");
+	pMysqlQuery->AddParam(tagStartSlope.slope_id());
+	pMysqlQuery->AddParam(tagStartSlope.start_type());
+	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
+
+	pMysqlQuery->CallProc();
+}
+
 void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1379,6 +1417,7 @@ void CWebClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	double	dLongitude		= 0.0f;
 	double	dLatitude		= 0.0f;
 	char	strUrl[1024]	= {0};
+	char	strDesc[1024]	= {0};
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (2 != byResultCount)
@@ -1418,15 +1457,17 @@ void CWebClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	pResult2->GetData(0, uCol++, dLongitude);
 	pResult2->GetData(0, uCol++, dLatitude);
 	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
+	pResult2->GetData(0, uCol++, strDesc, sizeof(strDesc));
 
 	tagNewSlope.set_id(wSlopeID);
-	tagNewSlope.set_scene_id(wSceneID);
 	tagNewSlope.set_type(byType);
 	tagNewSlope.set_name(strName);
 	tagNewSlope.set_state(0);
 	tagNewSlope.set_longitude(dLongitude);
 	tagNewSlope.set_latitude(dLatitude);
 	tagNewSlope.set_url(strUrl);
+	tagNewSlope.set_scene_id(wSceneID);
+	tagNewSlope.set_desc(strDesc);
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_new_slope, tagNewSlope);
 }
@@ -1471,6 +1512,7 @@ void CWebClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	double	dLongitude		= 0.0f;
 	double	dLatitude		= 0.0f;
 	char	strUrl[1024]	= {0};
+	char	strDesc[1024]	= {0};
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (2 != byResultCount)
@@ -1510,15 +1552,17 @@ void CWebClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	pResult2->GetData(0, uCol++, dLongitude);
 	pResult2->GetData(0, uCol++, dLatitude);
 	pResult2->GetData(0, uCol++, strUrl, sizeof(strUrl));
+	pResult2->GetData(0, uCol++, strDesc, sizeof(strDesc));
 
 	tagUpdateSlope.set_id(wSlopeID);
-	tagUpdateSlope.set_scene_id(wSceneID);
 	tagUpdateSlope.set_type(byType);
 	tagUpdateSlope.set_name(strName);
 	tagUpdateSlope.set_state(0);
 	tagUpdateSlope.set_longitude(dLongitude);
 	tagUpdateSlope.set_latitude(dLatitude);
 	tagUpdateSlope.set_url(strUrl);
+	tagUpdateSlope.set_scene_id(wSceneID);
+	tagUpdateSlope.set_desc(strDesc);
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_update_slope, tagUpdateSlope);
 }
@@ -2127,6 +2171,28 @@ void CWebClient::DBResopndLoadAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequ
 	tagAlarmValue.set_alarm_value4(dAlarmValue4);
 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_alarm_value, tagAlarmValue);
+}
+
+void CWebClient::DBResopndStartSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+	WORD	wSlopeID	= 0;
+	BYTE	byResult	= 0;
+	UINT	uCol		= 0;
+
+	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+
+	if (nullptr == pResult1)
+		return;
+
+	WEB_SERVER_NET_Protocol::S2WEB_Start_Slope_Result	tagStartResult;
+
+	pResult1->GetData(0, uCol++, wSlopeID);
+	pResult1->GetData(0, uCol++, byResult);
+
+	tagStartResult.set_slope_id(wSlopeID);
+	tagStartResult.set_result(byResult);
+
+	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_start_slope_result, tagStartResult);
 }
 
 void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)
