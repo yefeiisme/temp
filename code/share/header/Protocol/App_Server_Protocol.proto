@@ -239,6 +239,7 @@ message S2App_Slope_List
 		optional bytes	url			= 7;	// 边坡视频的url
 		optional uint32	scene_id	= 8;	// 现场ID
 		optional bytes	desc		= 9;	// 边坡描述
+		optional uint32 data_time	= 10;	// 最后数据的时间
 	}
 
 	repeated SlopeData	slope_list	= 1;
@@ -268,10 +269,10 @@ message S2App_Sensor_List
 		required bytes	description		= 17;	// 安装位置的描述
 		required uint32	scene_id		= 18;	// 现场ID
 		required double	cur_value4		= 19;	// 当前物理量4
+		optional bytes	slope_name		= 20;	// 边坡名
 	}
 
 	repeated SensorData	sensor_list		= 1;
-	optional bytes		slope_name		= 2;	// 边坡名
 }
 
 // 传感器历史数据

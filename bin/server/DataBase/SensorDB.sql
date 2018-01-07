@@ -136,7 +136,7 @@ END;
 DROP PROCEDURE IF EXISTS `LoadAllList`;
 CREATE PROCEDURE `LoadAllList`(IN paramAccount INTEGER UNSIGNED)
 BEGIN
-	select ID,SceneID,Type,Name,Longitude,Latitude,State,Description from slope where OwnerID=paramAccount;
+	select ID,SceneID,Type,Name,Longitude,Latitude,State,Description,UNIX_TIMESTAMP(LastDataTime) from slope where OwnerID=paramAccount;
 	select ID,Type,Value1,Value2,Value3,Value4,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor where 
 	SlopeID in (select ID from slope where OwnerID=paramAccount);
 END;
@@ -179,13 +179,13 @@ END;
 DROP PROCEDURE IF EXISTS `LoadSlopeList`;
 CREATE PROCEDURE `LoadSlopeList`(IN paramAccount INTEGER UNSIGNED, IN paramServerID INTEGER UNSIGNED)
 BEGIN
-	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description from slope;
+	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description,UNIX_TIMESTAMP(LastDataTime) from slope;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSlopeByID`;
 CREATE PROCEDURE `LoadSlopeByID`(IN paramAccount INTEGER UNSIGNED, IN paramServerID INTEGER UNSIGNED, IN paramSlopeID INTEGER UNSIGNED)
 BEGIN
-	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description from slope where ID=paramSlopeID;
+	select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description,UNIX_TIMESTAMP(LastDataTime) from slope where ID=paramSlopeID;
 END;
 
 DROP PROCEDURE IF EXISTS `WebLogin`;
@@ -308,7 +308,7 @@ END;
 DROP PROCEDURE IF EXISTS `FindSensor`;
 CREATE PROCEDURE `FindSensor`(IN paramSlopeID INTEGER UNSIGNED, IN paramName VARCHAR(64), IN paramSensorID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
 BEGIN
-	set @strSql = 'select ID,SceneID,Type,Value1,Value2,Value3,Value4,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor';
+	set @strSql = 'select ID,SceneID,Type,Value1,Value2,Value3,Value4,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description,'' from sensor';
 	set @nCount	= 0;
 
 	if paramSlopeID > 0 then
@@ -345,18 +345,12 @@ BEGIN
 	PREPARE stmt FROM @strSql;
 	EXECUTE stmt;
 	deallocate prepare stmt;
-
-	if paramSlopeID > 0 then
-		select Name from slope where ID=paramSlopeID;
-	else
-		select '';
-	end if;
 END;
 
 DROP PROCEDURE IF EXISTS `FindSlope`;
 CREATE PROCEDURE `FindSlope`(IN paramID INTEGER UNSIGNED,IN paramName varchar(64))
 BEGIN
-	set @strSql = 'select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description from slope';
+	set @strSql = 'select ID,SceneID,Type,Name,Longitude,Latitude,State,VideoUrl,Description,UNIX_TIMESTAMP(LastDataTime) from slope';
     set @nCount	= 0;
     
     if paramID > 0 then

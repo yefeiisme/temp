@@ -824,6 +824,7 @@ void CAppClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest
 void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol				= 0;
+	int		nDataTime			= 0;
 	WORD	wSlopeID			= 0;
 	WORD	wSceneID			= 0;
 	BYTE	bySlopeType			= 0;
@@ -871,6 +872,7 @@ void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 		pResult1->GetData(uRow, uCol++, byState);
 		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
 		pResult1->GetData(uRow, uCol++, strDesc, sizeof(strDesc));
+		pResult1->GetData(uRow, uCol++, nDataTime);
 
 		pSlopeData->set_id(wSlopeID);
 		pSlopeData->set_scene_id(wSlopeID);
@@ -880,6 +882,7 @@ void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 		pSlopeData->set_latitude(dLatitude);
 		pSlopeData->set_state(byState);
 		pSlopeData->set_desc(strDesc);
+		pSlopeData->set_data_time(nDataTime);
 	}
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_slope_list, tagSlopeList);
@@ -1599,12 +1602,7 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 	}
 
 	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
-	IMysqlResult	*pResult2 = pResultSet->GetMysqlResult(1);
-
 	if (nullptr == pResult1)
-		return;
-
-	if (nullptr == pResult2)
 		return;
 
 	APP_SERVER_NET_Protocol::S2App_Sensor_List	tagSensorList;
@@ -1636,6 +1634,7 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 		pResult1->GetData(uRow, uCol++, dLatitude);
 		pResult1->GetData(uRow, uCol++, strUrl, sizeof(strUrl));
 		pResult1->GetData(uRow, uCol++, strDesc, sizeof(strDesc));
+		pResult1->GetData(uRow, uCol++, strSlopeName, sizeof(strSlopeName));
 
 		pSensor->set_id(uSensorID);
 		pSensor->set_scene_id(wSceneID);
@@ -1656,11 +1655,8 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 		pSensor->set_latitude(dLatitude);
 		pSensor->set_url(strUrl);
 		pSensor->set_description(strDesc);
+		pSensor->set_slope_name(strSlopeName);
 	}
-
-	pResult2->GetData(0, 0, strSlopeName, sizeof(strSlopeName));
-
-	tagSensorList.set_slope_name(strSlopeName);
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_sensor_list, tagSensorList);
 }
