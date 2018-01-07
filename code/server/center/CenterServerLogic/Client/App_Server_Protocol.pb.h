@@ -3291,13 +3291,31 @@ class S2App_Sensor_List : public ::google::protobuf::Message /* @@protoc_inserti
   const ::google::protobuf::RepeatedPtrField< ::APP_SERVER_NET_Protocol::S2App_Sensor_List_SensorData >&
       sensor_list() const;
 
+  // optional bytes slope_name = 2;
+  bool has_slope_name() const;
+  void clear_slope_name();
+  static const int kSlopeNameFieldNumber = 2;
+  const ::std::string& slope_name() const;
+  void set_slope_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_slope_name(::std::string&& value);
+  #endif
+  void set_slope_name(const char* value);
+  void set_slope_name(const void* value, size_t size);
+  ::std::string* mutable_slope_name();
+  ::std::string* release_slope_name();
+  void set_allocated_slope_name(::std::string* slope_name);
+
   // @@protoc_insertion_point(class_scope:APP_SERVER_NET_Protocol.S2App_Sensor_List)
  private:
+  void set_has_slope_name();
+  void clear_has_slope_name();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::APP_SERVER_NET_Protocol::S2App_Sensor_List_SensorData > sensor_list_;
+  ::google::protobuf::internal::ArenaStringPtr slope_name_;
   friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -8585,6 +8603,69 @@ inline const ::google::protobuf::RepeatedPtrField< ::APP_SERVER_NET_Protocol::S2
 S2App_Sensor_List::sensor_list() const {
   // @@protoc_insertion_point(field_list:APP_SERVER_NET_Protocol.S2App_Sensor_List.sensor_list)
   return sensor_list_;
+}
+
+// optional bytes slope_name = 2;
+inline bool S2App_Sensor_List::has_slope_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2App_Sensor_List::set_has_slope_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2App_Sensor_List::clear_has_slope_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2App_Sensor_List::clear_slope_name() {
+  slope_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_slope_name();
+}
+inline const ::std::string& S2App_Sensor_List::slope_name() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.S2App_Sensor_List.slope_name)
+  return slope_name_.GetNoArena();
+}
+inline void S2App_Sensor_List::set_slope_name(const ::std::string& value) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.S2App_Sensor_List.slope_name)
+}
+#if LANG_CXX11
+inline void S2App_Sensor_List::set_slope_name(::std::string&& value) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:APP_SERVER_NET_Protocol.S2App_Sensor_List.slope_name)
+}
+#endif
+inline void S2App_Sensor_List::set_slope_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:APP_SERVER_NET_Protocol.S2App_Sensor_List.slope_name)
+}
+inline void S2App_Sensor_List::set_slope_name(const void* value, size_t size) {
+  set_has_slope_name();
+  slope_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:APP_SERVER_NET_Protocol.S2App_Sensor_List.slope_name)
+}
+inline ::std::string* S2App_Sensor_List::mutable_slope_name() {
+  set_has_slope_name();
+  // @@protoc_insertion_point(field_mutable:APP_SERVER_NET_Protocol.S2App_Sensor_List.slope_name)
+  return slope_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2App_Sensor_List::release_slope_name() {
+  // @@protoc_insertion_point(field_release:APP_SERVER_NET_Protocol.S2App_Sensor_List.slope_name)
+  clear_has_slope_name();
+  return slope_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2App_Sensor_List::set_allocated_slope_name(::std::string* slope_name) {
+  if (slope_name != NULL) {
+    set_has_slope_name();
+  } else {
+    clear_has_slope_name();
+  }
+  slope_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), slope_name);
+  // @@protoc_insertion_point(field_set_allocated:APP_SERVER_NET_Protocol.S2App_Sensor_List.slope_name)
 }
 
 // -------------------------------------------------------------------

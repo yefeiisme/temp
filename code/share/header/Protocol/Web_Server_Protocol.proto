@@ -172,6 +172,7 @@ message WEB2S_Modify_User
 {
 	required uint32	user_id			= 1;	// 用户ID
 	required uint32	group_id		= 2;	// 所属用户组的ID
+	optional bytes	password		= 3;	// 用户密码
 }
 
 // 删除用户
@@ -351,7 +352,8 @@ message S2Web_Sensor_List
 		required double	cur_value4		= 19;	// 当前物理量4
 	}
 
-	repeated SensorData	sensor_list	= 1;
+	repeated SensorData	sensor_list		= 1;
+	optional bytes		slope_name		= 2;	// 边坡名
 }
 
 // 传感器历史数据

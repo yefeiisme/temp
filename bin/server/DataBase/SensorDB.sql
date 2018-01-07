@@ -309,42 +309,48 @@ DROP PROCEDURE IF EXISTS `FindSensor`;
 CREATE PROCEDURE `FindSensor`(IN paramSlopeID INTEGER UNSIGNED, IN paramName VARCHAR(64), IN paramSensorID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
 BEGIN
 	set @strSql = 'select ID,SceneID,Type,Value1,Value2,Value3,Value4,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description from sensor';
-    set @nCount	= 0;
-    
-    if paramSlopeID > 0 then
-    	set @strSql = concat(@strSql, ' where SlopeID=', paramSlopeID);
-    	set @nCount = @nCount + 1;
-    end if;
-    
-    if paramSensorID > 0 then
-    	if @nCount = 0 then
-    		set @strSql = concat(@strSql, ' where ID=', paramSensorID);
-        else
-    		set @strSql = concat(@strSql, ' and ID=', paramSensorID);
-        end if;
-    	set @nCount = @nCount + 1;
-    end if;
-    
-    if paramSensorType > 0 then
-    	if @nCount = 0 then
-    		set @strSql = concat(@strSql, ' where Type=', paramSensorType);
-        else
-    		set @strSql = concat(@strSql, ' and Type=', paramSensorType);
-        end if;
-    	set @nCount = @nCount + 1;
-    end if;
-    
-    if paramName <> '' then
-    	if @nCount = 0 then
-    		set @strSql = concat(@strSql, ' where SlopeID IN (select ID from slope where Name like \'%', paramName,'%\'', ' ESCAPE \'/\')');
-        else
-    		set @strSql = concat(@strSql, ' and SlopeID IN (select ID from slope where Name like \'%', paramName,'%\'', ' ESCAPE \'/\')');
-        end if;
-    end if;
+	set @nCount	= 0;
 
-    PREPARE stmt FROM @strSql;
-    EXECUTE stmt;
-    deallocate prepare stmt;
+	if paramSlopeID > 0 then
+		set @strSql = concat(@strSql, ' where SlopeID=', paramSlopeID);
+		set @nCount = @nCount + 1;
+	end if;
+
+	if paramSensorID > 0 then
+		if @nCount = 0 then
+			set @strSql = concat(@strSql, ' where ID=', paramSensorID);
+		else
+			set @strSql = concat(@strSql, ' and ID=', paramSensorID);
+		end if;
+		set @nCount = @nCount + 1;
+	end if;
+
+	if paramSensorType > 0 then
+		if @nCount = 0 then
+			set @strSql = concat(@strSql, ' where Type=', paramSensorType);
+	else
+			set @strSql = concat(@strSql, ' and Type=', paramSensorType);
+		end if;
+		set @nCount = @nCount + 1;
+	end if;
+
+	if paramName <> '' then
+		if @nCount = 0 then
+			set @strSql = concat(@strSql, ' where SlopeID IN (select ID from slope where Name like \'%', paramName,'%\'', ' ESCAPE \'/\')');
+		else
+			set @strSql = concat(@strSql, ' and SlopeID IN (select ID from slope where Name like \'%', paramName,'%\'', ' ESCAPE \'/\')');
+		end if;
+	end if;
+
+	PREPARE stmt FROM @strSql;
+	EXECUTE stmt;
+	deallocate prepare stmt;
+
+	if paramSlopeID > 0 then
+		select Name from slope where ID=paramSlopeID;
+	else
+		select '';
+	end if;
 END;
 
 DROP PROCEDURE IF EXISTS `FindSlope`;
@@ -385,9 +391,9 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `ModifyUser`;
-CREATE PROCEDURE `ModifyUser`(IN paramID INTEGER UNSIGNED,IN paramGroupID INTEGER UNSIGNED)
+CREATE PROCEDURE `ModifyUser`(IN paramID INTEGER UNSIGNED,IN paramGroupID INTEGER UNSIGNED,IN paramPassword varchar(64))
 BEGIN
-	update user set GroupID=paramGroupID where ID=paramID;
+	update user set GroupID=paramGroupID,Password=md5(paramPassword) where ID=paramID;
 	select paramID,paramGroupID;
 END;
 

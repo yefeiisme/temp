@@ -1589,6 +1589,7 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 	double	dLatitude		= 0.0;
 	char	strUrl[0xffff]	= {0};
 	char	strDesc[0xffff]	= {0};
+	char	strSlopeName[0xff]	= {0};
 
 	BYTE	byResultCount = pResultSet->GetResultCount();
 	if (1 != byResultCount)
@@ -1598,8 +1599,12 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 	}
 
 	IMysqlResult	*pResult1 = pResultSet->GetMysqlResult(0);
+	IMysqlResult	*pResult2 = pResultSet->GetMysqlResult(1);
 
 	if (nullptr == pResult1)
+		return;
+
+	if (nullptr == pResult2)
 		return;
 
 	APP_SERVER_NET_Protocol::S2App_Sensor_List	tagSensorList;
@@ -1652,6 +1657,10 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 		pSensor->set_url(strUrl);
 		pSensor->set_description(strDesc);
 	}
+
+	pResult2->GetData(0, 0, strSlopeName, sizeof(strSlopeName));
+
+	tagSensorList.set_slope_name(strSlopeName);
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_sensor_list, tagSensorList);
 }

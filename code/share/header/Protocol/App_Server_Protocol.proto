@@ -270,7 +270,8 @@ message S2App_Sensor_List
 		required double	cur_value4		= 19;	// 当前物理量4
 	}
 
-	repeated SensorData	sensor_list	= 1;
+	repeated SensorData	sensor_list		= 1;
+	optional bytes		slope_name		= 2;	// 边坡名
 }
 
 // 传感器历史数据
