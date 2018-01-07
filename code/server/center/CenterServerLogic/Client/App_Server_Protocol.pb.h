@@ -2359,12 +2359,21 @@ class APP2S_Start_Slope : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::uint32 start_type() const;
   void set_start_type(::google::protobuf::uint32 value);
 
+  // required uint32 clear_history = 3;
+  bool has_clear_history() const;
+  void clear_clear_history();
+  static const int kClearHistoryFieldNumber = 3;
+  ::google::protobuf::uint32 clear_history() const;
+  void set_clear_history(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:APP_SERVER_NET_Protocol.APP2S_Start_Slope)
  private:
   void set_has_slope_id();
   void clear_has_slope_id();
   void set_has_start_type();
   void clear_has_start_type();
+  void set_has_clear_history();
+  void clear_has_clear_history();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -2374,6 +2383,7 @@ class APP2S_Start_Slope : public ::google::protobuf::Message /* @@protoc_inserti
   mutable int _cached_size_;
   ::google::protobuf::uint32 slope_id_;
   ::google::protobuf::uint32 start_type_;
+  ::google::protobuf::uint32 clear_history_;
   friend struct protobuf_App_5fServer_5fProtocol_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -7435,6 +7445,30 @@ inline void APP2S_Start_Slope::set_start_type(::google::protobuf::uint32 value) 
   set_has_start_type();
   start_type_ = value;
   // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Start_Slope.start_type)
+}
+
+// required uint32 clear_history = 3;
+inline bool APP2S_Start_Slope::has_clear_history() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void APP2S_Start_Slope::set_has_clear_history() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void APP2S_Start_Slope::clear_has_clear_history() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void APP2S_Start_Slope::clear_clear_history() {
+  clear_history_ = 0u;
+  clear_has_clear_history();
+}
+inline ::google::protobuf::uint32 APP2S_Start_Slope::clear_history() const {
+  // @@protoc_insertion_point(field_get:APP_SERVER_NET_Protocol.APP2S_Start_Slope.clear_history)
+  return clear_history_;
+}
+inline void APP2S_Start_Slope::set_clear_history(::google::protobuf::uint32 value) {
+  set_has_clear_history();
+  clear_history_ = value;
+  // @@protoc_insertion_point(field_set:APP_SERVER_NET_Protocol.APP2S_Start_Slope.clear_history)
 }
 
 // -------------------------------------------------------------------

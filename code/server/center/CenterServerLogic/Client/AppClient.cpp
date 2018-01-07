@@ -49,6 +49,18 @@ CAppClient::pfnDBRespondFunc CAppClient::m_pfnDBRespondFunc[SENSOR_DB_OPT_MAX]
 	&CAppClient::DBResopndModifyPasswordResult,
 	&CAppClient::DBResopndFindSlopeResult,
 	&CAppClient::DBResopndFindSensorResult,
+	&CAppClient::DBResopndLoadUserList,
+
+	&CAppClient::DBResopndCreateUser,
+	&CAppClient::DBResopndModifyUser,
+	&CAppClient::DBResopndRemoveUser,
+	&CAppClient::DBResopndLoadGroupList,
+	&CAppClient::DBResopndCreateGroup,
+
+	&CAppClient::DBResopndAddUserToGroup,
+	&CAppClient::DBResopndRemoveUserFromGroup,
+	&CAppClient::DBResopndModifyGroup,
+	&CAppClient::DBResopndRemoveGroup,
 	&CAppClient::DBResopndLoadAuthor,
 
 	&CAppClient::DBResopndAddSensorData,
@@ -740,6 +752,7 @@ void CAppClient::RecvStartSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->PrepareProc("StartSlope");
 	pMysqlQuery->AddParam(tagStartSlope.slope_id());
 	pMysqlQuery->AddParam(tagStartSlope.start_type());
+	pMysqlQuery->AddParam(tagStartSlope.clear_history());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
@@ -1641,6 +1654,46 @@ void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 	}
 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_sensor_list, tagSensorList);
+}
+
+void CAppClient::DBResopndLoadUserList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndCreateUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndModifyUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndRemoveUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndLoadGroupList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndCreateGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndAddUserToGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndRemoveUserFromGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndModifyGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
+}
+
+void CAppClient::DBResopndRemoveGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
+{
 }
 
 void CAppClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)

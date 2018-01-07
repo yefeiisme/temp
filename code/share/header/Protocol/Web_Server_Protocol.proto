@@ -251,6 +251,7 @@ message WEB2S_Start_Slope
 {
 	required uint32	slope_id		= 1;	// 边坡ID
 	required uint32	start_type		= 2;	// 启用方式（0：“当前值”做为“平均值”；1：计算迄今为止的平均值，作为“平均值”）
+	required uint32	clear_history	= 3;	// 消空历史数据？（0：不清空；1：清空）
 }
 
 

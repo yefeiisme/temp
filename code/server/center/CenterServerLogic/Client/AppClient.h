@@ -58,6 +58,18 @@ private:
 	void					DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndLoadUserList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+
+	void					DBResopndCreateUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndModifyUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndRemoveUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndLoadGroupList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndCreateGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+
+	void					DBResopndAddUserToGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndRemoveUserFromGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndModifyGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
+	void					DBResopndRemoveGroup(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 	void					DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);
 
 	void					DBResopndAddSensorData(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData);

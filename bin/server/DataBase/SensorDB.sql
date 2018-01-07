@@ -83,6 +83,7 @@ CREATE TABLE `slope` (
   `State` int unsigned NOT NULL DEFAULT '0',
   `VideoUrl` mediumtext,
   `Description` mediumtext,
+  `LastDataTime` datetime,
   PRIMARY KEY (`ID`),
   KEY `SlopeIndex` (`SlopeIndex`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -429,6 +430,7 @@ BEGIN
 	DECLARE _AlarmValue2 double default 0;
 	DECLARE _AlarmValue3 double default 0;
 	DECLARE _AlarmValue4 double default 0;
+	DECLARE _AlarmState int UNSIGNED default 0;
 
 	select ID into _SlopeID from slope where SceneID=paramSlopeSceneID and Type=paramSlopeType;
 	select ID into _SensorID from sensor where SceneID=paramSensorSceneID and Type=paramSensorType and SlopeID=_SlopeID;
@@ -445,9 +447,9 @@ BEGIN
 		set _OffsetValue3 =_AvgValue3-paramValue3;
 	end if;
 
-	update slope set Longitude=paramLongitude,Latitude=paramLatitude where ID=_SlopeID;
+	update slope set Longitude=paramLongitude,Latitude=paramLatitude,LastDataTime=FROM_UNIXTIME(paramTime) where ID=_SlopeID;
 	update sensor set Value1=paramValue1,Value2=paramValue2,Value3=paramValue3,Value4=paramValue4,OffsetValue1=_OffsetValue1,OffsetValue2=_OffsetValue2,OffsetValue3=_OffsetValue3 where ID=_SensorID;
-	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime,DataTime1,OffsetValue1,OffsetValue2,OffsetValue3) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,FROM_UNIXTIME(paramTime),paramTime,_OffsetValue1,_OffsetValue2,_OffsetValue3);
+	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime,DataTime1,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,FROM_UNIXTIME(paramTime),paramTime,_OffsetValue1,_OffsetValue2,_OffsetValue3,_AlarmState);
 END;
 
 DROP PROCEDURE IF EXISTS `ModifyAlarmValue`;
@@ -464,9 +466,24 @@ BEGIN
 END;
 
 DROP PROCEDURE IF EXISTS `StartSlope`;
-CREATE PROCEDURE `StartSlope`(IN paramSlopeID smallint UNSIGNED,IN paramStartType tinyint UNSIGNED)
+CREATE PROCEDURE `StartSlope`(IN paramSlopeID smallint UNSIGNED,IN paramStartType tinyint UNSIGNED,IN paramClearHistory tinyint UNSIGNED)
 BEGIN
 	DECLARE _StartResult int UNSIGNED default 0;
+	DECLARE _AvgValue1 double default 0;
+	DECLARE _AvgValue2 double default 0;
+	DECLARE _AvgValue3 double default 0;
+	
+	if paramStartType = 0 then
+		update sensor set AvgValue1=Value1,AvgValue2=Value2,AvgValue3=Value3 where SlopeID=paramSlopeID;
+	else
+		update sensor set AvgValue1=Value1,AvgValue2=Value2,AvgValue3=Value3 where SlopeID=paramSlopeID;
+	end if;
+	
+	if paramClearHistory <> 0 then
+		delete from sensor_data where ID in (select ID from sensor where SlopeID=paramSlopeID);
+	end if;
+	
+	set @_StartResult = 1;
 	select paramSlopeID,_StartResult;
 END;
 

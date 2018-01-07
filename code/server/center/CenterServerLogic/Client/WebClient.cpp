@@ -1077,6 +1077,7 @@ void CWebClient::RecvStartSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->PrepareProc("StartSlope");
 	pMysqlQuery->AddParam(tagStartSlope.slope_id());
 	pMysqlQuery->AddParam(tagStartSlope.start_type());
+	pMysqlQuery->AddParam(tagStartSlope.clear_history());
 	pMysqlQuery->EndPrepareProc(&tagRequest, sizeof(tagRequest));
 
 	pMysqlQuery->CallProc();
