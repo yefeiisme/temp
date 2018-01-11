@@ -308,37 +308,37 @@ END;
 DROP PROCEDURE IF EXISTS `FindSensor`;
 CREATE PROCEDURE `FindSensor`(IN paramSlopeID INTEGER UNSIGNED, IN paramName VARCHAR(64), IN paramSensorID INTEGER UNSIGNED, IN paramSensorType INTEGER UNSIGNED)
 BEGIN
-	set @strSql = 'select ID,SceneID,Type,Value1,Value2,Value3,Value4,AvgValue1,AvgValue2,AvgValue3,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState,SlopeID,Longitude,Latitude,VideoUrl,Description,'' from sensor';
+	set @strSql = 'select sensor.ID,sensor.SceneID,sensor.Type,sensor.Value1,sensor.Value2,sensor.Value3,sensor.Value4,sensor.AvgValue1,sensor.AvgValue2,sensor.AvgValue3,sensor.OffsetValue1,sensor.OffsetValue2,sensor.OffsetValue3,sensor.AlarmState,sensor.SlopeID,sensor.Longitude,sensor.Latitude,sensor.VideoUrl,sensor.Description,slope.Name from sensor left join slope on sensor.SlopeID = slope.id';
 	set @nCount	= 0;
 
 	if paramSlopeID > 0 then
-		set @strSql = concat(@strSql, ' where SlopeID=', paramSlopeID);
+		set @strSql = concat(@strSql, ' where sensor.SlopeID=', paramSlopeID);
 		set @nCount = @nCount + 1;
 	end if;
 
 	if paramSensorID > 0 then
 		if @nCount = 0 then
-			set @strSql = concat(@strSql, ' where ID=', paramSensorID);
+			set @strSql = concat(@strSql, ' where sensor.ID=', paramSensorID);
 		else
-			set @strSql = concat(@strSql, ' and ID=', paramSensorID);
+			set @strSql = concat(@strSql, ' and sensor.ID=', paramSensorID);
 		end if;
 		set @nCount = @nCount + 1;
 	end if;
 
 	if paramSensorType > 0 then
 		if @nCount = 0 then
-			set @strSql = concat(@strSql, ' where Type=', paramSensorType);
+			set @strSql = concat(@strSql, ' where sensor.Type=', paramSensorType);
 	else
-			set @strSql = concat(@strSql, ' and Type=', paramSensorType);
+			set @strSql = concat(@strSql, ' and sensor.Type=', paramSensorType);
 		end if;
 		set @nCount = @nCount + 1;
 	end if;
 
 	if paramName <> '' then
 		if @nCount = 0 then
-			set @strSql = concat(@strSql, ' where SlopeID IN (select ID from slope where Name like \'%', paramName,'%\'', ' ESCAPE \'/\')');
+			set @strSql = concat(@strSql, ' where sensor.SlopeID IN (select slope.ID from slope where slope.Name like \'%', paramName,'%\'', ' ESCAPE \'/\')');
 		else
-			set @strSql = concat(@strSql, ' and SlopeID IN (select ID from slope where Name like \'%', paramName,'%\'', ' ESCAPE \'/\')');
+			set @strSql = concat(@strSql, ' and sensor.SlopeID IN (select slope.ID from slope where slope.Name like \'%', paramName,'%\'', ' ESCAPE \'/\')');
 		end if;
 	end if;
 
