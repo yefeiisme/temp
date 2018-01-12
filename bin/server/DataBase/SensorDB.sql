@@ -430,6 +430,9 @@ BEGIN
 	DECLARE _AlarmValue2 double default 0;
 	DECLARE _AlarmValue3 double default 0;
 	DECLARE _AlarmValue4 double default 0;
+	DECLARE _AlarmState1 int UNSIGNED default 0;
+	DECLARE _AlarmState2 int UNSIGNED default 0;
+	DECLARE _AlarmState3 int UNSIGNED default 0;
 	DECLARE _AlarmState int UNSIGNED default 0;
 
 	select ID into _SlopeID from slope where SceneID=paramSlopeSceneID and Type=paramSlopeType;
@@ -446,9 +449,55 @@ BEGIN
 		set _OffsetValue2 =_AvgValue2-paramValue2;
 		set _OffsetValue3 =_AvgValue3-paramValue3;
 	end if;
+	
+	if _OffsetValue1 < AlarmValue1 then
+		set @_AlarmState1 = 1;
+	elseif _OffsetValue1 < AlarmValue2 then
+		set @_AlarmState1 = 2;
+	elseif _OffsetValue1 < AlarmValue3 then
+		set @_AlarmState1 = 3;
+	elseif _OffsetValue1 < AlarmValue4 then
+		set @_AlarmState1 = 4;
+	else
+		set @_AlarmState1 = 5;
+	end if;
+
+	if _OffsetValue2 < AlarmValue1 then
+		set @_AlarmState2 = 1;
+	elseif _OffsetValue2 < AlarmValue2 then
+		set @_AlarmState2 = 2;
+	elseif _OffsetValue2 < AlarmValue3 then
+		set @_AlarmState2 = 3;
+	elseif _OffsetValue2 < AlarmValue4 then
+		set @_AlarmState2 = 4;
+	else
+		set @_AlarmState2 = 5;
+	end if;
+
+	if _OffsetValue3 < AlarmValue1 then
+		set @_AlarmState3 = 1;
+	elseif _OffsetValue3 < AlarmValue2 then
+		set @_AlarmState3 = 2;
+	elseif _OffsetValue3 < AlarmValue3 then
+		set @_AlarmState3 = 3;
+	elseif _OffsetValue3 < AlarmValue4 then
+		set @_AlarmState3 = 4;
+	else
+		set @_AlarmState3 = 5;
+	end if;
+	
+	set @_AlarmState	= _AlarmState1;
+	
+	if _AlarmState > _AlarmState2 then
+		set @_AlarmState	= _AlarmState2;
+	end if;
+
+	if _AlarmState > _AlarmState3 then
+		set @_AlarmState	= _AlarmState3;
+	end if;
 
 	update slope set Longitude=paramLongitude,Latitude=paramLatitude,LastDataTime=FROM_UNIXTIME(paramTime) where ID=_SlopeID;
-	update sensor set Value1=paramValue1,Value2=paramValue2,Value3=paramValue3,Value4=paramValue4,OffsetValue1=_OffsetValue1,OffsetValue2=_OffsetValue2,OffsetValue3=_OffsetValue3 where ID=_SensorID;
+	update sensor set Value1=paramValue1,Value2=paramValue2,Value3=paramValue3,Value4=paramValue4,OffsetValue1=_OffsetValue1,OffsetValue2=_OffsetValue2,OffsetValue3=_OffsetValue3,AlarmState=_AlarmState where ID=_SensorID;
 	insert into sensor_data(ID,SceneID,Type,Value1,Value2,Value3,Value4,DataTime,DataTime1,OffsetValue1,OffsetValue2,OffsetValue3,AlarmState) value(_SensorID,paramSensorSceneID,paramSensorType,paramValue1,paramValue2,paramValue3,paramValue4,FROM_UNIXTIME(paramTime),paramTime,_OffsetValue1,_OffsetValue2,_OffsetValue3,_AlarmState);
 END;
 
