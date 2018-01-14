@@ -146,22 +146,42 @@ CREATE PROCEDURE `LoadSensorHistory`(IN paramSensorID INTEGER UNSIGNED, IN param
 BEGIN
 	DECLARE _Interval int default 0;
 	DECLARE _RecordCount int default 0;
+	DECLARE _ReturnCount int default 0;
+	DECLARE _RecordInterval int default 0;
 	DECLARE _MinDateTime int default 0;
 	DECLARE _MaxDateTime int default 0;
 	DECLARE _AvgValue1 double default 0;
 	DECLARE _AvgValue2 double default 0;
 	DECLARE _AvgValue3 double default 0;
+
+	CREATE TEMPORARY TABLE if not exists sensor_data_temp (
+		`ID` int unsigned NOT NULL AUTO_INCREMENT,
+		`Value1` double NOT NULL DEFAULT '0',
+		`Value2` double NOT NULL DEFAULT '0',
+		`Value3` double NOT NULL DEFAULT '0',
+		`Value4` double NOT NULL DEFAULT '0',
+		`OffsetValue1` double NOT NULL DEFAULT '0',
+		`OffsetValue2` double NOT NULL DEFAULT '0',
+		`OffsetValue3` double NOT NULL DEFAULT '0',
+		`DataTime` datetime NOT NULL,
+		KEY `ID` (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	truncate table sensor_data_temp;
 	
-	select count(*),min(UNIX_TIMESTAMP(DataTime)),max(UNIX_TIMESTAMP(DataTime)),AVG(Value1),AVG(Value2),AVG(Value3) into _RecordCount,_MinDateTime,_MaxDateTime,_AvgValue1,_AvgValue2,_AvgValue3 from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between paramBeginTime and paramEndTime;
+	insert into sensor_data_temp(Value1,Value2,Value3,Value4,OffsetValue1,OffsetValue2,OffsetValue3,DataTime) select Value1,Value2,Value3,Value4,OffsetValue1,OffsetValue2,OffsetValue3,DataTime from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between paramBeginTime and paramEndTime;
+	select count(*),min(UNIX_TIMESTAMP(DataTime)),max(UNIX_TIMESTAMP(DataTime)),AVG(Value1),AVG(Value2),AVG(Value3) into _RecordCount,_MinDateTime,_MaxDateTime,_AvgValue1,_AvgValue2,_AvgValue3 from sensor_data_temp;
 	
 	if _RecordCount > 200 then
-		set _RecordCount	= 200;
+		set _ReturnCount	= 200;
+	else
+		set _ReturnCount	= _RecordCount;
 	end if;
 	
-	set _Interval	= (_MaxDateTime - _MinDateTime) DIV _RecordCount;
+	set _Interval		= (_MaxDateTime - _MinDateTime) DIV _ReturnCount;
+	set _RecordInterval	= _RecordCount DIV _ReturnCount;
 
 	select ID,Longitude,Latitude,_MinDateTime,_MaxDateTime,_Interval,_AvgValue1,_AvgValue2,_AvgValue3 from sensor where ID=paramSensorID;
-	select min(Value1),min(Value2),min(Value3),MAX(Value1),MAX(Value2),max(Value3),min(OffsetValue1),min(OffsetValue2),min(OffsetValue3),MAX(OffsetValue1),MAX(OffsetValue2),max(OffsetValue3) from sensor_data where ID=paramSensorID and UNIX_TIMESTAMP(DataTime) between _MinDateTime and _MaxDateTime group by UNIX_TIMESTAMP(DataTime)-UNIX_TIMESTAMP(DataTime)%_Interval;
+	select min(Value1),min(Value2),min(Value3),MAX(Value1),MAX(Value2),max(Value3),min(OffsetValue1),min(OffsetValue2),min(OffsetValue3),MAX(OffsetValue1),MAX(OffsetValue2),max(OffsetValue3) from sensor_data_temp group by ID-ID%_RecordInterval;
 END;
 
 DROP PROCEDURE IF EXISTS `LoadSensorList`;
