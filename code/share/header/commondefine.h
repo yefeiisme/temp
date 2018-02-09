@@ -1,7 +1,7 @@
 #ifndef __COMMON_DEFINE_H_
 #define __COMMON_DEFINE_H_
 
-
+#include <stdint.h>
 
 typedef unsigned long		DWORD;  //%lu
 typedef unsigned char		BYTE;	//%hhu
