@@ -10,18 +10,18 @@ public:
 	CRandom();
 	~CRandom();
 
-	inline void			SetRandomSeed(const unsigned int uRandomSeed)
+	inline void			SetRandomSeed(const uint32_t uRandomSeed)
 	{
 		m_uRandomSeed	= uRandomSeed;
 	}
 
-	unsigned int		Random(const unsigned int uMax)
+	uint32_t			Random(const uint32_t uMax)
 	{
-		int64 f = m_uRandomSeed * 0x08088405 + 1;
-		m_uRandomSeed = f;
-		int64 t = f * uMax;
-		t = t >> 32;
-		return (unsigned int)t;
+		int64_t nTemp	= m_uRandomSeed * 0x08088405 + 1;
+		m_uRandomSeed	= nTemp;
+		int64_t nResult	= nTemp * uMax;
+		nResult = nResult >> 32;
+		return (uint32_t)nResult;
 	}
 
 	inline void			Release()
@@ -30,7 +30,7 @@ public:
 	}
 
 private:
-	UINT					m_uRandomSeed;
+	uint32_t			m_uRandomSeed;
 };
 
 #endif
