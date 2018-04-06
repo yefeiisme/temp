@@ -41,6 +41,9 @@ bool CSensorDBConn::Initialize()
 	return true;
 }
 
+//=====================================================
+// 功能：主循环调用类的此函数，用于处理数据库访问后的返回结果。
+// 根据访问时填充的信息，将结果扔给对应的连接去处理。
 void CSensorDBConn::Run()
 {
 	IMysqlResultSet	*pResultSet = g_ICenterServer.GetQueryResult();
@@ -66,11 +69,17 @@ void CSensorDBConn::Run()
 	(this->*m_pfnTypeFunc[pCallbackData->byClientType])(pResultSet, pCallbackData);
 }
 
+//=====================================================
+// 功能：全局性的数据库访问结果
+//
 void CSensorDBConn::GlobalQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	(this->*m_ProtocolFunc[pCallbackData->byOpt])(pResultSet, pCallbackData);
 }
 
+//=====================================================
+// 功能：app访问数据库的结果
+//
 void CSensorDBConn::AppQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	CAppClient	*pClient	= g_pCenterServerLogic.GetAppClient(pCallbackData->uClientIndex, pCallbackData->uClientID);
@@ -80,6 +89,9 @@ void CSensorDBConn::AppQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallba
 	pClient->ProcessDBPack(pResultSet, pCallbackData);
 }
 
+//=====================================================
+// 功能：web访问数据库的结果
+//
 void CSensorDBConn::WebQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	CWebClient	*pClient	= g_pCenterServerLogic.GetWebClient(pCallbackData->uClientIndex, pCallbackData->uClientID);
@@ -89,6 +101,9 @@ void CSensorDBConn::WebQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallba
 	pClient->ProcessDBPack(pResultSet, pCallbackData);
 }
 
+//=====================================================
+// 功能：传感器访问数据库的结果
+//
 void CSensorDBConn::DataQuery(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	CDataClient	*pClient	= g_pCenterServerLogic.GetDataClient(pCallbackData->uClientIndex, pCallbackData->uClientID);

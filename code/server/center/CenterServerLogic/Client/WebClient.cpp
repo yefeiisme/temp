@@ -89,11 +89,17 @@ CWebClient::~CWebClient()
 {
 }
 
+//=====================================================
+// 功能：主循环遍历到此类的实例时，调用类的此函数，以用于该连接对象进行网络处理的操作
+//
 void CWebClient::DoAction()
 {
 	ProcessNetPack();
 }
 
+//=====================================================
+// 功能：处理数据库线程返回的数据。用类成员函数指针数组来调用相关的函数进行处理
+//
 void CWebClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	if (pCallbackData->byOpt >= SENSOR_DB_OPT_MAX)
@@ -105,6 +111,9 @@ void CWebClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCall
 	(this->*m_pfnDBRespondFunc[pCallbackData->byOpt])(pResultSet, pCallbackData);
 }
 
+//=====================================================
+// 功能：处理网络包，用的是类成员函数指针数组来调用相关的函数进行处理
+//
 void CWebClient::ProcessNetPack()
 {
 	const void		*pPack		= nullptr;
@@ -131,6 +140,9 @@ void CWebClient::DefaultProtocolFunc(const void *pPack, const unsigned int uPack
 {
 }
 
+//=====================================================
+// 功能：登陆消息处理
+//
 void CWebClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 {
 	WEB_SERVER_NET_Protocol::Web2S_Login	tagLoginInfo;
@@ -155,6 +167,9 @@ void CWebClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：请求边坡列表
+//
 void CWebClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -202,6 +217,9 @@ void CWebClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPac
 	}
 }
 
+//=====================================================
+// 功能：请求传感器列表
+//
 void CWebClient::RecvRequestSensorList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -235,6 +253,9 @@ void CWebClient::RecvRequestSensorList(const void *pPack, const unsigned int uPa
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：查询传感器历史数据
+//
 void CWebClient::RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -270,14 +291,23 @@ void CWebClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：ping消息，用于保持网络连接
+//
 void CWebClient::RecvPing(const void *pPack, const unsigned int uPackLen)
 {
 }
 
+//=====================================================
+// 功能：请求所有信息（已废弃）
+//
 void CWebClient::RecvRequestAllList(const void *pPack, const unsigned int uPackLen)
 {
 }
 
+//=====================================================
+// 功能：添加边坡
+//
 void CWebClient::RecvAddSlope(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -316,6 +346,9 @@ void CWebClient::RecvAddSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：删除边坡
+//
 void CWebClient::RecvDelSlope(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -349,6 +382,9 @@ void CWebClient::RecvDelSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：修改边坡信息
+//
 void CWebClient::RecvUpdateSlope(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -390,6 +426,9 @@ void CWebClient::RecvUpdateSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：添加传感器
+//
 void CWebClient::RecvAddSensor(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -429,6 +468,9 @@ void CWebClient::RecvAddSensor(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：删除传感器
+//
 void CWebClient::RecvDelSensor(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -462,6 +504,9 @@ void CWebClient::RecvDelSensor(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：修改传感器信息
+//
 void CWebClient::RecvUpdateSensor(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -502,6 +547,9 @@ void CWebClient::RecvUpdateSensor(const void *pPack, const unsigned int uPackLen
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：修改用户密码
+//
 void CWebClient::RecvModifyPassword(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -536,6 +584,9 @@ void CWebClient::RecvModifyPassword(const void *pPack, const unsigned int uPackL
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：查找边坡
+//
 void CWebClient::RecvFindSlope(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -570,6 +621,9 @@ void CWebClient::RecvFindSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：查找传感器
+//
 void CWebClient::RecvFindSensor(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -606,6 +660,9 @@ void CWebClient::RecvFindSensor(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：读取用户列表
+//
 void CWebClient::RecvLoadUserList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -634,6 +691,9 @@ void CWebClient::RecvLoadUserList(const void *pPack, const unsigned int uPackLen
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：创建用户
+//
 void CWebClient::RecvCreateUser(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -670,6 +730,9 @@ void CWebClient::RecvCreateUser(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：修改用户信息
+//
 void CWebClient::RecvModifyUser(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -705,6 +768,9 @@ void CWebClient::RecvModifyUser(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：删除用户列表
+//
 void CWebClient::RecvRemoveUser(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -738,6 +804,9 @@ void CWebClient::RecvRemoveUser(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：读取用户组列表
+//
 void CWebClient::RecvLoadGroupList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -766,6 +835,9 @@ void CWebClient::RecvLoadGroupList(const void *pPack, const unsigned int uPackLe
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：创建用户组
+//
 void CWebClient::RecvCreateGroup(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -799,6 +871,9 @@ void CWebClient::RecvCreateGroup(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：将用户添加到用户组
+//
 void CWebClient::RecvAddUserToGroup(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -833,6 +908,9 @@ void CWebClient::RecvAddUserToGroup(const void *pPack, const unsigned int uPackL
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：将用户从用户组中移除
+//
 void CWebClient::RecvRemoveUserFromGroup(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -867,6 +945,9 @@ void CWebClient::RecvRemoveUserFromGroup(const void *pPack, const unsigned int u
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：修改用户组信息
+//
 void CWebClient::RecvModifyGroup(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -901,6 +982,9 @@ void CWebClient::RecvModifyGroup(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：删除用户组
+//
 void CWebClient::RecvRemoveGroup(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -934,6 +1018,9 @@ void CWebClient::RecvRemoveGroup(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：读取权限信息
+//
 void CWebClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -977,6 +1064,9 @@ void CWebClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLe
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：修改报警值
+//
 void CWebClient::RecvModifyAlarmValue(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -1015,6 +1105,9 @@ void CWebClient::RecvModifyAlarmValue(const void *pPack, const unsigned int uPac
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：读取报警值列表
+//
 void CWebClient::RecvLoadAlarmList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -1049,6 +1142,9 @@ void CWebClient::RecvLoadAlarmList(const void *pPack, const unsigned int uPackLe
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：启动边坡
+//
 void CWebClient::RecvStartSlope(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -1084,6 +1180,9 @@ void CWebClient::RecvStartSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：登陆结果
+//
 void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1143,6 +1242,9 @@ void CWebClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_login_result, tagLoginResult);
 }
 
+//=====================================================
+// 功能：边坡列表
+//
 void CWebClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol				= 0;
@@ -1205,6 +1307,9 @@ void CWebClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_slope_list, tagSlopeList);
 }
 
+//=====================================================
+// 功能：传感器列表
+//
 void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1294,6 +1399,9 @@ void CWebClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_sensor_list, tagSensorList);
 }
 
+//=====================================================
+// 功能：传感器历史数据
+//
 void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol				= 0;
@@ -1406,10 +1514,16 @@ void CWebClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_sensor_history, tagSensorHistory);
 }
 
+//=====================================================
+// 功能：查询所有信息的结果（已废弃）
+//
 void CWebClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 }
 
+//=====================================================
+// 功能：添加边坡的结果
+//
 void CWebClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1479,6 +1593,9 @@ void CWebClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_new_slope, tagNewSlope);
 }
 
+//=====================================================
+// 功能：删除边坡的结果
+//
 void CWebClient::DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1507,6 +1624,9 @@ void CWebClient::DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_del_slope, tagDelSlope);
 }
 
+//=====================================================
+// 功能：修改边坡数据的结果
+//
 void CWebClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1576,6 +1696,9 @@ void CWebClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_update_slope, tagUpdateSlope);
 }
 
+//=====================================================
+// 功能：添加传感器的结果
+//
 void CWebClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol					= 0;
@@ -1643,6 +1766,9 @@ void CWebClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlReq
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_add_sensor, tagNewSensor);
 }
 
+//=====================================================
+// 功能：删除传感器的结果
+//
 void CWebClient::DBResopndDelSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1671,6 +1797,9 @@ void CWebClient::DBResopndDelSensorResult(IMysqlResultSet *pResultSet, SMysqlReq
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_del_sensor, tagDelSensor);
 }
 
+//=====================================================
+// 功能：修改传感器信息的结果
+//
 void CWebClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol					= 0;
@@ -1738,6 +1867,9 @@ void CWebClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysql
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_update_sensor, tagUpdateSensor);
 }
 
+//=====================================================
+// 功能：修改用户密码的结果
+//
 void CWebClient::DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	BYTE	byResultCount = pResultSet->GetResultCount();
@@ -1766,6 +1898,9 @@ void CWebClient::DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMys
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_modify_password_result, tagModifyPassword);
 }
 
+//=====================================================
+// 功能：查找边坡的结果
+//
 void CWebClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol				= 0;
@@ -1825,6 +1960,9 @@ void CWebClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlReq
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_slope_list, tagSlopeList);
 }
 
+//=====================================================
+// 功能：查找传感器的结果
+//
 void CWebClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1916,6 +2054,9 @@ void CWebClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRe
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_sensor_list, tagSensorList);
 }
 
+//=====================================================
+// 功能：用户列表
+//
 void CWebClient::DBResopndLoadUserList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol				= 0;
@@ -1950,6 +2091,9 @@ void CWebClient::DBResopndLoadUserList(IMysqlResultSet *pResultSet, SMysqlReques
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_user_list, tagUserList);
 }
 
+//=====================================================
+// 功能：创建用户的结果
+//
 void CWebClient::DBResopndCreateUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol				= 0;
@@ -1977,6 +2121,9 @@ void CWebClient::DBResopndCreateUser(IMysqlResultSet *pResultSet, SMysqlRequest 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_create_user, tagNewUser);
 }
 
+//=====================================================
+// 功能：修改用户的结果
+//
 void CWebClient::DBResopndModifyUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol		= 0;
@@ -2001,6 +2148,9 @@ void CWebClient::DBResopndModifyUser(IMysqlResultSet *pResultSet, SMysqlRequest 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_modify_user, tagModifyUser);
 }
 
+//=====================================================
+// 功能：删除用户的结果
+//
 void CWebClient::DBResopndRemoveUser(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol		= 0;
@@ -2024,6 +2174,9 @@ void CWebClient::DBResopndRemoveUser(IMysqlResultSet *pResultSet, SMysqlRequest 
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_remove_user, tagRemoveUser);
 }
 
+//=====================================================
+// 功能：用户组列表
+//
 void CWebClient::DBResopndLoadGroupList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol		= 0;
@@ -2075,6 +2228,9 @@ void CWebClient::DBResopndRemoveGroup(IMysqlResultSet *pResultSet, SMysqlRequest
 {
 }
 
+//=====================================================
+// 功能：读取用户权限
+//
 void CWebClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	WORD	wAuthorityID		= 0;
@@ -2119,6 +2275,9 @@ void CWebClient::DBResopndAddSensorData(IMysqlResultSet *pResultSet, SMysqlReque
 {
 }
 
+//=====================================================
+// 功能：修改报警值
+//
 void CWebClient::DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	BYTE	bySensorType		= 0;
@@ -2153,6 +2312,9 @@ void CWebClient::DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRe
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_alarm_value, tagAlarmValue);
 }
 
+//=====================================================
+// 功能：读取报警值
+//
 void CWebClient::DBResopndLoadAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	BYTE	bySensorType		= 0;
@@ -2187,6 +2349,9 @@ void CWebClient::DBResopndLoadAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequ
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_alarm_value, tagAlarmValue);
 }
 
+//=====================================================
+// 功能：启用边坡结果
+//
 void CWebClient::DBResopndStartSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	WORD	wSlopeID	= 0;
@@ -2209,6 +2374,9 @@ void CWebClient::DBResopndStartSlopeResult(IMysqlResultSet *pResultSet, SMysqlRe
 	SendWebMsg(WEB_SERVER_NET_Protocol::S2WEB::s2web_start_slope_result, tagStartResult);
 }
 
+//=====================================================
+// 功能：给Web发送消息
+//
 void CWebClient::SendWebMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)
 {
 	char	strBuffer[0xffff]	= {0};

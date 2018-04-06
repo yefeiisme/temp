@@ -27,6 +27,9 @@
 #define SUBDIRNAME_LOG				"./CenterServerLogs/"
 #endif
 
+//=====================================================
+// 功能：截取退出信号后，程序的退出函数
+//
 #if defined(WIN32) || defined(WIN64)
 BOOL WINAPI pfnOnQuitSignal(DWORD CtrlType)
 {
@@ -102,6 +105,9 @@ CCenterServer::~CCenterServer()
 	SAFE_DELETE_ARR(m_pDataConnList);
 }
 
+//=====================================================
+// 功能：主程序类的单例
+// 返回值：类的静态对象
 CCenterServer &CCenterServer::Singleton()
 {
 	static CCenterServer singleton;
@@ -109,6 +115,10 @@ CCenterServer &CCenterServer::Singleton()
 	return singleton;
 }
 
+//=====================================================
+// 功能：初始化函数
+// 参数bDaemon：用于linux下后台运行（已废弃）
+// 返回值：true初始化成功；false初始化失败
 bool CCenterServer::Initialize(const bool bDaemon)
 {
 	g_SetRootPath(".\\");
@@ -226,6 +236,9 @@ bool CCenterServer::Initialize(const bool bDaemon)
 	return true;
 }
 
+//=====================================================
+// 功能：程序的主循环
+//
 void CCenterServer::Run()
 {
 	m_ullBeginTick		= GetMicroTick();
@@ -277,11 +290,17 @@ void CCenterServer::Run()
 	}
 }
 
+//=====================================================
+// 功能：外部模块通过接口类，获取数据库访问对象的指针
+// 返回值：数据库对象的接口类指针
 IMysqlResultSet *CCenterServer::GetQueryResult()
 {
 	return m_pSensorQuery->GetMysqlResultSet();
 }
 
+//=====================================================
+// 功能：主循环中，遍历app连接，根据其状态进行不同的功能处理
+//
 void CCenterServer::ProcessAppConn()
 {
 	for (auto nIndex = 0; nIndex < g_pCenterServerConfig.m_nAppCount; ++nIndex)
@@ -293,6 +312,9 @@ void CCenterServer::ProcessAppConn()
 	}
 }
 
+//=====================================================
+// 功能：主循环中，遍历web连接，根据其状态进行不同的功能处理
+//
 void CCenterServer::ProcessWebConn()
 {
 	for (auto nIndex = 0; nIndex < g_pCenterServerConfig.m_nWebCount; ++nIndex)
@@ -304,6 +326,9 @@ void CCenterServer::ProcessWebConn()
 	}
 }
 
+//=====================================================
+// 功能：主循环中，遍历传感器连接，根据其状态进行不同的功能处理
+//
 void CCenterServer::ProcessDataConn()
 {
 	for (auto nIndex = 0; nIndex < g_pCenterServerConfig.m_nDataCount; ++nIndex)
@@ -315,12 +340,18 @@ void CCenterServer::ProcessDataConn()
 	}
 }
 
+//=====================================================
+// 功能：网络库中，当有app连接上来后的回调函数
+//
 void CCenterServer::AppConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	CCenterServer	*pCenterServer	= (CCenterServer*)pParam;
 	pCenterServer->OnAppConnConnect(pTcpConnection, uIndex);
 }
 
+//=====================================================
+// 功能：网络库中，当有app连接上来后的回调函数在实例类中的处理函数
+//
 void CCenterServer::OnAppConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	if (nullptr == pTcpConnection)
@@ -342,12 +373,18 @@ void CCenterServer::OnAppConnConnect(ITcpConnection *pTcpConnection, const unsig
 	pNewAppConn.Connect(pTcpConnection);
 }
 
+//=====================================================
+// 功能：网络库中，当有web连接上来后的回调函数
+//
 void CCenterServer::WebConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	CCenterServer	*pCenterServer	= (CCenterServer*)pParam;
 	pCenterServer->OnWebConnConnect(pTcpConnection, uIndex);
 }
 
+//=====================================================
+// 功能：网络库中，当有web连接上来后的回调函数在实例类中的处理函数
+//
 void CCenterServer::OnWebConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	if (nullptr == pTcpConnection)
@@ -369,12 +406,18 @@ void CCenterServer::OnWebConnConnect(ITcpConnection *pTcpConnection, const unsig
 	pNewWebConn.Connect(pTcpConnection);
 }
 
+//=====================================================
+// 功能：网络库中，当有传感器连接上来后的回调函数
+//
 void CCenterServer::DataConnConnected(void *pParam, ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	CCenterServer	*pCenterServer = (CCenterServer*)pParam;
 	pCenterServer->OnDataConnConnect(pTcpConnection, uIndex);
 }
 
+//=====================================================
+// 功能：网络库中，当有传感器连接上来后的回调函数在实例类中的处理函数
+//
 void CCenterServer::OnDataConnConnect(ITcpConnection *pTcpConnection, const unsigned int uIndex)
 {
 	if (nullptr == pTcpConnection)

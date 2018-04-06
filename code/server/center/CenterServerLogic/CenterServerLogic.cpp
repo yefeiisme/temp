@@ -55,7 +55,9 @@ CCenterServerLogic &CCenterServerLogic::Singleton()
 	return singleton;
 }
 
-
+//=====================================================
+// 功能：主逻辑初始化
+// 返回值：true初始化成功；false初始化失败
 bool CCenterServerLogic::Initialize()
 {
 	if (!g_pCenterServerLogicConfig.Initialize())
@@ -113,6 +115,9 @@ bool CCenterServerLogic::Initialize()
 	return true;
 }
 
+//=====================================================
+// 功能：逻辑主循环
+//
 void CCenterServerLogic::Run()
 {
 	m_pSensorDBConn->Run();
@@ -133,6 +138,9 @@ void CCenterServerLogic::Run()
 	}
 }
 
+//=====================================================
+// 功能：app网络连接进来的处理
+//
 bool CCenterServerLogic::AppClientLogin(IClientConnection *pClientConnection)
 {
 	CAppClient	*pAppClient	= GetFreeAppClient();
@@ -148,6 +156,9 @@ bool CCenterServerLogic::AppClientLogin(IClientConnection *pClientConnection)
 	return true;
 }
 
+//=====================================================
+// 功能：app网络连接断开的处理
+//
 void CCenterServerLogic::AppClientLogout(IClientConnection *pClientConnection)
 {
 	auto Iter = m_mapOnlineAppClient.find(pClientConnection);
@@ -162,6 +173,9 @@ void CCenterServerLogic::AppClientLogout(IClientConnection *pClientConnection)
 	}
 }
 
+//=====================================================
+// 功能：web网络连接进来的处理
+//
 bool CCenterServerLogic::WebClientLogin(IClientConnection *pClientConnection)
 {
 	CWebClient	*pWebClient	= GetFreeWebClient();
@@ -177,6 +191,9 @@ bool CCenterServerLogic::WebClientLogin(IClientConnection *pClientConnection)
 	return true;
 }
 
+//=====================================================
+// 功能：web网络连接断开的处理
+//
 void CCenterServerLogic::WebClientLogout(IClientConnection *pClientConnection)
 {
 	auto Iter = m_mapOnlineWebClient.find(pClientConnection);
@@ -191,6 +208,9 @@ void CCenterServerLogic::WebClientLogout(IClientConnection *pClientConnection)
 	}
 }
 
+//=====================================================
+// 功能：传感器网络连接进来的处理
+//
 bool CCenterServerLogic::DataClientLogin(IClientConnection *pClientConnection)
 {
 	CDataClient	*pDataClient = GetFreeDataClient();
@@ -206,6 +226,9 @@ bool CCenterServerLogic::DataClientLogin(IClientConnection *pClientConnection)
 	return true;
 }
 
+//=====================================================
+// 功能：传感器网络连接断开的处理
+//
 void CCenterServerLogic::DataClientLogout(IClientConnection *pClientConnection)
 {
 	auto Iter = m_mapOnlineDataClient.find(pClientConnection);
@@ -220,6 +243,9 @@ void CCenterServerLogic::DataClientLogout(IClientConnection *pClientConnection)
 	}
 }
 
+//=====================================================
+// 功能：根据索引和ID，查找指定的app对象
+// 返回值：找到指定的对象指针或者空指针（nullptr）
 CAppClient *CCenterServerLogic::GetAppClient(const UINT uClientIndex, const uint64 uClientID)
 {
 	if (uClientIndex >= g_pCenterServerLogicConfig.m_nAppClientCount)
@@ -231,6 +257,9 @@ CAppClient *CCenterServerLogic::GetAppClient(const UINT uClientIndex, const uint
 	return &m_pAppClientList[uClientIndex];
 }
 
+//=====================================================
+// 功能：根据索引和ID，查找指定的web对象
+// 返回值：找到指定的对象指针或者空指针（nullptr）
 CWebClient *CCenterServerLogic::GetWebClient(const UINT uClientIndex, const uint64 uClientID)
 {
 	if (uClientIndex >= g_pCenterServerLogicConfig.m_nWebClientCount)
@@ -242,6 +271,9 @@ CWebClient *CCenterServerLogic::GetWebClient(const UINT uClientIndex, const uint
 	return &m_pWebClientList[uClientIndex];
 }
 
+//=====================================================
+// 功能：根据索引和ID，查找指定的传感器对象
+// 返回值：找到指定的对象指针或者空指针（nullptr）
 CDataClient *CCenterServerLogic::GetDataClient(const UINT uClientIndex, const uint64 uClientID)
 {
 	if (uClientIndex >= g_pCenterServerLogicConfig.m_nDataClientCount)

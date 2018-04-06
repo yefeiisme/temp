@@ -44,6 +44,9 @@ CCenterServerConfig::~CCenterServerConfig()
 	}
 }
 
+//=====================================================
+// 功能：配置信息类的单例
+// 返回值：类的静态对象
 CCenterServerConfig &CCenterServerConfig::Singleton()
 {
 	static CCenterServerConfig singleton;
@@ -51,6 +54,9 @@ CCenterServerConfig &CCenterServerConfig::Singleton()
 	return singleton;
 }
 
+//=====================================================
+// 功能：主类初始化时调用本类的初始化函数
+// 返回值：true初始化成功；false初始化失败
 bool CCenterServerConfig::Initialize()
 {
 	if (!LoadConfig())
@@ -59,6 +65,9 @@ bool CCenterServerConfig::Initialize()
 	return true;
 }
 
+//=====================================================
+// 功能：配置文件的读取，赋值相关的配置变量
+//
 bool CCenterServerConfig::LoadConfig()
 {
 	m_pIniFile	= OpenIniFile("server.ini");

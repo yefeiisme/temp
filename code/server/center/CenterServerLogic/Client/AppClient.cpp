@@ -77,11 +77,17 @@ CAppClient::~CAppClient()
 {
 }
 
+//=====================================================
+// 功能：主循环遍历到此类的实例时，调用类的此函数，以用于该连接对象进行网络处理的操作
+//
 void CAppClient::DoAction()
 {
 	ProcessNetPack();
 }
 
+//=====================================================
+// 功能：处理数据库线程返回的数据。用类成员函数指针数组来调用相关的函数进行处理
+//
 void CAppClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	if (pCallbackData->byOpt >= SENSOR_DB_OPT_MAX)
@@ -93,6 +99,9 @@ void CAppClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCall
 	(this->*m_pfnDBRespondFunc[pCallbackData->byOpt])(pResultSet, pCallbackData);
 }
 
+//=====================================================
+// 功能：处理网络包，用的是类成员函数指针数组来调用相关的函数进行处理
+//
 void CAppClient::ProcessNetPack()
 {
 	const void		*pPack		= nullptr;
@@ -119,6 +128,9 @@ void CAppClient::DefaultProtocolFunc(const void *pPack, const unsigned int uPack
 {
 }
 
+//=====================================================
+// 功能：登陆消息处理
+//
 void CAppClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 {
 	APP_SERVER_NET_Protocol::App2S_Login	tagLoginInfo;
@@ -143,6 +155,9 @@ void CAppClient::RecvLogin(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：请求边坡列表
+//
 void CAppClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -190,6 +205,9 @@ void CAppClient::RecvRequestSlopeList(const void *pPack, const unsigned int uPac
 	}
 }
 
+//=====================================================
+// 功能：请求传感器列表
+//
 void CAppClient::RecvRequestSensorList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -226,6 +244,9 @@ void CAppClient::RecvRequestSensorList(const void *pPack, const unsigned int uPa
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：查询传感器历史数据
+//
 void CAppClient::RecvRequestSensorHistory(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -254,10 +275,16 @@ void CAppClient::RecvRequestSensorHistory(const void *pPack, const unsigned int 
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：ping消息，用于保持网络连接
+//
 void CAppClient::RecvPing(const void *pPack, const unsigned int uPackLen)
 {
 }
 
+//=====================================================
+// 功能：请求所有信息（已废弃）
+//
 void CAppClient::RecvRequestAllList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -280,6 +307,9 @@ void CAppClient::RecvRequestAllList(const void *pPack, const unsigned int uPackL
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：添加边坡
+//
 void CAppClient::RecvAddSlope(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -318,6 +348,9 @@ void CAppClient::RecvAddSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：删除边坡
+//
 void CAppClient::RecvDelSlope(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -351,6 +384,9 @@ void CAppClient::RecvDelSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：修改边坡信息
+//
 void CAppClient::RecvUpdateSlope(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -392,6 +428,9 @@ void CAppClient::RecvUpdateSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：添加传感器
+//
 void CAppClient::RecvAddSensor(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -431,6 +470,9 @@ void CAppClient::RecvAddSensor(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：删除传感器
+//
 void CAppClient::RecvDelSensor(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -464,6 +506,9 @@ void CAppClient::RecvDelSensor(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：修改传感器信息
+//
 void CAppClient::RecvUpdateSensor(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -504,6 +549,9 @@ void CAppClient::RecvUpdateSensor(const void *pPack, const unsigned int uPackLen
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：修改用户密码
+//
 void CAppClient::RecvModifyPassword(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -538,6 +586,9 @@ void CAppClient::RecvModifyPassword(const void *pPack, const unsigned int uPackL
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：查找边坡
+//
 void CAppClient::RecvFindSlope(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -572,6 +623,9 @@ void CAppClient::RecvFindSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：查找传感器
+//
 void CAppClient::RecvFindSensor(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -608,6 +662,9 @@ void CAppClient::RecvFindSensor(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：读取权限信息
+//
 void CAppClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -651,6 +708,9 @@ void CAppClient::RecvLoadAuthority(const void *pPack, const unsigned int uPackLe
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：修改报警值
+//
 void CAppClient::RecvModifyAlarmValue(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -689,6 +749,9 @@ void CAppClient::RecvModifyAlarmValue(const void *pPack, const unsigned int uPac
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：读取报警值列表
+//
 void CAppClient::RecvLoadAlarmList(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -723,6 +786,9 @@ void CAppClient::RecvLoadAlarmList(const void *pPack, const unsigned int uPackLe
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：启动边坡
+//
 void CAppClient::RecvStartSlope(const void *pPack, const unsigned int uPackLen)
 {
 	if (0 == m_uAccountID)
@@ -758,6 +824,9 @@ void CAppClient::RecvStartSlope(const void *pPack, const unsigned int uPackLen)
 	pMysqlQuery->CallProc();
 }
 
+//=====================================================
+// 功能：登陆结果
+//
 void CAppClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -821,6 +890,9 @@ void CAppClient::DBResopndLoginResult(IMysqlResultSet *pResultSet, SMysqlRequest
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_login_result, tagLoginResult);
 }
 
+//=====================================================
+// 功能：边坡列表
+//
 void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol				= 0;
@@ -888,6 +960,9 @@ void CAppClient::DBResopndSlopeList(IMysqlResultSet *pResultSet, SMysqlRequest *
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_slope_list, tagSlopeList);
 }
 
+//=====================================================
+// 功能：传感器列表
+//
 void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -977,6 +1052,9 @@ void CAppClient::DBResopndSensorList(IMysqlResultSet *pResultSet, SMysqlRequest 
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_sensor_list, tagSensorList);
 }
 
+//=====================================================
+// 功能：传感器历史数据
+//
 void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol				= 0;
@@ -1089,6 +1167,9 @@ void CAppClient::DBResopndSensorHistory(IMysqlResultSet *pResultSet, SMysqlReque
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_sensor_history, tagSensorHistory);
 }
 
+//=====================================================
+// 功能：查询所有信息的结果（已废弃）
+//
 void CAppClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol				= 0;
@@ -1161,6 +1242,9 @@ void CAppClient::DBResopndAllList(IMysqlResultSet *pResultSet, SMysqlRequest *pC
 	// ...
 }
 
+//=====================================================
+// 功能：添加边坡的结果
+//
 void CAppClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1230,6 +1314,9 @@ void CAppClient::DBResopndAddSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_new_slope, tagNewSlope);
 }
 
+//=====================================================
+// 功能：删除边坡的结果
+//
 void CAppClient::DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1258,6 +1345,9 @@ void CAppClient::DBResopndDelSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequ
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_del_slope, tagDelSlope);
 }
 
+//=====================================================
+// 功能：修改边坡数据的结果
+//
 void CAppClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1327,6 +1417,9 @@ void CAppClient::DBResopndUpdateSlopeResult(IMysqlResultSet *pResultSet, SMysqlR
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_update_slope, tagUpdateSlope);
 }
 
+//=====================================================
+// 功能：添加传感器的结果
+//
 void CAppClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol					= 0;
@@ -1394,6 +1487,9 @@ void CAppClient::DBResopndAddSensorResult(IMysqlResultSet *pResultSet, SMysqlReq
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_add_sensor, tagNewSensor);
 }
 
+//=====================================================
+// 功能：删除传感器的结果
+//
 void CAppClient::DBResopndDelSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1422,6 +1518,9 @@ void CAppClient::DBResopndDelSensorResult(IMysqlResultSet *pResultSet, SMysqlReq
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_del_sensor, tagDelSensor);
 }
 
+//=====================================================
+// 功能：修改传感器信息的结果
+//
 void CAppClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol					= 0;
@@ -1489,6 +1588,9 @@ void CAppClient::DBResopndUpdateSensorResult(IMysqlResultSet *pResultSet, SMysql
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_update_sensor, tagUpdateSensor);
 }
 
+//=====================================================
+// 功能：修改用户密码的结果
+//
 void CAppClient::DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	BYTE	byResultCount = pResultSet->GetResultCount();
@@ -1514,6 +1616,9 @@ void CAppClient::DBResopndModifyPasswordResult(IMysqlResultSet *pResultSet, SMys
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_modify_password_result, tagModifyPassword);
 }
 
+//=====================================================
+// 功能：查找边坡的结果
+//
 void CAppClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol				= 0;
@@ -1570,6 +1675,9 @@ void CAppClient::DBResopndFindSlopeResult(IMysqlResultSet *pResultSet, SMysqlReq
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_slope_list, tagSlopeList);
 }
 
+//=====================================================
+// 功能：查找传感器的结果
+//
 void CAppClient::DBResopndFindSensorResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	UINT	uCol			= 0;
@@ -1701,6 +1809,9 @@ void CAppClient::DBResopndRemoveGroup(IMysqlResultSet *pResultSet, SMysqlRequest
 {
 }
 
+//=====================================================
+// 功能：读取用户权限
+//
 void CAppClient::DBResopndLoadAuthor(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	WORD	wAuthorityID		= 0;
@@ -1745,6 +1856,9 @@ void CAppClient::DBResopndAddSensorData(IMysqlResultSet *pResultSet, SMysqlReque
 {
 }
 
+//=====================================================
+// 功能：修改报警值
+//
 void CAppClient::DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	BYTE	bySensorType = 0;
@@ -1779,6 +1893,9 @@ void CAppClient::DBResopndModifyAlarmValue(IMysqlResultSet *pResultSet, SMysqlRe
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_alarm_value, tagAlarmValue);
 }
 
+//=====================================================
+// 功能：读取报警值
+//
 void CAppClient::DBResopndLoadAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	BYTE	bySensorType		= 0;
@@ -1813,6 +1930,9 @@ void CAppClient::DBResopndLoadAlarmValue(IMysqlResultSet *pResultSet, SMysqlRequ
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_alarm_value, tagAlarmValue);
 }
 
+//=====================================================
+// 功能：启用边坡结果
+//
 void CAppClient::DBResopndStartSlopeResult(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	WORD	wSlopeID	= 0;
@@ -1835,6 +1955,9 @@ void CAppClient::DBResopndStartSlopeResult(IMysqlResultSet *pResultSet, SMysqlRe
 	SendAppMsg(APP_SERVER_NET_Protocol::S2APP::s2app_start_slope_result, tagStartResult);
 }
 
+//=====================================================
+// 功能：给app发送消息
+//
 void CAppClient::SendAppMsg(const BYTE byProtocol, google::protobuf::Message &tagMsg)
 {
 	char	strBuffer[0xffff]	= {0};

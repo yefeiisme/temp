@@ -470,37 +470,37 @@ BEGIN
 		set _OffsetValue3 =_AvgValue3-paramValue3;
 	end if;
 	
-	if _OffsetValue1 < AlarmValue1 then
+	if _OffsetValue1 < _AlarmValue1 then
 		set @_AlarmState1 = 1;
-	elseif _OffsetValue1 < AlarmValue2 then
+	elseif _OffsetValue1 < _AlarmValue2 then
 		set @_AlarmState1 = 2;
-	elseif _OffsetValue1 < AlarmValue3 then
+	elseif _OffsetValue1 < _AlarmValue3 then
 		set @_AlarmState1 = 3;
-	elseif _OffsetValue1 < AlarmValue4 then
+	elseif _OffsetValue1 < _AlarmValue4 then
 		set @_AlarmState1 = 4;
 	else
 		set @_AlarmState1 = 5;
 	end if;
 
-	if _OffsetValue2 < AlarmValue1 then
+	if _OffsetValue2 < _AlarmValue1 then
 		set @_AlarmState2 = 1;
-	elseif _OffsetValue2 < AlarmValue2 then
+	elseif _OffsetValue2 < _AlarmValue2 then
 		set @_AlarmState2 = 2;
-	elseif _OffsetValue2 < AlarmValue3 then
+	elseif _OffsetValue2 < _AlarmValue3 then
 		set @_AlarmState2 = 3;
-	elseif _OffsetValue2 < AlarmValue4 then
+	elseif _OffsetValue2 < _AlarmValue4 then
 		set @_AlarmState2 = 4;
 	else
 		set @_AlarmState2 = 5;
 	end if;
 
-	if _OffsetValue3 < AlarmValue1 then
+	if _OffsetValue3 < _AlarmValue1 then
 		set @_AlarmState3 = 1;
-	elseif _OffsetValue3 < AlarmValue2 then
+	elseif _OffsetValue3 < _AlarmValue2 then
 		set @_AlarmState3 = 2;
-	elseif _OffsetValue3 < AlarmValue3 then
+	elseif _OffsetValue3 < _AlarmValue3 then
 		set @_AlarmState3 = 3;
-	elseif _OffsetValue3 < AlarmValue4 then
+	elseif _OffsetValue3 < _AlarmValue4 then
 		set @_AlarmState3 = 4;
 	else
 		set @_AlarmState3 = 5;

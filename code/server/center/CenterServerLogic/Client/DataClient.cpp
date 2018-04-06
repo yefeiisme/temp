@@ -17,11 +17,17 @@ CDataClient::~CDataClient()
 {
 }
 
+//=====================================================
+// 功能：主循环遍历到此类的实例时，调用类的此函数，以用于该连接对象进行网络处理的操作
+//
 void CDataClient::DoAction()
 {
 	ProcessNetPack();
 }
 
+//=====================================================
+// 功能：处理数据库线程返回的数据。用类成员函数指针数组来调用相关的函数进行处理
+// 备注：传感器访只往数据库中插入数据，不需要返回的处理
 void CDataClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCallbackData)
 {
 	if (pCallbackData->byOpt >= SENSOR_DB_OPT_MAX)
@@ -33,6 +39,9 @@ void CDataClient::ProcessDBPack(IMysqlResultSet *pResultSet, SMysqlRequest *pCal
 	//(this->*m_pfnDBRespondFunc[pCallbackData->byOpt])(pResultSet, pCallbackData);
 }
 
+//=====================================================
+// 功能：处理网络包，用的是类成员函数指针数组来调用相关的函数进行处理
+// 备注：传感器只有一个协议，不需要用到成员函数的指针数组
 void CDataClient::ProcessNetPack()
 {
 	const void		*pPack = nullptr;
@@ -56,6 +65,9 @@ void CDataClient::ProcessNetPack()
 	};
 }
 
+//=====================================================
+// 功能：接收到传感器数据的处理
+//
 void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackLen)
 {
 	SProtocolHead	*pInfo			= (SProtocolHead*)pPack;
