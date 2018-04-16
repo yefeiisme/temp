@@ -9,28 +9,30 @@ public:
 	CMysqlResult();
 	~CMysqlResult();
 
-	inline UINT				GetRowCount()
+	inline uint32_t			GetRowCount()
 	{
 		return m_pResultHead->uRowCount;
 	}
 
-	inline UINT				GetColCount()
+	inline uint32_t			GetColCount()
 	{
 		return m_pResultHead->uColCount;
 	}
 
-	bool					GetData(const UINT uRow, const UINT uCol, int &nData);
-	bool					GetData(const UINT uRow, const UINT uCol, unsigned int &uData);
-	bool					GetData(const UINT uRow, const UINT uCol, short &sData);
-	bool					GetData(const UINT uRow, const UINT uCol, unsigned short &wData);
-	bool					GetData(const UINT uRow, const UINT uCol, unsigned char &byData);
-	bool					GetData(const UINT uRow, const UINT uCol, double &dData);
-	UINT					GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize);
-	UINT					GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize);
+	bool					GetData(const uint32_t uRow, const uint32_t uCol, int64_t &nData);
+	bool					GetData(const uint32_t uRow, const uint32_t uCol, uint64_t &uData);
+	bool					GetData(const uint32_t uRow, const uint32_t uCol, int &nData);
+	bool					GetData(const uint32_t uRow, const uint32_t uCol, uint32_t &uData);
+	bool					GetData(const uint32_t uRow, const uint32_t uCol, short &sData);
+	bool					GetData(const uint32_t uRow, const uint32_t uCol, uint16_t &wData);
+	bool					GetData(const uint32_t uRow, const uint32_t uCol, uint8_t &byData);
+	bool					GetData(const uint32_t uRow, const uint32_t uCol, double &dData);
+	uint32_t				GetData(const uint32_t uRow, const uint32_t uCol, char *pstrParam, const unsigned int uSize);
+	uint32_t				GetData(const uint32_t uRow, const uint32_t uCol, void *pParam, const unsigned int uSize);
 
 	bool					ParseResult(char *pstrBuffer);
 private:
-	char					*GetDataString(const UINT uRow, const UINT uCol, unsigned int &uSize);
+	char					*GetDataString(const uint32_t uRow, const uint32_t uCol, unsigned int &uSize);
 private:
 	SResultHead				*m_pResultHead;
 	SMysqlDataHead			*m_pDataHead;

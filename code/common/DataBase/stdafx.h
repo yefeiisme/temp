@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 #include "commondefine.h"
 #include "IIniFile.h"
 #include "IFileLog.h"
@@ -28,22 +29,22 @@ using namespace std;
 
 struct SResultSetHead
 {
-	char	strCallBackDta[MAX_CALLBACK_DATA_LEN];
-	WORD	wCallBackDataLen;
-	BYTE	byResultCount;
+	char		strCallBackDta[MAX_CALLBACK_DATA_LEN];
+	uint16_t	wCallBackDataLen;
+	uint8_t		byResultCount;
 };
 
 struct SResultHead
 {
-	UINT	uRowCount;
-	UINT	uColCount;
-	UINT	uLen;
+	uint32_t	uRowCount;
+	uint32_t	uColCount;
+	uint32_t	uLen;
 };
 
 struct SMysqlDataHead
 {
-	UINT	uOffset;
-	UINT	uDataLen;
+	uint32_t	uOffset;
+	uint32_t	uDataLen;
 };
 
 #endif

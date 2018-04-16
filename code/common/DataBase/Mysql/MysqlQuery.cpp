@@ -236,7 +236,7 @@ bool CMysqlQuery::Initialize(const char *pstrSettingFile, const char *pstrSectio
 	return true;
 }
 
-bool CMysqlQuery::BeginBatchInsert(const char *pstrTableName, void *pCallbackData, const WORD wDataLen)
+bool CMysqlQuery::BeginBatchInsert(const char *pstrTableName, void *pCallbackData, const uint16_t wDataLen)
 {
 	return m_pProcSqlObj->BeginBatchInsert(pstrTableName, pCallbackData, wDataLen);
 }
@@ -271,12 +271,22 @@ bool CMysqlQuery::PrepareProc(const char *pstrProcName)
 	return m_pProcSqlObj->PrepareProc(pstrProcName);
 }
 
+bool CMysqlQuery::AddParam(const int64_t nParam)
+{
+	return m_pProcSqlObj->AddParam(nParam);
+}
+
+bool CMysqlQuery::AddParam(const uint64_t nParam)
+{
+	return m_pProcSqlObj->AddParam(nParam);
+}
+
 bool CMysqlQuery::AddParam(const int nParam)
 {
 	return m_pProcSqlObj->AddParam(nParam);
 }
 
-bool CMysqlQuery::AddParam(const unsigned int uParam)
+bool CMysqlQuery::AddParam(const uint32_t uParam)
 {
 	return m_pProcSqlObj->AddParam(uParam);
 }
@@ -286,12 +296,12 @@ bool CMysqlQuery::AddParam(const short sParam)
 	return m_pProcSqlObj->AddParam(sParam);
 }
 
-bool CMysqlQuery::AddParam(const unsigned short usParam)
+bool CMysqlQuery::AddParam(const uint16_t usParam)
 {
 	return m_pProcSqlObj->AddParam(usParam);
 }
 
-bool CMysqlQuery::AddParam(const unsigned char byParam)
+bool CMysqlQuery::AddParam(const uint8_t byParam)
 {
 	return m_pProcSqlObj->AddParam(byParam);
 }
@@ -316,14 +326,14 @@ bool CMysqlQuery::AddParam(const void *pParam, const unsigned int uParamLen)
 	return m_pProcSqlObj->AddParam(pParam, uParamLen);
 }
 
-bool CMysqlQuery::EndPrepareProc(void *pCallbackData, const WORD wDataLen)
+bool CMysqlQuery::EndPrepareProc(void *pCallbackData, const uint16_t wDataLen)
 {
 	return m_pProcSqlObj->EndPrepareProc(pCallbackData, wDataLen);
 }
 
 bool CMysqlQuery::CallProc()
 {
-	UINT		uPackLen	= 0;
+	uint32_t	uPackLen	= 0;
 	const void	*pPack		= m_pProcSqlObj->GetRequest(uPackLen);
 
 	return m_pRBRequest->SndPack(pPack, uPackLen);
@@ -336,7 +346,7 @@ const void *CMysqlQuery::GetDBRespond(unsigned int &uPackLen)
 
 IMysqlResultSet *CMysqlQuery::GetMysqlResultSet()
 {
-	UINT		uLen		= 0;
+	uint32_t	uLen		= 0;
 	const void	*pRespond	= m_pRBRespond->RcvPack(uLen);
 
 	return (m_pResultSet->ParseResult(pRespond, uLen) ? m_pResultSet : nullptr);
@@ -522,7 +532,7 @@ void CMysqlQuery::DBActive()
 
 void CMysqlQuery::ProcessRequest()
 {
-	UINT		uPackLen	= 0;
+	uint32_t	uPackLen	= 0;
 	const void	*pPack		= nullptr;
 
 	while(nullptr != (pPack = m_pRBRequest->RcvPack(uPackLen)))
@@ -539,10 +549,10 @@ void CMysqlQuery::ExecuteSQL(const void *pPack, const unsigned int uPackLen)
 		return;
 	}
 
-	WORD		*pCallbackDataLen	= (WORD*)pPack;
-	const void	*pCallbackData		= (char*)pPack + sizeof(WORD);
-	char		*pstrSQL			= (char*)pPack + sizeof(WORD) + MAX_CALLBACK_DATA_LEN;
-	UINT		uSQLLen				= uPackLen - sizeof(WORD) - MAX_CALLBACK_DATA_LEN;
+	uint16_t	*pCallbackDataLen	= (uint16_t*)pPack;
+	const void	*pCallbackData		= (char*)pPack + sizeof(uint16_t);
+	char		*pstrSQL			= (char*)pPack + sizeof(uint16_t) + MAX_CALLBACK_DATA_LEN;
+	uint32_t	uSQLLen				= uPackLen - sizeof(uint16_t) - MAX_CALLBACK_DATA_LEN;
 
 	if (0 != mysql_real_query(m_pDBHandle, pstrSQL, uSQLLen))
 	{
@@ -578,7 +588,7 @@ void CMysqlQuery::ClearResult()
 	}
 }
 
-bool CMysqlQuery::HandleResult(const void *pCallbackData, const WORD wDataLen)
+bool CMysqlQuery::HandleResult(const void *pCallbackData, const uint16_t wDataLen)
 {
 	m_pResultSetHead->wCallBackDataLen	= wDataLen;
 	m_pResultSetHead->byResultCount		= 0;
@@ -667,8 +677,8 @@ bool CMysqlQuery::AddResult()
 	m_pCurPos					+= uTotalHeadLen;
 	m_uLeftBufferLen			-= uTotalHeadLen;
 
-	UINT	uRowIndex	= 0;
-	UINT	uOffset		= 0;
+	uint32_t	uRowIndex	= 0;
+	uint32_t	uOffset		= 0;
 
 	while (nullptr != (m_pRow = mysql_fetch_row(m_pQueryRes)))
 	{
@@ -694,7 +704,7 @@ bool CMysqlQuery::AddResult()
 	return true;
 }
 
-bool CMysqlQuery::AddResultData(const UINT uRow, const UINT uCol, const void *pData, const UINT uDataLen, UINT &uOffset)
+bool CMysqlQuery::AddResultData(const uint32_t uRow, const uint32_t uCol, const void *pData, const uint32_t uDataLen, uint32_t &uOffset)
 {
 	if (m_uLeftBufferLen < uDataLen)
 		return false;

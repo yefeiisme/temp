@@ -14,19 +14,43 @@ CMysqlResult::~CMysqlResult()
 {
 }
 
-bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, int &nData)
+bool CMysqlResult::GetData(const uint32_t uRow, const uint32_t uCol, int64_t &nData)
+{
+	char	strResultData[64] = { 0 };
+
+	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
+		return false;
+
+	nData = strtoll(strResultData, NULL, 10);
+
+	return true;
+}
+
+bool CMysqlResult::GetData(const uint32_t uRow, const uint32_t uCol, uint64_t &uData)
+{
+	char	strResultData[64] = { 0 };
+
+	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
+		return false;
+
+	uData = strtoull(strResultData, NULL, 10);
+
+	return true;
+}
+
+bool CMysqlResult::GetData(const uint32_t uRow, const uint32_t uCol, int &nData)
 {
 	char	strResultData[64]	= {0};
 
 	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
 		return false;
 
-	nData	= atoi(strResultData);
+	nData = strtol(strResultData, NULL, 10);
 
 	return true;
 }
 
-bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned int &uData)
+bool CMysqlResult::GetData(const uint32_t uRow, const uint32_t uCol, unsigned int &uData)
 {
 	char	strResultData[64]	= {0};
 
@@ -38,19 +62,19 @@ bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned int &uData
 	return true;
 }
 
-bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, short &sData)
+bool CMysqlResult::GetData(const uint32_t uRow, const uint32_t uCol, short &sData)
 {
 	char	strResultData[64]	= {0};
 
 	if (!GetData(uRow, uCol, strResultData, sizeof(strResultData)))
 		return false;
 
-	sData	= atoi(strResultData);
+	sData = strtol(strResultData, nullptr, 10);
 
 	return true;
 }
 
-bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned short &wData)
+bool CMysqlResult::GetData(const uint32_t uRow, const uint32_t uCol, unsigned short &wData)
 {
 	char	strResultData[64]	= {0};
 
@@ -62,7 +86,7 @@ bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned short &wDa
 	return true;
 }
 
-bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned char &byData)
+bool CMysqlResult::GetData(const uint32_t uRow, const uint32_t uCol, unsigned char &byData)
 {
 	char	strResultData[64]	= {0};
 
@@ -74,7 +98,7 @@ bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, unsigned char &byDa
 	return true;
 }
 
-bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, double &dData)
+bool CMysqlResult::GetData(const uint32_t uRow, const uint32_t uCol, double &dData)
 {
 	char	strResultData[64]	={ 0 };
 
@@ -86,13 +110,13 @@ bool CMysqlResult::GetData(const UINT uRow, const UINT uCol, double &dData)
 	return true;
 }
 
-UINT CMysqlResult::GetData(const UINT uRow, const UINT uCol, char *pstrParam, const unsigned int uSize)
+uint32_t CMysqlResult::GetData(const uint32_t uRow, const uint32_t uCol, char *pstrParam, const unsigned int uSize)
 {
 	if (nullptr == pstrParam || 0 == uSize)
 		return 0;
 
-	UINT	uStringSize			= 0;
-	char	*pstrResultString	= GetDataString(uRow, uCol, uStringSize);
+	uint32_t	uStringSize			= 0;
+	char		*pstrResultString	= GetDataString(uRow, uCol, uStringSize);
 
 	if (nullptr == pstrResultString)
 		return 0;
@@ -104,13 +128,13 @@ UINT CMysqlResult::GetData(const UINT uRow, const UINT uCol, char *pstrParam, co
 	return nCopySize;
 }
 
-UINT CMysqlResult::GetData(const UINT uRow, const UINT uCol, void *pParam, const unsigned int uSize)
+uint32_t CMysqlResult::GetData(const uint32_t uRow, const uint32_t uCol, void *pParam, const unsigned int uSize)
 {
 	if (nullptr == pParam || 0 == uSize)
 		return 0;
 
-	UINT	uStringSize			= 0;
-	char	*pstrResultString	= GetDataString(uRow, uCol, uStringSize);
+	uint32_t	uStringSize			= 0;
+	char		*pstrResultString	= GetDataString(uRow, uCol, uStringSize);
 
 	if (nullptr == pstrResultString)
 		return 0;
@@ -140,7 +164,7 @@ bool CMysqlResult::ParseResult(char *pstrBuffer)
 	return true;
 }
 
-char *CMysqlResult::GetDataString(const UINT uRow, const UINT uCol, unsigned int &uSize)
+char *CMysqlResult::GetDataString(const uint32_t uRow, const uint32_t uCol, unsigned int &uSize)
 {
 	if (0 == m_pResultHead->uRowCount || 0 == m_pResultHead->uColCount)
 		return nullptr;

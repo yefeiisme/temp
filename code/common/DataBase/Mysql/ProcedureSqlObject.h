@@ -9,9 +9,9 @@ public:
 	CProcObj();
 	~CProcObj();
 
-	bool					Initialize(const UINT uQueryBufferLen);
+	bool					Initialize(const uint32_t uQueryBufferLen);
 
-	bool					BeginBatchInsert(const char *pstrProcName, void *pCallbackData, const WORD wDataLen);
+	bool					BeginBatchInsert(const char *pstrProcName, void *pCallbackData, const uint16_t wDataLen);
 	bool					AddColumn(const char *pstrProcName);
 	bool					EndColumn();
 	bool					BeginAddParam();
@@ -19,20 +19,22 @@ public:
 	bool					BatchInsert();
 
 	bool					PrepareProc(const char *pstrProcName);
+	bool					AddParam(const int64_t nParam);
+	bool					AddParam(const uint64_t nParam);
 	bool					AddParam(const int nParam);
-	bool					AddParam(const unsigned int uParam);
+	bool					AddParam(const uint32_t uParam);
 	bool					AddParam(const short sParam);
-	bool					AddParam(const unsigned short usParam);
-	bool					AddParam(const unsigned char byParam);
+	bool					AddParam(const uint16_t usParam);
+	bool					AddParam(const uint8_t byParam);
 	bool					AddParam(const float fParam);
 	bool					AddParam(const double dParam);
 	bool					AddParam(const char *pstrParam);
 	bool					AddParam(const void *pParam, const unsigned int uParamLen);
-	bool					EndPrepareProc(void *pCallbackData, const WORD wDataLen);
+	bool					EndPrepareProc(void *pCallbackData, const uint16_t wDataLen);
 
 	void					Clear();
 
-	inline const char		*GetRequest(UINT &uSQLLen)
+	inline const char		*GetRequest(uint32_t &uSQLLen)
 	{
 		uSQLLen = m_wMaxCallbackDataLen + m_uSQLLen;
 
@@ -47,15 +49,15 @@ private:
 	MYSQL					*m_pDBHandle;
 
 	char					*m_pstrBuffer;
-	WORD					*m_pCallbackDataLen;
+	uint16_t					*m_pCallbackDataLen;
 	char					*m_pstrCallbackData;
 	char					*m_pstrSQL;
 
-	UINT					m_uBufferLen;
-	UINT					m_uMaxSQLLen;
-	UINT					m_uSQLLen;
+	uint32_t				m_uBufferLen;
+	uint32_t				m_uMaxSQLLen;
+	uint32_t				m_uSQLLen;
 
-	WORD					m_wMaxCallbackDataLen;
+	uint16_t				m_wMaxCallbackDataLen;
 
 	bool					m_bAddColumn;
 	bool					m_bAddBatchValue;

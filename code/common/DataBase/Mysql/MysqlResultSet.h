@@ -20,22 +20,22 @@ public:
 		return m_pResultSetHead->strCallBackDta;
 	}
 
-	inline WORD				GetCallbackDataLen()
+	inline uint16_t			GetCallbackDataLen()
 	{
 		return m_pResultSetHead->wCallBackDataLen;
 	}
 
-	inline BYTE				GetResultCount()
+	inline uint8_t			GetResultCount()
 	{
 		return m_pResultSetHead->byResultCount;
 	}
 
-	inline IMysqlResult		*GetMysqlResult(const BYTE byIndex)
+	inline IMysqlResult		*GetMysqlResult(const uint8_t byIndex)
 	{
 		return (byIndex >= m_pResultSetHead->byResultCount ? nullptr : &m_pMysqlResultList[byIndex]);
 	}
 
-	bool					Initialize(const BYTE byMaxResultCount);
+	bool					Initialize(const uint8_t byMaxResultCount);
 	void					Clear();
 
 	inline void				AddResult(CMysqlResult *pResult)
@@ -46,8 +46,8 @@ public:
 		m_vectMysqlResult.push_back(pResult);
 	}
 
-	bool					CreateResultObj(const WORD wObjCount);
-	bool					ParseResult(const void *pPack, const UINT uPackLen);
+	bool					CreateResultObj(const uint16_t wObjCount);
+	bool					ParseResult(const void *pPack, const uint32_t uPackLen);
 private:
 	CMysqlQuery				&m_pMysqlQuery;
 
@@ -57,7 +57,7 @@ private:
 	SResultHead				*m_pResultHead;
 	char					*m_pResultData;
 
-	BYTE					m_byMaxResultCount;
+	uint8_t					m_byMaxResultCount;
 
 	vector<CMysqlResult*>	m_vectMysqlResult;
 };

@@ -29,7 +29,7 @@ CProcObj::~CProcObj()
 	SAFE_DELETE(m_pstrBuffer);
 }
 
-bool CProcObj::Initialize(const UINT uQueryBufferLen)
+bool CProcObj::Initialize(const uint32_t uQueryBufferLen)
 {
 	m_uMaxSQLLen	= uQueryBufferLen;
 	if (0 == m_uMaxSQLLen)
@@ -38,7 +38,7 @@ bool CProcObj::Initialize(const UINT uQueryBufferLen)
 		return false;
 	}
 
-	m_wMaxCallbackDataLen	= MAX_CALLBACK_DATA_LEN + sizeof(WORD);
+	m_wMaxCallbackDataLen	= MAX_CALLBACK_DATA_LEN + sizeof(uint16_t);
 	m_uBufferLen			= m_uMaxSQLLen + m_wMaxCallbackDataLen;
 	m_pstrBuffer			= new char[m_uBufferLen];
 	if (nullptr == m_pstrBuffer)
@@ -47,14 +47,14 @@ bool CProcObj::Initialize(const UINT uQueryBufferLen)
 		return false;
 	}
 
-	m_pCallbackDataLen	= (WORD*)m_pstrBuffer;
-	m_pstrCallbackData	= m_pstrBuffer + sizeof(WORD);
+	m_pCallbackDataLen	= (uint16_t*)m_pstrBuffer;
+	m_pstrCallbackData	= m_pstrBuffer + sizeof(uint16_t);
 	m_pstrSQL			= m_pstrBuffer + m_wMaxCallbackDataLen;
 
 	return true;
 }
 
-bool CProcObj::BeginBatchInsert(const char *pstrTableName, void *pCallbackData, const WORD wDataLen)
+bool CProcObj::BeginBatchInsert(const char *pstrTableName, void *pCallbackData, const uint16_t wDataLen)
 {
 	if (nullptr == pstrTableName)
 		return false;
@@ -154,6 +154,44 @@ bool CProcObj::PrepareProc(const char *pstrProcName)
 	return true;
 }
 
+bool CProcObj::AddParam(const int64_t nParam)
+{
+	if (m_uMaxSQLLen == m_uSQLLen)
+		return false;
+
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%lld", nParam);
+	}
+	else
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%lld", nParam);
+	}
+
+	m_bAddParam = true;
+
+	return true;
+}
+
+bool CProcObj::AddParam(const uint64_t uParam)
+{
+	if (m_uMaxSQLLen == m_uSQLLen)
+		return false;
+
+	if (m_bAddParam)
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, ",%llu", uParam);
+	}
+	else
+	{
+		m_uSQLLen += snprintf(m_pstrSQL + m_uSQLLen, m_uMaxSQLLen - m_uSQLLen, "%llu", uParam);
+	}
+
+	m_bAddParam = true;
+
+	return true;
+}
+
 bool CProcObj::AddParam(const int nParam)
 {
 	if (m_uMaxSQLLen == m_uSQLLen)
@@ -173,7 +211,7 @@ bool CProcObj::AddParam(const int nParam)
 	return true;
 }
 
-bool CProcObj::AddParam(const unsigned int uParam)
+bool CProcObj::AddParam(const uint32_t uParam)
 {
 	if (m_uMaxSQLLen == m_uSQLLen)
 		return false;
@@ -211,7 +249,7 @@ bool CProcObj::AddParam(const short sParam)
 	return true;
 }
 
-bool CProcObj::AddParam(const unsigned short usParam)
+bool CProcObj::AddParam(const uint16_t usParam)
 {
 	if (m_uMaxSQLLen == m_uSQLLen)
 		return false;
@@ -230,7 +268,7 @@ bool CProcObj::AddParam(const unsigned short usParam)
 	return true;
 }
 
-bool CProcObj::AddParam(const unsigned char byParam)
+bool CProcObj::AddParam(const uint8_t byParam)
 {
 	if (m_uMaxSQLLen == m_uSQLLen)
 		return false;
@@ -341,7 +379,7 @@ bool CProcObj::AddParam(const void *pParam, const unsigned int uParamLen)
 	return true;
 }
 
-bool CProcObj::EndPrepareProc(void *pCallbackData, const WORD wDataLen)
+bool CProcObj::EndPrepareProc(void *pCallbackData, const uint16_t wDataLen)
 {
 	if (wDataLen > MAX_CALLBACK_DATA_LEN)
 		return false;

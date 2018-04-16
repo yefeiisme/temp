@@ -24,7 +24,7 @@ CMysqlResultSet::~CMysqlResultSet()
 	m_vectMysqlResult.clear();
 }
 
-bool CMysqlResultSet::Initialize(const BYTE byMaxResultCount)
+bool CMysqlResultSet::Initialize(const uint8_t byMaxResultCount)
 {
 	m_byMaxResultCount = byMaxResultCount;
 	m_pMysqlResultList = new CMysqlResult[m_byMaxResultCount];
@@ -45,7 +45,7 @@ void CMysqlResultSet::Clear()
 	m_vectMysqlResult.clear();
 }
 
-bool CMysqlResultSet::CreateResultObj(const WORD wObjCount)
+bool CMysqlResultSet::CreateResultObj(const uint16_t wObjCount)
 {
 	for (auto nIndex = 0; nIndex < wObjCount; ++nIndex)
 	{
@@ -59,7 +59,7 @@ bool CMysqlResultSet::CreateResultObj(const WORD wObjCount)
 	return true;
 }
 
-bool CMysqlResultSet::ParseResult(const void *pPack, const UINT uPackLen)
+bool CMysqlResultSet::ParseResult(const void *pPack, const uint32_t uPackLen)
 {
 	if (nullptr == pPack)
 		return false;

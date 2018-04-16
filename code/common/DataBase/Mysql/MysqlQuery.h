@@ -35,26 +35,26 @@ private:
 	SMysqlDataHead			*m_pDataHead;
 
 	// RingBuffer Setting
-	UINT					m_uSqlBufferLen;
-	UINT					m_uMaxSqlLen;
-	UINT					m_uResultBufferLen;
-	UINT					m_uMaxResultLen;
+	uint32_t				m_uSqlBufferLen;
+	uint32_t				m_uMaxSqlLen;
+	uint32_t				m_uResultBufferLen;
+	uint32_t				m_uMaxResultLen;
 
-	UINT					m_uLeftBufferLen;
+	uint32_t				m_uLeftBufferLen;
 
-	UINT					m_uNextPingTime;
-	UINT					m_uNextConnectTime;
-	UINT					m_uSleepTime;
-	UINT					m_uFrame;
+	uint32_t				m_uNextPingTime;
+	uint32_t				m_uNextConnectTime;
+	uint32_t				m_uSleepTime;
+	uint32_t				m_uFrame;
 
-	UINT					m_uPingInterval;
-	UINT					m_uReconnectInterval;
+	uint32_t				m_uPingInterval;
+	uint32_t				m_uReconnectInterval;
 
 	time_t					m_nTimeNow;
 
 	unsigned short			m_usDBPort;
 
-	BYTE					m_byMaxResultCount;
+	uint8_t					m_byMaxResultCount;
 
 	string					m_strDBIP;
 	string					m_strUserName;
@@ -83,7 +83,7 @@ public:
 	void					Release();
 	bool					Initialize(const char *pstrSettingFile, const char *pstrSection);
 
-	bool					BeginBatchInsert(const char *pstrTableName, void *pCallbackData, const WORD wDataLen);
+	bool					BeginBatchInsert(const char *pstrTableName, void *pCallbackData, const uint16_t wDataLen);
 	bool					AddColumn(const char *pstrColName);
 	bool					EndColumn();
 	bool					BeginAddParam();
@@ -91,16 +91,18 @@ public:
 	bool					BatchInsert();
 
 	bool					PrepareProc(const char *pstrProcName);
+	bool					AddParam(const int64_t nParam);
+	bool					AddParam(const uint64_t nParam);
 	bool					AddParam(const int nParam);
-	bool					AddParam(const unsigned int uParam);
+	bool					AddParam(const uint32_t uParam);
 	bool					AddParam(const short sParam);
-	bool					AddParam(const unsigned short usParam);
-	bool					AddParam(const unsigned char byParam);
+	bool					AddParam(const uint16_t usParam);
+	bool					AddParam(const uint8_t byParam);
 	bool					AddParam(const float fParam);
 	bool					AddParam(const double dParam);
 	bool					AddParam(const char *pstrParam);
 	bool					AddParam(const void *pParam, const unsigned int uParamLen);
-	bool					EndPrepareProc(void *pCallbackData, const WORD wDataLen);
+	bool					EndPrepareProc(void *pCallbackData, const uint16_t wDataLen);
 	bool					CallProc();
 
 	const void				*GetDBRespond(unsigned int &uPackLen);
@@ -124,9 +126,9 @@ private:
 	void					ProcessRequest();
 
 	void					ExecuteSQL(const void *pPack, const unsigned int uPackLen);
-	bool					HandleResult(const void *pCallbackData, const WORD wDataLen);
+	bool					HandleResult(const void *pCallbackData, const uint16_t wDataLen);
 	bool					AddResult();
-	bool					AddResultData(const UINT uRow, const UINT uCol, const void *pData, const UINT uDataLen, UINT &uOffset);
+	bool					AddResultData(const uint32_t uRow, const uint32_t uCol, const void *pData, const uint32_t uDataLen, uint32_t &uOffset);
 	void					ClearResult();
 	void					Disconnect();
 };
