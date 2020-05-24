@@ -118,9 +118,12 @@ void CAppClient::ProcessNetPack()
 			return;
 		}
 
-		(this->*m_ProtocolFunc[byProtocol])(pPack, uPackLen);
+		if (m_ProtocolFunc[byProtocol])
+		{
+			(this->*m_ProtocolFunc[byProtocol])(pPack, uPackLen);
+			m_pClientConn->ResetTimeOut();
+		}
 
-		m_pClientConn->ResetTimeOut();
 	};
 }
 
