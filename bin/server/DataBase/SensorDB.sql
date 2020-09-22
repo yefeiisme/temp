@@ -84,8 +84,7 @@ CREATE TABLE `slope` (
   `VideoUrl` mediumtext,
   `Description` mediumtext,
   `LastDataTime` datetime,
-  PRIMARY KEY (`ID`),
-  KEY `SlopeIndex` (`SlopeIndex`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `user` (
