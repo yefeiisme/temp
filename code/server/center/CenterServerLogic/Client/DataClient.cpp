@@ -103,6 +103,10 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		switch (pSensorHead->byType)
 		{
 		case 1:
+		case 31:
+		case 32:
+		case 33:
+		case 43:
 			{
 				SSensorData1	*pSensorData = (SSensorData1*)((char*)pSensorHead + sizeof(SSensorHead));
 				dValue1	= pSensorData->dValue1;
