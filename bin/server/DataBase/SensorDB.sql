@@ -22,7 +22,6 @@ CREATE TABLE `sensor` (
   `OffsetValue3` double DEFAULT NULL,
   `AlarmState` int NOT NULL DEFAULT '0',
   `SlopeID` smallint unsigned NOT NULL,
-  `DataTime` datetime NOT NULL,
   `Longitude` double NOT NULL,
   `Latitude` double NOT NULL,
   `VideoUrl` mediumtext,
@@ -45,7 +44,11 @@ CREATE TABLE `sensor_data` (
   `OffsetValue2` double NOT NULL DEFAULT '0',
   `OffsetValue3` double NOT NULL DEFAULT '0',
   `AlarmState` int NOT NULL DEFAULT '0',
-  `DataTime` datetime NOT NULL,
+  `SlopeID` int(2) unsigned NOT NULL DEFAULT '0',
+  `DataTime` datetime DEFAULT NULL,
+  `DataTime1` int(11) NOT NULL,
+  `Longitude` double NOT NULL DEFAULT '0',
+  `Latitude` double NOT NULL DEFAULT '0',
   KEY `ID` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
