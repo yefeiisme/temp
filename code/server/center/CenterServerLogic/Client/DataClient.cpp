@@ -222,6 +222,7 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 //			}
 //			break;
 		default:
+			byType = pSensorHead->byType;
 			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu Invalid SensorType=%hhu\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType+1);
 			break;
 		}
@@ -252,6 +253,16 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 
 		pSensorHead = (SSensorHead*)((char*)pSensorHead + sizeof(SSensorHead) + pSensorHead->wLength);//指向下一个传感器字头
 	}
+
+	char	strTemp[65536];
+	memset(strTemp, '\0', sizeof(strTemp));
+	int		nOffset	= 0;
+
+	for (int nIndex = 0; nIndex < uPackLen; nIndex++)
+	{
+		nOffset	+= sprintf(strTemp+nOffset, "%02X ", ((BYTE*)pPack)[nIndex]);
+	}
+	g_pFileLog->WriteLog("%s\n", strTemp);
 
 	// 正式能插入数据后，将此处删除
 	// ...
