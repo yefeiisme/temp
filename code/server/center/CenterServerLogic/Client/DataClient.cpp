@@ -200,27 +200,27 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 				dValue4	= 0.0;
 
 			}
-//		case 40:	//振弦_压力传感器
-//		case 41:	//振弦_锚索计
-//		case 42:	//振弦_锚索计
-//			{
-//				SSensorData4x	*pSensorData = (SSensorData4x *)((char*)pSensorHead + sizeof(SSensorHead));
-//				byType = pSensorHead->byType;
-//				BYTE 	byID = pSensorHead->byID;
-////根据byType和byID找Sensor表中查出振弦参数fK和校准值sf0,//**********************这个函数怎么写，我不会！@叶飞*******************！！！
-////因此所有振弦传感器都一样！！
-//				float K=fK;
-//				short fo=sf0;
-//				short fi=pSensorData->sFi;			//频率读数
-//				float fP=K*(fo*fo-fi*fi);				//算出压强fP
-//	      if (byType == 42)								//如果是渗压计
-//	      		fP=100*fP;									//算出水位来	
-//				dValue1 = (double)fi;
-//				dValue2	= (double)fP;		//频率读数;				//压强值P=K*(fi*fi-fo*fo),系数K 取自Sensor表中对应传感器之P1,频率fo=校准时的fi，在校准时存入Sensor之P2,计算时取出;
-//				dValue3	= 0.0;
-//				dValue4	= 0.0;
-//			}
-//			break;
+		case 40:	//振弦_压力传感器
+		case 41:	//振弦_锚索计
+		case 42:	//振弦_锚索计
+			{
+				SSensorData4x	*pSensorData = (SSensorData4x *)((char*)pSensorHead + sizeof(SSensorHead));
+				byType = pSensorHead->byType;
+				BYTE 	byID = pSensorHead->byID;
+//根据byType和byID找Sensor表中查出振弦参数fK和校准值sf0,//**********************这个函数怎么写，我不会！@叶飞*******************！！！
+//因此所有振弦传感器都一样！！
+				//float K=fK;
+				//short fo=sf0;
+				//short fi=pSensorData->sFi;			//频率读数
+				//float fP=K*(fo*fo-fi*fi);				//算出压强fP
+	   //   if (byType == 42)								//如果是渗压计
+	   //   		fP=100*fP;									//算出水位来	
+				dValue1 = pSensorData->sFi;
+				dValue2	= pSensorData->fP;		//频率读数;				//压强值P=K*(fi*fi-fo*fo),系数K 取自Sensor表中对应传感器之P1,频率fo=校准时的fi，在校准时存入Sensor之P2,计算时取出;
+				dValue3	= 0.0;
+				dValue4	= 0.0;
+			}
+			break;
 		default:
 			byType = pSensorHead->byType;
 			g_pFileLog->WriteLog("Length=%hu SensorID=%hhu Invalid SensorType=%hhu\n", pSensorHead->wLength, pSensorHead->byID, pSensorHead->byType+1);
@@ -254,15 +254,15 @@ void CDataClient::RecvAddSensorData(const void *pPack, const unsigned int uPackL
 		pSensorHead = (SSensorHead*)((char*)pSensorHead + sizeof(SSensorHead) + pSensorHead->wLength);//指向下一个传感器字头
 	}
 
-	char	strTemp[65536];
-	memset(strTemp, '\0', sizeof(strTemp));
-	int		nOffset	= 0;
+	//char	strTemp[65536];
+	//memset(strTemp, '\0', sizeof(strTemp));
+	//int		nOffset	= 0;
 
-	for (int nIndex = 0; nIndex < uPackLen; nIndex++)
-	{
-		nOffset	+= sprintf(strTemp+nOffset, "%02X ", ((BYTE*)pPack)[nIndex]);
-	}
-	g_pFileLog->WriteLog("%s\n", strTemp);
+	//for (int nIndex = 0; nIndex < uPackLen; nIndex++)
+	//{
+	//	nOffset	+= sprintf(strTemp+nOffset, "%02X ", ((BYTE*)pPack)[nIndex]);
+	//}
+	//g_pFileLog->WriteLog("%s\n", strTemp);
 
 	// 正式能插入数据后，将此处删除
 	// ...
